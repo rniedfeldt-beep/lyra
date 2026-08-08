@@ -1,6 +1,12 @@
 import { useMemo, useState } from 'react'
 import { useLiveState } from '../../lib/liveState/LiveStateContext'
-import { addActiveSummon, updateActiveSummon, removeActiveSummon, setSpellSlotUsed } from '../../lib/liveState/actions'
+import {
+  addActiveSummon,
+  updateSummonDuration,
+  removeActiveSummon,
+  updateSummonMember,
+  setSpellSlotUsed,
+} from '../../lib/liveState/actions'
 import { getReachableLoadouts, computeSummonStatBlock } from '../../lib/calc/summonBuilder'
 import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/loadCreatureData'
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
@@ -98,35 +104,91 @@ function SpellLevelPicker({ level, setLevel, availableLevels }) {
   )
 }
 
+function MemberRow({ summonId, member, index, hpMax, tempHpMax }) {
+  const { update } = useLiveState()
+  const inactive = member.status !== 'active'
+
+  return (
+    <div className={`summon-member-row${inactive ? ' summon-member-inactive' : ''}`}>
+      <span className="summon-member-label">
+        #{index + 1}
+        {inactive && <span className="note"> ({member.status})</span>}
+      </span>
+      <label className="summon-member-field">
+        HP
+        <input
+          type="number"
+          disabled={inactive}
+          value={member.hp}
+          onChange={(e) => update((s) => updateSummonMember(s, summonId, member.id, { hp: Number(e.target.value) }))}
+        />
+        <span className="note">/ {hpMax}</span>
+      </label>
+      <label className="summon-member-field">
+        Temp
+        <input
+          type="number"
+          disabled={inactive}
+          value={member.tempHp}
+          onChange={(e) =>
+            update((s) => updateSummonMember(s, summonId, member.id, { tempHp: Math.max(0, Number(e.target.value)) }))
+          }
+        />
+        <span className="note">/ {tempHpMax}</span>
+      </label>
+      {!inactive && (
+        <div className="summon-member-actions">
+          <button type="button" onClick={() => update((s) => updateSummonMember(s, summonId, member.id, { status: 'dead' }))}>
+            Dead
+          </button>
+          <button
+            type="button"
+            onClick={() => update((s) => updateSummonMember(s, summonId, member.id, { status: 'dismissed' }))}
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function ActiveSummons() {
   const { state, update } = useLiveState()
-  if (state.activeSummons.length === 0) return null
+  // Guards against summons saved before per-member tracking existed —
+  // those are unreadable now and just get skipped rather than crashing.
+  const groups = state.activeSummons.filter((s) => Array.isArray(s.members))
+  if (groups.length === 0) return null
 
   return (
     <div className="active-summons">
       <h3>Active Summons</h3>
-      {state.activeSummons.map((s) => (
-        <div className="active-summon-row" key={s.id}>
-          <span>{s.label}</span>
-          <div className="stepper">
-            <button
-              type="button"
-              disabled={s.remainingRounds <= 0}
-              onClick={() => update((st) => updateActiveSummon(st, s.id, { remainingRounds: s.remainingRounds - 1 }))}
-            >
-              −
-            </button>
-            <span>{s.remainingRounds} rd</span>
-            <button
-              type="button"
-              onClick={() => update((st) => updateActiveSummon(st, s.id, { remainingRounds: s.remainingRounds + 1 }))}
-            >
-              +
+      {groups.map((s) => (
+        <div className="active-summon-group" key={s.id}>
+          <div className="active-summon-group-header">
+            <span>
+              {s.label} × {s.members.length}
+            </span>
+            <div className="stepper">
+              <button
+                type="button"
+                disabled={s.remainingRounds <= 0}
+                onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds - 1))}
+              >
+                −
+              </button>
+              <span>{s.remainingRounds} rd</span>
+              <button type="button" onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds + 1))}>
+                +
+              </button>
+            </div>
+            <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
+              Dismiss All
             </button>
           </div>
-          <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
-            Dismiss
-          </button>
+          {s.members.map((m, i) => (
+            <MemberRow key={m.id} summonId={s.id} member={m} index={i} hpMax={s.hpMax} tempHpMax={s.tempHpMax} />
+          ))}
         </div>
       ))}
     </div>
@@ -138,6 +200,7 @@ export default function SummonBuilder({ sheet }) {
   const availableLevels = sheet.spellSlots.slots.filter((s) => s.total > 0).map((s) => s.spellLevel)
   const [level, setLevel] = useState(availableLevels[0])
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [quantity, setQuantity] = useState(1)
 
   const loadouts = useMemo(
     () => getReachableLoadouts({ monsterManual, greenboundTemplate, simpleTemplates, spellLevel: level }),
@@ -156,11 +219,23 @@ export default function SummonBuilder({ sheet }) {
 
   function handleSummon() {
     if (!statBlock) return
+    const count = Math.max(1, Math.floor(quantity) || 1)
+    const summonId = `${Date.now()}-${statBlock.creature.name}`
+    const members = Array.from({ length: count }, (_, i) => ({
+      id: `${summonId}-${i}`,
+      hp: statBlock.hp,
+      tempHp: statBlock.tempHp,
+      status: 'active',
+    }))
+
     update((s) => {
       const withSummon = addActiveSummon(s, {
-        id: `${Date.now()}-${statBlock.creature.name}`,
+        id: summonId,
         label: loadoutLabel(statBlock.creature, statBlock.templateId),
         remainingRounds: statBlock.durationRounds,
+        hpMax: statBlock.hp,
+        tempHpMax: statBlock.tempHp,
+        members,
       })
       const used = withSummon.spellSlotsUsed[level] ?? 0
       const slot = sheet.spellSlots.slots.find((sl) => sl.spellLevel === level)
@@ -191,9 +266,20 @@ export default function SummonBuilder({ sheet }) {
               </option>
             ))}
           </select>
-          <button type="button" className="summon-button" onClick={handleSummon}>
-            Summon
-          </button>
+          <div className="summon-quantity-row">
+            <label>
+              Quantity
+              <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </label>
+            <button type="button" className="summon-button" onClick={handleSummon}>
+              Summon
+            </button>
+          </div>
           {statBlock && <SummonStatBlock statBlock={statBlock} />}
         </>
       )}

@@ -51,17 +51,33 @@ export function revertWildShapeForm(state) {
   return { ...state, activeWildShapeForm: null }
 }
 
+// A summon is a group of one or more identical creatures from a single
+// casting — shared stat block and duration, but each member takes damage
+// separately (state.activeSummons[].members[]: { id, hp, tempHp, status }).
 export function addActiveSummon(state, summon) {
   return { ...state, activeSummons: [...state.activeSummons, summon] }
 }
 
-export function updateActiveSummon(state, id, updates) {
+export function updateSummonDuration(state, summonId, remainingRounds) {
   return {
     ...state,
-    activeSummons: state.activeSummons.map((s) => (s.id === id ? { ...s, ...updates } : s)),
+    activeSummons: state.activeSummons.map((s) =>
+      s.id === summonId ? { ...s, remainingRounds } : s,
+    ),
   }
 }
 
-export function removeActiveSummon(state, id) {
-  return { ...state, activeSummons: state.activeSummons.filter((s) => s.id !== id) }
+export function removeActiveSummon(state, summonId) {
+  return { ...state, activeSummons: state.activeSummons.filter((s) => s.id !== summonId) }
+}
+
+export function updateSummonMember(state, summonId, memberId, updates) {
+  return {
+    ...state,
+    activeSummons: state.activeSummons.map((s) =>
+      s.id !== summonId
+        ? s
+        : { ...s, members: s.members.map((m) => (m.id === memberId ? { ...m, ...updates } : m)) },
+    ),
+  }
 }

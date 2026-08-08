@@ -416,7 +416,11 @@ tradeoff rather than assuming one is better.
 ### Summon builder UI
 
 Player picks a spell slot level, sees which creatures are reachable at which template loadouts,
-gets the finished stat block. Track active summons and remaining duration (doubled).
+gets the finished stat block. Summon Nature's Ally can produce more than one creature (the
+player rolls the count, e.g. 1d4+1, and types it in) — each instance is tracked individually
+(own HP, temp HP, dead/dismissed status) since they take damage separately, grouped under one
+summon with a **shared** stat block and **shared** remaining duration (doubled by Ashbound).
+Multiple different summons can be active at once, each its own group.
 
 **Note:** Greenbound changes type to *plant*; PS 3 grants wild shape into *magical beasts*.
 Separate systems. Greenbound does not unlock wild shape forms.

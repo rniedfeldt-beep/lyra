@@ -97,26 +97,111 @@
   margin: 0 0 8px;
 }
 
-.active-summon-row {
+.summon-quantity-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.summon-quantity-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.summon-quantity-row input[type='number'] {
+  width: 56px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
   color: var(--text-h);
-  padding: 6px 0;
+  font-size: 14px;
+}
+
+.active-summon-group {
+  padding: 8px 0;
   border-bottom: 1px solid var(--border);
 }
 
-.active-summon-row:last-child {
+.active-summon-group:last-child {
   border-bottom: none;
 }
 
-.active-summon-row button {
+.active-summon-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 6px;
+}
+
+.active-summon-group-header button {
   padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text-h);
   font-size: 12px;
+  font-weight: 400;
+}
+
+.summon-member-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 6px 0 6px 10px;
+  font-size: 13px;
+  color: var(--text-h);
+  border-top: 1px solid var(--border);
+}
+
+.summon-member-inactive {
+  opacity: 0.5;
+}
+
+.summon-member-label {
+  min-width: 32px;
+  font-weight: 600;
+}
+
+.summon-member-field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.summon-member-field input[type='number'] {
+  width: 48px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 13px;
+}
+
+.summon-member-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.summon-member-actions button {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 11px;
 }
