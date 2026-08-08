@@ -1,0 +1,38 @@
+{
+  "id": "quicksilver",
+  "name": "Celeb mûr (\"Silver Flow\"), Quicksilver",
+  "type": "weapon",
+  "source": "DM homebrew",
+  "weaponCategory": "scimitar",
+  "light": true,
+  "silvered": true,
+  "enhancementBonus": 2,
+  "damage": { "die": "1d6", "type": "slashing" },
+  "critical": { "threatRangeLow": 18, "multiplier": 2 },
+  "weaponFinesseEligible": true,
+  "properties": [
+    {
+      "id": "speed",
+      "name": "Speed",
+      "effect": {
+        "type": "extra_attack",
+        "trigger": "full_attack",
+        "attackBonus": "full_bab"
+      },
+      "stacksWith": { "haste": false },
+      "warning": "Does not stack with haste or similar effects that grant an extra attack."
+    },
+    {
+      "id": "moonstone_light",
+      "name": "Light",
+      "effect": {
+        "type": "passive_light",
+        "radiusFt": 5,
+        "condition": "total darkness"
+      },
+      "condition": "Requires four hours of moonlight exposure each night to function.",
+      "trackAsUse": false
+    }
+  ],
+  "flavor": "Silvered blade etched with sylvan elvish runes, moonstone pommel."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "spontaneous_healer",
+  "name": "Spontaneous Healer",
+  "source": "Complete Divine",
+  "levelTaken": 3,
+  "description": "May substitute any prepared spell for a Cure spell of equal or lower level.",
+  "effects": [
+    { "type": "grants_spontaneous_conversion", "target": "cure_spells" }
+  ]
+}

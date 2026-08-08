@@ -1,0 +1,11 @@
+{
+  "id": "heavy_wooden_shield",
+  "name": "Heavy wooden shield",
+  "type": "shield",
+  "source": "PHB",
+  "material": "non-metal",
+  "acBonus": 2,
+  "acBonusType": "shield",
+  "armorCheckPenalty": -2,
+  "weightLb": 10
+}

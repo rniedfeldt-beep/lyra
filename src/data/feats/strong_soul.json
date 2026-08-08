@@ -1,0 +1,11 @@
+{
+  "id": "strong_soul",
+  "name": "Strong Soul",
+  "source": "PHB",
+  "levelTaken": 1,
+  "description": "+2 Fortitude and Will saves; additional bonus on saves vs. death effects and energy drain (not modeled as a number).",
+  "effects": [
+    { "type": "save_bonus", "save": "fort", "value": 2, "bonusType": "misc" },
+    { "type": "save_bonus", "save": "will", "value": 2, "bonusType": "misc" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "ring_of_protection",
+  "name": "Ring of protection",
+  "type": "ring",
+  "source": "PHB",
+  "acBonus": 1,
+  "acBonusType": "deflection"
+}

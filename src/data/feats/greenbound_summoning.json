@@ -1,0 +1,10 @@
+{
+  "id": "greenbound_summoning",
+  "name": "Greenbound Summoning",
+  "source": "Lost Empires of Faerûn",
+  "levelTaken": "4-5",
+  "description": "Applies the Greenbound template to all summon nature's ally results. Automatic, not a toggle.",
+  "effects": [
+    { "type": "auto_apply_template", "template": "greenbound", "target": "summon_nature_ally" }
+  ]
+}

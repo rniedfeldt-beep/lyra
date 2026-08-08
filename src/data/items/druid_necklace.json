@@ -1,0 +1,16 @@
+{
+  "id": "druid_necklace",
+  "name": "Hand of the Oakfather",
+  "type": "necklace",
+  "source": "Found in a druid ruin",
+  "description": "Grants six spells usable 1/day each without expending a spell slot. These live entirely outside the slot economy.",
+  "grantedSpells": [
+    { "spell": "entangle", "usesPerDay": 1, "confirmed": true },
+    { "spell": "barkskin", "usesPerDay": 1, "confirmed": true },
+    { "spell": "plant_growth", "usesPerDay": 1, "confirmed": true },
+    { "spell": "speak_with_plants", "usesPerDay": 1, "confirmed": true },
+    { "spell": "tree_shape", "usesPerDay": 1, "confirmed": true },
+    { "spell": "goodberry", "usesPerDay": 1, "confirmed": true }
+  ],
+  "outsideSlotEconomy": true
+}

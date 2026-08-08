@@ -1,0 +1,9 @@
+{
+  "id": "forest_warden_shroud",
+  "name": "Forest warden shroud",
+  "type": "cloak",
+  "source": "DM homebrew",
+  "acBonus": 0,
+  "description": "No penalty in difficult terrain. Grants a bonus on Tumble and Move Silently (exact value not yet recorded).",
+  "effects": []
+}

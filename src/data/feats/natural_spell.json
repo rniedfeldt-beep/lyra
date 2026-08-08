@@ -1,0 +1,10 @@
+{
+  "id": "natural_spell",
+  "name": "Natural Spell",
+  "source": "PHB",
+  "levelTaken": "4-5",
+  "description": "Allows casting spells while wild shaped (with no material component, since there are no hands).",
+  "effects": [
+    { "type": "grants_cast_while_wild_shaped" }
+  ]
+}

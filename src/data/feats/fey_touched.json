@@ -1,0 +1,26 @@
+{
+  "id": "fey_touched",
+  "name": "Fey Touched",
+  "source": "5e import",
+  "levelTaken": "4-5",
+  "description": "+1 Wisdom (inherent). Grants misty step and charm person, usable 1/day each, outside the normal spell slot economy.",
+  "effects": [
+    { "type": "ability_bonus", "ability": "wis", "value": 1, "bonusType": "inherent" },
+    {
+      "type": "grants_daily_spell",
+      "spell": "misty_step",
+      "usesPerDay": 1,
+      "outsideSlotEconomy": true
+    },
+    {
+      "type": "grants_daily_spell",
+      "spell": "charm_person",
+      "usesPerDay": 1,
+      "outsideSlotEconomy": true
+    }
+  ],
+  "futureFollowOns": [
+    { "characterLevel": 9, "grants": "otherworldly magic (arcane cantrip)" },
+    { "characterLevel": 15, "grants": "Otherworldly Acumen (2nd level arcane)" }
+  ]
+}

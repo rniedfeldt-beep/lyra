@@ -1,0 +1,512 @@
+# Lyra — D&D 3.5e Character Assistant
+
+## What this project is
+
+A mobile-first web app (React + Vite, JavaScript) that handles in-combat math for a single
+D&D 3.5e character: Lyra, a half-elf Druid 5 / Planar Shepherd 3 with the Pathfinder Wolf
+Shaman archetype. Campaign is Greyhawk. Optimized for iPhone and iPad use at the table.
+
+The point of the app is speed. The player's bottleneck is recalculating attacks, damage,
+saves, and AC when wild shaping into a new form or fielding summoned creatures with multiple
+templates applied. Every number the app shows should be already-computed — no "add your Str
+mod" instructions.
+
+## Core architecture rules
+
+1. **No stats in code.** All game data lives in JSON under `/data`. Code contains formulas
+   only. Adding a creature or spell = adding a JSON entry, never editing a component.
+2. **Never read PDFs at runtime.** Sourcebook extraction happens offline in Cowork and
+   produces JSON. The app only ever consumes clean data.
+3. **Every data entry carries a `source` field** (e.g. "MM 3.5", "Lost Empires of Faerûn",
+   "Pathfinder", "5e", "DM homebrew") so non-3.5e material can be filtered or flagged.
+4. **Feats and item properties are effect hooks, not display text.** Most of Lyra's feats and
+   her primary weapon modify how other systems behave rather than adding flat bonuses. The
+   calculation engine must read them. A weapon property must be able to *inject an extra
+   attack* into the routine, not just add a number.
+5. **Level is a variable, never a constant.** Track BOTH character level and class levels —
+   they diverge (see Class Progression). Ability scores are also variable. Nothing derived
+   should be hardcoded.
+6. **Templates stack and must compose.** A summoned creature can carry a simple template plus
+   Greenbound, with two feat effects layered on top. Build template application as a pipeline
+   of composable transforms, not special-cased logic.
+
+## Persistence and sync — DECIDED
+
+**Supabase is the source of truth. Do not rely on localStorage alone.**
+
+Reason: Safari deletes localStorage (and IndexedDB, SessionStorage, Service Worker
+registrations) after 7 days without user interaction on the site. Home-screen web apps are
+nominally exempt, but developers report resets happening anyway. Sessions run 3–4 weeks apart
+and frequently end mid-combat, so state must survive long gaps.
+
+### Schema
+
+Table `character_state`, one row:
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | int8 | primary key, identity, always 1 |
+| `state` | jsonb | the entire live state blob |
+| `updated_at` | timestamptz | default `now()` |
+
+Save = overwrite `state` on row 1. Load = read and parse. New trackers need no schema change.
+
+### Security
+
+The anon key ships in the client bundle and GitHub Pages serves it publicly. RLS is enabled
+with a **permissive policy** allowing anonymous select, insert, and update on
+`character_state` only. Deliberate tradeoff: the data is a druid's hit points.
+
+**Note:** RLS with no policies blocks everything, including the app itself. If saves silently
+fail, check the policy exists before debugging anything else.
+
+### Client design
+
+- All state access goes through one storage adapter (`saveState()` / `loadState()`).
+- localStorage as **offline fallback** — write locally on every change, sync when online.
+- Manual JSON export/import button for backups.
+
+Live state: current HP, temp HP, spell slots used, wild shape uses used, necklace spells used,
+Fey Touched spells used, plane shift and planar bubble uses, active summons and remaining
+duration, active wild shape form, Quen's current HP.
+
+## Directory shape
+
+```
+/data
+  /creatures     monster-manual.json, animal-companion.json
+  /templates     greenbound, advanced, giant, young
+  /spells
+  /feats
+  /items
+/sourcebooks     PDFs (never read at runtime)
+```
+
+---
+
+## Class progression — READ THIS CAREFULLY
+
+Lyra's character level and her class levels diverge. Several features scale off **druid class
+level specifically**, not character level.
+
+| Character level | Druid | Planar Shepherd |
+|---|---|---|
+| 1–5 | 1–5 | — |
+| 6–15 | 5 | 1–10 |
+| 16–20 | 6–10 | 10 |
+
+Planar Shepherd caps at 10 levels. Druid resumes at character level 16.
+
+```js
+function druidLevel(charLevel) {
+  if (charLevel <= 5) return charLevel;
+  if (charLevel <= 15) return 5;
+  return charLevel - 10;
+}
+```
+
+**Scales with CHARACTER level** (because druid and PS both advance these):
+BAB, base saves, spell slots, caster level, wild shape uses/HD/size/duration, animal
+companion.
+
+**Scales with DRUID level only** (Wolf Shaman archetype features):
+Totemic Summons temp HP, Wolf Shaman bonus feats.
+
+### Leveling table
+
+The DM approved a custom blended table that is **the PHB druid table run straight through all
+20 levels**. Valid because druid and Planar Shepherd share identical BAB and save
+progressions (3/4 BAB, good Fort, good Will, poor Ref). So BAB and base saves are a pure
+function of character level — one lookup table, no multiclass math.
+
+At level 8: BAB **+6/+1**, base Fort 6, base Ref 2, base Will 6.
+
+---
+
+## Character: Lyra
+
+Half-elf. Character level 8 = Druid 5 / Planar Shepherd 3.
+Planar attunement: the Feywild (DM uses the 5e interpretation).
+Pathfinder archetype: **Wolf Shaman**.
+
+### Ability scores
+
+| | Score | Mod |
+|---|---|---|
+| STR | 10 | +0 |
+| DEX | 18 | +4 |
+| CON | 12 | +1 |
+| INT | 16 | +3 |
+| WIS | 20 | +5 |
+| CHA | 11 | +0 |
+
+A DM-gifted tome will raise WIS to 22. **Confirmed inherent** — stacks with everything,
+permanent, capped at +5 total inherent. One week of game time to read.
+
+### Derived stats at level 8
+
+- **HP** 61
+- **AC** 20 / touch 15 / flat-footed 16 (10 + 3 armor + 2 shield + 1 deflection + 4 Dex)
+- **Fort** +8 (6 base + 1 Con + 1 Strong Soul)
+- **Ref** +6 (2 base + 4 Dex)
+- **Will** +12 (6 base + 5 Wis + 1 Strong Soul)
+- **Initiative** +4
+- **Land speed** **50 ft.** (30 base + 20 permanent Totem Transformation — see speed rule)
+- **Caster level** 8
+- **Druid save DC** 15 + spell level
+
+### Spell slots
+
+At WIS 20: **6 / 6 / 4 / 4 / 3** (levels 0–4)
+At WIS 22: **6 / 6 / 5 / 4 / 3**
+
+Base table value is 6/4/3/3/2; the rest is Wisdom bonus spells. Compute, don't hardcode.
+
+### Skills (ranks → total)
+
+| Skill | Ranks | Total |
+|---|---|---|
+| Concentration | 11 | +12 |
+| Handle Animal | 9 | +11 (incl. Animal Affinity) |
+| Heal | 10 | +15 |
+| Knowledge (nature) | 11 | +14 |
+| Knowledge (the planes) | 5 | +8 |
+| Knowledge (religion) | 4 | +7 |
+| Listen | 7 | +12 |
+| Spellcraft | 11 | +14 |
+| Spot | 8 | +13 |
+| Survival | 5 | +10 |
+
+Conditional, surface in UI rather than baking in:
+- Wild empathy with **canines**: full-round action, +4 bonus
+
+### Equipment
+
+- Bone-studded leather: +3 AC, 0 check penalty, 20 lb (light, no speed penalty)
+- Heavy wooden shield: +2 AC, −2 check penalty, 10 lb
+- Ring of protection: +1 deflection
+- Forest warden shroud: no penalty in difficult terrain, Tumble, Move Silently
+- **Druid necklace**: 5–6 spells, 1/day each, **no spell slot**. Confirmed: *entangle*,
+  *barkskin*, *plant growth*, *speak with plants*, *tree shape*, possibly one more. Track as
+  independent daily checkboxes outside the slot economy.
+
+Armor and shield are non-metal (druid-legal). Arcane spell failure is irrelevant for divine
+casting — do not display it.
+
+#### Celeb mûr ("Silver Flow"), commonly called Quicksilver
+
+**+2 elven scimitar of speed.** Silvered blade, sylvan elvish runes, moonstone pommel.
+
+- 1d6 slashing, **18–20/×2**
+- **Speed**: on a full attack, **one extra attack at full BAB**. Explicitly **does not stack**
+  with *haste* — surface this warning next to the attack routine.
+- **Light**: moonstone sheds pale purple light, 5 ft. radius, in total darkness. Requires four
+  hours of moonlight exposure nightly. Passive property with a condition note, not a tracker.
+
+| Action | Routine | Damage |
+|---|---|---|
+| Single attack | **+8** | 1d6+2 |
+| Full attack | **+8 / +8 / +3** | 1d6+2 |
+
+The extra attack is a weapon property injection, not an iterative. Build attack routines from
+BAB **plus property injections**.
+
+*Player note, not a rule:* Weapon Finesse would take this to +12/+12/+7. Scimitar is a light
+weapon and qualifies. Not currently taken.
+
+### Feats
+
+- **Toughness** (L1)
+- **Strong Soul** (L1) — +1 Fort and Will; more vs death effects and energy drain
+- **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
+- **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
+  results. **Automatic, not a toggle.**
+- **Natural Spell** (L4–5) — cast while wild shaped
+- **Animal Affinity** (L4–5) — +2 Handle Animal, +2 Ride
+- **Fey Touched** (L4–5, 5e) — +1 WIS; *misty step* and *charm person*, 1/day each
+- **Ashbound** (L6) — *summon nature's ally* duration doubled; summons gain **+3 luck bonus
+  on attack rolls**
+
+---
+
+## Wolf Shaman archetype (Pathfinder, DM-adapted)
+
+**Scales with DRUID level, not character level.** See Class Progression.
+
+**Nature Bond:** animal companion must be a wolf. See Quen below.
+
+**Wild Empathy (Ex):** canines, full-round action, +4 bonus.
+
+**Totem Transformation (Su)** — DM ruled this a **one-time permanent boost, not a per-day
+ability. No tracker.** Lyra selected **movement**: permanent +20 ft. enhancement to land
+speed. The at-will ***speak with animals* (canines only)** rider is likewise permanent.
+
+**Speed rule (DM-confirmed):**
+- Base form: **+20 applies** → Lyra's land speed is 50 ft.
+- Wild shape into a form with `isCanine` true: **+20 applies**
+- Wild shape into any non-canine form: **no bonus**, use the form's speed as printed
+
+**Totemic Summons (Su)** — when summoning canines:
+- Cast *summon nature's ally* as a **standard action**
+- Summoned canines gain **temp HP equal to DRUID level** — currently **5**, rising to 6/7/8/9/10
+  at character levels 16–20
+- **Young** template: required spell level −1
+- **Advanced** or **giant**: required spell level +1
+- **Both**: required spell level +2
+
+**Bonus Feats:** at druid level 9 and every 4 druid levels after. Given the progression, druid
+9 arrives at **character level 19**, and druid 13/17 are never reached. So **exactly one**
+Wolf Shaman bonus feat, at character level 19: Greater Trip, Improved Trip, Mobility, Skill
+Focus (Stealth), or Spring Attack.
+
+---
+
+## Wild Shape
+
+Planar Shepherd levels **stack with druid levels** for daily uses, maximum HD, size, and
+duration — but **not creature type**. Effective wild shape level = character level.
+
+**At level 8: 3 uses/day, maximum size Large, maximum 8 HD.**
+
+Type access, gated by Planar Shepherd level:
+
+| PS level | Char level | Unlocks |
+|---|---|---|
+| 3 (current) | 8 | Magical beasts native to the Feywild |
+| 9 | 14 | Elementals and outsiders native to the Feywild |
+
+**Elemental/outsider forms cost TWO daily uses.** The tracker must decrement by 2.
+
+Lyra does not have Planar Wild Shape and does not plan to take it.
+
+Creature data carries `wildShapeMinLevel` (integer or null): Animal → 5, Feywild-native
+magical beast → 8, Feywild-native outsider/elemental → 14, everything else → null. The app
+checks `wildShapeMinLevel <= characterLevel`, then applies size and HD caps as engine logic.
+
+**Fey forms are never available** at any level — neither progression grants them. This affects
+pixie and satyr.
+
+### The polymorph swap (core calculation)
+
+**Retained:** BAB, base save bonuses, HP, skill ranks, feats, INT, WIS, CHA
+**Taken from form:** STR, DEX, CON, size, natural armor, speeds, natural attacks, Ex qualities
+
+**Recompute:**
+- Attack = BAB + form's Str mod + size modifier
+- Secondary natural attacks at −5
+- **Single** natural weapon → damage adds **1.5× Str bonus**. Multiple attacks → primary gets
+  full Str, secondaries half.
+- Fort = base Fort + form's Con mod + 1 (Strong Soul)
+- Ref = base Ref + form's Dex mod
+- Will = base Will + Wis mod + 1 (Strong Soul) — unchanged by form
+- AC = 10 + size mod + form's Dex mod + form's natural armor + persistent item bonuses
+- Land speed = form's land speed, **+20 only if `isCanine`**
+
+Persistent item bonuses = ring of protection (+1 deflection). Armor and shield don't carry
+over. Quicksilver is unusable in most forms.
+
+At PS 9+ (character level 14+), forms also grant all Ex, Su, and Sp abilities. **Below that,
+only Ex abilities** — this is why unicorn's *greater teleport* and healing are unavailable at
+level 8.
+
+### Known available forms
+
+Lyra can wild shape into any animal she's familiar with — common Greyhawk animals (wolf, brown
+bear, eagle, dog, cat) plus anything she has summoned. Creatures summoned to date: crocodile,
+wolf, wolverine, dire rat, dire bat, dire wolf, unicorn, pixie, giant owl, juvenile arrowhawk,
+minor xorn, satyr.
+
+**Unicorn is DM-confirmed Feywild-native magical beast** — available now at PS 3. Large,
+4 HD, Str 20. Within size and HD caps. Body only, no spell-like abilities until level 14.
+
+Giant owl is also a magical beast; Feywild-native status **pending DM ruling**.
+Arrowhawk and xorn are outsiders native to the Elemental Planes of Air and Earth — not
+Feywild-native, so never available. Pixie and satyr are fey — never available.
+
+---
+
+## Summoning
+
+A canine summon can stack a simple template, Greenbound, and two feat effects.
+
+### Pipeline order
+
+1. **Simple template** (young / advanced / giant), if chosen
+2. **Greenbound template**
+3. **Ashbound** and **Totemic Summons** bonuses
+
+Ability adjustments are commutative, but Greenbound's slam damage is size-keyed and its
+"whichever is better" comparison must evaluate at **final** size. Size resolves first.
+
+### Simple templates — Pathfinder rules as written (DM-confirmed)
+
+Use **rebuild rules**, not quick rules.
+
+**Advanced** (CR +1) — **+4 to all ability scores**. No size change.
+
+**Giant** (CR +1, not applicable to Colossal) — size **+1** category; natural armor **+3**;
+damage dice **+1 step**; **+4 size bonus to Str and Con, −2 Dex**.
+
+**Young** (CR −1) — size **−1** category; natural armor **−2** (min 0); damage dice **−1
+step**; **−4 Str, −4 Con, +4 Dex**.
+
+The Pathfinder giant template is deliberately milder than a Monster Manual size advance
+(+4 Str, not +8) and carries its own natural armor and damage rules. **Do not mix the two
+systems.**
+
+Size still applies the standard AC and attack modifier (Large −1, Huge −2, Small +1), plus
+space, reach, and grapple.
+
+**Damage ladder:** 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 2d8 → 3d6 → 3d8. Reverse for young.
+
+### Greenbound template (always applied)
+
+Applicable to animal, fey, giant, humanoid, monstrous humanoid, or vermin base creatures.
+
+- **Type** → plant (augmented subtype). Size unchanged. Do **not** recalculate base attack
+  bonus, base saves, or skill points.
+- **Hit Dice** all become d8s
+- **Natural armor** +6 over base
+- **Abilities**: STR +6, DEX +2, CON +4, CHA +4
+- Gains a **slam attack** if it lacked one
+- **DR 10/magic and slashing**; natural weapons count as magic for overcoming DR
+- **Fast healing 3**, **+4 grapple**, **resistance 10** cold and electricity,
+  **tremorsense 60 ft.**
+- **+16 racial** on Hide and Move Silently in forested areas
+- **Spell-like**: at will — *entangle*, *pass without trace*, *speak with plants*;
+  1/day — *wall of thorns*. CL = creature's character level.
+  DC = 10 + spell level + creature's CHA mod (remember the +4).
+- CR +2
+
+Slam damage by size: Fine 1, Dim 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6,
+Garg 2d8, Col 4d6. Creatures with existing natural weapons keep their damage or use the table,
+whichever is better.
+
+Fighting unarmed, it uses **either** slam **or** natural weapons — show both routines.
+
+### Feat effects (always applied)
+
+- **Ashbound** — duration **doubled**; **+3 luck bonus on attack rolls**
+- **Totemic Summons** (canines only) — standard action; **temp HP = druid level (5)**
+
+### Worked examples — verify the engine against these
+
+Base wolf: Medium animal, 2d8+4, AC 14 (+2 Dex, +2 natural), BAB +1, bite +3 (1d6+1),
+Str 13 / Dex 15 / Con 15 / Cha 6, Weapon Focus (bite).
+
+| | Greenbound | Advanced Greenbound | Giant Greenbound |
+|---|---|---|---|
+| Size | Medium | Medium | Large |
+| Str / Dex / Con | 19 / 17 / 19 | 23 / 21 / 23 | 23 / 15 / 23 |
+| Natural armor | +8 | +8 | +11 |
+| AC | 21 | 23 | 22 |
+| Bite (incl. Ashbound +3) | **+9**, 1d6+6 | **+11**, 1d6+9 | **+10**, 1d8+9 |
+| HP before temp | ~17 | ~21 | ~21 |
+| Temp HP | +5 | +5 | +5 |
+| Spell level cost | base | +1 | +1 |
+
+1.5× Str applies because the bite is the wolf's only natural weapon. Note advanced wins on
+attack bonus while giant wins on damage die, at identical cost — the UI should show that
+tradeoff rather than assuming one is better.
+
+### Summon builder UI
+
+Player picks a spell slot level, sees which creatures are reachable at which template loadouts,
+gets the finished stat block. Track active summons and remaining duration (doubled).
+
+**Note:** Greenbound changes type to *plant*; PS 3 grants wild shape into *magical beasts*.
+Separate systems. Greenbound does not unlock wild shape forms.
+
+---
+
+## Quen — animal companion
+
+Wolf, mandated by Wolf Shaman. Planar Shepherd levels stack with druid levels for companion
+abilities, so effective druid level = **character level** = 8, using the 6th–8th row.
+
+At effective level 8:
+
+| | Value |
+|---|---|
+| Hit Dice | 6d8+12 (~39 hp) |
+| Str / Dex / Con | 15 / 17 / 15 |
+| BAB / Grapple | +4 / +6 |
+| **AC** | **21** (10 + 3 Dex + 6 natural + 2 armor), touch 13, flat-footed 18 |
+| **Bite** | **+7**, 1d6+3, plus trip |
+| Fort / Ref / Will | +7 / +8 / +3 |
+| Speed | **40 ft.** (50 base, reduced by armor — DM-confirmed) |
+
+Abilities: Link, share spells, Evasion, **Devotion** (+4 morale bonus on Will saves against
+enchantment — surface separately; base Will +3 is his weak point).
+
+Trip (Ex): on a bite hit, may trip as a free action with +1 check modifier, no touch attack,
+no attack of opportunity. Failure doesn't allow a counter-trip.
+
+Skills: +4 racial on Survival when tracking by scent.
+
+Known tricks: defend, attack, down, fetch, work, come, heel.
+
+**Armor — Custom Masterwork Wooden Studded Honey Leather** (150 gp): +2 armor bonus (stacks
+with natural armor), max Dex +5, check penalty 0, **speed 40 ft.**, 8 lb. Two side pouches,
+saddle mount, three leather rings per flank for hanging items or attaching litter poles.
+
+Max Dex +5 never binds — Quen doesn't reach Dex 20 until character level 18.
+
+Store the full companion progression table so Quen recomputes at any level.
+
+**Open:** at 6 HD Quen is entitled to three feats but shows only Track (bonus) and Weapon
+Focus (bite). He may have two unassigned feats — ask the DM.
+
+---
+
+## Spell preparation model
+
+Do **not** model prepared spells as fixed data. Lyra has the entire druid list and re-prepares
+by meditation after every long rest. The app needs a fill-in-after-rest flow.
+
+Always available, outside the slot economy:
+1. **Spontaneous Healer** — any prepared spell converts to a Cure spell
+2. ***Summon Nature's Ally*** — spontaneous conversion
+3. **The druid necklace** — 5–6 spells, 1/day each, free of slots
+
+---
+
+## Build phases
+
+- **Phase 0** — Setup. Done.
+- **Phase 1** — Static character sheet. Done.
+- **Phase 2** — Trackers + Supabase. Done, pending Supabase credentials. HP, spell slots, wild
+  shape uses, necklace, Fey Touched, plane shift, planar bubble, Quen's HP. One "Long Rest"
+  button. Storage adapter with offline fallback.
+  Code lives in `src/lib/storage` (adapter), `src/lib/liveState` (state shape, actions, React
+  context), `src/components/trackers` (UI). Works fully on localStorage today. To turn on
+  Supabase sync: run `supabase/setup.sql` in the project's SQL editor, then copy `.env.example`
+  to `.env.local` and fill in `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` — no code changes
+  needed.
+- **Phase 3** — Wild shape calculator.
+- **Phase 4** — Feywild magical beast forms and planar layering.
+- **Phase 5** — Summon builder.
+- **Phase 6** — Bulk sourcebook ingestion via Cowork.
+- **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
+
+Phase 2 before Phase 3 deliberately — trackers get used every session.
+
+---
+
+## Open questions
+
+**Ask the DM:**
+1. **Giant owl** — Feywild-native? If yes it becomes an available wild shape form now, with a
+   fly speed.
+2. **Quen's feats** — two possibly unassigned at 6 HD.
+3. **Wolf Shaman later features** — druid 13 and 17 bonus feats are unreachable given the
+   progression. Does he want to compress them?
+
+**Needs data:**
+4. **Young template exact numbers** — verify −4 Str / −4 Con / +4 Dex / −2 natural armor
+   against printed text.
+5. **Plane Shift / Planar Bubble** — tracked as 1/day Planar Shepherd abilities in
+   `src/data/character/lyra.json`, but the sourcebook they're from is unconfirmed. Fill in
+   `source` once known.
+6. Levels 9 and 15 add "otherworldly magic [arcane cantrip]" and "Otherworldly Acumen
+   [2nd level arcane]" — Fey Touched follow-ons, model later.

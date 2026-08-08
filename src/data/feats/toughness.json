@@ -1,0 +1,8 @@
+{
+  "id": "toughness",
+  "name": "Toughness",
+  "source": "PHB",
+  "levelTaken": 1,
+  "description": "The character already has +3 hp baked into her recorded HP total.",
+  "effects": []
+}

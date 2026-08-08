@@ -1,0 +1,129 @@
+{
+  "id": "lyra",
+  "name": "Lyra",
+  "race": "Half-elf",
+  "level": 8,
+  "classes": [
+    { "name": "Druid", "levels": 5 },
+    { "name": "Planar Shepherd", "levels": 3 }
+  ],
+  "planarAttunement": "Feywild",
+  "archetype": "Wolf Shaman",
+  "campaign": "Greyhawk",
+
+  "trueBaseAbilityScores": {
+    "str": 10,
+    "dex": 18,
+    "con": 12,
+    "int": 16,
+    "wis": 19,
+    "cha": 11
+  },
+  "abilityAdjustments": [
+    {
+      "ability": "wis",
+      "value": 2,
+      "bonusType": "inherent",
+      "source": "DM-gifted tome",
+      "active": false,
+      "note": "Confirmed inherent, stacks, permanent, capped at +5 total inherent. Takes one week of game time to read."
+    }
+  ],
+
+  "hp": { "max": 61 },
+
+  "speed": {
+    "land": 30,
+    "enhancementBonus": 20,
+    "enhancementSource": "Totem Transformation (Wolf Shaman)"
+  },
+
+  "skills": {
+    "concentration": { "ability": "con", "ranks": 11 },
+    "handleAnimal": {
+      "ability": "cha",
+      "ranks": 9,
+      "miscBonus": 2,
+      "conditionalBonuses": [{ "value": 2, "condition": "with animal companion" }]
+    },
+    "heal": { "ability": "wis", "ranks": 10 },
+    "knowledgeNature": { "ability": "int", "ranks": 11, "label": "Knowledge (nature)" },
+    "knowledgePlanes": { "ability": "int", "ranks": 5, "label": "Knowledge (the planes)" },
+    "knowledgeReligion": { "ability": "int", "ranks": 4, "label": "Knowledge (religion)" },
+    "listen": { "ability": "wis", "ranks": 7, "miscBonus": 1 },
+    "ride": {
+      "ability": "dex",
+      "ranks": 0,
+      "miscBonus": 2,
+      "conditionalBonuses": [{ "value": 5, "condition": "after a successful Handle Animal check" }]
+    },
+    "spellcraft": { "ability": "int", "ranks": 11 },
+    "spot": { "ability": "wis", "ranks": 8, "miscBonus": 1 },
+    "survival": { "ability": "wis", "ranks": 5, "miscBonus": 2 }
+  },
+  "conditionalAbilityBonuses": [
+    {
+      "id": "wildEmpathy",
+      "label": "Wild Empathy",
+      "conditionalBonuses": [
+        { "value": 4, "condition": "with canines (full-round action instead of standard, Wolf Shaman)" }
+      ]
+    }
+  ],
+
+  "feats": [
+    "toughness",
+    "strong_soul",
+    "spontaneous_healer",
+    "greenbound_summoning",
+    "natural_spell",
+    "animal_affinity",
+    "fey_touched",
+    "ashbound"
+  ],
+
+  "equipment": {
+    "armor": "bone_studded_leather",
+    "shield": "heavy_wooden_shield",
+    "ring": "ring_of_protection",
+    "cloak": "forest_warden_shroud",
+    "necklace": "druid_necklace",
+    "weapon": "quicksilver"
+  },
+
+  "casterLevel": { "druid": 8 },
+  "spellDcBase": 15,
+
+  "planarShepherdAbilities": [
+    { "id": "plane_shift", "name": "Plane Shift", "usesPerDay": 1, "source": "Planar Shepherd (sourcebook unconfirmed)" },
+    { "id": "planar_bubble", "name": "Planar Bubble", "usesPerDay": 1, "source": "Planar Shepherd (sourcebook unconfirmed)" }
+  ],
+
+  "wolfShaman": {
+    "natureBond": "Wolf animal companion",
+    "wildEmpathyCanineBonus": 4,
+    "totemTransformation": {
+      "type": "movement",
+      "landSpeedBonus": 20,
+      "permanent": true,
+      "grantsSpeakWithAnimals": "canines only",
+      "carriesIntoWildShape": true
+    },
+    "totemicSummons": {
+      "activeFromCharacterLevel": 5,
+      "canineSummonCastTime": "standard action",
+      "canineTempHpEqualsCharacterLevel": true
+    }
+  },
+
+  "wildShape": {
+    "usesPerDay": 3,
+    "maxSize": "Large",
+    "effectiveDruidLevel": 8,
+    "elementalOutsiderCostPerUse": 2,
+    "planarShepherdTypeUnlocks": [
+      { "planarShepherdLevel": 3, "characterLevel": 8, "unlocks": "Magical beasts native to the Feywild" },
+      { "planarShepherdLevel": 9, "characterLevel": 14, "unlocks": "Elementals and outsiders native to the Feywild" }
+    ]
+  }
+}

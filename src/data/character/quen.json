@@ -1,0 +1,10 @@
+{
+  "id": "quen",
+  "name": "Quen",
+  "type": "animal companion",
+  "creature": "Wolf",
+  "source": "Wolf Shaman nature bond, DM-confirmed stat block",
+  "effectiveDruidLevel": 8,
+  "hp": { "max": 39 },
+  "note": "39 hp is the average of 6d8+12 as recorded in CLAUDE.md; correct to the DM's actual roll if it differs."
+}

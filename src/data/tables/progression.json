@@ -1,0 +1,27 @@
+{
+  "id": "druid_blended_table",
+  "description": "DM-approved blended progression table for Druid 5 / Planar Shepherd 3, run as the PHB druid table straight through all 20 levels. Valid because druid and Planar Shepherd share identical BAB and save progressions (3/4 BAB, good Fort, good Will, poor Ref).",
+  "source": "PHB (Druid) + DM ruling",
+  "byLevel": {
+    "1": { "bab": 0, "fort": 2, "ref": 0, "will": 2 },
+    "2": { "bab": 1, "fort": 3, "ref": 0, "will": 3 },
+    "3": { "bab": 2, "fort": 3, "ref": 1, "will": 3 },
+    "4": { "bab": 3, "fort": 4, "ref": 1, "will": 4 },
+    "5": { "bab": 3, "fort": 4, "ref": 1, "will": 4 },
+    "6": { "bab": 4, "fort": 5, "ref": 2, "will": 5 },
+    "7": { "bab": 5, "fort": 5, "ref": 2, "will": 5 },
+    "8": { "bab": 6, "fort": 6, "ref": 2, "will": 6 },
+    "9": { "bab": 6, "fort": 6, "ref": 3, "will": 6 },
+    "10": { "bab": 7, "fort": 7, "ref": 3, "will": 7 },
+    "11": { "bab": 8, "fort": 7, "ref": 3, "will": 7 },
+    "12": { "bab": 9, "fort": 8, "ref": 4, "will": 8 },
+    "13": { "bab": 9, "fort": 8, "ref": 4, "will": 8 },
+    "14": { "bab": 10, "fort": 9, "ref": 4, "will": 9 },
+    "15": { "bab": 11, "fort": 9, "ref": 5, "will": 9 },
+    "16": { "bab": 12, "fort": 10, "ref": 5, "will": 10 },
+    "17": { "bab": 12, "fort": 10, "ref": 5, "will": 10 },
+    "18": { "bab": 13, "fort": 11, "ref": 6, "will": 11 },
+    "19": { "bab": 14, "fort": 11, "ref": 6, "will": 11 },
+    "20": { "bab": 15, "fort": 12, "ref": 6, "will": 12 }
+  }
+}
