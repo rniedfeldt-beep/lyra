@@ -1,6 +1,6 @@
 {
-  "id": "forest_warden_shroud",
-  "name": "Forest warden shroud",
+  "id": "forestwarden_shroud",
+  "name": "Forestwarden Shroud",
   "type": "cloak",
   "source": "DM homebrew",
   "acBonus": 0,

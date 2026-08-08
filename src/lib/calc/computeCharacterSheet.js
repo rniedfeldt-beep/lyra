@@ -41,6 +41,7 @@ export function computeCharacterSheet({ character, feats, items, progressionTabl
     : null
 
   const initiative = abilityScores.dex.mod
+  const spellAttackBonus = progression.bab + abilityScores.wis.mod
 
   const speed = {
     base: character.speed.land,
@@ -59,6 +60,7 @@ export function computeCharacterSheet({ character, feats, items, progressionTabl
     spellSlots,
     attackRoutine,
     initiative,
+    spellAttackBonus,
     speed,
     items,
     feats: characterFeats,

@@ -17,8 +17,10 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
     hp: { current: sheet.character.hp.max, temp: 0 },
     spellSlotsUsed,
     wildShapeUsed: 0,
+    activeWildShapeForm: null,
     dailyUses,
     companionHp: { current: companion.hp.max },
+    activeSummons: [],
     updatedAt: null,
   }
 }

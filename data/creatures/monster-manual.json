@@ -1,0 +1,3538 @@
+[
+  {
+    "name": "Wolf",
+    "source": "Monster Manual 3.5",
+    "page": 283,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "2d8+4",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 13,
+      "dex": 15,
+      "con": 15,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "trip"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Track",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 1,
+    "isCanine": true,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Wolf",
+    "source": "Monster Manual 3.5",
+    "page": 65,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "6d8+18",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 25,
+      "dex": 15,
+      "con": 17,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "trip"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Run",
+      "Track",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 3,
+    "isCanine": true,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Bat",
+    "source": "Monster Manual 3.5",
+    "page": 62,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "4d8+12",
+    "speed": {
+      "land": 20,
+      "fly": 40
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 17,
+      "dex": 22,
+      "con": 17,
+      "int": 2,
+      "wis": 14,
+      "cha": 6
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsense 40 ft."
+    ],
+    "feats": [
+      "Alertness",
+      "Stealthy"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Rat",
+    "source": "Monster Manual 3.5",
+    "page": 64,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "1d8+1",
+    "speed": {
+      "land": 40,
+      "climb": 20
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 10,
+      "dex": 17,
+      "con": 12,
+      "int": 1,
+      "wis": 12,
+      "cha": 4
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "disease"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.33,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Wolverine",
+    "source": "Monster Manual 3.5",
+    "page": 283,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+15",
+    "speed": {
+      "land": 30,
+      "burrow": 10,
+      "climb": 10
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 14,
+      "dex": 15,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rage"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness",
+      "Track"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Wolverine",
+    "source": "Monster Manual 3.5",
+    "page": 66,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "5d8+23",
+    "speed": {
+      "land": 30,
+      "climb": 10
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 22,
+      "dex": 17,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rage"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness",
+      "Track"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Crocodile",
+    "source": "Monster Manual 3.5",
+    "page": 271,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+9",
+    "speed": {
+      "land": 20,
+      "swim": 30
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 19,
+      "dex": 12,
+      "con": 17,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": true,
+        "damage": "1d12",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "hold breath",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Skill Focus (Hide)"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Brown Bear",
+    "source": "Monster Manual 3.5",
+    "page": 269,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "6d8+24",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 27,
+      "dex": 13,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Endurance",
+      "Run",
+      "Track"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Eagle",
+    "source": "Monster Manual 3.5",
+    "page": 272,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "1d8+1",
+    "speed": {
+      "land": 10,
+      "fly": 80
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 10,
+      "dex": 15,
+      "con": 12,
+      "int": 2,
+      "wis": 14,
+      "cha": 6
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "talons",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dog",
+    "source": "Monster Manual 3.5",
+    "page": 271,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "1d8+2",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 13,
+      "dex": 17,
+      "con": 15,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Track"
+    ],
+    "challengeRating": 0.33,
+    "isCanine": true,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Cat",
+    "source": "Monster Manual 3.5",
+    "page": 270,
+    "size": "Tiny",
+    "type": "Animal",
+    "hitDice": "1/2d8",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 3,
+      "dex": 15,
+      "con": 10,
+      "int": 2,
+      "wis": 12,
+      "cha": 7
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d2",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.25,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Monkey",
+    "source": "Monster Manual 3.5",
+    "page": 276,
+    "size": "Tiny",
+    "type": "Animal",
+    "hitDice": "1d8",
+    "speed": {
+      "land": 30,
+      "climb": 30
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 3,
+      "dex": 15,
+      "con": 10,
+      "int": 2,
+      "wis": 12,
+      "cha": 5
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.17,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Octopus",
+    "source": "Monster Manual 3.5",
+    "page": 276,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "2d8",
+    "speed": {
+      "land": 20,
+      "swim": 30
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 12,
+      "dex": 17,
+      "con": 11,
+      "int": 2,
+      "wis": 12,
+      "cha": 3
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "arms",
+        "natural": true,
+        "primary": true,
+        "damage": "0",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "ink cloud",
+      "jet",
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Owl",
+    "source": "Monster Manual 3.5",
+    "page": 277,
+    "size": "Tiny",
+    "type": "Animal",
+    "hitDice": "1d8",
+    "speed": {
+      "land": 10,
+      "fly": 40
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 4,
+      "dex": 17,
+      "con": 10,
+      "int": 2,
+      "wis": 14,
+      "cha": 4
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "talons",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.25,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Porpoise",
+    "source": "Monster Manual 3.5",
+    "page": 278,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "2d8+2",
+    "speed": {
+      "swim": 80
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 11,
+      "dex": 17,
+      "con": 13,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsight 120 ft.",
+      "hold breath",
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Snake, Small Viper",
+    "source": "Monster Manual 3.5",
+    "page": 280,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "1d8",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 6,
+      "dex": 17,
+      "con": 11,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d2",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "poison"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 0.5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Bear, Black",
+    "source": "Monster Manual 3.5",
+    "page": 269,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+6",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 19,
+      "dex": 13,
+      "con": 15,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Endurance",
+      "Run"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Badger",
+    "source": "Monster Manual 3.5",
+    "page": 62,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+15",
+    "speed": {
+      "land": 30,
+      "burrow": 10
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 14,
+      "dex": 17,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rage"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness",
+      "Track"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Elemental, Small Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Small",
+    "type": "Elemental",
+    "hitDice": "2d8",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 10,
+      "dex": 17,
+      "con": 10,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery",
+      "whirlwind"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Flyby Attack",
+      "Improved Initiative",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Small Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Small",
+    "type": "Elemental",
+    "hitDice": "2d8+2",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 17,
+      "dex": 8,
+      "con": 13,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery",
+      "push"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "earth glide",
+      "elemental traits"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Small Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Small",
+    "type": "Elemental",
+    "hitDice": "2d8",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 10,
+      "dex": 13,
+      "con": 10,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Small Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Small",
+    "type": "Elemental",
+    "hitDice": "2d8+2",
+    "speed": {
+      "land": 20,
+      "swim": 90
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 14,
+      "dex": 10,
+      "con": 13,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "water mastery",
+      "drench",
+      "vortex"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Hippogriff",
+    "source": "Monster Manual 3.5",
+    "page": 152,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "3d10+9",
+    "speed": {
+      "land": 50,
+      "fly": 100
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 2,
+      "wis": 13,
+      "cha": 8
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Dodge",
+      "Wingover"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Shark, Medium",
+    "source": "Monster Manual 3.5",
+    "page": 279,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+3",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 13,
+      "dex": 15,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsense",
+      "keen scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Snake, Medium Viper",
+    "source": "Monster Manual 3.5",
+    "page": 280,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "2d8",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 8,
+      "dex": 17,
+      "con": 11,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "poison"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Squid",
+    "source": "Monster Manual 3.5",
+    "page": 281,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 14,
+      "dex": 17,
+      "con": 11,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "arms",
+        "natural": true,
+        "primary": true,
+        "damage": "0",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "ink cloud",
+      "jet",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Ape",
+    "source": "Monster Manual 3.5",
+    "page": 268,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "4d8+11",
+    "speed": {
+      "land": 30,
+      "climb": 30
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 21,
+      "dex": 15,
+      "con": 14,
+      "int": 2,
+      "wis": 12,
+      "cha": 7
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Weasel",
+    "source": "Monster Manual 3.5",
+    "page": 65,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 14,
+      "dex": 19,
+      "con": 10,
+      "int": 2,
+      "wis": 12,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "attach",
+      "blood drain"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Stealthy",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Eagle, Giant",
+    "source": "Monster Manual 3.5",
+    "page": 93,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "4d10+4",
+    "speed": {
+      "land": 10,
+      "fly": 80
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 18,
+      "dex": 17,
+      "con": 12,
+      "int": 10,
+      "wis": 14,
+      "cha": 10
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "evasion"
+    ],
+    "feats": [
+      "Alertness",
+      "Flyby Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Lion",
+    "source": "Monster Manual 3.5",
+    "page": 274,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "5d8+10",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 21,
+      "dex": 17,
+      "con": 15,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "pounce",
+      "improved grab",
+      "rake"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Run"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Owl, Giant",
+    "source": "Monster Manual 3.5",
+    "page": 205,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "4d10+4",
+    "speed": {
+      "land": 10,
+      "fly": 70
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 18,
+      "dex": 17,
+      "con": 12,
+      "int": 10,
+      "wis": 14,
+      "cha": 10
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "superior low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Wingover"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Satyr (without pipes)",
+    "source": "Monster Manual 3.5",
+    "page": 219,
+    "size": "Medium",
+    "type": "Fey",
+    "hitDice": "5d6+5",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 10,
+      "dex": 13,
+      "con": 12,
+      "int": 12,
+      "wis": 13,
+      "cha": 13
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "head butt",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "damage reduction 5/cold iron",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Dodge",
+      "Mobility"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Shark, Large",
+    "source": "Monster Manual 3.5",
+    "page": 279,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "7d8+7",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 17,
+      "dex": 15,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsense",
+      "keen scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Great Fortitude",
+      "Improved Initiative"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Snake, Constrictor",
+    "source": "Monster Manual 3.5",
+    "page": 279,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "3d8+6",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 17,
+      "dex": 17,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict",
+      "improved grab"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Snake, Large Viper",
+    "source": "Monster Manual 3.5",
+    "page": 280,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "3d8",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 10,
+      "dex": 17,
+      "con": 11,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "poison"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Improved Initiative",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Thoqqua",
+    "source": "Monster Manual 3.5",
+    "page": 242,
+    "size": "Medium",
+    "type": "Elemental",
+    "hitDice": "3d8+3",
+    "speed": {
+      "land": 30,
+      "burrow": 20
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 15,
+      "dex": 13,
+      "con": 13,
+      "int": 6,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "heat",
+      "burn"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "tremorsense 60 ft.",
+      "vulnerability to cold"
+    ],
+    "feats": [
+      "Alertness",
+      "Track"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Arrowhawk, Juvenile",
+    "source": "Monster Manual 3.5",
+    "page": 19,
+    "size": "Small",
+    "type": "Outsider",
+    "hitDice": "3d8+3",
+    "speed": {
+      "fly": 60
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 12,
+      "dex": 21,
+      "con": 12,
+      "int": 10,
+      "wis": 13,
+      "cha": 13
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "electricity ray",
+        "natural": false,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "electricity ray"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "immunity to acid, electricity, and poison",
+      "resistance to cold 10 and fire 10"
+    ],
+    "feats": [
+      "Dodge",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Crocodile, Giant",
+    "source": "Monster Manual 3.5",
+    "page": 271,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "7d8+28",
+    "speed": {
+      "land": 20,
+      "swim": 30
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 27,
+      "dex": 12,
+      "con": 19,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": true,
+        "damage": "1d12",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "hold breath",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Skill Focus (Hide)"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Deinonychus",
+    "source": "Monster Manual 3.5",
+    "page": 60,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "4d8+16",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 19,
+      "dex": 15,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "talons",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "foreclaw",
+        "natural": true,
+        "primary": false,
+        "damage": "1d3",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "pounce"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Run",
+      "Track"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Ape",
+    "source": "Monster Manual 3.5",
+    "page": 62,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "5d8+13",
+    "speed": {
+      "land": 30,
+      "climb": 15
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 22,
+      "dex": 15,
+      "con": 14,
+      "int": 2,
+      "wis": 12,
+      "cha": 7
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rend"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Toughness"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Boar",
+    "source": "Monster Manual 3.5",
+    "page": 63,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "7d8+21",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 27,
+      "dex": 10,
+      "con": 17,
+      "int": 2,
+      "wis": 13,
+      "cha": 8
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "ferocity"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Iron Will"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Elemental, Medium Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Medium",
+    "type": "Elemental",
+    "hitDice": "4d8+8",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 12,
+      "dex": 21,
+      "con": 14,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery",
+      "whirlwind"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Dodge",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Medium Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Medium",
+    "type": "Elemental",
+    "hitDice": "4d8+12",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 21,
+      "dex": 8,
+      "con": 17,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery",
+      "push"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "earth glide",
+      "elemental traits"
+    ],
+    "feats": [
+      "Cleave",
+      "Power Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Medium Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Medium",
+    "type": "Elemental",
+    "hitDice": "4d8+8",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 12,
+      "dex": 17,
+      "con": 14,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Mobility",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Medium Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Medium",
+    "type": "Elemental",
+    "hitDice": "4d8+12",
+    "speed": {
+      "land": 20,
+      "swim": 90
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 16,
+      "dex": 12,
+      "con": 17,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "water mastery",
+      "drench",
+      "vortex"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Cleave",
+      "Power Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Salamander, Flamebrother",
+    "source": "Monster Manual 3.5",
+    "page": 218,
+    "size": "Small",
+    "type": "Outsider",
+    "hitDice": "4d8+8",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 12,
+      "dex": 13,
+      "con": 14,
+      "int": 14,
+      "wis": 15,
+      "cha": 13
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "spear",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "x3"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": false,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict",
+      "heat",
+      "improved grab"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "feats": [
+      "Alertness",
+      "Multiattack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Sea Cat",
+    "source": "Monster Manual 3.5",
+    "page": 219,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "6d10+18",
+    "speed": {
+      "land": 10,
+      "swim": 40
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 19,
+      "dex": 12,
+      "con": 17,
+      "int": 2,
+      "wis": 13,
+      "cha": 10
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rend"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "hold breath",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Iron Will"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Shark, Huge",
+    "source": "Monster Manual 3.5",
+    "page": 279,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "10d8+20",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 21,
+      "dex": 15,
+      "con": 15,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsense",
+      "keen scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Great Fortitude",
+      "Improved Initiative",
+      "Iron Will"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Snake, Huge Viper",
+    "source": "Monster Manual 3.5",
+    "page": 280,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "6d8+6",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 16,
+      "dex": 15,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "poison"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Improved Initiative",
+      "Run",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Tiger",
+    "source": "Monster Manual 3.5",
+    "page": 281,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "6d8+18",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 23,
+      "dex": 15,
+      "con": 17,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab",
+      "pounce",
+      "rake"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Improved Natural Attack (bite)",
+      "Improved Natural Attack (claw)"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Tojanida, Juvenile",
+    "source": "Monster Manual 3.5",
+    "page": 243,
+    "size": "Small",
+    "type": "Outsider",
+    "hitDice": "3d8+6",
+    "speed": {
+      "land": 10,
+      "swim": 90
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 14,
+      "dex": 13,
+      "con": 15,
+      "int": 10,
+      "wis": 12,
+      "cha": 9
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "improved grab",
+      "ink cloud"
+    ],
+    "specialQualities": [
+      "all-around vision",
+      "darkvision 60 ft.",
+      "immunity to acid and cold",
+      "resistance to electricity 10 and fire 10"
+    ],
+    "feats": [
+      "Blind-Fight",
+      "Dodge"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Unicorn",
+    "source": "Monster Manual 3.5",
+    "page": 250,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "4d10+20",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 20,
+      "dex": 17,
+      "con": 21,
+      "int": 10,
+      "wis": 21,
+      "cha": 24
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "horn",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": false,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "magic circle against evil",
+      "spell-like abilities",
+      "immunity to poison, charm, and compulsion",
+      "low-light vision",
+      "scent",
+      "wild empathy"
+    ],
+    "feats": [
+      "Alertness",
+      "Skill Focus (Survival)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 8
+  },
+  {
+    "name": "Xorn, Minor",
+    "source": "Monster Manual 3.5",
+    "page": 261,
+    "size": "Small",
+    "type": "Outsider",
+    "hitDice": "3d8+9",
+    "speed": {
+      "land": 20,
+      "burrow": 20
+    },
+    "naturalArmor": 12,
+    "abilities": {
+      "str": 15,
+      "dex": 10,
+      "con": 15,
+      "int": 10,
+      "wis": 11,
+      "cha": 10
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "damage": "1d3",
+        "crit": "20/x2",
+        "count": 3
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "all-around vision",
+      "earth glide",
+      "damage reduction 5/bludgeoning",
+      "darkvision 60 ft.",
+      "immunity to cold and fire",
+      "resistance to electricity 10",
+      "tremorsense 60 ft."
+    ],
+    "feats": [
+      "Multiattack",
+      "Toughness"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Arrowhawk, Adult",
+    "source": "Monster Manual 3.5",
+    "page": 19,
+    "size": "Medium",
+    "type": "Outsider",
+    "hitDice": "7d8+7",
+    "speed": {
+      "fly": 60
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 14,
+      "dex": 21,
+      "con": 12,
+      "int": 10,
+      "wis": 13,
+      "cha": 13
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "electricity ray",
+        "natural": false,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "electricity ray"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "immunity to acid, electricity, and poison",
+      "resistance to cold 10 and fire 10"
+    ],
+    "feats": [
+      "Dodge",
+      "Flyby Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Bear, Polar",
+    "source": "Monster Manual 3.5",
+    "page": 269,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "8d8+32",
+    "speed": {
+      "land": 40,
+      "swim": 30
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 27,
+      "dex": 13,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Endurance",
+      "Run",
+      "Track"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Dire Lion",
+    "source": "Monster Manual 3.5",
+    "page": 63,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "8d8+24",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 25,
+      "dex": 15,
+      "con": 17,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab",
+      "pounce",
+      "rake"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Run",
+      "Weapon Focus (claw)"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Elasmosaurus",
+    "source": "Monster Manual 3.5",
+    "page": 60,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "10d8+66",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 26,
+      "dex": 14,
+      "con": 22,
+      "int": 2,
+      "wis": 13,
+      "cha": 9
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Dodge",
+      "Great Fortitude",
+      "Toughness"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Elemental, Large Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Large",
+    "type": "Elemental",
+    "hitDice": "8d8+24",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 14,
+      "dex": 25,
+      "con": 16,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "air mastery",
+      "whirlwind"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Large Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Large",
+    "type": "Elemental",
+    "hitDice": "8d8+32",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 25,
+      "dex": 8,
+      "con": 19,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery",
+      "push"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "earth glide",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Power Attack"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Large Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Large",
+    "type": "Elemental",
+    "hitDice": "8d8+24",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 25,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "feats": [
+      "Alertness",
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative",
+      "Spring Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Elemental, Large Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Large",
+    "type": "Elemental",
+    "hitDice": "8d8+32",
+    "speed": {
+      "land": 20,
+      "swim": 90
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 20,
+      "dex": 14,
+      "con": 19,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "water mastery",
+      "drench",
+      "vortex"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "feats": [
+      "Alertness",
+      "Cleave",
+      "Great Cleave",
+      "Power Attack",
+      "Improved Bull Rush",
+      "Iron Will"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Griffon",
+    "source": "Monster Manual 3.5",
+    "page": 139,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "7d10+21",
+    "speed": {
+      "land": 30,
+      "fly": 80
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 5,
+      "wis": 13,
+      "cha": 8
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "damage": "1d4",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "pounce",
+      "rake"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Iron Will",
+      "Multiattack",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Janni",
+    "source": "Monster Manual 3.5",
+    "page": 116,
+    "size": "Medium",
+    "type": "Outsider",
+    "hitDice": "6d8+6",
+    "speed": {
+      "land": 30,
+      "fly": 20
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 16,
+      "dex": 15,
+      "con": 12,
+      "int": 14,
+      "wis": 15,
+      "cha": 13
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "scimitar",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "18-20/x2"
+      },
+      {
+        "name": "longbow",
+        "natural": false,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x3"
+      }
+    ],
+    "specialAttacks": [
+      "change size",
+      "spell-like abilities"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental endurance",
+      "plane shift",
+      "resistance to fire 10",
+      "telepathy 100 ft."
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative",
+      "Mobility"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Rhinoceros",
+    "source": "Monster Manual 3.5",
+    "page": 278,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "8d8+40",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 26,
+      "dex": 10,
+      "con": 21,
+      "int": 2,
+      "wis": 13,
+      "cha": 2
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "powerful charge"
+    ],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Improved Natural Attack (gore)"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Satyr (with pipes)",
+    "source": "Monster Manual 3.5",
+    "page": 219,
+    "size": "Medium",
+    "type": "Fey",
+    "hitDice": "5d6+5",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 10,
+      "dex": 13,
+      "con": 12,
+      "int": 12,
+      "wis": 13,
+      "cha": 13
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "head butt",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "pipes"
+    ],
+    "specialQualities": [
+      "damage reduction 5/cold iron",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Dodge",
+      "Mobility"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Snake, Giant Constrictor",
+    "source": "Monster Manual 3.5",
+    "page": 280,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "11d8+14",
+    "speed": {
+      "land": 20,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 25,
+      "dex": 17,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict",
+      "improved grab"
+    ],
+    "specialQualities": [
+      "scent"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Skill Focus (Hide)",
+      "Toughness"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  },
+  {
+    "name": "Nixie",
+    "source": "Monster Manual 3.5",
+    "page": 235,
+    "size": "Small",
+    "type": "Fey",
+    "hitDice": "1d6",
+    "speed": {
+      "land": 20,
+      "swim": 30
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 7,
+      "dex": 16,
+      "con": 11,
+      "int": 12,
+      "wis": 13,
+      "cha": 18
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "short sword",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "19-20/x2"
+      },
+      {
+        "name": "light crossbow",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "19-20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "charm person"
+    ],
+    "specialQualities": [
+      "amphibious",
+      "damage reduction 5/cold iron",
+      "low-light vision",
+      "spell resistance 16",
+      "water breathing",
+      "wild empathy"
+    ],
+    "feats": [
+      "Dodge",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Tojanida, Adult",
+    "source": "Monster Manual 3.5",
+    "page": 243,
+    "size": "Medium",
+    "type": "Outsider",
+    "hitDice": "7d8+14",
+    "speed": {
+      "land": 10,
+      "swim": 90
+    },
+    "naturalArmor": 12,
+    "abilities": {
+      "str": 16,
+      "dex": 13,
+      "con": 15,
+      "int": 10,
+      "wis": 12,
+      "cha": 9
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2",
+        "count": 2
+      }
+    ],
+    "specialAttacks": [
+      "improved grab",
+      "ink cloud"
+    ],
+    "specialQualities": [
+      "all-around vision",
+      "darkvision 60 ft.",
+      "immunity to acid and cold",
+      "resistance to electricity 10 and fire 10"
+    ],
+    "feats": [
+      "Blind-Fight",
+      "Dodge",
+      "Power Attack"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null
+  },
+  {
+    "name": "Whale, Orca",
+    "source": "Monster Manual 3.5",
+    "page": 283,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "9d8+48",
+    "speed": {
+      "swim": 50
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 27,
+      "dex": 15,
+      "con": 21,
+      "int": 2,
+      "wis": 14,
+      "cha": 6
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsight 120 ft.",
+      "hold breath",
+      "low-light vision"
+    ],
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Run",
+      "Toughness"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5
+  }
+]

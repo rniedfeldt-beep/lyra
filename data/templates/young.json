@@ -1,0 +1,13 @@
+{
+  "id": "young",
+  "name": "Young",
+  "source": "Pathfinder simple template, rebuild rules (DM-confirmed; verify exact numbers per CLAUDE.md open question)",
+  "abilityAdjustments": { "str": -4, "con": -4, "dex": 4 },
+  "sizeSteps": -1,
+  "naturalArmorBonus": -2,
+  "naturalArmorMin": 0,
+  "damageDieSteps": -1,
+  "colossalRestricted": false,
+  "challengeRatingDelta": -1,
+  "spellLevelCostDelta": -1
+}

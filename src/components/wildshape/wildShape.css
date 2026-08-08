@@ -1,0 +1,81 @@
+.wildshape-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.wildshape-picker select {
+  flex: 1 1 220px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 14px;
+}
+
+.wildshape-picker button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.wildshape-picker button:disabled {
+  opacity: 0.4;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.wildshape-statblock {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  background: var(--bg);
+}
+
+.wildshape-title {
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 10px;
+}
+
+.wildshape-statblock h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 14px 0 6px;
+}
+
+.wildshape-attacks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: var(--text-h);
+}
+
+.wildshape-attacks li {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.wildshape-attacks li:last-child {
+  border-bottom: none;
+}
+
+.wildshape-revert {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 14px;
+}

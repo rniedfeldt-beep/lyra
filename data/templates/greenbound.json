@@ -1,0 +1,35 @@
+{
+  "id": "greenbound",
+  "name": "Greenbound",
+  "source": "Lost Empires of Faerûn (Greenbound Summoning feat), always applied",
+  "appliesToTypes": ["Animal", "Fey", "Giant", "Humanoid", "Monstrous Humanoid", "Vermin"],
+  "typeChange": "Plant",
+  "hitDieOverride": 8,
+  "naturalArmorBonus": 6,
+  "abilityAdjustments": { "str": 6, "dex": 2, "con": 4, "cha": 4 },
+  "damageReduction": "10/magic and slashing",
+  "fastHealing": 3,
+  "grappleBonus": 4,
+  "resistances": { "cold": 10, "electricity": 10 },
+  "tremorsenseFt": 60,
+  "racialSkillBonus": { "skills": ["Hide", "Move Silently"], "value": 16, "condition": "in forested areas" },
+  "spellLikeAbilities": {
+    "atWill": ["entangle", "pass without trace", "speak with plants"],
+    "perDay": [{ "spell": "wall of thorns", "usesPerDay": 1 }],
+    "casterLevelSource": "summoner",
+    "saveDcFormula": "10 + spell level + CHA mod"
+  },
+  "slamDamageBySize": {
+    "Fine": "1",
+    "Diminutive": "1d2",
+    "Tiny": "1d3",
+    "Small": "1d4",
+    "Medium": "1d6",
+    "Large": "1d8",
+    "Huge": "2d6",
+    "Gargantuan": "2d8",
+    "Colossal": "4d6"
+  },
+  "challengeRatingDelta": 2,
+  "spellLevelCostDelta": 0
+}

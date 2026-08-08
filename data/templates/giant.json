@@ -1,0 +1,12 @@
+{
+  "id": "giant",
+  "name": "Giant",
+  "source": "Pathfinder simple template, rebuild rules (DM-confirmed)",
+  "abilityAdjustments": { "str": 4, "con": 4, "dex": -2 },
+  "sizeSteps": 1,
+  "naturalArmorBonus": 3,
+  "damageDieSteps": 1,
+  "colossalRestricted": true,
+  "challengeRatingDelta": 1,
+  "spellLevelCostDelta": 1
+}

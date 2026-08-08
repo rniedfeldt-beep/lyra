@@ -83,10 +83,10 @@
   ],
 
   "equipment": {
-    "armor": "bone_studded_leather",
+    "armor": "leafweave_studded_leather",
     "shield": "heavy_wooden_shield",
     "ring": "ring_of_protection",
-    "cloak": "forest_warden_shroud",
+    "cloak": "forestwarden_shroud",
     "necklace": "druid_necklace",
     "weapon": "quicksilver"
   },
@@ -112,13 +112,14 @@
     "totemicSummons": {
       "activeFromCharacterLevel": 5,
       "canineSummonCastTime": "standard action",
-      "canineTempHpEqualsCharacterLevel": true
+      "canineTempHpEqualsDruidLevel": true
     }
   },
 
   "wildShape": {
     "usesPerDay": 3,
     "maxSize": "Large",
+    "maxHd": 8,
     "effectiveDruidLevel": 8,
     "elementalOutsiderCostPerUse": 2,
     "planarShepherdTypeUnlocks": [

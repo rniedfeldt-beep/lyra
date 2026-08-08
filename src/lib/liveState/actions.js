@@ -36,3 +36,32 @@ export function setDailyUse(state, id, used) {
 export function setCompanionHp(state, current) {
   return { ...state, companionHp: { current } }
 }
+
+// Assuming a form costs 1 daily use, or 2 for elemental/outsider forms
+// (CLAUDE.md > Wild Shape). Reverting never refunds the use it cost.
+export function assumeWildShapeForm(state, creatureName, cost, maxUses) {
+  return {
+    ...state,
+    wildShapeUsed: Math.min(maxUses, state.wildShapeUsed + cost),
+    activeWildShapeForm: { creatureName, cost },
+  }
+}
+
+export function revertWildShapeForm(state) {
+  return { ...state, activeWildShapeForm: null }
+}
+
+export function addActiveSummon(state, summon) {
+  return { ...state, activeSummons: [...state.activeSummons, summon] }
+}
+
+export function updateActiveSummon(state, id, updates) {
+  return {
+    ...state,
+    activeSummons: state.activeSummons.map((s) => (s.id === id ? { ...s, ...updates } : s)),
+  }
+}
+
+export function removeActiveSummon(state, id) {
+  return { ...state, activeSummons: state.activeSummons.filter((s) => s.id !== id) }
+}

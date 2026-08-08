@@ -12,11 +12,11 @@ dist
 dist-ssr
 *.local
 
-# Copyrighted source PDFs and in-progress offline extraction work (per
-# CLAUDE.md rule 2: sourcebooks are never read at runtime and never ship).
-# The app's actual data lives in src/data, not here.
+# Copyrighted source PDFs — never read at runtime, never committed (rule 2).
+# /data (creatures, templates, etc.) IS tracked: it's the clean, offline-
+# extracted output the app actually consumes, per the Directory Shape spec.
 /sourcebooks/
-/data/
+*.bak
 
 # Editor directories and files
 .vscode/*

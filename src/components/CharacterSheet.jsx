@@ -1,6 +1,8 @@
 import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
+import WildShapeCalculator from './wildshape/WildShapeCalculator'
+import SummonBuilder from './summon/SummonBuilder'
 import './CharacterSheet.css'
 
 const ABILITY_ORDER = [
@@ -46,7 +48,7 @@ function AbilityScores({ abilityScores }) {
 }
 
 function CombatStats({ sheet }) {
-  const { character, ac, saves, initiative, speed } = sheet
+  const { character, ac, saves, initiative, spellAttackBonus, speed } = sheet
   return (
     <Card title="Combat Stats">
       <div className="stat-row-group">
@@ -59,10 +61,18 @@ function CombatStats({ sheet }) {
           <span className="stat-pill-value">{formatMod(initiative)}</span>
         </div>
         <div className="stat-pill">
+          <span className="stat-pill-label">Spell Attack</span>
+          <span className="stat-pill-value">{formatMod(spellAttackBonus)}</span>
+        </div>
+        <div className="stat-pill">
           <span className="stat-pill-label">Speed</span>
           <span className="stat-pill-value">{speed.total} ft.</span>
         </div>
       </div>
+      <p className="breakdown">
+        Spell attack bonus = BAB {formatMod(sheet.progression.bab)} + Wis mod{' '}
+        {formatMod(sheet.abilityScores.wis.mod)} (DM-confirmed)
+      </p>
 
       <h3>Armor Class</h3>
       <div className="stat-row-group">
@@ -236,7 +246,14 @@ function Equipment({ items }) {
       <ul className="equipment-list">
         {items.armor && (
           <li>
-            <strong>{items.armor.name}</strong> — {formatMod(items.armor.acBonus)} AC armor, non-metal
+            <strong>{items.armor.name}</strong> — {formatMod(items.armor.acBonus)} AC armor, max Dex +
+            {items.armor.maxDexBonus}, {items.armor.material}
+            {items.armor.note && (
+              <>
+                <br />
+                <span className="note">{items.armor.note}</span>
+              </>
+            )}
           </li>
         )}
         {items.shield && (
@@ -303,6 +320,8 @@ export default function CharacterSheet() {
       </header>
 
       <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} companion={companion} />
+      <WildShapeCalculator sheet={sheet} />
+      <SummonBuilder sheet={sheet} />
 
       <AbilityScores abilityScores={sheet.abilityScores} />
       <CombatStats sheet={sheet} />

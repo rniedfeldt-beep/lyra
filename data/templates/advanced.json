@@ -1,0 +1,12 @@
+{
+  "id": "advanced",
+  "name": "Advanced",
+  "source": "Pathfinder simple template, rebuild rules (DM-confirmed)",
+  "abilityAdjustments": { "str": 4, "dex": 4, "con": 4, "int": 4, "wis": 4, "cha": 4 },
+  "sizeSteps": 0,
+  "naturalArmorBonus": 0,
+  "damageDieSteps": 0,
+  "colossalRestricted": false,
+  "challengeRatingDelta": 1,
+  "spellLevelCostDelta": 1
+}

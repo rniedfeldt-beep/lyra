@@ -35,6 +35,5 @@ export function getItem(id) {
 }
 
 export { default as lyra } from '../data/character/lyra.json'
-export { default as quen } from '../data/character/quen.json'
 export { default as progressionTable } from '../data/tables/progression.json'
 export { default as spellSlotsBaseTable } from '../data/tables/spellSlotsBase.json'

@@ -151,6 +151,8 @@ permanent, capped at +5 total inherent. One week of game time to read.
 - **Ref** +6 (2 base + 4 Dex)
 - **Will** +12 (6 base + 5 Wis + 1 Strong Soul)
 - **Initiative** +4
+- **Spell attack bonus** +11 (BAB + Wis mod, DM-confirmed). Compute, don't hardcode — the WIS
+  22 tome must update this automatically.
 - **Land speed** **50 ft.** (30 base + 20 permanent Totem Transformation — see speed rule)
 - **Caster level** 8
 - **Druid save DC** 15 + spell level
@@ -182,16 +184,18 @@ Conditional, surface in UI rather than baking in:
 
 ### Equipment
 
-- Bone-studded leather: +3 AC, 0 check penalty, 20 lb (light, no speed penalty)
+- **Leafweave Studded Leather**: +3 AC, max Dex +6, 0 check penalty, 20 lb, non-metal with
+  darkwood studs (druid-legal). Leafweave increases the base masterwork studded leather's max
+  Dex bonus by 1 (5→6). Reduces arcane spell failure by 5% — irrelevant since Lyra's casting is
+  divine, but worth noting on the sheet rather than silently dropping it.
 - Heavy wooden shield: +2 AC, −2 check penalty, 10 lb
 - Ring of protection: +1 deflection
-- Forest warden shroud: no penalty in difficult terrain, Tumble, Move Silently
+- Forestwarden Shroud: no penalty in difficult terrain, Tumble, Move Silently
 - **Druid necklace**: 5–6 spells, 1/day each, **no spell slot**. Confirmed: *entangle*,
   *barkskin*, *plant growth*, *speak with plants*, *tree shape*, possibly one more. Track as
   independent daily checkboxes outside the slot economy.
 
-Armor and shield are non-metal (druid-legal). Arcane spell failure is irrelevant for divine
-casting — do not display it.
+Armor and shield are non-metal (druid-legal).
 
 #### Celeb mûr ("Silver Flow"), commonly called Quicksilver
 
@@ -475,17 +479,22 @@ Always available, outside the slot economy:
 
 - **Phase 0** — Setup. Done.
 - **Phase 1** — Static character sheet. Done.
-- **Phase 2** — Trackers + Supabase. Done, pending Supabase credentials. HP, spell slots, wild
-  shape uses, necklace, Fey Touched, plane shift, planar bubble, Quen's HP. One "Long Rest"
-  button. Storage adapter with offline fallback.
-  Code lives in `src/lib/storage` (adapter), `src/lib/liveState` (state shape, actions, React
-  context), `src/components/trackers` (UI). Works fully on localStorage today. To turn on
-  Supabase sync: run `supabase/setup.sql` in the project's SQL editor, then copy `.env.example`
-  to `.env.local` and fill in `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` — no code changes
-  needed.
-- **Phase 3** — Wild shape calculator.
+- **Phase 2** — Trackers + Supabase. Done. HP, spell slots, wild shape uses, necklace, Fey
+  Touched, plane shift, planar bubble, Quen's HP. One "Long Rest" button. Storage adapter with
+  Supabase sync (`supabase/setup.sql` + `.env.local`) and localStorage offline fallback.
+  Code: `src/lib/storage` (adapter), `src/lib/liveState` (state, actions, React context),
+  `src/components/trackers` (UI).
+- **Phase 3** — Wild shape calculator. Done. Full polymorph swap against
+  `data/creatures/monster-manual.json`, gated by `wildShapeMinLevel`/size/HD caps. Verified by
+  hand against Wolf and Unicorn (AC, saves, attack routine, +20 canine speed rule, Ex-only
+  ability filtering below PS9). Code: `src/lib/calc/wildShape.js`,
+  `src/components/wildshape/`.
 - **Phase 4** — Feywild magical beast forms and planar layering.
-- **Phase 5** — Summon builder.
+- **Phase 5** — Summon builder. Done. Simple template → Greenbound → Ashbound/Totemic Summons
+  pipeline, verified exactly against the Greenbound Wolf worked example table (base/Advanced/
+  Giant). Spell-level reachability picker, both slam and natural-weapon routines, active-summon
+  duration tracking. Code: `src/lib/calc/summonBuilder.js`, `data/templates/`,
+  `src/components/summon/`.
 - **Phase 6** — Bulk sourcebook ingestion via Cowork.
 - **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
 

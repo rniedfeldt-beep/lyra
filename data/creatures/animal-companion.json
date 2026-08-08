@@ -1,0 +1,58 @@
+{
+  "name": "Quen",
+  "source": "Quen",
+  "page": 1,
+  "size": "Medium",
+  "type": "Animal",
+  "hitDice": "6d8+12",
+  "hp": { "max": 45 },
+  "speed": { "land": 50 },
+  "naturalArmor": 6,
+  "abilities": { "str": 15, "dex": 17, "con": 15, "int": 2, "wis": 12, "cha": 6 },
+  "baseAttackBonus": 4,
+  "attacks": [
+    { "name": "bite", "natural": true, "primary": true, "damage": "1d6", "crit": "20/x2" }
+  ],
+  "specialAttacks": ["trip"],
+  "specialQualities": ["low-light vision", "scent"],
+  "feats": ["Track", "Weapon Focus (bite)"],
+  "challengeRating": 1,
+  "isCanine": true,
+  "feywildNative": false,
+  "summonNaturesAllyLevel": 1,
+  "wildShapeMinLevel": 5,
+
+  "companionLevel": 8,
+  "bonusHD": 4,
+  "naturalArmorBonus": 4,
+  "abilityAdjustment": 2,
+  "bonusTricks": 3,
+  "knownTricks": ["defend", "attack", "down", "fetch", "work", "come", "heel"],
+  "specialAbilities": ["Link", "Share Spells", "Evasion", "Devotion"],
+  "armor": {
+    "name": "Custom Masterwork Wooden Studded Honey Leather",
+    "armorBonus": 2,
+    "maxDex": 5,
+    "checkPenalty": 0,
+    "speed": 40,
+    "weight": 8
+  },
+
+  "progressionTable": [
+    { "levelRange": "1-2", "bonusHD": 0, "naturalArmor": 0, "abilityAdjustment": 0, "bonusTricks": 1, "special": ["Link", "Share Spells"] },
+    { "levelRange": "3-5", "bonusHD": 2, "naturalArmor": 2, "abilityAdjustment": 1, "bonusTricks": 2, "special": ["Evasion"] },
+    { "levelRange": "6-8", "bonusHD": 4, "naturalArmor": 4, "abilityAdjustment": 2, "bonusTricks": 3, "special": ["Devotion"] },
+    { "levelRange": "9-11", "bonusHD": 6, "naturalArmor": 6, "abilityAdjustment": 3, "bonusTricks": 4, "special": ["Multiattack"] },
+    { "levelRange": "12-14", "bonusHD": 8, "naturalArmor": 8, "abilityAdjustment": 4, "bonusTricks": 5, "special": [] },
+    { "levelRange": "15-17", "bonusHD": 10, "naturalArmor": 10, "abilityAdjustment": 5, "bonusTricks": 6, "special": [] },
+    { "levelRange": "18-20", "bonusHD": 12, "naturalArmor": 12, "abilityAdjustment": 6, "bonusTricks": 7, "special": ["Improved Evasion"] }
+  ],
+
+  "baseCreature": {
+    "hitDice": "2d8+4",
+    "speed": { "land": 50 },
+    "naturalArmor": 2,
+    "abilities": { "str": 13, "dex": 15, "con": 15, "int": 2, "wis": 12, "cha": 6 },
+    "baseAttackBonus": 1
+  }
+}

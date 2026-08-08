@@ -1,4 +1,5 @@
-import { lyra, quen, getFeats, getItem, progressionTable, spellSlotsBaseTable } from './loadData'
+import { lyra, getFeats, getItem, progressionTable, spellSlotsBaseTable } from './loadData'
+import { animalCompanion } from './loadCreatureData'
 import { computeCharacterSheet } from './calc/computeCharacterSheet'
 import { collectDailyAbilities } from './liveState/dailyAbilities'
 
@@ -27,4 +28,4 @@ export const dailyAbilities = collectDailyAbilities({
   items: resolvedItems,
 })
 
-export const companion = quen
+export const companion = animalCompanion
