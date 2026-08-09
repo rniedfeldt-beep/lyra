@@ -340,11 +340,20 @@ Feywild-native, so never available. Pixie and satyr are fey — never available.
 
 A canine summon can stack a simple template, Greenbound, and two feat effects.
 
+**Summonable ≠ Greenbound-eligible.** Anything with a `summonNaturesAllyLevel` is a valid
+summon regardless of type — Lyra can cast *summon nature's ally* to get an arrowhawk, a xorn,
+a unicorn, or an elemental same as a wolf. Greenbound only layers onto animal / fey / giant /
+humanoid / monstrous humanoid / vermin base creatures; magical beasts, outsiders, and
+elementals are summonable but never get the template (no type change, no stat boost, no
+gained slam, no DR/qualities/spell-likes). Ashbound's duration-double and +3 luck bonus, and
+Totemic Summons' canine temp HP, apply to **every** summon regardless of Greenbound
+eligibility — don't gate those on it.
+
 ### Pipeline order
 
-1. **Simple template** (young / advanced / giant), if chosen
-2. **Greenbound template**
-3. **Ashbound** and **Totemic Summons** bonuses
+1. **Simple template** (young / advanced / giant), if chosen — canines only
+2. **Greenbound template**, if the base creature's type qualifies
+3. **Ashbound** and **Totemic Summons** bonuses — always, independent of step 2
 
 Ability adjustments are commutative, but Greenbound's slam damage is size-keyed and its
 "whichever is better" comparison must evaluate at **final** size. Size resolves first.
@@ -370,9 +379,11 @@ space, reach, and grapple.
 
 **Damage ladder:** 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 2d8 → 3d6 → 3d8. Reverse for young.
 
-### Greenbound template (always applied)
+### Greenbound template (when the base creature qualifies)
 
-Applicable to animal, fey, giant, humanoid, monstrous humanoid, or vermin base creatures.
+Applicable to animal, fey, giant, humanoid, monstrous humanoid, or vermin base creatures only.
+A magical beast, outsider, or elemental summon skips this section entirely and keeps its own
+type, ability scores, and natural armor.
 
 - **Type** → plant (augmented subtype). Size unchanged. Do **not** recalculate base attack
   bonus, base saves, or skill points.

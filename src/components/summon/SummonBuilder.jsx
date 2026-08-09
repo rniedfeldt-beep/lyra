@@ -12,7 +12,8 @@ import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/lo
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
 import './summon.css'
 
-function loadoutLabel(creature, templateId) {
+function loadoutLabel(creature, templateId, greenboundEligible) {
+  if (!greenboundEligible) return creature.name
   if (!templateId) return `${creature.name} (Greenbound)`
   return `${creature.name} (${simpleTemplates[templateId].name} Greenbound)`
 }
@@ -72,22 +73,41 @@ function SummonStatBlock({ statBlock }) {
       </div>
 
       <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} />
-      <AttackRoutineList title="Slam Routine" routine={statBlock.slamRoutine} />
-      <p className="note">Either routine may be used, not both, on a given attack.</p>
+      {statBlock.slamRoutine && (
+        <>
+          <AttackRoutineList title="Slam Routine" routine={statBlock.slamRoutine} />
+          <p className="note">Either routine may be used, not both, on a given attack.</p>
+        </>
+      )}
 
-      <h3>Qualities</h3>
-      <p className="breakdown">
-        DR {qualities.damageReduction} · Fast healing {qualities.fastHealing} · +{qualities.grappleBonus} grapple ·
-        Resist cold {qualities.resistances.cold}/electricity {qualities.resistances.electricity} · Tremorsense{' '}
-        {qualities.tremorsenseFt} ft. · +{qualities.racialSkillBonus.value}{' '}
-        {qualities.racialSkillBonus.skills.join('/')} {qualities.racialSkillBonus.condition}
-      </p>
+      {!statBlock.greenboundEligible && (
+        <p className="note">
+          Greenbound Summoning doesn't apply to {statBlock.creature.type.toLowerCase()}s — plain summon, no
+          template.
+        </p>
+      )}
 
-      <h3>Spell-Like Abilities</h3>
-      <p className="breakdown">
-        At will — {spellLikeAbilities.atWill.join(', ')}; {spellLikeAbilities.perDay.map((s) => `${s.spell} 1/day`).join(', ')}.
-        DC = 10 + spell level + {formatMod(chaMod)} (CHA)
-      </p>
+      {qualities && (
+        <>
+          <h3>Qualities</h3>
+          <p className="breakdown">
+            DR {qualities.damageReduction} · Fast healing {qualities.fastHealing} · +{qualities.grappleBonus} grapple ·
+            Resist cold {qualities.resistances.cold}/electricity {qualities.resistances.electricity} · Tremorsense{' '}
+            {qualities.tremorsenseFt} ft. · +{qualities.racialSkillBonus.value}{' '}
+            {qualities.racialSkillBonus.skills.join('/')} {qualities.racialSkillBonus.condition}
+          </p>
+        </>
+      )}
+
+      {spellLikeAbilities && (
+        <>
+          <h3>Spell-Like Abilities</h3>
+          <p className="breakdown">
+            At will — {spellLikeAbilities.atWill.join(', ')}; {spellLikeAbilities.perDay.map((s) => `${s.spell} 1/day`).join(', ')}.
+            DC = 10 + spell level + {formatMod(chaMod)} (CHA)
+          </p>
+        </>
+      )}
     </div>
   )
 }
@@ -231,7 +251,7 @@ export default function SummonBuilder({ sheet }) {
     update((s) => {
       const withSummon = addActiveSummon(s, {
         id: summonId,
-        label: loadoutLabel(statBlock.creature, statBlock.templateId),
+        label: loadoutLabel(statBlock.creature, statBlock.templateId, statBlock.greenboundEligible),
         remainingRounds: statBlock.durationRounds,
         hpMax: statBlock.hp,
         tempHpMax: statBlock.tempHp,
@@ -252,7 +272,7 @@ export default function SummonBuilder({ sheet }) {
       <SpellLevelPicker level={level} setLevel={(l) => { setLevel(l); setSelectedIndex(0) }} availableLevels={availableLevels} />
 
       {loadouts.length === 0 ? (
-        <p className="breakdown">No canine trades or base Greenbound options land on this level.</p>
+        <p className="breakdown">No summonable creatures land on this level.</p>
       ) : (
         <>
           <select
@@ -261,8 +281,8 @@ export default function SummonBuilder({ sheet }) {
             onChange={(e) => setSelectedIndex(Number(e.target.value))}
           >
             {loadouts.map((l, i) => (
-              <option key={loadoutLabel(l.creature, l.templateId)} value={i}>
-                {loadoutLabel(l.creature, l.templateId)}
+              <option key={`${l.creature.name}-${l.templateId}`} value={i}>
+                {loadoutLabel(l.creature, l.templateId, l.greenboundEligible)}
               </option>
             ))}
           </select>
