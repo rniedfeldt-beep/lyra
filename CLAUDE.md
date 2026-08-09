@@ -224,7 +224,7 @@ weapon and qualifies. Not currently taken.
 - **Strong Soul** (L1) — +1 Fort and Will; more vs death effects and energy drain
 - **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
 - **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
-  results. **Automatic, not a toggle.**
+  results except elementals (DM-confirmed). **Automatic, not a toggle.**
 - **Natural Spell** (L4–5) — cast while wild shaped
 - **Animal Affinity** (L4–5) — +2 Handle Animal, +2 Ride
 - **Fey Touched** (L4–5, 5e) — +1 WIS; *misty step* and *charm person*, 1/day each
@@ -359,19 +359,20 @@ Feywild-native, so never available. Pixie and satyr are fey — never available.
 
 A canine summon can stack a simple template, Greenbound, and two feat effects.
 
-**Summonable ≠ Greenbound-eligible.** Anything with a `summonNaturesAllyLevel` is a valid
-summon regardless of type — Lyra can cast *summon nature's ally* to get an arrowhawk, a xorn,
-a unicorn, or an elemental same as a wolf. Greenbound only layers onto animal / fey / giant /
-humanoid / monstrous humanoid / vermin base creatures; magical beasts, outsiders, and
-elementals are summonable but never get the template (no type change, no stat boost, no
-gained slam, no DR/qualities/spell-likes). Ashbound's duration-double and +3 luck bonus, and
-Totemic Summons' canine temp HP, apply to **every** summon regardless of Greenbound
-eligibility — don't gate those on it.
+**Greenbound applies to every summon except elementals (DM-confirmed).** Anything with a
+`summonNaturesAllyLevel` is a valid summon regardless of type — Lyra can cast *summon nature's
+ally* to get an arrowhawk, a xorn, a unicorn, or an elemental same as a wolf — and Greenbound
+Summoning layers onto every result except an elemental base creature: animals, fey, giants,
+humanoids, monstrous humanoids, vermin, magical beasts, and outsiders all get the full template
+(type change, stat boost, gained slam, DR/qualities/spell-likes); an elemental summon skips the
+template entirely and keeps its own type, ability scores, and natural armor. Ashbound's
+duration-double and +3 luck bonus, and Totemic Summons' canine temp HP, apply to **every**
+summon independently of Greenbound eligibility — don't gate those on it.
 
 ### Pipeline order
 
 1. **Simple template** (young / advanced / giant), if chosen — canines only
-2. **Greenbound template**, if the base creature's type qualifies
+2. **Greenbound template**, unless the base creature is an elemental
 3. **Ashbound** and **Totemic Summons** bonuses — always, independent of step 2
 
 Ability adjustments are commutative, but Greenbound's slam damage is size-keyed and its
@@ -398,11 +399,10 @@ space, reach, and grapple.
 
 **Damage ladder:** 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 2d8 → 3d6 → 3d8. Reverse for young.
 
-### Greenbound template (when the base creature qualifies)
+### Greenbound template (applies to every summon except elementals)
 
-Applicable to animal, fey, giant, humanoid, monstrous humanoid, or vermin base creatures only.
-A magical beast, outsider, or elemental summon skips this section entirely and keeps its own
-type, ability scores, and natural armor.
+An elemental base creature skips this section entirely and keeps its own type, ability
+scores, and natural armor.
 
 - **Type** → plant (augmented subtype). Size unchanged. Do **not** recalculate base attack
   bonus, base saves, or skill points.

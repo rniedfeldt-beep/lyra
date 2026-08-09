@@ -10,18 +10,17 @@ import {
 } from '../rules/dnd35'
 
 // Anything with a Summon Nature's Ally level is summonable, full stop —
-// type is irrelevant here. Whether Greenbound also applies is a separate
-// question (see isGreenboundEligible): Lyra can summon an arrowhawk, a
-// xorn, or a unicorn same as a wolf, she just won't get Greenbound on it.
+// type is irrelevant here.
 export function getSummonableCreatures(monsterManual) {
   return monsterManual.filter((c) => c.summonNaturesAllyLevel != null)
 }
 
-// Greenbound only applies to animal/fey/giant/humanoid/monstrous humanoid/
-// vermin base creatures (CLAUDE.md > Summoning > Greenbound template).
-// Magical beasts, outsiders, and elementals are summonable but never get it.
+// Greenbound Summoning (Lost Empires of Faerûn) applies to every summon
+// nature's ally result except elementals (DM-confirmed) — animals, fey,
+// giants, humanoids, monstrous humanoids, vermin, magical beasts, and
+// outsiders all get it (CLAUDE.md > Summoning > Greenbound template).
 export function isGreenboundEligible(creature, greenboundTemplate) {
-  return greenboundTemplate.appliesToTypes.includes(creature.type)
+  return !greenboundTemplate.excludedTypes.includes(creature.type)
 }
 
 function spellLevelCost(creature, templateId, simpleTemplates, greenboundEligible, greenboundTemplate) {
@@ -201,8 +200,7 @@ function collectSummonFeatBonuses(feats) {
 // Totemic Summons. Order matters — Greenbound's slam-vs-size comparison
 // must run at final (post-simple-template) size (CLAUDE.md > Summoning >
 // Pipeline order). Ashbound and Totemic Summons apply regardless of
-// Greenbound eligibility; Greenbound itself only applies to
-// animal/fey/giant/humanoid/monstrous humanoid/vermin base creatures.
+// Greenbound eligibility; Greenbound itself excludes elementals only.
 export function computeSummonStatBlock({ sheet, creature, templateId, simpleTemplates, greenboundTemplate }) {
   const character = sheet.character
   const greenboundEligible = isGreenboundEligible(creature, greenboundTemplate)

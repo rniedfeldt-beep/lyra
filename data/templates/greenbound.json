@@ -1,8 +1,8 @@
 {
   "id": "greenbound",
   "name": "Greenbound",
-  "source": "Lost Empires of Faerûn (Greenbound Summoning feat), always applied",
-  "appliesToTypes": ["Animal", "Fey", "Giant", "Humanoid", "Monstrous Humanoid", "Vermin"],
+  "source": "Lost Empires of Faerûn (Greenbound Summoning feat), applied to every summon except elementals (DM-confirmed)",
+  "excludedTypes": ["Elemental"],
   "typeChange": "Plant",
   "hitDieOverride": 8,
   "naturalArmorBonus": 6,

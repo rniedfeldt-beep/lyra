@@ -100,8 +100,7 @@ function SummonStatBlock({ statBlock }) {
 
       {!statBlock.greenboundEligible && (
         <p className="note">
-          Greenbound Summoning doesn't apply to {statBlock.creature.type.toLowerCase()}s — plain summon, no
-          template.
+          Greenbound Summoning doesn't apply to elementals — plain summon, no template.
         </p>
       )}
 
