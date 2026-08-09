@@ -14,7 +14,11 @@
     { "name": "bite", "natural": true, "primary": true, "damage": "1d6", "crit": "20/x2" }
   ],
   "specialAttacks": ["trip"],
+  "specialAttackNotes": {
+    "trip": "On a bite hit, may trip as a free action with a +1 check modifier, no touch attack, no attack of opportunity. Failure doesn't allow a counter-trip."
+  },
   "specialQualities": ["low-light vision", "scent"],
+  "skillNotes": ["+4 racial bonus on Survival when tracking by scent"],
   "feats": ["Track", "Weapon Focus (bite)"],
   "challengeRating": 1,
   "isCanine": true,
@@ -29,6 +33,9 @@
   "bonusTricks": 3,
   "knownTricks": ["defend", "attack", "down", "fetch", "work", "come", "heel"],
   "specialAbilities": ["Link", "Share Spells", "Evasion", "Devotion"],
+  "specialAbilityNotes": {
+    "Devotion": "+4 morale bonus on Will saves against enchantment. Base Will +3 is Quen's weak point otherwise."
+  },
   "armor": {
     "name": "Custom Masterwork Wooden Studded Honey Leather",
     "armorBonus": 2,

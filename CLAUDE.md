@@ -520,13 +520,29 @@ Always available, outside the slot economy:
 
 ## Layout
 
-One long scrolling page, deliberately no tabs — Lyra's stats and a summon's stats need to be
-readable in the same round. `PartySection` (`src/components/layout/`) gives Lyra, Quen, and
-each active summon group their own color-coded block with a sticky header (purple/green/
-amber respectively), so whoever's stats you're scrolled into stays legible. `CombatBar` is a
-slim bar pinned above everything showing Lyra's current HP/AC/Initiative regardless of scroll
-position. `--combatbar-height` (index.css) must match `CombatBar`'s actual height, or the
-sticky section headers will sit at the wrong offset.
+Three tabs — Lyra / Companions / Reference — via `TabBar` (`src/components/layout/`), local
+`useState` in `CharacterSheet.jsx`, no router. `CombatBar` (HP/AC/Initiative) is pinned above
+the tab content and rendered unconditionally, so it's visible on every tab regardless of which
+one is active. `PartySection` still gives Lyra, Quen, and each active summon group their own
+color-coded block with a sticky header (purple/green/amber respectively) within a tab.
+
+- **Tab 1 — Lyra**: resource trackers (spell slots, wild shape uses, per-day abilities,
+  necklace spells), spellcasting reference (save DCs by level, spell attack bonus, caster
+  level), ability scores, combat stats, AC, saves, wild shape, skills.
+- **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
+  trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
+  per-instance HP and wall of thorns tracking.
+- **Tab 3 — Reference**: spell slot summary table, equipment descriptions, feat descriptions,
+  the Quicksilver attack routine (rarely used mid-combat, so it moved out of Tab 1).
+
+`TabBar` sticks just below `CombatBar`; `PartySection` headers stick below both. Two CSS
+custom properties in `index.css` drive the offsets — `--combatbar-height` and
+`--tabbar-height` — and both must match their component's actual rendered height, or sticky
+headers land at the wrong offset. `partySection.css` stacks them via
+`top: calc(var(--combatbar-height) + var(--tabbar-height))`.
+
+Quen's stat block is computed by `src/lib/calc/companion.js` (`computeCompanionStatBlock`),
+verified against the reference numbers in the Quen section below.
 
 **Known CSS gotcha:** `overflow: hidden` on a `PartySection` breaks `position: sticky` on its
 header child (changes the sticky containing block). Corner rounding is done on the header/body
@@ -554,6 +570,10 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   `src/components/summon/`.
 - **Phase 6** — Bulk sourcebook ingestion via Cowork.
 - **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
+- **Phase 8** — Three-tab restructure (Lyra / Companions / Reference). Done. Replaced the
+  single-scroll layout — see Layout section above for the per-tab breakdown. Added
+  `src/lib/calc/companion.js` for Quen's full combat block (AC, saves, attack routine) and
+  `TabBar` for navigation. `CombatBar` stays pinned across all tabs.
 
 Phase 2 before Phase 3 deliberately — trackers get used every session.
 

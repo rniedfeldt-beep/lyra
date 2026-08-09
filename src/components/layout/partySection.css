@@ -10,7 +10,7 @@
 
 .party-section-header {
   position: sticky;
-  top: var(--combatbar-height);
+  top: calc(var(--combatbar-height) + var(--tabbar-height));
   z-index: 5;
   display: flex;
   align-items: baseline;

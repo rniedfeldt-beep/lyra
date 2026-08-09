@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
@@ -6,6 +7,7 @@ import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
+import TabBar from './layout/TabBar'
 import './CharacterSheet.css'
 
 const ABILITY_ORDER = [
@@ -45,8 +47,52 @@ function AbilityScores({ abilityScores }) {
   )
 }
 
-function CombatStats({ sheet }) {
-  const { character, ac, saves, initiative, spellAttackBonus, speed } = sheet
+function SpellcastingReference({ sheet }) {
+  const { character, spellAttackBonus, progression, abilityScores, spellSlots } = sheet
+  const levels = [0, ...spellSlots.slots.filter((s) => s.total > 0).map((s) => s.spellLevel)]
+
+  return (
+    <Card title="Spellcasting">
+      <div className="stat-row-group">
+        <div className="stat-pill">
+          <span className="stat-pill-label">Caster Level</span>
+          <span className="stat-pill-value">{character.casterLevel.druid}</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-label">Spell Attack</span>
+          <span className="stat-pill-value">{formatMod(spellAttackBonus)}</span>
+        </div>
+      </div>
+      <p className="breakdown">
+        Spell attack bonus = BAB {formatMod(progression.bab)} + Wis mod{' '}
+        {formatMod(abilityScores.wis.mod)} (DM-confirmed)
+      </p>
+
+      <h3>Save DCs by Level</h3>
+      <table className="data-table">
+        <thead>
+          <tr>
+            {levels.map((l) => (
+              <th key={l}>{SPELL_LEVEL_LABELS[l]}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {levels.map((l) => (
+              <td key={l} className="total-cell">
+                {character.spellDcBase + l}
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </Card>
+  )
+}
+
+function CombatStatsCore({ sheet }) {
+  const { character, initiative, speed } = sheet
   return (
     <Card title="Combat Stats">
       <div className="stat-row-group">
@@ -59,20 +105,20 @@ function CombatStats({ sheet }) {
           <span className="stat-pill-value">{formatMod(initiative)}</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-label">Spell Attack</span>
-          <span className="stat-pill-value">{formatMod(spellAttackBonus)}</span>
-        </div>
-        <div className="stat-pill">
           <span className="stat-pill-label">Speed</span>
           <span className="stat-pill-value">{speed.total} ft.</span>
         </div>
       </div>
       <p className="breakdown">
-        Spell attack bonus = BAB {formatMod(sheet.progression.bab)} + Wis mod{' '}
-        {formatMod(sheet.abilityScores.wis.mod)} (DM-confirmed)
+        Speed: {speed.base} ft. base + {speed.enhancement} ft. ({speed.enhancementSource})
       </p>
+    </Card>
+  )
+}
 
-      <h3>Armor Class</h3>
+function ArmorClass({ ac }) {
+  return (
+    <Card title="Armor Class">
       <div className="stat-row-group">
         <div className="stat-pill stat-pill-large">
           <span className="stat-pill-label">AC</span>
@@ -90,8 +136,13 @@ function CombatStats({ sheet }) {
       <p className="breakdown">
         {ac.breakdown.map((b) => `${b.label} ${formatMod(b.value)}`).join(' · ')}
       </p>
+    </Card>
+  )
+}
 
-      <h3>Saves</h3>
+function Saves({ saves }) {
+  return (
+    <Card title="Saves">
       <table className="data-table">
         <thead>
           <tr>
@@ -118,10 +169,6 @@ function CombatStats({ sheet }) {
           ))}
         </tbody>
       </table>
-
-      <p className="breakdown">
-        Speed: {speed.base} ft. base + {speed.enhancement} ft. ({speed.enhancementSource})
-      </p>
     </Card>
   )
 }
@@ -303,10 +350,12 @@ function Feats({ feats }) {
 export default function CharacterSheet() {
   const sheet = lyraSheet
   const { character } = sheet
+  const [activeTab, setActiveTab] = useState('lyra')
 
   return (
     <>
       <CombatBar sheet={sheet} />
+      <TabBar active={activeTab} onChange={setActiveTab} />
       <div className="sheet">
         <header className="sheet-header">
           <h1>{character.name}</h1>
@@ -319,28 +368,45 @@ export default function CharacterSheet() {
           </p>
         </header>
 
-        <PartySection color="lyra" title={character.name} subtitle="Player character">
-          <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} />
-          <WildShapeCalculator sheet={sheet} />
-          <SummonBuilder sheet={sheet} />
-          <AbilityScores abilityScores={sheet.abilityScores} />
-          <CombatStats sheet={sheet} />
-          <AttackRoutine sheet={sheet} />
-          <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
-          <SpellSlots
-            spellSlots={sheet.spellSlots}
-            casterLevel={character.casterLevel.druid}
-            spellDcBase={character.spellDcBase}
-          />
-          <Equipment items={sheet.items} />
-          <Feats feats={sheet.feats} />
-        </PartySection>
+        {activeTab === 'lyra' && (
+          <PartySection color="lyra" title={character.name} subtitle="Player character">
+            <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} />
+            <SpellcastingReference sheet={sheet} />
+            <AbilityScores abilityScores={sheet.abilityScores} />
+            <CombatStatsCore sheet={sheet} />
+            <ArmorClass ac={sheet.ac} />
+            <Saves saves={sheet.saves} />
+            <WildShapeCalculator sheet={sheet} />
+            <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
+          </PartySection>
+        )}
 
-        <PartySection color="quen" title={companion.name} subtitle="Animal companion">
-          <CompanionPanel companion={companion} />
-        </PartySection>
+        {activeTab === 'companions' && (
+          <>
+            <PartySection color="quen" title={companion.name} subtitle="Animal companion">
+              <CompanionPanel companion={companion} />
+            </PartySection>
 
-        <ActiveSummonSections />
+            <PartySection color="summon" title="Summon Nature's Ally" subtitle="Build a new summon">
+              <SummonBuilder sheet={sheet} />
+            </PartySection>
+
+            <ActiveSummonSections />
+          </>
+        )}
+
+        {activeTab === 'reference' && (
+          <PartySection color="lyra" title="Reference" subtitle="Spells, equipment, feats">
+            <SpellSlots
+              spellSlots={sheet.spellSlots}
+              casterLevel={character.casterLevel.druid}
+              spellDcBase={character.spellDcBase}
+            />
+            <Equipment items={sheet.items} />
+            <Feats feats={sheet.feats} />
+            <AttackRoutine sheet={sheet} />
+          </PartySection>
+        )}
 
         <p className="phase-note">Phase 5 — wild shape and summon builder live, trackers synced via Supabase.</p>
       </div>
