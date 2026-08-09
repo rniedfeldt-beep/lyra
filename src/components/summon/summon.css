@@ -42,6 +42,33 @@
   margin-bottom: 8px;
 }
 
+.collapsible {
+  margin-top: 8px;
+}
+
+.collapsible-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+  color: var(--text-h);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.collapsible-toggle .chevron {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.collapsible-toggle .chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
 .summon-statblock {
   border: 1px solid var(--border);
   border-radius: 8px;

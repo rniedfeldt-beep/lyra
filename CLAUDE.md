@@ -455,11 +455,28 @@ tradeoff rather than assuming one is better.
 ### Summon builder UI
 
 Player picks a spell slot level, sees which creatures are reachable at which template loadouts,
-gets the finished stat block. Summon Nature's Ally can produce more than one creature (the
-player rolls the count, e.g. 1d4+1, and types it in) — each instance is tracked individually
-(own HP, temp HP, dead/dismissed status) since they take damage separately, grouped under one
-summon with a **shared** stat block and **shared** remaining duration (doubled by Ashbound).
+gets the finished stat block (ability scores, saves, AC/touch/flat-footed, initiative, speed,
+both attack routines, qualities, spell-like abilities) in a collapsible preview that defaults
+**collapsed** — useful while deciding, noise once summoned. Summon Nature's Ally can produce
+more than one creature (the player rolls the count, e.g. 1d4+1, and types it in) — each
+instance is tracked individually (own HP, temp HP, wall of thorns, dead/dismissed status)
+since they take damage separately, grouped under one summon with a **shared** stat block and
+**shared** remaining duration (doubled by Ashbound). The full stat block is stored on the
+group at cast time (not recomputed later) and shown once per group in a collapsible section
+that defaults **expanded**, with the per-instance trackers underneath.
+
+**Each cast is its own group, even for the same creature.** Casting Summon Nature's Ally I for
+2 wolves, then again later for 3 more, produces two independent groups — separate durations,
+separate HP/wall-of-thorns trackers. Never merge groups by creature name. Group headers show
+creature, count, and remaining duration together (`Dire Rat (Greenbound) ×2 — 12 rounds left`)
+so multiple active groups stay distinguishable at a glance.
+
 Multiple different summons can be active at once, each its own group.
+
+Monster base save progression (good = 2 + floor(HD/2), poor = floor(HD/3), by creature type)
+lives in `monsterBaseSaves()` (`src/lib/rules/dnd35.js`) — shared between the summon builder
+and Quen's companion calculator, since a summon (unlike a wild-shaped Lyra) uses its own base
+saves, not Lyra's.
 
 **Note:** Greenbound changes type to *plant*; PS 3 grants wild shape into *magical beasts*.
 Separate systems. Greenbound does not unlock wild shape forms.

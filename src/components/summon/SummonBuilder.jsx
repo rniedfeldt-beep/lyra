@@ -8,15 +8,41 @@ import {
   setSpellSlotUsed,
 } from '../../lib/liveState/actions'
 import { getReachableLoadouts, computeSummonStatBlock } from '../../lib/calc/summonBuilder'
+import { abilityMod } from '../../lib/calc/abilities'
 import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/loadCreatureData'
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
 import PartySection from '../layout/PartySection'
 import './summon.css'
 
+const ABILITY_ORDER = [
+  ['str', 'STR'],
+  ['dex', 'DEX'],
+  ['con', 'CON'],
+  ['int', 'INT'],
+  ['wis', 'WIS'],
+  ['cha', 'CHA'],
+]
+
 function loadoutLabel(creature, templateId, greenboundEligible) {
   if (!greenboundEligible) return creature.name
   if (!templateId) return `${creature.name} (Greenbound)`
   return `${creature.name} (${simpleTemplates[templateId].name} Greenbound)`
+}
+
+// Collapsible wrapper used both for the picker's preview (default collapsed
+// — useful while deciding, noise once summoned) and each active group's
+// full stat block (default expanded — that's the one you need mid-combat).
+function Collapsible({ title, defaultExpanded, children }) {
+  const [expanded, setExpanded] = useState(defaultExpanded)
+  return (
+    <div className="collapsible">
+      <button type="button" className="collapsible-toggle" onClick={() => setExpanded((e) => !e)}>
+        <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
+        {title}
+      </button>
+      {expanded && <div className="collapsible-body">{children}</div>}
+    </div>
+  )
 }
 
 function AttackEntry({ atk }) {
@@ -55,7 +81,28 @@ function AttackRoutineList({ title, routine }) {
 }
 
 function SummonStatBlock({ statBlock }) {
-  const { creature, size, type, ac, hp, tempHp, spellLevel, chaMod, durationRounds, castAsStandardAction, qualities, spellLikeAbilities } = statBlock
+  const {
+    creature,
+    size,
+    type,
+    abilities,
+    saves,
+    ac,
+    initiative,
+    speed,
+    hp,
+    tempHp,
+    spellLevel,
+    chaMod,
+    durationRounds,
+    castAsStandardAction,
+    qualities,
+    spellLikeAbilities,
+  } = statBlock
+
+  const speedText = Object.entries(speed)
+    .map(([t, ft]) => `${t === 'land' ? '' : t + ' '}${ft} ft.`)
+    .join(', ')
 
   return (
     <div className="summon-statblock">
@@ -76,6 +123,48 @@ function SummonStatBlock({ statBlock }) {
           <span className="stat-pill-label">Temp HP</span>
           <span className="stat-pill-value">{formatMod(tempHp)}</span>
         </div>
+      </div>
+
+      <div className="ability-grid">
+        {ABILITY_ORDER.map(([key, label]) => {
+          const score = abilities[key]
+          return (
+            <div className="ability-block" key={key}>
+              <div className="ability-label">{label}</div>
+              <div className="ability-score">{score}</div>
+              <div className="ability-mod">{formatMod(abilityMod(score))}</div>
+            </div>
+          )
+        })}
+      </div>
+
+      <h3>Saves</h3>
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Base</th>
+            <th>Ability</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            ['Fortitude', saves.fort],
+            ['Reflex', saves.ref],
+            ['Will', saves.will],
+          ].map(([label, s]) => (
+            <tr key={label}>
+              <td>{label}</td>
+              <td>{formatMod(s.base)}</td>
+              <td>{formatMod(s.abilityMod)}</td>
+              <td className="total-cell">{formatMod(s.total)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div className="stat-row-group">
         <div className="stat-pill stat-pill-large">
           <span className="stat-pill-label">AC</span>
           <span className="stat-pill-value">{ac.total}</span>
@@ -88,7 +177,13 @@ function SummonStatBlock({ statBlock }) {
           <span className="stat-pill-label">Flat-footed</span>
           <span className="stat-pill-value">{ac.flatFooted}</span>
         </div>
+        <div className="stat-pill">
+          <span className="stat-pill-label">Initiative</span>
+          <span className="stat-pill-value">{formatMod(initiative)}</span>
+        </div>
       </div>
+
+      <p className="breakdown">Speed: {speedText}</p>
 
       <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} />
       {statBlock.slamRoutine && (
@@ -205,7 +300,10 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns
 
 // Each active summon gets its own color-coded PartySection (rendered by
 // CharacterSheet, separate from the builder tool below), so a summon's
-// stats stay easy to find mid-combat alongside Lyra's and Quen's.
+// stats stay easy to find mid-combat alongside Lyra's and Quen's. Each cast
+// is its own group even if it summons the same creature as an earlier
+// group — never merge by creature name, since duration/HP/wall-of-thorns
+// are tracked independently per cast.
 export function ActiveSummonSections() {
   const { state, update } = useLiveState()
   // Guards against summons saved before per-member tracking existed —
@@ -214,7 +312,11 @@ export function ActiveSummonSections() {
   if (groups.length === 0) return null
 
   return groups.map((s) => (
-    <PartySection key={s.id} color="summon" title={s.label} subtitle={`${s.members.length} active`}>
+    <PartySection
+      key={s.id}
+      color="summon"
+      title={`${s.label} ×${s.members.length} — ${s.remainingRounds} rounds left`}
+    >
       <div className="active-summon-controls">
         <div className="stepper">
           <button
@@ -233,6 +335,16 @@ export function ActiveSummonSections() {
           Dismiss All
         </button>
       </div>
+
+      {/* Identical summons share identical numbers — the stat block is shown
+          once per group, with individual HP/wall-of-thorns tracked below it
+          per instance. Older saved summons predate this field. */}
+      {s.statBlock && (
+        <Collapsible title="Stat Block" defaultExpanded={true}>
+          <SummonStatBlock statBlock={s.statBlock} />
+        </Collapsible>
+      )}
+
       {s.members.map((m, i) => (
         <MemberRow
           key={m.id}
@@ -290,6 +402,7 @@ export default function SummonBuilder({ sheet }) {
         hpMax: statBlock.hp,
         tempHpMax: statBlock.tempHp,
         greenboundEligible: statBlock.greenboundEligible,
+        statBlock,
         members,
       })
       const used = withSummon.spellSlotsUsed[level] ?? 0
@@ -333,7 +446,11 @@ export default function SummonBuilder({ sheet }) {
               Summon
             </button>
           </div>
-          {statBlock && <SummonStatBlock statBlock={statBlock} />}
+          {statBlock && (
+            <Collapsible title="Stat Block Preview" defaultExpanded={false}>
+              <SummonStatBlock statBlock={statBlock} />
+            </Collapsible>
+          )}
         </>
       )}
     </section>

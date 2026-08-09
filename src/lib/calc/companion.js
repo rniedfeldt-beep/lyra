@@ -1,17 +1,5 @@
 import { abilityMod } from './abilities'
-import { SIZE_MODIFIER, parseHitDice } from '../rules/dnd35'
-
-// Standard 3.5e monster base-save progression for the Animal type: good
-// Fort/Ref, poor Will. Good = 2 + floor(HD/2), poor = floor(HD/3). Quen is
-// always an Animal (Wolf Shaman's Nature Bond requires a wolf), so this
-// isn't generalized to other creature types — nothing else needs it yet.
-function animalBaseSaves(hd) {
-  return {
-    fort: 2 + Math.floor(hd / 2),
-    ref: 2 + Math.floor(hd / 2),
-    will: Math.floor(hd / 3),
-  }
-}
+import { SIZE_MODIFIER, parseHitDice, monsterBaseSaves } from '../rules/dnd35'
 
 function weaponFocusBonus(creature, attackName) {
   const pattern = new RegExp(`^Weapon Focus \\(${attackName}\\)$`, 'i')
@@ -37,7 +25,7 @@ export function computeCompanionStatBlock(companion) {
   }
 
   const { count: hd } = parseHitDice(companion.hitDice)
-  const base = animalBaseSaves(hd)
+  const base = monsterBaseSaves('Animal', hd)
   const saves = {
     fort: { base: base.fort, abilityMod: conMod, total: base.fort + conMod },
     ref: { base: base.ref, abilityMod: dexMod, total: base.ref + dexMod },

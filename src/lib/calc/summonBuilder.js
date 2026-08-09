@@ -7,6 +7,7 @@ import {
   averageHp,
   averageDamage,
   druidLevel,
+  monsterBaseSaves,
 } from '../rules/dnd35'
 
 // Anything with a Summon Nature's Ally level is summonable, full stop —
@@ -223,12 +224,27 @@ export function computeSummonStatBlock({ sheet, creature, templateId, simpleTemp
 
   const sizeMod = SIZE_MODIFIER[final.size]
   const dexMod = abilityMod(final.abilities.dex)
+  const conMod = abilityMod(final.abilities.con)
+  const wisMod = abilityMod(final.abilities.wis)
   const chaMod = abilityMod(final.abilities.cha)
   const ac = {
     total: 10 + sizeMod + dexMod + final.naturalArmor,
     touch: 10 + sizeMod + dexMod,
     flatFooted: 10 + sizeMod + final.naturalArmor + (dexMod > 0 ? 0 : dexMod),
   }
+
+  // Saves are the summoned creature's own base progression by type/HD, not
+  // Lyra's — unlike wild shape, a summon is a separate creature. Templates
+  // don't change HD count, only HP die and ability scores, so HD comes from
+  // the base creature's hit dice string regardless of pipeline stage.
+  const { count: hdCount } = parseHitDice(creature.hitDice)
+  const baseSaves = monsterBaseSaves(creature.type, hdCount)
+  const saves = {
+    fort: { base: baseSaves.fort, abilityMod: conMod, total: baseSaves.fort + conMod },
+    ref: { base: baseSaves.ref, abilityMod: dexMod, total: baseSaves.ref + dexMod },
+    will: { base: baseSaves.will, abilityMod: wisMod, total: baseSaves.will + wisMod },
+  }
+  const initiative = dexMod
 
   const totemic = character.wolfShaman.totemicSummons
   const totemicActive = creature.isCanine && character.level >= totemic.activeFromCharacterLevel
@@ -250,6 +266,9 @@ export function computeSummonStatBlock({ sheet, creature, templateId, simpleTemp
     hp: final.hp,
     tempHp,
     ac,
+    saves,
+    initiative,
+    speed: creature.speed,
     naturalWeaponRoutine,
     slamRoutine,
     spellLikeAbilities: greenboundEligible ? greenboundTemplate.spellLikeAbilities : null,
