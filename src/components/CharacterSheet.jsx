@@ -2,7 +2,10 @@ import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
-import SummonBuilder from './summon/SummonBuilder'
+import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
+import CompanionPanel from './companion/CompanionPanel'
+import CombatBar from './layout/CombatBar'
+import PartySection from './layout/PartySection'
 import './CharacterSheet.css'
 
 const ABILITY_ORDER = [
@@ -34,11 +37,6 @@ function AbilityScores({ abilityScores }) {
               <div className="ability-label">{label}</div>
               <div className="ability-score">{a.score}</div>
               <div className="ability-mod">{formatMod(a.mod)}</div>
-              {a.adjustment !== 0 && (
-                <div className="ability-note">
-                  {a.base} base {a.sources.map((s) => `${formatMod(s.value)} ${s.source}`).join(', ')}
-                </div>
-              )}
             </div>
           )
         })}
@@ -307,35 +305,45 @@ export default function CharacterSheet() {
   const { character } = sheet
 
   return (
-    <div className="sheet">
-      <header className="sheet-header">
-        <h1>{character.name}</h1>
-        <p className="subtitle">
-          {character.race} {character.classes.map((c) => `${c.name} ${c.levels}`).join(' / ')}
-          {' · '}Level {character.level}
-        </p>
-        <p className="subtitle">
-          {character.archetype} archetype · {character.planarAttunement} attunement · {character.campaign}
-        </p>
-      </header>
+    <>
+      <CombatBar sheet={sheet} />
+      <div className="sheet">
+        <header className="sheet-header">
+          <h1>{character.name}</h1>
+          <p className="subtitle">
+            {character.race} {character.classes.map((c) => `${c.name} ${c.levels}`).join(' / ')}
+            {' · '}Level {character.level}
+          </p>
+          <p className="subtitle">
+            {character.archetype} archetype · {character.planarAttunement} attunement · {character.campaign}
+          </p>
+        </header>
 
-      <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} companion={companion} />
-      <WildShapeCalculator sheet={sheet} />
-      <SummonBuilder sheet={sheet} />
+        <PartySection color="lyra" title={character.name} subtitle="Player character">
+          <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} />
+          <WildShapeCalculator sheet={sheet} />
+          <SummonBuilder sheet={sheet} />
+          <AbilityScores abilityScores={sheet.abilityScores} />
+          <CombatStats sheet={sheet} />
+          <AttackRoutine sheet={sheet} />
+          <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
+          <SpellSlots
+            spellSlots={sheet.spellSlots}
+            casterLevel={character.casterLevel.druid}
+            spellDcBase={character.spellDcBase}
+          />
+          <Equipment items={sheet.items} />
+          <Feats feats={sheet.feats} />
+        </PartySection>
 
-      <AbilityScores abilityScores={sheet.abilityScores} />
-      <CombatStats sheet={sheet} />
-      <AttackRoutine sheet={sheet} />
-      <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
-      <SpellSlots
-        spellSlots={sheet.spellSlots}
-        casterLevel={character.casterLevel.druid}
-        spellDcBase={character.spellDcBase}
-      />
-      <Equipment items={sheet.items} />
-      <Feats feats={sheet.feats} />
+        <PartySection color="quen" title={companion.name} subtitle="Animal companion">
+          <CompanionPanel companion={companion} />
+        </PartySection>
 
-      <p className="phase-note">Phase 2 — trackers live, synced via Supabase with a local offline fallback.</p>
-    </div>
+        <ActiveSummonSections />
+
+        <p className="phase-note">Phase 5 — wild shape and summon builder live, trackers synced via Supabase.</p>
+      </div>
+    </>
   )
 }

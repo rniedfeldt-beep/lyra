@@ -22,6 +22,41 @@ function groupFormsForPicker(forms) {
   return { canine, other }
 }
 
+function AttackEntry({ atk }) {
+  return (
+    <li>
+      {atk.count > 1 ? `${atk.count} × ` : ''}
+      {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
+      {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
+      {!atk.primary && <span className="note"> (secondary)</span>}
+    </li>
+  )
+}
+
+function AttackRoutine({ routine }) {
+  return (
+    <>
+      <h3>Attack Routine</h3>
+      <p className="action-type">Single attack — standard action</p>
+      <ul className="wildshape-attacks">
+        {routine.single.map((atk) => (
+          <AttackEntry key={atk.name} atk={atk} />
+        ))}
+      </ul>
+      {routine.hasSecondaries && (
+        <>
+          <p className="action-type">Full attack — full-round action</p>
+          <ul className="wildshape-attacks">
+            {routine.full.map((atk) => (
+              <AttackEntry key={atk.name} atk={atk} />
+            ))}
+          </ul>
+        </>
+      )}
+    </>
+  )
+}
+
 function StatBlock({ statBlock }) {
   const { creature, hp, ac, saves, speed, attackRoutine, abilities } = statBlock
   const speedText = Object.entries(speed)
@@ -82,17 +117,7 @@ function StatBlock({ statBlock }) {
         </tbody>
       </table>
 
-      <h3>Attack Routine</h3>
-      <ul className="wildshape-attacks">
-        {attackRoutine.map((atk) => (
-          <li key={atk.name}>
-            {atk.count > 1 ? `${atk.count} × ` : ''}
-            {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
-            {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
-            {!atk.primary && <span className="note"> (secondary)</span>}
-          </li>
-        ))}
-      </ul>
+      <AttackRoutine routine={attackRoutine} />
 
       {abilities.length > 0 && (
         <>

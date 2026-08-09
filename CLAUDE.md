@@ -323,6 +323,25 @@ minor xorn, satyr.
 **Unicorn is DM-confirmed Feywild-native magical beast** — available now at PS 3. Large,
 4 HD, Str 20. Within size and HD caps. Body only, no spell-like abilities until level 14.
 
+**DM-approved Feywild forms (added):** Aranea (MM I p.15), Blink Dog (MM I p.28), Elven Hound
+(Races of the Wild p.189), Pegasus (MM I p.206), Asperi (MM II p.25, 3.0-format stat block),
+Ur'Epona (Planar Handbook p.130), Tressym (Lost Empires of Faerûn p.191), plus Giant Owl
+(updated from pending to confirmed). All `wildShapeMinLevel: 8`. Aranea's Feats and Challenge
+Rating couldn't be reliably extracted from the source PDF's column layout — verify manually.
+Ur'Epona's hoof is written up as secondary (half Str to damage) even though it's the
+creature's only natural weapon — see `strMult` handling in `wildShape.js`/`summonBuilder.js`.
+
+**`lyraFamiliar` only gates wild shape, not summoning.** Summon Nature's Ally has no
+familiarity requirement — Lyra can summon an arrowhawk, xorn, or unicorn even though she
+can't wild shape into most of them. The two pickers use different eligibility filters
+entirely (`getEligibleWildShapeForms` vs `getSummonableCreatures`).
+
+**Single vs. full attack:** both the wild shape and summon builder attack routines expose a
+`{ single, full, hasSecondaries }` shape. `single` is a standard-action attack with the best
+primary weapon only (count forced to 1); `full` is the full-round-action routine (primary at
+full count plus all secondaries at −5). The UI hides the full-attack block entirely when
+`hasSecondaries` is false, per DM request — no point showing two identical action options.
+
 **`lyraFamiliar` (boolean, in `data/creatures/monster-manual.json`)** gates the wild shape
 picker on top of level/size/HD: true for the common Greyhawk animals named above, anything on
 a Summon Nature's Ally list Lyra can currently cast (level ≤ 4), and DM-approved Feywild forms
@@ -398,6 +417,8 @@ type, ability scores, and natural armor.
 - **Spell-like**: at will — *entangle*, *pass without trace*, *speak with plants*;
   1/day — *wall of thorns*. CL = creature's character level.
   DC = 10 + spell level + creature's CHA mod (remember the +4).
+  **Wall of thorns is per-instance**, not per-casting — a batch of 3 greenbound wolves each
+  gets their own daily use, tracked alongside that instance's individual HP.
 - CR +2
 
 Slam damage by size: Fine 1, Dim 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6,
@@ -496,6 +517,20 @@ Always available, outside the slot economy:
 3. **The druid necklace** — 5–6 spells, 1/day each, free of slots
 
 ---
+
+## Layout
+
+One long scrolling page, deliberately no tabs — Lyra's stats and a summon's stats need to be
+readable in the same round. `PartySection` (`src/components/layout/`) gives Lyra, Quen, and
+each active summon group their own color-coded block with a sticky header (purple/green/
+amber respectively), so whoever's stats you're scrolled into stays legible. `CombatBar` is a
+slim bar pinned above everything showing Lyra's current HP/AC/Initiative regardless of scroll
+position. `--combatbar-height` (index.css) must match `CombatBar`'s actual height, or the
+sticky section headers will sit at the wrong offset.
+
+**Known CSS gotcha:** `overflow: hidden` on a `PartySection` breaks `position: sticky` on its
+header child (changes the sticky containing block). Corner rounding is done on the header/body
+elements directly instead — don't reintroduce `overflow: hidden` on `.party-section`.
 
 ## Build phases
 

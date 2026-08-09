@@ -10,6 +10,7 @@ import {
 import { getReachableLoadouts, computeSummonStatBlock } from '../../lib/calc/summonBuilder'
 import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/loadCreatureData'
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
+import PartySection from '../layout/PartySection'
 import './summon.css'
 
 function loadoutLabel(creature, templateId, greenboundEligible) {
@@ -18,20 +19,37 @@ function loadoutLabel(creature, templateId, greenboundEligible) {
   return `${creature.name} (${simpleTemplates[templateId].name} Greenbound)`
 }
 
+function AttackEntry({ atk }) {
+  return (
+    <li>
+      {atk.count > 1 ? `${atk.count} × ` : ''}
+      {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
+      {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
+      {!atk.primary && <span className="note"> (secondary)</span>}
+    </li>
+  )
+}
+
 function AttackRoutineList({ title, routine }) {
   return (
     <>
       <h3>{title}</h3>
+      <p className="action-type">Single attack — standard action</p>
       <ul className="summon-attacks">
-        {routine.map((atk) => (
-          <li key={atk.name}>
-            {atk.count > 1 ? `${atk.count} × ` : ''}
-            {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
-            {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
-            {!atk.primary && <span className="note"> (secondary)</span>}
-          </li>
+        {routine.single.map((atk) => (
+          <AttackEntry key={atk.name} atk={atk} />
         ))}
       </ul>
+      {routine.hasSecondaries && (
+        <>
+          <p className="action-type">Full attack — full-round action</p>
+          <ul className="summon-attacks">
+            {routine.full.map((atk) => (
+              <AttackEntry key={atk.name} atk={atk} />
+            ))}
+          </ul>
+        </>
+      )}
     </>
   )
 }
@@ -124,7 +142,7 @@ function SpellLevelPicker({ level, setLevel, availableLevels }) {
   )
 }
 
-function MemberRow({ summonId, member, index, hpMax, tempHpMax }) {
+function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns }) {
   const { update } = useLiveState()
   const inactive = member.status !== 'active'
 
@@ -156,6 +174,19 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax }) {
         />
         <span className="note">/ {tempHpMax}</span>
       </label>
+      {showWallOfThorns && (
+        <label className="summon-member-field summon-member-wot">
+          <input
+            type="checkbox"
+            disabled={inactive}
+            checked={member.wallOfThornsUsed}
+            onChange={(e) =>
+              update((s) => updateSummonMember(s, summonId, member.id, { wallOfThornsUsed: e.target.checked }))
+            }
+          />
+          Wall of thorns
+        </label>
+      )}
       {!inactive && (
         <div className="summon-member-actions">
           <button type="button" onClick={() => update((s) => updateSummonMember(s, summonId, member.id, { status: 'dead' }))}>
@@ -173,46 +204,49 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax }) {
   )
 }
 
-function ActiveSummons() {
+// Each active summon gets its own color-coded PartySection (rendered by
+// CharacterSheet, separate from the builder tool below), so a summon's
+// stats stay easy to find mid-combat alongside Lyra's and Quen's.
+export function ActiveSummonSections() {
   const { state, update } = useLiveState()
   // Guards against summons saved before per-member tracking existed —
   // those are unreadable now and just get skipped rather than crashing.
   const groups = state.activeSummons.filter((s) => Array.isArray(s.members))
   if (groups.length === 0) return null
 
-  return (
-    <div className="active-summons">
-      <h3>Active Summons</h3>
-      {groups.map((s) => (
-        <div className="active-summon-group" key={s.id}>
-          <div className="active-summon-group-header">
-            <span>
-              {s.label} × {s.members.length}
-            </span>
-            <div className="stepper">
-              <button
-                type="button"
-                disabled={s.remainingRounds <= 0}
-                onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds - 1))}
-              >
-                −
-              </button>
-              <span>{s.remainingRounds} rd</span>
-              <button type="button" onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds + 1))}>
-                +
-              </button>
-            </div>
-            <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
-              Dismiss All
-            </button>
-          </div>
-          {s.members.map((m, i) => (
-            <MemberRow key={m.id} summonId={s.id} member={m} index={i} hpMax={s.hpMax} tempHpMax={s.tempHpMax} />
-          ))}
+  return groups.map((s) => (
+    <PartySection key={s.id} color="summon" title={s.label} subtitle={`${s.members.length} active`}>
+      <div className="active-summon-controls">
+        <div className="stepper">
+          <button
+            type="button"
+            disabled={s.remainingRounds <= 0}
+            onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds - 1))}
+          >
+            −
+          </button>
+          <span>{s.remainingRounds} rd remaining</span>
+          <button type="button" onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds + 1))}>
+            +
+          </button>
         </div>
+        <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
+          Dismiss All
+        </button>
+      </div>
+      {s.members.map((m, i) => (
+        <MemberRow
+          key={m.id}
+          summonId={s.id}
+          member={m}
+          index={i}
+          hpMax={s.hpMax}
+          tempHpMax={s.tempHpMax}
+          showWallOfThorns={s.greenboundEligible}
+        />
       ))}
-    </div>
-  )
+    </PartySection>
+  ))
 }
 
 export default function SummonBuilder({ sheet }) {
@@ -246,6 +280,7 @@ export default function SummonBuilder({ sheet }) {
       hp: statBlock.hp,
       tempHp: statBlock.tempHp,
       status: 'active',
+      wallOfThornsUsed: false,
     }))
 
     update((s) => {
@@ -255,6 +290,7 @@ export default function SummonBuilder({ sheet }) {
         remainingRounds: statBlock.durationRounds,
         hpMax: statBlock.hp,
         tempHpMax: statBlock.tempHp,
+        greenboundEligible: statBlock.greenboundEligible,
         members,
       })
       const used = withSummon.spellSlotsUsed[level] ?? 0
@@ -266,8 +302,6 @@ export default function SummonBuilder({ sheet }) {
   return (
     <section className="card">
       <h2>Summon Builder</h2>
-      <ActiveSummons />
-
       <h3>Pick a Spell Slot Level</h3>
       <SpellLevelPicker level={level} setLevel={(l) => { setLevel(l); setSelectedIndex(0) }} availableLevels={availableLevels} />
 

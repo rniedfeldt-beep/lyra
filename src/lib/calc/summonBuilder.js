@@ -134,23 +134,52 @@ function weaponFocusBonus(creature, attackName) {
   return (creature.feats ?? []).some((f) => pattern.test(f)) ? 1 : 0
 }
 
+function buildOneAttack(atk, { creature, attackBonusBase, strMod, singleWeapon, luckBonus, forceCount1 }) {
+  // A sole natural weapon normally gets the full 1.5x, unless the source
+  // text explicitly writes it up as a secondary attack anyway (e.g.
+  // Ur'Epona's hoof) — that override always wins.
+  const strMult = atk.primary === false ? 0.5 : singleWeapon ? 1.5 : 1
+  const focus = weaponFocusBonus(creature, atk.name)
+  return {
+    name: atk.name,
+    count: forceCount1 ? 1 : (atk.count ?? 1),
+    primary: atk.primary,
+    attackBonus: attackBonusBase - (atk.primary ? 0 : 5) + focus + luckBonus,
+    damage: { die: atk.damage, bonus: Math.floor(strMod * strMult), crit: atk.crit },
+  }
+}
+
+// Single attack (standard action, best primary weapon only) vs. full attack
+// (full-round action, primary at full count plus all secondaries at -5).
 function buildAttackRoutine({ creature, attacks, statBlock, luckBonus }) {
   const strMod = abilityMod(statBlock.abilities.str)
   const sizeMod = SIZE_MODIFIER[statBlock.size]
   const attackBonusBase = creature.baseAttackBonus + strMod + sizeMod
   const singleWeapon = attacks.length === 1
 
-  return attacks.map((atk) => {
-    const strMult = singleWeapon ? 1.5 : atk.primary ? 1 : 0.5
-    const focus = weaponFocusBonus(creature, atk.name)
-    return {
-      name: atk.name,
-      count: atk.count ?? 1,
-      primary: atk.primary,
-      attackBonus: attackBonusBase - (atk.primary ? 0 : 5) + focus + luckBonus,
-      damage: { die: atk.damage, bonus: Math.floor(strMod * strMult), crit: atk.crit },
-    }
-  })
+  const full = attacks.map((atk) =>
+    buildOneAttack(atk, { creature, attackBonusBase, strMod, singleWeapon, luckBonus }),
+  )
+
+  const primaries = attacks.filter((a) => a.primary !== false)
+  const bestPrimary = primaries.reduce(
+    (best, atk) => (averageDamage(atk.damage) > averageDamage(best.damage) ? atk : best),
+    primaries[0],
+  )
+  const single = [
+    buildOneAttack(bestPrimary, {
+      creature,
+      attackBonusBase,
+      strMod,
+      singleWeapon,
+      luckBonus,
+      forceCount1: true,
+    }),
+  ]
+
+  const hasSecondaries = attacks.length > 1 || (attacks[0].count ?? 1) > 1
+
+  return { single, full, hasSecondaries }
 }
 
 // Feat effects Lyra already has drive these bonuses (Ashbound) — nothing

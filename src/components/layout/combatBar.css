@@ -1,0 +1,47 @@
+.combat-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: var(--combatbar-height);
+  box-sizing: border-box;
+  padding: 0 14px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.combat-bar-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.combat-bar-stats {
+  display: flex;
+  gap: 14px;
+}
+
+.combat-bar-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.combat-bar-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.combat-bar-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}

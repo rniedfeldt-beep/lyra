@@ -8,7 +8,6 @@ import {
   setSpellSlotUsed,
   setWildShapeUsed,
   setDailyUse,
-  setCompanionHp,
 } from '../../lib/liveState/actions'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
 import './trackers.css'
@@ -18,7 +17,7 @@ function parsePositiveAmount(raw) {
   return Number.isFinite(amount) && amount > 0 ? amount : null
 }
 
-function DamageHealRow({ onDamage, onHeal }) {
+export function DamageHealRow({ onDamage, onHeal }) {
   const [damageAmount, setDamageAmount] = useState('')
   const [healAmount, setHealAmount] = useState('')
 
@@ -217,32 +216,6 @@ function DailyUsesTracker({ dailyAbilities }) {
   )
 }
 
-function CompanionHpTracker({ companion }) {
-  const { state, update } = useLiveState()
-  const hpMax = companion.hp.max
-
-  return (
-    <div className="tracker-block">
-      <h3>{companion.name}&rsquo;s HP</h3>
-      <div className="tracker-row">
-        <label>
-          Current
-          <input
-            type="number"
-            value={state.companionHp.current}
-            onChange={(e) => update((s) => setCompanionHp(s, Number(e.target.value)))}
-          />
-        </label>
-        <span className="tracker-max">/ {hpMax}</span>
-      </div>
-      <DamageHealRow
-        onDamage={(amount) => update((s) => setCompanionHp(s, s.companionHp.current - amount))}
-        onHeal={(amount) => update((s) => setCompanionHp(s, Math.min(s.companionHp.current + amount, hpMax)))}
-      />
-    </div>
-  )
-}
-
 const SYNC_STATUS_LABELS = {
   loading: 'Loading…',
   synced: 'Synced to Supabase',
@@ -317,7 +290,7 @@ function SyncBar() {
   )
 }
 
-export default function TrackersPanel({ sheet, dailyAbilities, companion }) {
+export default function TrackersPanel({ sheet, dailyAbilities }) {
   return (
     <section className="card trackers-card">
       <h2>Trackers</h2>
@@ -326,7 +299,6 @@ export default function TrackersPanel({ sheet, dailyAbilities, companion }) {
       <SpellSlotTracker spellSlots={sheet.spellSlots} />
       <WildShapeTracker max={sheet.character.wildShape.usesPerDay} />
       <DailyUsesTracker dailyAbilities={dailyAbilities} />
-      <CompanionHpTracker companion={companion} />
     </section>
   )
 }

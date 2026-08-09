@@ -81,22 +81,6 @@
   border-bottom: none;
 }
 
-.active-summons {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 14px;
-  background: var(--bg);
-}
-
-.active-summons h3 {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text);
-  margin: 0 0 8px;
-}
-
 .summon-quantity-row {
   display: flex;
   align-items: center;
@@ -122,16 +106,7 @@
   font-size: 14px;
 }
 
-.active-summon-group {
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.active-summon-group:last-child {
-  border-bottom: none;
-}
-
-.active-summon-group-header {
+.active-summon-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,7 +118,7 @@
   margin-bottom: 6px;
 }
 
-.active-summon-group-header button {
+.active-summon-controls button {
   padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid var(--border);
@@ -189,6 +164,10 @@
   background: var(--bg);
   color: var(--text-h);
   font-size: 13px;
+}
+
+.summon-member-wot {
+  white-space: nowrap;
 }
 
 .summon-member-actions {

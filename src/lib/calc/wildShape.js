@@ -1,6 +1,6 @@
 import { abilityMod } from './abilities'
 import { computeSaves } from './saves'
-import { SIZE_MODIFIER, sizeAtMost, parseHitDice } from '../rules/dnd35'
+import { SIZE_MODIFIER, sizeAtMost, parseHitDice, averageDamage } from '../rules/dnd35'
 
 // Which special qualities/attacks are available below Planar Shepherd 9
 // (character level 14): only Extraordinary (Ex). Animals never have Su/Sp
@@ -42,26 +42,48 @@ export function getEligibleWildShapeForms({ monsterManual, characterLevel, maxSi
   })
 }
 
+function buildFormAttack(atk, { attackBonusBase, strMod, singleWeapon, forceCount1 }) {
+  // A sole natural weapon normally gets the full 1.5x, unless the source
+  // text explicitly writes it up as a secondary attack anyway (e.g.
+  // Ur'Epona's hoof) — that override always wins.
+  const strMult = atk.primary === false ? 0.5 : singleWeapon ? 1.5 : 1
+  const damageStrMod = Math.floor(strMod * strMult)
+  return {
+    name: atk.name,
+    count: forceCount1 ? 1 : (atk.count ?? 1),
+    primary: atk.primary,
+    attackBonus: attackBonusBase - (atk.primary ? 0 : 5),
+    damage: {
+      die: atk.damage,
+      bonus: damageStrMod,
+      crit: atk.crit,
+    },
+  }
+}
+
+// Single attack (standard action, best primary weapon only) vs. full attack
+// (full-round action, primary at full count plus all secondaries at -5).
 function computeFormAttackRoutine({ bab, creature, strMod }) {
   const sizeMod = SIZE_MODIFIER[creature.size]
   const attackBonusBase = bab + strMod + sizeMod
   const singleWeapon = creature.attacks.length === 1
 
-  return creature.attacks.map((atk) => {
-    const strMult = singleWeapon ? 1.5 : atk.primary ? 1 : 0.5
-    const damageStrMod = Math.floor(strMod * strMult)
-    return {
-      name: atk.name,
-      count: atk.count ?? 1,
-      primary: atk.primary,
-      attackBonus: attackBonusBase - (atk.primary ? 0 : 5),
-      damage: {
-        die: atk.damage,
-        bonus: damageStrMod,
-        crit: atk.crit,
-      },
-    }
-  })
+  const full = creature.attacks.map((atk) =>
+    buildFormAttack(atk, { attackBonusBase, strMod, singleWeapon }),
+  )
+
+  const primaries = creature.attacks.filter((a) => a.primary !== false)
+  const bestPrimary = primaries.reduce(
+    (best, atk) => (averageDamage(atk.damage) > averageDamage(best.damage) ? atk : best),
+    primaries[0],
+  )
+  const single = [
+    buildFormAttack(bestPrimary, { attackBonusBase, strMod, singleWeapon, forceCount1: true }),
+  ]
+
+  const hasSecondaries = creature.attacks.length > 1 || (creature.attacks[0].count ?? 1) > 1
+
+  return { single, full, hasSecondaries }
 }
 
 // The polymorph swap: retained stats (BAB, base saves, HP, skill ranks,
