@@ -35,7 +35,7 @@ function availableTemplateIds(creature, simpleTemplates) {
 }
 
 // For a chosen spell slot level, every creature/template combo that lands
-// exactly on that level.
+// exactly on that level, sorted alphabetically by creature name.
 export function getReachableLoadouts({ monsterManual, greenboundTemplate, simpleTemplates, spellLevel }) {
   const eligible = getGreenboundEligibleCreatures(monsterManual, greenboundTemplate)
   const loadouts = []
@@ -46,7 +46,7 @@ export function getReachableLoadouts({ monsterManual, greenboundTemplate, simple
       }
     }
   }
-  return loadouts
+  return loadouts.sort((a, b) => a.creature.name.localeCompare(b.creature.name))
 }
 
 function applySimpleTemplate(creature, templateId, simpleTemplates) {

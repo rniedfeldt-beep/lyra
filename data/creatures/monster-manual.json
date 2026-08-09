@@ -43,7 +43,8 @@
     "isCanine": true,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Wolf",
@@ -91,7 +92,8 @@
     "isCanine": true,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Bat",
@@ -135,7 +137,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Rat",
@@ -182,7 +185,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Wolverine",
@@ -239,7 +243,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Wolverine",
@@ -295,7 +300,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Crocodile",
@@ -349,7 +355,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Brown Bear",
@@ -404,7 +411,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Eagle",
@@ -455,7 +463,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dog",
@@ -499,7 +508,8 @@
     "isCanine": true,
     "feywildNative": false,
     "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Cat",
@@ -550,7 +560,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Monkey",
@@ -593,7 +604,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Octopus",
@@ -647,7 +659,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Owl",
@@ -690,7 +703,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Porpoise",
@@ -734,7 +748,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Snake, Small Viper",
@@ -780,7 +795,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Bear, Black",
@@ -832,7 +848,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Badger",
@@ -888,7 +905,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Small Air",
@@ -936,7 +954,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Small Earth",
@@ -983,7 +1002,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Small Fire",
@@ -1032,7 +1052,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Small Water",
@@ -1080,7 +1101,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Hippogriff",
@@ -1134,7 +1156,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Shark, Medium",
@@ -1178,7 +1201,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Snake, Medium Viper",
@@ -1224,7 +1248,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Squid",
@@ -1278,7 +1303,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Ape",
@@ -1331,7 +1357,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Weasel",
@@ -1379,7 +1406,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Eagle, Giant",
@@ -1432,7 +1460,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Lion",
@@ -1488,7 +1517,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Owl, Giant",
@@ -1540,7 +1570,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Satyr (without pipes)",
@@ -1585,7 +1616,8 @@
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Shark, Large",
@@ -1630,7 +1662,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Snake, Constrictor",
@@ -1678,7 +1711,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Snake, Large Viper",
@@ -1725,7 +1759,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Thoqqua",
@@ -1776,7 +1811,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Arrowhawk, Juvenile",
@@ -1830,7 +1866,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Crocodile, Giant",
@@ -1885,7 +1922,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Deinonychus",
@@ -1946,7 +1984,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Ape",
@@ -2001,7 +2040,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Dire Boar",
@@ -2048,7 +2088,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Medium Air",
@@ -2097,7 +2138,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Medium Earth",
@@ -2145,7 +2187,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Medium Fire",
@@ -2195,7 +2238,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Elemental, Medium Water",
@@ -2244,7 +2288,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Salamander, Flamebrother",
@@ -2300,7 +2345,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Sea Cat",
@@ -2358,7 +2404,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Shark, Huge",
@@ -2404,7 +2451,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Snake, Huge Viper",
@@ -2452,7 +2500,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Tiger",
@@ -2509,7 +2558,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": true
   },
   {
     "name": "Tojanida, Juvenile",
@@ -2567,7 +2617,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Unicorn",
@@ -2624,7 +2675,8 @@
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": 8
+    "wildShapeMinLevel": 8,
+    "lyraFamiliar": true
   },
   {
     "name": "Xorn, Minor",
@@ -2682,7 +2734,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": true
   },
   {
     "name": "Arrowhawk, Adult",
@@ -2737,7 +2790,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Bear, Polar",
@@ -2793,7 +2847,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   },
   {
     "name": "Dire Lion",
@@ -2850,7 +2905,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   },
   {
     "name": "Elasmosaurus",
@@ -2896,7 +2952,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   },
   {
     "name": "Elemental, Large Air",
@@ -2948,7 +3005,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Elemental, Large Earth",
@@ -2999,7 +3057,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Elemental, Large Fire",
@@ -3053,7 +3112,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Elemental, Large Water",
@@ -3108,7 +3168,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Griffon",
@@ -3166,7 +3227,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Janni",
@@ -3226,7 +3288,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Rhinoceros",
@@ -3272,7 +3335,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   },
   {
     "name": "Satyr (with pipes)",
@@ -3319,7 +3383,8 @@
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Snake, Giant Constrictor",
@@ -3369,7 +3434,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   },
   {
     "name": "Nixie",
@@ -3427,7 +3493,8 @@
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Tojanida, Adult",
@@ -3486,7 +3553,8 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": null
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   },
   {
     "name": "Whale, Orca",
@@ -3533,6 +3601,7 @@
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
-    "wildShapeMinLevel": 5
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false
   }
 ]

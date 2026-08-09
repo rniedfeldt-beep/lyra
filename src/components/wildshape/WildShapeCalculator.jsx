@@ -10,6 +10,18 @@ function wildShapeCost(creature) {
   return creature.type === 'Elemental' || creature.type === 'Outsider' ? 2 : 1
 }
 
+function byName(a, b) {
+  return a.name.localeCompare(b.name)
+}
+
+// Canine forms get their own pinned-to-top group — they're the ones that
+// carry the +20 ft. Totem Transformation bonus and see the most table use.
+function groupFormsForPicker(forms) {
+  const canine = forms.filter((c) => c.isCanine).sort(byName)
+  const other = forms.filter((c) => !c.isCanine).sort(byName)
+  return { canine, other }
+}
+
 function StatBlock({ statBlock }) {
   const { creature, hp, ac, saves, speed, attackRoutine, abilities } = statBlock
   const speedText = Object.entries(speed)
@@ -108,7 +120,9 @@ export default function WildShapeCalculator({ sheet }) {
     [sheet.character.level, wildShapeConfig.maxSize, wildShapeConfig.maxHd],
   )
 
-  const [selectedName, setSelectedName] = useState(eligibleForms[0]?.name ?? '')
+  const { canine, other } = useMemo(() => groupFormsForPicker(eligibleForms), [eligibleForms])
+
+  const [selectedName, setSelectedName] = useState((canine[0] ?? other[0])?.name ?? '')
 
   const active = state.activeWildShapeForm
   const activeCreature = active ? eligibleForms.find((c) => c.name === active.creatureName) : null
@@ -140,11 +154,20 @@ export default function WildShapeCalculator({ sheet }) {
         <>
           <div className="wildshape-picker">
             <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
-              {eligibleForms.map((c) => (
-                <option key={c.name} value={c.name}>
-                  {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
-                </option>
-              ))}
+              <optgroup label="Canine (+20 ft. speed)">
+                {canine.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Other forms">
+                {other.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
+                  </option>
+                ))}
+              </optgroup>
             </select>
             <button
               type="button"

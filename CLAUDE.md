@@ -323,6 +323,13 @@ minor xorn, satyr.
 **Unicorn is DM-confirmed Feywild-native magical beast** — available now at PS 3. Large,
 4 HD, Str 20. Within size and HD caps. Body only, no spell-like abilities until level 14.
 
+**`lyraFamiliar` (boolean, in `data/creatures/monster-manual.json`)** gates the wild shape
+picker on top of level/size/HD: true for the common Greyhawk animals named above, anything on
+a Summon Nature's Ally list Lyra can currently cast (level ≤ 4), and DM-approved Feywild forms
+(Unicorn). False for everything else — e.g. polar bear (SNA 5, not currently castable, no
+plausible familiarity). Picker groups canine forms first (they carry the +20 ft. Totem
+Transformation bonus and see the most table use), alphabetical within each group.
+
 Giant owl is also a magical beast; Feywild-native status **pending DM ruling**.
 Arrowhawk and xorn are outsiders native to the Elemental Planes of Air and Earth — not
 Feywild-native, so never available. Pixie and satyr are fey — never available.

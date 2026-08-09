@@ -25,12 +25,16 @@ export function computeAvailableAbilities(creature, characterLevel) {
 }
 
 // Forms Lyra can currently assume: type-access gated by wildShapeMinLevel,
-// plus the size/HD caps from her wildShape data.
+// the size/HD caps from her wildShape data, and lyraFamiliar (has she ever
+// plausibly encountered this creature — common Greyhawk animals, anything
+// on a Summon Nature's Ally list she can currently cast, or a DM-approved
+// Feywild form).
 export function getEligibleWildShapeForms({ monsterManual, characterLevel, maxSize, maxHd }) {
   return monsterManual.filter((creature) => {
     if (creature.wildShapeMinLevel == null || creature.wildShapeMinLevel > characterLevel) {
       return false
     }
+    if (!creature.lyraFamiliar) return false
     if (!sizeAtMost(creature.size, maxSize)) return false
     const { count } = parseHitDice(creature.hitDice)
     if (count > maxHd) return false
