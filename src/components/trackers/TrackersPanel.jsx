@@ -6,9 +6,11 @@ import {
   setCurrentHp,
   setTempHp,
   setSpellSlotUsed,
+  setPreparedSpell,
   setWildShapeUsed,
   setDailyUse,
 } from '../../lib/liveState/actions'
+import { spontaneousConversions } from '../../lib/loadData'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
 import './trackers.css'
 
@@ -135,6 +137,51 @@ function SpellSlotTracker({ spellSlots }) {
           )
         })}
       </div>
+    </div>
+  )
+}
+
+// Free-text prepared-spell slots per level, plus a fixed "always available"
+// section of spontaneous conversions (Spontaneous Healer's cure spells, the
+// druid's SNA conversion) that never consume a preparation slot — casting
+// one still spends a slot from that level's tracker, though, so it stays
+// separate from the SpellSlotTracker above rather than replacing it.
+function PreparedSpellsTracker({ spellSlots }) {
+  const { state, update } = useLiveState()
+  const levels = [
+    { level: 0, count: spellSlots.orisons.prepared },
+    ...spellSlots.slots.filter((s) => s.total > 0).map((s) => ({ level: s.spellLevel, count: s.total })),
+  ]
+
+  return (
+    <div className="tracker-block">
+      <h3>Prepared Spells</h3>
+      {levels.map(({ level, count }) => (
+        <div className="prepared-level" key={level}>
+          <span className="prepared-level-label">{SPELL_LEVEL_LABELS[level]}</span>
+          <div className="prepared-slots">
+            {Array.from({ length: count }, (_, i) => (
+              <input
+                key={i}
+                type="text"
+                placeholder={`Slot ${i + 1}`}
+                value={state.preparedSpells[level]?.[i] ?? ''}
+                onChange={(e) => update((s) => setPreparedSpell(s, level, i, e.target.value))}
+              />
+            ))}
+          </div>
+          {spontaneousConversions.byLevel[level] && (
+            <div className="spontaneous-conversions">
+              <span className="spontaneous-label">Always available</span>
+              <ul>
+                {spontaneousConversions.byLevel[level].map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   )
 }
@@ -278,7 +325,11 @@ function SyncBar() {
           type="button"
           className="long-rest-button"
           onClick={() => {
-            if (window.confirm('Long Rest: reset HP, spell slots, wild shape uses, and all daily abilities?')) {
+            if (
+              window.confirm(
+                'Long Rest: reset HP, spell slots, prepared spells, wild shape uses, and all daily abilities?',
+              )
+            ) {
               longRest()
             }
           }}
@@ -297,6 +348,7 @@ export default function TrackersPanel({ sheet, dailyAbilities }) {
       <SyncBar />
       <HpTracker hpMax={sheet.character.hp.max} />
       <SpellSlotTracker spellSlots={sheet.spellSlots} />
+      <PreparedSpellsTracker spellSlots={sheet.spellSlots} />
       <WildShapeTracker max={sheet.character.wildShape.usesPerDay} />
       <DailyUsesTracker dailyAbilities={dailyAbilities} />
     </section>

@@ -25,6 +25,12 @@ export function setSpellSlotUsed(state, level, used) {
   return { ...state, spellSlotsUsed: { ...state.spellSlotsUsed, [level]: used } }
 }
 
+export function setPreparedSpell(state, level, index, value) {
+  const slots = [...(state.preparedSpells[level] ?? [])]
+  slots[index] = value
+  return { ...state, preparedSpells: { ...state.preparedSpells, [level]: slots } }
+}
+
 export function setWildShapeUsed(state, used) {
   return { ...state, wildShapeUsed: used }
 }

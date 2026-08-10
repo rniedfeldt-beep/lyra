@@ -13,9 +13,19 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
     dailyUses[ability.id] = 0
   }
 
+  // One free-text slot per prepared spell — orisons plus each leveled slot
+  // total (base + Wisdom bonus). Re-filled after every Long Rest, since
+  // Lyra re-prepares from the full druid list each morning rather than
+  // having a fixed spell list (CLAUDE.md > Spell preparation model).
+  const preparedSpells = { 0: Array(sheet.spellSlots.orisons.prepared).fill('') }
+  for (const slot of sheet.spellSlots.slots) {
+    if (slot.total > 0) preparedSpells[slot.spellLevel] = Array(slot.total).fill('')
+  }
+
   return {
     hp: { current: sheet.character.hp.max, temp: 0 },
     spellSlotsUsed,
+    preparedSpells,
     wildShapeUsed: 0,
     activeWildShapeForm: null,
     dailyUses,
@@ -36,6 +46,7 @@ export function mergeWithDefaults(loaded, defaults) {
     ...loaded,
     hp: { ...defaults.hp, ...loaded.hp },
     spellSlotsUsed: { ...defaults.spellSlotsUsed, ...loaded.spellSlotsUsed },
+    preparedSpells: { ...defaults.preparedSpells, ...loaded.preparedSpells },
     dailyUses: { ...defaults.dailyUses, ...loaded.dailyUses },
     companionHp: { ...defaults.companionHp, ...loaded.companionHp },
   }

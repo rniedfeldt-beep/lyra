@@ -526,12 +526,23 @@ Focus (bite). He may have two unassigned feats — ask the DM.
 ## Spell preparation model
 
 Do **not** model prepared spells as fixed data. Lyra has the entire druid list and re-prepares
-by meditation after every long rest. The app needs a fill-in-after-rest flow.
+by meditation after every long rest. `PreparedSpellsTracker` (`src/components/trackers/
+TrackersPanel.jsx`) is the fill-in-after-rest flow: one free-text input per prepared-spell slot
+(6 orisons, plus each leveled slot's `total`), no validation against a spell list. State lives
+in `state.preparedSpells` (`{ [level]: string[] }`, keyed 0–4), persists to Supabase like every
+other tracker, and is wiped back to blank slots by Long Rest (it's just part of
+`getDefaultLiveState`, so it resets for free along with everything else).
 
-Always available, outside the slot economy:
+Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
+typed slot above, but casting one still spends a slot from that level's tracker:
 1. **Spontaneous Healer** — any prepared spell converts to a Cure spell
 2. ***Summon Nature's Ally*** — spontaneous conversion
 3. **The druid necklace** — 5–6 spells, 1/day each, free of slots
+
+The per-level cure/SNA conversion names are data, not code: `src/data/tables/
+spontaneousConversions.json`, rendered as a visually distinct "always available" section under
+each level's typed slots (badge-style pills, not plain inputs) so it reads as fixed reference
+rather than something the player fills in.
 
 ---
 
