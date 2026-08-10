@@ -19,6 +19,21 @@ function parsePositiveAmount(raw) {
   return Number.isFinite(amount) && amount > 0 ? amount : null
 }
 
+// Defaults collapsed for Prepared Spells — filled in once after a Long Rest
+// and then mostly just noise taking up space on Tab 1 for the rest of the day.
+function Collapsible({ title, defaultExpanded, children }) {
+  const [expanded, setExpanded] = useState(defaultExpanded)
+  return (
+    <div className="collapsible">
+      <button type="button" className="collapsible-toggle" onClick={() => setExpanded((e) => !e)}>
+        <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
+        {title}
+      </button>
+      {expanded && <div className="collapsible-body">{children}</div>}
+    </div>
+  )
+}
+
 export function DamageHealRow({ onDamage, onHeal }) {
   const [damageAmount, setDamageAmount] = useState('')
   const [healAmount, setHealAmount] = useState('')
@@ -155,33 +170,34 @@ function PreparedSpellsTracker({ spellSlots }) {
 
   return (
     <div className="tracker-block">
-      <h3>Prepared Spells</h3>
-      {levels.map(({ level, count }) => (
-        <div className="prepared-level" key={level}>
-          <span className="prepared-level-label">{SPELL_LEVEL_LABELS[level]}</span>
-          <div className="prepared-slots">
-            {Array.from({ length: count }, (_, i) => (
-              <input
-                key={i}
-                type="text"
-                placeholder={`Slot ${i + 1}`}
-                value={state.preparedSpells[level]?.[i] ?? ''}
-                onChange={(e) => update((s) => setPreparedSpell(s, level, i, e.target.value))}
-              />
-            ))}
-          </div>
-          {spontaneousConversions.byLevel[level] && (
-            <div className="spontaneous-conversions">
-              <span className="spontaneous-label">Always available</span>
-              <ul>
-                {spontaneousConversions.byLevel[level].map((name) => (
-                  <li key={name}>{name}</li>
-                ))}
-              </ul>
+      <Collapsible title="Prepared Spells" defaultExpanded={false}>
+        {levels.map(({ level, count }) => (
+          <div className="prepared-level" key={level}>
+            <span className="prepared-level-label">{SPELL_LEVEL_LABELS[level]}</span>
+            <div className="prepared-slots">
+              {Array.from({ length: count }, (_, i) => (
+                <input
+                  key={i}
+                  type="text"
+                  placeholder={`Slot ${i + 1}`}
+                  value={state.preparedSpells[level]?.[i] ?? ''}
+                  onChange={(e) => update((s) => setPreparedSpell(s, level, i, e.target.value))}
+                />
+              ))}
             </div>
-          )}
-        </div>
-      ))}
+            {spontaneousConversions.byLevel[level] && (
+              <div className="spontaneous-conversions">
+                <span className="spontaneous-label">Always available</span>
+                <ul>
+                  {spontaneousConversions.byLevel[level].map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
+      </Collapsible>
     </div>
   )
 }
