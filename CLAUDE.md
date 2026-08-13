@@ -534,7 +534,8 @@ other tracker, and is wiped back to blank slots by Long Rest (it's just part of
 `getDefaultLiveState`, so it resets for free along with everything else).
 
 Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
-typed slot above, but casting one still spends a slot from that level's tracker:
+typed slot above, but casting one still spends a slot from that level's tracker (except at
+orison level — see below):
 1. **Spontaneous Healer** — any prepared spell converts to a Cure spell
 2. ***Summon Nature's Ally*** — spontaneous conversion
 3. **The druid necklace** — 5–6 spells, 1/day each, free of slots
@@ -542,7 +543,10 @@ typed slot above, but casting one still spends a slot from that level's tracker:
 The per-level cure/SNA conversion names are data, not code: `src/data/tables/
 spontaneousConversions.json`, rendered as a visually distinct "always available" section under
 each level's typed slots (badge-style pills, not plain inputs) so it reads as fixed reference
-rather than something the player fills in.
+rather than something the player fills in. Orisons are unlimited-use under this campaign's
+houserule (no `spellSlotsUsed` tracker for level 0 at all), so *summon nature's minor ally*
+alongside *cure minor wounds* at that level costs nothing to cast — the "spends a slot" caveat
+only applies to levels 1–4.
 
 ---
 

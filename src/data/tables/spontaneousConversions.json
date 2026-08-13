@@ -1,7 +1,7 @@
 {
-  "description": "Spontaneous conversions available from any prepared spell of that level — Spontaneous Healer (cure spells) and the druid's built-in Summon Nature's Ally conversion. Not prepared spells themselves; casting one still spends a slot from that level's tracker.",
+  "description": "Spontaneous conversions available from any prepared spell of that level — Spontaneous Healer (cure spells) and the druid's built-in Summon Nature's Ally conversion. Not prepared spells themselves; casting one still spends a slot from that level's tracker, except at orison level, which is unlimited-use under this campaign's houserule and never spends anything.",
   "byLevel": {
-    "0": ["cure minor wounds"],
+    "0": ["cure minor wounds", "summon nature's minor ally"],
     "1": ["cure light wounds", "summon nature's ally I"],
     "2": ["cure moderate wounds", "summon nature's ally II"],
     "3": ["cure serious wounds", "summon nature's ally III"],
