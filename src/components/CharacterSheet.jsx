@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
@@ -8,8 +8,14 @@ import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
 import TabBar from './layout/TabBar'
-import SpellReferenceTab from './spells/SpellReferenceTab'
 import './CharacterSheet.css'
+
+// Lazy-loaded: the spell reference data (~850KB of extracted sourcebook
+// text) has no business being in the initial bundle everyone downloads to
+// see Lyra's combat stats. This code-splits the whole spells/ subtree —
+// component plus the data it pulls in — into its own chunk, fetched only
+// when the Spells tab is actually opened.
+const SpellReferenceTab = lazy(() => import('./spells/SpellReferenceTab'))
 
 const ABILITY_ORDER = [
   ['str', 'STR'],
@@ -426,7 +432,9 @@ export default function CharacterSheet() {
 
         {activeTab === 'spells' && (
           <PartySection color="spells" title="Spell Reference" subtitle="Every extracted sourcebook spell">
-            <SpellReferenceTab />
+            <Suspense fallback={<p className="breakdown">Loading spell reference…</p>}>
+              <SpellReferenceTab />
+            </Suspense>
           </PartySection>
         )}
 

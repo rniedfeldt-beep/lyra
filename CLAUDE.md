@@ -751,6 +751,20 @@ source-book filter (`<select>`, `All sources` default) are AND'd together; a spe
 level filter if *any* of its printings are at that level, not just its lowest. No connection to
 `state.preparedSpells` — this tab doesn't read or write live state at all.
 
+**Code-split.** `SpellReferenceTab` is lazy-loaded (`React.lazy` + `Suspense`,
+`CharacterSheet.jsx`) rather than imported statically — the ~850KB of extracted spell text
+(⅔ of the whole app's JS otherwise) has no business in the bundle everyone downloads to check
+Lyra's HP mid-combat on bad venue wifi. Because `loadSpellData.js`/`spellReferenceData.js`/
+`calc/spellReference.js` are reachable *only* from `SpellReferenceTab.jsx`, Rollup pulls the
+entire data chain into that same on-demand chunk automatically — no manual chunk config
+needed, just don't let anything outside `components/spells/` import those three files
+directly, or they'll get pulled back into the main bundle. Confirmed via `npm run build`: main
+chunk dropped from ~296KB gzipped back to ~139KB (pre-Spells-tab size) with the spell data
+landing in its own ~157KB chunk, fetched only on first opening the tab. The `Suspense`
+fallback ("Loading spell reference…") is the whole loading state — no separate manual
+loading flag needed, since the chunk's own JS/JSON is what's slow to fetch, not something the
+component does after mounting.
+
 ---
 
 ## Open questions
