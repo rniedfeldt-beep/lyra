@@ -114,17 +114,37 @@ function PrintingBlock({ printing }) {
   )
 }
 
-function SpellCard({ group }) {
+// The level results are grouped/sorted by. A specific level filter pins
+// every result to that level (they all share it, by construction of the
+// filter); browsing "All" falls back to each spell's lowest printed level,
+// so a spell whose printings disagree still lands in one sensible place.
+function sortLevelFor(group, levelFilter) {
+  if (levelFilter !== 'all') return levelFilter
+  return group.levels.length ? Math.min(...group.levels) : null
+}
+
+function levelHeaderLabel(level) {
+  if (level == null) return 'Level Unknown'
+  if (level === 0) return 'Orisons'
+  return `${SPELL_LEVEL_LABELS[level]} Level`
+}
+
+function SpellCard({ group, levelHeader }) {
   return (
-    <div className="spell-card">
-      <div className="spell-card-header">
-        <h3>{group.name}</h3>
-        {group.levelsDisagree && <span className="spell-level-disagree-badge">Levels differ across printings</span>}
+    <>
+      {levelHeader && <h4 className="spell-level-header">{levelHeader}</h4>}
+      <div className="spell-card">
+        <div className="spell-card-header">
+          <h3>{group.name}</h3>
+          {group.levelsDisagree && (
+            <span className="spell-level-disagree-badge">Levels differ across printings</span>
+          )}
+        </div>
+        {group.printings.map((p) => (
+          <PrintingBlock key={p.source} printing={p} />
+        ))}
       </div>
-      {group.printings.map((p) => (
-        <PrintingBlock key={p.source} printing={p} />
-      ))}
-    </div>
+    </>
   )
 }
 
@@ -136,11 +156,17 @@ export default function SpellReferenceTab() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     const sourceKey = sourceFilter === 'all' ? null : normalizeSourceKey(sourceFilter)
-    return spellGroups.filter((g) => {
+    const matches = spellGroups.filter((g) => {
       if (q && !g.name.toLowerCase().includes(q)) return false
       if (levelFilter !== 'all' && !g.levels.includes(levelFilter)) return false
       if (sourceKey && !g.printings.some((p) => normalizeSourceKey(p.source) === sourceKey)) return false
       return true
+    })
+    return matches.sort((a, b) => {
+      const aLevel = sortLevelFor(a, levelFilter) ?? Infinity
+      const bLevel = sortLevelFor(b, levelFilter) ?? Infinity
+      if (aLevel !== bLevel) return aLevel - bLevel
+      return a.name.localeCompare(b.name)
     })
   }, [search, levelFilter, sourceFilter])
 
@@ -197,9 +223,17 @@ export default function SpellReferenceTab() {
         <p className="breakdown">No spells match.</p>
       ) : (
         <div className="spell-results-list">
-          {filtered.map((g) => (
-            <SpellCard key={g.name} group={g} />
-          ))}
+          {filtered.map((g, i) => {
+            const level = sortLevelFor(g, levelFilter)
+            const prevLevel = i > 0 ? sortLevelFor(filtered[i - 1], levelFilter) : undefined
+            return (
+              <SpellCard
+                key={g.name}
+                group={g}
+                levelHeader={level !== prevLevel ? levelHeaderLabel(level) : null}
+              />
+            )
+          })}
         </div>
       )}
     </div>

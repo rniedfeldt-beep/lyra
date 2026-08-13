@@ -751,6 +751,17 @@ source-book filter (`<select>`, `All sources` default) are AND'd together; a spe
 level filter if *any* of its printings are at that level, not just its lowest. No connection to
 `state.preparedSpells` — this tab doesn't read or write live state at all.
 
+**Sort order.** Results sort by level first (ascending), then alphabetically by name within
+each level, with an `<h4>` header ("Orisons", "1st Level", … "9th Level") wherever the level
+changes — `sortLevelFor()` in `SpellReferenceTab.jsx`. The level a spell sorts/groups under
+depends on which level filter is active: with a specific level selected, every result shares
+that level by construction of the filter, so they all group under one header for it (even a
+spell whose *other* printings sit at a different level — e.g. filtering to 4th shows
+Forestfold under "4th Level" even though its Spell Compendium printing is 3rd). With `All`
+selected, a spell groups under its lowest printed level instead, since there's no filter level
+to defer to. A spell with no known level anywhere (`levels: []`) sorts last, under "Level
+Unknown".
+
 **Code-split.** `SpellReferenceTab` is lazy-loaded (`React.lazy` + `Suspense`,
 `CharacterSheet.jsx`) rather than imported statically — the ~850KB of extracted spell text
 (⅔ of the whole app's JS otherwise) has no business in the bundle everyone downloads to check
