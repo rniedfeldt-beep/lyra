@@ -70,3 +70,11 @@
   --party-header-text: #d97706;
   --party-bg: var(--bg);
 }
+
+.party-section-spells {
+  --party-accent: #2563eb;
+  --party-border: rgba(37, 99, 235, 0.4);
+  --party-header-bg: rgba(37, 99, 235, 0.14);
+  --party-header-text: #2563eb;
+  --party-bg: var(--bg);
+}

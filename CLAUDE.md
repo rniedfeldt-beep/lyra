@@ -552,11 +552,12 @@ only applies to levels 1–4.
 
 ## Layout
 
-Three tabs — Lyra / Companions / Reference — via `TabBar` (`src/components/layout/`), local
-`useState` in `CharacterSheet.jsx`, no router. `CombatBar` (HP/AC/Initiative) is pinned above
-the tab content and rendered unconditionally, so it's visible on every tab regardless of which
-one is active. `PartySection` still gives Lyra, Quen, and each active summon group their own
-color-coded block with a sticky header (purple/green/amber respectively) within a tab.
+Four tabs — Lyra / Companions / Reference / Spells — via `TabBar` (`src/components/layout/`),
+local `useState` in `CharacterSheet.jsx`, no router. `CombatBar` (HP/AC/Initiative) is pinned
+above the tab content and rendered unconditionally, so it's visible on every tab regardless of
+which one is active. `PartySection` still gives Lyra, Quen, each active summon group, and the
+Spells tab their own color-coded block with a sticky header (purple/green/amber/blue
+respectively) within a tab.
 
 - **Tab 1 — Lyra**: resource trackers (spell slots, wild shape uses, per-day abilities,
   necklace spells), spellcasting reference (save DCs by level, spell attack bonus, caster
@@ -566,12 +567,22 @@ color-coded block with a sticky header (purple/green/amber respectively) within 
   per-instance HP and wall of thorns tracking.
 - **Tab 3 — Reference**: spell slot summary table, equipment descriptions, feat descriptions,
   the Quicksilver attack routine (rarely used mid-combat, so it moved out of Tab 1).
+- **Tab 4 — Spells**: `SpellReferenceTab` (`src/components/spells/`) — searchable reference
+  over every sourcebook spell extracted so far (Phase 6, `data/spells/`). Reference only, no
+  connection to the prep tracker on Tab 1. See its own section below.
 
 `TabBar` sticks just below `CombatBar`; `PartySection` headers stick below both. Two CSS
 custom properties in `index.css` drive the offsets — `--combatbar-height` and
 `--tabbar-height` — and both must match their component's actual rendered height, or sticky
 headers land at the wrong offset. `partySection.css` stacks them via
 `top: calc(var(--combatbar-height) + var(--tabbar-height))`.
+
+Each tab's `window.scrollY` is saved on the way out and restored (via `requestAnimationFrame`,
+so it runs after the new tab's content has laid out) on the way in — `scrollPositions` ref in
+`CharacterSheet.jsx`, keyed by tab id. Needed once the Spells tab existed: its content height
+swings wildly with search/filter state, and without this a switch to/from it would leave
+whichever tab you return to scrolled to the wrong spot (the single window-level scroll
+container clamps to the shorter tab's height while it's the one showing).
 
 Quen's stat block is computed by `src/lib/calc/companion.js` (`computeCompanionStatBlock`),
 verified against the reference numbers in the Quen section below.
@@ -694,6 +705,51 @@ Blindsight←Blindsight, Jagged Tooth←Keen Edge).
 - A few `otherPrintings` links are still one-directional (e.g. `spell-compendium.json`'s
   Buoyant Lifting, Countermoon, and Plant Body entries don't yet link back to their Savage
   Species printings) — sweep for and close these gaps.
+
+---
+
+## Spell Reference tab
+
+Consumes `data/spells/*.json` (see above) as the app's first UI on top of the Phase 6
+extraction — pure reference, deliberately not wired to the Tab 1 prep tracker.
+
+**Loading.** `src/lib/loadSpellData.js` globs every file under `data/spells/` with
+`import.meta.glob` (not named imports, unlike `loadCreatureData.js`) specifically so dropping
+in a new sourcebook file needs no loader edit — the extraction pipeline is still adding books.
+Exports the flat `rawSpells` array plus `spellFileCounts` (`{ fileName: count }`), which the
+tab renders as a load report (a one-line total plus a collapsed-by-default per-file
+breakdown) so a truncated or malformed extraction is visible at a glance rather than silently
+missing.
+
+**Merging.** `src/lib/calc/spellReference.js` (`mergeSpellEntries`) groups raw entries by
+spell name (case-insensitive) into one card per spell. Every sourcebook that reprints a spell
+got its own fully-extracted entry in that book's file (own description, own mechanical
+fields — these genuinely differ between printings sometimes, e.g. Forestfold's competence
+bonus is +20 in some books and +10 in others), so a spell's "printings" are built from those
+full entries directly, sorted ascending by level. `otherPrintings` is only consulted to fill
+in a printing with no full entry anywhere in the loaded set (a sourcebook not yet processed,
+or a stub-only citation) — rendered with a "details not yet extracted" note instead of the
+full mechanical block. Source-name matching is normalized (case-insensitive, strips a leading
+"The ") only for grouping/filtering — every printing still displays its citation's literal
+text — because a book's own `source` field and another book's `otherPrintings` citation of it
+don't always agree verbatim (e.g. "The Quintessential Druid II" vs "Quintessential Druid II").
+
+**Level disagreement.** A spell's `levels` is the distinct set of non-null
+`spellLevelDruid` values across its printings; `levelsDisagree` is true when that set has more
+than one member, surfaced as a badge on the card ("Levels differ across printings") — printing
+order (ascending by level) already puts the lower-level book first, so the disagreement reads
+directly off the stacked printing blocks underneath the badge.
+
+**Missing fields.** Extraction completeness varies a lot by sourcebook (subschool, descriptors,
+components, casting time, range, target/area/effect, duration, save, and SR are null on a
+meaningful fraction of entries — `description` and `spellLevelDruid` are the only fields
+consistently populated, description always and level all but once). Every field renders `—`
+when absent rather than the literal word "null" or a blank gap.
+
+**Layout.** Search-by-name (substring, live), level filter (0–9 buttons, `All` default), and
+source-book filter (`<select>`, `All sources` default) are AND'd together; a spell matches the
+level filter if *any* of its printings are at that level, not just its lowest. No connection to
+`state.preparedSpells` — this tab doesn't read or write live state at all.
 
 ---
 

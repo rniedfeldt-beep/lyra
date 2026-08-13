@@ -4,6 +4,7 @@ const TABS = [
   { id: 'lyra', label: 'Lyra' },
   { id: 'companions', label: 'Companions' },
   { id: 'reference', label: 'Reference' },
+  { id: 'spells', label: 'Spells' },
 ]
 
 // Sticky just below the combat bar, so switching tabs never requires

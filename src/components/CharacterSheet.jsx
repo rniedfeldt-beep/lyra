@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
@@ -8,6 +8,7 @@ import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
 import TabBar from './layout/TabBar'
+import SpellReferenceTab from './spells/SpellReferenceTab'
 import './CharacterSheet.css'
 
 const ABILITY_ORDER = [
@@ -351,11 +352,26 @@ export default function CharacterSheet() {
   const sheet = lyraSheet
   const { character } = sheet
   const [activeTab, setActiveTab] = useState('lyra')
+  // Each tab's window scroll position is remembered independently, so
+  // switching to the Spells tab (its own search/filters, potentially a very
+  // different content height) and back never disturbs where you'd scrolled
+  // to on another tab.
+  const scrollPositions = useRef({})
+
+  function handleTabChange(nextTab) {
+    scrollPositions.current[activeTab] = window.scrollY
+    setActiveTab(nextTab)
+  }
+
+  useEffect(() => {
+    const saved = scrollPositions.current[activeTab] ?? 0
+    requestAnimationFrame(() => window.scrollTo(0, saved))
+  }, [activeTab])
 
   return (
     <>
       <CombatBar sheet={sheet} />
-      <TabBar active={activeTab} onChange={setActiveTab} />
+      <TabBar active={activeTab} onChange={handleTabChange} />
       <div className="sheet">
         <header className="sheet-header">
           <h1>{character.name}</h1>
@@ -405,6 +421,12 @@ export default function CharacterSheet() {
             <Equipment items={sheet.items} />
             <Feats feats={sheet.feats} />
             <AttackRoutine sheet={sheet} />
+          </PartySection>
+        )}
+
+        {activeTab === 'spells' && (
+          <PartySection color="spells" title="Spell Reference" subtitle="Every extracted sourcebook spell">
+            <SpellReferenceTab />
           </PartySection>
         )}
 
