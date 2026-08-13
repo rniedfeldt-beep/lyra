@@ -1,0 +1,1622 @@
+[
+  {
+    "name": "Naturewatch",
+    "source": "Complete Divine",
+    "page": 170,
+    "spellLevelDruid": 0,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Quarter circle emanating from you to the extreme of the range"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as deathwatch, but works only on animals and plants, and also reveals other mundane conditions about them, such as whether plants are dehydrated or animals are malnourished.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Beget Bogun",
+    "source": "Complete Divine",
+    "page": 152,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "XP"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Tiny construct"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Final step in creating a bogun: infuses living magic into a small mannequin woven from vegetable matter, animating it as a Tiny construct servant (2d10 HD, AC 15, nettle attack dealing 1d4-2 plus Fort DC 11 poison causing temporary Dex damage, fly speed 50 ft., CR 1). The bogun is telepathically linked to its creator up to 500 yards, shares its creator's alignment, and dies if the creator dies (dealing the creator 2d10 damage if the bogun itself is destroyed first). Costs 25 XP; creating one also requires a week-long ritual and the Craft Wondrous Item feat at caster level 7+.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Camouflage",
+    "source": "Complete Divine",
+    "page": 157,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Changes your skin and clothing color to automatically match your surroundings for 10 minutes per level, granting a +10 circumstance bonus on Hide checks.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hawkeye",
+    "source": "Complete Divine",
+    "page": 166,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Sharpens your long-distance vision for 10 minutes per level, increasing your projectile weapon range increment by 50% and granting a +5 competence bonus on Spot checks.",
+    "otherPrintings": [
+      {
+        "source": "Complete Adventurer",
+        "page": 151
+      }
+    ]
+  },
+  {
+    "name": "Omen of Peril",
+    "source": "Complete Divine",
+    "page": 171,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "F"
+    ],
+    "castingTime": "1 full round",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Grants the caster a brief vision indicating the general danger level (safety, peril, or great danger) awaiting along their likely path over the next hour, with a 70% + 1%/caster level chance (max 90%) of accuracy secretly rolled by the DM. Unlike augury, it answers no specific question, only the overall risk level. Requires a focus of marked sticks, bones, or similar tokens worth at least 25 gp.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sandblast",
+    "source": "Complete Divine",
+    "page": 178,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Semicircular  burst  of  sand  10 ft.  long,  centered  on your hands"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reﬂ ex half",
+    "spellResistance": "Yes",
+    "description": "Fires a semicircular 10-ft. blast of hot sand from the caster's hands, dealing 1d6 points of nonlethal damage (Reflex half) to creatures in the arc; those who fail the save are also stunned for 1 round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Traveler’s Mount",
+    "source": "Complete Divine",
+    "page": 184,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Grants a touched animal or magical beast a +10 ft. enhancement bonus to speed and lets it hustle without taking damage or becoming fatigued for 1 hour per level, at the cost of being unable to attack with its natural weapons for the duration — it can still carry a rider into battle, just not fight.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Vigor, Lesser",
+    "source": "Complete Divine",
+    "page": 186,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level (max 15 rounds)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a touched living creature fast healing 1 for 10 rounds + 1 round per level (max 15 rounds), automatically stabilizing it if it starts dying from hit point loss during that time. It does not restore hit points lost to starvation, thirst, or suffocation, nor regrow or reattach lost body parts. Multiple vigor effects never stack — only the highest-level one applies — though casting a second vigor spell of equal level extends the current duration by the new spell's full duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wood Wose",
+    "source": "Complete Divine",
+    "page": 190,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One nature servant"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a translucent green nature spirit for 1 hour per level that performs simple natural tasks — building a campfire, gathering herbs, fishing, feeding an animal companion — but nothing requiring knowledge of technology, such as opening a latch. It carries out one task at a time, repeating it until redirected, has an effective Strength of 2 (lifting 20 lb. or dragging 100 lb.), can trigger but generally can't set off pressure-plate traps, and moves 15 feet in any direction, including straight up. It cannot attack and is never subject to an attack roll or saving throw, but dissipates if it takes 6 points of damage from area attacks or is sent beyond the spell's range.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Body of the Sun",
+    "source": "Complete Divine",
+    "page": 155,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "5 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "5-ft.-radius  emanation centered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Your body radiates fire in a 5-ft. emanation for 1 round per caster level, illuminating the area and dealing 1d4+1 fire damage (Reflex half) to any creature other than yourself that touches you.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Brambles",
+    "source": "Complete Divine",
+    "page": 156,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Wooden weapon touched"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Covers a touched wooden weapon in magical thorns for 1 round per caster level, making it deal both piercing and bludgeoning damage with a +1 enhancement bonus and +1 damage per caster level (max +10). Only works on melee weapons with wooden striking surfaces, not bows, arrows, or metal weapons. Requires a small thorn as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Briar Web",
+    "source": "Complete Divine",
+    "page": 156,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Plants in a 20-ft.-radius spread"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Reﬂ ex negates; see text",
+    "spellResistance": "No",
+    "description": "Causes plants in a 20-ft.-radius spread to grow thorns and entangle creatures for 1 minute per caster level. A successful Reflex save only halves movement speed in the area; on a failed save, a creature can hold still (entangled: -2 attack, -4 Dex, no damage), act normally (taking 2d6 piercing damage from the thorns), or spend a full-round action attempting to break free with a new save. A creature attempting a spell with a somatic component must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. The briars grant partial cover at 5 ft. and total cover beyond 20 ft.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cloudburst",
+    "source": "Complete Divine",
+    "page": 158,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": "Water",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 full round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "100-ft.-radius emanation"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons storm clouds and heavy rain in a 100-ft.-radius emanation for 10 minutes per level. Visibility is halved (-4 Spot/Search), ranged attacks and Listen checks take a -4 penalty, and unprotected flames are automatically extinguished (50% chance for protected flames). Doesn't function indoors, underground, underwater, or in deserts; the created water evaporates over 10 minutes after the spell ends and provides no nourishment.",
+    "otherPrintings": [
+      {
+        "source": "The Quintessential Druid II",
+        "page": 86,
+        "note": "Same name, unrelated spell — different school/mechanics, not a reprint"
+      }
+    ]
+  },
+  {
+    "name": "Creeping Cold",
+    "source": "Complete Divine",
+    "page": 159,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "3 rounds",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "Yes ceiling floor 159",
+    "description": "Freezes the target's sweat into ice for 3 rounds, dealing cumulative cold damage each round (1d6 the first round, 2d6 the second, 3d6 the third). Only one Fortitude save is allowed, which halves the damage each round if successful. Requires a small vessel of ice, snow, or water worth at least 25 gp as a focus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Decomposition",
+    "source": "Complete Divine",
+    "page": 161,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "50 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "All  enemies  within  a  50-ft.-radius  emanation  cen- tered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Enemies within a 50-ft. emanation for 1 round per level who take normal (non-subdual) damage suffer an additional 1 point of festering damage each round thereafter until healed by a DC 15 Heal check or any curative magic. Only one wound festers at a time per creature, but a fresh wound taken while still in the area restarts the festering once the prior one is stopped.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Scent",
+    "source": "Complete Divine",
+    "page": 178,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a touched creature the scent ability for 10 minutes per level, letting it detect approaching enemies, sniff out hidden foes, and track by smell. Normal detection range is 30 feet (60 ft. upwind, 15 ft. downwind, doubled for strong odors and tripled for overpowering ones), revealing only presence and rough direction until the creature closes to within 5 feet. Tracking by scent uses a Wisdom check (DC 10 for a fresh trail, +2 per hour the trail has cooled), following the rules for the Track feat and ignoring surface conditions and poor visibility. Requires a pinch of mustard and pepper and a drop of sweat.",
+    "otherPrintings": [
+      {
+        "source": "Serpent Kingdoms",
+        "page": 157
+      }
+    ]
+  },
+  {
+    "name": "Beast Claws",
+    "source": "Complete Divine",
+    "page": 151,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level 151",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Transforms your hands into slashing claws dealing 1d6 damage plus Strength and other bonuses, with a 19-20 threat range, lasting 1 round per caster level. Attacks with the claws don't provoke attacks of opportunity, and they don't impede manual dexterity or spellcasting. Requires the claw of a bird of prey as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fire Wings",
+    "source": "Complete Divine",
+    "page": 165,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "F"
+    ],
+    "castingTime": "1 full round",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Transforms your arms into flaming wings for 1 minute per level, letting you fly at 60 ft. (40 ft. in medium/heavy armor) with good maneuverability, though you can't hold items, use somatic components, or carry more than a light load while winged. Unarmed strikes with the wings take a -4 non-proficiency penalty but deal 2d6 fire damage in addition to normal unarmed damage. If the spell ends or is dispelled while aloft, you descend at 60 ft./round for 1d6 rounds before falling; the wings can also be extinguished by quench, water immersion, or hurricane-force wind. Requires burning a bird feather and a golden phoenix amulet focus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Infestation of Maggots",
+    "source": "Complete Divine",
+    "page": 166,
+    "spellLevelDruid": 3,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "One round/2 levels",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "A melee touch attack infests the target with maggot-like creatures dealing 1d4 temporary Constitution damage per round for 1 round per two caster levels; the subject can attempt a new Fortitude save each round to end the effect. Cure disease or heal removes the infestation. Requires a handful of dead, dried flies as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature’s Favor",
+    "source": "Complete Divine",
+    "page": 170,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "1 min/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a touched animal a +1 luck bonus on attack and damage rolls for every 2 caster levels, lasting 1 minute per level.",
+    "otherPrintings": [
+      {
+        "source": "Complete Adventurer",
+        "page": 155,
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "Spikes",
+    "source": "Complete Divine",
+    "page": 181,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Wooden weapon touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As Brambles, except the affected wooden weapon instead gains a +2 enhancement bonus on attacks and its threat range is doubled.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Standing Wave",
+    "source": "Complete Divine",
+    "page": 182,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft/2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Waves under a creature or object within range"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Reﬂ ex negates",
+    "spellResistance": "Yes",
+    "description": "Commands nearby water to lift and propel a creature or object (which may itself carry other creatures or objects) in a straight line across water at 60 feet per round; the maximum size the wave can lift scales up with the caster's level. The spell ends harmlessly when the wave reaches land, setting its burden down on shore. Lasts 10 minutes per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Vigor",
+    "source": "Complete Divine",
+    "page": 186,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Lesser Vigor, except it grants fast healing 2 hit points per round, lasting 10 rounds + 1 round per level (max 25 rounds).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Vigor, Mass Lesser",
+    "source": "Complete Divine",
+    "page": 186,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/two levels, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Lesser Vigor, except it grants fast healing 1 to one creature per two caster levels within a 20-ft. area (no two subjects more than 30 feet apart), lasting 10 rounds + 1 round per level (max 25 rounds). It likewise does not restore hit points lost to starvation, thirst, or suffocation, does not regrow lost body parts, and does not stack with other vigor effects (only the highest-level applies, though an equal-level recast extends the duration).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Weather Eye",
+    "source": "Complete Divine",
+    "page": 189,
+    "spellLevelDruid": 3,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 hour",
+    "range": "1 mile radius + 1 mile/level",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "1 mile radius + 1 mile/level, centered on you"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Accurately predicts natural weather up to one week in advance across a large area (1 mile radius + 1 mile per level); if the weather is currently being magically influenced, the spell instead reveals information as though a detect magic spell had been cast. Requires incense and a scrying focus such as a bowl, mirror, or crystal ball.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bottle of Smoke",
+    "source": "Complete Divine",
+    "page": 155,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One smoky, horselike creature"
+    },
+    "duration": "1 hour/",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Captures smoke in a special bottle; when opened, it forms an intangible, silent, horse-shaped smoke mount that a rider can control by making a DC 10 Ride check while holding the bottle. The mount moves at 20 ft. per caster level (max 240 ft.), can lay down a concealing smoke trail (20% miss chance), is immune to all damage and cannot attack, and disperses in severe or magical wind. The rider can re-cork the bottle to pause the mount and later reopen it to resume; the spell ends 24 hours after casting regardless of use, or immediately if the bottle breaks. Requires an ornate corked bottle worth at least 50 gp as a focus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Camouflage, Mass",
+    "source": "Complete Divine",
+    "page": 157,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. +10 ft./level) 157",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Any number of creatures, no two of which can be more than 60 ft. apart"
+    },
+    "duration": "10 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Camouflage, except it affects any number of creatures within medium range (no two more than 60 ft. apart) for 10 minutes per level, and the effect stays active as the group moves together — breaking for any individual who strays more than 60 ft. from the nearest affected member.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Chain of Eyes",
+    "source": "Complete Divine",
+    "page": 158,
+    "spellLevelDruid": 4,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Lets you see through the eyes of a touched living creature for 1 hour per level (Will negates). You gain no control over the host, but your viewpoint automatically transfers to any other living creature the host physically touches, letting your sensor infiltrate guarded areas. As a free action on your turn, you can switch between your own sight and the sensor's.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Energy Vortex",
+    "source": "Complete Divine",
+    "page": 164,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Acid",
+      "Cold",
+      "Fire",
+      "Elec- tricity",
+      "or Sonic"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "You choose one energy type (acid, cold, fire, electricity, or sonic) and unleash a 20-ft.-radius burst centered on yourself, dealing 1d8 damage +1 per caster level (max +20) to nearby creatures other than you — or double damage if you also choose to take the damage yourself. No Reflex save is allowed, but spell resistance and any resistances/immunities to that energy type still apply.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forestfold",
+    "source": "Complete Divine",
+    "page": 166,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Camouflage, except it instead grants a +20 competence bonus on Hide and Move Silently checks, and the effect ends if you move more than 10 feet from where you cast it.",
+    "otherPrintings": [
+      {
+        "source": "Complete Adventurer",
+        "page": 149
+      }
+    ]
+  },
+  {
+    "name": "Languor",
+    "source": "Complete Divine",
+    "page": 167,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Ray"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "A ray that, on a failed Will save, slows the target (as the slow spell) for 1 round per level and inflicts a cumulative Strength penalty of 1d6-1 per two caster levels each round (minimum additional penalty of 0, maximum -10 total); a subject reduced below 1 Strength becomes helpless. The slow effect (but not the Strength penalty) is countered by haste.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Last Breath",
+    "source": "Complete Divine",
+    "page": 167,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Dead creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes (harmless)",
+    "description": "Returns a creature that died within the last round to 0 hit points, restores any ability scores damaged to 0 or below to 1, and cures normal poison/disease (not magical curses or diseases), though missing body parts remain missing. You take 1d4 damage per Hit Die of the revived creature, unaffected by your own spell resistance, and the subject's soul must be willing to return, granting no save if it wants to come back. As with other resurrection effects, the subject loses a level (or 1 Constitution point if 1st level) and risks losing prepared spells or spell slots. Cannot affect a creature dead for over a round, killed by a death effect, that died of old age, or constructs/elementals/outsiders/undead.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Murderous Mist",
+    "source": "Complete Divine",
+    "page": 169,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cloud that spreads in 30-ft. radius, 20 ft. high"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reﬂ ex half; see text",
+    "spellResistance": "Yes",
+    "description": "Creates a 30-ft.-radius, 20-ft.-high cloud of scalding steam that drifts in a straight line away from you at 10 ft. per round for 1 round per level. Anyone inside takes 2d6 damage and is permanently blinded, unless a successful Reflex save halves the damage and prevents blindness; creatures in the cloud also have one-quarter concealment. Wind doesn't affect its direction or speed, but a moderate wind (11+ mph) disperses it in 4 rounds and a strong wind (21+ mph) disperses it in 1 round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Binding Winds",
+    "source": "Complete Divine",
+    "page": 153,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. +10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Concentration",
+    "savingThrow": "Reﬂ ex negates",
+    "spellResistance": "Yes",
+    "description": "Encircles one target within medium range in a stationary whirlwind barrier (Reflex negates) that lasts as long as you concentrate. The bound creature can act and speak but cannot move, cannot be heard beyond the winds, and cannot hear anything but the wind's roar. No sonic or language-dependent effects can cross the barrier, ranged attacks through it take a -2 penalty, and it holds flying creatures suspended in place.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Dance of the Unicorn",
+    "source": "Complete Divine",
+    "page": 161,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Surrounds you with a purifying mist (5 ft. radius per caster level) for 1 minute per level that automatically negates nonmagical contaminants and inhaled poisons. Magical harmful effects (acid fog, cloudkill, dragon breath, etc.) are negated if your caster level exceeds the effect's caster level/HD; otherwise everyone in the mist gets a +4 save bonus against it. Leaves the area damp.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Phantom Stag",
+    "source": "Complete Divine",
+    "page": 174,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One quasi-real, staglike creature"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None; see text",
+    "spellResistance": "No",
+    "description": "Conjures a Large corporeal staglike mount (AC 20, 40 hp plus 5 per caster level) that carries the caster or a designated rider. It attacks with antlers at +10 for 1d8+9 damage (doubled on a charge) and can trample Medium or smaller foes for 1d6+9 (Reflex half). Its speed is 20 ft. per caster level (max 300 ft.), it can carry the rider's weight plus 10 lb. per caster level, and it ignores difficult terrain. At 12th level it gains at-will air walk (1 round at a time) and +2 deflection to AC; at 14th it can fly and gains +4 deflection; at 16th its antlers gain the wounding and ghost touch properties and it gains +6 deflection; at 18th level it can use etherealness on its rider's behalf (CL 18th) and gains +8 deflection. Lasts 1 hour per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Poison Thorns",
+    "source": "Complete Divine",
+    "page": 175,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Covers the caster in black thorns for 1 round per level; anyone striking the caster in melee with a handheld or natural weapon (reach weapons excluded) takes 1d6 plus the caster's Strength bonus in piercing damage. Any creature grappling the caster is also exposed each round to a poison dealing 1d4 temporary Strength damage immediately and another 1d4 one minute later, each instance negated separately by a Fortitude save (DC 10 + 1/2 caster level + Wisdom modifier). Requires a dried black rose.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Quill Blast",
+    "source": "Complete Divine",
+    "page": 176,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft.-radius spread, centered on you"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reﬂ ex half; see text",
+    "spellResistance": "Yes",
+    "description": "Fires needle-sharp quills from the caster's skin in a 20-ft.-radius burst (Reflex half). Targets are struck by a number of 1d6 piercing quills based on size — 1 for Tiny or smaller, 1d4 for Small, 2d6 for Medium, 3d6 for Large, 4d6 for Huge or larger — with a successful save halving the count and Tiny or smaller creatures avoiding the quills entirely. Each lodged quill imposes a -1 penalty on attacks, saves, and checks until removed (a DC 20 Heal check as a standard action, or an extra 1d6 damage if pulled carelessly). Requires a porcupine quill.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Rejuvenation Cocoon",
+    "source": "Complete Divine",
+    "page": 177,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Willing creature touched"
+    },
+    "duration": "2 rounds",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Encases a willing touched creature in a force cocoon (hardness 10, 10 hp per caster level) for 2 rounds; the target cannot move from its space or leave early short of teleportation magic or destroying the cocoon. One round after casting it heals the target 10 hit points per caster level and cures poison and disease; at the end of the second round the cocoon dissipates and the target is freed to act normally. Requires a butterfly's cocoon.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Vigor, Greater",
+    "source": "Complete Divine",
+    "page": 186,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": "10 rounds + 1 round/level (max 35 rounds)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Lesser Vigor, except it grants fast healing 4 hit points per round, lasting 10 rounds + 1 round per level (max 35 rounds).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Anger of the Noonday Sun",
+    "source": "Complete Divine",
+    "page": 150,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 feet",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "All  sighted  creatures  within  a  10-ft.-radius  burst centered on you"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reﬂ ex negates",
+    "spellResistance": "Yes",
+    "description": "A burst of blinding sunlight erupts from you in a 10-ft. radius; creatures that can see you must succeed on a Reflex save or be blinded for 1 minute per caster level. Undead caught in the area take 1d6 damage per two caster levels (max 10d6), half on a successful Reflex save, and undead specifically vulnerable to bright light (such as vampires) are destroyed outright on a failed save. Fungi, molds, oozes, and slimes are affected as though they were undead.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cometfall",
+    "source": "Complete Divine",
+    "page": 159,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "400-pound ball of rock and ice"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reﬂ ex half",
+    "spellResistance": "No",
+    "description": "Conjures a glowing comet 5 ft. per caster level above the target area (or at the ceiling, whichever is lower) that immediately falls, dealing 2d6 damage per 10 feet fallen (Reflex half) to everything in a 10-ft.-square area. Creatures that fail their save are also subject to a trip attempt at a +11 bonus, and the impact fills the area with dense rubble.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Contagious Touch",
+    "source": "Complete Divine",
+    "page": 159,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "For 1 round per level, any living creature you hit with a melee touch attack contracts a disease of your choice (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom) as though struck by contagion, unless it succeeds on a Fortitude save. You can infect only one creature per round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Crumble",
+    "source": "Complete Divine",
+    "page": 160,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. +10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One structure or construct"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial (object)",
+    "spellResistance": "Yes (object)",
+    "description": "Erodes a fabricated structure or construct (not living creatures) for 1d6 damage per caster level, ignoring hardness, to a maximum of 15d6 — Fortitude partial. The object's size must be within the caster's limit or the spell fails outright: Huge at caster level 15 or below, Gargantuan at 16th-18th, Colossal at 19th-20th.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Enveloping Cocoon",
+    "source": "Complete Divine",
+    "page": 164,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cocoon  of  force  around  one  Large  or  smaller creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Reﬂ ex negates",
+    "spellResistance": "Yes",
+    "description": "Encases one Large or smaller creature within medium range in a force cocoon (Reflex negates) for 1 round per level or until destroyed (hardness 10, 10 hp per caster level). The trapped creature cannot move or cast spells with somatic components and can only attack the cocoon itself. The caster may cast a second spell at the cocoon to attach it; when the cocoon ends or is dismissed, the attached spell automatically hits the trapped creature with no save (though SR still applies), but is wasted if the cocoon is destroyed first. Requires a live caterpillar as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fires of Purity",
+    "source": "Complete Divine",
+    "page": 165,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": null,
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Wreathes a touched creature in harmless magical flame for 1 round per level. Anyone who hits the subject in melee (without a reach weapon) takes 1d6 fire damage +1 per caster level (max +15, SR applies) and must succeed on a Reflex save or catch fire, burning for 1d4 rounds at 1d6 damage per round unless they save again or douse themselves. The subject itself takes only half damage (or none, on a successful save) from fire-based attacks.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Miasma",
+    "source": "Complete Divine",
+    "page": 168,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "3 rounds/level",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Fills a target's mouth and throat with unbreathable gas for 3 rounds per level. The subject can hold its breath for 2 rounds per point of Constitution, then must succeed on an increasingly difficult Constitution check (DC 10 + 1 per previous success) each round or fall unconscious, then start dying and eventually suffocate over the following rounds.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Phantasmal Disorientation",
+    "source": "Complete Divine",
+    "page": 172,
+    "spellLevelDruid": 6,
+    "school": "Illusion",
+    "subschool": "Phantasm",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Creates illusory shifting terrain around one living creature (Will negates) that disrupts its sense of direction. Each round the subject tries to move it must succeed on a DC 20 Survival check or instead veer 90 degrees off course, not realizing the error until it meaningfully interacts with the environment or the round ends. Only movement is affected — the subject can still fight and cast spells normally. Lasts 10 minutes per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Tidal Surge",
+    "source": "Complete Divine",
+    "page": 183,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One or more creatures in a 20-ft.-radius burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reﬂ ex half",
+    "spellResistance": "Yes 183",
+    "description": "Slams a huge wave of water into a target or, if a natural body of water is within range, into a 20-ft.-radius burst area (Reflex half), dealing 1d8 damage per two caster levels (max 7d8). Affected creatures are also subjected to a bull rush using an effective Strength of 16 at Medium size (or 20 and Large if conjured near a water source); those who lose the opposed check are pushed 5 feet, plus 5 feet per 5 points the check is beaten by, in a direction the caster chooses, potentially into water. The wave extinguishes open flames of Large size or smaller in its path and subjects any magical fire it strikes to a dispel magic effect.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Tortoise Shell",
+    "source": "Complete Divine",
+    "page": 184,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Grants a touched living creature a +6 enhancement bonus to natural armor (increasing by 1 per 3 caster levels above 11th, to a maximum of +9 at 20th) for 10 minutes per level; a creature with no natural armor treats its base as +0 before the bonus applies. The bonus stacks with natural armor but not with other enhancement bonuses to natural armor. It slows the subject as though wearing heavy armor, though it imposes no armor check penalty or arcane spell failure chance.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Vigorous Circle",
+    "source": "Complete Divine",
+    "page": 187,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": "10 rounds + 1 round/level (max 40 rounds)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Mass Lesser Vigor, except it grants fast healing 3 hit points per round, lasting 10 rounds + 1 round per level (max 40 rounds).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Brilliant Aura",
+    "source": "Complete Divine",
+    "page": 157,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "1 person per 2 levels, all of whom must be within 30 ft. of each other"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Cloaks up to one ally per two caster levels (all within 30 ft. of each other) in glowing light for 1 round per caster level. Affected creatures shed light like a torch, and their melee/ranged weapon attacks function as brilliant energy weapons — ignoring nonliving matter and armor/enhancement AC bonuses, though they can't harm undead, constructs, or objects — and deal bonus damage equal to half the caster's level (max +10).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cloudwalkers",
+    "source": "Complete Divine",
+    "page": 159,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Reﬂ ex negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants gaseous cloud-pads on the feet of up to one creature per level (within 30 ft. of each other) for 1 hour per level, letting each subject move vertically at 30 ft. or, once at least 90 ft. up, fly laterally at 60 ft. with perfect maneuverability. A subject can land by spending a standard action to shake off the pads, ending the effect for them; the caster can dismiss the spell only for all subjects simultaneously.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Creeping Cold, Greater",
+    "source": "Complete Divine",
+    "page": 160,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": "See text",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Creeping Cold, except it adds a fourth round of damage (4d6), a fifth round (5d6) if the caster is at least 15th level, and a sixth round (6d6) if the caster is at least 20th level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Poison Vines",
+    "source": "Complete Divine",
+    "page": 175,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": "Fortitude negates; see text",
+    "spellResistance": "Yes",
+    "description": "As Vine Mine, except the conjured vines carry a contact poison (1d6 Dex/2d6 Dex, Fortitude negates). A save is required only on first entry into the spell's area and again one minute later, not on every entry or every round spent inside. The caster is immune to the poison and can extend that immunity to a number of other targets equal to caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Slime Wave",
+    "source": "Complete Divine",
+    "page": 180,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "15-ft.-radius spread"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reﬂ ex negates",
+    "spellResistance": "No",
+    "description": "Summons a wave of green slime that spreads from a chosen point to fill a 15-ft.-radius area (Reflex negates), coating creatures with one patch per 5 feet of their face. Each patch deals 1d6 temporary Constitution damage per round to flesh (2d6 damage per round to wood or metal, ignoring metal's hardness but not wood's; stone is unaffected). It can be scraped off safely only during the first round of contact; afterward it must be frozen, burned, or cut away, damaging the victim in the process. Extreme heat or cold, sunlight, or remove disease destroys it. Unlike ordinary green slime, this conjured slime evaporates by the end of its 1 round/level duration. Requires a few drops of stagnant water.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Storm Tower",
+    "source": "Complete Divine",
+    "page": 182,
+    "spellLevelDruid": 7,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 full round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "100-ft. tall, 20-ft.-radius spread"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Raises a 100-ft.-tall, 20-ft.-radius tower of storm clouds for 1 round per level that absorbs electricity damage dealt to those inside and blocks magic missiles from entering, leaving, or being cast within it. 60 mph winds inside make ranged attacks impossible (though they don't hinder movement), and only Gargantuan or Colossal creatures can pass through its edge — everyone smaller must stop there. Those inside gain one-half concealment from outside observers, and the howling wind imposes a -10 penalty on Listen checks within 50 feet, including inside the tower.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Awaken, Mass",
+    "source": "Complete Divine",
+    "page": 151,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F",
+      "XP"
+    ],
+    "castingTime": "24 hours",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal or tree/three levels, no two of which may be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Awakens one or more trees or animals of the same kind to human-like sentience within medium range, up to one target per three caster levels (no two more than 30 ft. apart). Requires a Will save (DC 10 + the HD of the highest-HD target, or the tree's HD once awakened, whichever is greater) or the spell fails for all targets. Awakened creatures gain 3d6 Intelligence (trees also get 3d6 Wisdom/Charisma and animated-object-like traits; animals get +1d3 Charisma and +2 HD), become friendly but not bonded to the caster, and can learn languages. Costs 250 XP per creature awakened.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Phantom Wolf",
+    "source": "Complete Divine",
+    "page": 174,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 full round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned phantom wolf 174"
+    },
+    "duration": "Concentration up to 1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures an incorporeal Large magical beast white wolf (HD 12d10+48, hp 113, AC 25/touch 25/flat-footed 16, flies 60 ft.) that obeys the caster's mental commands as long as it stays within range and the caster concentrates. Its bite is a touch attack dealing 2d6 plus 3d6 cold damage, and any creature of fewer than 12 HD within 30 feet when it attacks must succeed on a DC 24 Will save or be frightened for 3d6 rounds (becoming immune to that wolf's frightful presence for 24 hours). Standard incorporeal traits apply. Lasts concentration up to 1 round per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Storm of Elemental Fury",
+    "source": "Complete Divine",
+    "page": 182,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 full round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "40-ft.-radius  storm  cloud,  200  feet  above  the ground"
+    },
+    "duration": "Concentration (maximum 4 rounds) (D)",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Summons a black storm cloud overhead that immediately buffets the area below with windstorm-force winds, making ranged attacks impossible and forcing a Fortitude save against being blown away (Small or smaller creatures), knocked prone (Medium), or unable to move that round (Large or larger); flying creatures that fail are instead blown a random distance. Spells cast within the area risk disruption via a Concentration check against the storm's save DC plus the level of the spell being cast. If the caster maintains concentration (up to 4 rounds) they may move the cloud 40 ft. per round as a move action, and each subsequent round adds an effect: round 2 rains rocks for 5d6 bludgeoning damage (no save); round 3 brings torrential rain that may douse flames, cuts visibility to 5 feet, and halves movement speed; round 4 pelts the area with flame for 1d6 fire damage per caster level (Reflex half).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Stormrage",
+    "source": "Complete Divine",
+    "page": 182,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Grants the caster the benefits of a fly spell and constant protection as if surrounded by a wind wall, plus total immunity to natural or magical wind effects (including any need for Concentration checks in high wind) for 1 minute per level. The caster can also discharge bolts of electricity from their eyes, drawing from a pool of d6s equal to caster level (max 20d6) that can be split across multiple bolts over several rounds or unleashed all at once, each bolt striking a single target. Launching a bolt is a standard action with 100-ft. range requiring a ranged touch attack (provoking no attack of opportunity), gaining a +3 bonus against targets wearing or carrying significant metal.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature’s Avatar",
+    "source": "Complete Divine",
+    "page": 170,
+    "spellLevelDruid": 9,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Infuses a touched animal with the spirit of nature, granting a +10 morale bonus on attack and damage rolls, 1d8 temporary hit points per caster level, and the effects of haste, lasting 1 minute per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Phantom Bear",
+    "source": "Complete Divine",
+    "page": 173,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 full round",
+    "range": "Medium (100 ft. + 10 ft./ level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned phantom"
+    },
+    "duration": "Concentration up to 1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As Phantom Wolf, except it conjures an incorporeal Huge magical beast bear (HD 14d10+48, hp 113, AC 25/touch 25/flat-footed 16, two claws and a bite each dealing 2d6 plus 3d6 cold as touch attacks) that can loose a fearsome roar every 1d4 rounds, forcing a DC 26 Will save or be frightened for 3d6 rounds (panicked instead if within 30 feet). Standard incorporeal traits apply — harmed only by magic weapons, spells, or other incorporeal/force sources, 50% chance to ignore corporeal damage. Lasts concentration up to 1 round per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Shadow Landscape",
+    "source": "Complete Divine",
+    "page": 180,
+    "spellLevelDruid": 9,
+    "school": "Illusion",
+    "subschool": "Shadow",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 hour",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One-mile radius spread, centered on a point in space"
+    },
+    "duration": "1 day/level (D)",
+    "savingThrow": "Reﬂ ex partial; see text",
+    "spellResistance": "Yes",
+    "description": "Infuses a one-mile-radius area of terrain with power drawn from the Plane of Shadow, making it more dangerous for 1 day per level in a way specific to its terrain type: deserts/tundra swing 30 degrees hotter or colder with frequent storms; forests gain heavier, entangling undergrowth (Reflex partial); hills become steeper with DC 25 climbs; marshes gain quicksand in half their undergrowth; mountains gain DC 25 climbs, avalanche risk, and worsened altitude effects; plains gain entangling undergrowth (Reflex partial); underground caverns gain difficult floors and stalagmite clutter. Random weather rolls in the area are made twice (three times on plains) and the higher result kept. The caster is immune to the terrain hazards (though not the bad weather) and may extend that immunity to one companion per 4 caster levels. The caster may also designate native animals, plants, or magical beasts totaling 1 HD per caster level as friendly shadow guardians, who gain cold resistance 10, darkvision 60 ft., DR 5/magic, evasion, and low-light vision (or keep their own better versions of these).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Unyielding Roots",
+    "source": "Complete Divine",
+    "page": 185,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Roots a willing touched creature to the ground (only works while it's touching the ground) for 1 minute per level, making it immovable by bull rushes, overruns, force effects such as Bigby's forceful hand, or anything short of a massive earthquake; against an overrun attempt it automatically wins the Strength check and can attempt to knock the attacker prone instead of merely blocking. The roots also heal the creature up to 30 hit points per round, automatically neutralize poison, and remove negative levels as restoration. The creature gains a +4 bonus on Fortitude and Will saves but takes a -4 penalty on Reflex saves for the duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Whirlwind, Greater",
+    "source": "Complete Divine",
+    "page": 189,
+    "spellLevelDruid": 9,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Creates a 20-ft.-radius tornado (up to 5 ft. tall per caster level) lasting 1 round per level that batters nearby creatures according to size and distance: Large or smaller creatures within 60 feet must succeed on a Fortitude save or be dragged 1d4×10 feet toward the center, taking nonlethal damage per 10 feet dragged; Huge creatures within 40 feet must save or be knocked prone; Gargantuan or Colossal creatures within 40 feet must save before moving away from it. Flying creatures of Huge size or smaller that fail their save are sucked to the center for 2d6 damage; larger flyers must save or be pulled toward it instead. Creatures caught inside the tornado take 6d6 damage per round for 1d10 rounds and cannot act, and when expelled land 4d6×5 feet away and 4d6×5 feet in the air. The tornado uproots vegetation, leaves a trail of rubble, deals 2d6×10 damage per round to structures, blocks ranged attacks, extinguishes flames, and makes Listen checks impossible within it; the caster can move it up to 60 feet per round as a move action.",
+    "otherPrintings": []
+  }
+]

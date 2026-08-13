@@ -1,0 +1,4154 @@
+[
+  {
+    "name": "Create Water",
+    "source": "Player's Handbook v3.5",
+    "page": 215,
+    "spellLevelDruid": 0,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Up to 2 gallons of water/level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures up to 2 gallons of clean, drinkable water per caster level, either contained in as small an area as will hold it or spread over an area up to three times as large. Instantaneous; can't create water inside a creature.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Minor Wounds",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 0,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Cure Light Wounds, except it cures only 1 point of damage.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Detect Magic",
+    "source": "Player's Handbook v3.5",
+    "page": 219,
+    "spellLevelDruid": 0,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You detect magical auras in a cone, learning more each round you concentrate: round 1 presence or absence of auras, round 2 the number of auras and the power of the strongest, round 3 the strength and location of each (with a Spellcraft check, DC 15 + spell level or 15 + half caster level, to identify the school if in line of sight). It's blocked by 1 ft. of stone, 1 in. of metal, a thin sheet of lead, or 3 ft. of wood or dirt, and an aura lingers faintly for a time after its source spell ends or item is destroyed, based on how powerful it originally was.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Detect Poison",
+    "source": "Player's Handbook v3.5",
+    "page": 219,
+    "spellLevelDruid": 0,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature, one object, or a 5-ft. cube"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You determine whether a creature, object, or 5-ft. cube has been poisoned or is poisonous; a DC 20 Wisdom check identifies the exact poison, or a DC 20 Craft (alchemy) check may be attempted instead of or after the Wisdom check.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Flare",
+    "source": "Player's Handbook v3.5",
+    "page": 232,
+    "spellLevelDruid": 0,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Burst of light"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "This cantrip creates a burst of light that dazzles a single targeted creature for 1 minute unless it succeeds on a Fortitude save; sightless creatures and those already dazzled are unaffected.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Guidance",
+    "source": "Player's Handbook v3.5",
+    "page": 238,
+    "spellLevelDruid": 0,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute or until discharged",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "The touched creature gains a +1 competence bonus on a single attack roll, saving throw, or skill check of its choice, which it must declare before making the roll; the effect lasts 1 minute or until used.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Know Direction",
+    "source": "Player's Handbook v3.5",
+    "page": 246,
+    "spellLevelDruid": 0,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "You instantly and correctly sense the direction of north from your current position at the moment of casting. It works anywhere the concept of \"north\" applies but may fail in extraplanar settings, and your sense of direction fades again unless you find an external reference point to track it by.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Light",
+    "source": "Player's Handbook v3.5",
+    "page": 248,
+    "spellLevelDruid": 0,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Object touched"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Causes a touched object to glow like a torch, shedding bright light in a 20-ft. radius and dim light for another 20 ft. beyond that. The effect is immobile once cast, though it can be placed on a movable object, and it does not function if taken into magical darkness. A light spell counters or dispels a darkness spell of equal or lower level. Duration 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Mending",
+    "source": "Player's Handbook v3.5",
+    "page": 253,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One object of up to 1 lb."
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "description": "Repairs small breaks, tears, or single-point breaks in an object of up to 1 lb. — welding a single break in metal items, invisibly rejoining multiply-broken ceramic or wood, or sealing a hole in leather. Can repair a broken magic item physically but does not restore its magical abilities, and cannot mend rods, staffs, wands, or affect creatures (including constructs). Instantaneous, range 10 ft.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Purify Food and Drink",
+    "source": "Player's Handbook v3.5",
+    "page": 267,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 cu. ft./level of contaminated food and water"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "description": "Instantly renders 1 cu. ft./level of spoiled, rotten, poisonous, or otherwise contaminated food and water safe to eat and drink. Does not prevent future spoilage, spoils unholy water and similarly significant food/drink, and has no effect on creatures of any type or on magic potions. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Read Magic",
+    "source": "Player's Handbook v3.5",
+    "page": 269,
+    "spellLevelDruid": 0,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level unintelligible.",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets the caster decipher magical inscriptions on books, scrolls, weapons, and similar items that would otherwise be unreadable, at a rate of one page (250 words) per minute; doing so doesn't normally trigger the writing's magic (a cursed scroll being a possible exception), and once read, that particular writing can be reread without the spell again. Allows identifying a glyph of warding (DC 13 Spellcraft), greater glyph of warding (DC 16), or any symbol spell (DC 10 + spell level) via a Spellcraft check. Can be made permanent with permanency. Duration 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Resistance",
+    "source": "Player's Handbook v3.5",
+    "page": 272,
+    "spellLevelDruid": 0,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature a +1 resistance bonus on saving throws for 1 minute. Can be made permanent with permanency.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Virtue",
+    "source": "Player's Handbook v3.5",
+    "page": 298,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min.",
+    "savingThrow": "Fortitude negates (harm-",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature 1 temporary hit point for 1 minute.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Calm Animals",
+    "source": "Player's Handbook v3.5",
+    "page": 207,
+    "spellLevelDruid": 1,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Animals within 30 ft. of each other"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates; see text",
+    "spellResistance": "Yes",
+    "description": "Renders animals docile and harmless; only ordinary animals (Int 1-2) of the same kind, no two more than 30 ft. apart, can be affected, up to a total of 2d4 + caster level Hit Dice. Dire animals or animals trained to attack/guard get a Will save; others do not. Affected creatures stay put and don't attack or flee (though they still defend themselves if attacked), and any real threat breaks the spell. Lasts 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Charm Animal",
+    "source": "Player's Handbook v3.5",
+    "page": 208,
+    "spellLevelDruid": 1,
+    "school": "Enchantment",
+    "subschool": "Charm",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Charm Person, except it affects a creature of the animal type.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Light Wounds",
+    "source": "Player's Handbook v3.5",
+    "page": 215,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will half (harmless); see",
+    "spellResistance": "Yes (harmless); see text",
+    "description": "Touching a living creature channels positive energy that cures 1d8 points of damage +1 per caster level (maximum +5). Against undead the spell instead deals that damage, though the target may apply spell resistance and a Will save for half.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Detect Animals or Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 218,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You sense a specified kind of animal or plant in a cone emanating from you (long range), gaining more detail the longer you concentrate: round 1 gives presence or absence, round 2 the number present and the condition of the healthiest one, round 3 the condition and location of each individual (direction only if out of line of sight). Condition is rated Normal, Fair, Poor, or Weak based on remaining hit points, disease, or injury. The cone is blocked by 1 ft. of stone, 1 in. of metal, a thin sheet of lead, or 3 ft. of wood or dirt, and you can redirect it to a new area each round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Detect Snares and Pits",
+    "source": "Player's Handbook v3.5",
+    "page": 220,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You detect simple pits, deadfalls, snares, and mechanical traps built from natural materials — including natural hazards like quicksand, sinkholes, or unstable rock — within a cone, but not complex traps, trapdoor traps, other environmental dangers, or magic traps unless they work via pit/deadfall/snare. Detail increases with concentration: round 1 presence of hazards, round 2 their number and location, each further round the type and trigger of one examined hazard. Blocked by 1 ft. of stone, 1 in. of metal, a thin sheet of lead, or 3 ft. of wood or dirt.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Endure Elements",
+    "source": "Player's Handbook v3.5",
+    "page": 226,
+    "spellLevelDruid": 1,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "24 hours",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched creature (and its gear) suffers no harm from being in a hot or cold environment, remaining comfortable between -50°F and 140°F without needing Fortitude saves against the conditions, for 24 hours. It provides no protection from actual fire or cold damage, nor from other environmental hazards such as smoke or lack of air.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Entangle",
+    "source": "Player's Handbook v3.5",
+    "page": 227,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Plants in a 40-ft.-radius spread"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "Reflex partial; see text",
+    "spellResistance": "No",
+    "description": "Grasses, weeds, bushes, and even trees within the 40-ft.-radius area (long range) wrap around creatures present or entering, holding them fast. An entangled creature can break free and move at half speed with a full-round action and a successful DC 20 Strength or Escape Artist check; a creature that makes a Reflex save avoids becoming entangled but still moves at only half speed through the area. Each round on your turn, the plants try again to entangle anyone who escaped or avoided them, for a duration of 1 minute per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Faerie Fire",
+    "source": "Player's Handbook v3.5",
+    "page": 229,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Creatures and objects within a 5-ft.- radius burst"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "A pale glow outlines creatures and objects within a 5-ft.-radius burst for 1 minute per level, causing them to shed light like candles and stripping them of any benefit from darkness, blur, displacement, invisibility, or similar concealment effects (though 2nd-level-or-higher magical darkness still works normally). You choose the glow's color — blue, green, or violet — and it causes the outlined subjects no harm.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Goodberry",
+    "source": "Player's Handbook v3.5",
+    "page": 237,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "2d4 fresh berries touched"
+    },
+    "duration": "One day/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Casting this on a handful of freshly picked berries makes 2d4 of them magical; you (or any druid 3rd level or higher) can immediately tell which ones are affected. Each transformed berry provides a full meal's nourishment for a Medium creature and heals 1 point of damage when eaten, up to a maximum of 8 points of such healing in any 24-hour period.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hide from Animals",
+    "source": "Player's Handbook v3.5",
+    "page": 241,
+    "spellLevelDruid": 1,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature touched/level"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "For 10 minutes per level, animals cannot see, hear, or smell the warded creatures (one per level touched), even with blindsense, blindsight, scent, or tremorsense — they simply act as if the warded creatures aren't there. The effect ends for all recipients the instant any warded creature touches an animal or attacks any creature, even with a spell.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Jump",
+    "source": "Player's Handbook v3.5",
+    "page": 246,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "The touched creature gains a +10 enhancement bonus on Jump checks for 1 minute per level, rising to +20 at caster level 5th and to +30 (the maximum) at caster level 9th.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Longstrider",
+    "source": "Player's Handbook v3.5",
+    "page": 249,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Increases the caster's base land speed by 10 feet as an enhancement bonus for 1 hour/level. Has no effect on other movement modes such as burrow, climb, fly, or swim.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Magic Fang",
+    "source": "Player's Handbook v3.5",
+    "page": 250,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants one natural weapon (slam, bite, fist, or similar) of the touched living creature a +1 enhancement bonus on attack and damage rolls for 1 min./level. Does not turn an unarmed strike's nonlethal damage into lethal damage. Can be made permanent with permanency.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Magic Stone",
+    "source": "Player's Handbook v3.5",
+    "page": 251,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to three pebbles touched"
+    },
+    "duration": "30 minutes or until discharged",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "description": "Transmutes up to three pebbles (no larger than sling bullets) into weapons with a +1 enhancement bonus on attack and damage rolls. Thrown, they have a 20-ft. range increment; slung, they use a sling bullet's 50-ft. increment. Each stone that hits deals 1d6+1 damage, or 2d6+2 against undead. Lasts 30 minutes or until all three are used.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Obscuring Mist",
+    "source": "Player's Handbook v3.5",
+    "page": 258,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cloud spreads in 20-ft. radius from you, 20 ft. high"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a stationary cloud of mist in a 20-ft. radius, 20 ft. high, centered on the caster, that blocks all sight (including darkvision) beyond 5 feet — 20% miss chance at 5 ft., 50% miss chance (and no sight-based targeting) beyond that. Dispersed by a moderate wind (11+ mph) in 4 rounds or a strong wind (21+ mph) in 1 round; burned away by fireball, flame strike, or similar fire spells in their area of effect. Does not function underwater. Duration 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Pass without Trace",
+    "source": "Player's Handbook v3.5",
+    "page": 259,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level touched"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "One creature per caster level touched leaves neither footprints nor scent while moving through any terrain, making them impossible to track by nonmagical means. Duration 1 hour/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Produce Flame",
+    "source": "Player's Handbook v3.5",
+    "page": 265,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Conjures a torch-bright flame in the caster's open hand that harms neither the caster nor their gear, providing illumination and usable as a weapon. As a melee touch attack it deals 1d6 + 1 point per caster level fire damage (maximum +5); alternatively it can be hurled up to 120 ft. as a ranged touch attack with no range penalty for the same damage, with a new flame appearing immediately in the caster's hand. Each attack made reduces the remaining duration by 1 minute, ending the spell early if it reaches zero. Duration 1 min./level; does not function underwater.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Shillelagh",
+    "source": "Player's Handbook v3.5",
+    "page": 278,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One touched nonmagical oak club or quarterstaff"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object) the  weapon  behaves  as",
+    "description": "Transforms the caster's own nonmagical club or quarterstaff into a weapon with a +1 enhancement bonus on attack and damage rolls (both ends, for a quarterstaff) that deals damage as though two size categories larger — a Small weapon deals 1d8, Medium 2d6, Large 3d6 — plus the enhancement bonus. These effects apply only while the caster wields the weapon; it is unaffected by anyone else. Duration 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Speak with Animals",
+    "source": "Player's Handbook v3.5",
+    "page": 281,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets the caster understand and converse with animals for 1 min./level, asking questions and receiving answers, though the spell doesn't make animals friendlier or more cooperative — wary ones tend to be terse and evasive, stupid ones give inane answers. A friendly animal may perform a favor for the caster at the DM's discretion.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally I",
+    "source": "Player's Handbook v3.5",
+    "page": 288,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures one natural creature from the 1st-level Summon Nature's Ally list, which appears and acts immediately on the caster's turn, attacking enemies unless directed otherwise. It cannot summon or teleport other creatures and can't be summoned into an environment it can't survive in. Lasts 1 round per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animal Messenger",
+    "source": "Player's Handbook v3.5",
+    "page": 198,
+    "spellLevelDruid": 2,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One Tiny animal"
+    },
+    "duration": "One day/level",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes",
+    "description": "Compels one Tiny animal (not already tamed or trained by someone else) to travel to a place you designate, typically to carry a message or small item. The animal waits at the destination, allowing others to approach and take anything it carries, until the spell's duration (one day/level) expires. Requires a food lure as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animal Trance",
+    "source": "Player's Handbook v3.5",
+    "page": 198,
+    "spellLevelDruid": 2,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting",
+      "Sonic"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Animals or magical beasts with"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Fascinates animals and magical beasts with Intelligence 1 or 2 within range; roll 2d6 to determine total HD of creatures affected, filling in from the closest targets first. Magical beasts, dire animals, and animals trained to attack or guard get a Will save; untrained animals do not. Lasts as long as you concentrate.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Barkskin",
+    "source": "Player's Handbook v3.5",
+    "page": 203,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a +2 enhancement bonus to the target's existing natural armor, increasing by 1 for every 3 caster levels above 3rd, to a maximum of +5 at caster level 12th. Stacks with natural armor but not with other enhancement bonuses to natural armor; a creature with no natural armor treats its base as +0. Lasts 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bear’s Endurance",
+    "source": "Player's Handbook v3.5",
+    "page": 203,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "Grants the target a +4 enhancement bonus to Constitution (and the usual benefits to hit points, Fortitude saves, and Con checks) for 1 min./level. Hit points gained this way are not temporary hit points and are lost when the Constitution bonus ends.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bull’s Strength",
+    "source": "Player's Handbook v3.5",
+    "page": 207,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the target a +4 enhancement bonus to Strength (and its usual benefits to melee attack/damage rolls and other Strength-based uses) for 1 min./level. Requires a bit of bull hair or dung as an arcane material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cat’s Grace",
+    "source": "Player's Handbook v3.5",
+    "page": 208,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "Grants the target a +4 enhancement bonus to Dexterity (and its usual benefits to AC, Reflex saves, and other Dex-based uses) for 1 min./level. Requires a pinch of cat fur as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Chill Metal",
+    "source": "Player's Handbook v3.5",
+    "page": 209,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Metal equipment of one creature per two levels, no two of which can be more than 30 ft. apart; or 25 lb. of metal/level, none of which can be more than 30 ft. away from any of the rest"
+    },
+    "duration": "7 rounds",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "description": "Makes a creature's metal equipment intensely cold; nonmagical unattended metal gets no save, magical metal gets one, and an item in a creature's possession uses the creature's own save bonus if it's higher. A creature takes cold damage each affected round — full if its armor is chilled or it's carrying metal weighing at least a fifth of its body weight, otherwise minimum (1-2 points). The cold builds over the spell's 7-round duration: no damage in round 1, mild pain and damage in round 2, peak freezing damage in rounds 3-5, then tapering back down with no damage by the final round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Delay Poison",
+    "source": "Player's Handbook v3.5",
+    "page": 217,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": null,
+    "description": "The touched creature becomes temporarily immune to poison for 1 hour per level: any poison already in its system, or any it's exposed to during the duration, has no effect until the spell ends, though the spell itself doesn't heal damage poison has already dealt.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fire Trap",
+    "source": "Player's Handbook v3.5",
+    "page": 231,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Object touched"
+    },
+    "duration": "Permanent until discharged",
+    "savingThrow": "Reflex half; see text",
+    "spellResistance": "Yes",
+    "description": "You ward an openable object (chest, door, box, and the like) so that anyone but you who opens it triggers a fiery explosion within a 5-ft. radius of a point you designate at casting, dealing 1d4 fire damage +1 per caster level (maximum +20). It can't be combined with another closure or warding spell on the same item, isn't bypassed by knock, and doesn't detonate from a failed dispel magic attempt; underwater it deals half damage and creates a cloud of steam. You, or anyone attuned to it via a shared password, can open it safely. Finding or disabling it (rogues only) requires DC 25 + spell level (27 for a druid's version).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Flame Blade",
+    "source": "Player's Handbook v3.5",
+    "page": 231,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Sword-like beam"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "A 3-foot blazing beam of fire springs from your hand, wielded as a scimitar via melee touch attacks, dealing 1d8 fire damage +1 per two caster levels (maximum +10); Strength doesn't add to the damage since the blade is immaterial. It can ignite flammable materials but doesn't function underwater, and lasts 1 minute per level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Flaming Sphere",
+    "source": "Player's Handbook v3.5",
+    "page": 232,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "5-ft.-diameter sphere"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "Yes",
+    "description": "A 5-foot burning globe rolls in the direction you point, moving 30 feet per round (able to climb or jump up to 30 feet to reach a target) for 1 round per level. Entering a creature's space stops it for the round and deals 2d6 fire damage (Reflex negates); it rolls over obstacles under 4 feet tall, ignites flammables, and lights an area like a torch. It only moves when you actively direct it as a move action, otherwise sitting still and burning; it can be put out like a normal fire of its size, and winks out if it exceeds the spell's range.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fog Cloud",
+    "source": "Player's Handbook v3.5",
+    "page": 232,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft. level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Fog spreads in 20-ft. radius, 20 ft."
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A bank of fog billows out from a designated point within medium range, spreading 20 feet and obscuring all sight — including darkvision — beyond 5 feet: creatures within 5 feet have 20% concealment, farther away they have 50% total concealment. A moderate wind (11+ mph) disperses it in 4 rounds, a strong wind (21+ mph) in 1 round; it lasts 10 minutes per level and doesn't function underwater.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Gust of Wind",
+    "source": "Player's Handbook v3.5",
+    "page": 238,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Line-shaped gust of severe wind emanating out from you to the extreme of the range"
+    },
+    "duration": "1 round",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "A severe blast of wind (about 50 mph) issues from you along a line to the spell's extreme range for 1 round, affecting creatures by size: Tiny or smaller creatures are knocked down and rolled (or blown back and battered if flying); Small creatures are knocked prone or blown back if flying; Medium creatures can't advance against it, or are blown back a shorter distance if flying; Large or larger creatures are unaffected in their movement. Everyone in the area takes a -4 penalty on ranged attacks and Listen checks, unprotected flames are extinguished (protected ones have a 50% chance), and the wind can perform other appropriate feats like stirring dust or tipping a small boat, though it can't push anyone beyond the spell's range. It can be made permanent with permanency.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heat Metal",
+    "source": "Player's Handbook v3.5",
+    "page": 239,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Metal equipment of one creature per two levels, no two of which can be more than 30 ft. apart; or 25 lb. of metal/level, all of which must be within a 30-ft. circle"
+    },
+    "duration": "7 rounds",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "description": "You heat metal equipment — one creature's worth per two caster levels, or 25 lb. per level within a 30-ft. circle — for 7 rounds. Unattended nonmagical metal gets no save; magical metal, or metal in a creature's possession (using the better of its own save or the wearer's), may save. A creature wearing metal armor or carrying metal equal to a fifth of its body weight takes full damage; carrying less deals only minimal damage (1-2 points). Damage ramps up and back down over the duration — none in round 1, 1d4 in round 2, 2d4 in rounds 3 through 5, 1d4 in round 6, none in round 7. Cold damage taken the same round cancels fire damage from this spell point for point (and vice versa); cast underwater it deals half damage and boils the surrounding water. It counters and dispels chill metal.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hold Animal",
+    "source": "Player's Handbook v3.5",
+    "page": 241,
+    "spellLevelDruid": 2,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As hold person, except it affects an animal instead of a humanoid.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Owl’s Wisdom",
+    "source": "Player's Handbook v3.5",
+    "page": 259,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes spellcasters)  who",
+    "description": "Grants the touched creature a +4 enhancement bonus to Wisdom for 1 min./level, boosting Wisdom-based skills accordingly. Wisdom-based spellcasters gain no extra bonus spells from the increase, but their spell save DCs rise.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Reduce Animal",
+    "source": "Player's Handbook v3.5",
+    "page": 269,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One willing animal of Small,"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As reduce person, except it affects a single willing Small, Medium, Large, or Huge animal (not one the caster is fighting), shrinking it one size category to help it fit through tight spaces and reducing its natural attack damage accordingly. Duration 1 hour/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Resist Energy",
+    "source": "Player's Handbook v3.5",
+    "page": 272,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates (harm-",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature resistance 10 against one chosen energy type (acid, cold, electricity, fire, or sonic) for 10 min./level, reducing each instance of that damage by 10 points before it applies (rising to 20 at 7th caster level, maximum 30 at 11th); protects worn/carried equipment as well. Absorbs only damage, not side effects like drowning or being encased in ice. Overlaps with, and does not stack with, protection from energy — if both are active, protection from energy absorbs damage first until exhausted.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Restoration, Lesser",
+    "source": "Player's Handbook v3.5",
+    "page": 272,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "3 rounds",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Dispels magical effects reducing one of the touched creature's ability scores (such as ray of enfeeblement), or cures 1d4 points of temporary damage to one ability score (such as from poison); also removes fatigue and improves an exhausted condition to fatigued. Does not restore permanent ability drain. Casting time 3 rounds; instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Soften Earth and Stone",
+    "source": "Player's Handbook v3.5",
+    "page": 280,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft. square/level; see text"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Instantly softens natural, undressed earth or stone within a 10-ft.-square/level area to a depth of 1–4 ft.: wet earth becomes thick mud, dry earth becomes loose sand or dirt, and stone becomes soft, moldable clay. Has no effect on magical, enchanted, dressed, or worked stone, or on earth/stone creatures. Creatures in mud must make a Reflex save or be stuck immobile for 1d2 rounds (a successful save allows half-speed movement, no running or charging); creatures on loose dirt move at half speed and can't run or charge; softened stone doesn't impede movement but allows cutting or excavation, and can be used against cavern walls/ceilings or a structure's foundation to cause a collapse, landslide, or (rarely) outright destruction. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Spider Climb",
+    "source": "Player's Handbook v3.5",
+    "page": 283,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature a climb speed of 20 feet on vertical surfaces and even ceilings, with no Climb checks required and hands free needed to climb; it keeps its Dexterity bonus to AC while climbing and can't run. Lasts 10 minutes per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally II",
+    "source": "Player's Handbook v3.5",
+    "page": 288,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 2nd-level creature or 1d3 1st-level creatures of the same kind.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Swarm",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One swarm of bats, rats, or spiders"
+    },
+    "duration": "Concentration + 2 rounds",
+    "savingThrow": "None",
+    "spellResistance": "No its  area.",
+    "description": "Summons a swarm of bats, rats, or spiders (caster's choice) that attacks every other creature within its area — it can be placed to share a space with existing creatures. If no living creature is present it pursues the nearest one; the caster has no control over its target or movement. Lasts for concentration plus 2 rounds.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Tree Shape",
+    "source": "Player's Handbook v3.5",
+    "page": 296,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) bonuses",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets the caster assume the form of a Large living tree, shrub, or dead trunk indistinguishable from the real thing even under close inspection (though detect magic reveals a faint transmutation). While transformed the caster gains +10 natural armor, has effective Dexterity 0 and speed 0, is immune to critical hits, and can perceive normally. Lasts 1 hour per level and can be dismissed as a free action.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Warp Wood",
+    "source": "Player's Handbook v3.5",
+    "page": 300,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 Small wooden object/level, all within a 20-ft. radius"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object) forced",
+    "description": "Permanently bends and warps wood, springing doors open or jamming them, springing leaks in boats, ruining ranged weapons, and giving melee weapons a -4 attack penalty. The caster can affect one Small-or-smaller wooden object per caster level (larger objects counting as multiple Small objects), and can alternatively use the spell to unwarp wood damaged by this spell or other means. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wood Shape",
+    "source": "Player's Handbook v3.5",
+    "page": 303,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One touched piece of wood no larger than 10 cu. ft. + 1 cu. ft./level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object) fashion",
+    "description": "Reshapes one existing piece of wood (up to 10 cu. ft. + 1 cu. ft./level) into any form the caster wants, though fine detail is impossible and any shape with moving parts has a 30% chance of failing to work. Instantaneous, touch range.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Call Lightning",
+    "source": "Player's Handbook v3.5",
+    "page": 207,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more 30-ft.-long vertical lines of lightning"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "On completion, and once per round thereafter as a standard action while concentrating, calls down a 5-ft.-wide, 30-ft.-long vertical lightning bolt dealing 3d6 electricity damage (Reflex half) to anyone in its path; you can call a total number of bolts equal to your caster level (max 10). Outdoors in stormy conditions, each bolt instead deals 3d10 damage. Works indoors or underground but not underwater; lasts 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Contagion",
+    "source": "Player's Handbook v3.5",
+    "page": 213,
+    "spellLevelDruid": 3,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Evil"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Forces the touched creature to contract one of several standard diseases (such as blinding sickness, cackle fever, filth fever, mindfire, red ache, shakes, or slimy doom) if it fails a Fortitude save, striking immediately with no incubation period; each disease then uses its own DC and ability damage per the normal disease rules for subsequent saves. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Moderate Wounds",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Cure Light Wounds, except it cures 2d8 points of damage +1 per caster level (maximum +10).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Daylight",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Object touched"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "The touched object sheds light as bright as full daylight in a 60-foot radius and dim light for an additional 60 feet; creatures that suffer penalties in bright light take them within that radius, though it doesn't count as true daylight for creatures harmed by it (such as vampires). Sealing the object in a light-proof covering blocks the effect until uncovered. Daylight and magical darkness temporarily cancel each other where their areas overlap, and daylight counters or dispels darkness spells of equal or lower level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Diminish Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 221,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "See text",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "This spell has two versions. Prune Growth shrinks normal vegetation within long range to about one-third size within a chosen 100-ft.-radius circle, 150-ft.-radius semicircle, or 200-ft.-radius quarter-circle (with portions excludable), leaving it looking neatly trimmed. Stunt Growth instead targets plants within a half-mile, reducing their productivity by a third over the following year. It counters plant growth and has no effect on plant creatures.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Dominate Animal",
+    "source": "Player's Handbook v3.5",
+    "page": 224,
+    "spellLevelDruid": 3,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "You enchant one animal within close range and direct it with simple commands via a silent mental link for 1 round per level, without needing line of sight; you sense what it experiences but get no direct sensory input, and it ignores suicidal or clearly self-destructive commands (including attacking a creature two or more size categories larger than itself). Giving it a new command is a move action.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Magic Fang, Greater",
+    "source": "Player's Handbook v3.5",
+    "page": 250,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As magic fang, except the enhancement bonus is +1 per four caster levels (maximum +5), range is Close, duration is 1 hour/level, and the caster may instead grant a flat +1 enhancement bonus to all of the target's natural weapons regardless of caster level. Can be made permanent with permanency.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Meld into Stone",
+    "source": "Player's Handbook v3.5",
+    "page": 252,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Melds the caster and up to 100 lbs. of nonliving gear into a single block of stone large enough to contain them, for 10 min./level; violating either condition wastes the spell. While melded, the caster remains aware of time, can cast spells on themselves, and can hear but not see outside. Partial destruction of the stone expels the caster and deals 5d6 damage; complete destruction expels and instantly kills unless a DC 18 Fortitude save is made. The caster may exit voluntarily at any time, or is violently expelled (taking 5d6 damage) if the duration ends or the effect is dispelled first. Stone to flesh, stone shape, transmute rock to mud, and passwall each have specific effects if cast on the occupied stone.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Neutralize Poison",
+    "source": "Player's Handbook v3.5",
+    "page": 257,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature or object of up to 1 cu. ft./level touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "description": "Detoxifies any venom in a touched creature or object of up to 1 cu. ft./level, ending ongoing poison effects, though it does not undo damage already dealt (such as ability damage already suffered). For the spell's 10 min./level duration the subject is immune to poison, with no saves needed against poison encountered during that time. Alternatively, can be used to neutralize a poisonous creature's or object's venom for the duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Plant Growth",
+    "source": "Player's Handbook v3.5",
+    "page": 262,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "See text",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Has two versions. Overgrowth causes normal vegetation within long range (400 ft. + 40 ft./caster level) to grow thick and tangled, reducing movement speed within the area to 5 ft. (10 ft. for Large or larger creatures); the area can be shaped as a 100-ft.-radius circle, 150-ft.-radius semicircle, or 200-ft.-radius quarter circle, with excluded pockets allowed, and requires existing brush or trees. Enrichment instead targets plants within a half-mile, raising their productivity by one-third over the following year. Counters diminish plants; has no effect on plant creatures. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Poison",
+    "source": "Player's Handbook v3.5",
+    "page": 262,
+    "spellLevelDruid": 3,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous; see text",
+    "savingThrow": "Fortitude negates; see",
+    "spellResistance": "Yes",
+    "description": "A successful melee touch attack infects the target with poison dealing 1d10 points of temporary Constitution damage immediately and another 1d10 points one minute later. Each instance of damage can be negated separately by a Fortitude save (DC 10 + 1/2 caster level + caster's Wisdom modifier).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Protection from Energy",
+    "source": "Player's Handbook v3.5",
+    "page": 266,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level or until discharged",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature temporary immunity to one chosen energy type (acid, cold, electricity, fire, or sonic), absorbing 12 points of that damage per caster level (maximum 120 at 10th level) before discharging. Lasts 10 min./level or until discharged. Overlaps with, and does not stack with, resist energy — if both are active, protection from energy absorbs damage first until exhausted.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Quench",
+    "source": "Player's Handbook v3.5",
+    "page": 267,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Instantly extinguishes all nonmagical fire within a 20-ft. cube per caster level, and attempts to dispel fire-based spells in the area via a dispel check (1d20 + 1 per caster level, maximum +15, against DC 11 + the fire spell's caster level). Deals 1d6 damage per caster level (maximum 15d6, no save) to each fire elemental creature in the area. Alternatively can target a single fire-based magic item, suppressing its fire abilities for 1d4 hours unless it makes a Will save (artifacts are immune). Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Remove Disease",
+    "source": "Player's Handbook v3.5",
+    "page": 271,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates (harm-",
+    "spellResistance": "Yes (harmless)",
+    "description": "Cures all diseases currently afflicting the touched creature and kills parasites, including green slime; some special diseases may resist the spell or require a higher-level caster. Because the effect is instantaneous, it does not protect against reinfection from later exposure to the same disease.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sleet Storm",
+    "source": "Player's Handbook v3.5",
+    "page": 280,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (40-ft. radius, 20 ft. high)"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Fills a 40-ft.-radius, 20-ft.-high cylinder with driving sleet that blocks all sight, including darkvision, and coats the ground in ice. Moving through the area costs half speed and requires a DC 10 Balance check; failure means the creature can't move that round, and failure by 5 or more means it falls. The sleet also extinguishes small unprotected flames such as torches. Duration 1 round/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Snare",
+    "source": "Player's Handbook v3.5",
+    "page": 280,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "3 rounds",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Touched nonmagical circle of vine, rope, or thong with a 2 ft. diame- ter + 2 ft./level"
+    },
+    "duration": "Until triggered or broken",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Turns a touched loop of vine, thong, or rope (2 ft. diameter + 2 ft./level) into a camouflaged magic trap (Search DC 23 to find) that tightens around a limb of any creature stepping inside it. If anchored to a nearby sturdy tree, triggering it deals 1d6 damage and hoists the trapped creature into the air; without a tree, it simply entangles with no damage. The snare itself has AC 7 and 5 hit points; escaping requires a DC 23 Escape Artist check or a full-round DC 23 Strength check, either of which breaks the snare and ends the spell. Casting time 3 rounds; lasts until triggered or broken.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Speak with Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 282,
+    "spellLevelDruid": 3,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets the caster understand and converse with both normal plants and plant creatures for 1 min./level. Ordinary plants have limited awareness of their surroundings and can't give detailed descriptions of creatures or answer questions about distant events. The spell doesn't make plant creatures friendlier or more cooperative — cunning ones tend to be terse and evasive, stupid ones give inane answers — but a friendly plant creature may perform a favor at the DM's discretion.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Spike Growth",
+    "source": "Player's Handbook v3.5",
+    "page": 283,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 20-ft. square/level"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Reflex partial",
+    "spellResistance": "Yes",
+    "description": "Turns ground vegetation (or bare earth) in a one-20-ft.-square-per-level area into hidden sharp spikes; any creature moving through takes 1d4 piercing damage per 5 feet traveled and must succeed on a Reflex save or have its land speed halved for 24 hours (or until healed by a cure spell). Lasts 1 hour/level; acts as a hard-to-detect trap, Search DC 25 + spell level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Stone Shape",
+    "source": "Player's Handbook v3.5",
+    "page": 284,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Stone or stone object touched, up to 10 cu. ft. + 1 cu. ft./level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Reshapes a single piece of stone or stone object (up to 10 cu. ft. + 1 cu. ft./level) into any form the caster wants, though fine detail is impossible and any shape with moving parts has a 30% chance of not working. Instantaneous, touch range.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally III",
+    "source": "Player's Handbook v3.5",
+    "page": 288,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 3rd-level creature, 1d3 2nd-level creatures, or 1d4+1 1st-level creatures of the same kind; the spell takes on the elemental/alignment subtype of whatever creature is summoned.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Water Breathing",
+    "source": "Player's Handbook v3.5",
+    "page": 300,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creatures touched"
+    },
+    "duration": "2 hours/level; see text",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Lets touched living creatures breathe water freely without losing the ability to breathe air, for a total duration of 2 hours per caster level divided among all creatures touched.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wind Wall",
+    "source": "Player's Handbook v3.5",
+    "page": 302,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Wall up to 10 ft./level long and 5 ft./level high (S)"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes",
+    "description": "Raises an invisible vertical curtain of powerful wind, up to 10 ft. per level long and 5 ft. per level high, that blows away small birds, tears loose papers and objects from hands (Reflex save to keep grip), and blocks Tiny and Small flying creatures. Arrows and bolts passing through are deflected and automatically miss, other ranged weapons have a 30% miss chance, and gases and gaseous creatures cannot pass through. Lasts 1 round per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Air Walk",
+    "source": "Player's Handbook v3.5",
+    "page": 196,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature (Gargantuan or smaller) touched"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "The subject can tread on air as if walking on solid ground, moving upward or downward at up to a 45-degree angle at half normal speed. A strong wind (21+ mph) can push the air walker along or hold it back, blowing it 5 feet per 5 mph of wind speed at the end of each turn, with the DM able to impose further penalties in severe winds. If the duration expires while the subject is still aloft, it floats down 60 ft./round for 1d6 rounds; if it reaches the ground it lands safely, otherwise it falls the remaining distance for 1d6 damage per 10 feet (dispelling ends the effect the same way, but negation by an antimagic field does not). A specially trained mount (one week of training, DC 25 Handle Animal) can also be ridden through the air under this spell.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Antiplant Shell",
+    "source": "Player's Handbook v3.5",
+    "page": 200,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft.-radius emanation, centered on"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Creates an invisible, mobile barrier that protects everyone within it from attacks by plant creatures and animated plants. Lasts 10 min./level; like other abjurations, forcing the barrier against a barred attacker strains and collapses it.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Blight",
+    "source": "Player's Handbook v3.5",
+    "page": 206,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": null,
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude half; see text",
+    "spellResistance": "Yes",
+    "description": "Withers a single plant of any size. A plant creature takes 1d6 damage per caster level (maximum 15d6) with a Fortitude save for half; a non-creature plant (tree, shrub, etc.) gets no save and simply withers and dies. Doesn't affect the soil or surrounding plant life. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Command Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 211,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to 2 HD/level of plant creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "One day/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Lets you control one or more plant creatures (up to 2 HD/level combined, no two more than 30 ft. apart) for one day/level; affected plants understand you, treat you as friendly, and won't attack you. Giving an order the creature wouldn't ordinarily obey requires winning an opposed Charisma check (no retries), and a commanded plant never follows suicidal or clearly harmful orders, though it might be talked into something merely dangerous. Will negates.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Control Water",
+    "source": "Player's Handbook v3.5",
+    "page": 214,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Water in a volume of 10 ft./level by 10 ft./level by 2 ft./level (S)"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None; see text",
+    "spellResistance": "No",
+    "description": "Raises or lowers water (or similar liquid) by up to 2 ft. per caster level within a squarish area up to caster level x10 ft. per side (minimum depth 1 inch when lowering); you may instead halve one horizontal dimension and double the other. In very large, deep water it can create a whirlpool that traps ships; on water elementals and other water-based creatures, the lowering version instead acts as a slow spell (Will negates), with no effect on other creatures. Requires a drop of water (to raise) or pinch of dust (to lower) as an arcane material component; lasts 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Serious Wounds",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Cure Light Wounds, except it cures 3d8 points of damage +1 per caster level (maximum +15).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Dispel Magic",
+    "source": "Player's Handbook v3.5",
+    "page": 223,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "You can end ongoing spells or spell-like effects on a creature or object, temporarily suppress a magic item's powers, end effects within an area, or counter another spellcaster's spell. As a targeted dispel, you make a dispel check (1d20 + caster level, maximum +10) against DC 11 + the spell's caster level for each ongoing effect on the target (or against a magic item's caster level, suppressing it for 1d4 rounds on success); you automatically succeed against your own spells. As an area dispel (20-ft. radius), you attempt checks against the strongest effect on each affected creature or object, moving to progressively weaker ones until one is dispelled or you exhaust your checks (magic items on creatures are unaffected). As a counterspell, it targets an enemy caster to counter their spell, but still requires a successful dispel check rather than automatic counterspelling. Effects with an instantaneous duration can't be dispelled.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Flame Strike",
+    "source": "Player's Handbook v3.5",
+    "page": 231,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (10-ft. radius, 40 ft. high)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "A vertical column of divine fire (a cylinder 10 ft. in radius, 40 ft. tall) deals 1d6 damage per caster level (maximum 15d6, Reflex half); only half of that is fire damage subject to fire resistance or protection, while the other half comes directly from divine power and can't be reduced that way.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Freedom of Movement",
+    "source": "Player's Handbook v3.5",
+    "page": 233,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal or touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You or creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "For 10 minutes per level, you or the touched creature can move and attack normally despite magic that would normally impede movement (paralysis, solid fog, slow, web, and the like), and automatically succeeds on grapple checks to resist or escape a grapple or pin and on Escape Artist checks to escape one. It also lets the subject fight and move normally underwater, even with slashing or bludgeoning weapons wielded (not thrown), though it doesn't grant water breathing.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Giant Vermin",
+    "source": "Player's Handbook v3.5",
+    "page": 235,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to three vermin, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "You enlarge up to three normal centipedes, two spiders, or a single scorpion (only one type of vermin per casting, all grown to the same size) into a larger form for 1 minute per level, with the maximum size reachable scaling with your caster level. The transformed vermin never harm you, but obey only simple commands like Attack, Defend, or Stop — anything requiring judgment is beyond them — and attack whoever is nearby if not otherwise commanded.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ice Storm",
+    "source": "Player's Handbook v3.5",
+    "page": 243,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (20-ft. radius, 40 ft. high)"
+    },
+    "duration": "1 full round",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Magical hailstones pound a cylinder (20-ft. radius, 40 ft. tall) for 1 full round, dealing 3d6 bludgeoning damage and 2d6 cold damage to every creature in the area; a -4 penalty applies to Listen checks and all land movement is at half speed within it. The hail vanishes at the end of the round, leaving no lingering effect beyond the damage dealt.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Reincarnate",
+    "source": "Player's Handbook v3.5",
+    "page": 270,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch 270",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Dead creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes (harmless)",
+    "description": "Restores to life a creature dead no more than one week, provided its soul is free and willing to return, growing it a new young adult body over the course of an hour (after a 10-minute cast); an unwilling soul means the spell simply fails, with no save. Only a small remaining portion of the original body is needed, and all physical ills are repaired. The subject keeps its class abilities, feats, skill ranks, base attack bonus, base saves, and hit points, but loses one level or Hit Die (or, if 1st level, instead permanently loses 2 Constitution — the creature can't be reincarnated if this would drop Con to 0 or below). Strength, Dexterity, and Constitution are adjusted for the new body per a random race table (for humanoids) or the DM's choice (nonhumanoids), and the subject gains that new form's racial abilities, movement, and natural armor/attacks, though not its languages. Cannot restore a creature turned undead, killed by a death effect, or dead of old age; constructs, elementals, outsiders, and undead cannot be reincarnated. A wish or miracle can restore the original form.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Repel Vermin",
+    "source": "Player's Handbook v3.5",
+    "page": 271,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft.-radius emanation centered on"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None or Will negates; see",
+    "spellResistance": "Yes",
+    "description": "Creates a 10-ft.-radius emanation for 10 min./level that vermin with Hit Dice less than one-third the caster's level cannot cross. Vermin with Hit Dice of one-third the caster's level or more can cross with a successful Will save, but doing so (or pressing against the barrier) deals 2d6 points of damage, which deters most vermin regardless.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Rusting Grasp",
+    "source": "Player's Handbook v3.5",
+    "page": 273,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One nonmagical ferrous object"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "A touched nonmagical iron or iron-alloy item instantly rusts, pits, and is destroyed (affecting a 3-ft.-radius volume if the item is too large to fit within that radius); magic metal items are immune. Used in melee via a successful touch attack, it instead corrodes 1d6 points off a metal-armored opponent's AC bonus (capped at the armor's total protection), or, with a touch attack against a wielded metal weapon (which provokes an attack of opportunity), destroys that weapon outright. Against a ferrous creature, a successful touch attack deals 3d6 + 1 point per caster level (maximum +15) damage. Effect lasts 1 round/level, with one melee touch attack allowed per round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Scrying",
+    "source": "Player's Handbook v3.5",
+    "page": 274,
+    "spellLevelDruid": 4,
+    "school": "Divination",
+    "subschool": "Scrying",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF",
+      "F"
+    ],
+    "castingTime": "1 hour",
+    "range": "See text",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Magical sensor"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes and  what",
+    "description": "Creates a magical sensor letting the caster see and hear a chosen creature at any distance, unless it succeeds on a Will save. The save DC is modified by how well the caster knows the subject (better knowledge and connection make the save harder to resist), by any physical link used (a picture, possession, or body part), and by a +5 bonus if the subject is on another plane. On a failed save, the caster perceives the subject and roughly 10 ft. around it, with the sensor following at up to 150 ft./round if the subject moves; certain detection spells have a 5%-per-caster-level chance of working through the sensor. A successful save blocks further scrying attempts on that subject for 24 hours. Duration 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Spike Stones",
+    "source": "Player's Handbook v3.5",
+    "page": 283,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 20-ft. square/level"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Reflex partial",
+    "spellResistance": "Yes",
+    "description": "Shapes rocky ground into camouflaged sharp points across a one-20-ft.-square-per-level area, halving movement speed for anyone walking through and dealing 1d8 piercing damage per 5 feet moved. A failed Reflex save also halves the victim's speed for 24 hours until cured. Lasts 1 hour/level; functions as a hard-to-detect trap, Search DC 25 + spell level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally IV",
+    "source": "Player's Handbook v3.5",
+    "page": 288,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 4th-level creature, 1d3 3rd-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animal Growth",
+    "source": "Player's Handbook v3.5",
+    "page": 198,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to one animal (Gargantuan or smaller) per two levels, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Up to one animal per two caster levels (Gargantuan or smaller, no two more than 30 ft. apart) doubles in size and grows to eight times normal weight, advancing one size category, gaining +8 Str and +4 Con (size bonuses), -2 Dex, and +2 natural armor, with attack, AC, and damage adjusted per size as usual; space and reach change but speed does not. Subjects also gain DR 10/magic and a +4 resistance bonus on saves. Fortitude negates; lasts 1 min./level. A subject without room to grow reaches the maximum possible size and may attempt a Strength check to burst enclosures, and multiple size-increasing effects don't stack.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Atonement",
+    "source": "Player's Handbook v3.5",
+    "page": 201,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "F",
+      "DF",
+      "XP"
+    ],
+    "castingTime": "1 hour",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes atonement  must  be",
+    "description": "Removes the burden of a past evil act or misdeed from a truly repentant subject. If the act was unwitting or compelled, the spell works at no cost; for deliberate misdeeds you must expend 500 XP to intercede with your deity. Depending on the version cast, it can reverse a magically forced alignment change (free), restore a fallen paladin's class features, restore a cleric's or druid's lost spellcasting (costing the casting cleric 500 XP only if the transgression was intentional), or offer a creature of an opposing alignment a free, uncompelled choice to convert to your alignment (not usable on outsiders or creatures unable to change alignment naturally). Requires burning incense and prayer beads (or similar device) worth at least 500 gp as focus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Awaken",
+    "source": "Player's Handbook v3.5",
+    "page": 202,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "XP"
+    ],
+    "castingTime": "24 hours",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal or tree touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Awakens an animal or tree to humanlike sentience via a Will save (DC 10 + the creature's current or eventual HD). The awakened creature is friendly toward you but has no special bond unless you communicate your wishes. An awakened tree becomes an animated-object-like plant creature with Int/Wis/Cha of 3d6 each and human-like senses; an awakened animal gains 3d6 Intelligence, +1d3 Charisma, and +2 HD, becoming a magical beast (augmented animal) that can no longer serve as an animal companion, familiar, or special mount. It learns to speak a language you know, plus one more per point of Intelligence bonus. Costs 250 XP and takes 24 hours to cast.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Baleful Polymorph",
+    "source": "Player's Handbook v3.5",
+    "page": 202,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Permanent",
+    "savingThrow": "Fortitude negates, Will partial; see text",
+    "spellResistance": "Yes",
+    "description": "Permanently changes the target into a Small or smaller animal of 1 HD or less (dog, lizard, monkey, toad, etc.), taking on that form's statistics and abilities except that it keeps its own alignment, hit points, and shapechanger subtype (if any). It's treated as having its normal Hit Dice for HD-based effects but uses the new form's base attack bonus, saves, and other HD-derived stats, and it retains the ability to understand (but not speak) its own languages. Fortitude negates, Will partial.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Call Lightning Storm",
+    "source": "Player's Handbook v3.5",
+    "page": 207,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Call Lightning, except each bolt deals 5d6 damage (5d10 if cast outdoors in a stormy area), and you can call up to 15 bolts total.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Commune with Nature",
+    "source": "Player's Handbook v3.5",
+    "page": 211,
+    "spellLevelDruid": 5,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Grants instant knowledge of up to three facts about the surrounding territory (terrain, plants, minerals, water, people, animal population, presence of woodland or powerful unnatural creatures, or the general state of nature). Range is 1 mile per caster level outdoors, or 100 ft. per caster level in underground natural settings; it doesn't work where nature has been replaced by construction or settlement. Instantaneous; 10-minute casting time.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Control Winds",
+    "source": "Player's Handbook v3.5",
+    "page": 214,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "40 ft./level",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40 ft./level radius cylinder 40 ft."
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "No",
+    "description": "Alters wind force and direction within a cylindrical area up to 40 ft./level in radius, choosing one of four patterns (downdraft, updraft, rotation, or a one-directional blast) and optionally leaving a calm \"eye\" up to 80 ft. across at the center. Wind strength can be raised or lowered by one category per three caster levels, ranging from strong (21+ mph) up through severe, windstorm, hurricane-force, and tornado-force (175+ mph) winds, each with escalating effects on ships, structures, and flight. Each round, a creature in the wind must make a Fortitude save or suffer that category's effects; lasts 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Critical Wounds",
+    "source": "Player's Handbook v3.5",
+    "page": 215,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Cure Light Wounds, except it cures 4d8 points of damage +1 per caster level (maximum +20).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Death Ward",
+    "source": "Player's Handbook v3.5",
+    "page": 217,
+    "spellLevelDruid": 5,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched living creature becomes immune to death spells, magical death effects, energy drain, and negative energy effects (such as inflict spells or chill touch) for 1 minute per level. It doesn't remove negative levels already gained or change the save required 24 hours after gaining one, and it gives no protection against hit point loss, poison, or petrification.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hallow",
+    "source": "Player's Handbook v3.5",
+    "page": 238,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Good"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "24 hours",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40-ft. radius emanating from the touched point"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "See text",
+    "description": "After a 24-hour ritual, you make a site or structure (40-ft. radius from the touched point) holy, with four effects: it's warded by a permanent magic circle against evil; Charisma checks to turn undead there gain a +4 sacred bonus while checks to command undead take a -4 penalty (not part of the druid version); bodies interred there can't be turned into undead; and you may fix one additional spell effect, chosen from a specified list (such as bless, death ward, daylight, or freedom of movement), to function throughout the site for one year — targetable at everyone, just your faith/alignment, or just an opposing one — renewable by recasting hallow. Only one hallow can affect an area at a time, and it counters but does not dispel unhallow.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Insect Plague",
+    "source": "Player's Handbook v3.5",
+    "page": 244,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One swarm of locusts per three levels, each of which must be adjacent to at least one other swarm"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No remotely trigger traps, open a portcullis to release  attack  dogs,  and  so  forth.  If  the subject  attacks  directly,  however,  it  im- mediately  becomes  visible  along  with  all its gear. Spells such as bless that specifically affect allies but not foes are not attacks for this purpose, even when they include foes in their area.",
+    "description": "You summon a number of stationary locust swarms — one per three caster levels, to a maximum of six at 18th level — within long range; each must be placed adjacent to at least one other swarm so together they form one contiguous mass, though they may share space with other creatures. Each swarm attacks any creature occupying its square, the swarms remain for 1 minute per level, and they won't pursue creatures that flee.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Stoneskin",
+    "source": "Player's Handbook v3.5",
+    "page": 284,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level or until discharged",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature damage reduction 10/adamantine against physical attacks. The spell absorbs up to 10 points of damage per caster level (maximum 150) before it is used up and discharges. Lasts 10 minutes per level or until discharged.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally V",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 5th-level creature, 1d3 4th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Transmute Mud to Rock",
+    "source": "Player's Handbook v3.5",
+    "page": 295,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes/level (S)"
+    },
+    "duration": "Permanent",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Permanently transforms mud or quicksand (up to two 10-ft. cubes per caster level) into soft stone; any creature caught in the mud gets a Reflex save to escape before it hardens. Counters and dispels transmute rock to mud.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Transmute Rock to Mud",
+    "source": "Player's Handbook v3.5",
+    "page": 295,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes/level (S)"
+    },
+    "duration": "Permanent; see text",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Turns natural, unworked rock (up to two 10-ft. cubes per caster level, max 10 ft. deep) into an equal volume of mud, mired creatures sink to hip/chest depth, their speed drops to 5 feet, and they take a -2 penalty to attack rolls and AC. Cast on a cavern ceiling, the falling mud instead pools 5 feet deep below and deals 8d6 bludgeoning damage (Reflex half) to anyone caught underneath. Doesn't affect worked or magical stone; the mud persists until dispelled, reversed by transmute mud to rock, or it naturally evaporates over days.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Tree Stride",
+    "source": "Player's Handbook v3.5",
+    "page": 296,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level or until expended; see text 296",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Allows the caster to enter a living tree and instantly travel to another living tree of the same species and at least equal girth, sensing all such trees within a transport range that depends on species (3,000 ft. for oak/ash/yew down to 500 ft. for most other trees). Usable up to once per caster level as a full-round action each time; the spell ends if its 1-hour-per-level duration expires, or if the tree is destroyed while the caster is hidden inside, the caster is slain.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Unhallow",
+    "source": "Player's Handbook v3.5",
+    "page": 297,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Evil"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "24 hours",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40-ft. radius emanating from the touched point"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "See text",
+    "description": "After a 24-hour ritual, makes a site or structure unholy: it's warded by a permanent magic circle against good, turning checks against undead there take a -4 penalty while rebuking gains a +4 profane bonus, and the caster may bind one additional spell effect to the site for one year (renewable), applying to all creatures, allies, or foes as chosen. Only one unhallow effect can occupy a site at a time; it counters but does not dispel hallow.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wall of Fire",
+    "source": "Player's Handbook v3.5",
+    "page": 298,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Opaque sheet of flame up to 20 ft. long/level or a ring of fire with a radius of up to 5 ft. per two levels; either form 20 ft. high"
+    },
+    "duration": "Concentration + 1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Conjures an immobile sheet or ring of fire up to 20 ft. long per level (or a ring with radius up to 5 ft. per two levels), 20 ft. tall. One chosen side radiates heat, dealing 2d4 fire damage within 10 feet and 1d4 within 20 feet each round; anything passing through the wall itself takes 2d6 + 1 per caster level fire damage (max +20), doubled against undead. Lasts for concentration plus 1 round per level; a 5-ft. section exposed to 20+ points of cold damage in one round is extinguished.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wall of Thorns",
+    "source": "Player's Handbook v3.5",
+    "page": 300,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Wall of thorny brush, up to one 10-ft. cube/level (S)"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a barrier of tough, thorny brush up to one 10-ft. cube per caster level; any creature moving into or through it takes slashing damage equal to 25 minus its AC (ignoring Dexterity and dodge bonuses), with creatures at AC 25+ taking no damage. Creatures can push through slowly via a Strength check (every 5 points over DC 20 moves them 5 feet) or wait it out; it can be chopped through with edged weapons (1 foot of clearance per 10 minutes) and burns away in 10 minutes to magical fire. Lasts 10 minutes per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Antilife Shell",
+    "source": "Player's Handbook v3.5",
+    "page": 199,
+    "spellLevelDruid": 6,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft.-radius emanation, centered on"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes 199",
+    "description": "Creates a mobile 10-ft.-radius hemispherical barrier that hedges out living creatures of most types (animals, aberrations, dragons, fey, giants, humanoids, magical beasts, monstrous humanoids, oozes, plants, vermin) while letting constructs, elementals, outsiders, and undead pass through. Purely defensive — forcing the barrier against a barred creature collapses it. Lasts 10 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bear’s Endurance, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 203,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Bear's Endurance, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bull’s Strength, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 207,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Bull's Strength, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cat’s Grace, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 208,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Cat's Grace, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Light Wounds, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will half (harmless) or",
+    "spellResistance": null,
+    "description": "Channels positive energy to cure 1d8 points of damage +1 per caster level (maximum +25) in each of several creatures (one/level, no two more than 30 ft. apart, within close range). Undead in the area take damage instead of being healed, with a Will save for half.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Dispel Magic, Greater",
+    "source": "Player's Handbook v3.5",
+    "page": 223,
+    "spellLevelDruid": 6,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As dispel magic, except the maximum bonus on your dispel check is +20 instead of +10, and it also has a chance to dispel any effect that remove curse could remove, even ones ordinary dispel magic cannot touch.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Find the Path",
+    "source": "Player's Handbook v3.5",
+    "page": 230,
+    "spellLevelDruid": 6,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "3 rounds",
+    "range": "Personal or touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You or creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None or Will negates",
+    "spellResistance": null,
+    "description": "You or the touched creature can sense the shortest, most direct physical route to a named location (not an object or creature) on your current plane, for 10 minutes per level, receiving guidance on the exact path or actions needed along the way — such as noticing trip wires or the password past a glyph. It ends upon reaching the destination or when the duration expires, and can pull the subject and companions out of a maze spell in a single round, though it can't predict the actions of guardians or other creatures.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fire Seeds",
+    "source": "Player's Handbook v3.5",
+    "page": 230,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to four touched acorns or up to eight touched holly berries"
+    },
+    "duration": "10 min./level or until used",
+    "savingThrow": "None or Reflex half; see",
+    "spellResistance": "No is  required",
+    "description": "You transform touched acorns or holly berries into fire weapons. As acorn grenades, up to four acorns become splash weapons you or an ally can throw up to 100 feet with a ranged touch attack, together dealing 1d6 fire damage per caster level (maximum 20d6) divided among them as you choose, plus 1 point of splash damage per die and ignition of nearby combustibles within 10 feet (Reflex half for those catching splash, no save for a direct hit). As holly berry bombs, up to eight berries are placed by hand (or tossed up to 5 feet) and detonate on your spoken command from within 200 feet, each dealing 1d8 fire damage +1 per caster level to everyone in a 5-ft. burst and igniting combustibles within 5 feet (Reflex half).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ironwood",
+    "source": "Player's Handbook v3.5",
+    "page": 246,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 minute/lb. created",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "An ironwood object weighing up to 5 lb./level"
+    },
+    "duration": "One day/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "In a ritual taking 1 minute per pound of material created, you turn ordinary wood into ironwood — a substance that remains natural wood in most respects but is as strong, heavy, and fire-resistant as steel, unaffected by metal-targeting spells like heat metal but still responsive to wood-affecting spells like wood shape (without burning). Paired with wood shape or a wood-related Craft check, it lets you fashion wooden armor or weapons (up to 5 lb. per level) that function as their steel equivalents and are freely usable by druids, lasting one day per level. Creating only half the normal amount of material instead produces a weapon, shield, or suit of armor with a +1 magical enhancement bonus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Liveoak",
+    "source": "Player's Handbook v3.5",
+    "page": 248,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Tree touched"
+    },
+    "duration": "One day/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Turns a single healthy Huge oak tree — within 10 ft. of the caster's dwelling, a place sacred to the caster, or within 300 ft. of something to be guarded — into a guardian. A trigger phrase of up to one word per caster level is set on the tree; when triggered, it animates as a treant (DM may extrapolate smaller stats for a smaller oak). Only one tree can be affected at a time. Duration one day/level. If dispelled, the tree roots wherever it stands; if released, it tries to return to its original spot before rooting.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Move Earth",
+    "source": "Player's Handbook v3.5",
+    "page": 257,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "See text",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Dirt in an area up to 750 ft. square and up to 10 ft. deep (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Reshapes dirt (clay, loam, sand) — collapsing embankments, shifting dunes, and the like — within a Long range area up to 750 ft. square and 10 ft. deep, but cannot move rock formations. Casting time scales with area affected: 10 minutes per 150-ft. square, up to 4 hours 10 minutes for the maximum area. Reshapes terrain gradually rather than violently, leaving trees and structures mostly unaffected beyond changes in elevation; too slow to reliably trap or bury creatures, and cannot be used for tunneling. No effect on earth creatures. Instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Owl’s Wisdom, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 259,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As owl's wisdom, except it affects one creature per caster level, no two of which can be more than 30 ft. apart, at Close range.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Repel Wood",
+    "source": "Player's Handbook v3.5",
+    "page": 271,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "60-ft. line-shaped emanation from"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Like repel metal or stone but for wood: sends waves of force along a directed 60-ft. line, pushing loose wooden objects away at 40 ft./round for 1 min./level. Fixed wooden objects over 3 in. in diameter are unaffected, but smaller fixed ones splinter and are carried along; creatures dragged by carried items can let go, or drop/loose a shield as a move or free action. Even magic items with wooden components are affected unless in an antimagic field. The path is fixed once cast.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Spellstaff",
+    "source": "Player's Handbook v3.5",
+    "page": 282,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Wooden quarterstaff touched"
+    },
+    "duration": "Permanent until discharged",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "description": "Stores one spell you can normally cast inside a wooden quarterstaff; you can only hold one stored spell, and only one spellstaff at a time. The stored spell can later be cast as though prepared, without using up a normal daily slot, but any material components are consumed when the spell is stored.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Stone Tell",
+    "source": "Player's Handbook v3.5",
+    "page": 284,
+    "spellLevelDruid": 6,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets the caster converse with stone, which relates who or what has touched it and reveals what's hidden behind, under, or within it, subject to the stone's own limited perspective and knowledge. Personal effect lasting 1 minute per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally VI",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 6th-level creature, 1d3 5th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Transport via Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 295,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Unlimited",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You and touched objects or other touched willing creatures"
+    },
+    "duration": "1 round",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Lets the caster enter any living Medium-or-larger plant and instantly emerge from a living plant of the same kind any distance away, taking carried gear and up to one additional willing Medium-or-smaller creature (or size equivalent) per three caster levels, all of whom must be in contact with each other and the caster. Can't be used to travel through plant creatures like shambling mounds or treants, and destroying the entry or destination plant while occupied kills everyone inside. Lasts only 1 round to complete the transit.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wall of Stone",
+    "source": "Player's Handbook v3.5",
+    "page": 299,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Stone wall whose area is up to one 5-ft. square/level (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Instantly creates a stone wall, up to one 5-ft. square per caster level, that must merge with existing stone for support (thickness 1 inch per 4 caster levels, area doubled by halving thickness). It can be shaped freely, including as a bridge or ramp, and each 5-ft. section has 15 hit points per inch of thickness and hardness 8; breaking through requires a Strength check against DC 20 + 2 per inch of thickness, though trapped creatures can avoid entrapment with a Reflex save.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animate Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 199,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One Large plant per three caster levels or all plants within range; see text"
+    },
+    "duration": "1 round/level or 1 hour/level; see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Animates up to one Large (or smaller) plant per three caster levels, or an equivalent combined size of larger plants (a Huge plant counts as two, Gargantuan as four, Colossal as eight), which then attacks whoever you designate using animated-object statistics; you can redirect them as a move action. Alternatively, the spell can instead animate all plants in range to entangle creatures, duplicating an entangle effect that spell resistance doesn't stop, lasting 1 hour/caster level. Doesn't affect plant creatures or nonliving vegetable matter.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Changestaff",
+    "source": "Player's Handbook v3.5",
+    "page": 208,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 round",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Your touched staff"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Transforms a specially prepared quarterstaff into a Huge, roughly 24-foot-tall treant-like creature that fights using treant statistics, defends you, and obeys your spoken commands, though it isn't a true treant and can't converse with real ones or control trees. If reduced to 0 hp it's destroyed; otherwise it reverts to a staff (always at full strength) when the spell ends or is dismissed. Lasts 1 hour/level; requires a specially cured and carved ash, oak, or yew quarterstaff (28 days to prepare) as a focus.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Control Weather",
+    "source": "Player's Handbook v3.5",
+    "page": 214,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes; see text",
+    "range": "2 miles",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "2-mile-radius circle, centered on you; see text"
+    },
+    "duration": "4d12 hours; see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Lets you call forth or dispel weather appropriate to the current climate and season (e.g., tornadoes, storms, heat waves, blizzards) within a 2-mile-radius circle centered on you; the new weather fully manifests 10 minutes after a 10-minute casting time, and you can redirect it with a standard action. You control general tendencies like wind direction and intensity but not specific effects like where lightning strikes. Lasts 4d12 hours; a druid casting it doubles the duration and expands the radius to 3 miles.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Creeping Doom",
+    "source": "Player's Handbook v3.5",
+    "page": 215,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)/ 100 ft.; see text",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One swarm of centipedes per two levels"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons a mass of centipede swarms (one per two caster levels, max 10 at 20th level) anywhere within range, which may share a square with other creatures; they stay put and attack anyone nearby unless you spend a standard action to send any number of them toward prey within 100 ft. of you. A swarm can't be commanded more than 100 ft. from you, and if you move more than 100 ft. from one it stays put attacking normally until you're back in range. Lasts 1 min./level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Moderate Wounds, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Mass Cure Light Wounds, except it cures 2d8 points of damage +1 per caster level (maximum +30).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fire Storm",
+    "source": "Player's Handbook v3.5",
+    "page": 231,
+    "spellLevelDruid": 7,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Two 10-ft. cubes per level (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Sheets of roaring flame fill an area of two 10-ft. cubes per level, dealing 1d6 fire damage per caster level (maximum 20d6, Reflex half) to any creature present; natural vegetation, ground cover, and any plant creatures you choose to exclude take no damage.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heal",
+    "source": "Player's Handbook v3.5",
+    "page": 239,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Channeling positive energy into the touched creature instantly ends ability damage, blindness, confusion, being dazed or dazzled, deafness, disease, exhaustion, fatigue, feeblemindedness, insanity, nausea, sickening, stunning, and poison, and heals 10 hit points per caster level (maximum 150 at 15th level). It doesn't remove negative levels or restore permanently drained levels or ability score points, and used against an undead creature it instead functions like harm.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Scrying, Greater",
+    "source": "Player's Handbook v3.5",
+    "page": 275,
+    "spellLevelDruid": 7,
+    "school": "Divination",
+    "subschool": "Scrying",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": "1 hour/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As scrying, except casting time drops to 1 standard action, duration becomes 1 hour/level, and detect chaos, detect evil, detect good, detect law, detect magic, message, read magic, and tongues all function reliably through the sensor.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally VII",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 7th-level creature, 1d3 6th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sunbeam",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 7,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Line from your hand"
+    },
+    "duration": "1 round/level or until all beams are exhausted",
+    "savingThrow": "Reflex negates and",
+    "spellResistance": null,
+    "description": "For the spell's duration, the caster can spend a standard action each round to fire a blinding beam of light, gaining one beam per three caster levels (max six at 18th level). Each creature struck is blinded and takes 4d6 damage (double if harmed by sunlight), with a Reflex save negating the blindness and halving the damage. Undead (and fungi, mold, oozes, and slimes) instead take 1d6 damage per caster level (max 20d6, Reflex for half) and are destroyed if they're specifically vulnerable to bright light and fail the save.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Transmute Metal to Wood",
+    "source": "Player's Handbook v3.5",
+    "page": 294,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "All metal objects within a 40-ft.- radius burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes (object; see text)",
+    "description": "Instantly transforms all metal objects (including weapons and armor worn by creatures) within a 40-ft.-radius burst into wood; magic metal items resist with SR equal to 20 + their caster level, and artifacts are immune. Converted weapons take a -2 penalty to attack and damage and shatter on a natural attack roll of 1-2; converted armor loses 2 points of armor bonus and an additional point whenever struck by a natural 19-20. The change is permanent short of wish-tier magic.",
+    "otherPrintings": []
+  },
+  {
+    "name": "True Seeing",
+    "source": "Player's Handbook v3.5",
+    "page": 296,
+    "spellLevelDruid": 7,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature the ability to see things as they truly are: through magical and normal darkness, past invisibility, blur, and displacement, through illusions, and revealing the true form of polymorphed or transmuted creatures, plus limited sight onto the Ethereal Plane, out to 120 feet. It does not grant X-ray vision, penetrate solid objects, beat ordinary concealment (like fog), see through mundane disguises or hiding, or find mundanely hidden doors, and can't be combined with scrying effects. Lasts 1 minute per caster level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wind Walk",
+    "source": "Player's Handbook v3.5",
+    "page": 302,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "You and one touched creature per three levels"
+    },
+    "duration": "1 hour/level (D); see text",
+    "savingThrow": "No and Will negates",
+    "spellResistance": null,
+    "description": "Transforms the caster's body into cloudlike vapor (as gaseous form) and lets them travel through the air, bringing along other willing touched creatures who act independently. Normal flight speed is 10 feet with perfect maneuverability, or up to 600 feet per round (60 mph) with poor maneuverability if desired; wind walkers appear misty and translucent (80% likely mistaken for weather phenomena if dressed in white). Reverting to physical form and back each take 5 rounds, counted against the 1-hour-per-level duration, and the spell automatically forces a descent in its final minute as a warning it's ending.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animal Shapes",
+    "source": "Player's Handbook v3.5",
+    "page": 198,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to one willing creature per level, all within 30 ft. of each other"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes (harmless)",
+    "description": "Transforms up to one willing creature per caster level into an animal of your choice; all recipients must become the same kind of animal, and it has no effect on unwilling creatures. Lasts 1 hour/level, ends early for an individual as a full-round action, and the maximum HD of the assumed form is the subject's HD or your caster level (whichever is lower), capped at 20 HD at 20th level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Control Plants",
+    "source": "Player's Handbook v3.5",
+    "page": 213,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to 2 HD/level of plant"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Lets you control the actions of one or more plant creatures (up to 2 HD/level, no two more than 30 ft. apart) for 1 min./level (Will negates). You command them by voice and they understand you regardless of language — even a silence effect won't make them attack you — and they revert to normal behavior when the spell ends; suicidal or self-destructive commands are simply ignored.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Serious Wounds, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 216,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As mass cure light wounds, except it cures 3d8 points of damage +1 per caster level (maximum +35).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Earthquake",
+    "source": "Player's Handbook v3.5",
+    "page": 225,
+    "spellLevelDruid": 8,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "80-ft.-radius spread (S)"
+    },
+    "duration": "1 round",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "An intense, localized tremor tears the ground within an 80-ft.-radius spread for 1 round; creatures on the ground can't move or attack during that round, and a spellcaster on the ground must succeed on a Concentration check (DC 20 + spell level) or lose any spell being cast. Effects depend on terrain: in a cave, cavern, tunnel, or below a collapsing cliff, falling debris deals 8d6 bludgeoning damage (Reflex DC 15 half) and pins victims beneath rubble; on open ground, creatures must succeed on a DC 15 Reflex save or fall prone, and each has a 25% chance to fall into a new fissure (DC 20 Reflex to avoid), which slams shut at the spell's end, killing anyone still trapped inside.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Finger of Death",
+    "source": "Player's Handbook v3.5",
+    "page": 230,
+    "spellLevelDruid": 8,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Death"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "You attempt to slay one living creature within close range outright; a successful Fortitude save instead deals 3d6 points of damage +1 per caster level (maximum +25), and the target can still die from that damage even after making its save.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Repel Metal or Stone",
+    "source": "Player's Handbook v3.5",
+    "page": 271,
+    "spellLevelDruid": 8,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "60-ft. line from you"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Sends waves of force down a 60-ft. line from the caster, pushing metal or stone objects away to the limit of the range at 40 ft./round for 1 round/level. Fixed metal or stone objects larger than 3 in. in diameter and loose ones over 500 lbs. are unaffected; smaller fixed objects break apart and are carried along with the wave, and creatures wearing metal armor or carrying metal/stone items (even magic ones) are dragged back with their gear unless in an antimagic field. The path is fixed once the spell is cast.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Reverse Gravity",
+    "source": "Player's Handbook v3.5",
+    "page": 273,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to one 10-ft. cube per two"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Reverses gravity in the area, causing all unattached objects and creatures within it to fall upward and reach the top in 1 round, striking any solid obstruction (such as a ceiling) as they would in a normal fall. Anything that reaches the top without striking something hovers there, oscillating, until the spell ends, then falls back downward. A creature with something to hold onto can attempt a Reflex save to secure itself when the spell takes effect; creatures that can fly or levitate are unaffected by the fall. Area up to one 10-ft. cube per two caster levels; duration 1 round/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally VIII",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 8th-level creature, 1d3 7th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sunburst",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 8,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "80-ft.-radius burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex partial; see text",
+    "spellResistance": "Yes",
+    "description": "Explodes a globe of radiance in an 80-ft.-radius burst, blinding all creatures within and dealing 6d6 damage (double to sunlight-vulnerable creatures), with a Reflex save negating blindness and halving damage. Undead (and fungi, mold, oozes, and slimes) instead take 1d6 damage per caster level (max 25d6, Reflex for half) and are destroyed if specifically harmed by bright light and they fail their save. Also dispels darkness effects of lower than 9th level in the area.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Whirlwind",
+    "source": "Player's Handbook v3.5",
+    "page": 301,
+    "spellLevelDruid": 8,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cyclone 10 ft. wide at base, 30 ft. wide at top, and 30 ft. tall"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Reflex negates; see text",
+    "spellResistance": "Yes",
+    "description": "Creates a powerful cyclone that moves through the air, along the ground, or over water at 60 ft./round; directing it (steering, changing its programmed pattern, or reissuing a simple repeating program like zigzag or circle) is a standard action, and it always moves on your turn. If it exceeds the spell's range it moves randomly and uncontrolled for 1d3 rounds, endangering anyone nearby, then dissipates — control can't be regained even if it drifts back into range. Any Large or smaller creature it touches must succeed on a Reflex save or take 3d6 damage; a Medium or smaller creature that fails a second save is picked up and held aloft, taking 1d8 damage each round on your turn with no save, until you choose to eject it (dropping it wherever the cyclone happens to be).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Word of Recall",
+    "source": "Player's Handbook v3.5",
+    "page": 303,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Unlimited",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You and touched objects or other willing creatures"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None or Will negates",
+    "spellResistance": null,
+    "description": "Instantly teleports the caster back to a specific, familiar sanctuary designated when the spell was prepared, arriving in a designated area no larger than 10 ft. by 10 ft.; works any distance within a plane but never between planes. The caster can bring carried objects and one additional willing Medium-or-smaller creature (or size equivalent) per three caster levels, all of whom must be in contact with one another and the caster; unwilling creatures cannot be transported.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Antipathy",
+    "source": "Player's Handbook v3.5",
+    "page": 200,
+    "spellLevelDruid": 9,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 hour",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One location (up to a 10-ft. cube/level) or one object"
+    },
+    "duration": "2 hours/level (D)",
+    "savingThrow": "Will partial",
+    "spellResistance": "Yes",
+    "description": "Causes a location (up to a 10-ft. cube/level) or an object to magically repel one specifically named kind of intelligent creature or one named alignment; affected creatures feel a compulsion to leave or avoid it and won't willingly return while the spell lasts. A successful Will save lets a creature remain, but its Dexterity drops by 4 while it does so. Lasts 2 hours/level; counters and dispels sympathy.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cure Critical Wounds, Mass",
+    "source": "Player's Handbook v3.5",
+    "page": 215,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Mass Cure Light Wounds, except it cures 4d8 points of damage +1 per caster level (maximum +40).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Elemental Swarm",
+    "source": "Player's Handbook v3.5",
+    "page": 226,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Two or more summoned creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You open a portal to an Elemental Plane of your choice (a cleric's is fixed by domain) and summon elementals to serve you for 10 minutes per level: 2d4 Large elementals appear immediately, 1d4 Huge elementals ten minutes later, and one greater elemental ten minutes after that, each with maximum hit points per Hit Die. The elementals obey you without requiring concentration, never attack you even if another creature tries to seize control of them, and can be dismissed singly or as a group at will. Casting it to summon a specific element makes the spell that element's type for purposes like resistances.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Foresight",
+    "source": "Player's Handbook v3.5",
+    "page": 233,
+    "spellLevelDruid": 9,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal or touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "See text"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None or Will negates",
+    "spellResistance": null,
+    "description": "For 10 minutes per level, you or a touched creature gains warnings of impending danger — sneak attacks, ambushes, or spells and ranged attacks aimed at it — and can never be surprised or caught flat-footed while the effect lasts, plus a +2 insight bonus to AC and Reflex saves (lost whenever the subject would lose its Dexterity bonus to AC). If cast on another creature, you receive the warnings instead and must relay them for the subject to benefit; that subject doesn't gain the insight bonus itself.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Regenerate",
+    "source": "Player's Handbook v3.5",
+    "page": 270,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "3 full rounds",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates (harm-",
+    "spellResistance": "Yes (harmless)",
+    "description": "Regrows the touched creature's severed body parts (fingers, limbs, even heads) and mends broken bones and ruined organs — complete in 1 round if the severed parts are present and touching the creature, otherwise 2d10 rounds. Also heals 4d8 + 1 point per caster level (maximum +35) damage, removes exhaustion and fatigue, and eliminates nonlethal damage. No effect on nonliving creatures, including undead. Casting time 3 full rounds; instantaneous.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Shambler",
+    "source": "Player's Handbook v3.5",
+    "page": 277,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Three or more shambling mounds, no two of which can be more than 30 ft. apart; see text"
+    },
+    "duration": "Seven days or seven months",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Conjures 1d4+2 shambling mounds (11 HD each) that willingly aid the caster in combat, carry out a mission, or serve as bodyguards, remaining for seven days unless dismissed. If created solely for guard duty, the duration extends to seven months, but the mounds can then only be ordered to guard a specific site and cannot move beyond the spell's range from where each first appeared. The mounds retain their normal fire resistance only if the terrain is rainy, marshy, or damp.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Shapechange",
+    "source": "Player's Handbook v3.5",
+    "page": 277,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As polymorph, except the caster can assume the form of any single nonunique creature of any type, Fine to Colossal size, including incorporeal or gaseous forms, provided its Hit Dice don't exceed the caster's level (maximum 25 HD). The caster gains all the new form's extraordinary and supernatural abilities (attacks and qualities) and its type, while losing their own supernatural abilities; separated body parts or gear don't revert. The caster can change form again once per round as a free action, taken immediately before or after their regular action. Using the spell to disguise grants a +10 Disguise bonus. Duration 10 min./level; requires a jade circlet focus worth at least 1,500 gp that melds into each new form taken.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Storm of Vengeance",
+    "source": "Player's Handbook v3.5",
+    "page": 285,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "360-ft.-radius storm cloud"
+    },
+    "duration": "Concentration (maximum 10 rounds) (D)",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Summons a massive storm cloud (360-ft. radius) that deafens creatures beneath it for 1d4x10 minutes (Fortitude negates) and, if concentration is maintained each round, escalates: round 2 deals 1d6 acid damage (no save), round 3 rains six 10d6 lightning bolts (Reflex half, no two at the same target), round 4 deals 5d6 bludgeoning hail damage (no save), and rounds 5-10 blind vision beyond 5 feet, impose heavy concealment, cut speed by three-quarters, block ranged attacks, and force a Concentration check to cast spells in the area. Lasts up to 10 rounds while concentrating.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Nature’s Ally IX",
+    "source": "Player's Handbook v3.5",
+    "page": 289,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": null,
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "As Summon Nature's Ally I, except the caster can summon one 9th-level creature, 1d3 8th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sympathy",
+    "source": "Player's Handbook v3.5",
+    "page": 292,
+    "spellLevelDruid": 9,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind- Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 hour",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One location (up to a 10-ft. cube/level) or one object"
+    },
+    "duration": "2 hours/level (D)",
+    "savingThrow": "Will negates; see text",
+    "spellResistance": "Yes",
+    "description": "Causes a designated object or location to magically compel a specifically named kind of creature or a specifically named alignment to want to stay near or touch it, an urge nearly impossible to resist. A successful Will save breaks the compulsion temporarily, but the creature must save again 1d6x10 minutes later or return. Lasts 2 hours per caster level; counters and dispels antipathy.",
+    "otherPrintings": []
+  }
+]

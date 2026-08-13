@@ -1,0 +1,387 @@
+[
+  {
+    "name": "Climbing Tree",
+    "source": "Complete Mage",
+    "page": 99,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 full round",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "A thin but sturdy tree"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Instantly grows a sturdy 1-ft.-diameter tree (up to 10 ft. per caster level, maximum 50 ft.) in an adjacent square of soft ground; its evenly spaced branches make climbing it a DC 5 Climb check. Hardness 5, 120 hp, vanishes instantly if cut down; can't be animated or used as the basis for other plant-related spells such as tree stride.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Blackrot",
+    "source": "Complete Mage",
+    "page": 96,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One plant creature or one wooden weapon touched"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude partial or Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "A touch attack that either damages a plant creature over time or poisons a wooden weapon. Against a plant creature it deals 1d8 damage/round (a Fortitude save reduces the duration to 1 round); against a touched wooden-surfaced weapon instead, anything the weapon damages is sickened for 1 round unless it succeeds on a Fortitude save, treated as a poison effect for poison-immune or -resistant creatures.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heart of Air",
+    "source": "Complete Mage",
+    "page": 106,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Converts part of the caster's body into elemental air: a +10 enhancement bonus on Jump checks, and +10 ft. enhancement bonus to any existing fly speed. Once during the duration, as an immediate action, the caster can trigger a feather fall effect on herself, which then ends the spell after 1 round/level. If active together with heart of earth, heart of fire, or heart of water, grants light fortification; with all four active at once, grants immunity to extra damage from critical hits and sneak attacks.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heart of Water",
+    "source": "Complete Mage",
+    "page": 107,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Converts part of the caster's body into elemental water: a swim speed equal to land speed (with the usual +8 racial bonus on Swim checks), water breathing, and a +5 enhancement bonus on Escape Artist checks. Once during the duration, as a swift action, the caster can trigger a freedom of movement effect on herself, which then ends the spell after 1 round/level. Same four-spell combo bonuses as heart of air.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Prickling Torment",
+    "source": "Complete Mage",
+    "page": 113,
+    "spellLevelDruid": 3,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "5 rounds",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Sickens the subject for the duration; if it takes any action beyond a free, swift, or immediate action on its turn, it also takes 1d8 damage at the end of that turn. While affected, it also takes a -2 penalty on saves against a swarm-subtype creature's distraction effect. Interacts with fever dream if both are active on the same subject.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Rusted Blade",
+    "source": "Complete Mage",
+    "page": 116,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One weapon touched"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Will negates (object, harmless) and Fortitude negates",
+    "spellResistance": "Yes (object, harmless)",
+    "description": "Coats a touched weapon (any material) in a rust-like patina for the duration. Any living creature the weapon damages must succeed on a Fortitude save (at the spell's own DC the first time, filth fever's normal DC 12 afterward) or contract filth fever; multiple exposures don't stack the disease, but repeated saves are still required each time damage is taken. The weapon itself suffers no mechanical effect despite the cosmetic change.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Unicorn Horn",
+    "source": "Complete Mage",
+    "page": 121,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Good"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One horn that sprouts from your forehead"
+    },
+    "duration": "1 minute/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grows a single horn usable as a standard action for a gore natural weapon attack, dealing 1d8 (Medium) plus 1-1/2x Strength bonus, treated as a magic weapon for overcoming damage reduction; a charge with the horn deals double damage (triple on a critical hit). As a swift action once during the duration, the caster can invoke the horn's power for 1 round: a +3 enhancement bonus on attack and damage rolls, overcoming damage reduction as a good-aligned weapon, and an extra 3d6 damage against evil fey, giants, magical beasts, or outsiders — after which the spell ends. Combines with unicorn blood or unicorn heart for enhanced effects (see those spells).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heart of Earth",
+    "source": "Complete Mage",
+    "page": 106,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Converts part of the caster's body into elemental earth: a +8 bonus to resist bull rush, overrun, or trip, plus temporary hit points equal to twice caster level (maximum 30). Once during the duration, as a swift action, the caster can trigger a stoneskin effect on herself, which then ends the spell after 1 round/level (or when the stoneskin's damage reduction is exhausted). Same four-spell combo bonuses as heart of air.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Heart of Fire",
+    "source": "Complete Mage",
+    "page": 107,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Converts part of the caster's body into elemental fire: a +10-ft. enhancement bonus to land speed and fire resistance 20. Once during the duration, as a swift action, the caster can trigger a fire shield effect (fire-protection version only) on herself, which then ends the spell after 1 round/level. Same four-spell combo bonuses as heart of air.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Unicorn Blood",
+    "source": "Complete Mage",
+    "page": 121,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Good"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants immunity to poison and to compulsion/charm effects for the duration. Once during the duration, as a swift action, the caster can touch a willing creature to grant it temporary hit points equal to her caster level (maximum 15); doing so ends unicorn blood on the caster, though the granted temporary hit points last out the spell's original duration. If unicorn horn is also active on the caster at the same time, the temporary hit points granted double instead (maximum 30).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Storm of Fire and Ice",
+    "source": "Complete Mage",
+    "page": 118,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (20-ft. radius, 40 ft. high)"
+    },
+    "duration": "1 round",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "A cylinder of lava and hailstones rains down for 1 round, dealing 6d6 cold and 6d6 fire damage to everything inside (Reflex half). Also grants concealment as fog cloud, imposes a -4 penalty on Listen checks, and doubles movement cost within it; leaves no lingering hazard once the 1-round duration ends.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Great Worm of the Earth",
+    "source": "Complete Mage",
+    "page": 106,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "A great wormlike maw"
+    },
+    "duration": "1 round/level or until escaped",
+    "savingThrow": "Reflex partial",
+    "spellResistance": "No",
+    "description": "Conjures a wormlike maw from the ground beneath a target within range, biting immediately. On a failed Reflex save, the target takes 8d6 damage and is dragged underground, unable to act except to attempt escape (a full-round action each round, another Reflex save; a nearby ally can grant a +2 bonus via aid another), taking 2d6 acid damage each round it remains trapped. A successful initial save instead deals only 4d6 damage and ends the spell. Usable only on a horizontal area of dirt or stone at least 10 ft. thick, and only against a target no more than 5 ft. off the ground.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Unicorn Heart",
+    "source": "Complete Mage",
+    "page": 121,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Good"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 hour/level (D) or until expended",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a 60-ft. land speed and a +4 enhancement bonus on Strength-, Dexterity-, and Constitution-based ability and skill checks. Once during the duration, as a swift action, the caster can instantly transport herself, her carried gear, and one touched creature up to 360 ft. (functioning like dimension door); doing so ends the spell. If unicorn blood is also active at the same time, this also creates a magic circle against evil centered on the caster; if unicorn horn is also active, lets her smite evil with the horn once (extra 1 damage per level, maximum +20).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Deadly Lahar",
+    "source": "Complete Mage",
+    "page": 101,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": null,
+    "descriptors": [
+      "Earth",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped spread"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex partial",
+    "spellResistance": "No",
+    "description": "A cone of molten rock deals 10d6 fire damage to everyone caught in it; survivors are also coated in the viscous material, slowed (as slow) for 3 rounds and taking an extra 5d6 fire damage each of those rounds. A successful Reflex save halves the initial damage and negates both the slow effect and the ongoing damage.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Towering Thunderhead",
+    "source": "Complete Mage",
+    "page": 120,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Air"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (40-ft. radius, 60 ft. high)"
+    },
+    "duration": "3 rounds (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a dark cylinder of storm clouds granting fog cloud-like concealment and a wind wall effect inside; entering a square within costs double movement, though the caster herself moves and sees normally there (her ranged attacks are still hindered as usual). Any sonic or electricity spell of 7th level or lower cast by a creature inside is automatically empowered (as Empower Spell, with no increase to level or casting time), unless it's already benefiting from Empower Spell.",
+    "otherPrintings": []
+  }
+]

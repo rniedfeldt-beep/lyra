@@ -1,0 +1,1787 @@
+[
+  {
+    "name": "Animal Trick",
+    "source": "Masters of the Wild",
+    "page": 83,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal companion bonded to you by an animal friendship effect"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Your bonded animal companion (from an animal friendship effect) performs one trick of your choice that it doesn't already know, drawn from the Animal Companions sidebar in DMG Chapter 2 or Chapter 2 of this book. The animal retains no memory of the trick after performing it.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Darkseed",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft/2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One normal plant or plant creature"
+    },
+    "duration": "1 day",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "Yes",
+    "description": "If the target normal plant or plant creature fails a Reflex save, it takes 1 point of damage immediately and another point each hour for the spell's 1-day duration; hardness is ignored. A large tree could take weeks of repeated castings to kill, while a small plant might die within hours. Plant creatures that have Wisdom and Charisma scores are unaffected.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Dawn",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 0,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "All creatures within a 15-ft .-radius burst centered on you"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "All sleeping creatures within a 15-ft.-radius burst centered on you awaken instantly. Creatures unconscious from subdual damage wake up staggered. Dying creatures are unaffected.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 59
+      }
+    ]
+  },
+  {
+    "name": "Daze Animal",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 0,
+    "school": "Enchantment",
+    "subschool": null,
+    "descriptors": [
+      "Compulsion",
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One Medium-size or smaller animal with less than 5 HD"
+    },
+    "duration": "I round",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Clouds the mind of one Medium-size or smaller animal with fewer than 5 HD; if it fails a Will save it cannot move or attack for 1 round. It is not stunned, so attackers gain no special advantage against it.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fire Eyes",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched creature can see through normal smoke, fire, and fog as if they weren't there, for 10 minutes/level; other creatures gain no concealment from these effects against the subject. Does not grant sight through magical fog such as obscuring mist or fog cloud.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Scarecrow",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 0,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Fear",
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft/2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "If the target fails a Will save it becomes shaken, taking a -2 morale penalty on attack rolls, saves, and checks for 1 round/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Beget Bogun",
+    "source": "Masters of the Wild",
+    "page": 83,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "XP"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Tiny construct"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "The final spell in creating a bogun: infuses living magic into a small mannequin woven from vegetable matter (the mannequin is the material component; costs 25 XP). The resulting bogun is a Tiny construct (2d10 HD, ~11 hp, AC 15, Str 7/Dex 16/Int 8/Wis 13/Cha 10, speed 20 ft./fly 50 ft.) that attacks with nettles (+1 melee, 1d4-2 plus poison: Fort DC 11 or take 1d6 temporary Dex initial and secondary; the creator is immune). It shares its creator's alignment, cannot speak but is telepathically linked to the creator within 500 yards and cannot willingly leave that range, can perform simple tasks (carrying messages, opening doors) but not ones requiring understanding of technology, and 5% of the time refuses a task (creator can overcome this with a DC 11 Diplomacy check, or on failure the bogun does the opposite or refuses all tasks for a day). Destroying a bogun deals its creator 2d10 damage, and it dies if its creator dies. As a construct it's immune to mind-affecting effects, poison, disease, critical hits, subdual/ability damage, energy drain, and massive damage, but is not a plant despite its material. Creating one requires the creator to be 7th level with Craft Wondrous Item, a Craft (basketweaving/weaving) check (DC 12) to build the mannequin, and an uninterrupted week-long ritual (8 hours/day in solitude in a forest grove) culminating in casting control plants, wood shape, and beget bogun on the final day.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 152
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 26
+      }
+    ]
+  },
+  {
+    "name": "Camouflage",
+    "source": "Masters of the Wild",
+    "page": 86,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action t",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You alter your coloring to blend with your surroundings, gaining a +10 competence bonus on Hide checks for 10 minutes/level. Material component: mud painted on your face.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 157
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 43
+      }
+    ]
+  },
+  {
+    "name": "Hawkeye",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants clear long-range vision for 10 minutes/level: your range increment for projectile weapons increases by 50%, and you gain a +5 competence bonus on Spot checks.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 166
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 110
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 151
+      }
+    ]
+  },
+  {
+    "name": "Power Sight",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Reveals the total number of Hit Dice (including class levels) of the target creature. If it has both monster HD and class levels, you learn only the combined total, not the class breakdown, and negative levels don't reduce the apparent total — e.g., a 10-HD creature and a 10th-level character with 4 negative levels both appear as 10-HD.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Regenerate Light Wounds",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched living creature fast healing 1 for 10 rounds + 1 round/level, applying only to damage taken during the spell's duration, not prior injuries. The subject is automatically stabilized if dying from hit point loss during this time. It does not restore hit points lost to starvation, thirst, or suffocation, and does not regrow or reattach lost body parts. Multiple regenerate effects don't stack (only the highest-level applies), but a second casting of equal level extends the first's duration by its own full duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Sandblast",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Semicircular burst of sand 10 ft. long, centered on yourhands"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Fires a semicircular 10-ft. arc of hot sand from your fingers (as the burning hands arc), dealing 1d6 points of subdual damage to creatures caught in it (Reflex half). Any creature that fails its Reflex save is also stunned for 1 round.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 178
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 180
+      }
+    ]
+  },
+  {
+    "name": "Wood Wose",
+    "source": "Masters of the Wild",
+    "page": 97,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft . + 5 ft ./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One nature servant"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons a translucent green nature spirit for 1 hour/level that performs one simple natural task at a time (building a campfire, gathering herbs, feeding an animal companion, catching fish, etc.), repeating it until told otherwise as long as you remain within range; it cannot perform tasks requiring knowledge of technology, such as opening a latch. It has an effective Strength of 2 (lifts 20 lb., drags 100 lb.), can trigger traps but lacks the force for most pressure plates, and moves 15 ft. in any direction including straight up. It cannot attack and gets no attack roll or saving throw; it cannot be killed but dissipates after taking 6 points of damage from area attacks, and ceases to exist if sent beyond the spell's range measured from your current position.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 190
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 242
+      }
+    ]
+  },
+  {
+    "name": "Adrenaline Surge",
+    "source": "Masters of the Wild",
+    "page": 83,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Your summoned creatures within a spherical emanation with a radius equal to the range, centered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Each of your summoned creatures within a spherical emanation (radius equal to the spell's range) centered on you gains a +4 enhancement bonus to Strength, lasting until the spell ends (1 round/level) or the creature leaves the area.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animal Reduction",
+    "source": "Masters of the Wild",
+    "page": 83,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One willing animal of size Small, Medium-size, Large, or Huge"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Reduces a willing Small, Medium-size, Large, or Huge animal's size by one category (e.g., Large to Medium) if it fails a Will save, lasting 1 hour/level; if this would drop an ability score to 0 or below, it becomes 1 instead while other effects still apply. Per-step changes: Huge→Large: -8 Str, -4 Con, -3 natural armor, +2 Dex, +1 AC, +1 attack roll (net: -3 melee attack, +2 ranged attack, -4 melee damage, -1 AC, -2 hp/HD; reach 5 ft. by 10 ft./5 ft.). Large→Medium: -8 Str, -4 Con, -2 natural armor, +2 Dex, +1 AC, +1 attack roll (net: -3 melee attack, +2 ranged attack, -4 melee damage, no AC change, -2 hp/HD; reach 5 ft. by 5 ft./5 ft.). Medium→Small: -4 Str, -2 Con, +2 Dex, +1 AC, +1 attack roll (net: -1 melee attack, +2 ranged attack, -2 melee damage, +2 AC, -1 hp/HD; face/reach 5 ft. by 5 ft./5 ft.). Small→Tiny: -4 Str, +2 Dex, +1 AC, +1 attack roll (net: -1 melee attack, +2 ranged attack, -2 melee damage, +2 AC, no hp change; face/reach 2.5 ft. by 2.5 ft./0 ft.).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Body of the Sun",
+    "source": "Masters of the Wild",
+    "page": 85,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "5 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "5-ft .-radius emanation centered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Your body emanates fire in a 5-ft. radius for 1 round/level, illuminating the area and dealing 1d4+1 fire damage (Reflex half) to any creature it touches other than you.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 155
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 35
+      }
+    ]
+  },
+  {
+    "name": "Briar Web",
+    "source": "Masters of the Wild",
+    "page": 86,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Plants in a 40-ft .-radius spread"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Grasses, weeds, bushes, and trees in a 40-ft.-radius spread grow thorns and entangle creatures in the area. A creature that merely stands still is entangled with no further effect. One that takes an action (attacking, casting a somatic spell, moving, etc.) takes 1d4 + 1/caster level thorn damage and must make a Reflex save or be entangled (-2 attack, -4 effective Dex, unable to move); anyone casting a spell in the area must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. An entangled creature can break free and move at half speed with a full-round Strength or Escape Artist check (DC 20); a non-entangled creature can move through at half speed (taking damage as above), and the plants keep trying to entangle anyone remaining each round. The web also grants cover based on thickness: one-quarter cover per 5 ft. of briar web between a creature and an attacker, up to total cover at 20+ ft. The DM may adjust the effect based on the plants actually available.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 156
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 39
+      }
+    ]
+  },
+  {
+    "name": "Creeping Cold",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "3 rounds",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "Yes",
+    "description": "Turns the target's sweat to ice, dealing cumulative cold damage over 3 rounds: 1d6 the first round, 2d6 the second, 3d6 the third. Only one Fortitude save is allowed against the spell, which if successful halves the damage each round. Focus: a small glass or pottery vessel worth at least 25 gp, filled with ice, snow, or water.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 159
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 55
+      }
+    ]
+  },
+  {
+    "name": "Decomposition",
+    "source": "Masters of the Wild",
+    "page": 88,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "50 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "All enemies within a 50-ft.-radius emanation centered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Any enemy within a 50-ft.-radius emanation centered on you that takes normal (non-subdual) damage has that wound fester for an extra 1 point of damage per round thereafter, for the spell's 1 round/level duration. A DC 15 Heal check or any cure/healing spell stops the festering. Only one wound festers at a time — additional wounds taken while one is already festering aren't affected — but once festering stops, a new wound taken within the area (before the spell ends) restarts the process.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 161
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 61
+      }
+    ]
+  },
+  {
+    "name": "Green Blockade",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "20-ft .-long, 1-ft .-thick wall of vegetation"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Raises a 20-ft.-long, 1-ft.-thick wall of vegetation for 1 round/level. A creature must succeed on a DC 15 Strength check to push through, ending its movement on the far side on success. Fire burns away the wall in 1 round; creatures with proper tools can chop through it in 1 minute.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Might of the Oak",
+    "source": "Masters of the Wild",
+    "page": 92,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Grants the touched living creature the quiet strength of a massive oak: a +4 enhancement bonus to Strength and a -2 enhancement penalty to Dexterity for 10 minutes/level, negated by a successful Will save.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Persistence of the Waves",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Grants the touched subject a +4 enhancement bonus to Constitution and a -2 enhancement penalty to Strength for 10 minutes/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Regenerate Moderate Wounds",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Identical to regenerate light wounds, but grants fast healing 2 hp/round instead.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Speed of the Wind",
+    "source": "Masters of the Wild",
+    "page": 95,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Grants the touched subject a +4 enhancement bonus to Dexterity and a -2 enhancement penalty to Constitution for 10 minutes/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Countermoon",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One lycanthrope"
+    },
+    "duration": "12 hours",
+    "savingThrow": "Will negates (D)",
+    "spellResistance": "Yes",
+    "description": "Prevents a targeted lycanthrope from changing form, blocking both voluntary alternate-form shapechanging and involuntary lycanthropic shapechanging for 12 hours. The subject keeps whatever form it had when the spell was cast; even death doesn't cause reversion until the spell ends. Natural lycanthropes get a +4 competence bonus on their save. Requires a material component: hair, scale, or other castoff from the target.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 53,
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "Embrace the Wild",
+    "source": "Masters of the Wild",
+    "page": 88,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You keep your own form but gain a chosen wild animal's natural and extraordinary senses and its skill ranks (ranks don't stack with any you already have) for 10 minutes/level. Does not grant the animal's natural attacks, movement modes, feats, or non-sensory extraordinary abilities (e.g., trample, improved grab). Requires a focus of hide, skin, or feathers taken personally from the chosen animal.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 79,
+        "spellLevelDruid": 2
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 147,
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "False Bravado",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 3,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One humanoid"
+    },
+    "duration": "3 rounds + the subject's Constitution modifier",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Makes a targeted humanoid believe it has gained a barbarian's rage, but it actually suffers all of rage's drawbacks with none of the benefits: no Str/Con/Will bonuses, a -2 penalty to AC, and inability to use skills or abilities requiring patience or concentration (e.g., Move Silently, spellcasting). Lasts 3 rounds plus the subject's Constitution modifier; when it ends, the subject is fatigued (-2 Str and Dex, can't charge or run) for the rest of the encounter. Requires a focus: a small mirror painted with a sigil of bravery, worth at least 25 gp.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature's Favor",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "5 rounds/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a touched animal a +1 luck bonus on attack and damage rolls for every two caster levels, lasting 5 rounds/level.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 170
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 146,
+        "spellLevelDruid": 2
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 155,
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "Regenerate Ring",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/two levels, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 rounds + 1 round/two levels",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants fast healing 1 hp/round to one creature per two caster levels within 20 ft. (no two more than 30 ft. apart) for 10 rounds + 1 round per two levels. Only heals damage taken during the spell's duration, not prior injuries, and auto-stabilizes a subject dying from hit point loss during that time. Does not restore damage from starvation, thirst, or suffocation, and can't regrow or reattach lost body parts. Multiple regenerate effects don't stack (only the highest-level applies); a second casting of equal level extends the first's remaining duration by the second spell's full duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Standing Wave",
+    "source": "Masters of the Wild",
+    "page": 95,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft . + 5 ft/2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Waves under a creature or object within range"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "Yes",
+    "description": "Lifts a creature or object (which may carry other creatures/objects) on water and propels it in a straight line at 60 ft./round. The maximum size it can lift scales with caster level: Medium or smaller at 5th, Large at 7th, Huge at 9th, Gargantuan at 11th, Colossal at 13th. The spell ends when the wave reaches land, setting its burden down harmlessly.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 182
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 204
+      }
+    ]
+  },
+  {
+    "name": "Blight",
+    "source": "Masters of the Wild",
+    "page": 85,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "See text",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "See text"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Cast by touching and breathing on a plant; has two versions. Blight Area: centered on a single normal plant, instantly and irreversibly kills all normal plants in a 100-ft. spread (no save), withering foliage without harming the soil. Blight Plant Creature: targeted at a single mobile or intelligent plant creature, deals 1d6 damage per caster level (max 15d6), Fortitude save for half.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 206,
+        "note": "Same name, unrelated spell — PHB Blight withers a single plant; this version has a different area-kill/creature-damage effect, not a reprint"
+      }
+    ]
+  },
+  {
+    "name": "Bottle of Smoke",
+    "source": "Masters of the Wild",
+    "page": 85,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One smoky, horselike creature"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Using a fire source, you capture smoke in a special bottle; opening the bottle before the spell expires releases the smoke as a vaguely horse-shaped, intangible mount that makes no sound and can't be touched. Mounting requires a DC 10 Ride check while holding the bottle; without the bottle, or if the rider lets go of it, they simply fall through the horse's form. Speed is 20 ft. per caster level (max 240 ft.). It can trail a 5-ft.-wide, 20-ft.-high bank of smoke behind it (giving 20% concealment to anyone in it), dispersed instantly by a severe wind (31+ mph) or any magical wind, otherwise lasting 10 minutes. The mount is immune to all damage and attacks and cannot attack. The rider can pause the spell by re-corking the horse back into the bottle (two move-equivalent actions) and resume later with the remaining duration intact. If the bottle breaks, the spell ends immediately and any rider falls.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 155
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 37
+      }
+    ]
+  },
+  {
+    "name": "Feathers",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One willing creatures/level"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None (see text)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Functions as polymorph other, except each willing subject (one per level, all becoming the same chosen species) is turned into a Small or smaller feathered animal for 1 hour/level. Any subject may revert to normal form as a full-round action, ending the spell for that individual only; otherwise all subjects stay in bird form until the spell ends or the caster dismisses it, restoring everyone still affected.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forestfold",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action t",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a +20 competence bonus on Hide and Move Silently checks for 10 minutes/level; otherwise functions identically to the spell camouflage.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 166
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 98,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 149
+      }
+    ]
+  },
+  {
+    "name": "Languor",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Ray"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "A ray that, on a failed Will save, slows the target as the slow spell and inflicts a cumulative enhancement penalty to Strength each round equal to 1d6-1 per two caster levels (minimum additional penalty 0, maximum total -10) for 1 round/level. If Strength drops below 1, the subject is helpless. Languor neither counters nor is countered by haste as competing spells, but casting languor on a hasted creature returns it to normal speed, and casting haste on a creature slowed by languor likewise returns it to normal speed.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 167
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 130
+      }
+    ]
+  },
+  {
+    "name": "Last Breath",
+    "source": "Masters of the Wild",
+    "page": 91,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Dead creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None (see text)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Returns a creature that died within the last round to 0 hit points; you take 1d4 damage per Hit Die of the creature, which your own spell resistance cannot prevent. The subject's soul must be free and willing to return (per the Bringing Back the Dead rules); an unwilling soul makes the spell simply fail, so a willing subject gets no saving throw. Restores current hp to 0, raises any ability score damaged to 0 or below to 1, cures normal poison/disease (not magical diseases or curses), and closes lethal wounds, though missing body parts remain missing and equipment is unaffected. The subject loses one level (as with energy drain, unrepairable by any spell), or 1 point of Constitution if it was 1st level. A subject who prepares spells has a 50% chance per prepared spell of losing it (on top of the level loss); a spontaneous caster has a 50% chance per unused spell slot of losing it the same way. Has no effect on a creature dead more than 1 round, cannot raise a creature killed by a death effect, cannot affect constructs, elementals, outsiders, or undead, and cannot restore a creature who died of old age.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 167
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 130
+      }
+    ]
+  },
+  {
+    "name": "Mass Calm",
+    "source": "Masters of the Wild",
+    "page": 92,
+    "spellLevelDruid": 4,
+    "school": "Enchantment",
+    "subschool": null,
+    "descriptors": [
+      "Compulsion",
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft ./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Any number of animals, beasts, and magical beasts with Intelligence 1 or 2, no two of which can be more than 30 ft . apart"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (see text)",
+    "spellResistance": "Yes",
+    "description": "Soothes any number of animals, beasts, and magical beasts of Intelligence 1-2 within range (no two more than 30 ft. apart) for 1 minute/level, rendering them docile and harmless. Normal animals get no save; animals trained to attack or guard, dire animals, legendary animals, beasts, and magical beasts do get a Will save. Affected creatures stay put and don't attack or flee, but aren't helpless and defend themselves normally if attacked; any threat (fire, a hungry predator, imminent attack, etc.) breaks the spell on the threatened creature.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Miasma",
+    "source": "Masters of the Wild",
+    "page": 92,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Medium (100 ft . + 10 ft ./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "5 rounds/level",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Fills the target's mouth and throat with unbreathable gas for 5 rounds/level. The subject can hold its breath for 2 rounds per point of Constitution, then must make a Constitution check (DC 10, +1 per previous successful check) each subsequent round to keep holding its breath. Failing the check, or choosing to breathe, drops the subject unconscious at 0 hp; the next round it falls to -1 hp and is dying; the round after that it suffocates.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 168
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 141
+      }
+    ]
+  },
+  {
+    "name": "Regenerate Serious Wounds",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Identical to regenerate light wounds, but grants fast healing 3 hp/round instead.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Waterball",
+    "source": "Masters of the Wild",
+    "page": 97,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft .-radius spread"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Creates a spherical burst of water (like a fireball) at a point you designate within range; an early impact against a solid barrier detonates it early, and firing it through a narrow opening requires a ranged touch attack or it detonates against the barrier. On detonation it deals 1d6 points of subdual damage per caster level (max 10d6) in a 20-ft.-radius spread; a Reflex save halves the damage. Because the damage is subdual rather than energy damage, it is subject to damage resistance. Objects are unaffected unless they have hardness 0, in which case they take full damage; if the waterball breaks through an interposing barrier it can continue beyond it if the area allows, otherwise it stops there like any other spell effect. Requires a material component: a full waterskin, burst during casting.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Big Sky",
+    "source": "Masters of the Wild",
+    "page": 84,
+    "spellLevelDruid": 5,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Fear",
+      "Mind-Affecting"
+    ],
+    "components": [
+      "U",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "You and all allies and enemies within a 30-ft.-radius emanation centered on you"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates (see text)",
+    "spellResistance": "Yes",
+    "description": "Fills a 30-ft.-radius emanation centered on you with the sense of unseen nature spirits, for 1 round/level. You and each ally in the area gain a +2 morale bonus on attack rolls and a +4 morale bonus on saves against fear effects. Each enemy in the area who fails a Will save behaves as if under a fear spell, getting a new save each round to shake it off; once an enemy succeeds, it needs no further saves for the spell's duration. Creatures immune to fear are immune to both the ally and enemy effects.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cloak of the Sea",
+    "source": "Masters of the Wild",
+    "page": 86,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched that is in contact with water"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched subject (who must be in contact with water) keeps its own form but appears to be made of water, for 1 hour/level. While underwater, it gains the effects of blur, freedom of movement, and water breathing, and takes no subdual damage from water pressure or hypothermia; outside of water it retains only water breathing. The subject can leave and re-enter water without ending the spell, but the spell expires exactly one day after casting regardless of remaining duration, and is ended by dispelling while its focus bottle is corked. Requires a focus: an ornate corked bottle worth at least 50 gp.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 48
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 144
+      }
+    ]
+  },
+  {
+    "name": "Druid Grove",
+    "source": "Masters of the Wild",
+    "page": 88,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "At least 10 minutes (see text)",
+    "range": "Close (25 ft. + 5 ft/2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One or more trees"
+    },
+    "duration": "1 day/level or until discharged",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You reshape one or more living trees so each can store a spell, functioning like a large immobile scroll. During the same uninterrupted ritual you may cast companion druid spells totaling no more than one-third your caster level (rounded down, max 6th); each tree holds one spell. The listed 10-minute casting time is a minimum for the whole ritual — if a companion spell takes longer to cast, use that total instead. Touching a charged tree (a standard action) triggers its stored spell instantaneously, with you making any targeting/direction decisions at that moment. Only one druid grove can be active at a time; casting a second dispels the first. An affected tree detects as magical but is otherwise unharmed.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Kiss of Death",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 5,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude negates (see text)",
+    "spellResistance": "Yes (see text)",
+    "description": "For 1 round/level, your teeth and tongue carry a fast-acting poison. Each round you may deliver it with a melee touch attack (a kiss), dealing 1d10 temporary Constitution damage immediately and another 1d10 one minute later; each instance can be negated separately by a Fortitude save (DC 10 + 1/2 caster level + Wisdom modifier). If you fail to overcome the target's spell resistance, both the immediate and delayed damage are negated for that attack only, but you can try again on a later attack while the spell is still active.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Mass Trance",
+    "source": "Masters of the Wild",
+    "page": 92,
+    "spellLevelDruid": 5,
+    "school": "Enchantment",
+    "subschool": null,
+    "descriptors": [
+      "Compulsion",
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft . + 5 ft ./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Any number of animals, beasts, and magical beasts with intelligence 1 or 2, no two of which may be more than 30 ft. apart"
+    },
+    "duration": "Concentration",
+    "savingThrow": "Will negates (see text)",
+    "spellResistance": "Yes",
+    "description": "Your swaying motions and music/singing/chanting compel any number of animals, beasts, and magical beasts with Intelligence 1-2 within range (no two more than 30 ft. apart) to do nothing but watch you, for as long as you concentrate. Trained-to-attack-or-guard animals, dire animals, legendary animals, beasts, and magical beasts get a Will save to resist; ordinary animals do not. An affected creature can be struck in combat (attacker gets a +2 bonus as if it were stunned), but doing so breaks the spell on that creature.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Regenerate Critical Wounds",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Identical to regenerate light wounds, except it grants fast healing at a rate of 4 hit points per round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Contagious Touch",
+    "source": "Masters of the Wild",
+    "page": 87,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "On casting, you choose one disease (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom). For 1 round/level, any living creature you hit with a melee touch attack is exposed as though by contagion, immediately contracting the chosen disease unless it succeeds on a Fortitude save. You cannot infect more than one creature per round.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 159
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 52
+      }
+    ]
+  },
+  {
+    "name": "Greater Call Lightning",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes, +1 action per bolt called",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "See text"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Functions like call lightning, but you can call down a bolt every 5 minutes instead of the normal interval, as long as you remain in a stormy area (rain shower, tornado/whirlwind from a djinni or air elemental of 7+ HD, clouds and wind, or even hot cloudy conditions). You need not call a bolt immediately and may take other actions, including casting other spells, between calls, but calling each bolt requires a standard action to concentrate. Each bolt strikes any point you designate within range, traveling the shortest unobstructed path from a nearby cloud, and affects any creature within 10 ft. of its path or impact point (Reflex half) for 1d10 electricity damage per caster level (max 15d10). Usable only outdoors — it doesn't work indoors, underground, or underwater — and ends if you leave the stormy area.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Mandragora",
+    "source": "Masters of the Wild",
+    "page": 91,
+    "spellLevelDruid": 6,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "15 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "All creatures in a 15-ft . radius"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Material component: a mandrake root worth at least 100 gp, kept in a secure container of equal value. When you pull the root from its container, you and every other creature within 15 ft. must make a Will save against its scream. Those who succeed gain a true seeing effect; those who fail are affected as though by confusion. Both effects last 1 round/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Protection from All Elements",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 6,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 minutes/level or until discharged",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "The touched creature (and its equipment) becomes invulnerable to acid, cold, electricity, fire, and sonic damage, whether the source is natural or magical, until the spell has absorbed a total of 12 points of damage per caster level from those energy types, at which point it discharges; otherwise it lasts 10 minutes/level. It absorbs only the damage itself, not side effects (e.g. drowning in acid or being encased in ice). It does not stack with protection from elements, endure elements, or resist elements — if a creature has both this and one of those active, this spell absorbs damage until discharged.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Regenerate Circle",
+    "source": "Masters of the Wild",
+    "page": 93,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/two levels, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 rounds + 1 round/two levels",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Identical to regenerate ring, except it grants fast healing at a rate of 3 hit points per round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cloudwalkers",
+    "source": "Masters of the Wild",
+    "page": 86,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Reflex negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "You create gaseous pads on the feet of up to one creature/level within range (no two more than 30 ft. apart), letting each subject walk on clouds: move straight up or down at up to 30 ft., or laterally with a fly speed of 60 ft. (perfect) — lateral movement only works if the subject is already at least 90 ft. off the ground. Lasts 1 hour/level (dismissible). A subject can return to earth by spending a standard action to shake off the cloudstuff, which ends the spell just for them; you may otherwise dismiss the spell only for all subjects simultaneously, which can strand anyone still airborne.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 159
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 49,
+        "note": "Printed there as 'Cloud-walkers' (hyphenated) with a revised fly-speed mechanic instead of MotW's directional movement rules"
+      }
+    ]
+  },
+  {
+    "name": "Greater Creeping Cold",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "See text",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "Yes",
+    "description": "Identical to creeping cold, but adds a fourth round of effect dealing 4d6 points of damage. If the caster is at least 15th level, a fifth round is added dealing 5d6; if at least 20th level, a sixth round is added dealing 6d6.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Slime Wave",
+    "source": "Masters of the Wild",
+    "page": 94,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "15-ft.-radius spread"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "No",
+    "description": "Material component: a few drops of stagnant pond water. You create a wave of green slime that begins at a point you choose within range and spreads violently to fill a 15-ft.-radius area, splashing onto walls and ceilings as it passes. Each creature in the area that fails a Reflex save is covered with one patch of slime per 5 ft. of its facing. The slime deals 1d6 temporary Constitution damage per round to flesh, or 2d6 damage per round to wood or metal (ignoring metal's hardness but not wood's); it does not harm stone. On the first round of contact it can be scraped off (likely ruining the tool used); after that it must be frozen, burned, or cut away, injuring the victim in the process. Extreme cold or heat, sunlight, or a remove disease spell destroys it. Unlike ordinary green slime, this conjured slime gradually evaporates and is gone by the end of the spell's duration (1 round/level).",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 180
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 192
+      }
+    ]
+  },
+  {
+    "name": "Mass Awaken",
+    "source": "Masters of the Wild",
+    "page": 91,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F",
+      "XP"
+    ],
+    "castingTime": "One day",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal or tree/three levels, no two ofwhich may be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Casting time 1 day; XP cost 250 per creature awakened. You awaken one animal or tree per three levels (all of the same kind, no two more than 30 ft. apart) to human-like sentience. You must succeed on a Will save (DC 10 + HD of the highest-HD target, or the HD that target tree will have once awakened, whichever is higher) or the spell fails for all targets. Awakened creatures are friendly toward you and will serve specific tasks or endeavors if you communicate your wishes, though you gain no special bond with them. An awakened tree gains the traits of an animated object except its Intelligence, Wisdom, and Charisma are each 3d6, plus the ability to move its limbs/roots/vines and human-like senses. An awakened animal gains 3d6 Intelligence, a +1d3 bonus to Charisma, and +2 HD. An awakened creature can speak one language you know, plus one more per point of Intelligence bonus it has.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Speak with Anything",
+    "source": "Masters of the Wild",
+    "page": 95,
+    "spellLevelDruid": 8,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Casting time 10 minutes; lasts 1 minute/level. Grants the combined effects of speak with animals, speak with plants, and tongues, letting you converse with any living creature, including unintelligent ones like ordinary plants, as far as your voice carries — the spell doesn't make them friendlier or more cooperative. You also gain the ability to speak with stone, metal, earth, water, or any other solid or semisolid object or terrain feature as under stone tell, learning what/who touched it and what is hidden behind, under, or within it, subject to that object's own limited perspective and knowledge (DM's discretion). It does not include a speak with dead effect. Although you understand everything, you can only speak one language (or equivalent) at a time.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Epidemic",
+    "source": "Masters of the Wild",
+    "page": 89,
+    "spellLevelDruid": 9,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "You choose one disease (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom); the touched creature contracts it immediately, with no incubation period, unless it succeeds on a Fortitude save. Unlike contagion, the afflicted subject becomes a vector: any living creature besides you within 30 ft. of them must save or immediately contract the disease regardless of its normal incubation or transmission method, and anyone infected this way likewise becomes a vector. The save DC drops by 1 each day after casting, regardless of when a given creature was infected. A creature that saves successfully becomes immune to that specific epidemic for one day, after which coming within 30 ft. of an infected creature again requires a new save. You are immune to any infection originating from your own casting.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Invulnerability to Elements",
+    "source": "Masters of the Wild",
+    "page": 90,
+    "spellLevelDruid": 9,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "As protection from all elements, except the touched creature becomes fully immune (rather than merely protected up to a damage cap) to acid, cold, electricity, fire, and sonic damage for the duration of 10 minutes/level.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Lookingglass",
+    "source": "Masters of the Wild",
+    "page": 91,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 hour",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "A reflective surface at least as big as a Mediumsize creature"
+    },
+    "duration": "1 day/level",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Casting time 1 hour; lasts 1 day/level. You open one end of a planar path between two natural mirrored surfaces (such as pools or clear lakes), the target surface being at least as large as a Medium creature. If you cast a second lookingglass on a similar surface before the first spell's duration expires, you can see through it as with clairvoyance, and within 1 minute/level of the second casting, you and up to one other creature per level can step through as if under teleport without error. The spell grants no ability to survive at either location — e.g., if the first was cast on a lake, your allies need to be able to swim. If the first lookingglass's duration lapses before a second is cast to complete the path, the first spell is wasted.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature's Avatar",
+    "source": "Masters of the Wild",
+    "page": 92,
+    "spellLevelDruid": 9,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched animal gains a +10 morale bonus on attack and damage rolls, 1d8 temporary hit points per caster level, and the effects of haste, lasting 1 minute/level.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 170
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 145
+      }
+    ]
+  },
+  {
+    "name": "Thunderswarm",
+    "source": "Masters of the Wild",
+    "page": 95,
+    "spellLevelDruid": 9,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Long (400 ft. + 40 ft ./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Pattern of lightning spreads similar to a fireball (see text)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None or Reflex half (see text)",
+    "spellResistance": "Yes",
+    "description": "Like the arcane meteor swarm, but using lightning instead of fire. You launch either four large (2-ft.-diameter) or eight small (1-ft.-diameter) spheres of lightning in a straight line toward a point within range, each trailing sparks. Any creature in the spheres' path is struck by all of them for a total of 16d6 electricity damage (no save), after which the spheres dissipate. If they reach their destination, each detonates like a fireball: large spheres each burst in a 15-ft.-radius spread dealing 4d8 electricity damage, with their four points of origin arranged in a diamond or box pattern (your choice) around the target point, sides 20 ft. apart and overlapping at the center; small spheres each burst in a 7.5-ft.-radius spread dealing 2d6 electricity damage, arranged in a box-within-diamond or diamond-within-box pattern with 20-ft. sides, overlapping fully at the center and partially at the edges. Creatures caught in a blast get a Reflex save for half damage (multiple blasts require separate saves), and anyone who fails a save is also stunned for 1d4 rounds.",
+    "otherPrintings": []
+  },
+  {
+    "name": "True Reincarnate",
+    "source": "Masters of the Wild",
+    "page": 97,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "XP"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Dead creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None (see text)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Casting time 10 minutes; XP cost 1,000. As reincarnate, but can restore a creature dead up to 10 years per caster level, even if the body was wholly destroyed, as long as you can unambiguously identify the deceased (commonly by reciting their time and place of birth or death). The subject receives a new body with all physical ills and afflictions repaired; determine the new form using the reincarnate table (Player's Handbook), but roll twice and let the subject choose between the two results. The subject suffers no loss of level, Constitution, prepared spells, or spell slots. This spell can restore someone killed by a death effect, someone slain and then turned undead and destroyed, or someone killed by ordinary hit point loss.",
+    "otherPrintings": []
+  }
+]

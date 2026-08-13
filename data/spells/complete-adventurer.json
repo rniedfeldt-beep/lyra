@@ -1,0 +1,541 @@
+[
+  {
+    "name": "Branch to Branch",
+    "source": "Complete Adventurer",
+    "page": 144,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a +10 competence bonus on Climb checks in trees. While at least 10 ft. above the ground in medium or dense forest, the caster can brachiate through the canopy, gaining a +10-ft. enhancement bonus to land speed and ignoring undergrowth movement penalties (charging is allowed, running is not) until forest cover breaks.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 38,
+        "spellLevelDruid": 1
+      }
+    ]
+  },
+  {
+    "name": "Hawkeye",
+    "source": "Complete Adventurer",
+    "page": 151,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Sharpens the caster's long-range vision: ranged weapon range increments increase by 50%, and a +5 competence bonus applies to Spot checks, for the duration.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 166
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 90
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 110
+      }
+    ]
+  },
+  {
+    "name": "Healthful Rest",
+    "source": "Complete Adventurer",
+    "page": 151,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 feet apart"
+    },
+    "duration": "24 hours",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Doubles the subjects' natural healing rate: each affected creature regains twice the hit points it would otherwise recover that day, based on its activity level.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 111
+      }
+    ]
+  },
+  {
+    "name": "Vine Strike",
+    "source": "Complete Adventurer",
+    "page": 158,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "DF"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "For 1 round, lets the caster deliver sneak attack damage to plant creatures (normally immune to it), provided the normal conditions for a sneak attack are otherwise met. Affects only sneak attack damage — it grants no way to score critical hits against plants or bypass their other defenses.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 230
+      }
+    ]
+  },
+  {
+    "name": "Balancing Lorecall",
+    "source": "Complete Adventurer",
+    "page": 143,
+    "spellLevelDruid": 2,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a +4 insight bonus on Balance checks. With 5+ ranks in Balance, the caster can balance on an otherwise impossible surface (DC 20) and move on vertical surfaces without losing her Dexterity bonus to AC or her ability to attack normally. With 10+ ranks, this extends to liquids and similarly unstable surfaces, though the DC rises by 5 for each consecutive round balanced there. Arcane material component: a small wooden dowel.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 23
+      }
+    ]
+  },
+  {
+    "name": "Daggerspell Stance",
+    "source": "Complete Adventurer",
+    "page": 145,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "F"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Requires wielding two daggers to take effect (though it doesn't end if a dagger is dropped, thrown, or lost). On a full attack while holding a dagger in each hand, grants a +2 insight bonus on attack and damage rolls made with daggers that round. While fighting defensively with two daggers, grants spell resistance equal to 5 + caster level; while using the total defense action with two daggers, grants that same spell resistance plus DR 5/magic. Focus: a pair of daggers.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 57
+      }
+    ]
+  },
+  {
+    "name": "Easy Trail",
+    "source": "Complete Adventurer",
+    "page": 147,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "40 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40-ft. radius emanation"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Radiates an aura that gently parts vegetation for anyone in the area (including the caster), removing the usual movement penalty for undergrowth and raising the DC to track anyone who passed through by 5. Has no effect on plant creatures, and the trail-hiding lapses once the spell ends.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 76
+      }
+    ]
+  },
+  {
+    "name": "Embrace the Wild",
+    "source": "Complete Adventurer",
+    "page": 147,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Lets the caster adopt the natural and extraordinary senses (blindsense, blindsight, darkvision, low-light vision, scent, as applicable) of any animal with Hit Dice up to her caster level, without changing shape, and optionally swap either or both of her own Listen/Spot modifiers for that animal's.",
+    "otherPrintings": [
+      {
+        "source": "Savage Species",
+        "page": 65,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 79
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 88,
+        "spellLevelDruid": 3
+      }
+    ]
+  },
+  {
+    "name": "Healing Lorecall",
+    "source": "Complete Adventurer",
+    "page": 151,
+    "spellLevelDruid": 2,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "With 5+ ranks in Heal, lets a conjuration (healing) spell also remove dazed, dazzled, or fatigued from its target (10+ ranks adds exhausted, nauseated, or sickened); also lets the caster substitute her Heal ranks for caster level when determining how much a conjuration (healing) spell cures (normal per-spell caster-level caps still apply). Material component: a small mint leaf.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 110
+      }
+    ]
+  },
+  {
+    "name": "Listening Lorecall",
+    "source": "Complete Adventurer",
+    "page": 154,
+    "spellLevelDruid": 2,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a +4 insight bonus on Listen checks. 5+ ranks in Listen adds blindsense out to 30 ft.; 10+ ranks upgrades that to blindsight out to 30 ft. instead. A silence effect negates the granted blindsense/blindsight.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 133
+      }
+    ]
+  },
+  {
+    "name": "Nature's Favor",
+    "source": "Complete Adventurer",
+    "page": 155,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "1 minute",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Touch grants an animal a +1 luck bonus on attack and damage rolls per three caster levels, to a maximum of +5 at 15th level.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 146
+      },
+      {
+        "source": "Complete Divine",
+        "page": 170,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 93,
+        "spellLevelDruid": 3
+      }
+    ]
+  },
+  {
+    "name": "Train Animal",
+    "source": "Complete Adventurer",
+    "page": 157,
+    "spellLevelDruid": 2,
+    "school": "Enchantment",
+    "subschool": "Charm",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Animal touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "A 10-minute casting that temporarily grants a touched animal additional known tricks equal to half the caster's level (maximum five) for the duration; it doesn't change the animal's attitude toward the caster or guarantee it will actually perform the newly learned tricks.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 221
+      }
+    ]
+  },
+  {
+    "name": "Wracking Touch",
+    "source": "Complete Adventurer",
+    "page": 158,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "Yes",
+    "description": "A touch attack dealing 1d6 damage plus 1 point per caster level (maximum +10). If the caster has the sneak attack ability, the touch also deals sneak attack damage — without needing the target flanked or denied its Dexterity bonus — unless the target is immune to extra damage from critical hits; the base spell damage still applies either way.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 243
+      }
+    ]
+  },
+  {
+    "name": "Entangling Staff",
+    "source": "Complete Adventurer",
+    "page": 147,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "F"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Quarterstaff touched"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Yes (harmless, object) [as printed; wording is unusual for a Saving Throw entry and may reflect an OCR misread of the source]",
+    "spellResistance": "Yes (harmless)",
+    "description": "Causes a wielded quarterstaff to sprout vines. A successful melee strike with the staff deals normal damage and lets the caster attempt a free grapple check (no separate touch attack, no attack of opportunity) with a +8 bonus, against foes up to one size category larger. A successful grapple lets the vines constrict for 2d6 damage (lethal or nonlethal, caster's choice); the caster can then release the hold (leaving the foe entangled for the duration) or maintain it for repeated constriction damage each round. Focus: a quarterstaff.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 83
+      }
+    ]
+  },
+  {
+    "name": "Fly, Swift",
+    "source": "Complete Adventurer",
+    "page": 149,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A swift-action version of fly: grants a fly speed of 60 ft. with average maneuverability for 1 round, otherwise following the base fly spell's rules.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forestfold",
+    "source": "Complete Adventurer",
+    "page": 149,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Attunes the caster's coloring and footfalls to one chosen terrain type (aquatic, desert, plains, forest, hills, mountains, marsh, or underground), granting a +20 competence bonus on Hide and Move Silently checks while there. The bonus persists even through a brief departure from and return to that terrain within the spell's duration.",
+    "otherPrintings": [
+      {
+        "source": "Savage Species",
+        "page": 66
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 98,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Complete Divine",
+        "page": 166
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 89
+      }
+    ]
+  },
+  {
+    "name": "Cloak of the Sea",
+    "source": "Complete Adventurer",
+    "page": 144,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The subject takes on a blue-green watery appearance. While underwater, it gains the effects of blur, freedom of movement, and water breathing, plus immunity to nonlethal damage from water pressure or hypothermia. Leaving the water (even partially) suspends all these benefits except water breathing; moving between water and air doesn't end the spell early.",
+    "otherPrintings": [
+      {
+        "source": "Masters of the Wild",
+        "page": 86
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 48
+      }
+    ]
+  }
+]

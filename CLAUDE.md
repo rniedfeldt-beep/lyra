@@ -600,7 +600,35 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   Giant). Spell-level reachability picker, both slam and natural-weapon routines, active-summon
   duration tracking. Code: `src/lib/calc/summonBuilder.js`, `data/templates/`,
   `src/components/summon/`.
-- **Phase 6** — Bulk sourcebook ingestion via Cowork.
+- **Phase 6** — Bulk sourcebook ingestion via Cowork. In progress. Each sourcebook is
+  extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
+  parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
+  cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
+  Completed so far (18 files, `data/spells/`): `players-handbook.json` (169), `complete-
+  divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
+  wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
+  `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
+  `complete-mage.json` (15), `complete-arcane.json` (12), `complete-champion.json` (12),
+  `races-of-the-wild.json` (3), `eberron-campaign-setting.json` (4), `faiths-of-
+  eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5) — 778 druid
+  spell entries total. `quintessential-druid.json`'s three Friendship spells (Beast/
+  Elemental/Magical Beast) and Brother's Staff were corrected per DM/user input (Aug 2026
+  session): Animal Friendship is a retired 3.0 spell with no 3.5 stat block anywhere in the
+  sourcebooks, so its mechanical fields are `null` — same pattern as Charm Animal's
+  unresolved reference to Charm Person — rather than guessed; Brother's Staff's Spell
+  Resistance is confirmed `"No"`. Player's Guide to Faerûn was attempted (CHOCR-extracted,
+  since the PDF has no embedded text layer) but abandoned per Rae's instruction — of its ~74
+  druid-list spells, all but 3 turned out to be reprints with no new stat block in that book,
+  and Rae chose to skip it rather than extract the 3 new ones; no `players-guide-to-
+  faerun.json` exists. Eberron Campaign Setting's and Lords of Madness's same-named "Detect
+  Aberration" entries were determined to be related-but-distinct spells (different scope,
+  area shape, and HD breakpoints) rather than one reprinting the other — both kept at their
+  own printed level with a disambiguating `otherPrintings` note. Sourcebooks still
+  unprocessed and sitting in `/sourcebooks`: Dungeon Master's Guide v3.5, Forge of War,
+  Libris Mortis, Lost Empires of Faerûn, Manual of the Planes, Monster Manual I & II,
+  Player's Guide to Faerûn (abandoned, see above), Sandstorm (most of these are not
+  druid-relevant in full — spot-check for druid-list spells before running the full pipeline
+  on any of them).
 - **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
 - **Phase 8** — Three-tab restructure (Lyra / Companions / Reference). Done. Replaced the
   single-scroll layout — see Layout section above for the per-tab breakdown. Added
@@ -608,6 +636,64 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   `TabBar` for navigation. `CombatBar` stays pinned across all tabs.
 
 Phase 2 before Phase 3 deliberately — trackers get used every session.
+
+---
+
+## Spell extraction conventions — DECIDED
+
+Merged in from a parallel Cowork session's project notes (Aug 2026) so both sessions stay in
+sync — these decisions weren't previously written into this file.
+
+**Schema** (`data/spells/*.json`, one entry per spell): `name`, `source`, `page` (printed
+page, not PDF page), `spellLevelDruid`, `school`, `subschool` (`null` if none), `descriptors`
+(array), `components` (array, e.g. `["V","S","M/DF"]`), `castingTime`, `range`,
+`targetAreaEffect { type: "target"|"area"|"effect", value }`, `duration`, `savingThrow`,
+`spellResistance`, `description` (paraphrased, not full printed text — keep durations,
+bonuses, material/focus components, save/SR interactions), `otherPrintings` (array). Use
+`null` only for fields a book genuinely doesn't print.
+
+1. **Each printing shows its own level — DECIDED, supersedes the old lowest-level-default
+   rule (Aug 2026).** `spellLevelDruid` on an entry is always that book's own printed level,
+   never borrowed from another book. When another printing uses a different level, add
+   `spellLevelDruid` directly on that `otherPrintings` entry (`{ source, page,
+   spellLevelDruid?, note? }`) — only include it when it differs from the entry's own level,
+   so its presence itself signals a discrepancy. Do this symmetrically: if book A's entry
+   links to book B at a different level, book B's entry must link back to book A with A's
+   level. (Previously the LOWEST printed level was adopted as the one `spellLevelDruid` for
+   every file, with the true per-book levels buried in prose notes — this made a file's own
+   entry not actually reflect that book's printed level, which was confusing. Retroactively
+   fixed across all 11 affected spells: Branch to Branch, Embrace the Wild, Nature's Favor,
+   Forestfold, Animate Fire, Wood Rot, Babau Slime, Miasma of Entropy, Buoyant Lifting,
+   Countermoon, Plant Body — each file now shows that book's true native level, with the
+   discrepancy visible via `spellLevelDruid` on the relevant `otherPrintings` entries.)
+2. **Cross-source tracking via `otherPrintings`.** When a spell of the same name appears in
+   another file, still extract it in both places, and list every other printing as
+   `{ source, page, spellLevelDruid?, note? }`. Verify school matches before treating a
+   same-name entry as a true reprint — if school/mechanics differ, it's a different spell;
+   flag with a note rather than linking (see `Entomb` in `frostburn.json` vs. Quintessential
+   Druid II's unrelated spell of the same name). Reserve `note` for non-level context (a
+   mechanical difference, or — as with Detect Aberration in `eberron-campaign-setting.json`
+   vs. `lords-of-madness.json` — a scope/audience difference significant enough that the two
+   printings aren't quite the same spell); don't use `note` just to restate a level that
+   `spellLevelDruid` already shows.
+
+**`savage-species.json`** — done, 18 druid spells (Chapter 6, pp. 60–72). Notable fixes:
+Detect Water (on the SS druid list but printed with no description) filled from the identical
+Locate Water block; five spells (Buoyant Lifting, Countermoon, Embrace the Wild, Forestfold,
+Plant Body) print at a higher druid level in Savage Species than in Spell Compendium — each
+entry now shows Savage Species's own native level per rule 1 above, with Spell Compendium's
+lower level visible on the corresponding `otherPrintings` entry; three "as \<base spell\>,
+except…" entries inherited fields from their base (Forestfold←Camouflage, Improved
+Blindsight←Blindsight, Jagged Tooth←Keen Edge).
+
+**Open follow-up work (not started):**
+- Backfill `otherPrintings` across all existing spell files — in particular, tag every
+  `players-handbook.json` spell that Spell Compendium reprints. This is Rae's broader goal
+  (surface every SC reprint of a PHB spell) and hasn't been done yet for files extracted
+  before this convention was decided.
+- A few `otherPrintings` links are still one-directional (e.g. `spell-compendium.json`'s
+  Buoyant Lifting, Countermoon, and Plant Body entries don't yet link back to their Savage
+  Species printings) — sweep for and close these gaps.
 
 ---
 

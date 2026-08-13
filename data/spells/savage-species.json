@@ -1,0 +1,558 @@
+[
+  {
+    "name": "Air Breathing",
+    "source": "Savage Species",
+    "page": 63,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creatures touched"
+    },
+    "duration": "2 hours/level (see text)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Transmuted creatures can breathe air freely; divide the total duration evenly among all creatures you touch. The spell does not make creatures unable to breathe water. Air breathing dispels and counters water breathing. Arcane Material Component: a short reed or piece of straw.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 8
+      }
+    ]
+  },
+  {
+    "name": "Blindsight",
+    "source": "Savage Species",
+    "page": 63,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature the blindsight ability out to a range of 30 feet for the duration (see Blindsight in DMG Chapter 3).",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 32,
+        "note": "Listed as Drd 3 in Spell Compendium (Drd 2 in Savage Species)"
+      }
+    ]
+  },
+  {
+    "name": "Buoyant Lifting",
+    "source": "Savage Species",
+    "page": 64,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One willing swimming or floating creature or object (total weight up to 200 lb./level)"
+    },
+    "duration": "10 minutes/level (D) (see text)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You command the water around a swimming or floating subject to rise and hold it 20 feet above the surface on a smooth wave. A lifted object may contain creatures or other objects (for example, a boat); the creature must be willing, and an object must be unattended or held by a willing creature. This rescues a sinking air-breather. The subject can swim away under its own power or be moved by others (such as with a rope); if it is removed from the wave, the wave collapses gently and the spell ends. If a low ceiling prevents full lift, the wave raises the subject only until it touches the obstruction.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 40,
+        "spellLevelDruid": 1
+      }
+    ]
+  },
+  {
+    "name": "Camouflage",
+    "source": "Savage Species",
+    "page": 64,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You change your coloring to match the environment surrounding you, gaining a +10 circumstance bonus on your Hide checks.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 157
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 43
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 86
+      }
+    ]
+  },
+  {
+    "name": "Countermoon",
+    "source": "Savage Species",
+    "page": 64,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One lycanthrope"
+    },
+    "duration": "12 hours",
+    "savingThrow": "Will negates (D)",
+    "spellResistance": "Yes",
+    "description": "Prevents a lycanthrope from changing form, blocking both voluntary shapechanging (its alternate form ability) and involuntary shapechanging from lycanthropy. The subject keeps whatever form it had when the spell was cast for the full duration; even death does not cause reversion to normal form until the spell ends. Natural lycanthropes gain a +4 bonus on the saving throw. Material Component: a hair, scale, or other cast-off item from the creature to be affected.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 53,
+        "spellLevelDruid": 2
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 87
+      }
+    ]
+  },
+  {
+    "name": "Dawn",
+    "source": "Savage Species",
+    "page": 64,
+    "spellLevelDruid": 0,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "All creatures within a 15-ft.-radius burst centered on you"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "All sleeping creatures in the affected area awaken. Those unconscious because of subdual (nonlethal) damage wake up and become staggered. The spell does not affect dying creatures.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 59
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 87
+      }
+    ]
+  },
+  {
+    "name": "Detect Water",
+    "source": "Savage Species",
+    "page": 61,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Note: Savage Species lists this on the druid spell list as 'Detect Water' (Drd 1) but prints no description; it is identical to the spell Locate Water, whose block is used here. You sense the direction of a substantial body of water, learning more the longer you concentrate on an area: 1st round — presence or absence of water; 2nd round — the number of water sources present and the rough size of the largest; 3rd round — the size and location of each source (direction only, not exact location, for any source outside your line of sight). Size categories: Small (a pond/pool of 200 cu. ft. or less, or a brook up to 5 ft. across); Medium (a large pond or small lake up to 20,000 cu. ft., or a stream up to 30 ft. across); Large (a lake up to 10 million cu. ft., or a broad river); Vast (an ocean or inland sea). The spell cannot find creatures, ignores small quantities of water (such as filled bottles or skins), reveals nothing about water quality or accessibility, and is blocked by fire or magma within its area. Arcane Focus: a forked hazel wand.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Embrace the Wild",
+    "source": "Savage Species",
+    "page": 65,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "F"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You adopt the nature and some abilities of a wild animal. You keep your own form but gain the chosen creature's natural and extraordinary senses (such as blindsight or scent) and its skill ranks (which do not stack with ranks you already have in the same skills). It does NOT grant the animal's natural attacks, modes of locomotion, feats, or non-sensory extraordinary abilities (such as trample or improved grab). Focus: hide, skin, or feathers of the selected animal, or an item or component from its lair, which you must have obtained from the animal yourself.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 79,
+        "spellLevelDruid": 2
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 88
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 147,
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "Forestfold",
+    "source": "Savage Species",
+    "page": 66,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As camouflage, except that you gain a +20 circumstance bonus on both your Hide and your Move Silently checks. (Savage Species prints this entry as 'As camouflage, except as noted above'; the mechanical fields shown here are inherited from camouflage.)",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 166
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 98,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Masters of the Wild",
+        "page": 89
+      },
+      {
+        "source": "Complete Adventurer",
+        "page": 149
+      }
+    ]
+  },
+  {
+    "name": "Improved Blindsight",
+    "source": "Savage Species",
+    "page": 67,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "As blindsight, except that the blindsight granted by the spell has a 60-foot range. (Savage Species prints this entry as 'As blindsight, except as noted above'; the mechanical fields shown here are inherited from blindsight.)",
+    "otherPrintings": []
+  },
+  {
+    "name": "Jagged Tooth",
+    "source": "Savage Species",
+    "page": 68,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One natural slashing or piercing weapon of target creature"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "As keen edge, except that it affects one of a creature's natural slashing or piercing weapons, giving that natural weapon the keen quality (its threat range is doubled; this does not stack with other effects that increase threat range). (Savage Species prints this entry as 'As keen edge, except as noted above'; the casting time, range, and duration shown here are inherited from keen edge.)",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 126
+      }
+    ]
+  },
+  {
+    "name": "Lion's Charge",
+    "source": "Savage Species",
+    "page": 68,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "You give the subject the powerful charging ability of a lion: when the subject charges, it can make a full attack in the same round. Material Component: a hair from a lion's mane.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Major Resistance",
+    "source": "Savage Species",
+    "page": 68,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "You imbue the subject with strong magical energy that protects it from harm, granting a +3 resistance bonus on saving throws. Arcane Material Component: a miniature cloak of fine cloth.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Plant Body",
+    "source": "Savage Species",
+    "page": 69,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Imbues the subject with some characteristics of the plant type; its skin becomes covered with moss and ivy, like a shambling mound. Any spell or effect that affects plant creatures also affects the subject. The subject gains immunity to critical hits, mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. Its ability scores, skills, and feats are unaffected, though the new form may make it difficult or impossible to use certain skills or feats.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 159,
+        "spellLevelDruid": 5
+      }
+    ]
+  },
+  {
+    "name": "Rapid Burrowing",
+    "source": "Savage Species",
+    "page": 69,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F/D"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Increases the touched creature's burrow speed by 20 feet. It has no effect on other modes of movement, and does not grant a burrow speed (or the ability to burrow through stone) to a creature that cannot already do so.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 166
+      }
+    ]
+  },
+  {
+    "name": "Scent",
+    "source": "Savage Species",
+    "page": 69,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the subject an enhanced sense of smell equivalent to the scent ability of some monsters, letting it detect approaching enemies, sniff out hidden foes, and track by smell. A creature with the scent ability can identify familiar odors just as humans do familiar sights (see Scent in the MM introduction). Arcane Material Component: a sprinkle of mustard and pepper, and a drop of sweat.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 178
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 180
+      },
+      {
+        "source": "Serpent Kingdoms",
+        "page": 157
+      }
+    ]
+  },
+  {
+    "name": "Superior Resistance",
+    "source": "Savage Species",
+    "page": 71,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "You imbue the subject with powerful magical energy that protects it from harm, granting a +6 resistance bonus on saving throws. Arcane Material Component: a miniature cloak of fine cloth.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wings of the Sea",
+    "source": "Savage Species",
+    "page": 72,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You or person touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Increases the touched creature's swim speed by 30 feet. It has no effect on other modes of movement, and does not grant a swim speed to a creature that does not already have one. Material Component: a drop of water.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 240
+      }
+    ]
+  }
+]

@@ -1,0 +1,455 @@
+[
+  {
+    "name": "Babau Slime",
+    "source": "Planar Handbook",
+    "page": 95,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Fortitude negates (harmless) and Reflex negates; see text",
+    "spellResistance": "Yes (harmless)",
+    "description": "Coats the subject's skin, armor, and gear in a corrosive red slime that doesn't harm the subject but deals 1d8 acid damage (ignoring hardness) to any weapon or unarmed attacker that touches it, with a Reflex save to avoid the damage. Material component: a drop of babau slime.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 22,
+        "spellLevelDruid": 1
+      }
+    ]
+  },
+  {
+    "name": "Beastland Ferocity",
+    "source": "Planar Handbook",
+    "page": 95,
+    "spellLevelDruid": 1,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the subject a feral will to survive: it keeps fighting without penalty even while disabled or dying, and dies normally only upon reaching -10 hit points.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 25
+      }
+    ]
+  },
+  {
+    "name": "Locate Touchstone",
+    "source": "Planar Handbook",
+    "page": 100,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "See text",
+    "targetAreaEffect": null,
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Senses the direction of, and gains a vague sense of the power of, the nearest planar touchstone; if the caster has already found that one, it instead locates the next-nearest. Only touchstones on the caster's current plane can be located. Requires the Planar Touchstone feat to cast.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Resist Planar Alignment",
+    "source": "Planar Handbook",
+    "page": 104,
+    "spellLevelDruid": 1,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants limited protection from a plane's alignment traits: immunity to the Charisma check penalty mildly aligned planes impose on opposed-alignment visitors, and half the Charisma/Wisdom/Intelligence check penalties imposed by strongly aligned planes, for the duration.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 174
+      }
+    ]
+  },
+  {
+    "name": "Avoid Planar Effects",
+    "source": "Planar Handbook",
+    "page": 94,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level in a 20-ft.-radius burst centered on you"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Shields the targets from a plane's inherent hazardous traits: fire-, water-, or earth-dominant damage and suffocation risk, the blinding light and hit-point overflow of major positive-dominant planes, and the damage or negative levels of negative-dominant planes, plus certain plane-specific effects the DM designates (such as Pandemonium's deafening wind or Cania's cold). It does not protect against creatures, spells, special abilities, gravity/alignment/magic traits, or unusual local hazards like lava.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 19,
+        "note": "Spell Compendium's casting time is 1 immediate action; Planar Handbook prints 1 standard action."
+      }
+    ]
+  },
+  {
+    "name": "Attune Form",
+    "source": "Planar Handbook",
+    "page": 94,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One or more living creatures touched"
+    },
+    "duration": "2 hours/level (see text)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Attunes the touched creatures to the plane they're currently on, granting them the same protection from that plane's harmful natural effects as avoid planar effects for the spell's duration. Material component: a bit of stone or earth from the caster's home plane.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 17,
+        "note": "Spell Compendium's version is mechanically revised: target \"One creature/3 levels\" instead of \"one or more creatures touched,\" and a flat 24-hour duration instead of 2 hours/level."
+      }
+    ]
+  },
+  {
+    "name": "Lay of the Land",
+    "source": "Planar Handbook",
+    "page": 100,
+    "spellLevelDruid": 4,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "3 rounds",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Gives the caster an instant overview of the surrounding region: directions and distances to notable landmarks, with detail inversely proportional to distance (good detail out to 100 miles, general awareness of major features out to 500 miles, and only direction/distance beyond that). Unlike find the path, it reveals no information on traps, passwords, or travel hazards.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 131,
+        "note": "Spell Compendium adds DF as an alternate focus component (F/DF) alongside Planar Handbook's F."
+      }
+    ]
+  },
+  {
+    "name": "Miasma of Entropy",
+    "source": "Planar Handbook",
+    "page": 101,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped burst, one solid object, or one organic construct"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object) or Fortitude half; see text",
+    "spellResistance": "Yes (object)",
+    "description": "Rapidly decays wood, leather, paper, and other formerly-living organic material in the area (objects heavier than 1 lb./caster level are unaffected). Can instead target a single organic object up to 10 lb./caster level, or deal 1d6/caster level damage (maximum 20d6, Fortitude half) to an animated object made of organic material.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 141,
+        "spellLevelDruid": 4
+      }
+    ]
+  },
+  {
+    "name": "Perinarch",
+    "source": "Planar Handbook",
+    "page": 101,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": null,
+    "duration": "1 round/level; see text",
+    "savingThrow": "None (object) and Reflex negates; see text",
+    "spellResistance": "No",
+    "description": "Grants the caster automatic control over an area of unstabilized Limbo within range (bypassing the Wisdom check others need), letting her reshape it once per round as a standard action by mixing the four basic elements in simple combinations — such as a barrier of thickened air (reducing intruders' speed to 5-10 ft.), a wall of flame dealing 3d10 fire damage to anyone passing through or lingering in it, or an encircling shell of solid stone. Control lapses if the caster moves more than 100 ft. from the controlled area, and creatures already present when the area is seized can attempt a Reflex save to escape.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 153,
+        "note": "Spell Compendium explicitly prints a target/area line (\"A radius of raw Limbo within close range\") that Planar Handbook itself omits."
+      }
+    ]
+  },
+  {
+    "name": "Planar Tolerance",
+    "source": "Planar Handbook",
+    "page": 103,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level in a 20-ft.-radius burst centered on you"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Functions as avoid planar effects, but the protection lasts 1 hour/level instead of 1 minute/level. All other fields (components, casting time, range, targets, saving throw, spell resistance) are inherited from avoid planar effects, which this entry's own page does not reprint.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 159
+      }
+    ]
+  },
+  {
+    "name": "Summon Elementite Swarm",
+    "source": "Planar Handbook",
+    "page": 105,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned elementite swarm"
+    },
+    "duration": "Concentration (maximum of 1 round/level) plus 1 round",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons an elementite swarm of the caster's chosen element (air, earth, fire, or water) from its home Elemental Plane. It appears where designated, understands the caster regardless of language, and acts immediately on the caster's turn, obeying commands as a free action while the caster concentrates. The spell gains the descriptor matching the element summoned. The summoned creature cannot itself summon or conjure another creature, or use teleportation or planar travel abilities.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 214
+      }
+    ]
+  },
+  {
+    "name": "Touchstone Lightning",
+    "source": "Planar Handbook",
+    "page": 106,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more rays of electricity"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Converts an unused daily use of a higher-order Planar Touchstone feat ability into a ray dealing 5d6 electricity damage with a successful ranged touch attack. From 7th level on, the caster gains one additional ray per 5 caster levels above 7th (maximum three rays at 17th level), each ray consuming its own higher-order use.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Astral Hospice",
+    "source": "Planar Handbook",
+    "page": 93,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "See text"
+    },
+    "duration": "1 day/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Opens a temporary portal from the Astral Plane into a private demiplane where natural healing works (unlike on the Astral Plane itself). The demiplane is a roughly 50-ft.-square self-contained pocket matching the Material Plane's traits; only creatures the caster named or described at casting may enter through the linked portal. The portal exists only while the demiplane does — when the caster leaves, it seals shut, and anyone still inside is deposited back on the Astral Plane at the entrance's former location. Material component: a flawless gem worth at least 250 gp.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Focus Touchstone Energy",
+    "source": "Planar Handbook",
+    "page": 98,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Lets the caster convert an unused daily use of a higher-order Planar Touchstone feat ability into 3d6 temporary hit points, granted to a touched living creature.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Summon Greater Elemental",
+    "source": "Planar Handbook",
+    "page": 105,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned elemental"
+    },
+    "duration": "Concentration (maximum of 1 round/level) plus 1 round",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As summon elementite swarm, but calls a greater elemental of the caster's chosen element (air, earth, fire, or water) instead of a swarm; same immediate arrival, free-action commanding while the caster concentrates, elemental-type descriptor, and restrictions against further summoning or planar travel.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 214
+      }
+    ]
+  },
+  {
+    "name": "Perinarch, Planar",
+    "source": "Planar Handbook",
+    "page": 102,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": null,
+    "duration": "1 round/level; see text",
+    "savingThrow": "None (object) and Reflex negates; see text",
+    "spellResistance": "No",
+    "description": "Functions as perinarch, but works on any highly or divinely morphic plane (most Outer Planes qualify) rather than only Limbo — reshaping a deity's home turf this way carries obvious risk, at the DM's discretion.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 154,
+        "note": "Spell Compendium explicitly prints a target/area line (\"A radius of raw Limbo within close range,\" inherited from perinarch) that Planar Handbook itself omits."
+      }
+    ]
+  }
+]

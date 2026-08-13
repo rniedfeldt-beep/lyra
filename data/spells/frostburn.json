@@ -1,0 +1,1577 @@
+[
+  {
+    "name": "Conjure Ice Beast I",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One conjured ice creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a creature made of magical ice at a point you designate; it acts immediately on your turn and attacks your opponents to the best of its ability, or follows your directions (not to attack, attack specific foes, or perform other actions) if you can communicate with it. You conjure one creature from the 1st-level summon monster or summon nature's ally list (PHB pp.287-288); it cannot have the fire subtype. You choose which creature to conjure and can change your choice each casting. The conjured creature is a construct made of magical ice bearing the ice beast template (p.138). In all other respects it functions like summon monster I.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Crunchy Snow",
+    "source": "Frostburn",
+    "page": 92,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "Frostfell"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One  20-ft.-by-20-ft.  square  of snow/level"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A designated area of fallen snow becomes hard and crumbly, producing a loud crunch when stepped on. Creatures traveling through the affected snow take a -20 penalty on Move Silently checks.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ease of Breath",
+    "source": "Frostburn",
+    "page": 93,
+    "spellLevelDruid": 1,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants the touched creature the ability to survive in thin air, along with a +20 inherent bonus on Fortitude saves to resist altitude sickness and on saves to resist becoming fatigued from altitude or thin air.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ice Skate",
+    "source": "Frostburn",
+    "page": 100,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched creature can skate across any icy surface, level or inclined, gaining a 60-foot enhancement bonus to base land speed. No Balance checks are needed for this movement, even in combat on ice, unless the creature attempts an exceptional maneuver (such as jumping a crevasse or gliding up a frozen waterfall) or takes damage - in those cases it gets a +4 enhancement bonus on the required Balance check.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ivory Flesh",
+    "source": "Frostburn",
+    "page": 101,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Turns the subject's flesh and equipment white, granting a +5 circumstance bonus on Hide checks in heavy snow or ice areas. In any area that isn't white-hued (including ebony ice), it instead imposes a -5 penalty on Hide checks.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Snowdrift",
+    "source": "Frostburn",
+    "page": 104,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Snow touched, up to 10 cu. ft. +1 cu. ft./level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Lets you shape existing snow into any form you need - e.g., a snowbank for concealment, a snow statue or idol, a tunnel through deep snow, cover for tracks, snowy barriers around a door or house to block sight in or out, or snow clogging a chimney. Cannot be used to make snow weapons, and does not affect solid ice of any kind. Arcane material component: a pinch of white flour.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Snowsight",
+    "source": "Frostburn",
+    "page": 104,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "The subject can see to the normal limits of its vision even in whiteout conditions, ignoring penalties from snow glare and snow blindness. Vision is no better than normal: in daylight it typically sees to the horizon, and at night it's limited to ambient light or the subject's own darkvision. Does not grant the ability to see in darkness.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Blood Snow",
+    "source": "Frostburn",
+    "page": 89,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft. square of snow/level"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Must be cast on a snow field. Corrupts an area of fallen snow with negative energy. Each round, a creature in contact with the blood snow must succeed on a Fortitude save or take 1d2 points of Constitution drain; anyone who fails the save is also nauseated for the spell's duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Brumal Stiffening",
+    "source": "Frostburn",
+    "page": 89,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One weapon"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Re\ufb02 ex negates",
+    "spellResistance": "Yes",
+    "description": "Makes the targeted weapon brittle, reducing its hardness by 5 for the spell's duration and making it easier to sunder. In addition, rolling a natural 1 on an attack with the weapon causes the weapon itself to take damage equal to what it would have dealt on a successful hit.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast II",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like conjure ice beast I, except you can conjure one creature from the 2nd-level summon list, or two creatures of the same kind from the 1st-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Object",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One object of up to 5 lb./level"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None (harmless)",
+    "spellResistance": "No",
+    "description": "Conjures a block of transparent ice shaped like any object you've seen before, up to the spell's weight limit (maximum 50 pounds at 10th level). Objects with moving parts (such as a crossbow) do not function. A successful Craft check is required to create a complex item.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Evergreen",
+    "source": "Frostburn",
+    "page": 93,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft. radius"
+    },
+    "duration": "1 hour/level and instanta- neous; see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Instantly heals 1d8 + 1/caster level (max +10) damage to a 10-ft.-radius area of plant life (or plant-subtype creatures within it), and grants immunity to cold for the spell's duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Flash-Freeze",
+    "source": "Frostburn",
+    "page": 94,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth",
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft. square/level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Drains the heat from all earth, stone, and water in the area: earth, mud, and stone become everfrost, and water freezes. Affects a 10-ft.-square area per level to a depth of 1 foot. Magical, enchanted, dressed, or worked stone is unaffected, as are earth, stone, or water creatures. Can be used to create small icebergs in large bodies of water; these float but are slippery and unstable, requiring a DC 15 Balance check each round to stay on, and can be moved by current, paddling, or other means.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Frost Weapon",
+    "source": "Frostburn",
+    "page": 95,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Weapon touched"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "No",
+    "description": "Imbues a weapon with icy cold similar to the frost special ability, adding an extra 1d6 points of cold damage on a successful hit. If cast on a bow, crossbow, or sling, the cold energy is instead bestowed on the weapon's ammunition. Stacks with the frost special ability but not with itself. Material component: a drop of water.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Numbing Sphere",
+    "source": "Frostburn",
+    "page": 102,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "5-ft.-diameter sphere"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Re\ufb02 ex negates",
+    "spellResistance": "Yes",
+    "description": "Creates a sphere of intense cold that rolls in the direction you point, moving 30 feet per round and able to ascend or jump up to 30 feet as part of that movement to strike a target. On entering a creature's space it stops for the round and deals 1d6 points of cold damage plus 1d4 points of Dexterity damage, though a successful Reflex save negates both. It rolls over barriers under 4 feet tall and instantly freezes water it touches in 5-foot-cube sections. It only moves while you actively direct it (a move action); otherwise it stays at rest. It has 10 hit points and DR 5/- and can be destroyed by attacks. Its spongy surface deals no damage except through cold, and it cannot push aside unwilling creatures or batter down large obstacles. It winks out of existence if it exceeds the spell's range. Arcane material component: a bit of sponge and a drop of water.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Obscuring Snow",
+    "source": "Frostburn",
+    "page": 103,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Air",
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cloud spreads in 30-ft.-radius from you, 30 ft. high"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Wraps the caster in a swirling snow cloud that follows them, obscuring all sight (including darkvision) beyond 5 ft. \u2014 20% miss chance at 5 ft., total concealment (50% miss, no sight-based targeting) farther out. A strong wind (21+ mph) disperses it in 4 rounds, a very strong wind (31+ mph) in 1 round, and fireball, flame strike, or similar fire effects burn it away in their area (as does a wall of fire, in the area it damages). Does not function underwater; creatures with snowsight are immune to its effects.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Snow Walk",
+    "source": "Frostburn",
+    "page": 104,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Touched creatures (one per level) can walk atop snow instead of sinking into it, avoiding movement penalties and leaving no footprints or scent, so nonmagical tracking becomes impossible. Gliding across the surface also grants a +10 ft. enhancement bonus to land speed. Lasts 10 min./level; Will negates (harmless), SR yes (harmless).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Thaw",
+    "source": "Frostburn",
+    "page": 105,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft. cube/level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Instantly heats all everfrost, slush, snow, mud, and ice within a 10-ft. cube/level in range, advancing each one step toward warmth: ice and snow become slush, slush becomes everfrost, and everfrost becomes bog. No save, no SR.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Thin Air",
+    "source": "Frostburn",
+    "page": 105,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "30-ft.-radius emanation"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "No",
+    "description": "Thins the oxygen in a 30-ft.-radius emanation within medium range, inflicting altitude sickness for 1 min./level. Creatures that fail a Fortitude save take 1 point of damage to every ability score; those acclimated to high altitude get a +4 competence bonus on the save. Creatures that don't breathe are immune.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Zone of Glacial Cold",
+    "source": "Frostburn",
+    "page": 106,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "20-ft. radius"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "No",
+    "description": "Creates a 20-ft.-radius zone of icy cold within medium range that deals 1d6 cold damage per round for 1 round/level; Fortitude half. Arcane casters need a snowball as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Arctic Haze",
+    "source": "Frostburn",
+    "page": 88,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Fog spreads in a 30-ft. radius, 20 ft. high"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "No",
+    "description": "Conjures a bank of fog made of razor-sharp ice shards at a point within medium range, spreading 30 ft. in radius and 20 ft. high, lasting 10 min./level. The fog blocks all sight (including darkvision) beyond 5 ft.: creatures 5 ft. away have 20% concealment, farther away have total concealment (50% miss chance, can't be targeted by sight). Anyone moving through it takes 4 points of damage per round, half cold (Fortitude half). A strong wind (21+ mph) disperses the fog in 4 rounds, dealing 4 damage/round (half cold) to those inside as it does; a severe wind (31+ mph) disperses it in 1 round, dealing 8 damage (half cold).",
+    "otherPrintings": []
+  },
+  {
+    "name": "Aura of Cold, Lesser",
+    "source": "Frostburn",
+    "page": 88,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "5 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "5-ft.-radius spherical emanation, centered on you"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Covers the caster in frost; for 1 round/level (dismissible), cold radiates from a 5-ft. spherical emanation centered on the caster, dealing 1d6 cold damage at the start of the caster's turn to each creature within 5 feet. No save; SR yes.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Binding Snow",
+    "source": "Frostburn",
+    "page": 89,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "Frostfell"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 10-ft. square/level"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Re\ufb02 ex negates",
+    "spellResistance": "Yes",
+    "description": "Must be cast on a snow field, which instantly freezes and impedes movement for 1 hour/level (dismissible) across one 10-ft. square/level within medium range. A creature caught in the area moves at only half speed, unless it succeeds on a DC 20 Strength check or DC 25 Escape Artist check (normal speed that round) or succeeds on a Reflex save (unimpeded entirely). SR yes.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Column of Ice",
+    "source": "Frostburn",
+    "page": 90,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One  column  of  ice,  10-ft. radius and 5 ft./level in height"
+    },
+    "duration": "Permanent",
+    "savingThrow": "Re\ufb02 ex negates",
+    "spellResistance": "No the Player\u2019s Handbook). The amount of tightly packed snow that fills a 5-foot-by-5-foot area weighs 500 pounds. Armed with an appropriate tool, such as a pick, crowbar, or shovel, a digger can clear loose ice and debris twice as quickly as by hand.",
+    "description": "A column of ice erupts from the ground, lifting anything standing in the area (including the caster) into the air; a Reflex save lets a creature avoid being lifted. Fighting or moving atop the column requires a DC 10 Balance check, and failure means falling prone and needing a DC 12 Reflex save to avoid slipping off (taking fall damage). Creatures riding the column up may be smashed against a low ceiling for 4d6 damage. The column itself is 10 ft. thick, hardness 16, 160 hp, DC 90 to break, DC 30 to climb.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast III",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as conjure ice beast I, except it lets the caster conjure one creature from the 3rd-level list, two of the same creature from the 2nd-level list, or four of the same creature from the 1st-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Control Temperature",
+    "source": "Frostburn",
+    "page": 92,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 round",
+    "range": "20 ft./level",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20 cu. ft./level emanation, cen- tered on you"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Raises or lowers the temperature within a 20 cu. ft./level emanation centered on the caster by one temperature band per 5 caster levels, lasting 1 hour/level. Effects of the new temperature on creatures and environment apply immediately. Arcane casters need a drop of mercury as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ice Shape",
+    "source": "Frostburn",
+    "page": 99,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Ice touched, up to 10 cu. ft. + 1 cu. ft./level"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Reshapes a touched piece of ice (up to 10 cu. ft. + 1 cu. ft./level) into any form the caster wants \u2014 such as a weapon, trapdoor, or crude idol \u2014 and can open or reseal an ice door. Fine detail isn't possible, and any shape with moving parts has a 30% chance of simply not working. Arcane casters need slush spread into the desired shape and touched to the ice while casting.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Meld into Ice",
+    "source": "Frostburn",
+    "page": 102,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "The caster, along with up to 100 lbs. of nonliving gear, merges into a single block of ice large enough to hold their body, for 10 min./level; if either condition isn't met, the spell fails and is wasted. While melded, the caster stays aware of time, can cast spells on themself, can hear but not see outside events, and is unharmed by minor damage to the ice. Partial destruction of the ice (enough that the caster no longer fits) expels the caster and deals 5d6 damage; total destruction (by damage or thawing) expels and instantly kills the caster unless a DC 18 Fortitude save succeeds. The caster may step out voluntarily at any point before the duration ends; if the duration expires or the effect is dispelled first, the caster is violently expelled for 5d6 damage. Certain spells cast on the occupied ice also harm the caster: ice to flesh expels and deals 5d6 damage; ice shape deals 3d6 damage without expelling; thaw expels and kills instantly unless a DC 18 Fortitude save succeeds (otherwise merely expelled); pass through ice expels without damage.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Winter\u2019s Embrace",
+    "source": "Frostburn",
+    "page": 106,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One creature"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Coats one creature within close range in ice and snow for 1 round/level. A successful Fortitude save sloughs the ice off instantly for only 1d4 cold damage, ending the effect. On a failed save, the ice clings and deals 1d8 cold damage each round; the subject may attempt a new Fortitude save on its turn each round to avoid that round's damage. Taking damage a second time from the same casting leaves the subject fatigued; a fourth time leaves it exhausted.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Boreal Wind",
+    "source": "Frostburn",
+    "page": 89,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Gust of wind (20 ft. wide, 20 ft. high) emanating out from you to the extreme of the range"
+    },
+    "duration": "1 round + 1 round/2 levels",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Blasts a 20-ft.-wide, 20-ft.-high gust of arctic air from the caster's fingertips out to long range, lasting 1 round + 1 round/2 levels. It automatically extinguishes candles, torches, and similar flames; large fires (bonfires, forge coals, house fires) have a 50% chance to be extinguished, though forest or grassland fires are too big to affect. Creatures in the area take 1d4 cold damage per caster level (maximum 15d4) and are pushed back 3 ft. per caster level unless they succeed on a Fortitude save; creatures remaining in the area past the first round must save again each round. Like gust of wind, it can fling sand or dust, overturn tents, knock down small huts, scuttle small boats, and blow gases or vapors to the edge of its range. The caster can redirect it with a move action; otherwise it keeps blowing in the same direction.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast IV",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 4th-level list, two creatures of the same kind from the 3rd-level list, or four creatures of the same kind from a lower-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Freeze Armor",
+    "source": "Frostburn",
+    "page": 94,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Metal  equipment  of  one creature/level"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Locks metal armor and equipment in ice, immobilizing and damaging the wearer. Unattended nonmagical metal gets no save; enchanted metal gets a save, and metal in a creature's possession uses the creature's save unless its own is higher. A creature wearing metal armor that fails its save is frozen in place: it takes cold damage (1d6 on round 1, 2d6 on round 2, 3d6 on rounds 3-5, 4d6 on round 6+), suffers -6 to attack rolls, -8 effective Dexterity, and cannot move; casting a spell while frozen requires a Concentration check (DC 15 + spell level) or the spell is lost. A creature wearing metal armor that succeeds on its save takes half that damage. A creature not wearing metal armor but carrying/touching metal weighing at least one-fifth of its body weight takes the listed damage on a failed save (half on success); if carrying less than that (or no metal), it instead takes only minimal damage (1/2/3/4 points, matching the round) each round. A creature with no metal armor and carrying less than one-fifth its weight in metal that succeeds on its save is entirely unaffected. Heat damage taken in the same round offsets the cold damage point-for-point, and vice versa.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Frostfell Slide",
+    "source": "Frostburn",
+    "page": 96,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "Frostfell"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1  hour/level  or  until expended; see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants the ability to instantly teleport between two points of slush, snow, or ice, up to a distance based on the substance touched at the point of departure (not arrival): 1,000 ft. for slush, 2,000 ft. for snow, 3,000 ft. for ice. The charge can be held for up to the spell's duration before use, and the spell ends immediately upon arrival.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hibernal Healing",
+    "source": "Frostburn",
+    "page": 97,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "Frostfell"
+    ],
+    "castingTime": "1 round",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude half (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Draws on cold energy stored in slush, snow, and ice to heal the caster 10 hit points per caster level (maximum 150 at 15th level), and melts all slush, snow, and ice within 10 feet of the caster.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Blizzard",
+    "source": "Frostburn",
+    "page": 89,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "100 ft.-radius/level spread"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "No",
+    "description": "The temperature immediately drops below freezing and a powerful blizzard erupts in the area, reducing visibility to zero (making Spot, Search, and Listen checks and all ranged attacks impossible). Unprotected flames are automatically extinguished; protected flames have a 75% chance of being doused. Creatures unprotected from the cold must succeed on a Fortitude save or take 1d6 points of nonlethal cold damage. One foot of new snow falls each round, impeding movement based on creature size and snow depth.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Call Avalanche",
+    "source": "Frostburn",
+    "page": 90,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "Long  (400  ft.  + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10  ft.-radius/level spread"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half; see text",
+    "spellResistance": "No",
+    "description": "Outdoor-only spell. An avalanche crashes down, dealing 8d6 crushing damage in the area; a Reflex save halves the damage and avoids being buried. Buried creatures take 1d6 nonlethal damage/minute, escalating to lethal damage if they fall unconscious and fail a DC 15 Constitution check; a buried creature can dig free with a DC 25 Strength check or be dug out by allies. The snow remains until melted (rapid melting risks a flash flood). Maximum size of creature that can be buried scales with caster level: Large at 9th, Huge at 12th, Gargantuan at 15th, Colossal at 18th.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast V",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 5th-level list, two creatures of the same kind from the 4th-level list, or four creatures of the same kind from a lower-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Hibernate",
+    "source": "Frostburn",
+    "page": 97,
+    "spellLevelDruid": 5,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "1 week/level (D)",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Puts a creature into suspended animation, slowing its life functions to nearly imperceptible levels so it can survive weeks without food or water. This automatically stabilizes a dying creature and can save a starving or dehydrated creature from death. While hibernating, the creature heals only 1 hit point per level per week. An unwilling target gets a Will save to negate the effect; on a failed save, it gets an additional save whenever it takes damage, is splashed with water or other liquid, or after 24 hours pass, whichever comes first.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Ice Shield",
+    "source": "Frostburn",
+    "page": 99,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "Cold\ufb01 re"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The touched creature gains damage reduction 15/\u2014 against blows, cuts, stabs, and slashes, absorbing up to 10 points of damage per caster level (maximum 150). While protected, the creature also gains vulnerability to fire, taking half again as much (+50%) fire damage regardless of whether a save is allowed or its result. Duration is 1 minute per level, extended to 10 minutes per level in a frostfell environment. Requires a pinch of sleet and five ounces of coldfire as components.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Mantle of the Icy Soul",
+    "source": "Frostburn",
+    "page": 101,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "XP"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Permanently grants the touched creature the cold subtype: its skin, hair, or scales take on an icy blue tint and its breath no longer frosts in cold weather. The creature gains immunity to cold but also gains vulnerability to fire, taking half again as much (+50%) fire damage regardless of whether a save is allowed or its result. Its Challenge Rating and effective character level are unchanged. The effect can be removed only by limited wish or wish. Requires a handful of ice or snow pressed to the target's body and costs 2,000 XP.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Pass through Ice",
+    "source": "Frostburn",
+    "page": 103,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Lets the touched creature pass through ice or snow like water (not stone or frozen mud), moving at 15 ft./round and rising or sinking through ice at 5 ft./round. When the effect ends, the creature is ejected to the nearest ice surface; if dispelled or dismissed while still inside, it can become trapped (treated as caught in an entomb spell) unless it reaches a surface within one round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wall of Coldfire",
+    "source": "Frostburn",
+    "page": 106,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "Cold\ufb01 re"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Opaque  sheet  of  coldfire up to 20 ft. long/level or a ring of coldfire  with  a  radius  of  up  to  5 ft.  per  two  levels;  either  form  20 ft. high"
+    },
+    "duration": "Concentration + 1 round/",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Creates an immobile, opaque wall of frosty coldfire, either a straight sheet up to 20 ft. long per level or a ring with radius up to 5 ft. per two levels; either form is 20 ft. high. On the side you designate, the wall deals 2d4 points of cold damage to creatures within 10 feet and 1d4 points to those between 10 and 20 feet, both when it appears and again each round on your turn. Any creature passing through the wall (or present when it is evoked) takes 2d6 points of frostburn damage plus 1 point per caster level (maximum +20). The wall's opacity grants 20% concealment against attacks from the far side. A 5-foot section that takes 20 or more points of fire damage in one round (not divided by 4 as for normal objects) goes out. The wall can be made permanent with permanency; a permanent wall extinguished by fire becomes inactive for 10 minutes before reforming at full strength. Requires three ounces of coldfire as a component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Animate Snow",
+    "source": "Frostburn",
+    "page": 88,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to a 20-ft. cube of snow"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Imbues a mass of natural or magically created snow, up to a 20-ft. cube, with mobility, treating it as an animated object. You can animate four Large, two Huge, or one Gargantuan animated snow object(s), which take any basic shape you wish and attack via your vocal commands. Animated snow objects have the Blind and Trample special attacks of normal animated objects, plus the cold subtype and an extra 1d6 points of cold damage on a successful hit. They take 1d6 points of damage each round spent in temperatures above freezing. Requires meltwater from a glacier as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast VI",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 6th-level list, two creatures of the same kind from the 5th-level list, or four creatures of the same kind from a lower-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Death Hail",
+    "source": "Frostburn",
+    "page": 92,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold",
+      "Death"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (40-ft radius, 20 ft. high)"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "No",
+    "description": "Calls forth an intense storm of death hail in the designated area. Creatures within must succeed on a Fortitude save or take 1d2 points of Strength damage and 1d2 points of Constitution damage.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Entomb",
+    "source": "Frostburn",
+    "page": 93,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One  creature/level,  no  two  of which can be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous and 1 round/ level; see text",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Traps living creatures target-by-target in a thick shell of ice from head to toe. A creature that makes its Fortitude save immediately breaks free but still takes 6d6 cold damage. A creature that fails is held in the ice and begins suffocating per the drowning rules, taking an additional 2d12 cold damage and 1 point of Constitution damage each round from contact with the ice. While entombed, a creature can only take actions that are purely mental or verbal. Escaping requires a DC 20 Strength check or 20 points of fire damage applied to the ice. Requires a clear gemstone worth at least 500 gp as a material component.",
+    "otherPrintings": [
+      {
+        "source": "The Quintessential Druid II",
+        "page": 86,
+        "note": "Same name, unrelated spell \u2014 different school/mechanics, not a reprint"
+      }
+    ]
+  },
+  {
+    "name": "Ice Rift",
+    "source": "Frostburn",
+    "page": 99,
+    "spellLevelDruid": 6,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40-ft.-radius spread (S)"
+    },
+    "duration": "1 round",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Causes a localized tremor in ice lasting 1 round; creatures on the ice can't move or attack during that round, and any spellcaster on the ice must succeed on a Concentration check (DC 20 + spell level) or lose the spell being cast. Effect depends on terrain: in an ice/snow cave, cavern, or tunnel, the roof collapses for 8d6 bludgeoning damage (Reflex DC 15 half) and buries victims in snow; at a glacier's edge, it triggers a landslide traveling horizontally as far as the ice fell vertically, dealing the same 8d6 damage (Reflex DC 15 half) and pinning survivors under rubble; on open glacier ice, each creature must make a DC 15 Reflex save or fall prone, and every creature has a 25% chance of falling into a fissure (DC 20 Reflex to avoid), with fissures grinding shut at the spell's end (killing anyone still trapped); over frozen water, fissures similarly open with a 25% chance per creature of falling through (DC 20 Reflex to avoid), dealing 2d6 cold damage from the frigid water, and the ice reseals at the spell's end, trapping anyone still in the water. Requires a bit of earth and a pinch of snow as an arcane material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Move Snow and Ice",
+    "source": "Frostburn",
+    "page": 102,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold",
+      "Ice"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "See text",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Snow or ice in an area up to 750 ft. square and up to 10 ft. deep (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Gradually reshapes snow and ice in the target area, creating wave-like crests and troughs rather than violently breaking the surface; trees, structures, and rock formations are largely unaffected except for elevation changes. Casting time scales with area: 10 minutes per 150-foot square (to 10 feet deep), up to 4 hours 10 minutes for the maximum 750-by-750-foot area. Cannot be used for tunneling and is too slow to trap or bury creatures \u2014 mainly useful for digging or adjusting terrain before a battle. Has no effect on ice creatures. Requires a small bag of snow and ice plus an iron blade as a material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Snow Wave",
+    "source": "Frostburn",
+    "page": 104,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 round",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude half and Reflex negates; see text",
+    "spellResistance": "No",
+    "description": "Creates a cone-shaped wave of snow dealing 4d6 crushing damage plus 1d6 cold damage to everyone caught in it. A successful Fortitude save halves only the cold damage (crushing damage is unaffected); a separate Reflex save negates being knocked prone.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Aura of Cold, Greater",
+    "source": "Frostburn",
+    "page": 88,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft.-radius  spherical  emana- tion, centered on you"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Works exactly like lesser aura of cold, except it deals 2d6 cold damage to all creatures within the 10-foot radius.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast VII",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 7th-level list, two identical creatures from the 6th-level list, or four identical creatures from any lower-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Raise Ice Forest",
+    "source": "Frostburn",
+    "page": 103,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "Frostfell"
+    ],
+    "castingTime": "1 round",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft. square of snow/level"
+    },
+    "duration": "Permanent",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Immediately after casting, ice trees erupt from frostfell regions within the area, in the shape the caster designates (deciduous, evergreen, oak, or other). Each tree has a 5-ft.-diameter trunk and stands 15 ft. tall; three trees appear in each 20-ft.-square frostfell region in the area. Each ice tree is 5 ft. thick, hardness 8, 80 hp, DC 45 to break, DC 20 to climb.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Whiteout",
+    "source": "Frostburn",
+    "page": 106,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cloud  centered  on  target spreads 120 ft. and is 20 ft. high"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None (see text)",
+    "spellResistance": "No",
+    "description": "Surrounds you or a designated creature with swirling snow and strong wind that follows its target thereafter. Anyone inside the whiteout takes a -2 penalty to AC, loses any Dexterity bonus to AC, moves at half speed, takes a -4 penalty on Dexterity-based skill checks and any vision-reliant checks (including Search and Spot), and gains total concealment (50% miss chance); visibility is 5 feet. These effects end upon leaving the area and stack with natural wind/snowfall. Any creature trying to move within the whiteout must make a Survival check (DC 10 + caster level) each move action or become lost \u2014 unable to leave the area (though still able to move within it); groups roped or held together may use the lead creature's check, and a new check can be attempted once per minute.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast VIII",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 8th-level list, two identical creatures from the 7th-level list, or four identical creatures from any lower-level list.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Fimbulwinter",
+    "source": "Frostburn",
+    "page": 93,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "XP"
+    ],
+    "castingTime": "10 minutes (see text)",
+    "range": "1 mile/level",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "1  mile/level  radius,  centered on you"
+    },
+    "duration": "4d12 weeks",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Shifts weather in the area to permanent winter or intensifies existing winter conditions. Casting takes 10 minutes, with another 10 minutes before the effect manifests. You choose the wintry conditions (severity depends on the area's existing climate and season) from a table of typical weather per season (e.g., frigid cold/blizzard/constant snowfall in winter; light snow/hailstorms/cold rain in summer). Daily wind and snowfall amounts are rolled separately using a table, modified by season (+8 winter, +4 spring/autumn, -2 summer) and climate (+2 cold, -2 temperate, -6 hot) \u2014 the results are maximums for the day, with less possible at your discretion. You control general weather tendencies such as wind direction/intensity; any newly selected weather fully manifests 10 minutes after you designate it (as a standard action), and otherwise persists as last set. Duration is 4d12 weeks. Costs 100 XP to cast.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Frostfell",
+    "source": "Frostburn",
+    "page": 95,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft. cube/level"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "See text",
+    "description": "Instantly drops the temperature in the area by 3 temperature bands. If the new temperature falls below the cold band, all water freezes and earth/stone becomes everfrost to a depth of 10 feet per caster level; air freezes into a heavy snowstorm for the spell's duration (snow accumulates only if ground temperature is below the moderate band). Living creatures present at the moment of casting instantly turn to ice (as flesh to ice) unless they succeed on a Fortitude save, in which case they instead take 1d6 frostburn damage per caster level (max 20d6); creatures entering afterward take no such damage but are subject to normal cold/snow/ice effects for the duration. Objects in the area (including items held by creatures) become frosted and slippery \u2014 using one requires a DC 10 Dexterity check or the item is dropped before use. Cold spells cast within the area gain +1 caster level. Casting frostfell again in the same area stacks, dropping the temperature a further 3 bands, though the band can never drop below unearthly cold. Requires a pinch of dust and a few drops of water as an arcane material component.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Glacier",
+    "source": "Frostburn",
+    "page": 96,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close  (25  ft.  +  5  ft./2  levels); see text",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One 20-ft. cube/2 levels"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures animated 20-foot cubes of glacial ice, one per two caster levels (maximum 10 at 20th level), which must be placed on a horizontal surface (any that would appear in the air or on a non-horizontal surface fail to appear but still count against your total). Glaciers stay stationary unless commanded, and attack any creature within 5 feet with a +15 slam for 2d8+4 damage plus 3d6 cold damage. As a standard action, you may command any number of glaciers to move at 10 feet per round; you cannot command a glacier more than 100 feet from you, and if you move more than 100 feet from a glacier it stops responding to commands and simply attacks nearby creatures (until you're back in range). Each glacier has 20 hp per caster level, hardness 0, and is automatically hit by attacks. Fire (including fireball or red dragon breath) deals full damage to a glacier instead of the usual half damage to objects, and can melt it outright; a suddenly melted glacier creates a cloud of steamy fog lasting 10 minutes.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Cometstrike",
+    "source": "Frostburn",
+    "page": 90,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Three different creatures or objects"
+    },
+    "duration": "3 rounds",
+    "savingThrow": "Reflex partial",
+    "spellResistance": "No",
+    "description": "Outdoor-only spell (fails if cast indoors or underground) that hurls three frozen comets at three different targets, requiring a ranged touch attack against each. A struck target takes 3d6 bludgeoning damage plus 1d4 cold damage per caster level (max 10d4) and is stunned for 1 round; a successful Reflex save negates the bludgeoning damage and stunning but not the cold damage. Each round for the spell's 3-round duration, three more comets strike the original targets automatically, though as a standard action you may redirect one, two, or all three comets to new targets.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Conjure Ice Beast IX",
+    "source": "Frostburn",
+    "page": 91,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more conjured ice crea- tures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 9th-level list, two identical creatures from the 8th-level list, or four identical creatures from any lower-level list.",
+    "otherPrintings": []
+  }
+]

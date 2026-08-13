@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Lava Missile",
+    "source": "Serpent Kingdoms",
+    "page": 156,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to five creatures, no two of which can be more than 15 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "No",
+    "description": "Hurls a missile of lava that strikes unerringly (unless the target has cover or concealment) for 1d4 fire damage, igniting the target on a failed save. Gains one additional missile per two caster levels (two at 4th, up to a maximum of five at 10th or higher); multiple missiles can be split among several targets, but each missile can strike only one creature, and targets must be designated before rolling spell resistance or damage. Heals firenewts of 1d4 damage instead of harming them.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Razorscales",
+    "source": "Serpent Kingdoms",
+    "page": 157,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "DF/M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Hardens the caster's scales to a razor edge for the duration, causing the caster's grapple attacks to deal lethal rather than nonlethal damage. Automatically fails if the caster is not a Scaled One (a reptilian humanoid such as a yuan-ti). Material component (for arcane casters, in place of a divine focus): a thin-bladed razor.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Scent",
+    "source": "Serpent Kingdoms",
+    "page": 157,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the target the scent ability for the duration: detecting nearby creatures by smell out to 30 ft. (60 ft. upwind, 15 ft. downwind; doubled for strong odors, tripled for overpowering ones), pinpointing a detected creature's exact location by closing within 5 ft. of it, and tracking by scent with a Wisdom check (DC 10 for a fresh trail on any surface, +2 per hour the trail has aged), ignoring the effects of surface conditions and poor visibility. Arcane casters require an additional material component: a pinch of mustard and pepper and a drop of sweat.",
+    "otherPrintings": [
+      {
+        "source": "Complete Divine",
+        "page": 178
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 180
+      },
+      {
+        "source": "Savage Species",
+        "page": 69
+      }
+    ]
+  },
+  {
+    "name": "Venomfire",
+    "source": "Serpent Kingdoms",
+    "page": 158,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Acid"
+    ],
+    "components": [
+      "V",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Fortitude negates (harmless) [as printed; the source also prints a second, contradictory 'Saving Throw: None' line immediately after — kept both here rather than silently dropping one, since which is the intended value can't be determined from the text alone]",
+    "spellResistance": "Yes (harmless)",
+    "description": "Makes the target's venom caustic, adding 1d6 acid damage per caster level to each poison use for the duration. Has no effect on a creature that doesn't naturally produce poison. Material component: a drop of acid.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Lava Splash",
+    "source": "Serpent Kingdoms",
+    "page": 156,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (20-ft. radius, 20 ft. high)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "No",
+    "description": "Showers the area with a wave of lava, dealing 1d4 fire damage per caster level (as printed, capped at a maximum of 15d6) to each creature caught in it. Acts as cure moderate wounds instead of harming firenewts. Focus: a fist-sized lump of volcanic rock.",
+    "otherPrintings": []
+  }
+]

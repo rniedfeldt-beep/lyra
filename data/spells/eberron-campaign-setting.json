@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Detect Aberration",
+    "source": "Eberron Campaign Setting",
+    "page": 109,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Gatekeeper druid spell. Detects aberrations within a cone by sensing their disruption of nature's order, revealing more each round of concentration: round 1, whether any are present; round 2, their number and the strongest one's aura strength (if overwhelming and its HD is at least twice the caster's level, the caster is stunned for 1 round and the spell ends); round 3, each aberration's aura strength and location (direction only, if out of line of sight). Aura strength scales with HD (faint at 1 or less, moderate at 2-4, strong at 5-10, overwhelming at 11+); unlike similar spells, it doesn't detect lingering auras. The caster can redirect the cone to a new area each round. Penetrates most barriers except 1 ft. of stone, 1 in. of common metal, a thin lead sheet, or 3 ft. of wood or dirt.",
+    "otherPrintings": [
+      {
+        "source": "Lords of Madness",
+        "page": 211,
+        "note": "Related but not identical — Lords of Madness prints a generally-available version (also cleric/sorcerer-wizard) with a quarter-circle area, different HD breakpoints for aura strength, and lingering auras (this Gatekeeper-only version explicitly does not detect lingering auras).",
+        "spellLevelDruid": 2
+      }
+    ]
+  },
+  {
+    "name": "Zone of Natural Purity",
+    "source": "Eberron Campaign Setting",
+    "page": 116,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft.-radius emanation"
+    },
+    "duration": "2 hours/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Gatekeeper druid spell. Sanctifies the area to nature: every fey and plant creature inside gains a +1 sacred bonus on attack rolls, damage rolls, and saves, while aberrations inside take a -1 penalty on the same. Material component: a bushel of ivy leaves and berries sprinkled around the area.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature's Wrath",
+    "source": "Eberron Campaign Setting",
+    "page": 113,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Unnatural creatures in a 20-ft.-radius burst"
+    },
+    "duration": "Instantaneous and 1 round; see text",
+    "savingThrow": "Will partial or Will half; see text",
+    "spellResistance": "Yes",
+    "description": "Gatekeeper druid spell. Calls on nature's power to harm unnatural creatures in the burst while leaving natural ones untouched. Animals, constructs, elementals, fey, elemental-subtype outsiders, oozes, plants, vermin, and inanimate objects are unaffected. Aberrations take 1d6 damage per caster level (maximum 10d6) and are dazed for 1 round (a successful Will save halves the damage and negates the daze). All other creature types (dragons, giants, humanoids, magical beasts, monstrous humanoids, and non-elemental outsiders) instead take 1d8 damage per two caster levels (maximum 5d8), halved on a successful Will save.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Return to Nature",
+    "source": "Eberron Campaign Setting",
+    "page": 113,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Gatekeeper druid spell. Pulls the target toward an idealized natural state, with effects varying by creature type. Animals, elementals, fey, elemental-subtype outsiders, oozes, plants, and vermin are unaffected. Arcane-casting humanoids and all monstrous humanoids take 1d4 negative levels. Giants shrink as if affected by reduce person (Fortitude negates). Dragons and magical beasts take 1d6 Intelligence damage and lose 1d4 random supernatural/spell-like abilities for 24 hours (Fortitude halves the damage and negates the ability loss). Non-elemental outsiders take 1d8 damage per two caster levels (maximum 10d8) and lose 2d4 random such abilities for 24 hours (Fortitude halves damage and negates ability loss). Aberrations take 1d6 damage per caster level (maximum 20d6) and lose all supernatural/spell-like abilities for 24 hours (Fortitude halves damage and negates the loss).",
+    "otherPrintings": []
+  }
+]

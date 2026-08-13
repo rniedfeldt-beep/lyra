@@ -1,0 +1,303 @@
+[
+  {
+    "name": "Body Ward",
+    "source": "Complete Champion",
+    "page": 118,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level or until expended",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature limited resistance to damage in one chosen physical ability score (Strength, Dexterity, or Constitution), absorbing the next 5 points of damage to that score regardless of source, until the duration ends or the protection is used up. Casting it on the same subject in consecutive rounds to cover two physical scores at once raises the absorption to 8 points each; covering all three raises it to 10 points each. Multiple castings protecting the same score don't stack.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Divine Presence",
+    "source": "Complete Champion",
+    "page": 120,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "For the duration, grants a +5 sacred (good/neutral deity) or profane (evil deity) bonus on Intimidate checks against non-worshipers of the caster's deity, with an even larger bonus against those whose alignment opposes the caster's own.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Interfaith Blessing",
+    "source": "Complete Champion",
+    "page": 124,
+    "spellLevelDruid": 2,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "20 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft.-radius burst centered on you"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Every creature in the burst is individually blessed by its own worshiped deity for the duration, with the specific benefit determined by a per-deity reference table in the source (a subject who reveres multiple deities rolls randomly among them); a target with no applicable or an unlisted deity uses the table's default entry.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Metal Fang",
+    "source": "Complete Champion",
+    "page": 125,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Temporarily transforms one of the touched creature's natural weapons into cold iron or silvered (caster's choice), letting it bypass the corresponding damage reduction; the weapon also counts as magic for overcoming damage reduction for the duration.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Soul Ward",
+    "source": "Complete Champion",
+    "page": 128,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 minute/level or until discharged",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "As body ward, but the caster chooses one of the three mental ability scores (Intelligence, Wisdom, or Charisma) to protect instead of a physical one.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forest Eyes",
+    "source": "Complete Champion",
+    "page": 122,
+    "spellLevelDruid": 3,
+    "school": "Divination",
+    "subschool": "Scrying",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 minute",
+    "range": "Unlimited",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Two plants of the same type, one of which must be in physical contact with you"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Touching a Medium-or-larger living plant or tree lets the caster designate a matching plant elsewhere (either one already known, or the nearest of that type in a chosen direction/distance) and see its surroundings from that spot for the duration, rotating the view freely but not moving it; unlike most scrying, it grants no benefit from magically enhanced senses, sees nothing in magical darkness, and only 10 ft. in natural darkness. Both plants must be alive.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forest Voice",
+    "source": "Complete Champion",
+    "page": 123,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Language-Dependent"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 minute",
+    "range": "Unlimited",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Two plants of the same kind, one of which must be in physical contact with you"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Touching a Medium-or-larger living plant or tree lets the caster designate a matching plant elsewhere (either one already known, or the nearest of that type in a chosen direction/distance) and converse for the duration with anyone within 10 ft. of it, as clearly as if within 10 ft. of each other; the plants can't carry magical sonic effects. Both plants must be alive.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Iconic Manifestation",
+    "source": "Complete Champion",
+    "page": 123,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 minutes/level, then 1 minute/level (D); see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Cast as whichever descriptor (chaotic, evil, good, or lawful) matches the non-neutral half of the caster's own alignment — unusable if the caster is truly neutral. Once cast, within 10 minutes/level the caster can spend one daily wild shape use to gain the celestial, fiendish, anarchic, or axiomatic template (matching good, evil, chaotic, or lawful respectively) for 1 minute/level, without losing the ability to use wild shape normally for other forms in the meantime.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Bleed",
+    "source": "Complete Champion",
+    "page": 118,
+    "spellLevelDruid": 5,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "A touch causes the target to bleed profusely through any open wound for the duration; each subsequent hit from a piercing or slashing source also deals 1 point of Constitution damage (not multiplied on a critical hit). Reapplying the spell to an already-bleeding target adds a -4 penalty on Fortitude saves against disease, poison, or the sickened/nauseated conditions. Creatures without discernible anatomy (plants, oozes) or immune to critical hits (undead, constructs) are immune.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Seed of Life",
+    "source": "Complete Champion",
+    "page": 128,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 rounds + 1 round/level (maximum 30 rounds) or until discharged",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Implants a seed of positive energy in the touched creature, granting fast healing 2 for the duration (similar to vigor). At any point before the duration ends, the subject can trigger a standard-action burst that heals a number of d4s of damage equal to half the spell's remaining duration (rounded down), which ends the spell immediately.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Wooden Blight",
+    "source": "Complete Champion",
+    "page": 131,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "Begins transforming the target's body into wood from the inside out; each round it must save or take 1d4 Dexterity damage (a successful save halves that round's damage and ends the spell). A subject whose Dexterity drops to 0 or below turns, along with its gear, into a mindless inert wooden statue — not dead, but not registering as alive to effects like deathwatch either. If the target already has Dexterity damage or a Dexterity penalty, its base speed also drops 5 ft. per point of Dexterity damage taken from this spell each round (minimum 5 ft.). Plant-type creatures are immune. Material component: a sliver of wood from a living tree.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Forest Child",
+    "source": "Complete Champion",
+    "page": 122,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One wooden duplicate"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Draws a wooden humanoid duplicate of the caster (her size, recognizably her features) from a tree at least one size category larger than herself, within range. It mimics the caster's actions and speech unless directed otherwise (a move action); she can see/hear through it at will (switching senses is a free action, and while doing so her own body is blinded and deafened). Any touch-or-greater-range spell can be cast through it instead of herself (though it can't target itself), and she can swap places with it as a standard action, costing 5 rounds of the spell's remaining duration (unusable with less than 5 rounds left). It has hp equal to her character level; if used to attack physically, it deals unarmed damage at a -4 penalty. It vanishes and ends the spell if it and the caster are separated beyond the spell's range or lose line of effect. Casting forest eyes and forest voice alongside it doubles its duration and quadruples its range. Material component: a 10 gp small hardwood replica of the caster.",
+    "otherPrintings": []
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Detect Manifest Zone",
+    "source": "Faiths of Eberron",
+    "page": 150,
+    "spellLevelDruid": null,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "120 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "120-ft.-radius emanation, centered on you"
+    },
+    "duration": "Concentration, up to 10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Not on the standard druid spell list (Adept 1, cleric 1, paladin 1, sorcerer/wizard 1 per the printed book); included here because Lyra gains it as an at-will spell-like ability from her Planar Shepherd prestige class, per that class's 2nd-level feature: \"Detect Manifest Zone (Sp): Starting at 2nd level, you can use detect manifest zone at will.\" Senses manifest zones (areas where another plane's energies and traits leak into Eberron) within the emanation, revealing more with each round of concentration: round 1, presence or absence of a zone (obvious zones give no new information; a zone in range but out of line of sight is sensed by direction only); round 2, a rough age category for the zone (Nascent under 1 day, New up to 30 days, Young up to 1 year, Mature up to 10 years, Old up to 100 years, Ancient beyond that), plus whether it will fade within 24 hours; round 3, which plane the zone connects to, and its exact borders if the zone is small enough to fit entirely within the spell's area (otherwise only the portion inside the area is known). Penetrates most barriers except a thin lead sheet, 1 in. of common metal, 1 ft. of stone, or 3 ft. of wood or dirt.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Intensify Manifest Zone",
+    "source": "Faiths of Eberron",
+    "page": 151,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F",
+      "XP"
+    ],
+    "castingTime": "8 hours",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40-ft.-radius/level emanation"
+    },
+    "duration": "Permanent",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "A lengthy ritual that permanently intensifies an existing manifest zone tied to a specific plane within the area, strengthening its effects by one \"step.\" A ringed zone (such as the Eldeen Reaches' Gloaming) has each ring take on the next-inward ring's stronger effect, while the innermost ring instead gains one planar trait it didn't already have; a zone with uniform effects instead gains one planar trait of the caster's choice. A given zone or ring can't be enhanced by this spell more than once. The effect can't be dispelled, only removed via limited wish, miracle, planar bubble, or wish. Focus: a gem, precious metal, or concentrated planar essence worth at least 500 gp. XP cost: 500.",
+    "otherPrintings": []
+  }
+]

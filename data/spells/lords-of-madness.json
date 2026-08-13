@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Detect Aberration",
+    "source": "Lords of Madness",
+    "page": 211,
+    "spellLevelDruid": 2,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Quarter circle emanating from the character to the extreme of the range"
+    },
+    "duration": "Concentration, up to 1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Detects aberrations in the area, revealing more with each round of concentration: round 1, whether any aberrant life is present; round 2, the number of distinct aberrant auras and the strongest one's power (if it's overwhelming and that source's HD/level is at least twice the caster's character level, the caster is stunned for 1 round and the spell ends); round 3, each aura's power and location. Aura power scales with the creature's Hit Dice (Faint at 1-3, Moderate at 4-7, Strong at 8-13, Overwhelming at 14+; a humanoid with the Aberration Blood feat always reads as Faint regardless of HD), and a detected aura lingers for a time that scales with its strength. Each round, the caster can redirect to a new area. Penetrates most barriers except 1 ft. of stone, 1 in. of common metal, a thin lead sheet, or 3 ft. of wood or dirt.",
+    "otherPrintings": [
+      {
+        "source": "Eberron Campaign Setting",
+        "page": 109,
+        "note": "Eberron Campaign Setting's version is a distinct Gatekeeper-only variant (cone-shaped emanation) rather than a straight reprint — this Lords of Madness printing is generally available to any druid (as well as clerics and sorcerers/wizards), with a quarter-circle area.",
+        "spellLevelDruid": 1
+      }
+    ]
+  },
+  {
+    "name": "Invoke the Cerulean Sign",
+    "source": "Lords of Madness",
+    "page": 212,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Multiple aberrations whose combined total Hit Dice do not exceed twice caster level in a spread emanating from the character to the extreme of the range"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "No",
+    "description": "An ancient rune-sign anathema to aberrations, traced in the air and released as a pulse of blue light. Every aberration in the area must succeed on a Fortitude save or suffer an effect determined by its Hit Dice relative to the caster's level (closer targets are affected first): HD up to caster level +10, no effect; up to +5, sickened; up to caster level, nauseated; up to -5, dazed; up to -10, stunned. Each effect lasts 1 round, after which the creature steps up one tier toward recovery (stunned to dazed to nauseated to sickened to fully recovered) each subsequent round.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Nature's Purity",
+    "source": "Lords of Madness",
+    "page": 213,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more rays"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Fires a ray of force dealing 1d6 damage on a hit (2d8 against undead and constructs, or 5d6 with a threat range of 19-20 against aberrations); an aberration slain by the damage is transformed into inert plant matter. Gains one additional ray for every 4 caster levels above 5th (maximum 4 rays at 17th level); multiple rays can target the same or different creatures, but all targets must be within 30 ft. of each other and are fired simultaneously.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Pox",
+    "source": "Lords of Madness",
+    "page": 214,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Evil"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "Up to one living creature/level, no two of which can be more than 10 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Deals 1d4 Constitution drain to each target, whose skin breaks out in lesions and takes on a pale yellow pallor.",
+    "otherPrintings": []
+  }
+]

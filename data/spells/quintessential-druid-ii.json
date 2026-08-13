@@ -1,0 +1,474 @@
+[
+  {
+    "name": "Augment Animal",
+    "source": "The Quintessential Druid II",
+    "page": 84,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Summer"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living animal touched"
+    },
+    "duration": "1 min/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "No",
+    "description": "Imbues one of the animal's natural weapons with a weapon special ability (flaming, keen, vorpal, etc.); the druid can grant a bonus equal to his level ÷4 (rounded down), splittable across multiple natural weapons. Also castable as Ranger 4."
+  },
+  {
+    "name": "Be a Tree",
+    "source": "The Quintessential Druid II",
+    "page": 85,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Autumn"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 living creature"
+    },
+    "duration": "Permanent (D)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Permanently transforms the target into an ordinary tree; the victim can still speak and cast verbal-only spells. Dismissible by the caster, but otherwise permanent even after the druid's death."
+  },
+  {
+    "name": "Blossoming Footsteps",
+    "source": "The Quintessential Druid II",
+    "page": 85,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Self",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Causes plants to grow where the druid walks"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "While active and moving no faster than a standard move, the druid's footsteps sprout flowers or undergrowth that neither hinders movement nor provides cover, though it can still be targeted by spells like entangle. Plants either take root naturally or wither away when the spell ends."
+  },
+  {
+    "name": "Bog Burial",
+    "source": "The Quintessential Druid II",
+    "page": 85,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 living creature or corpse"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex special; see text",
+    "spellResistance": "Yes",
+    "description": "Target sinks into the ground unless it wins an escalating Strength/Escape Artist contest (DC 15, ±5 per round; +4 to the save DC in mud or loose earth). If the check DC exceeds 30 the victim is pulled fully underground and must save vs. death each round, rising as a zombie if killed. A freedom spell counters it."
+  },
+  {
+    "name": "Call Thunder",
+    "source": "The Quintessential Druid II",
+    "page": 86,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Sonic",
+      "Winter"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "0",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "50-ft. emanation from the druid"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude resists; see text",
+    "spellResistance": "Yes",
+    "description": "A deafening thunderclap deafens creatures in the area for 2d6 rounds (Fortitude negates) and has a percentage chance equal to the druid's caster level to spawn a small storm usable with spells such as call lightning."
+  },
+  {
+    "name": "Cloudburst",
+    "source": "The Quintessential Druid II",
+    "page": 86,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "One standard action",
+    "range": "Sight or Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One cloud"
+    },
+    "duration": "Instantaneous or one round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Long-range version makes a distant rain cloud release its normal rainfall over minutes to hours. Short-range version conjures a small cloud that follows and can be steered by the druid, reduces fire/heat damage by 3/round, and yields 1d4 gallons of drinking water per round."
+  },
+  {
+    "name": "Dart of Mistletoe",
+    "source": "The Quintessential Druid II",
+    "page": 86,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": null,
+    "descriptors": [
+      "Death",
+      "Winter"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Special",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Creates a dart of mistletoe"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Turns mistletoe into a thrown dart (20-ft. range increment); a hit forces a Fortitude save or death, with the victim returning to life at the next sunrise as per raise dead. Focus: a piece of mistletoe dipped in gold, 500 gp."
+  },
+  {
+    "name": "Entomb",
+    "source": "The Quintessential Druid II",
+    "page": 86,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "Autumn"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Creates a tomb"
+    },
+    "duration": "Permanent",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Buries a touched corpse under a stone cairn raised from surrounding rubble. Anyone trying to animate it as undead must beat a caster level check (DC 10 + the druid's level); investing 500 XP also makes the burial serve as an atonement for the dead creature."
+  },
+  {
+    "name": "Guide Wild Shape",
+    "source": "The Quintessential Druid II",
+    "page": 86,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Another character with the ability to use wild shape"
+    },
+    "duration": "Special",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "No",
+    "description": "Lets the target use wild shape forms normally available only to a higher-level druid (still capped by Hit Dice ≤ caster level), lasting as long as the target stays shaped. Can also be used to help a druid who is stuck in wild shape."
+  },
+  {
+    "name": "Leash the Earthquake",
+    "source": "The Quintessential Druid II",
+    "page": 87,
+    "spellLevelDruid": 9,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "F"
+    ],
+    "castingTime": "Ten minutes",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Any one natural disaster"
+    },
+    "duration": "Special",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Binds an ongoing natural disaster (earthquake, eruption, flood, tsunami, etc.) into an adamantine-and-mithral leash, holding it on hold indefinitely; breaking the leash instantly resumes the disaster where it left off. Can counter an earthquake spell. Focus: an adamantine and mithral leash, 2,000 gp."
+  },
+  {
+    "name": "Manikin",
+    "source": "The Quintessential Druid II",
+    "page": 87,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "One hour",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Creates a construct from wood, leaves, mulch and other plant matter"
+    },
+    "duration": "One day/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a loyal Medium construct servant assembled from forest debris (printed with its own stat block: 1d10+20 HD, AC 17, two slam attacks, spell-like longstrider/pass without trace/animal messenger 1/day). A druid may have only one manikin active at a time. Material component: a living Diminutive bird or animal that becomes its heart."
+  },
+  {
+    "name": "Oakwatch",
+    "source": "The Quintessential Druid II",
+    "page": 87,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "One hour",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One tree"
+    },
+    "duration": "One season (three months)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grants a tree sight, hearing, and 60-ft. tremorsense plus the druid's Spot/Listen scores, and can be primed with up to 5 spell levels' worth of spells (cast during oakwatch's own casting) that the tree triggers once when druid-specified conditions occur. Focus: the tree itself."
+  },
+  {
+    "name": "Obedient Cloud",
+    "source": "The Quintessential Druid II",
+    "page": 88,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Summer"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "One standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One cloud"
+    },
+    "duration": "Concentration",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Seizes mental control of a cloud of gas or vapor, moving it 10 ft./round against its natural drift and allowing rough reshaping so long as the cloud stays connected. Contesting another controller's cloud requires opposed Concentration checks. No effect on gaseous creatures."
+  },
+  {
+    "name": "Sow Forest",
+    "source": "The Quintessential Druid II",
+    "page": 88,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Autumn"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "One standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Creates one tree/level"
+    },
+    "duration": "10 minutes/level or until discharged",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Plants a seed that sprouts a round later into a full-sized ordinary tree (3d20 ft. tall). A creature caught underneath may Reflex save to dodge or be carried up the trunk and must then Balance (DC 15) or fall. Trees created are entirely mundane afterward."
+  },
+  {
+    "name": "Spirit Animal",
+    "source": "The Quintessential Druid II",
+    "page": 89,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Winter"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 animal"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Makes an animal incorporeal and shifted onto the Ethereal Plane, able to fly and pass through walls but not touch or affect material creatures or objects. An untrained animal needs a Diplomacy check (DC 15) or it panics and attacks/flees when transformed."
+  },
+  {
+    "name": "Thrice-twined Thorns",
+    "source": "The Quintessential Druid II",
+    "page": 89,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Autumn"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 entangling effect"
+    },
+    "duration": "Special",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Adds thorns to an existing entangling effect (net, tanglefoot bag, entangle, etc.); anyone who fails a Strength or Escape Artist check to break free takes 1d6 piercing damage, affecting every creature caught by that effect. Lasts as long as the underlying effect does."
+  },
+  {
+    "name": "Thornskin",
+    "source": "The Quintessential Druid II",
+    "page": 89,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Autumn"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "As barkskin, but adds a sheath of sharp thorns: anyone striking the target with a natural attack or grappling it takes 1 + the attacker's Strength modifier in damage, and the target deals +1 damage with natural attacks and 1 + Str modifier during grapples. Drawback: a –4 penalty on Reflex saves to avoid catching fire.",
+    "otherPrintings": [
+      {
+        "source": "Complete Arcane",
+        "page": 127
+      }
+    ]
+  },
+  {
+    "name": "Tree Shelter",
+    "source": "The Quintessential Druid II",
+    "page": 89,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Spring"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 tree"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Opens a roughly circular extradimensional room inside a tree (five times the trunk's diameter), reached through a portal in the bark near the casting point. Simply furnished, with fruit on the table if the tree bears any and water dripping from the ceiling. Anything left inside when the spell ends is ejected unharmed. Focus: the tree."
+  }
+]

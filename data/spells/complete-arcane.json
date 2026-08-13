@@ -1,0 +1,372 @@
+[
+  {
+    "name": "Animate Fire",
+    "source": "Complete Arcane",
+    "page": 96,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Up to a 5-ft. cube of fire"
+    },
+    "duration": "Concentration, up to 1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As animate wood, but animates a volume of fire (up to the same maximum size) instead of wood. The animated fire has the fire subtype and a fire elemental's burn attack, dealing bludgeoning plus fire damage on a successful slam and possibly igniting the target (Fortitude DC 12). Has hardness 0. Material component: charcoal, sulfur, and soda ash.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 12,
+        "spellLevelDruid": 1
+      }
+    ]
+  },
+  {
+    "name": "Animate Water",
+    "source": "Complete Arcane",
+    "page": 96,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Up to a 5-ft. cube of water"
+    },
+    "duration": "Concentration, up to 1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "As animate wood, but animates a volume of water (up to the same maximum size) instead of wood. The animated water has hardness 0 but double the normal hit points for an animated object of its size. Material component: a vial of spring water mixed with cinnabar oil.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 13
+      }
+    ]
+  },
+  {
+    "name": "Animate Wood",
+    "source": "Complete Arcane",
+    "page": 96,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One Small or smaller wooden object"
+    },
+    "duration": "Concentration, up to 1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Imbues a Small or smaller wooden object with mobility and a semblance of life, causing it to immediately attack whoever or whatever the caster designates; it uses the statistics of a Small animated object with hardness 5. Cannot animate an object carried or worn by a creature. Material component: powdered cinnabar mixed with ground peach pit.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 13
+      }
+    ]
+  },
+  {
+    "name": "Chameleon",
+    "source": "Complete Arcane",
+    "page": 100,
+    "spellLevelDruid": 2,
+    "school": "Illusion",
+    "subschool": "Glamer",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Alters the coloration of the touched creature's body and clothing to blend into its surroundings, granting a +10 circumstance bonus on Hide checks. The coloration adapts quickly enough to keep the bonus while moving at up to half speed through gradually changing backgrounds; an abrupt background change (e.g. forest to stone wall) costs the bonus for 1 round while the coloring catches up. Material component: the shed skin of a small lizard.",
+    "otherPrintings": []
+  },
+  {
+    "name": "Swim",
+    "source": "Complete Arcane",
+    "page": 125,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the subject a swim speed equal to its land speed (without water breathing or extended breath-holding), letting it swim at normal speed without Swim checks if lightly loaded or less, plus a +8 competence bonus on Swim checks for special actions or hazards; it can take 10 on Swim checks even when rushed or threatened and can run while swimming in a straight line. A creature carrying a medium load or heavier must still make Swim checks to move (with the normal weight penalty), though the spell's other benefits still apply. Material component: a goldfish scale.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 217
+      }
+    ]
+  },
+  {
+    "name": "Resist Energy, Mass",
+    "source": "Complete Arcane",
+    "page": 120,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "As resist energy, but affects every targeted creature in range instead of just one.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 174
+      }
+    ]
+  },
+  {
+    "name": "Thornskin",
+    "source": "Complete Arcane",
+    "page": 127,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Grows thorns on the caster's skin for the duration: unarmed strikes deal lethal damage (if they didn't already) plus an extra 1d6 piercing damage, and any creature that hits the caster with a natural weapon, unarmed strike, or successful grapple check takes 5 piercing damage in return. Material component: a thorn.",
+    "otherPrintings": [
+      {
+        "source": "Quintessential Druid II",
+        "page": 89
+      },
+      {
+        "source": "Spell Compendium",
+        "page": 219
+      }
+    ]
+  },
+  {
+    "name": "Arc of Lightning",
+    "source": "Complete Arcane",
+    "page": 97,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Electricity"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "A line between two creatures"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "No",
+    "description": "Creates a natural conductive link between two creatures in range; a bolt of electricity arcs between them (and anything caught in the line connecting them), dealing 1d6 damage per caster level (maximum 15d6) to both.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 15
+      }
+    ]
+  },
+  {
+    "name": "Wood Rot",
+    "source": "Complete Arcane",
+    "page": 130,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One nonmagical wooden object or a volume of wood; or one plant creature"
+    },
+    "duration": "Instantaneous or 1 round/level; see text",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A touch that instantly destroys an unattended, nonmagical wooden object smaller than 6 ft. across (or a 3-ft.-radius volume of a larger one), or that targets a plant creature. In combat, it can instead be used to sunder a wooden or wooden-hafted weapon (destroying the weapon or its wooden portion on a successful melee touch attack, normally provoking an attack of opportunity), or a wooden shield or armor via a similar touch attack; it has no effect on a wooden weapon that merely strikes the caster.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 241,
+        "spellLevelDruid": 4
+      }
+    ]
+  },
+  {
+    "name": "Energy Immunity",
+    "source": "Complete Arcane",
+    "page": 105,
+    "spellLevelDruid": 6,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "24 hours",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature and its gear complete immunity to damage from one chosen energy type (acid, cold, electricity, fire, or sonic) for the duration; it absorbs only damage, so the target can still suffer that energy type's other effects.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 80
+      }
+    ]
+  },
+  {
+    "name": "Summon Elemental Monolith",
+    "source": "Complete Arcane",
+    "page": 124,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned elemental monolith"
+    },
+    "duration": "Concentration, up to 1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a single elemental monolith, which appears and acts immediately on the caster's turn, attacking her enemies to the best of its ability; if the caster shares its language and is close enough to communicate, she can direct it to hold back, focus specific targets, or take other actions. Can't be summoned somewhere hostile to its element (e.g. a fire monolith underwater). Gains the descriptor matching the element summoned. Arcane material component: a 100 gp gem matching the chosen element (aquamarine for air, tourmaline for earth, garnet for fire, or pearl for water).",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 214
+      }
+    ]
+  },
+  {
+    "name": "Transmute Rock to Lava",
+    "source": "Complete Arcane",
+    "page": 127,
+    "spellLevelDruid": 9,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 10-ft. cube"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half; see text",
+    "spellResistance": "No",
+    "description": "Transforms a 10-ft. cube of natural, unworked rock into an equal volume of molten lava. Creatures in the area take 2d6 fire damage (Reflex save) if they can escape by their next turn, or 20d6 fire damage per round if they fail the save or can't escape; while in the lava, speed drops to 5 ft. and a -2 penalty applies to attacks and AC, and even after leaving, creatures take half damage for 1d3 more rounds. Cast on a ceiling, the lava instead rains down as a 15-ft.-radius, roughly 1.5-ft.-deep pool, dealing 2d6 fire plus 1d6 bludgeoning to anyone directly beneath (Reflex half) and 2d6 fire/round to anyone caught in the resulting pool (plus 1d6 fire/round for 1d3 rounds after escaping). Adjacent worked-stone structures take 10d6 fire damage per round from contact with the lava (worked stone itself can't be targeted), and contacted wooden structures ignite. The lava cools back to stone over 2d6 hours at the surface, though the core of a large mass can stay molten far longer. Doesn't affect magical or enchanted stone.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 222
+      }
+    ]
+  }
+]
