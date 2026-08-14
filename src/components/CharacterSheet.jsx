@@ -431,7 +431,7 @@ export default function CharacterSheet() {
         )}
 
         {activeTab === 'spells' && (
-          <PartySection color="spells" title="Spell Reference" subtitle="Every extracted sourcebook spell">
+          <PartySection color="spells" title="Spell Reference">
             <Suspense fallback={<p className="breakdown">Loading spell reference…</p>}>
               <SpellReferenceTab />
             </Suspense>

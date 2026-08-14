@@ -723,10 +723,11 @@ extraction — pure reference, deliberately not wired to the Tab 1 prep tracker.
 **Loading.** `src/lib/loadSpellData.js` globs every file under `data/spells/` with
 `import.meta.glob` (not named imports, unlike `loadCreatureData.js`) specifically so dropping
 in a new sourcebook file needs no loader edit — the extraction pipeline is still adding books.
-Exports the flat `rawSpells` array plus `spellFileCounts` (`{ fileName: count }`), which the
-tab renders as a load report (a one-line total plus a collapsed-by-default per-file
-breakdown) so a truncated or malformed extraction is visible at a glance rather than silently
-missing.
+Exports the flat `rawSpells` array plus `spellFileCounts` (`{ bookTitle: count }`, keyed by
+each file's own `source` field rather than its filename — falls back to the filename only if a
+file loaded with zero entries to read a title from), which the tab renders as a load report (a
+one-line "Spell count: N" plus a collapsed-by-default per-book breakdown) so a truncated or
+malformed extraction is visible at a glance rather than silently missing.
 
 **Merging.** `src/lib/calc/spellReference.js` (`mergeSpellEntries`) groups raw entries by
 spell name (case-insensitive) into one card per spell. Every sourcebook that reprints a spell

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { spellGroups, spellFileCounts, totalRawSpellCount, sourceBooks } from '../../lib/spellReferenceData'
+import { spellGroups, spellFileCounts, sourceBooks } from '../../lib/spellReferenceData'
 import { normalizeSourceKey } from '../../lib/calc/spellReference'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
 import './spellReference.css'
@@ -22,19 +22,16 @@ function Collapsible({ title, defaultExpanded, children }) {
 }
 
 function LoadReport() {
-  const fileNames = Object.keys(spellFileCounts).sort()
+  const bookTitles = Object.keys(spellFileCounts).sort()
   return (
     <div className="spell-load-report">
-      <p className="breakdown">
-        {totalRawSpellCount} spell entries loaded from {fileNames.length} files — {spellGroups.length} unique
-        spell names after merging reprints.
-      </p>
+      <p className="breakdown">Spell count: {spellGroups.length}</p>
       <Collapsible title="Per-file breakdown" defaultExpanded={false}>
         <ul className="spell-load-report-list">
-          {fileNames.map((f) => (
-            <li key={f}>
-              <span>{f}</span>
-              <span>{spellFileCounts[f]}</span>
+          {bookTitles.map((title) => (
+            <li key={title}>
+              <span>{title}</span>
+              <span>{spellFileCounts[title]}</span>
             </li>
           ))}
         </ul>
