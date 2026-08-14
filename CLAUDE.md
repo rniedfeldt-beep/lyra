@@ -355,6 +355,64 @@ Feywild-native, so never available. Pixie and satyr are fey — never available.
 
 ---
 
+## Anarchic template (Iconic Manifestation overlay)
+
+Lyra is chaotic neutral, so Iconic Manifestation (Druid 4) grants her the Anarchic template
+(Manual of the Planes, p. 198) — `data/templates/anarchic.json`, loaded via
+`loadCreatureData.js`, computed by `src/lib/calc/anarchic.js`. **This is an overlay on Lyra
+herself, never a form modifier** — critically different from wild shape, Greenbound, and every
+other template in this app, which all replace or layer onto a *creature's* stats. Anarchic
+composes onto whatever her current stat block is (base form or wild shaped) and survives
+wild-shape changes untouched, because `state.anarchicTemplate` is a wholly separate live-state
+key from `activeWildShapeForm` — nothing in `assumeWildShapeForm`/`revertWildShapeForm` reads
+or writes it. Don't couple the two.
+
+**State machine, two phases, tracked in `state.anarchicTemplate`**
+(`AnarchicTemplateTracker.jsx`, rendered on Tab 1 right after Wild Shape):
+1. **Cast** (swift action, spends a 4th-level slot) opens an invocation window —
+   `castWindowMinutesPerCasterLevel` (10) × caster level, so 80 min at CL 8. Minute-based
+   countdown (not rounds — these durations are long enough that a rounds-based stepper would be
+   unusable) via a plain `-1/+1` stepper, same interaction pattern as every other tracker in
+   this app: nothing auto-decrements on a real clock, the player ticks it down themselves.
+2. **Invoke** (spends 1 wild shape use, gated on the window still being open) makes the
+   template active — `invokedDurationMinutesPerCasterLevel` (1) × caster level, so 8 min at
+   CL 8. Own separate countdown.
+
+`endAnarchic` returns straight to `inactive` from either phase (letting the window lapse
+unused, or ending the invoked effect early/on expiry) — there's no third "back to cast, window
+still open" state; re-invoking means casting again.
+
+**Hit Dice for template purposes is always Lyra's own character level**, never the active wild
+shape form's HD — standard wild shape rules never change HD (BAB/saves/HP/skill ranks/feats
+all stay hers per the Wild Shape section above), so this holds in base form or shaped alike.
+`computeAnarchicOverlay()` takes `hd` as a plain parameter for exactly this reason; don't wire
+it to `parseHitDice()` on whatever creature is currently active.
+
+**DR/fast healing by HD** (confirmed against the book, three-column table — Manual of the
+Planes p. 198): 1–3 HD none/none, 4–7 HD none/fast healing 1, 8–11 HD none/fast healing 3,
+12+ HD DR 5/+1/fast healing 5. At Lyra's 8 HD that's fast healing 3, no DR — verified live.
+"If the base creature already has fast healing or DR, use the better value" is modeled
+(`betterDamageReduction()`) but is a no-op today: nothing in this app's creature or character
+data currently carries DR/fast healing to compare against, so `existingDamageReduction`/
+`existingFastHealing` default to none. Wire them up if a future wild shape form or piece of
+gear ever grants either.
+
+**Smite Law** (Su, 1/day) is its own daily resource — `anarchicTemplate.smiteLawUsed` — reset
+only by Long Rest, deliberately untouched by `startAnarchicCast`/`invokeAnarchic`/`endAnarchic`
+so it persists correctly across multiple cast/invoke cycles in the same day. Bonus damage =
+HD, capped at +20 (`computeSmiteLawBonus`) — +8 at CL 8.
+
+**Type change** ("Animals and beasts become magical beasts") only ever shows a note, never
+recomputes anything, and only applies while both true: template invoked *and* currently wild
+shaped into a creature of one of those types — looked up live via
+`state.activeWildShapeForm.creatureName` against `monsterManual`, not cached.
+
+Ability scores, saves, skills, and feats are explicitly unaffected — the template data file
+documents this (`noChangeTo`) but nothing computes off it; it exists so a future reader doesn't
+wonder why those fields are missing from the overlay.
+
+---
+
 ## Summoning
 
 A canine summon can stack a simple template, Greenbound, and two feat effects.

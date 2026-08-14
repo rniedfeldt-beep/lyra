@@ -31,6 +31,17 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
     dailyUses,
     companionHp: { current: companion.hp.max },
     activeSummons: [],
+    // Anarchic template state machine (Iconic Manifestation) — two phases,
+    // 'cast' (invocation window open) and 'invoked' (template active),
+    // bookended by 'inactive'. Deliberately not tied to activeWildShapeForm:
+    // it's an overlay on Lyra, not a form modifier, so it must survive
+    // assuming/reverting wild shape untouched.
+    anarchicTemplate: {
+      phase: 'inactive',
+      windowMinutesRemaining: 0,
+      durationMinutesRemaining: 0,
+      smiteLawUsed: false,
+    },
     updatedAt: null,
   }
 }
@@ -49,5 +60,6 @@ export function mergeWithDefaults(loaded, defaults) {
     preparedSpells: { ...defaults.preparedSpells, ...loaded.preparedSpells },
     dailyUses: { ...defaults.dailyUses, ...loaded.dailyUses },
     companionHp: { ...defaults.companionHp, ...loaded.companionHp },
+    anarchicTemplate: { ...defaults.anarchicTemplate, ...loaded.anarchicTemplate },
   }
 }

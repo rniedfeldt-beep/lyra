@@ -7,8 +7,9 @@ import greenboundTemplate from '../../data/templates/greenbound.json'
 import advancedTemplate from '../../data/templates/advanced.json'
 import giantTemplate from '../../data/templates/giant.json'
 import youngTemplate from '../../data/templates/young.json'
+import anarchicTemplate from '../../data/templates/anarchic.json'
 
-export { monsterManual, animalCompanion, greenboundTemplate }
+export { monsterManual, animalCompanion, greenboundTemplate, anarchicTemplate }
 
 export const simpleTemplates = {
   advanced: advancedTemplate,

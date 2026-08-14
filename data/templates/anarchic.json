@@ -1,0 +1,30 @@
+{
+  "id": "anarchic",
+  "name": "Anarchic",
+  "source": "Manual of the Planes, p. 198",
+  "grantedBy": "Iconic Manifestation (Druid 4) — chaotic neutral alignment",
+  "castCost": { "action": "swift", "spellSlotLevel": 4 },
+  "castWindowMinutesPerCasterLevel": 10,
+  "invokeCost": { "wildShapeUses": 1 },
+  "invokedDurationMinutesPerCasterLevel": 1,
+  "smiteLaw": {
+    "name": "Smite Law",
+    "usesPerDay": 1,
+    "bonusDamagePerHd": 1,
+    "maxBonusDamage": 20,
+    "description": "Once per day, make a normal melee attack to deal extra damage equal to full normal Hit Dice (maximum +20) against a lawful opponent. Duplicates the effect of the smite law spell. Wasted with no effect if the target isn't lawful."
+  },
+  "darkvisionFt": 60,
+  "resistances": { "acid": 5, "cold": 5, "electricity": 5, "fire": 5, "sonic": 5 },
+  "immunities": ["polymorphing", "petrification"],
+  "drFastHealingByHd": [
+    { "minHd": 1, "maxHd": 3, "damageReduction": null, "fastHealing": 0 },
+    { "minHd": 4, "maxHd": 7, "damageReduction": null, "fastHealing": 1 },
+    { "minHd": 8, "maxHd": 11, "damageReduction": null, "fastHealing": 3 },
+    { "minHd": 12, "maxHd": null, "damageReduction": { "amount": 5, "bypass": "+1" }, "fastHealing": 5 }
+  ],
+  "useBetterExistingDrOrFastHealing": true,
+  "typeChange": { "from": ["Animal", "Beast"], "to": "Magical Beast" },
+  "abilityMinimums": { "int": 3 },
+  "noChangeTo": ["abilityScores", "saves", "skills", "feats"]
+}

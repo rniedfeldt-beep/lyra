@@ -3,6 +3,7 @@ import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
+import AnarchicTemplateTracker from './anarchic/AnarchicTemplateTracker'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
@@ -399,6 +400,7 @@ export default function CharacterSheet() {
             <ArmorClass ac={sheet.ac} />
             <Saves saves={sheet.saves} />
             <WildShapeCalculator sheet={sheet} />
+            <AnarchicTemplateTracker sheet={sheet} />
             <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
           </PartySection>
         )}

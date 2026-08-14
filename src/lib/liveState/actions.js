@@ -87,3 +87,56 @@ export function updateSummonMember(state, summonId, memberId, updates) {
     ),
   }
 }
+
+// Anarchic template overlay state machine — inactive -> cast -> invoked ->
+// inactive. smiteLawUsed is deliberately untouched by startAnarchicCast/
+// invokeAnarchic/endAnarchic: it's a 1/day resource independent of any one
+// cast, only cleared by Long Rest (part of getDefaultLiveState).
+export function startAnarchicCast(state, windowMinutes) {
+  return {
+    ...state,
+    anarchicTemplate: {
+      ...state.anarchicTemplate,
+      phase: 'cast',
+      windowMinutesRemaining: windowMinutes,
+      durationMinutesRemaining: 0,
+    },
+  }
+}
+
+export function setAnarchicWindowMinutes(state, minutes) {
+  return {
+    ...state,
+    anarchicTemplate: { ...state.anarchicTemplate, windowMinutesRemaining: Math.max(0, minutes) },
+  }
+}
+
+export function invokeAnarchic(state, durationMinutes) {
+  return {
+    ...state,
+    anarchicTemplate: { ...state.anarchicTemplate, phase: 'invoked', durationMinutesRemaining: durationMinutes },
+  }
+}
+
+export function setAnarchicDurationMinutes(state, minutes) {
+  return {
+    ...state,
+    anarchicTemplate: { ...state.anarchicTemplate, durationMinutesRemaining: Math.max(0, minutes) },
+  }
+}
+
+export function endAnarchic(state) {
+  return {
+    ...state,
+    anarchicTemplate: {
+      ...state.anarchicTemplate,
+      phase: 'inactive',
+      windowMinutesRemaining: 0,
+      durationMinutesRemaining: 0,
+    },
+  }
+}
+
+export function setAnarchicSmiteLawUsed(state, used) {
+  return { ...state, anarchicTemplate: { ...state.anarchicTemplate, smiteLawUsed: used } }
+}
