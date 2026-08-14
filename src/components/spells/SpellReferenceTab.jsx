@@ -26,7 +26,7 @@ function LoadReport() {
   return (
     <div className="spell-load-report">
       <p className="breakdown">Spell count: {spellGroups.length}</p>
-      <Collapsible title="Per-file breakdown" defaultExpanded={false}>
+      <Collapsible title="Sourcebooks" defaultExpanded={false}>
         <ul className="spell-load-report-list">
           {bookTitles.map((title) => (
             <li key={title}>
