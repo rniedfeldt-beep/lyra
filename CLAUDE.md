@@ -546,7 +546,14 @@ each level's typed slots (badge-style pills, not plain inputs) so it reads as fi
 rather than something the player fills in. Orisons are unlimited-use under this campaign's
 houserule (no `spellSlotsUsed` tracker for level 0 at all), so *summon nature's minor ally*
 alongside *cure minor wounds* at that level costs nothing to cast — the "spends a slot" caveat
-only applies to levels 1–4.
+only applies to levels 1–5.
+
+**Druid Cure progression is offset from cleric/bard by one level past 1st** (DM-confirmed):
+cure light wounds stays at 1st, but moderate/serious/critical shift up to 3rd/4th/5th — so
+2nd level has *no* Cure spell, only the Summon Nature's Ally conversion. Cure critical wounds
+(5th) won't appear in the UI until Lyra reaches character level 9 and actually has 5th-level
+slots (`spellSlots.slots` only includes levels with `total > 0`); the data entry already
+exists in `spontaneousConversions.json` and needs no further change when that day comes.
 
 ---
 

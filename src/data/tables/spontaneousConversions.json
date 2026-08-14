@@ -1,10 +1,11 @@
 {
-  "description": "Spontaneous conversions available from any prepared spell of that level — Spontaneous Healer (cure spells) and the druid's built-in Summon Nature's Ally conversion. Not prepared spells themselves; casting one still spends a slot from that level's tracker, except at orison level, which is unlimited-use under this campaign's houserule and never spends anything.",
+  "description": "Spontaneous conversions available from any prepared spell of that level — Spontaneous Healer (cure spells) and the druid's built-in Summon Nature's Ally conversion. Not prepared spells themselves; casting one still spends a slot from that level's tracker, except at orison level, which is unlimited-use under this campaign's houserule and never spends anything. The druid Cure progression runs one level higher than cleric/bard past 1st level (cure light wounds stays at 1st, but moderate/serious/critical shift up to 3rd/4th/5th), so 2nd level has no Cure spell at all — only the Summon Nature's Ally conversion.",
   "byLevel": {
     "0": ["cure minor wounds", "summon nature's minor ally"],
     "1": ["cure light wounds", "summon nature's ally I"],
-    "2": ["cure moderate wounds", "summon nature's ally II"],
-    "3": ["cure serious wounds", "summon nature's ally III"],
-    "4": ["cure critical wounds", "summon nature's ally IV"]
+    "2": ["summon nature's ally II"],
+    "3": ["cure moderate wounds", "summon nature's ally III"],
+    "4": ["cure serious wounds", "summon nature's ally IV"],
+    "5": ["cure critical wounds"]
   }
 }
