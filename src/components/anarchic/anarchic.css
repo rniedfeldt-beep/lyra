@@ -1,49 +1,40 @@
-.anarchic-phase {
+.anarchic-toggle {
+  margin: 10px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.anarchic-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.anarchic-active-block {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.anarchic-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.anarchic-effects {
+  gap: 6px;
+  margin-top: 10px;
+  padding: 10px 12px;
   border: 1px solid var(--accent-border);
   background: var(--accent-bg);
   border-radius: 8px;
-  padding: 10px 12px;
 }
 
-.anarchic-effects h3 {
-  margin: 0 0 6px;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-}
-
-.anarchic-effects .breakdown {
-  margin-bottom: 4px;
+.anarchic-active-block .breakdown {
+  margin: 0;
 }
 
 .anarchic-smite {
-  margin-top: 8px;
+  margin-top: 4px;
   padding-top: 8px;
   border-top: 1px solid var(--accent-border);
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
   font-size: 13px;
   color: var(--text-h);
-}
-
-.anarchic-smite label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }

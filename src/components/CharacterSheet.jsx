@@ -3,12 +3,13 @@ import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
-import AnarchicTemplateTracker from './anarchic/AnarchicTemplateTracker'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
 import TabBar from './layout/TabBar'
+import { anarchicTemplate } from '../lib/loadCreatureData'
+import { computeAnarchicWindowMinutes, computeAnarchicInvokedMinutes, computeSmiteLawBonus } from '../lib/calc/anarchic'
 import './CharacterSheet.css'
 
 // Lazy-loaded: the spell reference data (~850KB of extracted sourcebook
@@ -355,6 +356,71 @@ function Feats({ feats }) {
   )
 }
 
+// The full write-up — rarely-needed material moved off Tab 1, where only
+// the checkbox/countdown/Smite-Law summary lives now (AnarchicToggle,
+// inside the Wild Shape card).
+function AnarchicReference({ sheet }) {
+  const casterLevel = sheet.character.casterLevel.druid
+  const windowMinutes = computeAnarchicWindowMinutes(casterLevel, anarchicTemplate)
+  const durationMinutes = computeAnarchicInvokedMinutes(casterLevel, anarchicTemplate)
+  const smiteLawBonus = computeSmiteLawBonus(sheet.character.level, anarchicTemplate)
+
+  return (
+    <Card title="Anarchic Template">
+      <p className="breakdown">
+        {anarchicTemplate.source} · {anarchicTemplate.grantedBy}
+      </p>
+      <p>
+        Cast as a swift action, spending a 4th-level slot, to open an invocation window of{' '}
+        {anarchicTemplate.castWindowMinutesPerCasterLevel} min/caster level ({windowMinutes} min at her current
+        caster level). Invoking within that window spends 1 wild shape use and makes the template active for{' '}
+        {anarchicTemplate.invokedDurationMinutesPerCasterLevel} min/caster level ({durationMinutes} min). An
+        overlay on Lyra herself, not a form modifier — applies in base form or wild shaped, and survives assuming
+        or reverting a form. The Tab 1 checkbox collapses this into one step, paying both costs at once.
+      </p>
+      <p className="breakdown">
+        Darkvision {anarchicTemplate.darkvisionFt} ft. · Resist{' '}
+        {Object.entries(anarchicTemplate.resistances)
+          .map(([type, amount]) => `${amount} ${type}`)
+          .join(', ')}{' '}
+        · Immune to {anarchicTemplate.immunities.join(', ')}
+      </p>
+
+      <h3>Damage Reduction &amp; Fast Healing by Hit Dice</h3>
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>HD</th>
+            <th>DR</th>
+            <th>Fast Healing</th>
+          </tr>
+        </thead>
+        <tbody>
+          {anarchicTemplate.drFastHealingByHd.map((b) => (
+            <tr key={b.minHd}>
+              <td>{b.maxHd ? `${b.minHd}–${b.maxHd}` : `${b.minHd}+`}</td>
+              <td>{b.damageReduction ? `${b.damageReduction.amount}/${b.damageReduction.bypass}` : '—'}</td>
+              <td>{b.fastHealing || '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="note">If the base creature already has fast healing or DR, use the better value.</p>
+
+      <p>
+        <strong>{anarchicTemplate.smiteLaw.name}</strong> (Su, {anarchicTemplate.smiteLaw.usesPerDay}/day) —{' '}
+        {anarchicTemplate.smiteLaw.description} At her current HD, that's {formatMod(smiteLawBonus)} damage.
+      </p>
+
+      <p className="breakdown">
+        {anarchicTemplate.typeChange.from.join(' and ')} become {anarchicTemplate.typeChange.to}; all other types
+        unchanged. Minimum Intelligence {anarchicTemplate.abilityMinimums.int}. No change to ability scores,
+        saves, skills, or feats.
+      </p>
+    </Card>
+  )
+}
+
 export default function CharacterSheet() {
   const sheet = lyraSheet
   const { character } = sheet
@@ -400,7 +466,6 @@ export default function CharacterSheet() {
             <ArmorClass ac={sheet.ac} />
             <Saves saves={sheet.saves} />
             <WildShapeCalculator sheet={sheet} />
-            <AnarchicTemplateTracker sheet={sheet} />
             <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
           </PartySection>
         )}
@@ -428,6 +493,7 @@ export default function CharacterSheet() {
             />
             <Equipment items={sheet.items} />
             <Feats feats={sheet.feats} />
+            <AnarchicReference sheet={sheet} />
             <AttackRoutine sheet={sheet} />
           </PartySection>
         )}

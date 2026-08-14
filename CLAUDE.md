@@ -367,20 +367,27 @@ wild-shape changes untouched, because `state.anarchicTemplate` is a wholly separ
 key from `activeWildShapeForm` — nothing in `assumeWildShapeForm`/`revertWildShapeForm` reads
 or writes it. Don't couple the two.
 
-**State machine, two phases, tracked in `state.anarchicTemplate`**
-(`AnarchicTemplateTracker.jsx`, rendered on Tab 1 right after Wild Shape):
-1. **Cast** (swift action, spends a 4th-level slot) opens an invocation window —
-   `castWindowMinutesPerCasterLevel` (10) × caster level, so 80 min at CL 8. Minute-based
-   countdown (not rounds — these durations are long enough that a rounds-based stepper would be
-   unusable) via a plain `-1/+1` stepper, same interaction pattern as every other tracker in
-   this app: nothing auto-decrements on a real clock, the player ticks it down themselves.
-2. **Invoke** (spends 1 wild shape use, gated on the window still being open) makes the
-   template active — `invokedDurationMinutesPerCasterLevel` (1) × caster level, so 8 min at
-   CL 8. Own separate countdown.
+**Split across two tabs.** Tab 1 (`AnarchicToggle.jsx`, embedded inside the Wild Shape card,
+right after its `<h2>`) is the live tracker: one checkbox, "Iconic Manifestation active." Tab 3
+Reference (`AnarchicReference`, a local component in `CharacterSheet.jsx` alongside
+Equipment/Feats) is the full write-up — description, the complete DR/fast-healing table, Smite
+Law's full text, the type-change rule, ability minimum — material the player rarely needs
+mid-round and doesn't want cluttering Tab 1. Both read the same `anarchicTemplate.json` data
+and `calc/anarchic.js` functions; only the UI is split, not the underlying rules.
 
-`endAnarchic` returns straight to `inactive` from either phase (letting the window lapse
-unused, or ending the invoked effect early/on expiry) — there's no third "back to cast, window
-still open" state; re-invoking means casting again.
+**One checkbox, both costs at once.** RAW technically separates casting (opens an invocation
+window) from invoking (commits to the effect) as two actions with two different economies —
+Reference documents this distinction for completeness — but the live tracker collapses it into
+a single toggle: checking it spends a 4th-level slot *and* a wild shape use together and goes
+straight to the active/timed effect (`activateAnarchic`), skipping the window entirely, since
+in practice there's rarely a reason to cast now and decide whether to invoke later. Unchecking
+(`deactivateAnarchic`) never refunds either cost, same as every other tracker in this app.
+`state.anarchicTemplate` is `{ active, durationMinutesRemaining, smiteLawUsed }` — no `phase`
+field, no window. Duration is `invokedDurationMinutesPerCasterLevel` (1) × caster level, so
+8 min at CL 8 — minute-based countdown (not rounds, these durations are long enough that a
+rounds-based stepper would be unusable) via a plain `-1/+1` stepper, same interaction pattern
+as every other tracker: nothing auto-decrements on a real clock, the player ticks it down
+themselves.
 
 **Hit Dice for template purposes is always Lyra's own character level**, never the active wild
 shape form's HD — standard wild shape rules never change HD (BAB/saves/HP/skill ranks/feats
@@ -398,9 +405,9 @@ data currently carries DR/fast healing to compare against, so `existingDamageRed
 gear ever grants either.
 
 **Smite Law** (Su, 1/day) is its own daily resource — `anarchicTemplate.smiteLawUsed` — reset
-only by Long Rest, deliberately untouched by `startAnarchicCast`/`invokeAnarchic`/`endAnarchic`
-so it persists correctly across multiple cast/invoke cycles in the same day. Bonus damage =
-HD, capped at +20 (`computeSmiteLawBonus`) — +8 at CL 8.
+only by Long Rest, deliberately untouched by `activateAnarchic`/`deactivateAnarchic` so it
+persists correctly across multiple activations in the same day. Bonus damage = HD, capped at
++20 (`computeSmiteLawBonus`) — +8 at CL 8.
 
 **Type change** ("Animals and beasts become magical beasts") only ever shows a note, never
 recomputes anything, and only applies while both true: template invoked *and* currently wild

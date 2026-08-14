@@ -31,14 +31,12 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
     dailyUses,
     companionHp: { current: companion.hp.max },
     activeSummons: [],
-    // Anarchic template state machine (Iconic Manifestation) — two phases,
-    // 'cast' (invocation window open) and 'invoked' (template active),
-    // bookended by 'inactive'. Deliberately not tied to activeWildShapeForm:
-    // it's an overlay on Lyra, not a form modifier, so it must survive
-    // assuming/reverting wild shape untouched.
+    // Anarchic template overlay (Iconic Manifestation) — a single
+    // active/inactive toggle on the Lyra tab. Deliberately not tied to
+    // activeWildShapeForm: it's an overlay on Lyra, not a form modifier, so
+    // it must survive assuming/reverting wild shape untouched.
     anarchicTemplate: {
-      phase: 'inactive',
-      windowMinutesRemaining: 0,
+      active: false,
       durationMinutesRemaining: 0,
       smiteLawUsed: false,
     },

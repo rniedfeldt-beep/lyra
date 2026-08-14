@@ -88,33 +88,24 @@ export function updateSummonMember(state, summonId, memberId, updates) {
   }
 }
 
-// Anarchic template overlay state machine — inactive -> cast -> invoked ->
-// inactive. smiteLawUsed is deliberately untouched by startAnarchicCast/
-// invokeAnarchic/endAnarchic: it's a 1/day resource independent of any one
-// cast, only cleared by Long Rest (part of getDefaultLiveState).
-export function startAnarchicCast(state, windowMinutes) {
+// Anarchic template overlay — a single active/inactive toggle (the Lyra-tab
+// checkbox pays both the spell-slot and wild-shape-use costs at once; the
+// cast/invoke-window distinction is documented as reference material on the
+// Reference tab but isn't separately tracked in live state). smiteLawUsed is
+// deliberately untouched by activateAnarchic/deactivateAnarchic: it's a
+// 1/day resource independent of any one activation, only cleared by Long
+// Rest (part of getDefaultLiveState).
+export function activateAnarchic(state, durationMinutes) {
   return {
     ...state,
-    anarchicTemplate: {
-      ...state.anarchicTemplate,
-      phase: 'cast',
-      windowMinutesRemaining: windowMinutes,
-      durationMinutesRemaining: 0,
-    },
+    anarchicTemplate: { ...state.anarchicTemplate, active: true, durationMinutesRemaining: durationMinutes },
   }
 }
 
-export function setAnarchicWindowMinutes(state, minutes) {
+export function deactivateAnarchic(state) {
   return {
     ...state,
-    anarchicTemplate: { ...state.anarchicTemplate, windowMinutesRemaining: Math.max(0, minutes) },
-  }
-}
-
-export function invokeAnarchic(state, durationMinutes) {
-  return {
-    ...state,
-    anarchicTemplate: { ...state.anarchicTemplate, phase: 'invoked', durationMinutesRemaining: durationMinutes },
+    anarchicTemplate: { ...state.anarchicTemplate, active: false, durationMinutesRemaining: 0 },
   }
 }
 
@@ -122,18 +113,6 @@ export function setAnarchicDurationMinutes(state, minutes) {
   return {
     ...state,
     anarchicTemplate: { ...state.anarchicTemplate, durationMinutesRemaining: Math.max(0, minutes) },
-  }
-}
-
-export function endAnarchic(state) {
-  return {
-    ...state,
-    anarchicTemplate: {
-      ...state.anarchicTemplate,
-      phase: 'inactive',
-      windowMinutesRemaining: 0,
-      durationMinutesRemaining: 0,
-    },
   }
 }
 

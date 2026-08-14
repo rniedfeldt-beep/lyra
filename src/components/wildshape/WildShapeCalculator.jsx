@@ -4,6 +4,7 @@ import { assumeWildShapeForm, revertWildShapeForm } from '../../lib/liveState/ac
 import { getEligibleWildShapeForms, computeWildShapeStatBlock } from '../../lib/calc/wildShape'
 import { monsterManual } from '../../lib/loadCreatureData'
 import { formatMod } from '../../lib/format'
+import AnarchicToggle from '../anarchic/AnarchicToggle'
 import './wildShape.css'
 
 function wildShapeCost(creature) {
@@ -160,6 +161,8 @@ export default function WildShapeCalculator({ sheet }) {
   return (
     <section className="card">
       <h2>Wild Shape</h2>
+
+      <AnarchicToggle sheet={sheet} />
 
       {active && activeStatBlock ? (
         <>
