@@ -841,27 +841,51 @@ than one member, surfaced as a badge on the card ("Levels differ across printing
 order (ascending by level) already puts the lower-level book first, so the disagreement reads
 directly off the stacked printing blocks underneath the badge.
 
+**Spell-like abilities.** Each printing carries `abilityType` (`"spell"` or `"spell-like"`,
+pulled straight from the raw entry — see Spell extraction conventions above) and, when
+spell-like, a `usage` string (`"at will"`, `"1/day"`, …). A printing's badge row shows a
+purple `Lv N` pill when it has a real `spellLevelDruid`, a teal `Sp — {usage}` pill when
+`abilityType` is `"spell-like"`, or **both together** when an entry is genuinely both (a
+class-granted spell-like ability that's *also* a real spell on the list) — Intensify Manifest
+Zone shows `Lv 7th` and `Sp — 1/day` side by side, since Planar Shepherd 7 grants it as a
+spell-like ability on top of its normal 7th-level druid casting. `"at will"` renders
+title-cased (`At Will`) in the badge; other usage strings print as stored. A group's
+`hasSpellLike` (true if *any* printing is spell-like) drives the `Sp` filter button, which
+matches regardless of whether the entry also carries a level — this is deliberately broader
+than the numeric level buttons, which only match a printing actually at that level.
+
+**Spell-like header.** A group headers as "Spell-Like Ability" instead of "Level Unknown"
+only when it has *no* numeric level anywhere (`hasSpellLike && levels.length === 0` — Detect
+Manifest Zone, not on the druid list at all). A dual entry like Intensify Manifest Zone still
+headers under its real level ("7th Level") even when the `Sp` filter is what surfaced it —
+the Sp badge on the printing itself is what communicates the spell-like half, so it doesn't
+need a special header too.
+
 **Missing fields.** Extraction completeness varies a lot by sourcebook (subschool, descriptors,
 components, casting time, range, target/area/effect, duration, save, and SR are null on a
 meaningful fraction of entries — `description` and `spellLevelDruid` are the only fields
 consistently populated, description always and level all but once). Every field renders `—`
 when absent rather than the literal word "null" or a blank gap.
 
-**Layout.** Search-by-name (substring, live), level filter (0–9 buttons, `All` default), and
-source-book filter (`<select>`, `All sources` default) are AND'd together; a spell matches the
-level filter if *any* of its printings are at that level, not just its lowest. No connection to
-`state.preparedSpells` — this tab doesn't read or write live state at all.
+**Layout.** Search-by-name (substring, live), level filter (0–9 buttons plus `Sp`, `All`
+default), and source-book filter (`<select>`, `All sources` default) are AND'd together; a
+spell matches a numeric level filter if *any* of its printings are at that level (not just its
+lowest), and matches `Sp` if *any* printing is spell-like (`hasSpellLike`), independent of
+level. No connection to `state.preparedSpells` — this tab doesn't read or write live state at
+all.
 
 **Sort order.** Results sort by level first (ascending), then alphabetically by name within
-each level, with an `<h4>` header ("Orisons", "1st Level", … "9th Level") wherever the level
-changes — `sortLevelFor()` in `SpellReferenceTab.jsx`. The level a spell sorts/groups under
-depends on which level filter is active: with a specific level selected, every result shares
-that level by construction of the filter, so they all group under one header for it (even a
-spell whose *other* printings sit at a different level — e.g. filtering to 4th shows
-Forestfold under "4th Level" even though its Spell Compendium printing is 3rd). With `All`
-selected, a spell groups under its lowest printed level instead, since there's no filter level
-to defer to. A spell with no known level anywhere (`levels: []`) sorts last, under "Level
-Unknown".
+each level, with an `<h4>` header ("Orisons", "1st Level", … "9th Level", "Spell-Like
+Ability") wherever the level changes — `sortLevelFor()` in `SpellReferenceTab.jsx`. The level
+a spell sorts/groups under depends on which level filter is active: with a specific numeric
+level selected, every result shares that level by construction of the filter, so they all
+group under one header for it (even a spell whose *other* printings sit at a different level —
+e.g. filtering to 4th shows Forestfold under "4th Level" even though its Spell Compendium
+printing is 3rd). With `All` or `Sp` selected, a spell groups under its lowest printed level
+instead (`typeof levelFilter === 'number'` is the only branch that pins the header level —
+`'sp'` falls through to the same "own lowest level" logic as `'all'`), since neither filter
+implies one shared level. A spell with no known level anywhere (`levels: []`) sorts last,
+headered "Spell-Like Ability" if it's spell-like or "Level Unknown" if it's just a data gap.
 
 **Code-split.** `SpellReferenceTab` is lazy-loaded (`React.lazy` + `Suspense`,
 `CharacterSheet.jsx`) rather than imported statically — the ~850KB of extracted spell text

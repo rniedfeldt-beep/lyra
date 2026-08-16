@@ -192,6 +192,11 @@
   white-space: nowrap;
 }
 
+.spell-printing-splike {
+  color: #0891b2;
+  background: rgba(8, 145, 178, 0.14);
+}
+
 .spell-printing-source {
   font-size: 12px;
   color: var(--text);

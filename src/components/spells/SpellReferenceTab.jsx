@@ -6,6 +6,13 @@ import './spellReference.css'
 
 const LEVELS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+// "at will" reads better title-cased in a compact badge; other usages
+// ("1/day", "3/day", etc.) are already fine as printed.
+function formatUsage(usage) {
+  if (!usage) return usage
+  return usage.toLowerCase() === 'at will' ? 'At Will' : usage
+}
+
 // Defaults collapsed — a diagnostic aid for spotting a truncated or
 // malformed sourcebook extraction, not something read on every visit.
 function Collapsible({ title, defaultExpanded, children }) {
@@ -55,13 +62,19 @@ function targetLabel(targetAreaEffect) {
 }
 
 function PrintingBlock({ printing }) {
-  const { source, page, spellLevelDruid, note, full } = printing
-  const levelLabel = spellLevelDruid != null ? SPELL_LEVEL_LABELS[spellLevelDruid] : '—'
+  const { source, page, spellLevelDruid, note, full, abilityType, usage } = printing
+  const isSpellLike = abilityType === 'spell-like'
 
   return (
     <div className="spell-printing">
       <div className="spell-printing-header">
-        <span className="spell-printing-level">Lv {levelLabel}</span>
+        {spellLevelDruid != null && (
+          <span className="spell-printing-level">Lv {SPELL_LEVEL_LABELS[spellLevelDruid]}</span>
+        )}
+        {isSpellLike && (
+          <span className="spell-printing-level spell-printing-splike">Sp — {formatUsage(usage)}</span>
+        )}
+        {spellLevelDruid == null && !isSpellLike && <span className="spell-printing-level">Lv —</span>}
         <span className="spell-printing-source">
           {source}
           {page != null ? `, p. ${page}` : ''}
@@ -111,17 +124,24 @@ function PrintingBlock({ printing }) {
   )
 }
 
-// The level results are grouped/sorted by. A specific level filter pins
-// every result to that level (they all share it, by construction of the
-// filter); browsing "All" falls back to each spell's lowest printed level,
-// so a spell whose printings disagree still lands in one sensible place.
+// The level results are grouped/sorted by. A specific numeric level filter
+// pins every result to that level (they all share it, by construction of
+// the filter); browsing "All" or "Sp" both fall back to each spell's lowest
+// printed level, so a spell whose printings disagree still lands in one
+// sensible place, and a dual spell/spell-like entry like Intensify Manifest
+// Zone still groups under its real level (7th) rather than getting pulled
+// into a generic spell-like bucket.
 function sortLevelFor(group, levelFilter) {
-  if (levelFilter !== 'all') return levelFilter
+  if (typeof levelFilter === 'number') return levelFilter
   return group.levels.length ? Math.min(...group.levels) : null
 }
 
-function levelHeaderLabel(level) {
-  if (level == null) return 'Level Unknown'
+// isPureSpellLike: true only for a group with no numeric level anywhere
+// (like Detect Manifest Zone) — a dual entry with a real level (Intensify
+// Manifest Zone) still gets its normal "Nth Level" header, since the Sp
+// badge on its printing already communicates the spell-like half.
+function levelHeaderLabel(level, isPureSpellLike) {
+  if (level == null) return isPureSpellLike ? 'Spell-Like Ability' : 'Level Unknown'
   if (level === 0) return 'Orisons'
   return `${SPELL_LEVEL_LABELS[level]} Level`
 }
@@ -155,7 +175,8 @@ export default function SpellReferenceTab() {
     const sourceKey = sourceFilter === 'all' ? null : normalizeSourceKey(sourceFilter)
     const matches = spellGroups.filter((g) => {
       if (q && !g.name.toLowerCase().includes(q)) return false
-      if (levelFilter !== 'all' && !g.levels.includes(levelFilter)) return false
+      if (levelFilter === 'sp' && !g.hasSpellLike) return false
+      if (typeof levelFilter === 'number' && !g.levels.includes(levelFilter)) return false
       if (sourceKey && !g.printings.some((p) => normalizeSourceKey(p.source) === sourceKey)) return false
       return true
     })
@@ -197,6 +218,13 @@ export default function SpellReferenceTab() {
               {SPELL_LEVEL_LABELS[l]}
             </button>
           ))}
+          <button
+            type="button"
+            className={levelFilter === 'sp' ? 'active' : ''}
+            onClick={() => setLevelFilter('sp')}
+          >
+            Sp
+          </button>
         </div>
         <select
           className="spell-source-filter"
@@ -223,11 +251,12 @@ export default function SpellReferenceTab() {
           {filtered.map((g, i) => {
             const level = sortLevelFor(g, levelFilter)
             const prevLevel = i > 0 ? sortLevelFor(filtered[i - 1], levelFilter) : undefined
+            const isPureSpellLike = g.hasSpellLike && g.levels.length === 0
             return (
               <SpellCard
                 key={g.name}
                 group={g}
-                levelHeader={level !== prevLevel ? levelHeaderLabel(level) : null}
+                levelHeader={level !== prevLevel ? levelHeaderLabel(level, isPureSpellLike) : null}
               />
             )
           })}

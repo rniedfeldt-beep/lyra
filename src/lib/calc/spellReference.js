@@ -26,7 +26,21 @@ function buildSpellGroup(name, entries) {
     // else's otherPrintings citation — more detail, and the authoritative
     // level for that book.
     if (existing?.full && !full) return
-    printingsByKey.set(key, { source, page: page ?? null, spellLevelDruid: spellLevelDruid ?? null, note: note ?? null, full: full ?? null })
+    printingsByKey.set(key, {
+      source,
+      page: page ?? null,
+      spellLevelDruid: spellLevelDruid ?? null,
+      note: note ?? null,
+      full: full ?? null,
+      // A class-granted spell-like ability (abilityType: "spell-like") can
+      // coexist with a real spellLevelDruid on the same printing — the two
+      // aren't mutually exclusive (e.g. Intensify Manifest Zone is both a
+      // 7th-level druid spell and a 1/day spell-like ability). Stub
+      // printings built only from an otherPrintings citation never carry
+      // this — only a full entry says how its own book treats it.
+      abilityType: full?.abilityType ?? 'spell',
+      usage: full?.usage ?? null,
+    })
   }
 
   for (const entry of entries) {
@@ -55,12 +69,14 @@ function buildSpellGroup(name, entries) {
   const levels = [...new Set(printings.map((p) => p.spellLevelDruid).filter((l) => l != null))].sort(
     (a, b) => a - b,
   )
+  const hasSpellLike = printings.some((p) => p.abilityType === 'spell-like')
 
   return {
     name,
     printings,
     levels,
     levelsDisagree: levels.length > 1,
+    hasSpellLike,
   }
 }
 
