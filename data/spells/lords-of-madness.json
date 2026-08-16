@@ -28,7 +28,8 @@
         "note": "Eberron Campaign Setting's version is a distinct Gatekeeper-only variant (cone-shaped emanation) rather than a straight reprint — this Lords of Madness printing is generally available to any druid (as well as clerics and sorcerers/wizards), with a quarter-circle area.",
         "spellLevelDruid": 1
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Invoke the Cerulean Sign",
@@ -51,7 +52,8 @@
     "savingThrow": "Fortitude negates",
     "spellResistance": "No",
     "description": "An ancient rune-sign anathema to aberrations, traced in the air and released as a pulse of blue light. Every aberration in the area must succeed on a Fortitude save or suffer an effect determined by its Hit Dice relative to the caster's level (closer targets are affected first): HD up to caster level +10, no effect; up to +5, sickened; up to caster level, nauseated; up to -5, dazed; up to -10, stunned. Each effect lasts 1 round, after which the creature steps up one tier toward recovery (stunned to dazed to nauseated to sickened to fully recovered) each subsequent round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Nature's Purity",
@@ -75,7 +77,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "Fires a ray of force dealing 1d6 damage on a hit (2d8 against undead and constructs, or 5d6 with a threat range of 19-20 against aberrations); an aberration slain by the damage is transformed into inert plant matter. Gains one additional ray for every 4 caster levels above 5th (maximum 4 rays at 17th level); multiple rays can target the same or different creatures, but all targets must be within 30 ft. of each other and are fired simultaneously.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Pox",
@@ -102,6 +105,7 @@
     "savingThrow": "Fortitude negates",
     "spellResistance": "Yes",
     "description": "Deals 1d4 Constitution drain to each target, whose skin breaks out in lesions and takes on a pale yellow pallor.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]

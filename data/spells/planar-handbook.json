@@ -28,7 +28,8 @@
         "page": 22,
         "spellLevelDruid": 1
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Beastland Ferocity",
@@ -60,7 +61,8 @@
         "source": "Spell Compendium",
         "page": 25
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Locate Touchstone",
@@ -81,7 +83,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Senses the direction of, and gains a vague sense of the power of, the nearest planar touchstone; if the caster has already found that one, it instead locates the next-nearest. Only touchstones on the caster's current plane can be located. Requires the Planar Touchstone feat to cast.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Resist Planar Alignment",
@@ -111,7 +114,8 @@
         "source": "Spell Compendium",
         "page": 174
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Avoid Planar Effects",
@@ -140,7 +144,8 @@
         "page": 19,
         "note": "Spell Compendium's casting time is 1 immediate action; Planar Handbook prints 1 standard action."
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Attune Form",
@@ -171,7 +176,8 @@
         "page": 17,
         "note": "Spell Compendium's version is mechanically revised: target \"One creature/3 levels\" instead of \"one or more creatures touched,\" and a flat 24-hour duration instead of 2 hours/level."
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Lay of the Land",
@@ -202,7 +208,8 @@
         "page": 131,
         "note": "Spell Compendium adds DF as an alternate focus component (F/DF) alongside Planar Handbook's F."
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Miasma of Entropy",
@@ -232,7 +239,8 @@
         "page": 141,
         "spellLevelDruid": 4
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Perinarch",
@@ -260,7 +268,8 @@
         "page": 153,
         "note": "Spell Compendium explicitly prints a target/area line (\"A radius of raw Limbo within close range\") that Planar Handbook itself omits."
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Planar Tolerance",
@@ -288,7 +297,8 @@
         "source": "Spell Compendium",
         "page": 159
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Summon Elementite Swarm",
@@ -317,7 +327,8 @@
         "source": "Spell Compendium",
         "page": 214
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Touchstone Lightning",
@@ -343,7 +354,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "Converts an unused daily use of a higher-order Planar Touchstone feat ability into a ray dealing 5d6 electricity damage with a successful ranged touch attack. From 7th level on, the caster gains one additional ray per 5 caster levels above 7th (maximum three rays at 17th level), each ray consuming its own higher-order use.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Astral Hospice",
@@ -368,7 +380,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Opens a temporary portal from the Astral Plane into a private demiplane where natural healing works (unlike on the Astral Plane itself). The demiplane is a roughly 50-ft.-square self-contained pocket matching the Material Plane's traits; only creatures the caster named or described at casting may enter through the linked portal. The portal exists only while the demiplane does — when the caster leaves, it seals shut, and anyone still inside is deposited back on the Astral Plane at the entrance's former location. Material component: a flawless gem worth at least 250 gp.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Focus Touchstone Energy",
@@ -392,7 +405,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes (harmless)",
     "description": "Lets the caster convert an unused daily use of a higher-order Planar Touchstone feat ability into 3d6 temporary hit points, granted to a touched living creature.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Summon Greater Elemental",
@@ -422,7 +436,8 @@
         "source": "Spell Compendium",
         "page": 214
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Perinarch, Planar",
@@ -450,6 +465,7 @@
         "page": 154,
         "note": "Spell Compendium explicitly prints a target/area line (\"A radius of raw Limbo within close range,\" inherited from perinarch) that Planar Handbook itself omits."
       }
-    ]
+    ],
+    "abilityType": "spell"
   }
 ]

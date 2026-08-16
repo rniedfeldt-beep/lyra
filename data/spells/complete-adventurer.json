@@ -27,7 +27,8 @@
         "page": 38,
         "spellLevelDruid": 1
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Hawkeye",
@@ -63,7 +64,8 @@
         "source": "Spell Compendium",
         "page": 110
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Healthful Rest",
@@ -92,7 +94,8 @@
         "source": "Spell Compendium",
         "page": 111
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Vine Strike",
@@ -121,7 +124,8 @@
         "source": "Spell Compendium",
         "page": 230
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Balancing Lorecall",
@@ -151,7 +155,8 @@
         "source": "Spell Compendium",
         "page": 23
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Daggerspell Stance",
@@ -180,7 +185,8 @@
         "source": "Spell Compendium",
         "page": 57
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Easy Trail",
@@ -209,7 +215,8 @@
         "source": "Spell Compendium",
         "page": 76
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Embrace the Wild",
@@ -247,7 +254,8 @@
         "page": 88,
         "spellLevelDruid": 3
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Healing Lorecall",
@@ -277,7 +285,8 @@
         "source": "Spell Compendium",
         "page": 110
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Listening Lorecall",
@@ -307,7 +316,8 @@
         "source": "Spell Compendium",
         "page": 133
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Nature's Favor",
@@ -347,7 +357,8 @@
         "page": 93,
         "spellLevelDruid": 3
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Train Animal",
@@ -379,7 +390,8 @@
         "source": "Spell Compendium",
         "page": 221
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Wracking Touch",
@@ -408,7 +420,8 @@
         "source": "Spell Compendium",
         "page": 243
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Entangling Staff",
@@ -437,7 +450,8 @@
         "source": "Spell Compendium",
         "page": 83
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Fly, Swift",
@@ -460,7 +474,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "A swift-action version of fly: grants a fly speed of 60 ft. with average maneuverability for 1 round, otherwise following the base fly spell's rules.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Forestfold",
@@ -502,7 +517,8 @@
         "source": "Masters of the Wild",
         "page": 89
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Cloak of the Sea",
@@ -536,6 +552,7 @@
         "source": "Spell Compendium",
         "page": 48
       }
-    ]
+    ],
+    "abilityType": "spell"
   }
 ]

@@ -22,7 +22,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Grants a +5 competence bonus on Spot checks; with 5+ ranks in Spot, halves the normal range increment penalty for ranged attacks (-1 per increment instead of -2).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Summon Dire Hawk",
@@ -47,7 +48,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Summons a dire hawk, which appears where designated and acts immediately on the caster's turn; it can be commanded telepathically as a free action.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Woodland Veil",
@@ -71,6 +73,7 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Makes the targets blend into natural surroundings and muffles the sound they make, granting a +5 competence bonus on Hide and Move Silently checks while outdoors in a natural setting; it has no effect in urban settings or indoors (including dungeons). Affected creatures can still see, hear, and recognize each other and themselves normally, as if unaffected. A target that moves more than 30 feet from another target loses the spell's bonuses.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]

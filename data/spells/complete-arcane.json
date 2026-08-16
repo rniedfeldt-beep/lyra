@@ -30,7 +30,8 @@
         "page": 12,
         "spellLevelDruid": 1
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Animate Water",
@@ -62,7 +63,8 @@
         "source": "Spell Compendium",
         "page": 13
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Animate Wood",
@@ -92,7 +94,8 @@
         "source": "Spell Compendium",
         "page": 13
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Chameleon",
@@ -117,7 +120,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes (harmless)",
     "description": "Alters the coloration of the touched creature's body and clothing to blend into its surroundings, granting a +10 circumstance bonus on Hide checks. The coloration adapts quickly enough to keep the bonus while moving at up to half speed through gradually changing backgrounds; an abrupt background change (e.g. forest to stone wall) costs the bonus for 1 round while the coloring catches up. Material component: the shed skin of a small lizard.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Swim",
@@ -149,7 +153,8 @@
         "source": "Spell Compendium",
         "page": 217
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Resist Energy, Mass",
@@ -179,7 +184,8 @@
         "source": "Spell Compendium",
         "page": 174
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Thornskin",
@@ -213,7 +219,8 @@
         "source": "Spell Compendium",
         "page": 219
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Arc of Lightning",
@@ -245,7 +252,8 @@
         "source": "Spell Compendium",
         "page": 15
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Wood Rot",
@@ -276,7 +284,8 @@
         "page": 241,
         "spellLevelDruid": 4
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Energy Immunity",
@@ -305,7 +314,8 @@
         "source": "Spell Compendium",
         "page": 80
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Summon Elemental Monolith",
@@ -335,7 +345,8 @@
         "source": "Spell Compendium",
         "page": 214
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Transmute Rock to Lava",
@@ -367,6 +378,7 @@
         "source": "Spell Compendium",
         "page": 222
       }
-    ]
+    ],
+    "abilityType": "spell"
   }
 ]

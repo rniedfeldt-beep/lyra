@@ -22,7 +22,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Your bonded animal companion (from an animal friendship effect) performs one trick of your choice that it doesn't already know, drawn from the Animal Companions sidebar in DMG Chapter 2 or Chapter 2 of this book. The animal retains no memory of the trick after performing it.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Darkseed",
@@ -46,7 +47,8 @@
     "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "If the target normal plant or plant creature fails a Reflex save, it takes 1 point of damage immediately and another point each hour for the spell's 1-day duration; hardness is ignored. A large tree could take weeks of repeated castings to kill, while a small plant might die within hours. Plant creatures that have Wisdom and Charisma scores are unaffected.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Dawn",
@@ -74,7 +76,8 @@
         "source": "Spell Compendium",
         "page": 59
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Daze Animal",
@@ -101,7 +104,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Clouds the mind of one Medium-size or smaller animal with fewer than 5 HD; if it fails a Will save it cannot move or attack for 1 round. It is not stunned, so attackers gain no special advantage against it.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Fire Eyes",
@@ -125,7 +129,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "The touched creature can see through normal smoke, fire, and fog as if they weren't there, for 10 minutes/level; other creatures gain no concealment from these effects against the subject. Does not grant sight through magical fog such as obscuring mist or fog cloud.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Scarecrow",
@@ -152,7 +157,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "If the target fails a Will save it becomes shaken, taking a -2 morale penalty on attack rolls, saves, and checks for 1 round/level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Beget Bogun",
@@ -187,7 +193,8 @@
         "source": "Spell Compendium",
         "page": 26
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Camouflage",
@@ -221,7 +228,8 @@
         "source": "Spell Compendium",
         "page": 43
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Hawkeye",
@@ -257,7 +265,8 @@
         "source": "Complete Adventurer",
         "page": 151
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Power Sight",
@@ -281,7 +290,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Reveals the total number of Hit Dice (including class levels) of the target creature. If it has both monster HD and class levels, you learn only the combined total, not the class breakdown, and negative levels don't reduce the apparent total — e.g., a 10-HD creature and a 10th-level character with 4 negative levels both appear as 10-HD.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Light Wounds",
@@ -305,7 +315,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Grants the touched living creature fast healing 1 for 10 rounds + 1 round/level, applying only to damage taken during the spell's duration, not prior injuries. The subject is automatically stabilized if dying from hit point loss during this time. It does not restore hit points lost to starvation, thirst, or suffocation, and does not regrow or reattach lost body parts. Multiple regenerate effects don't stack (only the highest-level applies), but a second casting of equal level extends the first's duration by its own full duration.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Sandblast",
@@ -339,7 +350,8 @@
         "source": "Spell Compendium",
         "page": 180
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Wood Wose",
@@ -373,7 +385,8 @@
         "source": "Spell Compendium",
         "page": 242
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Adrenaline Surge",
@@ -398,7 +411,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Each of your summoned creatures within a spherical emanation (radius equal to the spell's range) centered on you gains a +4 enhancement bonus to Strength, lasting until the spell ends (1 round/level) or the creature leaves the area.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Animal Reduction",
@@ -422,7 +436,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Reduces a willing Small, Medium-size, Large, or Huge animal's size by one category (e.g., Large to Medium) if it fails a Will save, lasting 1 hour/level; if this would drop an ability score to 0 or below, it becomes 1 instead while other effects still apply. Per-step changes: Huge→Large: -8 Str, -4 Con, -3 natural armor, +2 Dex, +1 AC, +1 attack roll (net: -3 melee attack, +2 ranged attack, -4 melee damage, -1 AC, -2 hp/HD; reach 5 ft. by 10 ft./5 ft.). Large→Medium: -8 Str, -4 Con, -2 natural armor, +2 Dex, +1 AC, +1 attack roll (net: -3 melee attack, +2 ranged attack, -4 melee damage, no AC change, -2 hp/HD; reach 5 ft. by 5 ft./5 ft.). Medium→Small: -4 Str, -2 Con, +2 Dex, +1 AC, +1 attack roll (net: -1 melee attack, +2 ranged attack, -2 melee damage, +2 AC, -1 hp/HD; face/reach 5 ft. by 5 ft./5 ft.). Small→Tiny: -4 Str, +2 Dex, +1 AC, +1 attack roll (net: -1 melee attack, +2 ranged attack, -2 melee damage, +2 AC, no hp change; face/reach 2.5 ft. by 2.5 ft./0 ft.).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Body of the Sun",
@@ -458,7 +473,8 @@
         "source": "Spell Compendium",
         "page": 35
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Briar Web",
@@ -492,7 +508,8 @@
         "source": "Spell Compendium",
         "page": 39
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Creeping Cold",
@@ -528,7 +545,8 @@
         "source": "Spell Compendium",
         "page": 55
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Decomposition",
@@ -562,7 +580,8 @@
         "source": "Spell Compendium",
         "page": 61
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Green Blockade",
@@ -587,7 +606,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Raises a 20-ft.-long, 1-ft.-thick wall of vegetation for 1 round/level. A creature must succeed on a DC 15 Strength check to push through, ending its movement on the far side on success. Fire burns away the wall in 1 round; creatures with proper tools can chop through it in 1 minute.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Might of the Oak",
@@ -612,7 +632,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Grants the touched living creature the quiet strength of a massive oak: a +4 enhancement bonus to Strength and a -2 enhancement penalty to Dexterity for 10 minutes/level, negated by a successful Will save.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Persistence of the Waves",
@@ -637,7 +658,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Grants the touched subject a +4 enhancement bonus to Constitution and a -2 enhancement penalty to Strength for 10 minutes/level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Moderate Wounds",
@@ -661,7 +683,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, but grants fast healing 2 hp/round instead.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Speed of the Wind",
@@ -685,7 +708,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Grants the touched subject a +4 enhancement bonus to Dexterity and a -2 enhancement penalty to Constitution for 10 minutes/level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Countermoon",
@@ -716,7 +740,8 @@
         "page": 53,
         "spellLevelDruid": 2
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Embrace the Wild",
@@ -751,7 +776,8 @@
         "page": 147,
         "spellLevelDruid": 2
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "False Bravado",
@@ -778,7 +804,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Makes a targeted humanoid believe it has gained a barbarian's rage, but it actually suffers all of rage's drawbacks with none of the benefits: no Str/Con/Will bonuses, a -2 penalty to AC, and inability to use skills or abilities requiring patience or concentration (e.g., Move Silently, spellcasting). Lasts 3 rounds plus the subject's Constitution modifier; when it ends, the subject is fatigued (-2 Str and Dex, can't charge or run) for the rest of the encounter. Requires a focus: a small mirror painted with a sigil of bravery, worth at least 25 gp.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Nature's Favor",
@@ -818,7 +845,8 @@
         "page": 155,
         "spellLevelDruid": 2
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Ring",
@@ -842,7 +870,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Grants fast healing 1 hp/round to one creature per two caster levels within 20 ft. (no two more than 30 ft. apart) for 10 rounds + 1 round per two levels. Only heals damage taken during the spell's duration, not prior injuries, and auto-stabilizes a subject dying from hit point loss during that time. Does not restore damage from starvation, thirst, or suffocation, and can't regrow or reattach lost body parts. Multiple regenerate effects don't stack (only the highest-level applies); a second casting of equal level extends the first's remaining duration by the second spell's full duration.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Standing Wave",
@@ -876,7 +905,8 @@
         "source": "Spell Compendium",
         "page": 204
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Blight",
@@ -906,7 +936,8 @@
         "page": 206,
         "note": "Same name, unrelated spell — PHB Blight withers a single plant; this version has a different area-kill/creature-damage effect, not a reprint"
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Bottle of Smoke",
@@ -940,7 +971,8 @@
         "source": "Spell Compendium",
         "page": 37
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Feathers",
@@ -965,7 +997,8 @@
     "savingThrow": "None (see text)",
     "spellResistance": "Yes (harmless)",
     "description": "Functions as polymorph other, except each willing subject (one per level, all becoming the same chosen species) is turned into a Small or smaller feathered animal for 1 hour/level. Any subject may revert to normal form as a full-round action, ending the spell for that individual only; otherwise all subjects stay in bird form until the spell ends or the caster dismisses it, restoring everyone still affected.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Forestfold",
@@ -1004,7 +1037,8 @@
         "source": "Complete Adventurer",
         "page": 149
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Languor",
@@ -1037,7 +1071,8 @@
         "source": "Spell Compendium",
         "page": 130
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Last Breath",
@@ -1070,7 +1105,8 @@
         "source": "Spell Compendium",
         "page": 130
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Mass Calm",
@@ -1097,7 +1133,8 @@
     "savingThrow": "Will negates (see text)",
     "spellResistance": "Yes",
     "description": "Soothes any number of animals, beasts, and magical beasts of Intelligence 1-2 within range (no two more than 30 ft. apart) for 1 minute/level, rendering them docile and harmless. Normal animals get no save; animals trained to attack or guard, dire animals, legendary animals, beasts, and magical beasts do get a Will save. Affected creatures stay put and don't attack or flee, but aren't helpless and defend themselves normally if attacked; any threat (fire, a hungry predator, imminent attack, etc.) breaks the spell on the threatened creature.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Miasma",
@@ -1131,7 +1168,8 @@
         "source": "Spell Compendium",
         "page": 141
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Serious Wounds",
@@ -1155,7 +1193,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, but grants fast healing 3 hp/round instead.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Waterball",
@@ -1180,7 +1219,8 @@
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Creates a spherical burst of water (like a fireball) at a point you designate within range; an early impact against a solid barrier detonates it early, and firing it through a narrow opening requires a ranged touch attack or it detonates against the barrier. On detonation it deals 1d6 points of subdual damage per caster level (max 10d6) in a 20-ft.-radius spread; a Reflex save halves the damage. Because the damage is subdual rather than energy damage, it is subject to damage resistance. Objects are unaffected unless they have hardness 0, in which case they take full damage; if the waterball breaks through an interposing barrier it can continue beyond it if the area allows, otherwise it stops there like any other spell effect. Requires a material component: a full waterskin, burst during casting.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Big Sky",
@@ -1208,7 +1248,8 @@
     "savingThrow": "Will negates (see text)",
     "spellResistance": "Yes",
     "description": "Fills a 30-ft.-radius emanation centered on you with the sense of unseen nature spirits, for 1 round/level. You and each ally in the area gain a +2 morale bonus on attack rolls and a +4 morale bonus on saves against fear effects. Each enemy in the area who fails a Will save behaves as if under a fear spell, getting a new save each round to shake it off; once an enemy succeeds, it needs no further saves for the spell's duration. Creatures immune to fear are immune to both the ally and enemy effects.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Cloak of the Sea",
@@ -1242,7 +1283,8 @@
         "source": "Complete Adventurer",
         "page": 144
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Druid Grove",
@@ -1266,7 +1308,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "You reshape one or more living trees so each can store a spell, functioning like a large immobile scroll. During the same uninterrupted ritual you may cast companion druid spells totaling no more than one-third your caster level (rounded down, max 6th); each tree holds one spell. The listed 10-minute casting time is a minimum for the whole ritual — if a companion spell takes longer to cast, use that total instead. Touching a charged tree (a standard action) triggers its stored spell instantaneously, with you making any targeting/direction decisions at that moment. Only one druid grove can be active at a time; casting a second dispels the first. An affected tree detects as magical but is otherwise unharmed.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Kiss of Death",
@@ -1291,7 +1334,8 @@
     "savingThrow": "Fortitude negates (see text)",
     "spellResistance": "Yes (see text)",
     "description": "For 1 round/level, your teeth and tongue carry a fast-acting poison. Each round you may deliver it with a melee touch attack (a kiss), dealing 1d10 temporary Constitution damage immediately and another 1d10 one minute later; each instance can be negated separately by a Fortitude save (DC 10 + 1/2 caster level + Wisdom modifier). If you fail to overcome the target's spell resistance, both the immediate and delayed damage are negated for that attack only, but you can try again on a later attack while the spell is still active.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Mass Trance",
@@ -1318,7 +1362,8 @@
     "savingThrow": "Will negates (see text)",
     "spellResistance": "Yes",
     "description": "Your swaying motions and music/singing/chanting compel any number of animals, beasts, and magical beasts with Intelligence 1-2 within range (no two more than 30 ft. apart) to do nothing but watch you, for as long as you concentrate. Trained-to-attack-or-guard animals, dire animals, legendary animals, beasts, and magical beasts get a Will save to resist; ordinary animals do not. An affected creature can be struck in combat (attacker gets a +2 bonus as if it were stunned), but doing so breaks the spell on that creature.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Critical Wounds",
@@ -1342,7 +1387,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, except it grants fast healing at a rate of 4 hit points per round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Contagious Touch",
@@ -1375,7 +1421,8 @@
         "source": "Spell Compendium",
         "page": 52
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Greater Call Lightning",
@@ -1401,7 +1448,8 @@
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Functions like call lightning, but you can call down a bolt every 5 minutes instead of the normal interval, as long as you remain in a stormy area (rain shower, tornado/whirlwind from a djinni or air elemental of 7+ HD, clouds and wind, or even hot cloudy conditions). You need not call a bolt immediately and may take other actions, including casting other spells, between calls, but calling each bolt requires a standard action to concentrate. Each bolt strikes any point you designate within range, traveling the shortest unobstructed path from a nearby cloud, and affects any creature within 10 ft. of its path or impact point (Reflex half) for 1d10 electricity damage per caster level (max 15d10). Usable only outdoors — it doesn't work indoors, underground, or underwater — and ends if you leave the stormy area.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Mandragora",
@@ -1428,7 +1476,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Material component: a mandrake root worth at least 100 gp, kept in a secure container of equal value. When you pull the root from its container, you and every other creature within 15 ft. must make a Will save against its scream. Those who succeed gain a true seeing effect; those who fail are affected as though by confusion. Both effects last 1 round/level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Protection from All Elements",
@@ -1453,7 +1502,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "The touched creature (and its equipment) becomes invulnerable to acid, cold, electricity, fire, and sonic damage, whether the source is natural or magical, until the spell has absorbed a total of 12 points of damage per caster level from those energy types, at which point it discharges; otherwise it lasts 10 minutes/level. It absorbs only the damage itself, not side effects (e.g. drowning in acid or being encased in ice). It does not stack with protection from elements, endure elements, or resist elements — if a creature has both this and one of those active, this spell absorbs damage until discharged.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Regenerate Circle",
@@ -1477,7 +1527,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate ring, except it grants fast healing at a rate of 3 hit points per round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Cloudwalkers",
@@ -1511,7 +1562,8 @@
         "page": 49,
         "note": "Printed there as 'Cloud-walkers' (hyphenated) with a revised fly-speed mechanic instead of MotW's directional movement rules"
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Greater Creeping Cold",
@@ -1538,7 +1590,8 @@
     "savingThrow": "Fortitude half",
     "spellResistance": "Yes",
     "description": "Identical to creeping cold, but adds a fourth round of effect dealing 4d6 points of damage. If the caster is at least 15th level, a fifth round is added dealing 5d6; if at least 20th level, a sixth round is added dealing 6d6.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Slime Wave",
@@ -1572,7 +1625,8 @@
         "source": "Spell Compendium",
         "page": 192
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Mass Awaken",
@@ -1598,7 +1652,8 @@
     "savingThrow": "See text",
     "spellResistance": "Yes",
     "description": "Casting time 1 day; XP cost 250 per creature awakened. You awaken one animal or tree per three levels (all of the same kind, no two more than 30 ft. apart) to human-like sentience. You must succeed on a Will save (DC 10 + HD of the highest-HD target, or the HD that target tree will have once awakened, whichever is higher) or the spell fails for all targets. Awakened creatures are friendly toward you and will serve specific tasks or endeavors if you communicate your wishes, though you gain no special bond with them. An awakened tree gains the traits of an animated object except its Intelligence, Wisdom, and Charisma are each 3d6, plus the ability to move its limbs/roots/vines and human-like senses. An awakened animal gains 3d6 Intelligence, a +1d3 bonus to Charisma, and +2 HD. An awakened creature can speak one language you know, plus one more per point of Intelligence bonus it has.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Speak with Anything",
@@ -1622,7 +1677,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Casting time 10 minutes; lasts 1 minute/level. Grants the combined effects of speak with animals, speak with plants, and tongues, letting you converse with any living creature, including unintelligent ones like ordinary plants, as far as your voice carries — the spell doesn't make them friendlier or more cooperative. You also gain the ability to speak with stone, metal, earth, water, or any other solid or semisolid object or terrain feature as under stone tell, learning what/who touched it and what is hidden behind, under, or within it, subject to that object's own limited perspective and knowledge (DM's discretion). It does not include a speak with dead effect. Although you understand everything, you can only speak one language (or equivalent) at a time.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Epidemic",
@@ -1646,7 +1702,8 @@
     "savingThrow": "Fortitude negates",
     "spellResistance": "Yes",
     "description": "You choose one disease (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom); the touched creature contracts it immediately, with no incubation period, unless it succeeds on a Fortitude save. Unlike contagion, the afflicted subject becomes a vector: any living creature besides you within 30 ft. of them must save or immediately contract the disease regardless of its normal incubation or transmission method, and anyone infected this way likewise becomes a vector. The save DC drops by 1 each day after casting, regardless of when a given creature was infected. A creature that saves successfully becomes immune to that specific epidemic for one day, after which coming within 30 ft. of an infected creature again requires a new save. You are immune to any infection originating from your own casting.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Invulnerability to Elements",
@@ -1671,7 +1728,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "As protection from all elements, except the touched creature becomes fully immune (rather than merely protected up to a damage cap) to acid, cold, electricity, fire, and sonic damage for the duration of 10 minutes/level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Lookingglass",
@@ -1696,7 +1754,8 @@
     "savingThrow": "See text",
     "spellResistance": "Yes",
     "description": "Casting time 1 hour; lasts 1 day/level. You open one end of a planar path between two natural mirrored surfaces (such as pools or clear lakes), the target surface being at least as large as a Medium creature. If you cast a second lookingglass on a similar surface before the first spell's duration expires, you can see through it as with clairvoyance, and within 1 minute/level of the second casting, you and up to one other creature per level can step through as if under teleport without error. The spell grants no ability to survive at either location — e.g., if the first was cast on a lake, your allies need to be able to swim. If the first lookingglass's duration lapses before a second is cast to complete the path, the first spell is wasted.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Nature's Avatar",
@@ -1730,7 +1789,8 @@
         "source": "Spell Compendium",
         "page": 145
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Thunderswarm",
@@ -1756,7 +1816,8 @@
     "savingThrow": "None or Reflex half (see text)",
     "spellResistance": "Yes",
     "description": "Like the arcane meteor swarm, but using lightning instead of fire. You launch either four large (2-ft.-diameter) or eight small (1-ft.-diameter) spheres of lightning in a straight line toward a point within range, each trailing sparks. Any creature in the spheres' path is struck by all of them for a total of 16d6 electricity damage (no save), after which the spheres dissipate. If they reach their destination, each detonates like a fireball: large spheres each burst in a 15-ft.-radius spread dealing 4d8 electricity damage, with their four points of origin arranged in a diamond or box pattern (your choice) around the target point, sides 20 ft. apart and overlapping at the center; small spheres each burst in a 7.5-ft.-radius spread dealing 2d6 electricity damage, arranged in a box-within-diamond or diamond-within-box pattern with 20-ft. sides, overlapping fully at the center and partially at the edges. Creatures caught in a blast get a Reflex save for half damage (multiple blasts require separate saves), and anyone who fails a save is also stunned for 1d4 rounds.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "True Reincarnate",
@@ -1782,6 +1843,7 @@
     "savingThrow": "None (see text)",
     "spellResistance": "Yes (harmless)",
     "description": "Casting time 10 minutes; XP cost 1,000. As reincarnate, but can restore a creature dead up to 10 years per caster level, even if the body was wholly destroyed, as long as you can unambiguously identify the deceased (commonly by reciting their time and place of birth or death). The subject receives a new body with all physical ills and afflictions repaired; determine the new form using the reincarnate table (Player's Handbook), but roll twice and let the subject choose between the two results. The subject suffers no loss of level, Constitution, prepared spells, or spell slots. This spell can restore someone killed by a death effect, someone slain and then turned undead and destroyed, or someone killed by ordinary hit point loss.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]

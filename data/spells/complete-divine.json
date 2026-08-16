@@ -20,7 +20,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Functions as deathwatch, but works only on animals and plants, and also reveals other mundane conditions about them, such as whether plants are dehydrated or animals are malnourished.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Beget Bogun",
@@ -46,7 +47,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Final step in creating a bogun: infuses living magic into a small mannequin woven from vegetable matter, animating it as a Tiny construct servant (2d10 HD, AC 15, nettle attack dealing 1d4-2 plus Fort DC 11 poison causing temporary Dex damage, fly speed 50 ft., CR 1). The bogun is telepathically linked to its creator up to 500 yards, shares its creator's alignment, and dies if the creator dies (dealing the creator 2d10 damage if the bogun itself is destroyed first). Costs 25 XP; creating one also requires a week-long ritual and the Craft Wondrous Item feat at caster level 7+.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Camouflage",
@@ -70,7 +72,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Changes your skin and clothing color to automatically match your surroundings for 10 minutes per level, granting a +10 circumstance bonus on Hide checks.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Hawkeye",
@@ -98,7 +101,8 @@
         "source": "Complete Adventurer",
         "page": 151
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Omen of Peril",
@@ -122,7 +126,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Grants the caster a brief vision indicating the general danger level (safety, peril, or great danger) awaiting along their likely path over the next hour, with a 70% + 1%/caster level chance (max 90%) of accuracy secretly rolled by the DM. Unlike augury, it answers no specific question, only the overall risk level. Requires a focus of marked sticks, bones, or similar tokens worth at least 25 gp.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Sandblast",
@@ -147,7 +152,8 @@
     "savingThrow": "Reﬂ ex half",
     "spellResistance": "Yes",
     "description": "Fires a semicircular 10-ft. blast of hot sand from the caster's hands, dealing 1d6 points of nonlethal damage (Reflex half) to creatures in the arc; those who fail the save are also stunned for 1 round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Traveler’s Mount",
@@ -168,7 +174,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Grants a touched animal or magical beast a +10 ft. enhancement bonus to speed and lets it hustle without taking damage or becoming fatigued for 1 hour per level, at the cost of being unable to attack with its natural weapons for the duration — it can still carry a rider into battle, just not fight.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Vigor, Lesser",
@@ -192,7 +199,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Grants a touched living creature fast healing 1 for 10 rounds + 1 round per level (max 15 rounds), automatically stabilizing it if it starts dying from hit point loss during that time. It does not restore hit points lost to starvation, thirst, or suffocation, nor regrow or reattach lost body parts. Multiple vigor effects never stack — only the highest-level one applies — though casting a second vigor spell of equal level extends the current duration by the new spell's full duration.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Wood Wose",
@@ -217,7 +225,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Conjures a translucent green nature spirit for 1 hour per level that performs simple natural tasks — building a campfire, gathering herbs, fishing, feeding an animal companion — but nothing requiring knowledge of technology, such as opening a latch. It carries out one task at a time, repeating it until redirected, has an effective Strength of 2 (lifting 20 lb. or dragging 100 lb.), can trigger but generally can't set off pressure-plate traps, and moves 15 feet in any direction, including straight up. It cannot attack and is never subject to an attack roll or saving throw, but dissipates if it takes 6 points of damage from area attacks or is sent beyond the spell's range.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Body of the Sun",
@@ -244,7 +253,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Your body radiates fire in a 5-ft. emanation for 1 round per caster level, illuminating the area and dealing 1d4+1 fire damage (Reflex half) to any creature other than yourself that touches you.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Brambles",
@@ -269,7 +279,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Covers a touched wooden weapon in magical thorns for 1 round per caster level, making it deal both piercing and bludgeoning damage with a +1 enhancement bonus and +1 damage per caster level (max +10). Only works on melee weapons with wooden striking surfaces, not bows, arrows, or metal weapons. Requires a small thorn as a material component.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Briar Web",
@@ -294,7 +305,8 @@
     "savingThrow": "Reﬂ ex negates; see text",
     "spellResistance": "No",
     "description": "Causes plants in a 20-ft.-radius spread to grow thorns and entangle creatures for 1 minute per caster level. A successful Reflex save only halves movement speed in the area; on a failed save, a creature can hold still (entangled: -2 attack, -4 Dex, no damage), act normally (taking 2d6 piercing damage from the thorns), or spend a full-round action attempting to break free with a new save. A creature attempting a spell with a somatic component must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. The briars grant partial cover at 5 ft. and total cover beyond 20 ft.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Cloudburst",
@@ -324,7 +336,8 @@
         "page": 86,
         "note": "Same name, unrelated spell — different school/mechanics, not a reprint"
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Creeping Cold",
@@ -351,7 +364,8 @@
     "savingThrow": "Fortitude half",
     "spellResistance": "Yes ceiling floor 159",
     "description": "Freezes the target's sweat into ice for 3 rounds, dealing cumulative cold damage each round (1d6 the first round, 2d6 the second, 3d6 the third). Only one Fortitude save is allowed, which halves the damage each round if successful. Requires a small vessel of ice, snow, or water worth at least 25 gp as a focus.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Decomposition",
@@ -376,7 +390,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "Enemies within a 50-ft. emanation for 1 round per level who take normal (non-subdual) damage suffer an additional 1 point of festering damage each round thereafter until healed by a DC 15 Heal check or any curative magic. Only one wound festers at a time per creature, but a fresh wound taken while still in the area restarts the festering once the prior one is stopped.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Scent",
@@ -406,7 +421,8 @@
         "source": "Serpent Kingdoms",
         "page": 157
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Beast Claws",
@@ -431,7 +447,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Transforms your hands into slashing claws dealing 1d6 damage plus Strength and other bonuses, with a 19-20 threat range, lasting 1 round per caster level. Attacks with the claws don't provoke attacks of opportunity, and they don't impede manual dexterity or spellcasting. Requires the claw of a bird of prey as a material component.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Fire Wings",
@@ -459,7 +476,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Transforms your arms into flaming wings for 1 minute per level, letting you fly at 60 ft. (40 ft. in medium/heavy armor) with good maneuverability, though you can't hold items, use somatic components, or carry more than a light load while winged. Unarmed strikes with the wings take a -4 non-proficiency penalty but deal 2d6 fire damage in addition to normal unarmed damage. If the spell ends or is dispelled while aloft, you descend at 60 ft./round for 1d6 rounds before falling; the wings can also be extinguished by quench, water immersion, or hurricane-force wind. Requires burning a bird feather and a golden phoenix amulet focus.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Infestation of Maggots",
@@ -484,7 +502,8 @@
     "savingThrow": "Fortitude negates",
     "spellResistance": "Yes",
     "description": "A melee touch attack infests the target with maggot-like creatures dealing 1d4 temporary Constitution damage per round for 1 round per two caster levels; the subject can attempt a new Fortitude save each round to end the effect. Cure disease or heal removes the infestation. Requires a handful of dead, dried flies as a material component.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Nature’s Favor",
@@ -515,7 +534,8 @@
         "page": 155,
         "spellLevelDruid": 2
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Spikes",
@@ -540,7 +560,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As Brambles, except the affected wooden weapon instead gains a +2 enhancement bonus on attacks and its threat range is doubled.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Standing Wave",
@@ -565,7 +586,8 @@
     "savingThrow": "Reﬂ ex negates",
     "spellResistance": "Yes",
     "description": "Commands nearby water to lift and propel a creature or object (which may itself carry other creatures or objects) in a straight line across water at 60 feet per round; the maximum size the wave can lift scales up with the caster's level. The spell ends harmlessly when the wave reaches land, setting its burden down on shore. Lasts 10 minutes per level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Vigor",
@@ -583,7 +605,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Lesser Vigor, except it grants fast healing 2 hit points per round, lasting 10 rounds + 1 round per level (max 25 rounds).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Vigor, Mass Lesser",
@@ -607,7 +630,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Lesser Vigor, except it grants fast healing 1 to one creature per two caster levels within a 20-ft. area (no two subjects more than 30 feet apart), lasting 10 rounds + 1 round per level (max 25 rounds). It likewise does not restore hit points lost to starvation, thirst, or suffocation, does not regrow lost body parts, and does not stack with other vigor effects (only the highest-level applies, though an equal-level recast extends the duration).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Weather Eye",
@@ -633,7 +657,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Accurately predicts natural weather up to one week in advance across a large area (1 mile radius + 1 mile per level); if the weather is currently being magically influenced, the spell instead reveals information as though a detect magic spell had been cast. Requires incense and a scrying focus such as a bowl, mirror, or crystal ball.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Bottle of Smoke",
@@ -658,7 +683,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Captures smoke in a special bottle; when opened, it forms an intangible, silent, horse-shaped smoke mount that a rider can control by making a DC 10 Ride check while holding the bottle. The mount moves at 20 ft. per caster level (max 240 ft.), can lay down a concealing smoke trail (20% miss chance), is immune to all damage and cannot attack, and disperses in severe or magical wind. The rider can re-cork the bottle to pause the mount and later reopen it to resume; the spell ends 24 hours after casting regardless of use, or immediately if the bottle breaks. Requires an ornate corked bottle worth at least 50 gp as a focus.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Camouflage, Mass",
@@ -682,7 +708,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Camouflage, except it affects any number of creatures within medium range (no two more than 60 ft. apart) for 10 minutes per level, and the effect stays active as the group moves together — breaking for any individual who strays more than 60 ft. from the nearest affected member.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Chain of Eyes",
@@ -706,7 +733,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Lets you see through the eyes of a touched living creature for 1 hour per level (Will negates). You gain no control over the host, but your viewpoint automatically transfers to any other living creature the host physically touches, letting your sensor infiltrate guarded areas. As a free action on your turn, you can switch between your own sight and the sensor's.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Energy Vortex",
@@ -733,7 +761,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "You choose one energy type (acid, cold, fire, electricity, or sonic) and unleash a 20-ft.-radius burst centered on yourself, dealing 1d8 damage +1 per caster level (max +20) to nearby creatures other than you — or double damage if you also choose to take the damage yourself. No Reflex save is allowed, but spell resistance and any resistances/immunities to that energy type still apply.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Forestfold",
@@ -756,7 +785,8 @@
         "source": "Complete Adventurer",
         "page": 149
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Languor",
@@ -780,7 +810,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "A ray that, on a failed Will save, slows the target (as the slow spell) for 1 round per level and inflicts a cumulative Strength penalty of 1d6-1 per two caster levels each round (minimum additional penalty of 0, maximum -10 total); a subject reduced below 1 Strength becomes helpless. The slow effect (but not the Strength penalty) is countered by haste.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Last Breath",
@@ -804,7 +835,8 @@
     "savingThrow": "None; see text",
     "spellResistance": "Yes (harmless)",
     "description": "Returns a creature that died within the last round to 0 hit points, restores any ability scores damaged to 0 or below to 1, and cures normal poison/disease (not magical curses or diseases), though missing body parts remain missing. You take 1d4 damage per Hit Die of the revived creature, unaffected by your own spell resistance, and the subject's soul must be willing to return, granting no save if it wants to come back. As with other resurrection effects, the subject loses a level (or 1 Constitution point if 1st level) and risks losing prepared spells or spell slots. Cannot affect a creature dead for over a round, killed by a death effect, that died of old age, or constructs/elementals/outsiders/undead.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Murderous Mist",
@@ -828,7 +860,8 @@
     "savingThrow": "Reﬂ ex half; see text",
     "spellResistance": "Yes",
     "description": "Creates a 30-ft.-radius, 20-ft.-high cloud of scalding steam that drifts in a straight line away from you at 10 ft. per round for 1 round per level. Anyone inside takes 2d6 damage and is permanently blinded, unless a successful Reflex save halves the damage and prevents blindness; creatures in the cloud also have one-quarter concealment. Wind doesn't affect its direction or speed, but a moderate wind (11+ mph) disperses it in 4 rounds and a strong wind (21+ mph) disperses it in 1 round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Binding Winds",
@@ -852,7 +885,8 @@
     "savingThrow": "Reﬂ ex negates",
     "spellResistance": "Yes",
     "description": "Encircles one target within medium range in a stationary whirlwind barrier (Reflex negates) that lasts as long as you concentrate. The bound creature can act and speak but cannot move, cannot be heard beyond the winds, and cannot hear anything but the wind's roar. No sonic or language-dependent effects can cross the barrier, ranged attacks through it take a -2 penalty, and it holds flying creatures suspended in place.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Dance of the Unicorn",
@@ -876,7 +910,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Surrounds you with a purifying mist (5 ft. radius per caster level) for 1 minute per level that automatically negates nonmagical contaminants and inhaled poisons. Magical harmful effects (acid fog, cloudkill, dragon breath, etc.) are negated if your caster level exceeds the effect's caster level/HD; otherwise everyone in the mist gets a +4 save bonus against it. Leaves the area damp.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Phantom Stag",
@@ -900,7 +935,8 @@
     "savingThrow": "None; see text",
     "spellResistance": "No",
     "description": "Conjures a Large corporeal staglike mount (AC 20, 40 hp plus 5 per caster level) that carries the caster or a designated rider. It attacks with antlers at +10 for 1d8+9 damage (doubled on a charge) and can trample Medium or smaller foes for 1d6+9 (Reflex half). Its speed is 20 ft. per caster level (max 300 ft.), it can carry the rider's weight plus 10 lb. per caster level, and it ignores difficult terrain. At 12th level it gains at-will air walk (1 round at a time) and +2 deflection to AC; at 14th it can fly and gains +4 deflection; at 16th its antlers gain the wounding and ghost touch properties and it gains +6 deflection; at 18th level it can use etherealness on its rider's behalf (CL 18th) and gains +8 deflection. Lasts 1 hour per level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Poison Thorns",
@@ -923,7 +959,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Covers the caster in black thorns for 1 round per level; anyone striking the caster in melee with a handheld or natural weapon (reach weapons excluded) takes 1d6 plus the caster's Strength bonus in piercing damage. Any creature grappling the caster is also exposed each round to a poison dealing 1d4 temporary Strength damage immediately and another 1d4 one minute later, each instance negated separately by a Fortitude save (DC 10 + 1/2 caster level + Wisdom modifier). Requires a dried black rose.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Quill Blast",
@@ -948,7 +985,8 @@
     "savingThrow": "Reﬂ ex half; see text",
     "spellResistance": "Yes",
     "description": "Fires needle-sharp quills from the caster's skin in a 20-ft.-radius burst (Reflex half). Targets are struck by a number of 1d6 piercing quills based on size — 1 for Tiny or smaller, 1d4 for Small, 2d6 for Medium, 3d6 for Large, 4d6 for Huge or larger — with a successful save halving the count and Tiny or smaller creatures avoiding the quills entirely. Each lodged quill imposes a -1 penalty on attacks, saves, and checks until removed (a DC 20 Heal check as a standard action, or an extra 1d6 damage if pulled carelessly). Requires a porcupine quill.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Rejuvenation Cocoon",
@@ -973,7 +1011,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Encases a willing touched creature in a force cocoon (hardness 10, 10 hp per caster level) for 2 rounds; the target cannot move from its space or leave early short of teleportation magic or destroying the cocoon. One round after casting it heals the target 10 hit points per caster level and cures poison and disease; at the end of the second round the cocoon dissipates and the target is freed to act normally. Requires a butterfly's cocoon.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Vigor, Greater",
@@ -991,7 +1030,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Lesser Vigor, except it grants fast healing 4 hit points per round, lasting 10 rounds + 1 round per level (max 35 rounds).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Anger of the Noonday Sun",
@@ -1017,7 +1057,8 @@
     "savingThrow": "Reﬂ ex negates",
     "spellResistance": "Yes",
     "description": "A burst of blinding sunlight erupts from you in a 10-ft. radius; creatures that can see you must succeed on a Reflex save or be blinded for 1 minute per caster level. Undead caught in the area take 1d6 damage per two caster levels (max 10d6), half on a successful Reflex save, and undead specifically vulnerable to bright light (such as vampires) are destroyed outright on a failed save. Fungi, molds, oozes, and slimes are affected as though they were undead.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Cometfall",
@@ -1042,7 +1083,8 @@
     "savingThrow": "Reﬂ ex half",
     "spellResistance": "No",
     "description": "Conjures a glowing comet 5 ft. per caster level above the target area (or at the ceiling, whichever is lower) that immediately falls, dealing 2d6 damage per 10 feet fallen (Reflex half) to everything in a 10-ft.-square area. Creatures that fail their save are also subject to a trip attempt at a +11 bonus, and the impact fills the area with dense rubble.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Contagious Touch",
@@ -1066,7 +1108,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "For 1 round per level, any living creature you hit with a melee touch attack contracts a disease of your choice (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom) as though struck by contagion, unless it succeeds on a Fortitude save. You can infect only one creature per round.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Crumble",
@@ -1090,7 +1133,8 @@
     "savingThrow": "Fortitude partial (object)",
     "spellResistance": "Yes (object)",
     "description": "Erodes a fabricated structure or construct (not living creatures) for 1d6 damage per caster level, ignoring hardness, to a maximum of 15d6 — Fortitude partial. The object's size must be within the caster's limit or the spell fails outright: Huge at caster level 15 or below, Gargantuan at 16th-18th, Colossal at 19th-20th.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Enveloping Cocoon",
@@ -1115,7 +1159,8 @@
     "savingThrow": "Reﬂ ex negates",
     "spellResistance": "Yes",
     "description": "Encases one Large or smaller creature within medium range in a force cocoon (Reflex negates) for 1 round per level or until destroyed (hardness 10, 10 hp per caster level). The trapped creature cannot move or cast spells with somatic components and can only attack the cocoon itself. The caster may cast a second spell at the cocoon to attach it; when the cocoon ends or is dismissed, the attached spell automatically hits the trapped creature with no save (though SR still applies), but is wasted if the cocoon is destroyed first. Requires a live caterpillar as a material component.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Fires of Purity",
@@ -1142,7 +1187,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Wreathes a touched creature in harmless magical flame for 1 round per level. Anyone who hits the subject in melee (without a reach weapon) takes 1d6 fire damage +1 per caster level (max +15, SR applies) and must succeed on a Reflex save or catch fire, burning for 1d4 rounds at 1d6 damage per round unless they save again or douse themselves. The subject itself takes only half damage (or none, on a successful save) from fire-based attacks.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Miasma",
@@ -1167,7 +1213,8 @@
     "savingThrow": "See text",
     "spellResistance": "Yes",
     "description": "Fills a target's mouth and throat with unbreathable gas for 3 rounds per level. The subject can hold its breath for 2 rounds per point of Constitution, then must succeed on an increasingly difficult Constitution check (DC 10 + 1 per previous success) each round or fall unconscious, then start dying and eventually suffocate over the following rounds.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Phantasmal Disorientation",
@@ -1193,7 +1240,8 @@
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
     "description": "Creates illusory shifting terrain around one living creature (Will negates) that disrupts its sense of direction. Each round the subject tries to move it must succeed on a DC 20 Survival check or instead veer 90 degrees off course, not realizing the error until it meaningfully interacts with the environment or the round ends. Only movement is affected — the subject can still fight and cast spells normally. Lasts 10 minutes per level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Tidal Surge",
@@ -1219,7 +1267,8 @@
     "savingThrow": "Reﬂ ex half",
     "spellResistance": "Yes 183",
     "description": "Slams a huge wave of water into a target or, if a natural body of water is within range, into a 20-ft.-radius burst area (Reflex half), dealing 1d8 damage per two caster levels (max 7d8). Affected creatures are also subjected to a bull rush using an effective Strength of 16 at Medium size (or 20 and Large if conjured near a water source); those who lose the opposed check are pushed 5 feet, plus 5 feet per 5 points the check is beaten by, in a direction the caster chooses, potentially into water. The wave extinguishes open flames of Large size or smaller in its path and subjects any magical fire it strikes to a dispel magic effect.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Tortoise Shell",
@@ -1241,7 +1290,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Grants a touched living creature a +6 enhancement bonus to natural armor (increasing by 1 per 3 caster levels above 11th, to a maximum of +9 at 20th) for 10 minutes per level; a creature with no natural armor treats its base as +0 before the bonus applies. The bonus stacks with natural armor but not with other enhancement bonuses to natural armor. It slows the subject as though wearing heavy armor, though it imposes no armor check penalty or arcane spell failure chance.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Vigorous Circle",
@@ -1259,7 +1309,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Mass Lesser Vigor, except it grants fast healing 3 hit points per round, lasting 10 rounds + 1 round per level (max 40 rounds).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Brilliant Aura",
@@ -1283,7 +1334,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Cloaks up to one ally per two caster levels (all within 30 ft. of each other) in glowing light for 1 round per caster level. Affected creatures shed light like a torch, and their melee/ranged weapon attacks function as brilliant energy weapons — ignoring nonliving matter and armor/enhancement AC bonuses, though they can't harm undead, constructs, or objects — and deal bonus damage equal to half the caster's level (max +10).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Cloudwalkers",
@@ -1308,7 +1360,8 @@
     "savingThrow": "Reﬂ ex negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Grants gaseous cloud-pads on the feet of up to one creature per level (within 30 ft. of each other) for 1 hour per level, letting each subject move vertically at 30 ft. or, once at least 90 ft. up, fly laterally at 60 ft. with perfect maneuverability. A subject can land by spending a standard action to shake off the pads, ending the effect for them; the caster can dismiss the spell only for all subjects simultaneously.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Creeping Cold, Greater",
@@ -1328,7 +1381,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "As Creeping Cold, except it adds a fourth round of damage (4d6), a fifth round (5d6) if the caster is at least 15th level, and a sixth round (6d6) if the caster is at least 20th level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Poison Vines",
@@ -1346,7 +1400,8 @@
     "savingThrow": "Fortitude negates; see text",
     "spellResistance": "Yes",
     "description": "As Vine Mine, except the conjured vines carry a contact poison (1d6 Dex/2d6 Dex, Fortitude negates). A save is required only on first entry into the spell's area and again one minute later, not on every entry or every round spent inside. The caster is immune to the poison and can extend that immunity to a number of other targets equal to caster level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Slime Wave",
@@ -1371,7 +1426,8 @@
     "savingThrow": "Reﬂ ex negates",
     "spellResistance": "No",
     "description": "Summons a wave of green slime that spreads from a chosen point to fill a 15-ft.-radius area (Reflex negates), coating creatures with one patch per 5 feet of their face. Each patch deals 1d6 temporary Constitution damage per round to flesh (2d6 damage per round to wood or metal, ignoring metal's hardness but not wood's; stone is unaffected). It can be scraped off safely only during the first round of contact; afterward it must be frozen, burned, or cut away, damaging the victim in the process. Extreme heat or cold, sunlight, or remove disease destroys it. Unlike ordinary green slime, this conjured slime evaporates by the end of its 1 round/level duration. Requires a few drops of stagnant water.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Storm Tower",
@@ -1395,7 +1451,8 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "Raises a 100-ft.-tall, 20-ft.-radius tower of storm clouds for 1 round per level that absorbs electricity damage dealt to those inside and blocks magic missiles from entering, leaving, or being cast within it. 60 mph winds inside make ranged attacks impossible (though they don't hinder movement), and only Gargantuan or Colossal creatures can pass through its edge — everyone smaller must stop there. Those inside gain one-half concealment from outside observers, and the howling wind imposes a -10 penalty on Listen checks within 50 feet, including inside the tower.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Awaken, Mass",
@@ -1421,7 +1478,8 @@
     "savingThrow": "See text",
     "spellResistance": "Yes",
     "description": "Awakens one or more trees or animals of the same kind to human-like sentience within medium range, up to one target per three caster levels (no two more than 30 ft. apart). Requires a Will save (DC 10 + the HD of the highest-HD target, or the tree's HD once awakened, whichever is greater) or the spell fails for all targets. Awakened creatures gain 3d6 Intelligence (trees also get 3d6 Wisdom/Charisma and animated-object-like traits; animals get +1d3 Charisma and +2 HD), become friendly but not bonded to the caster, and can learn languages. Costs 250 XP per creature awakened.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Phantom Wolf",
@@ -1446,7 +1504,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Conjures an incorporeal Large magical beast white wolf (HD 12d10+48, hp 113, AC 25/touch 25/flat-footed 16, flies 60 ft.) that obeys the caster's mental commands as long as it stays within range and the caster concentrates. Its bite is a touch attack dealing 2d6 plus 3d6 cold damage, and any creature of fewer than 12 HD within 30 feet when it attacks must succeed on a DC 24 Will save or be frightened for 3d6 rounds (becoming immune to that wolf's frightful presence for 24 hours). Standard incorporeal traits apply. Lasts concentration up to 1 round per level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Storm of Elemental Fury",
@@ -1470,7 +1529,8 @@
     "savingThrow": "See text",
     "spellResistance": "Yes",
     "description": "Summons a black storm cloud overhead that immediately buffets the area below with windstorm-force winds, making ranged attacks impossible and forcing a Fortitude save against being blown away (Small or smaller creatures), knocked prone (Medium), or unable to move that round (Large or larger); flying creatures that fail are instead blown a random distance. Spells cast within the area risk disruption via a Concentration check against the storm's save DC plus the level of the spell being cast. If the caster maintains concentration (up to 4 rounds) they may move the cloud 40 ft. per round as a move action, and each subsequent round adds an effect: round 2 rains rocks for 5d6 bludgeoning damage (no save); round 3 brings torrential rain that may douse flames, cuts visibility to 5 feet, and halves movement speed; round 4 pelts the area with flame for 1d6 fire damage per caster level (Reflex half).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Stormrage",
@@ -1497,7 +1557,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Grants the caster the benefits of a fly spell and constant protection as if surrounded by a wind wall, plus total immunity to natural or magical wind effects (including any need for Concentration checks in high wind) for 1 minute per level. The caster can also discharge bolts of electricity from their eyes, drawing from a pool of d6s equal to caster level (max 20d6) that can be split across multiple bolts over several rounds or unleashed all at once, each bolt striking a single target. Launching a bolt is a standard action with 100-ft. range requiring a ranged touch attack (provoking no attack of opportunity), gaining a +3 bonus against targets wearing or carrying significant metal.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Nature’s Avatar",
@@ -1522,7 +1583,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Infuses a touched animal with the spirit of nature, granting a +10 morale bonus on attack and damage rolls, 1d8 temporary hit points per caster level, and the effects of haste, lasting 1 minute per caster level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Phantom Bear",
@@ -1547,7 +1609,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As Phantom Wolf, except it conjures an incorporeal Huge magical beast bear (HD 14d10+48, hp 113, AC 25/touch 25/flat-footed 16, two claws and a bite each dealing 2d6 plus 3d6 cold as touch attacks) that can loose a fearsome roar every 1d4 rounds, forcing a DC 26 Will save or be frightened for 3d6 rounds (panicked instead if within 30 feet). Standard incorporeal traits apply — harmed only by magic weapons, spells, or other incorporeal/force sources, 50% chance to ignore corporeal damage. Lasts concentration up to 1 round per level.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Shadow Landscape",
@@ -1572,7 +1635,8 @@
     "savingThrow": "Reﬂ ex partial; see text",
     "spellResistance": "Yes",
     "description": "Infuses a one-mile-radius area of terrain with power drawn from the Plane of Shadow, making it more dangerous for 1 day per level in a way specific to its terrain type: deserts/tundra swing 30 degrees hotter or colder with frequent storms; forests gain heavier, entangling undergrowth (Reflex partial); hills become steeper with DC 25 climbs; marshes gain quicksand in half their undergrowth; mountains gain DC 25 climbs, avalanche risk, and worsened altitude effects; plains gain entangling undergrowth (Reflex partial); underground caverns gain difficult floors and stalagmite clutter. Random weather rolls in the area are made twice (three times on plains) and the higher result kept. The caster is immune to the terrain hazards (though not the bad weather) and may extend that immunity to one companion per 4 caster levels. The caster may also designate native animals, plants, or magical beasts totaling 1 HD per caster level as friendly shadow guardians, who gain cold resistance 10, darkvision 60 ft., DR 5/magic, evasion, and low-light vision (or keep their own better versions of these).",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Unyielding Roots",
@@ -1594,7 +1658,8 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Roots a willing touched creature to the ground (only works while it's touching the ground) for 1 minute per level, making it immovable by bull rushes, overruns, force effects such as Bigby's forceful hand, or anything short of a massive earthquake; against an overrun attempt it automatically wins the Strength check and can attempt to knock the attacker prone instead of merely blocking. The roots also heal the creature up to 30 hit points per round, automatically neutralize poison, and remove negative levels as restoration. The creature gains a +4 bonus on Fortitude and Will saves but takes a -4 penalty on Reflex saves for the duration.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Whirlwind, Greater",
@@ -1617,6 +1682,7 @@
     "savingThrow": null,
     "spellResistance": null,
     "description": "Creates a 20-ft.-radius tornado (up to 5 ft. tall per caster level) lasting 1 round per level that batters nearby creatures according to size and distance: Large or smaller creatures within 60 feet must succeed on a Fortitude save or be dragged 1d4×10 feet toward the center, taking nonlethal damage per 10 feet dragged; Huge creatures within 40 feet must save or be knocked prone; Gargantuan or Colossal creatures within 40 feet must save before moving away from it. Flying creatures of Huge size or smaller that fail their save are sucked to the center for 2d6 damage; larger flyers must save or be pulled toward it instead. Creatures caught inside the tornado take 6d6 damage per round for 1d10 rounds and cannot act, and when expelled land 4d6×5 feet away and 4d6×5 feet in the air. The tornado uproots vegetation, leaves a trail of rubble, deals 2d6×10 damage per round to structures, blocks ranged attacks, extinguishes flames, and makes Listen checks impossible within it; the caster can move it up to 60 feet per round as a move action.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]

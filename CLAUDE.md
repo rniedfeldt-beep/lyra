@@ -687,31 +687,44 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
   parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
   cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
-  Completed so far (18 files, `data/spells/`): `players-handbook.json` (169), `complete-
+  Completed so far (19 files, `data/spells/`): `players-handbook.json` (169), `complete-
   divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
   wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
   `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
   `complete-mage.json` (15), `complete-arcane.json` (12), `complete-champion.json` (12),
   `races-of-the-wild.json` (3), `eberron-campaign-setting.json` (4), `faiths-of-
-  eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5) — 778 druid
-  spell entries total. `quintessential-druid.json`'s three Friendship spells (Beast/
-  Elemental/Magical Beast) and Brother's Staff were corrected per DM/user input (Aug 2026
-  session): Animal Friendship is a retired 3.0 spell with no 3.5 stat block anywhere in the
-  sourcebooks, so its mechanical fields are `null` — same pattern as Charm Animal's
-  unresolved reference to Charm Person — rather than guessed; Brother's Staff's Spell
-  Resistance is confirmed `"No"`. Player's Guide to Faerûn was attempted (CHOCR-extracted,
-  since the PDF has no embedded text layer) but abandoned per Rae's instruction — of its ~74
-  druid-list spells, all but 3 turned out to be reprints with no new stat block in that book,
-  and Rae chose to skip it rather than extract the 3 new ones; no `players-guide-to-
-  faerun.json` exists. Eberron Campaign Setting's and Lords of Madness's same-named "Detect
-  Aberration" entries were determined to be related-but-distinct spells (different scope,
-  area shape, and HD breakpoints) rather than one reprinting the other — both kept at their
-  own printed level with a disambiguating `otherPrintings` note. Sourcebooks still
-  unprocessed and sitting in `/sourcebooks`: Dungeon Master's Guide v3.5, Forge of War,
-  Libris Mortis, Lost Empires of Faerûn, Manual of the Planes, Monster Manual I & II,
-  Player's Guide to Faerûn (abandoned, see above), Sandstorm (most of these are not
-  druid-relevant in full — spot-check for druid-list spells before running the full pipeline
-  on any of them).
+  eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5),
+  `sandstorm.json` (52) — 830 druid spell entries total. `quintessential-druid.json`'s three
+  Friendship spells (Beast/Elemental/Magical Beast) and Brother's Staff were corrected per
+  DM/user input (Aug 2026 session): Animal Friendship is a retired 3.0 spell with no 3.5
+  stat block anywhere in the sourcebooks, so its mechanical fields are `null` — same pattern
+  as Charm Animal's unresolved reference to Charm Person — rather than guessed; Brother's
+  Staff's Spell Resistance is confirmed `"No"`. Player's Guide to Faerûn was attempted
+  (CHOCR-extracted, since the PDF has no embedded text layer) but abandoned per Rae's
+  instruction — of its ~74 druid-list spells, all but 3 turned out to be reprints with no
+  new stat block in that book, and Rae chose to skip it rather than extract the 3 new ones;
+  no `players-guide-to-faerun.json` exists. Eberron Campaign Setting's and Lords of
+  Madness's same-named "Detect Aberration" entries were determined to be related-but-distinct
+  spells (different scope, area shape, and HD breakpoints) rather than one reprinting the
+  other — both kept at their own printed level with a disambiguating `otherPrintings` note;
+  the same treatment was applied to Sandstorm's Wall of Sand and Wall of Water against their
+  Spell Compendium namesakes, which share the name and rough theme but differ enough in
+  duration and mechanics (e.g. Fortitude-save-vs-blindness and a Strength check to force
+  through, versus Spell Compendium's opaque sense-blocking version with a much longer
+  Concentration-based duration) to not be treated as straight reprints. `sandstorm.json`
+  (pp. 111–128) is by far the largest single-book haul so far — includes the full
+  **Summon Desert Ally I–IX** family (one entry per level, each carrying that level's own
+  creature-table options inline rather than as a separate shared table, since the schema is
+  one JSON object per spell) plus the **Wall of Magma/Salt/Sand/Water** and **Transmute
+  Sand↔Stone↔Glass** clusters. Several multi-column pages had descriptions that wrapped from
+  the bottom of one column to the *top of the next*, landing physically above that next
+  spell's own title in reading order — this tripped up naive column-sorted extraction
+  repeatedly and was resolved each time by checking the block immediately preceding a
+  suspiciously-abrupt cutoff. Sourcebooks still unprocessed and sitting in `/sourcebooks`:
+  Dungeon Master's Guide v3.5, Forge of War, Libris Mortis, Lost Empires of Faerûn, Manual of
+  the Planes, Monster Manual I & II, Player's Guide to Faerûn (abandoned, see above) (most of
+  these are not druid-relevant in full — spot-check for druid-list spells before running the
+  full pipeline on any of them).
 - **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
 - **Phase 8** — Three-tab restructure (Lyra / Companions / Reference). Done. Replaced the
   single-scroll layout — see Layout section above for the per-tab breakdown. Added
@@ -732,8 +745,23 @@ page, not PDF page), `spellLevelDruid`, `school`, `subschool` (`null` if none), 
 (array), `components` (array, e.g. `["V","S","M/DF"]`), `castingTime`, `range`,
 `targetAreaEffect { type: "target"|"area"|"effect", value }`, `duration`, `savingThrow`,
 `spellResistance`, `description` (paraphrased, not full printed text — keep durations,
-bonuses, material/focus components, save/SR interactions), `otherPrintings` (array). Use
-`null` only for fields a book genuinely doesn't print.
+bonuses, material/focus components, save/SR interactions), `otherPrintings` (array),
+`abilityType` (`"spell"` or `"spell-like"` — see below). Use `null` only for fields a book
+genuinely doesn't print.
+
+**`abilityType` (Aug 2026).** Every entry across all 19 files carries `abilityType`, default
+`"spell"` — a normal spell drawn from a spell list, with `spellLevelDruid` as its slot cost.
+Set to `"spell-like"` for a class-granted spell-like ability instead, and pair it with a
+`usage` field (`"at will"`, `"1/day"`, etc.) describing how often it can be used outside the
+slot economy. A spell-like entry can still carry a real `spellLevelDruid` if the same ability
+is *also* a genuine spell on the druid list — the two facts aren't mutually exclusive.
+Current examples, both in `faiths-of-eberron.json`, both granted by Lyra's Planar Shepherd
+prestige class rather than the standard druid list: **Detect Manifest Zone**
+(`spellLevelDruid: null` — not a druid-list spell at all, `abilityType: "spell-like"`,
+`usage: "at will"`, granted at Planar Shepherd 2) and **Intensify Manifest Zone**
+(`spellLevelDruid: 7` — it genuinely is also a 7th-level druid spell, `abilityType:
+"spell-like"`, `usage: "1/day"`, granted at Planar Shepherd 7 as a spell-like ability on top
+of its normal casting).
 
 1. **Each printing shows its own level — DECIDED, supersedes the old lowest-level-default
    rule (Aug 2026).** `spellLevelDruid` on an entry is always that book's own printed level,

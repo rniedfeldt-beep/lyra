@@ -1,0 +1,1398 @@
+[
+  {
+    "name": "Cloak of Shade",
+    "source": "Sandstorm",
+    "page": 112,
+    "spellLevelDruid": 1,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Wraps the subject in an envelope of perfect shade: the temperature inside is one band lower than actual (see Heat Dangers), but has no effect on unearthly or hotter heat, nor protects against fire damage. The target is treated as though in shade — protected from sunburn, able to recover from sun glare, and able to heal nonlethal heat damage. Has no effect on light, daylight, sunburst, or similar magical light effects, and offers no protection from sunlight-vulnerability damage.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Impede Sun's Brilliance",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 1,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cylinder (10-ft. radius, 20 ft. high)"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Reduces sunlight to a comfortable glow in a stationary area, dropping the temperature by 20 degrees. Creatures inside gain a one-step improvement in heat protection, aren't subject to sunburn, and can begin recovering from sun glare and heat-related nonlethal damage. Has no effect on light, daylight, sunburst, or similar magical light effects, and offers no protection from sunlight-vulnerability damage.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Locate Water",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Senses substantial bodies of water, revealing more with each round of concentration: round 1, presence/absence; round 2, number of sources and rough size of the largest; round 3, size and location of each (direction only if out of line of sight). Sizes range from Small (pond/pool up to 200 cu. ft., or a narrow brook) through Medium, Large, to Vast (an ocean or inland sea). Can't detect creatures or small quantities like filled containers, and reveals nothing about water quality or accessibility. Fire or magma in the area blocks the spell. Arcane Focus: a forked hazel wand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally I",
+    "source": "Sandstorm",
+    "page": 122,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons a dustform creature (see page 161) of a kind you choose from the 1st-level entry on the Summon Desert Ally table (changeable each casting): baboon, badger, dire rat, dog, giant fire beetle, hawk, jackal, monstrous centipede (Medium), monstrous scorpion (Small), monstrous spider (Small), owl, raven, serval, or small viper snake. It appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability (or can be directed/dismissed if you can communicate with it). A summoned creature can't summon/conjure others or use teleportation/planar travel, and can't be summoned into an environment that can't support it. All creatures on the table are neutral unless otherwise noted.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sunstroke",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 1,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Causes a living creature to experience heatstroke, dealing 2d6 nonlethal damage. If the target fails a Fortitude save, it becomes fatigued (or exhausted if already fatigued). Because this causes heatstroke, the damage and fatigue can only be healed after the condition itself is properly treated.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Waste Strider",
+    "source": "Sandstorm",
+    "page": 128,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One touched creature/level"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The subject moves through desert environments without hindrance, ignoring movement penalties and skill check penalties for all desert and waste terrain. Doesn't grant immunity to other waste hazards such as heat and sun.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Desiccate",
+    "source": "Sandstorm",
+    "page": 114,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "Evaporates moisture from a living creature's body, dealing 1d6 desiccation damage per two caster levels (maximum 5d6) and dehydrating it; a successful Fortitude save halves damage and negates dehydration. Plants and water-subtype elementals take 1d8/caster level (max 10d8) instead; earth-subtype elementals take only 1d4 per two caster levels (max 5d4). Material Component: a pinch of dust.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Freedom of Breath",
+    "source": "Sandstorm",
+    "page": 116,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "The subject breathes freely in conditions that ordinarily inhibit respiration, such as sandstorms, and doesn't need to make Constitution checks against suffocation unless no breathable substance is available at all (e.g. underwater or buried in sand). Also grants immunity to stenches (no saves/checks against nausea from strong odors) and a +2 bonus on Fortitude saves and Constitution checks against poisonous vapors (volcanic gas, cloudkill, etc.) for the duration. Material Component: a sliver of mica.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Halo of Sand",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A thin band of sand swirls around your body, deflecting incoming attacks for a +1 deflection bonus to AC (doesn't obscure you) — the bonus increases by 1 for every three caster levels above 3rd, to a maximum of +4 at 12th level.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Hydrate",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will half; see text",
+    "spellResistance": "Yes; see text",
+    "description": "Creates moisture within a living creature's body, healing 2d8+1/caster level (max +10) of desiccation damage, removing all nonlethal dehydration damage, and clearing lingering dehydrated-condition effects. Cast on a fire-subtype creature, it deals damage instead of healing (spell resistance and a Will save for half apply).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Protection from Dessication",
+    "source": "Sandstorm",
+    "page": 119,
+    "spellLevelDruid": 2,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 min./level or until discharged",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants temporary immunity to dehydration of any kind — the subject can't become dehydrated even from desiccation damage. Discharges once it has prevented a total of 10 points of dehydration-related damage per caster level (desiccation or nonlethal; maximum 100).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Scimitar of Sand",
+    "source": "Sandstorm",
+    "page": 120,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Scimitar of grinding sand"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "Forms a screaming, churning 3-foot blade of sand from your hand; attacks are melee touch attacks dealing 1d6 +1 per two caster levels (max +10), not modified by Strength since the blade isn't solid, usable without penalty even lacking scimitar proficiency. A creature struck must succeed on a Fortitude save or become dehydrated. Arcane Material Component: a pinch of sand, salt, and iron filings.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally II",
+    "source": "Sandstorm",
+    "page": 122,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 2nd-level creature or 1d3 1st-level creatures of the same kind. 2nd-level options: donkey, eagle, formian worker, giant ant (worker), hyena, monstrous scorpion (Medium), monstrous spider (Medium), riding dog, medium viper snake, or vulture.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Control Sand",
+    "source": "Sandstorm",
+    "page": 112,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Dust or sand in a volume of 10 ft./level wide by 10 ft./level long by 2 ft./level deep (S)"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None; see text",
+    "spellResistance": "No",
+    "description": "Raises or lowers fine particulate material such as dust or sand (caster's choice of version); either version can also reduce one horizontal dimension by half while doubling the other. Lower Sand reduces depth by up to 2 ft./caster level (minimum 1 in.) within a square depression up to 10 ft./level on a side; in very large, deep piles it creates a pit that sweeps creatures downward without damage, trapping them until the spell ends, and it acts as slow (Will negates) on earth elementals, dust paraelementals, and similar creatures (no effect on others). Raise Sand does the same in reverse, lifting creatures/objects on top of the material along with it.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Haboob",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Air",
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft. level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Abrasive dust spreads in 20-ft. radius, 20 ft. high"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None or Reflex half; see text",
+    "spellResistance": "No",
+    "description": "A thick haze of dust and sand obscures all sight beyond 5 feet (concealment within 5 ft., total concealment beyond); extinguishes unprotected nonmagical flames automatically and has a 50% chance against protected ones. Also abrades: passing through deals 1d4 damage per two caster levels (max 5d4, no save). Creatures present when it's conjured take damage as if passing through (Reflex half), and take full damage with no save if they don't leave at their next opportunity or remain more than 1 round. A moderate wind (11+ mph) disperses it in 8 rounds, a strong wind (21+ mph) in 4; doesn't function underwater. Material Component: a pinch of ash, dust, or sand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Soul of the Waste",
+    "source": "Sandstorm",
+    "page": 121,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Melds your body and up to 100 lbs. of nonliving gear into an accumulation of sand, dust, ash, or loose earth (the area must be large enough to fit your body). While merged, you remain aware of time, can cast spells on yourself, and can hear the surface above, but can't see or communicate. The material is difficult to damage; if enough is removed that you no longer fit, or the duration expires or is dispelled before you exit voluntarily, you're violently expelled and take 5d6 damage (you may also exit voluntarily at any time unharmed). Control sand and move earth cast on your material simply move you along with the effect; transmute sand to glass or transmute sand to stone expel and instantly slay you unless you succeed on a DC 18 Fortitude save (in which case you're expelled and take 5d6 damage).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Storm Mote",
+    "source": "Sandstorm",
+    "page": 121,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air",
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Cylinder (5-ft. radius, 10 ft. high)"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude half",
+    "spellResistance": "Yes",
+    "description": "Creates a whirling vortex of sand that flies at 60 ft./round with perfect maneuverability; you can direct its movement each round (move action) or set/change a program (standard action), or leave it hovering. It dissipates if it exceeds the spell's range. If it enters a creature's space, it stops and deals 2d8 damage (Fortitude half). Those outside the vortex have concealment against those inside; it extinguishes all nonmagical flame. Arcane Material Component: a pinch of sand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally III",
+    "source": "Sandstorm",
+    "page": 122,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 3rd-level creature, 1d3 2nd-level creatures, or 1d4+1 1st-level creatures of the same kind. 3rd-level options: ashworm, bat swarm, camel, cheetah, dire badger, dire bat, giant ant (soldier), monstrous centipede (Large), or large viper snake.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Whispering Sand",
+    "source": "Sandstorm",
+    "page": 128,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Language-Dependent"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "See text",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/level"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Sand, ash, or dust serves as a conduit for conversation with creatures in far-removed locales. Fix in mind the identity of the creatures you wish to reach (you must know, have met, or know the name of each), then speak; you immediately learn which targets can respond, if any — the spell only functions for targets who possess a sandy focus or are in an area of sand/dust/ash, otherwise it ends immediately. Barriers and distance don't matter as long as both parties have the focus and share a plane. If contact is made, the sand whispers messages back and forth for the duration regardless of distance, though it doesn't transcend language barriers. Focus: at least 1 lb. of sand, dust, or ash.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Blast of Sand",
+    "source": "Sandstorm",
+    "page": 112,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "No",
+    "description": "Sand sprays from your outstretched palm with enough force to strip flesh from bone and scour surfaces, dealing 1d6 damage per caster level (maximum 10d6); damage to objects is not divided by four as usual. Material Component: a pinch of sand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Dispel Water",
+    "source": "Sandstorm",
+    "page": 114,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "See text"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "See text",
+    "description": "Calls on the power of the waste to counter and dismiss water creatures, spells, and effects (though not instantaneous ones), used in one of three ways. Dry Up Water: instantly destroys 200 cu. ft. of water per level; destroying 1,000+ cu. ft. in a large body of water creates a dangerous current (DC 20 Swim check to avoid being pulled under to a depth of 10 ft./caster level; can also capsize small vessels). Counterspell: counters any spell/spell-like ability with the water descriptor, on the Water domain list, or clearly water-related, via a dispel check (1d20 + caster level, max +20, vs. DC 11 + the spell's caster level). Dismiss Water Creature: targets a single extraplanar water-subtype creature, forcing it to its home plane unless it succeeds on a Will save (spell resistance applies).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sandform",
+    "source": "Sandstorm",
+    "page": 119,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Transforms your body and gear into living sand, taking an ooze-like form with immunity to poison, sleep, paralysis, polymorphing, and stunning, and no extra damage from critical hits or flanking; you retain Int/Wis/Cha and can still be affected by mind-affecting effects. You don't suffer heat/dehydration effects but can still take fire/desiccation damage, become blind but gain blindsight to 60 ft., and keep your BAB, base saves, alignment, level, class, hp, type, Ex abilities, and spells (Su abilities are suppressed). In demanding situations you must succeed on a DC 19 Will save or take a -2 penalty on attacks, saves, and checks until it passes. Base land speed drops to 20 ft.; you can squeeze through openings as small as 1/4 inch (full-round action if two+ size categories smaller), gain a burrow speed equal to land speed in sandy terrain, a +10 circumstance bonus on Hide checks, and concealment. You gain a reach-boosting pseudopod slam attack (damage by size, from — at Fine up to 5d6 at Colossal), applying 1.5x Strength to damage as a two-handed weapon, but can't wield weapons. Reverts to your original form upon death. Material Component: a handful of sand from an earth-subtype elemental.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Searing Exposure",
+    "source": "Sandstorm",
+    "page": 120,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire",
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Inflicts the effect of hours of severe heat and desert sun exposure in a moment: the target must succeed on a Fortitude save or take 1d4 nonlethal damage per caster level (max 15d4, converting to lethal once it exceeds current hp), and becomes dazzled, dehydrated, and sunburned. Heat protection (like keepcool salve or a hydration suit) grants a +4 bonus on the save; heavy clothing/armor gives a -4 penalty but prevents sunburn. On a successful save, the target instead takes half damage, becomes dehydrated, and is dazzled for 1d4+1 rounds. Arcane Material Component: a shard of thick glass.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Skin of the Cactus",
+    "source": "Sandstorm",
+    "page": 120,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants a +3 enhancement bonus to existing natural armor (+4 at caster level 10th, max +5 at 13th; stacks with the target's natural armor but not with other enhancement bonuses to it — a creature without natural armor has an effective bonus of +0). The subject also grows needles that deal 1d6 piercing damage to any creature grappling it or striking with natural weapons. Finally, grants a +4 bonus on saves to resist becoming dehydrated from heat/exposure (no protection against desiccation damage or dehydration-causing spells). Material Component: a cactus spine.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Slipsand",
+    "source": "Sandstorm",
+    "page": 121,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 10-ft.-cube region of slipsand/level"
+    },
+    "duration": "Permanent",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Turns an area of natural sand into a pit of deadly slipsand (supernatural sandlike materials like black sand or slumber sand are unaffected). A creature unable to free itself sinks to the bottom and must hold its breath or begin to suffocate. Cast on a fused-sand structure or sandy foundation, it collapses part of the structure; cast on a building's material, it spreads to fill available space, possibly burying occupants. Creates a hard-to-detect magic trap: a Survival check (DC = the spell's save DC) is needed to notice it (impossible while running/charging); a rogue can find it via Search but can't disable it. Trap DC is 25 + spell level, or 29 for slipsand itself. Material Component: a pinch of slipsand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally IV",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 4th-level creature, 1d3 3rd-level creatures, or 1d4+1 lower-level creatures of the same kind. 4th-level options: ankheg, deinonychus, dire jackal, giant ant (queen), giant eagle, giant owl, monstrous spider (Large), or protoceratops.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Wall of Salt",
+    "source": "Sandstorm",
+    "page": 127,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Salt wall whose area is up to one 5-ft. square/level (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Creates a gleaming wall of salt crystal that merges into adjoining rock; can seal a passage/breach or build new walls. 1 inch thick per caster level (double area by halving thickness); can't occupy a creature's/object's space. Shapeable almost any way, needn't be vertical or on a firm foundation, but must merge with and be solidly supported by existing stone; can bridge a chasm or serve as a ramp (spans over 20 ft. must be arched/buttressed, halving the area) or be shaped with crenellations/battlements (also halving area). Destroyed by disintegrate or by chipping/breaking (3 hp per inch and hardness 2 per 5-ft. square; a section at 0 hp is breached; DC 15+1/inch Strength check to break through in one try). A constant blast of water dissolves it at 10 damage/minute, unreduced by hardness. Can be shaped to trap mobile opponents (Reflex save to avoid). Arcane Material Component: a crystal of rock salt.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Wall of Sand",
+    "source": "Sandstorm",
+    "page": 127,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Sand wall whose area is up to one 10-ft. square/level (S)"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Creates a flat, vertical wall of churning sand: 1 inch thick per caster level, up to a 10-ft. square area per level (double area by halving thickness); can't occupy a creature's/object's space. No physical attack harms it directly, but each 10-ft. section has 2 hp per inch of thickness for determining whether an attack passes through (must exceed the wall's hp to affect a target beyond it; breaches close immediately after). Blocks line of effect for fire spells; creatures beyond an attack's origin have total concealment. Moving through requires a Strength check (DC 10+1/inch) or you're stopped, plus a Fortitude save or be blinded for 1d4+1 rounds (eyeless creatures exempt); passing through leaves no usable breach for others, and extinguishes nonmagical flames carried through. Control sand and move earth can breach and hold open a gap. Can be shaped to trap mobile opponents (Reflex save to avoid). Treated as normal sand for the duration, so sand-altering spells (like transmute sand to stone/glass) affect it, though its own duration is unaffected. Can be made permanent via permanency. Arcane Material Component: a handful of sand.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 235,
+        "spellLevelDruid": 5,
+        "note": "Related but not equivalent — Spell Compendium's version is opaque, blinds/deafens/silences creatures caught inside, blocks verbal-component spellcasting, and lasts Concentration +1 round/level, versus this version's fixed 1 min./level duration and Fortitude-save-to-avoid-blindness mechanic."
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Wall of Water",
+    "source": "Sandstorm",
+    "page": 128,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Wall of water 1 ft. thick whose area is up to one 10-ft. square/level (S)"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Creates a vertical wall of swirling water (double area by halving thickness). A creature trying to pass through must make a Swim check (DC 14 + your spellcasting ability modifier) or become trapped and unable to move, retrying each round (risking drowning); creatures already present when it's conjured face the same check, and those who succeed choose which side to emerge on. Extinguishes nonmagical flames carried through. Hard to harm physically: thrown weapons don't work through it, other ranged weapons take a -2 penalty per 5 ft. of wall passed through (minimum -2, plus normal range penalties); breaches close immediately after the attack passes. Blocks line of effect for fire spells; creatures on one side have cover against the other unless the attacker has freedom of movement. A 5-ft. section that takes 20+ fire damage in a round evaporates into steamy fog for 1 minute; 20+ cold damage freezes that section for 10 minutes (treat as wall of ice) — damage isn't quartered as usual for objects in either case. Control water can open and hold a breach if it can affect enough of the wall. Can be made permanent via permanency. Arcane Material Component: a vial of water.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 235,
+        "note": "Related but not equivalent — Spell Compendium's version has a much longer 10 minutes/level duration, a Reflex save to avoid being caught as the wall forms, deals ongoing fire-subtype damage, and grants cover rather than a Swim-check/drowning mechanic."
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Choking Sands",
+    "source": "Sandstorm",
+    "page": 112,
+    "spellLevelDruid": 5,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "Instantaneous; see text",
+    "savingThrow": "Fortitude negates; see text",
+    "spellResistance": "Yes",
+    "description": "Coats the target's lungs with dust and sand. The target can cough up the sand with a full-round action and a Fortitude save; if it doesn't, it must make Constitution checks to avoid suffocation. Material Component: a tiny stuffed animal filled with sand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Flaywind Burst",
+    "source": "Sandstorm",
+    "page": 115,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Air",
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 round",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Produces a brief ~70 mph windstorm of scouring, supernatural grit that strips flesh, dealing 1d6 damage per caster level (max 10d6, Reflex half) to creatures in the area. Also forces a Fortitude save against wind-force effects: Small or smaller creatures are knocked down and rolled 1d4x10 ft. (1d4 nonlethal/10 ft.), or blown back 2d6x10 ft. if flying; Medium creatures are knocked prone or blown back 1d6x10 ft. if flying; Large/Huge creatures can't move forward against the blast, or are blown back 1dx5 ft. if flying; Gargantuan or larger move normally. Can't push a creature beyond the spell's range. Can also do anything else a windstorm-force sandstorm would (obscure vision, heel over boats, disperse gas). Material Component: a pinch of sand and a vulture wing feather.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Flesh to Salt",
+    "source": "Sandstorm",
+    "page": 116,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Calls the essence of salt forth in the target, dealing 1d6 damage per two caster levels (max 10d6). If the damage exceeds half the target's current hit points, it must succeed on a Fortitude save or its body completely crystallizes into a mindless, inert salt statue (carried gear unaffected); damage/deformities carry over if later restored. The creature isn't dead but doesn't read as alive to spells like deathwatch. The statue has hardness 2, 5 hp per inch of thickness, and dissolves rapidly in water (unreduced damage: 10/minute from a constant blast such as a decanter of endless water, or 1/minute from steady rain). A stone to flesh spell affects the salt as though it were stone, restoring the creature. Material Component: a lump of rock salt.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Fuse Sand",
+    "source": "Sandstorm",
+    "page": 117,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes per level (S)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Melts and fuses normal sand into a soft, porous building material. Creatures in the sand get a Reflex save to escape before it hardens; those who fail are trapped and must be broken out (risking suffocation if buried). The fused sand has hardness 3, 5 hp per inch of thickness, and a break DC of 22. Material Component: a glass marble.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sleep Mote",
+    "source": "Sandstorm",
+    "page": 121,
+    "spellLevelDruid": 5,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "5-ft.-diameter sphere"
+    },
+    "duration": "1 round/level; see text",
+    "savingThrow": "Will partial",
+    "spellResistance": "Yes",
+    "description": "Creates a dust devil of slumber-inducing particles that flies at 30 ft./round with perfect maneuverability; you can direct its movement each round (move action) or set/change a simple program (standard action), or leave it hovering. It dissipates if it exceeds the spell's range. If it enters a creature's space, it stops and forces a Will save on any creature whose space it fully engulfs (Large+ creatures are immune) or the creature falls into magical slumber; even on a success, affected creatures are sleepy and take a -2 penalty on Wisdom/Intelligence/Charisma checks for the duration. Sleeping creatures are helpless; slapping or wounding wakes them (normal noise doesn't), and waking one is a standard action (an aid another application). Has no effect on unconscious creatures. Arcane Material Component: a pinch of fine sand and a live cricket.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally V",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 5th-level creature, 1d3 4th-level creatures, or 1d4+1 lower-level creatures of the same kind. 5th-level options: dire vulture, formian warrior, lion, locust swarm, monstrous centipede (Huge), monstrous scorpion (Large), or huge viper snake.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Transmute Sand to Glass",
+    "source": "Sandstorm",
+    "page": 124,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes/level (S)"
+    },
+    "duration": "Permanent",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Transforms a mass of normal sand of any depth into solid glass permanently. Creatures in the sand get a Reflex save to escape before it hardens; those who fail are trapped and must be broken out (a Strength check or dealing damage to the glass frees them — hardness 1, 1 hp/inch, break DC 12 +1/inch). A creature partially caught takes a -2 penalty on attack rolls, a -4 penalty to Dexterity, and can't move; breaking free deals 1d6 damage from broken glass either way. A creature trapped beneath the surface may begin to suffocate. Arcane Material Component: a mixture of crushed glass and sand.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Transmute Sand to Stone",
+    "source": "Sandstorm",
+    "page": 124,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes/level (S)"
+    },
+    "duration": "Permanent",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Transforms a mass of sand of any depth into solid stone permanently. Creatures in the sand get a Reflex save to escape before it hardens; on a failed save, the creature is entangled and unable to move (not helpless), and can break free by damaging the stone (hardness 8, 15 hp/inch) or with a Strength check (DC 20 +2/inch). Counters and dispels transmute stone to sand. Arcane Material Component: sand, dirt, and water.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Transmute Stone to Sand",
+    "source": "Sandstorm",
+    "page": 125,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Up to two 10-ft. cubes/level (S)"
+    },
+    "duration": "Permanent",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Turns natural, uncut, or unworked stone into an equal volume of sand (a boulder collapses into a heap); magical stone is unaffected, and resulting depth can't exceed 10 feet. Cast on a cavern/tunnel ceiling, the sand falls and piles 5 ft. deep, dealing 8d6 bludgeoning (Reflex half) to anyone caught directly beneath. Castles and large stone buildings are generally immune since it can't affect worked stone or reach deep enough to undermine their foundations, though small structures on shallow foundations can be damaged or toppled. The sand remains until dispel magic or transmute sand to stone restores its substance (not necessarily its form). Arcane Material Component: sandstone and granite.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Awaken Sand",
+    "source": "Sandstorm",
+    "page": 111,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF",
+      "XP"
+    ],
+    "castingTime": "24 hours",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "15-ft. area of sand touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Awakens a region of sand or similar material to humanlike sentience (DC 18 Will save to succeed); the awakened sand is friendly toward you but has no special empathy unless you communicate your desires to it. It has the statistics of a Huge animated object (40 ft. land speed, 20 ft. burrow speed), the earth subtype, 3d6 Int/Wis/Cha, immunity to polymorphing, and can speak languages you know (plus more per point of Int bonus). It can engulf Large or smaller creatures as a standard action; opponents get an attack of opportunity (forfeiting their save) or must succeed on a DC 19 Reflex save or be engulfed and grappled, taking 1d6+3 damage/round and risking suffocation. It can hide atop sand, form dunes, and pour through small openings. XP Cost: 500.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Desiccate, Mass",
+    "source": "Sandstorm",
+    "page": 114,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One living creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "Functions like desiccate, except it affects multiple creatures (one per caster level, no two more than 30 ft. apart).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Mephit Mob",
+    "source": "Sandstorm",
+    "page": 118,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 minute",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Two or more summoned creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons 2d6 average mephits of a kind you designate, which appear where you choose and act immediately, attacking your opponents to the best of their ability (or can be directed/dismissed if you can communicate with them). Summoned mephits can't summon or conjure other creatures, use teleportation or planar travel, or be summoned into an environment that can't support them. Takes on the elemental type (air/earth/fire/water) matching the mephit kind summoned — e.g. an earth spell when summoning salt mephits.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Mummify",
+    "source": "Sandstorm",
+    "page": 118,
+    "spellLevelDruid": 6,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Flash-dries a creature, killing and instantaneously mummifying it. A successful Fortitude save instead deals 6d6 desiccation damage and dehydrates the target (if the damage kills it, it's still mummified). Arcane Material Component: a strip of salted cloth.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sandstorm",
+    "source": "Sandstorm",
+    "page": 119,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Air",
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "40 ft./level",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "40 ft./level radius cylinder 40 ft. high"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "No",
+    "description": "Creates a duststorm or sandstorm, functioning as control winds (PHB) but conjuring both wind and sand regardless of terrain. Every three caster levels lets you raise or lower wind strength by one level (winds below severe can't carry suspended sand); each round, creatures in the area make Fortitude saves against wind and suspended-grit effects, with severity scaling from severe wind (minor damage, reduced visibility, smothers flames) through windstorm and up to tornado-force, per the standard wind-effects table.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Scalding Mud",
+    "source": "Sandstorm",
+    "page": 120,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": "Earth",
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "See transmute rock to mud"
+    },
+    "duration": "Permanent; see text",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Functions as transmute rock to mud, except it can also be cast on sand, earth, and unworked nonmagical rock, and the resulting mud is boiling hot: creatures mired in it take 5d6 fire damage/round (10d6 if fully submerged), while those merely standing atop it take 1d6/round from steam. Damage continues for 1d3 rounds after exposure ends (at a reduced 1d6/round). The mud cools after 1 round per caster level (damage dice halve each round past that point), then dries into ordinary soil. Arcane Material Component: a pinch of clay, sulfur, and water.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally VI",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 6th-level creature, 1d3 5th-level creatures, or 1d4+1 lower-level creatures of the same kind. 6th-level options: diprotodon, dire lion, giant stag beetle, hippopotamus, megaraptor, monstrous centipede (Gargantuan), monstrous spider (Huge), or rhinoceros.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Wall of Magma",
+    "source": "Sandstorm",
+    "page": 126,
+    "spellLevelDruid": 6,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth",
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Wall of molten stone whose area is up to one 5-ft. square/level (S)"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Creates a wall of thick, glowing magma that merges into adjoining rock (melting the connection into a smooth bond); can seal a passage/breach, but ignites flammable materials on contact. 1 inch thick per 4 caster levels (double area by halving thickness); can't occupy a creature's/object's space. Shapeable into sheets/curves (not domes or wide unsupported spans) and must rest on a firm foundation merged with existing stone; can be difficult but possible to form into a ring to enclose creatures (Reflex save to avoid). Radiates heat from both sides: 2d6 fire damage within 10 ft., 1d6 within 20 ft. Can't be broken like a normal wall but can be forced through at a cost of 4 squares of movement (earth-subtype creatures move through at normal speed); deals 5d6 +1/caster level (max +20) fire damage to anyone passing through or standing within, plus 2d6/round for 1d3 rounds after leaving; double damage to undead and water-subtype creatures. Destroyed by disintegrate, or if a 5-ft. section takes 40+ cold damage in one round (hardens to normal stone, hardness 8, 15 hp/inch, breakable via DC 20 +2/inch Strength check; cold damage isn't quartered as usual). Create water on the wall makes a dissipating steam cloud. Can be made permanent via permanency; a permanent wall chilled solid returns to molten form after 10 minutes. Arcane Material Component: a small piece of pumice, obsidian, or other volcanic rock.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Flesh to Salt, Mass",
+    "source": "Sandstorm",
+    "page": 116,
+    "spellLevelDruid": 7,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial; see text",
+    "spellResistance": "Yes",
+    "description": "Functions like flesh to salt, except it affects multiple creatures: one additional creature per four caster levels, to a maximum of five creatures at 20th level.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally VII",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 7th-level creature, 1d3 6th-level creatures, or 1d4+1 lower-level creatures of the same kind. 7th-level options: elephant, formian taskmaster, giant banded lizard, or monstrous scorpion (Huge).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Flashflood",
+    "source": "Sandstorm",
+    "page": 114,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "120 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped spread"
+    },
+    "duration": "1 round",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Creates a roaring 10-ft.-high wall of water that erupts from where you stand and surges forward for 1 round, sweeping away or smashing nearly everything in its path (creatures on the ground in the area can't move or attack that round; spellcasters must make a Concentration check, DC 20 + spell level, to cast). Deals 1d6 nonlethal damage +1d6 per 5 caster levels (max 4d6) to those caught in it, pushing unsecured creatures/objects to the area's edge (8d6 damage if forced into a solid surface). Leaves behind roughly 100,000 cubic feet of water, which drains away or pools depending on terrain; effects vary significantly by environment (caves/tunnels flood or fill with rising water; cliffs can cause falls; open ground sweeps creatures up to 120 ft.; wooden structures take 60 damage, occupants of collapsing structures take 8d6 bludgeoning, Reflex half; rivers/lakes/marshes overflow their banks).",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Mantle of the Fiery Spirit",
+    "source": "Sandstorm",
+    "page": 118,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "XP"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Permanently grants the target the fire subtype. Material Component: a burning lump of coal and a fire opal worth 5,000 gp. XP Cost: 2,000.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally VIII",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 8th-level creature, 1d3 7th-level creatures, or 1d4+1 lower-level creatures of the same kind. 8th-level options: dire tortoise, dunewinder, monstrous centipede (Colossal), monstrous spider (Gargantuan), triceratops, or tyrannosaurus.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon Desert Ally IX",
+    "source": "Sandstorm",
+    "page": 123,
+    "spellLevelDruid": 9,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like summon desert ally I, except you can summon one 9th-level creature, 1d3 8th-level creatures, or 1d4+1 lower-level creatures of the same kind. 9th-level options: gargantuan monstrous scorpion or colossal monstrous spider.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  }
+]

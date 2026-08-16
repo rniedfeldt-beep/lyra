@@ -26,7 +26,8 @@
         "source": "Spell Compendium",
         "page": 8
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Blindsight",
@@ -56,7 +57,8 @@
         "page": 32,
         "note": "Listed as Drd 3 in Spell Compendium (Drd 2 in Savage Species)"
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Buoyant Lifting",
@@ -87,7 +89,8 @@
         "page": 40,
         "spellLevelDruid": 1
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Camouflage",
@@ -124,7 +127,8 @@
         "source": "Masters of the Wild",
         "page": 86
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Countermoon",
@@ -159,7 +163,8 @@
         "source": "Masters of the Wild",
         "page": 87
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Dawn",
@@ -191,7 +196,8 @@
         "source": "Masters of the Wild",
         "page": 87
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Detect Water",
@@ -216,7 +222,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Note: Savage Species lists this on the druid spell list as 'Detect Water' (Drd 1) but prints no description; it is identical to the spell Locate Water, whose block is used here. You sense the direction of a substantial body of water, learning more the longer you concentrate on an area: 1st round — presence or absence of water; 2nd round — the number of water sources present and the rough size of the largest; 3rd round — the size and location of each source (direction only, not exact location, for any source outside your line of sight). Size categories: Small (a pond/pool of 200 cu. ft. or less, or a brook up to 5 ft. across); Medium (a large pond or small lake up to 20,000 cu. ft., or a stream up to 30 ft. across); Large (a lake up to 10 million cu. ft., or a broad river); Vast (an ocean or inland sea). The spell cannot find creatures, ignores small quantities of water (such as filled bottles or skins), reveals nothing about water quality or accessibility, and is blocked by fire or magma within its area. Arcane Focus: a forked hazel wand.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Embrace the Wild",
@@ -255,7 +262,8 @@
         "page": 147,
         "spellLevelDruid": 2
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Forestfold",
@@ -297,7 +305,8 @@
         "source": "Complete Adventurer",
         "page": 149
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Improved Blindsight",
@@ -321,7 +330,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "As blindsight, except that the blindsight granted by the spell has a 60-foot range. (Savage Species prints this entry as 'As blindsight, except as noted above'; the mechanical fields shown here are inherited from blindsight.)",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Jagged Tooth",
@@ -350,7 +360,8 @@
         "source": "Spell Compendium",
         "page": 126
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Lion's Charge",
@@ -375,7 +386,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "You give the subject the powerful charging ability of a lion: when the subject charges, it can make a full attack in the same round. Material Component: a hair from a lion's mane.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Major Resistance",
@@ -400,7 +412,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "You imbue the subject with strong magical energy that protects it from harm, granting a +3 resistance bonus on saving throws. Arcane Material Component: a miniature cloak of fine cloth.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Plant Body",
@@ -431,7 +444,8 @@
         "page": 159,
         "spellLevelDruid": 5
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Rapid Burrowing",
@@ -461,7 +475,8 @@
         "source": "Spell Compendium",
         "page": 166
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Scent",
@@ -499,7 +514,8 @@
         "source": "Serpent Kingdoms",
         "page": 157
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Superior Resistance",
@@ -524,7 +540,8 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "You imbue the subject with powerful magical energy that protects it from harm, granting a +6 resistance bonus on saving throws. Arcane Material Component: a miniature cloak of fine cloth.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Wings of the Sea",
@@ -553,6 +570,7 @@
         "source": "Spell Compendium",
         "page": 240
       }
-    ]
+    ],
+    "abilityType": "spell"
   }
 ]

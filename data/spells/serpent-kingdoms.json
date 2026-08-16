@@ -24,7 +24,8 @@
     "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "Hurls a missile of lava that strikes unerringly (unless the target has cover or concealment) for 1d4 fire damage, igniting the target on a failed save. Gains one additional missile per two caster levels (two at 4th, up to a maximum of five at 10th or higher); multiple missiles can be split among several targets, but each missile can strike only one creature, and targets must be designated before rolling spell resistance or damage. Heals firenewts of 1d4 damage instead of harming them.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Razorscales",
@@ -48,7 +49,8 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Hardens the caster's scales to a razor edge for the duration, causing the caster's grapple attacks to deal lethal rather than nonlethal damage. Automatically fails if the caster is not a Scaled One (a reptilian humanoid such as a yuan-ti). Material component (for arcane casters, in place of a divine focus): a thin-bladed razor.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Scent",
@@ -86,7 +88,8 @@
         "source": "Savage Species",
         "page": 69
       }
-    ]
+    ],
+    "abilityType": "spell"
   },
   {
     "name": "Venomfire",
@@ -112,7 +115,8 @@
     "savingThrow": "Fortitude negates (harmless) [as printed; the source also prints a second, contradictory 'Saving Throw: None' line immediately after — kept both here rather than silently dropping one, since which is the intended value can't be determined from the text alone]",
     "spellResistance": "Yes (harmless)",
     "description": "Makes the target's venom caustic, adding 1d6 acid damage per caster level to each poison use for the duration. Has no effect on a creature that doesn't naturally produce poison. Material component: a drop of acid.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   },
   {
     "name": "Lava Splash",
@@ -140,6 +144,7 @@
     "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "Showers the area with a wave of lava, dealing 1d4 fire damage per caster level (as printed, capped at a maximum of 15d6) to each creature caught in it. Acts as cure moderate wounds instead of harming firenewts. Focus: a fist-sized lump of volcanic rock.",
-    "otherPrintings": []
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]
