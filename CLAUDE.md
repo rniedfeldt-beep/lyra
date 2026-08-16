@@ -517,6 +517,38 @@ Str 13 / Dex 15 / Con 15 / Cha 6, Weapon Focus (bite).
 attack bonus while giant wins on damage die, at identical cost — the UI should show that
 tradeoff rather than assuming one is better.
 
+### Summon nature's minor ally (level 0)
+
+An orison, functionally *summon nature's ally I* but limited to a Tiny or Diminutive animal of
+½ HD or less (Quintessential Druid II, Drd 0). The 8 creatures it can actually produce are
+tagged `summonNaturesAllyLevel: 0` in `data/creatures/monster-manual.json` (Bat, Cat, Lizard,
+Rat, Raven, Snake — Tiny Viper, Toad, Weasel — a `note` field on each explains the spell
+actually allows *any* qualifying animal, this list is just illustrative) — no changes needed
+anywhere in `calc/summonBuilder.js`, which was already fully generic over
+`summonNaturesAllyLevel`. Same pipeline as every other level: Greenbound and Ashbound apply
+normally (none of the 8 are canine or elemental); young/advanced/giant never apply since
+those trades are canine-only and none of these creatures are canines, so there's no
+Totemic Summons speed-up or temp HP either — all of that already fell out of the existing
+`isCanine` checks with no special-casing required. The one real code change:
+`SummonBuilder.jsx`'s level picker derives its options from `spellSlots.slots`, which
+(correctly) has no level-0 entry at all — 0 is prepended manually, and `handleSummon` skips
+`setSpellSlotUsed` entirely when `level === 0`, matching orisons' no-daily-cap houserule
+(same pattern as `PreparedSpellsTracker`/`spontaneousConversions.json`).
+
+**Bug found via this addition, fixed in both summons and wild shape:** Bat and Toad's real
+3.5e stat blocks list no attacks at all (`attacks: []` — accurate, not a data gap; these are
+utility/scouting forms, not combat ones). `computeSummonStatBlock` and
+`computeWildShapeStatBlock` both used to assume at least one attack existed and crashed
+(`Cannot read properties of undefined (reading 'primary')`) trying to pick a "best primary"
+from an empty array. This was **already live** for Wild Shape before this change — Bat and
+Toad are both `wildShapeMinLevel: 5`, reachable at Lyra's level 8 — just never hit because
+nothing had exercised that path. Fixed by skipping natural-weapon-routine construction
+entirely when `attacks.length === 0`: a wild-shaped Bat/Toad now correctly shows "No attacks
+in this form" (wild shape has no fallback — no Greenbound-style template to grant one), while
+a *summoned* Bat/Toad still gets a slam via Greenbound ("gains a slam attack if it lacked
+one") since Greenbound applies to both regardless of whether the base creature already had a
+natural weapon.
+
 ### Summon builder UI
 
 Player picks a spell slot level, sees which creatures are reachable at which template loadouts,

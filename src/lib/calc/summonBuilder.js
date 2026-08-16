@@ -212,12 +212,20 @@ export function computeSummonStatBlock({ sheet, creature, templateId, simpleTemp
 
   const { durationMultiplier, luckAttackBonus } = collectSummonFeatBonuses(sheet.feats)
 
-  const naturalWeaponRoutine = buildAttackRoutine({
-    creature,
-    attacks: final.naturalAttacks,
-    statBlock: final,
-    luckBonus: luckAttackBonus,
-  })
+  // Some base creatures (Bat, Toad — real 3.5e stat blocks, not a data gap)
+  // list no attacks at all. buildAttackRoutine assumes at least one entry
+  // to pick a "best primary" from, so skip it entirely rather than call it
+  // on an empty array — Greenbound-eligible creatures still get a slam
+  // routine below regardless (it grants one "if it lacked one").
+  const naturalWeaponRoutine =
+    final.naturalAttacks.length > 0
+      ? buildAttackRoutine({
+          creature,
+          attacks: final.naturalAttacks,
+          statBlock: final,
+          luckBonus: luckAttackBonus,
+        })
+      : null
   const slamRoutine = final.slamAttack
     ? buildAttackRoutine({ creature, attacks: [final.slamAttack], statBlock: final, luckBonus: luckAttackBonus })
     : null

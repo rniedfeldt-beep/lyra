@@ -185,12 +185,20 @@ function SummonStatBlock({ statBlock }) {
 
       <p className="breakdown">Speed: {speedText}</p>
 
-      <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} />
+      {statBlock.naturalWeaponRoutine && (
+        <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} />
+      )}
       {statBlock.slamRoutine && (
         <>
           <AttackRoutineList title="Slam Routine" routine={statBlock.slamRoutine} />
-          <p className="note">Either routine may be used, not both, on a given attack.</p>
+          {statBlock.naturalWeaponRoutine && (
+            <p className="note">Either routine may be used, not both, on a given attack.</p>
+          )}
         </>
+      )}
+      {!statBlock.naturalWeaponRoutine && !statBlock.slamRoutine && (
+        <p className="note">No attacks — this creature has no natural weapons of its own, and Greenbound
+          doesn't apply to grant a slam.</p>
       )}
 
       {!statBlock.greenboundEligible && (
@@ -362,7 +370,11 @@ export function ActiveSummonSections() {
 
 export default function SummonBuilder({ sheet }) {
   const { update } = useLiveState()
-  const availableLevels = sheet.spellSlots.slots.filter((s) => s.total > 0).map((s) => s.spellLevel)
+  // Level 0 (summon nature's minor ally) is always available alongside
+  // whatever leveled slots Lyra has — orisons aren't part of spellSlots.slots
+  // at all (no daily cap under this campaign's houserule), so it's prepended
+  // here rather than derived from slot totals like the others.
+  const availableLevels = [0, ...sheet.spellSlots.slots.filter((s) => s.total > 0).map((s) => s.spellLevel)]
   const [level, setLevel] = useState(availableLevels[0])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [quantity, setQuantity] = useState(1)
@@ -405,6 +417,9 @@ export default function SummonBuilder({ sheet }) {
         statBlock,
         members,
       })
+      // Orisons are unlimited under this campaign's houserule — no slot to
+      // spend, no daily cap, and no spellSlotsUsed[0] tracker to update.
+      if (level === 0) return withSummon
       const used = withSummon.spellSlotsUsed[level] ?? 0
       const slot = sheet.spellSlots.slots.find((sl) => sl.spellLevel === level)
       return setSpellSlotUsed(withSummon, level, Math.min(slot.total, used + 1))

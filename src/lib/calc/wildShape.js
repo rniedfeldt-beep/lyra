@@ -64,6 +64,12 @@ function buildFormAttack(atk, { attackBonusBase, strMod, singleWeapon, forceCoun
 // Single attack (standard action, best primary weapon only) vs. full attack
 // (full-round action, primary at full count plus all secondaries at -5).
 function computeFormAttackRoutine({ bab, creature, strMod }) {
+  // A few forms (Bat, Toad — real 3.5e stat blocks, not a data gap) list no
+  // attacks at all. Unlike a summon, wild shape has no Greenbound-style
+  // fallback to grant one — a druid shaped into a bat genuinely has no
+  // attack option in that form.
+  if (creature.attacks.length === 0) return { single: [], full: [], hasSecondaries: false }
+
   const sizeMod = SIZE_MODIFIER[creature.size]
   const attackBonusBase = bab + strMod + sizeMod
   const singleWeapon = creature.attacks.length === 1

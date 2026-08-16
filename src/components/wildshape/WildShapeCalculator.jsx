@@ -35,6 +35,15 @@ function AttackEntry({ atk }) {
 }
 
 function AttackRoutine({ routine }) {
+  if (routine.single.length === 0) {
+    return (
+      <>
+        <h3>Attack Routine</h3>
+        <p className="note">No attacks in this form.</p>
+      </>
+    )
+  }
+
   return (
     <>
       <h3>Attack Routine</h3>
