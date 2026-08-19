@@ -733,7 +733,7 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
   parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
   cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
-  Completed so far (20 files, `data/spells/`): `players-handbook.json` (169), `complete-
+  Completed so far (22 files, `data/spells/`): `players-handbook.json` (169), `complete-
   divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
   wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
   `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
@@ -840,7 +840,7 @@ bonuses, material/focus components, save/SR interactions), `otherPrintings` (arr
 `abilityType` (`"spell"` or `"spell-like"` — see below). Use `null` only for fields a book
 genuinely doesn't print.
 
-**`abilityType` (Aug 2026).** Every entry across all 19 files carries `abilityType`, default
+**`abilityType` (Aug 2026).** Every entry across every file carries `abilityType`, default
 `"spell"` — a normal spell drawn from a spell list, with `spellLevelDruid` as its slot cost.
 Set to `"spell-like"` for a class-granted spell-like ability instead, and pair it with a
 `usage` field (`"at will"`, `"1/day"`, etc.) describing how often it can be used outside the
