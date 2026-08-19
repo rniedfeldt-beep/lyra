@@ -171,6 +171,25 @@ function PreparedSpellsTracker({ spellSlots }) {
   return (
     <div className="tracker-block">
       <Collapsible title="Prepared Spells" defaultExpanded={false}>
+        {spontaneousConversions.alwaysAvailable?.length > 0 && (
+          <div className="always-available-block">
+            <div className="spontaneous-conversions">
+              <span className="spontaneous-label">Always available</span>
+              <ul>
+                {spontaneousConversions.alwaysAvailable.map((a) => (
+                  <li key={a.name}>{a.name}</li>
+                ))}
+              </ul>
+            </div>
+            {spontaneousConversions.alwaysAvailable.map(
+              (a) => a.note && (
+                <p className="note" key={a.name}>
+                  {a.name} — {a.note}
+                </p>
+              ),
+            )}
+          </div>
+        )}
         {levels.map(({ level, count }) => (
           <div className="prepared-level" key={level}>
             <span className="prepared-level-label">{SPELL_LEVEL_LABELS[level]}</span>

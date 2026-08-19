@@ -230,6 +230,16 @@
   font-size: 13px;
 }
 
+.always-available-block {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.always-available-block .note {
+  margin-top: 6px;
+}
+
 .spontaneous-conversions {
   display: flex;
   flex-wrap: wrap;

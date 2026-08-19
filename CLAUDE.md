@@ -652,6 +652,20 @@ cure light wounds stays at 1st, but moderate/serious/critical shift up to 3rd/4t
 slots (`spellSlots.slots` only includes levels with `total > 0`); the data entry already
 exists in `spontaneousConversions.json` and needs no further change when that day comes.
 
+**`alwaysAvailable` (Aug 2026)** is a second, separate top-level array in the same file, for
+granted abilities that aren't tied to *any* spell level at all — as opposed to `byLevel`'s
+conversions, which are always keyed to the level whose prepared slot they draw from. Currently
+just **Detect Manifest Zone** (Sp, at will, Planar Shepherd 2 — the same spell-like ability
+documented in `data/spells/faiths-of-eberron.json` and shown on the Spell Reference tab, but
+deliberately *not* imported from there: that file lives behind the Spells tab's lazy-loaded
+chunk, and pulling from it here would drag the whole ~850KB spell corpus back into the
+always-loaded main bundle the Spells tab code-splitting was specifically added to avoid — see
+Spell Reference tab > Code-split below). Rendered at the top of `PreparedSpellsTracker`,
+above the per-level breakdown, same pill styling (`.spontaneous-conversions`) but with the
+descriptive `note` field (usage type, source, "costs no slot, no daily limit") shown as plain
+text underneath rather than crammed into the pill — the per-level pills are short spell names
+by design, but an ability description doesn't fit that shape.
+
 ---
 
 ## Layout

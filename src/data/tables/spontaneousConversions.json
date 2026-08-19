@@ -7,5 +7,11 @@
     "3": ["cure moderate wounds", "summon nature's ally III"],
     "4": ["cure serious wounds", "summon nature's ally IV"],
     "5": ["cure critical wounds"]
-  }
+  },
+  "alwaysAvailable": [
+    {
+      "name": "Detect Manifest Zone",
+      "note": "Sp, at will — Planar Shepherd 2. Not tied to any spell level: costs no slot, no daily limit."
+    }
+  ]
 }
