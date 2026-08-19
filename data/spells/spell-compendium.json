@@ -1500,7 +1500,12 @@
     "savingThrow": "None",
     "spellResistance": "Yes",
     "description": "You make a ranged touch attack (at a -4 penalty) to spit caustic saliva into a target's eyes within close range. On a hit, the subject is blinded until it spends a standard action washing its eyes with water or another rinsing fluid. Has no effect on creatures without eyes or that don't rely on eyesight. Instantaneous, SR yes.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 100
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -2756,7 +2761,18 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "The touched creature gains the blindsight ability (MM 306) out to 30 feet for the duration.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 100,
+        "spellLevelDruid": 2
+      },
+      {
+        "source": "Savage Species",
+        "page": 63,
+        "spellLevelDruid": 2
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -4612,7 +4628,12 @@
     "savingThrow": "Fortitude negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Touch spell that grants the subject immunity to fatigue, exhaustion, and any ability damage or ability drain (regardless of source) for 1 minute per caster level.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Libris Mortis",
+        "page": 71
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -5179,7 +5200,12 @@
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "A standard-action spell covering one 20-ft. cube per level at medium range, lasting 1 hour/level. Functions like quench (PH 267), but additionally suppresses all magical fire effects within its area (similar to an antimagic field, but affecting only fire), and immediately extinguishes any nonmagical fire created in or brought into the area. No save, no spell resistance.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 102
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -5259,7 +5285,13 @@
     "savingThrow": "Fortitude negates and Reﬂex partial; see text",
     "spellResistance": "Yes",
     "description": "A standard-action, close-range spell (material: a gob of beeswax) targeting one creature for up to 6 rounds. The target takes 6d6 points of fire damage unless it succeeds on a Fortitude save; in each subsequent round the fire deals 1d6 less damage (minimum 1d6) until the spell ends or the flames are extinguished. Flammable nonmagical items the target carries automatically fail their saves against this damage. After the first round, the target can spend a full-round action for a DC 15 Reflex save to extinguish the flames (rolling prone grants +2 on this save); jumping into a large body of water or magically extinguishing the fire also ends the effect immediately. Spell resistance applies.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 105,
+        "note": "Related but not fully identical — this printing specifies the material component (a gob of beeswax) and a fixed 6-round duration, while the Player's Guide to Faerûn version's duration is stated as 1 round/level (dismissible) with no material specified."
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -5678,6 +5710,11 @@
         "page": 127,
         "spellLevelDruid": 4,
         "note": "Related but not equivalent — Sandstorm's version is a semi-solid barrier that can be forced through with a Strength check plus a Fortitude save to avoid blindness, versus this version's opaque, sense-blocking effect that also blocks verbal spellcasting."
+      },
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 118,
+        "note": "Nearly identical to this printing but with a smaller area (one 5-ft. square/level vs. one 10-ft. square/level here) and an easier Strength check threshold to force through (exceeding 15 vs. exceeding 10 here)."
       }
     ],
     "abilityType": "spell"
@@ -6731,7 +6768,13 @@
     "savingThrow": "Reﬂex half; see text",
     "spellResistance": "No",
     "description": "Boulders crash down in a 15-ft-radius, 40-ft-high cylinder centered on a point you designate within long range. Creatures in the area that fail a Reflex save take 1d8 points of damage per caster level (maximum 20d8) and are buried under 5 feet of rubble; a successful save halves the damage and avoids burial. A buried creature can free itself with a DC 20 Strength check (a full-round action) or be dug out by others (1 minute for a lone rescuer); while buried it can't move, can't cast spells with somatic components, and must have material components in hand. After casting, the area is left covered in 5 feet of dense rubble (DMG 90). Focus: a quartz crystal embedded in rock.",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 100,
+        "note": "Related but not fully identical — this printing specifies a 40-ft.-high cylinder, a fixed 5 ft. of rubble, and a DC 20 Strength check to dig free; the Player's Guide to Faerûn version leaves burial depth and escape DC unstated, describing only a full-round action to climb out."
+      }
+    ],
     "abilityType": "spell"
   },
   {
@@ -6999,7 +7042,11 @@
     "school": "Necromancy",
     "subschool": null,
     "descriptors": [],
-    "components": null,
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
     "castingTime": "1 standard action",
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
@@ -7010,7 +7057,12 @@
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Functions like death ward (PH 217), except it affects one creature per level, no two of which can be more than 30 feet apart, within close range. Duration 1 minute/level. Harmless; Will negates, SR yes (harmless).",
-    "otherPrintings": [],
+    "otherPrintings": [
+      {
+        "source": "Libris Mortis",
+        "page": 63
+      }
+    ],
     "abilityType": "spell"
   },
   {

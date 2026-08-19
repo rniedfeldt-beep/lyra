@@ -733,23 +733,69 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
   parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
   cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
-  Completed so far (19 files, `data/spells/`): `players-handbook.json` (169), `complete-
+  Completed so far (20 files, `data/spells/`): `players-handbook.json` (169), `complete-
   divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
   wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
   `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
   `complete-mage.json` (15), `complete-arcane.json` (12), `complete-champion.json` (12),
   `races-of-the-wild.json` (3), `eberron-campaign-setting.json` (4), `faiths-of-
   eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5),
-  `sandstorm.json` (52) — 830 druid spell entries total. `quintessential-druid.json`'s three
-  Friendship spells (Beast/Elemental/Magical Beast) and Brother's Staff were corrected per
-  DM/user input (Aug 2026 session): Animal Friendship is a retired 3.0 spell with no 3.5
-  stat block anywhere in the sourcebooks, so its mechanical fields are `null` — same pattern
-  as Charm Animal's unresolved reference to Charm Person — rather than guessed; Brother's
-  Staff's Spell Resistance is confirmed `"No"`. Player's Guide to Faerûn was attempted
-  (CHOCR-extracted, since the PDF has no embedded text layer) but abandoned per Rae's
-  instruction — of its ~74 druid-list spells, all but 3 turned out to be reprints with no
-  new stat block in that book, and Rae chose to skip it rather than extract the 3 new ones;
-  no `players-guide-to-faerun.json` exists. Eberron Campaign Setting's and Lords of
+  `sandstorm.json` (52), `players-guide-to-faerun.json` (9), `libris-mortis.json` (2),
+  `lost-empires-of-faerun.json` (2) — 843 druid spell entries total.
+  `lost-empires-of-faerun.json` (pp. 30, 34) covers Bloodbriars (Drd 4) and Storm Shield
+  (Drd 3) — the book's own per-class spell list (p. 29) confirms these are the only two
+  true druid-list spells among the ~30 new spells introduced in this chapter; an earlier
+  survey had logged 4 for this book, but Rae's manual recount of 2 against the book matched
+  the printed class list exactly, so the other 2 were dropped rather than guessed at. Both
+  spells' field blocks were split across a page-turn by the book's two-column layout
+  (Bloodbriars' Target/Duration/Saving Throw/SR sit at the top of the following page,
+  Storm Shield's stay intact on one page) — confirmed via rendered page images rather than
+  raw column-sorted text, which is what surfaced this book's own oddity: several leaves
+  (printed pages 32–33) are physically duplicated in the PDF, so naive page-range
+  extraction produced doubled content that had to be de-duplicated by checking footer page
+  numbers directly against the images instead of trusting the file's internal page count.
+  Neither spell has a reprint elsewhere in the library. `libris-mortis.json` (pp. 63, 71) covers Death Ward, Mass
+  (Drd 9) and Sheltered Vitality (Drd 4) — two of the three druid-list entries on those
+  pages, spot-checked rather than pipelined across the whole book. Death Ward, Mass prints
+  only its own Range and Targets fields ("functions like death ward, see PHB 217, except as
+  noted above"); the rest (components, casting time, duration, save, SR) are inherited
+  unchanged from the PHB's Death Ward and its own description embeds a paraphrase of the
+  PHB spell per Rae's request. Page 71 has the same column-wrap-to-next-column hazard
+  already seen in Sandstorm: a stray paragraph about "charges" and swapping an undead's
+  touch effect for temporary hit points sits at the top of column 3, positioned by naive
+  reading order right after Spark of Life's real ending — confirmed via rendered page image
+  that it's the tail of an unrelated (non-druid) spell carried over from page 70. Spark of
+  Life itself (Drd 8 per Libris Mortis, page 71) was deliberately left out of this file —
+  its Spell Compendium reprint is Drd 4, a four-level gap large enough that Rae chose to
+  drop the Libris Mortis printing rather than carry the discrepancy; Spell Compendium's own
+  entry is unchanged and carries no cross-reference to it. Spell Compendium's Death Ward,
+  Mass entry also had its previously-`null` `components` field backfilled to
+  `["V","S","DF"]`, inherited from the same base-spell relationship confirmed while
+  cross-referencing this file.
+  `quintessential-druid.json`'s three Friendship spells (Beast/Elemental/Magical Beast) and
+  Brother's Staff were corrected per DM/user input (Aug 2026 session): Animal Friendship is
+  a retired 3.0 spell with no 3.5 stat block anywhere in the sourcebooks, so its mechanical
+  fields are `null` — same pattern as Charm Animal's unresolved reference to Charm Person —
+  rather than guessed; Brother's Staff's Spell Resistance is confirmed `"No"`. Player's
+  Guide to Faerûn was originally attempted via CHOCR extraction (the PDF has no embedded
+  text layer) and abandoned — of its ~74 druid-list spells, all but 3 turned out to be
+  reprints with no new stat block in that book. Rae later supplied a hand-curated
+  `Player's Guide to Faerun Druid Spell Descriptions.pdf` (6 pages, `/sourcebooks`)
+  containing full write-ups for exactly the 9 druid spells with real printed text in that
+  book (the 3 new ones — Claws of the Beast, Icelance, Nature's Balance — plus 6 that
+  reprint spells already in other files), and this was extracted into
+  `players-guide-to-faerun.json`. Several of the reprints have small but real mechanical
+  differences from their other printings rather than being verbatim duplicates — Bombardment
+  (Spell Compendium states a 40-ft.-high cylinder, 5 ft. of rubble, and a DC 20 Strength
+  check to dig free; this printing states none of those specifics), Inferno (Spell
+  Compendium's duration is a fixed 6 rounds with a stated material component; this
+  printing's is 1 round/level with no material stated), and Wall of Sand (smaller area and
+  an easier Strength DC than Spell Compendium's printing, and — as already noted below —
+  mechanically distinct from Sandstorm's printing) — each flagged via an `otherPrintings`
+  note rather than merged silently. Blindsight's existing Savage Species entry also had its
+  Spell Compendium cross-reference backfilled with the structured `spellLevelDruid` field
+  (previously a prose-only note) while adding the three-way link to this new file. Eberron
+  Campaign Setting's and Lords of
   Madness's same-named "Detect Aberration" entries were determined to be related-but-distinct
   spells (different scope, area shape, and HD breakpoints) rather than one reprinting the
   other — both kept at their own printed level with a disambiguating `otherPrintings` note;
@@ -767,10 +813,9 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   spell's own title in reading order — this tripped up naive column-sorted extraction
   repeatedly and was resolved each time by checking the block immediately preceding a
   suspiciously-abrupt cutoff. Sourcebooks still unprocessed and sitting in `/sourcebooks`:
-  Dungeon Master's Guide v3.5, Forge of War, Libris Mortis, Lost Empires of Faerûn, Manual of
-  the Planes, Monster Manual I & II, Player's Guide to Faerûn (abandoned, see above) (most of
-  these are not druid-relevant in full — spot-check for druid-list spells before running the
-  full pipeline on any of them).
+  Dungeon Master's Guide v3.5, Forge of War, Manual of the Planes, Monster Manual I & II
+  (most of these are not druid-relevant in full — spot-check for druid-list spells before
+  running the full pipeline on any of them).
 - **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
 - **Phase 8** — Three-tab restructure (Lyra / Companions / Reference). Done. Replaced the
   single-scroll layout — see Layout section above for the per-tab breakdown. Added

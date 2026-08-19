@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Death Ward, Mass",
+    "source": "Libris Mortis",
+    "page": 63,
+    "spellLevelDruid": 9,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Mass version of death ward (PHB 217, Drd 5), affecting one creature per level at close range instead of a single touched creature; components, casting time, duration, saving throw, and spell resistance are otherwise unchanged from the base spell. Per the PHB description, each affected creature becomes immune to death spells, magical death effects, energy drain, and negative energy effects (such as inflict spells or chill touch) for the duration. It doesn't remove negative levels already gained or change the save required 24 hours after gaining one, and gives no protection against hit point loss, poison, or petrification.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 61
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sheltered Vitality",
+    "source": "Libris Mortis",
+    "page": 71,
+    "spellLevelDruid": 4,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Living creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature immunity to fatigue, exhaustion, and any ability damage or drain, regardless of source.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 188
+      }
+    ],
+    "abilityType": "spell"
+  }
+]

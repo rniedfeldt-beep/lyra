@@ -55,7 +55,11 @@
       {
         "source": "Spell Compendium",
         "page": 32,
-        "note": "Listed as Drd 3 in Spell Compendium (Drd 2 in Savage Species)"
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 100
       }
     ],
     "abilityType": "spell"

@@ -742,6 +742,12 @@
         "page": 235,
         "spellLevelDruid": 5,
         "note": "Related but not equivalent — Spell Compendium's version is opaque, blinds/deafens/silences creatures caught inside, blocks verbal-component spellcasting, and lasts Concentration +1 round/level, versus this version's fixed 1 min./level duration and Fortitude-save-to-avoid-blindness mechanic."
+      },
+      {
+        "source": "Player's Guide to Faerûn",
+        "page": 118,
+        "spellLevelDruid": 5,
+        "note": "Related but not equivalent — this version is a semi-solid barrier forced through with a Strength check plus a Fortitude save to avoid blindness, versus the Player's Guide to Faerûn version's opaque, sense-blocking effect that also blocks verbal spellcasting."
       }
     ],
     "abilityType": "spell"

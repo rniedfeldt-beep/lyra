@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Bloodbriars",
+    "source": "Lost Empires of Faerûn",
+    "page": 30,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "1 creature"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Snares the target in a tangle of invisible, razor-sharp briars of mystical energy. The target suffers no ill effect as long as it doesn't move, attack, cast a spell with a material or somatic component, or otherwise act in a way that requires movement; if it does, it takes 1d8 points of damage (no save). Damage from the spell disrupts spellcasting — a subject attempting to cast a spell with a material or somatic component must succeed on a Concentration check (DC 10 + spell level + damage dealt) or lose the spell. Material component: a drop of blood.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Storm Shield",
+    "source": "Lost Empires of Faerûn",
+    "page": 34,
+    "spellLevelDruid": 3,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "30-ft.-radius emanation"
+    },
+    "duration": "1 minute/level or until discharged (D)",
+    "savingThrow": "See text",
+    "spellResistance": "See text",
+    "description": "Creates a small, glowing sphere of amber light at a point you designate. Any effect that deals electricity damage (such as a lightning bolt or a blue dragon's breath weapon) passing within 30 feet of the shield is redirected to strike it instead of its intended target; for an area effect, this happens if any portion of the area is within 30 feet, drawing the entire effect to the shield and leaving creatures who would have been caught in it unharmed. The shield takes full damage (no save) from anything drawn into it and can absorb up to 20 points of electricity damage per caster level before dissipating; any damage beyond that is applied to all creatures within 10 feet of the shield (Reflex half; spell resistance applies). Material component: a small chip of amber.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  }
+]

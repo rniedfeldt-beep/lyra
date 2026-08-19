@@ -1,0 +1,280 @@
+[
+  {
+    "name": "Blinding Spittle",
+    "source": "Player's Guide to Faerûn",
+    "page": 100,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One missile of spit"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "A ranged touch attack (at a -4 penalty) spits caustic saliva into a target's eyes. On a hit, the target is blinded until it spends a standard action washing its eyes with water or another rinsing fluid. Has no effect on creatures without eyes or that don't rely on eyesight.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 32
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Blindsight",
+    "source": "Player's Guide to Faerûn",
+    "page": 100,
+    "spellLevelDruid": 2,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Grants the touched creature the blindsight ability out to 30 feet for the duration.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 32,
+        "spellLevelDruid": 3
+      },
+      {
+        "source": "Savage Species",
+        "page": 63
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Bombardment",
+    "source": "Player's Guide to Faerûn",
+    "page": 100,
+    "spellLevelDruid": 8,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "15-ft.-radius burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half; see text",
+    "spellResistance": "Yes",
+    "description": "Rains rocks down on a point you designate within range. Creatures in the area that fail a Reflex save take 1d8 points of damage per caster level (maximum 20d8) and are buried under the rubble, risking suffocation until they climb free with a full-round action; a successful save halves the damage and avoids burial. Focus: a quartz crystal embedded in rock.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 37,
+        "note": "Related but not fully identical — Spell Compendium specifies a 40-ft.-high cylinder, a fixed 5 ft. of rubble, and a DC 20 Strength check (or a minute of outside help) to dig free; this version leaves burial depth and escape DC unstated, describing only a full-round action to climb out."
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Claws of the Beast",
+    "source": "Player's Guide to Faerûn",
+    "page": 101,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Your fingers sprout claws. Your hands become weapons dealing 1d8 points of damage each, or your normal unarmed damage if greater, and you are considered armed while the spell lasts.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Fireward",
+    "source": "Player's Guide to Faerûn",
+    "page": 102,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "One 20-ft. cube/level (S)"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions like quench, but additionally suppresses all magical fire effects within its area for the duration (similar to an antimagic field, but affecting only fire) and immediately extinguishes any nonmagical fire created in or brought into the area. Components, casting time, and range inherited from quench, matching the Spell Compendium printing.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 94
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Icelance",
+    "source": "Player's Guide to Faerûn",
+    "page": 105,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One lance of ice"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Transforms a quantity of ice into a lance and hurls it at a target with a ranged attack (+4 bonus). A hit deals 5d6 points of damage, half piercing and half cold, and forces a Fortitude save or the target is stunned for 1d4 rounds. The lance shatters after its one use regardless of outcome. Material component: at least 10 pounds of ice or snow.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Inferno",
+    "source": "Player's Guide to Faerûn",
+    "page": 105,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "The target bursts into flame, taking 6d6 points of fire damage; in each round thereafter the fire deals 1d6 fewer points (minimum 1d6) until the spell ends or the flames are put out. Flammable nonmagical items the target carries automatically fail their saves. Starting the second round, the target can spend a full-round action to attempt a DC 15 Reflex save to extinguish the flames (rolling on the ground grants a +2 bonus).",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 123,
+        "note": "Related but not fully identical — Spell Compendium specifies the material component (a gob of beeswax) and a fixed 6-round duration, while this printing's duration is stated as 1 round/level (dismissible) with no material specified."
+      }
+    ],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Nature's Balance",
+    "source": "Player's Guide to Faerûn",
+    "page": 107,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "You take a -4 penalty to one ability score of your choice (no save to resist) and grant the target an equivalent enhancement bonus to the same score (Fortitude negates if the target doesn't want it). Casting this spell again within 1 hour deals you an additional 2d10 points of damage.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Wall of Sand",
+    "source": "Player's Guide to Faerûn",
+    "page": 118,
+    "spellLevelDruid": 5,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": null,
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Sand wall whose area is up to one 5-ft. square/level (S)"
+    },
+    "duration": "Concentration + 1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a viscous, opaque, immobile wall of swirling sand resting on a solid surface. It blocks ranged attacks with normal cover; forcing through requires a full-round action and a Strength check, moving 5 feet for every 5 points the check exceeds 15. Creatures inside are blinded, deafened, and unable to speak or breathe (risking suffocation); spells with verbal components can't be cast inside, and any other spell requires a Concentration check (DC 20 + spell level). A creature with reach can attack a target inside or just past the wall under specific line-of-sight/reach conditions, but the target still has cover and total concealment. Any unprotected open flame pushed into the wall is instantly extinguished. Material component: a handful of sand.",
+    "otherPrintings": [
+      {
+        "source": "Spell Compendium",
+        "page": 235,
+        "note": "Nearly identical to Spell Compendium's version but with a smaller area (one 5-ft. square/level here vs. one 10-ft. square/level there) and an easier Strength check threshold to force through (exceeding 15 here vs. exceeding 10 there)."
+      },
+      {
+        "source": "Sandstorm",
+        "page": 127,
+        "spellLevelDruid": 4,
+        "note": "Related but not equivalent — Sandstorm's version is a semi-solid barrier forced through with a Strength check plus a Fortitude save to avoid blindness, versus this opaque, sense-blocking version that also blocks verbal spellcasting."
+      }
+    ],
+    "abilityType": "spell"
+  }
+]
