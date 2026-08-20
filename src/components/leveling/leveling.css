@@ -1,0 +1,79 @@
+.level-up-flow {
+  border: 2px solid var(--accent-border);
+}
+
+.level-up-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.level-up-block h3 {
+  margin: 0 0 0.5rem;
+}
+
+.level-up-callout {
+  background: var(--accent-bg);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.ability-choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ability-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pending-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.pending-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.level-up-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.confirm-button {
+  font-weight: 600;
+}
+
+.xp-tracker .xp-bar-track {
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.xp-tracker .xp-bar-fill {
+  height: 100%;
+  background: var(--accent);
+}
+
+.xp-eligible-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent-bg);
+  border: 1px dashed var(--accent-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+}

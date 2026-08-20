@@ -68,7 +68,8 @@ fail, check the policy exists before debugging anything else.
 
 Live state: current HP, temp HP, spell slots used, wild shape uses used, necklace spells used,
 Fey Touched spells used, plane shift and planar bubble uses, active summons and remaining
-duration, active wild shape form, Quen's current HP.
+duration, active wild shape form, Quen's current HP, and (Phase 9) `characterProgress` — see
+"XP tracking and level-up" below.
 
 ## Directory shape
 
@@ -120,6 +121,83 @@ progressions (3/4 BAB, good Fort, good Will, poor Ref). So BAB and base saves ar
 function of character level — one lookup table, no multiclass math.
 
 At level 8: BAB **+6/+1**, base Fort 6, base Ref 2, base Will 6.
+
+---
+
+## XP tracking and level-up
+
+Level, XP, HP-roll history, skill ranks, ability adjustments, feats, and wild shape uses/day
+are **live state** (`characterProgress`, in the Supabase `character_state` blob), not static
+fields on `lyra.json` — `lyra.json` only seeds the very first `characterProgress` the first
+time the app ever loads with no saved state. From then on the static file is never read again
+for these fields; leveling up edits Supabase directly. This is what lets the sheet recompute
+end-to-end (HP, BAB, saves, skills, spell slots, AC, caster level, wild shape uses, the Druid/
+Planar Shepherd class split) the moment a level-up is confirmed, with no redeploy.
+
+- `src/lib/calc/leveling.js` — pure XP/HP/skill-point math (`xpForLevel`, `levelForXp`,
+  `computeMaxHp`, `skillPointsForLevel`, `maxSkillRank`, `isClassSkillFor`, etc).
+- `src/lib/liveState/computeEffectiveSheet.js` — merges `characterProgress` onto the static
+  `lyra.json` base and re-runs `computeCharacterSheet`. Called once on load and again in a
+  `useMemo` inside `LiveStateContext` whenever `characterProgress` changes, so `sheet` and
+  `dailyAbilities` are always derived, never stored.
+- `src/lib/calc/computeCharacterSheet.js` — HP max is now `sum(hpRolls) + hpRolls.length *
+  conMod + collectFeatHpBonus(feats)` (Toughness contributes via a `hp_bonus` feat effect,
+  same pattern as `ability_bonus`), rather than a stored flat number. `casterLevel.druid`,
+  `druidLevel`, and `classes` (the "Druid N / Planar Shepherd M" breakdown) are recomputed
+  from `character.level` every render via `druidLevel()` (`src/lib/rules/dnd35.js`) — they can
+  never drift out of sync with level the way a stored field could.
+- `src/components/leveling/XpTracker.jsx` — current XP, XP for next level, progress bar,
+  add/spend inputs. Spending XP that would drop Lyra below her current level's minimum
+  (`xpForLevel(level)`) shows a `window.confirm` warning rather than blocking outright — 3.5e
+  forbids it, but the DM can rule otherwise.
+- `src/components/leveling/LevelUpFlow.jsx` — appears inline on the Lyra tab once
+  `levelForXp(xp) > character.level`. Never auto-levels. Covers:
+  - **HP roll** — a d8 input, added to `characterProgress.hpRolls` as its own `{level, roll}`
+    entry (editable/re-rollable later, not collapsed into a running total) alongside the
+    current Con mod.
+  - **Ability score increase** — only shown at character levels 4/8/12/16/20
+    (`ABILITY_INCREASE_LEVELS`). Per PHB p.24, an Int increase only grants bonus skill points
+    for *that* level, so the skill-point pool below is computed against a tentative ability
+    score set that includes the pending pick, via `computeAbilityScores` — not against the
+    pre-level-up scores.
+  - **Skill points** — pool = 4 + Int mod (`skillPointsForLevel`). Only skills already present
+    in `character.skills` are offered (the app has no ability-per-skill lookup for skills
+    Lyra doesn't have yet — a genuinely new skill needs a manual data addition first).
+    Cross-class status and the max-rank cap (`characterLevel + 3`, half that cross-class) are
+    both driven by `src/data/tables/classSkills.json`, keyed by whichever class
+    `classTakenAtLevel()` says is being taken at the new level (Druid 1–5, Planar Shepherd
+    6–15, Druid again 16–20 — same split as the class-progression table above). Planar
+    Shepherd's list (Concentration, Knowledge arcana/nature/the planes, Listen, Spellcraft,
+    Spot, Survival) is narrower than Druid's, so Heal and Handle Animal go cross-class (2
+    pts/rank, half max rank) the moment Planar Shepherd levels start stacking in.
+  - **Wild shape uses/day** — pre-filled from `src/data/tables/wildShapeUsesPerDay.json`, but
+    always shown as an editable field, never applied silently. Only character levels 8 and 9
+    are DM-confirmed in that table (Aug 2026); every other level is a best-effort curve
+    continuation that has **not** been checked against the DM — correct it in the moment Lyra
+    actually reaches that level.
+  - **Feats and class features** — recorded manually. The feat picker only lists feats that
+    already have a JSON file in `src/data/feats/` (`getFeats()` throws on an unknown id); a
+    brand-new feat needs its data file added before it can be picked. Class features are
+    freeform text, not tied to any calc engine — e.g. the Wolf Shaman bonus feat at character
+    level 19 (druid level 9) has no dedicated code and is expected to be recorded here, then
+    (if it grants a mechanical effect) added as an actual feat with a `hp_bonus`/`ability_bonus`
+    /`save_bonus`/`grants_daily_spell` effect like any other feat.
+- Confirming calls `applyLevelUp` (bumps level, appends the HP roll, applies the ability
+  adjustment if applicable, sets wild shape uses/day) plus `setSkillRanks`/`addFeat`/
+  `addClassFeature` for each changed skill/feat/feature — all in `src/lib/liveState/actions.js`,
+  same pure-transform pattern as every other tracker action.
+
+**HP-roll history caveat:** the 8 entries seeded into `lyra.json`'s `hpRolls` for levels 1–8
+are a **synthetic reconstruction** (level-1 max roll of 8, then 6 at every level after, summing
+with Con and Toughness to the correct total of 61), not Lyra's real historical rolls — nobody
+recorded those at the table. Edit them if the real numbers ever surface; nothing downstream
+cares how they got there, only that they sum correctly.
+
+**Verified end-to-end (Aug 2026):** leveling 8 → 9 via the flow above correctly produces a 5th
+spell slot, a 4th wild shape use/day, cure critical wounds appearing as a spontaneous
+conversion (`spontaneousConversions.byLevel["5"]`, already in place before this phase), Planar
+Shepherd ticking to 4 (Druid stays 5, per the class table), and the new caster level/BAB/saves
+row — all without touching any component beyond confirming the level-up.
 
 ---
 
@@ -821,6 +899,10 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   single-scroll layout — see Layout section above for the per-tab breakdown. Added
   `src/lib/calc/companion.js` for Quen's full combat block (AC, saves, attack routine) and
   `TabBar` for navigation. `CombatBar` stays pinned across all tabs.
+- **Phase 9** — XP tracking and level-up. Done. See "XP tracking and level-up" section below
+  for the full design. Promoted level/XP/HP-rolls/skills/feats/ability-adjustments from
+  static `lyra.json` fields to live Supabase-backed `characterProgress` state, so the sheet
+  recomputes end-to-end when Lyra levels up — no redeploy needed mid-session.
 
 Phase 2 before Phase 3 deliberately — trackers get used every session.
 

@@ -119,3 +119,110 @@ export function setAnarchicDurationMinutes(state, minutes) {
 export function setAnarchicSmiteLawUsed(state, used) {
   return { ...state, anarchicTemplate: { ...state.anarchicTemplate, smiteLawUsed: used } }
 }
+
+// --- Leveling / characterProgress -----------------------------------------
+// XP add/subtract are pure arithmetic; the "would drop below current level's
+// minimum" guard (CLAUDE.md > XP) is a warn-and-confirm check the UI runs
+// before calling subtractXp, not something enforced here.
+export function addXp(state, amount) {
+  return { ...state, characterProgress: { ...state.characterProgress, xp: state.characterProgress.xp + amount } }
+}
+
+export function subtractXp(state, amount) {
+  return {
+    ...state,
+    characterProgress: { ...state.characterProgress, xp: Math.max(0, state.characterProgress.xp - amount) },
+  }
+}
+
+export function addHpRoll(state, level, roll) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      hpRolls: [...state.characterProgress.hpRolls, { level, roll }],
+    },
+  }
+}
+
+export function updateHpRoll(state, level, roll) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      hpRolls: state.characterProgress.hpRolls.map((r) => (r.level === level ? { ...r, roll } : r)),
+    },
+  }
+}
+
+export function addAbilityAdjustment(state, adjustment) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      abilityAdjustments: [...state.characterProgress.abilityAdjustments, adjustment],
+    },
+  }
+}
+
+export function addFeat(state, featId) {
+  if (state.characterProgress.feats.includes(featId)) return state
+  return {
+    ...state,
+    characterProgress: { ...state.characterProgress, feats: [...state.characterProgress.feats, featId] },
+  }
+}
+
+export function addClassFeature(state, description) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      classFeatures: [...state.characterProgress.classFeatures, description],
+    },
+  }
+}
+
+// Creates the skill entry (defaulting miscBonus/conditionalBonuses to none)
+// if this is the character's first rank in it.
+export function setSkillRanks(state, skillId, ranks, ability) {
+  const existing = state.characterProgress.skills[skillId]
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      skills: {
+        ...state.characterProgress.skills,
+        [skillId]: { ...(existing ?? { ability, ranks: 0 }), ranks },
+      },
+    },
+  }
+}
+
+export function setWildShapeUsesPerDay(state, uses) {
+  return { ...state, characterProgress: { ...state.characterProgress, wildShapeUsesPerDay: uses } }
+}
+
+// Compound level-up action: bumps level, records this level's HP roll, and
+// (only at ability-increase levels) appends the ability bump. Skill ranks,
+// feats, and class features are recorded separately via the actions above —
+// the level-up flow calls all of these together, but they stay independent
+// so each can be edited later without re-running the whole level-up.
+export function applyLevelUp(state, { newLevel, hpRoll, wildShapeUsesPerDay, abilityIncrease }) {
+  let next = {
+    ...state,
+    characterProgress: { ...state.characterProgress, level: newLevel },
+  }
+  next = addHpRoll(next, newLevel, hpRoll)
+  if (wildShapeUsesPerDay != null) next = setWildShapeUsesPerDay(next, wildShapeUsesPerDay)
+  if (abilityIncrease) {
+    next = addAbilityAdjustment(next, {
+      ability: abilityIncrease.ability,
+      value: 1,
+      bonusType: 'level',
+      source: `Level ${newLevel} ability increase`,
+      active: true,
+    })
+  }
+  return next
+}

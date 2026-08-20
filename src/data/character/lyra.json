@@ -30,7 +30,19 @@
     }
   ],
 
+  "xp": 32110,
+
   "hp": { "max": 61 },
+  "hpRolls": [
+    { "level": 1, "roll": 8 },
+    { "level": 2, "roll": 6 },
+    { "level": 3, "roll": 6 },
+    { "level": 4, "roll": 6 },
+    { "level": 5, "roll": 6 },
+    { "level": 6, "roll": 6 },
+    { "level": 7, "roll": 6 },
+    { "level": 8, "roll": 6 }
+  ],
 
   "speed": {
     "land": 30,

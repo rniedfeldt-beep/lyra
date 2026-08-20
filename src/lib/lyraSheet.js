@@ -1,11 +1,12 @@
-import { lyra, getFeats, getItem, progressionTable, spellSlotsBaseTable } from './loadData'
+import { lyra, getItem, progressionTable, spellSlotsBaseTable } from './loadData'
 import { animalCompanion } from './loadCreatureData'
-import { computeCharacterSheet } from './calc/computeCharacterSheet'
-import { collectDailyAbilities } from './liveState/dailyAbilities'
 
-const characterFeats = getFeats(lyra.feats)
+// Static ingredients only — level/xp/hpRolls/skills/feats/abilityAdjustments
+// live in characterProgress (Supabase) instead, so the actual sheet is
+// computed reactively inside LiveStateProvider, not here.
+export const character = lyra
 
-const resolvedItems = {
+export const resolvedItems = {
   armor: getItem(lyra.equipment.armor),
   shield: getItem(lyra.equipment.shield),
   ring: getItem(lyra.equipment.ring),
@@ -14,18 +15,5 @@ const resolvedItems = {
   weapon: getItem(lyra.equipment.weapon),
 }
 
-export const lyraSheet = computeCharacterSheet({
-  character: lyra,
-  feats: characterFeats,
-  items: resolvedItems,
-  progressionTable,
-  spellSlotsBaseTable,
-})
-
-export const dailyAbilities = collectDailyAbilities({
-  character: lyra,
-  feats: characterFeats,
-  items: resolvedItems,
-})
-
+export { progressionTable, spellSlotsBaseTable }
 export const companion = animalCompanion

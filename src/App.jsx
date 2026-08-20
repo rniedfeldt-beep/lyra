@@ -1,10 +1,16 @@
 import CharacterSheet from './components/CharacterSheet'
 import { LiveStateProvider } from './lib/liveState/LiveStateContext'
-import { lyraSheet, dailyAbilities, companion } from './lib/lyraSheet'
+import { character, resolvedItems, progressionTable, spellSlotsBaseTable, companion } from './lib/lyraSheet'
 
 function App() {
   return (
-    <LiveStateProvider sheet={lyraSheet} dailyAbilities={dailyAbilities} companion={companion}>
+    <LiveStateProvider
+      character={character}
+      items={resolvedItems}
+      progressionTable={progressionTable}
+      spellSlotsBaseTable={spellSlotsBaseTable}
+      companion={companion}
+    >
       <CharacterSheet />
     </LiveStateProvider>
   )

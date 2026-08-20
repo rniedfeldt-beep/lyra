@@ -1,0 +1,35 @@
+{
+  "id": "class_skills",
+  "description": "Class skill lists, by the class whose level is being taken at a given level-up (CLAUDE.md > Class Progression decides which class that is for any given character level). A skill not on the list for the class being leveled is cross-class: 2 skill points per rank instead of 1, and its max rank is half the usual cap (rounded down).",
+  "planarShepherd": {
+    "source": "DM-provided (Planar Shepherd, sourcebook unconfirmed)",
+    "skills": [
+      "concentration",
+      "knowledgeArcana",
+      "knowledgeNature",
+      "knowledgePlanes",
+      "listen",
+      "spellcraft",
+      "spot",
+      "survival"
+    ]
+  },
+  "druid": {
+    "source": "PHB (Druid)",
+    "skills": [
+      "concentration",
+      "craft",
+      "diplomacy",
+      "handleAnimal",
+      "heal",
+      "knowledgeNature",
+      "listen",
+      "profession",
+      "ride",
+      "spellcraft",
+      "spot",
+      "survival",
+      "swim"
+    ]
+  }
+}

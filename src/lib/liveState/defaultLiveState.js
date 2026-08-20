@@ -1,8 +1,28 @@
+// The character's leveling progress — everything that changes only via the
+// XP/level-up flow (never via daily play), kept separate from the
+// short-lived trackers below so Long Rest can reset those without touching
+// this. Seeded once from the static character.json, then lives entirely in
+// Supabase from that point on; the static file is never read again for
+// these fields once a save has happened.
+export function getDefaultCharacterProgress(character) {
+  return {
+    level: character.level,
+    xp: character.xp,
+    hpRolls: character.hpRolls.map((r) => ({ ...r })),
+    skills: JSON.parse(JSON.stringify(character.skills)),
+    abilityAdjustments: character.abilityAdjustments.map((a) => ({ ...a })),
+    feats: [...character.feats],
+    classFeatures: [],
+    wildShapeUsesPerDay: character.wildShape.usesPerDay,
+  }
+}
+
 // The single shape all live/session state takes, freshly derived from the
 // computed sheet + companion + daily-ability list. Long Rest just re-runs
 // this function, so a new tracker added anywhere upstream resets correctly
-// with no extra reset logic to maintain.
-export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
+// with no extra reset logic to maintain. characterProgress is passed through
+// as-is (never rederived here) since Long Rest must not touch XP/level/etc.
+export function getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress }) {
   const spellSlotsUsed = {}
   for (const slot of sheet.spellSlots.slots) {
     if (slot.total > 0) spellSlotsUsed[slot.spellLevel] = 0
@@ -23,6 +43,7 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion }) {
   }
 
   return {
+    characterProgress,
     hp: { current: sheet.character.hp.max, temp: 0 },
     spellSlotsUsed,
     preparedSpells,
@@ -53,6 +74,7 @@ export function mergeWithDefaults(loaded, defaults) {
   return {
     ...defaults,
     ...loaded,
+    characterProgress: { ...defaults.characterProgress, ...loaded.characterProgress },
     hp: { ...defaults.hp, ...loaded.hp },
     spellSlotsUsed: { ...defaults.spellSlotsUsed, ...loaded.spellSlotsUsed },
     preparedSpells: { ...defaults.preparedSpells, ...loaded.preparedSpells },

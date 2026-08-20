@@ -5,11 +5,29 @@ import { computeAC } from './ac'
 import { computeSkills } from './skills'
 import { computeSpellSlots } from './spellSlots'
 import { computeAttackRoutine } from './attackRoutine'
+import { computeMaxHp, collectFeatHpBonus, classLevelsBreakdown } from './leveling'
+import { druidLevel } from '../rules/dnd35'
 
 export function computeCharacterSheet({ character, feats, items, progressionTable, spellSlotsBaseTable }) {
   const characterFeats = feats
   const abilityScores = computeAbilityScores(character, characterFeats)
   const progression = getProgression(character.level, progressionTable)
+
+  // HP, caster level, and class-level breakdown are derived from
+  // character.level (+ hpRolls/Con) rather than trusted as static fields, so
+  // leveling up recomputes them automatically. Wild shape uses/day is NOT
+  // recomputed here — it's an uncertain-beyond-level-9 value the level-up
+  // flow suggests and the player confirms, then it's carried on
+  // character.wildShape.usesPerDay like any other live field.
+  const maxHp = computeMaxHp(character.hpRolls, abilityScores.con.mod, collectFeatHpBonus(characterFeats))
+
+  character = {
+    ...character,
+    hp: { ...character.hp, max: maxHp },
+    casterLevel: { ...character.casterLevel, druid: character.level },
+    druidLevel: druidLevel(character.level),
+    classes: classLevelsBreakdown(character.level, druidLevel),
+  }
 
   const saves = computeSaves({
     baseSaves: progression,

@@ -1,7 +1,8 @@
 import { Suspense, lazy, useEffect, useRef, useState } from 'react'
-import { lyraSheet, dailyAbilities, companion } from '../lib/lyraSheet'
+import { useLiveState } from '../lib/liveState/LiveStateContext'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
+import LevelUpFlow from './leveling/LevelUpFlow'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
@@ -422,9 +423,10 @@ function AnarchicReference({ sheet }) {
 }
 
 export default function CharacterSheet() {
-  const sheet = lyraSheet
+  const { sheet, dailyAbilities, companion } = useLiveState()
   const { character } = sheet
   const [activeTab, setActiveTab] = useState('lyra')
+  const [levelingUp, setLevelingUp] = useState(false)
   // Each tab's window scroll position is remembered independently, so
   // switching to the Spells tab (its own search/filters, potentially a very
   // different content height) and back never disturbs where you'd scrolled
@@ -459,7 +461,8 @@ export default function CharacterSheet() {
 
         {activeTab === 'lyra' && (
           <PartySection color="lyra" title={character.name} subtitle="Player character">
-            <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} />
+            <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} onLevelUp={() => setLevelingUp(true)} />
+            {levelingUp && <LevelUpFlow sheet={sheet} onClose={() => setLevelingUp(false)} />}
             <SpellcastingReference sheet={sheet} />
             <AbilityScores abilityScores={sheet.abilityScores} />
             <CombatStatsCore sheet={sheet} />
@@ -506,7 +509,7 @@ export default function CharacterSheet() {
           </PartySection>
         )}
 
-        <p className="phase-note">Phase 5 — wild shape and summon builder live, trackers synced via Supabase.</p>
+        <p className="phase-note">Phase 9 — XP tracking and level-up live, character progress synced via Supabase.</p>
       </div>
     </>
   )

@@ -12,6 +12,7 @@ import {
 } from '../../lib/liveState/actions'
 import { spontaneousConversions } from '../../lib/loadData'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
+import XpTracker from '../leveling/XpTracker'
 import './trackers.css'
 
 function parsePositiveAmount(raw) {
@@ -376,11 +377,12 @@ function SyncBar() {
   )
 }
 
-export default function TrackersPanel({ sheet, dailyAbilities }) {
+export default function TrackersPanel({ sheet, dailyAbilities, onLevelUp }) {
   return (
     <section className="card trackers-card">
       <h2>Trackers</h2>
       <SyncBar />
+      <XpTracker sheet={sheet} onLevelUp={onLevelUp} />
       <HpTracker hpMax={sheet.character.hp.max} />
       <SpellSlotTracker spellSlots={sheet.spellSlots} />
       <PreparedSpellsTracker spellSlots={sheet.spellSlots} />
