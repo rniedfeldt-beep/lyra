@@ -32,6 +32,22 @@
   color: #c2410c;
 }
 
+.sync-status-test {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+.test-mode-button {
+  border-color: #c2410c !important;
+  color: #c2410c !important;
+  font-weight: 600;
+}
+
+.test-mode-exit {
+  border-color: var(--accent-border) !important;
+  color: var(--accent) !important;
+}
+
 .sync-actions {
   display: flex;
   gap: 6px;

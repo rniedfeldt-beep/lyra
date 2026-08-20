@@ -165,6 +165,41 @@ export function addAbilityAdjustment(state, adjustment) {
   }
 }
 
+// index into characterProgress.abilityAdjustments — the array has no stable
+// ids, so editing/removing addresses an entry positionally (fine: nothing
+// reorders it elsewhere).
+export function updateAbilityAdjustment(state, index, updates) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      abilityAdjustments: state.characterProgress.abilityAdjustments.map((a, i) =>
+        i === index ? { ...a, ...updates } : a,
+      ),
+    },
+  }
+}
+
+export function removeAbilityAdjustment(state, index) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      abilityAdjustments: state.characterProgress.abilityAdjustments.filter((_, i) => i !== index),
+    },
+  }
+}
+
+export function setBaseAbilityScore(state, ability, value) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      trueBaseAbilityScores: { ...state.characterProgress.trueBaseAbilityScores, [ability]: value },
+    },
+  }
+}
+
 export function addFeat(state, featId) {
   if (state.characterProgress.feats.includes(featId)) return state
   return {

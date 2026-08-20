@@ -15,6 +15,7 @@ export function computeEffectiveSheet({ character, items, progressionTable, spel
     xp: characterProgress.xp,
     hpRolls: characterProgress.hpRolls,
     skills: characterProgress.skills,
+    trueBaseAbilityScores: characterProgress.trueBaseAbilityScores,
     abilityAdjustments: characterProgress.abilityAdjustments,
     feats: characterProgress.feats,
     wildShape: { ...character.wildShape, usesPerDay: characterProgress.wildShapeUsesPerDay },

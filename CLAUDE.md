@@ -170,11 +170,10 @@ Planar Shepherd class split) the moment a level-up is confirmed, with no redeplo
     Shepherd's list (Concentration, Knowledge arcana/nature/the planes, Listen, Spellcraft,
     Spot, Survival) is narrower than Druid's, so Heal and Handle Animal go cross-class (2
     pts/rank, half max rank) the moment Planar Shepherd levels start stacking in.
-  - **Wild shape uses/day** — pre-filled from `src/data/tables/wildShapeUsesPerDay.json`, but
-    always shown as an editable field, never applied silently. Only character levels 8 and 9
-    are DM-confirmed in that table (Aug 2026); every other level is a best-effort curve
-    continuation that has **not** been checked against the DM — correct it in the moment Lyra
-    actually reaches that level.
+  - **Wild shape uses/day** — pre-filled from `src/data/tables/wildShapeUsesPerDay.json`
+    (DM-confirmed full curve, Aug 2026: 1/day at 5, 2/day at 6, 3/day at 7–9, 4/day at 10–13,
+    5/day at 14–17, 6/day at 18–20), but always shown as an editable field rather than applied
+    silently, in case a future houserule changes it.
   - **Feats and class features** — recorded manually. The feat picker only lists feats that
     already have a JSON file in `src/data/feats/` (`getFeats()` throws on an unknown id); a
     brand-new feat needs its data file added before it can be picked. Class features are
@@ -185,7 +184,8 @@ Planar Shepherd class split) the moment a level-up is confirmed, with no redeplo
 - Confirming calls `applyLevelUp` (bumps level, appends the HP roll, applies the ability
   adjustment if applicable, sets wild shape uses/day) plus `setSkillRanks`/`addFeat`/
   `addClassFeature` for each changed skill/feat/feature — all in `src/lib/liveState/actions.js`,
-  same pure-transform pattern as every other tracker action.
+  same pure-transform pattern as every other tracker action. Opening the flow scrolls the page
+  to the HP-roll block.
 
 **HP-roll history caveat:** the 8 entries seeded into `lyra.json`'s `hpRolls` for levels 1–8
 are a **synthetic reconstruction** (level-1 max roll of 8, then 6 at every level after, summing
@@ -194,10 +194,37 @@ recorded those at the table. Edit them if the real numbers ever surface; nothing
 cares how they got there, only that they sum correctly.
 
 **Verified end-to-end (Aug 2026):** leveling 8 → 9 via the flow above correctly produces a 5th
-spell slot, a 4th wild shape use/day, cure critical wounds appearing as a spontaneous
-conversion (`spontaneousConversions.byLevel["5"]`, already in place before this phase), Planar
-Shepherd ticking to 4 (Druid stays 5, per the class table), and the new caster level/BAB/saves
-row — all without touching any component beyond confirming the level-up.
+spell slot, cure critical wounds appearing as a spontaneous conversion
+(`spontaneousConversions.byLevel["5"]`, already in place before this phase), Planar Shepherd
+ticking to 4 (Druid stays 5, per the class table), and the new caster level/BAB/saves row — all
+without touching any component beyond confirming the level-up. (Wild shape stays at 3/day
+through level 9 — the 4th use unlocks at level 10, per the corrected curve above; an earlier
+version of this table had guessed 4/day at level 9 and was corrected after DM review.)
+
+### Ability score editor
+
+`src/components/leveling/AbilityScoreEditor.jsx`, on the Lyra tab, lets Lyra's ability scores
+be edited **outside** a level-up — needed because inherent bonuses (the Wis tome) and other
+one-off adjustments don't wait for a level to land. Toggling "Edit" reveals, per ability: the
+base score (`characterProgress.trueBaseAbilityScores[ability]`, itself now live state seeded
+from `lyra.json`'s `trueBaseAbilityScores`) and every adjustment affecting that ability
+(`characterProgress.abilityAdjustments`, filtered by `ability`) as its own editable row — value,
+bonus type, source, and an active checkbox, so a level-based increase and an inherent bonus
+like the Wis tome both show up distinctly rather than folded into one number. Everything
+downstream (saves, AC, skills, spell slots, save DCs, spell attack bonus) recomputes for free —
+these fields already flowed through `computeAbilityScores` inside `computeCharacterSheet`, this
+just exposes them as edit targets instead of hardcoding them at load time.
+
+### Test mode
+
+`LiveStateContext` supports a **test mode** toggle (SyncBar, Lyra tab) for experimenting with
+level-up without persisting to Supabase. Entering it snapshots the current state in a ref and
+suspends the debounced-save effect entirely — `update()` still changes React state normally
+(so the UI reflects every edit live) but nothing is written to Supabase or localStorage while
+active. A "Reset" button restores the snapshot without leaving test mode, for trying multiple
+what-ifs in a row. Exiting test mode always restores the snapshot too, rather than committing
+whatever was being experimented with — the point is that nothing tried while the toggle is on
+can leak into the saved state, even by accident.
 
 ---
 

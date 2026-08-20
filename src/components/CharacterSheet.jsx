@@ -3,6 +3,7 @@ import { useLiveState } from '../lib/liveState/LiveStateContext'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
 import LevelUpFlow from './leveling/LevelUpFlow'
+import AbilityScoreEditor from './leveling/AbilityScoreEditor'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
@@ -20,40 +21,12 @@ import './CharacterSheet.css'
 // when the Spells tab is actually opened.
 const SpellReferenceTab = lazy(() => import('./spells/SpellReferenceTab'))
 
-const ABILITY_ORDER = [
-  ['str', 'STR'],
-  ['dex', 'DEX'],
-  ['con', 'CON'],
-  ['int', 'INT'],
-  ['wis', 'WIS'],
-  ['cha', 'CHA'],
-]
-
 function Card({ title, children }) {
   return (
     <section className="card">
       <h2>{title}</h2>
       {children}
     </section>
-  )
-}
-
-function AbilityScores({ abilityScores }) {
-  return (
-    <Card title="Ability Scores">
-      <div className="ability-grid">
-        {ABILITY_ORDER.map(([key, label]) => {
-          const a = abilityScores[key]
-          return (
-            <div className="ability-block" key={key}>
-              <div className="ability-label">{label}</div>
-              <div className="ability-score">{a.score}</div>
-              <div className="ability-mod">{formatMod(a.mod)}</div>
-            </div>
-          )
-        })}
-      </div>
-    </Card>
   )
 }
 
@@ -464,7 +437,7 @@ export default function CharacterSheet() {
             <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} onLevelUp={() => setLevelingUp(true)} />
             {levelingUp && <LevelUpFlow sheet={sheet} onClose={() => setLevelingUp(false)} />}
             <SpellcastingReference sheet={sheet} />
-            <AbilityScores abilityScores={sheet.abilityScores} />
+            <AbilityScoreEditor sheet={sheet} />
             <CombatStatsCore sheet={sheet} />
             <ArmorClass ac={sheet.ac} />
             <Saves saves={sheet.saves} />

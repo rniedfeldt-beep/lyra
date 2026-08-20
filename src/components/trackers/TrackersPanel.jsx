@@ -307,11 +307,22 @@ const SYNC_STATUS_LABELS = {
 }
 
 function SyncBar() {
-  const { syncStatus, isSupabaseConfigured, state, replaceAll, longRest } = useLiveState()
+  const {
+    syncStatus,
+    isSupabaseConfigured,
+    state,
+    replaceAll,
+    longRest,
+    testMode,
+    enterTestMode,
+    exitTestMode,
+    resetTestState,
+  } = useLiveState()
   const fileInputRef = useRef(null)
 
-  const label =
-    syncStatus === 'offline' && !isSupabaseConfigured
+  const label = testMode
+    ? 'Test mode — not saving'
+    : syncStatus === 'offline' && !isSupabaseConfigured
       ? 'Local only (Supabase not configured)'
       : (SYNC_STATUS_LABELS[syncStatus] ?? syncStatus)
 
@@ -342,7 +353,9 @@ function SyncBar() {
 
   return (
     <div className="sync-bar">
-      <span className={`sync-status sync-status-${syncStatus}`}>{label}</span>
+      <span className={`sync-status sync-status-${syncStatus}${testMode ? ' sync-status-test' : ''}`}>
+        {label}
+      </span>
       <div className="sync-actions">
         <button type="button" onClick={handleExport}>
           Export
@@ -372,6 +385,20 @@ function SyncBar() {
         >
           Long Rest
         </button>
+        {!testMode ? (
+          <button type="button" className="test-mode-button" onClick={enterTestMode}>
+            Enter Test Mode
+          </button>
+        ) : (
+          <>
+            <button type="button" onClick={resetTestState}>
+              Reset
+            </button>
+            <button type="button" className="test-mode-button test-mode-exit" onClick={exitTestMode}>
+              Exit Test Mode
+            </button>
+          </>
+        )}
       </div>
     </div>
   )

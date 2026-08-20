@@ -10,11 +10,24 @@ export function getDefaultCharacterProgress(character) {
     xp: character.xp,
     hpRolls: character.hpRolls.map((r) => ({ ...r })),
     skills: JSON.parse(JSON.stringify(character.skills)),
+    trueBaseAbilityScores: { ...character.trueBaseAbilityScores },
     abilityAdjustments: character.abilityAdjustments.map((a) => ({ ...a })),
     feats: [...character.feats],
     classFeatures: [],
     wildShapeUsesPerDay: character.wildShape.usesPerDay,
   }
+}
+
+// A loaded characterProgress may predate a field added after it was last
+// saved (e.g. trueBaseAbilityScores) — shallow-merging it onto the fresh
+// default backfills anything missing without touching anything present, the
+// same backfill mergeWithDefaults does for the rest of the state. Used
+// wherever a loaded/imported characterProgress is about to be read, not
+// just where it's stored, since computeEffectiveSheet needs every field to
+// exist up front.
+export function mergeCharacterProgress(loaded, character) {
+  const defaults = getDefaultCharacterProgress(character)
+  return loaded ? { ...defaults, ...loaded } : defaults
 }
 
 // The single shape all live/session state takes, freshly derived from the

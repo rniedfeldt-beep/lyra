@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveState } from '../../lib/liveState/LiveStateContext'
 import { applyLevelUp, setSkillRanks, addFeat, addClassFeature } from '../../lib/liveState/actions'
 import {
@@ -24,8 +24,26 @@ export default function LevelUpFlow({ sheet, onClose }) {
   const abilityIncreaseLevel = isAbilityIncreaseLevel(newLevel)
   const takenClass = classTakenAtLevel(newLevel)
 
-  const [hpRoll, setHpRoll] = useState(1)
+  // Raw string, not a clamped number: clamping on every keystroke fights the
+  // browser's own cursor/selection handling on a controlled number input —
+  // typing into a field that already shows "1" without full-selecting it
+  // first appends to make "15", which then clamped straight to 8. Keep the
+  // field free-form while typing; only clamp on blur, and hpRoll (used for
+  // the live Con-mod preview and at confirm time) is derived separately so
+  // an in-progress edit never breaks the calculation shown below it.
+  const [hpRollInput, setHpRollInput] = useState('1')
+  const hpRoll = Math.max(1, Math.min(8, parseInt(hpRollInput, 10) || 1))
   const [abilityChoice, setAbilityChoice] = useState('wis')
+  const hpBlockRef = useRef(null)
+
+  // useEffect already runs after the DOM commit for this render, so the
+  // block's layout is live by the time this fires — no need to defer via
+  // requestAnimationFrame (which a backgrounded/inactive tab can throttle
+  // or skip entirely). An instant jump, not 'smooth': "jump to" per the
+  // request, and it doesn't depend on a scroll animation completing.
+  useEffect(() => {
+    hpBlockRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' })
+  }, [])
   const [wildShapeUses, setWildShapeUses] = useState(
     wildShapeUsesPerDayTable.byLevel[String(newLevel)] ?? character.wildShape.usesPerDay,
   )
@@ -117,7 +135,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
         Class taken at this level: <strong>{CLASS_LABELS[takenClass]}</strong>
       </p>
 
-      <div className="level-up-block">
+      <div className="level-up-block" ref={hpBlockRef}>
         <h3>Hit Points</h3>
         <div className="tracker-row">
           <label>
@@ -126,8 +144,9 @@ export default function LevelUpFlow({ sheet, onClose }) {
               type="number"
               min="1"
               max="8"
-              value={hpRoll}
-              onChange={(e) => setHpRoll(Math.max(1, Math.min(8, Number(e.target.value) || 1)))}
+              value={hpRollInput}
+              onChange={(e) => setHpRollInput(e.target.value)}
+              onBlur={() => setHpRollInput(String(hpRoll))}
             />
           </label>
           <span className="breakdown">
@@ -215,10 +234,8 @@ export default function LevelUpFlow({ sheet, onClose }) {
       <div className="level-up-block">
         <h3>Wild Shape Uses/Day</h3>
         <p className="breakdown">
-          Suggested from the character-level curve — {wildShapeUsesPerDayTable.confirmedLevels.includes(newLevel)
-            ? 'DM-confirmed'
-            : 'not yet DM-confirmed, edit if wrong'}
-          .
+          Pre-filled from the DM-confirmed character-level curve — edit if this level ever
+          changes.
         </p>
         <input
           type="number"
@@ -231,7 +248,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
       {newLevel === 9 && (
         <div className="level-up-block level-up-callout">
           <h3>Level 9 unlocks</h3>
-          <p>5th-level spell slots, a 4th wild shape use/day, and cure critical wounds as a spontaneous conversion — all apply automatically once this level-up is confirmed.</p>
+          <p>5th-level spell slots and cure critical wounds as a spontaneous conversion — both apply automatically once this level-up is confirmed.</p>
         </div>
       )}
 

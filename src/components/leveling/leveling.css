@@ -77,3 +77,42 @@
   padding: 0.5rem 0.75rem;
   margin-top: 0.5rem;
 }
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-row h2 {
+  margin: 0;
+}
+
+.edit-toggle {
+  font-size: 0.85rem;
+}
+
+.ability-editor-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ability-editor-block:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.ability-editor-block h3 {
+  margin: 0 0 0.5rem;
+}
+
+.ability-adjustments-table {
+  margin: 0.5rem 0;
+}
+
+.ability-adjustments-table input[type='text'],
+.ability-adjustments-table input[type='number'] {
+  width: 100%;
+}

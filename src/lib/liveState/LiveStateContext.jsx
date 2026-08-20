@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { loadState, saveState, isSupabaseConfigured } from '../storage/storageAdapter'
-import { getDefaultLiveState, getDefaultCharacterProgress, mergeWithDefaults } from './defaultLiveState'
+import { getDefaultLiveState, mergeCharacterProgress, mergeWithDefaults } from './defaultLiveState'
 import { computeEffectiveSheet } from './computeEffectiveSheet'
 
 const LiveStateContext = createContext(null)
@@ -14,8 +14,10 @@ const SAVE_DEBOUNCE_MS = 400
 export function LiveStateProvider({ children, character, items, progressionTable, spellSlotsBaseTable, companion }) {
   const [state, setState] = useState(null)
   const [syncStatus, setSyncStatus] = useState('loading')
+  const [testMode, setTestMode] = useState(false)
   const readyRef = useRef(false)
   const saveTimer = useRef(null)
+  const testSnapshotRef = useRef(null)
 
   const ingredients = { character, items, progressionTable, spellSlotsBaseTable }
 
@@ -23,7 +25,7 @@ export function LiveStateProvider({ children, character, items, progressionTable
     let cancelled = false
     loadState().then(({ state: loaded, source }) => {
       if (cancelled) return
-      const characterProgress = loaded?.characterProgress ?? getDefaultCharacterProgress(character)
+      const characterProgress = mergeCharacterProgress(loaded?.characterProgress, character)
       const { sheet, dailyAbilities } = computeEffectiveSheet({ ...ingredients, characterProgress })
       const defaults = getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress })
       setState(mergeWithDefaults(loaded, defaults))
@@ -37,7 +39,11 @@ export function LiveStateProvider({ children, character, items, progressionTable
   }, [])
 
   useEffect(() => {
-    if (!readyRef.current || !state) return
+    // Test mode suspends persistence entirely — state still updates locally
+    // (see update() below) but nothing is written to Supabase or
+    // localStorage until it's turned off, so experimenting with a level-up
+    // can't leak into the saved character.
+    if (!readyRef.current || !state || testMode) return
     clearTimeout(saveTimer.current)
     saveTimer.current = setTimeout(() => {
       saveState({ ...state, updatedAt: new Date().toISOString() }).then(({ source, error }) => {
@@ -45,7 +51,7 @@ export function LiveStateProvider({ children, character, items, progressionTable
       })
     }, SAVE_DEBOUNCE_MS)
     return () => clearTimeout(saveTimer.current)
-  }, [state])
+  }, [state, testMode])
 
   const { sheet, dailyAbilities } = useMemo(() => {
     if (!state) return { sheet: null, dailyAbilities: null }
@@ -62,10 +68,28 @@ export function LiveStateProvider({ children, character, items, progressionTable
   }
 
   function replaceAll(nextState) {
-    const characterProgress = nextState.characterProgress ?? state.characterProgress
+    const characterProgress = mergeCharacterProgress(nextState.characterProgress ?? state.characterProgress, character)
     const effective = computeEffectiveSheet({ ...ingredients, characterProgress })
     const defaults = getDefaultLiveState({ ...effective, companion, characterProgress })
     setState(mergeWithDefaults(nextState, defaults))
+  }
+
+  function enterTestMode() {
+    testSnapshotRef.current = state
+    setTestMode(true)
+  }
+
+  // Always restores the snapshot, whether resetting mid-experiment or
+  // leaving test mode — nothing tried while it's on should be able to
+  // survive being switched off, even by accident.
+  function resetTestState() {
+    if (testSnapshotRef.current) setState(testSnapshotRef.current)
+  }
+
+  function exitTestMode() {
+    resetTestState()
+    testSnapshotRef.current = null
+    setTestMode(false)
   }
 
   if (!state || !sheet) {
@@ -74,7 +98,21 @@ export function LiveStateProvider({ children, character, items, progressionTable
 
   return (
     <LiveStateContext.Provider
-      value={{ state, update, longRest, replaceAll, syncStatus, isSupabaseConfigured, sheet, dailyAbilities, companion }}
+      value={{
+        state,
+        update,
+        longRest,
+        replaceAll,
+        syncStatus,
+        isSupabaseConfigured,
+        sheet,
+        dailyAbilities,
+        companion,
+        testMode,
+        enterTestMode,
+        exitTestMode,
+        resetTestState,
+      }}
     >
       {children}
     </LiveStateContext.Provider>
