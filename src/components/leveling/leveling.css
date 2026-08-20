@@ -54,6 +54,16 @@
   font-weight: 600;
 }
 
+.xp-toggle-summary {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text);
+  white-space: nowrap;
+}
+
 .xp-tracker .xp-bar-track {
   height: 10px;
   border-radius: 5px;

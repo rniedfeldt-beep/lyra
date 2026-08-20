@@ -8,6 +8,7 @@ import {
   levelForXp,
   wouldDropBelowCurrentLevelMinimum,
 } from '../../lib/calc/leveling'
+import '../trackers/trackers.css'
 import './leveling.css'
 
 function parsePositiveAmount(raw) {
@@ -20,6 +21,7 @@ export default function XpTracker({ sheet, onLevelUp }) {
   const { character } = sheet
   const [addAmount, setAddAmount] = useState('')
   const [subtractAmount, setSubtractAmount] = useState('')
+  const [expanded, setExpanded] = useState(false)
 
   const xp = state.characterProgress.xp
   const level = character.level
@@ -51,54 +53,67 @@ export default function XpTracker({ sheet, onLevelUp }) {
 
   return (
     <div className="tracker-block xp-tracker">
-      <h3>Experience</h3>
-      <div className="stat-row-group">
-        <div className="stat-pill">
-          <span className="stat-pill-label">XP</span>
-          <span className="stat-pill-value">{xp.toLocaleString()}</span>
-        </div>
-        <div className="stat-pill">
-          <span className="stat-pill-label">Next Level</span>
-          <span className="stat-pill-value">{nextLevelXp.toLocaleString()}</span>
-        </div>
-        <div className="stat-pill">
-          <span className="stat-pill-label">To Go</span>
-          <span className="stat-pill-value">{toNext.toLocaleString()}</span>
-        </div>
-      </div>
+      <button type="button" className="collapsible-toggle xp-toggle" onClick={() => setExpanded((e) => !e)}>
+        <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
+        Experience
+        {!expanded && (
+          <span className="xp-toggle-summary">
+            {xp.toLocaleString()} XP · {toNext.toLocaleString()} to next level
+          </span>
+        )}
+      </button>
       <div className="xp-bar-track">
         <div className="xp-bar-fill" style={{ width: `${Math.round(progress * 100)}%` }} />
       </div>
 
-      <div className="tracker-row">
-        <input
-          type="number"
-          inputMode="numeric"
-          placeholder="Add XP"
-          value={addAmount}
-          onChange={(e) => setAddAmount(e.target.value)}
-        />
-        <button type="button" onClick={handleAdd}>
-          Add
-        </button>
-        <input
-          type="number"
-          inputMode="numeric"
-          placeholder="Spend XP"
-          value={subtractAmount}
-          onChange={(e) => setSubtractAmount(e.target.value)}
-        />
-        <button type="button" onClick={handleSubtract}>
-          Spend
-        </button>
-      </div>
+      {expanded && (
+        <div className="collapsible-body">
+          <div className="stat-row-group">
+            <div className="stat-pill">
+              <span className="stat-pill-label">XP</span>
+              <span className="stat-pill-value">{xp.toLocaleString()}</span>
+            </div>
+            <div className="stat-pill">
+              <span className="stat-pill-label">Next Level</span>
+              <span className="stat-pill-value">{nextLevelXp.toLocaleString()}</span>
+            </div>
+            <div className="stat-pill">
+              <span className="stat-pill-label">To Go</span>
+              <span className="stat-pill-value">{toNext.toLocaleString()}</span>
+            </div>
+          </div>
 
-      {eligible && (
-        <div className="xp-eligible-banner">
-          <span>Eligible to level up to {level + 1}!</span>
-          <button type="button" className="confirm-button" onClick={onLevelUp}>
-            Level Up
-          </button>
+          <div className="tracker-row">
+            <input
+              type="number"
+              inputMode="numeric"
+              placeholder="Add XP"
+              value={addAmount}
+              onChange={(e) => setAddAmount(e.target.value)}
+            />
+            <button type="button" onClick={handleAdd}>
+              Add
+            </button>
+            <input
+              type="number"
+              inputMode="numeric"
+              placeholder="Spend XP"
+              value={subtractAmount}
+              onChange={(e) => setSubtractAmount(e.target.value)}
+            />
+            <button type="button" onClick={handleSubtract}>
+              Spend
+            </button>
+          </div>
+
+          {eligible && (
+            <div className="xp-eligible-banner">
+              <span>Eligible to level up to {level + 1}!</span>
+              <button type="button" className="confirm-button" onClick={onLevelUp}>
+                Level Up
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

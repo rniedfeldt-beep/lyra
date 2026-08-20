@@ -149,7 +149,9 @@ Planar Shepherd class split) the moment a level-up is confirmed, with no redeplo
 - `src/components/leveling/XpTracker.jsx` — current XP, XP for next level, progress bar,
   add/spend inputs. Spending XP that would drop Lyra below her current level's minimum
   (`xpForLevel(level)`) shows a `window.confirm` warning rather than blocking outright — 3.5e
-  forbids it, but the DM can rule otherwise.
+  forbids it, but the DM can rule otherwise. Collapsible, defaulting to collapsed like Prepared
+  Spells; the collapsed header still shows current XP and XP to next level so that's visible
+  without expanding.
 - `src/components/leveling/LevelUpFlow.jsx` — appears inline on the Lyra tab once
   `levelForXp(xp) > character.level`. Never auto-levels. Covers:
   - **HP roll** — a d8 input, added to `characterProgress.hpRolls` as its own `{level, roll}`
