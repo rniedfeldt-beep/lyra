@@ -1,0 +1,8 @@
+{
+  "id": "scribe_scroll",
+  "name": "Scribe Scroll",
+  "source": "Player's Handbook v3.5",
+  "levelTaken": null,
+  "description": "Create a scroll of any spell you know, spending time, XP, and raw materials. Not modeled — this app doesn't track gold, crafting time, or an item-creation economy.",
+  "effects": []
+}

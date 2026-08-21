@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Spontaneous Healer",
+    "source": "Complete Divine",
+    "page": 84,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [
+        {
+          "skill": "Knowledge (religion)",
+          "ranks": 4
+        }
+      ],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": [
+        "Nonevil alignment",
+        "Able to cast any cure wounds spell"
+      ]
+    },
+    "benefit": "You can use your spellcasting ability to spontaneously cast cure spells (from your class spell list), just as a cleric can. You may use this ability a total number of times per day equal to your Wisdom modifier.",
+    "repeatable": false,
+    "note": "The printed benefit is a limited-uses-per-day spontaneous cast (Wis modifier times/day), which reads as an unlimited substitute-any-prepared-spell-for-a-Cure-spell effect elsewhere in this project (CLAUDE.md, src/data/feats/spontaneous_healer.json) — Rae has confirmed this is fine as-is: Lyra's Wisdom modifier is high (and rising), so the daily cap isn't a practical constraint, and the DM has ruled that cure minor wounds (the orison) doesn't draw against this limit at all. No app change needed."
+  }
+]

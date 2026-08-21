@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Gatekeeper Initiate",
+    "source": "Eberron Campaign Setting",
+    "page": 54,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": [
+        "Ability to spontaneously cast summon nature's ally"
+      ]
+    },
+    "benefit": "+2 bonus on saving throws against the supernatural and spell-like abilities of aberrations. Add Knowledge (the planes) to your list of druid class skills, and you may use it instead of Knowledge (dungeoneering) to identify aberrations and their special abilities. You can also cast the following spells as if they were on the druid spell list, at the indicated level: 1st protection from evil, 2nd zone of natural purity, 3rd dimensional anchor, 4th nature's wrath, 5th banishment, 6th dimensional lock, 7th return to nature, 8th mind blank, 9th imprisonment.",
+    "repeatable": false,
+    "grantedSpells": [
+      {
+        "level": 1,
+        "name": "Protection from Evil",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "level": 2,
+        "name": "Zone of Natural Purity",
+        "source": "Eberron Campaign Setting"
+      },
+      {
+        "level": 3,
+        "name": "Dimensional Anchor",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "level": 4,
+        "name": "Nature's Wrath",
+        "source": "Eberron Campaign Setting"
+      },
+      {
+        "level": 5,
+        "name": "Banishment",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "level": 6,
+        "name": "Dimensional Lock",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "level": 7,
+        "name": "Return to Nature",
+        "source": "Eberron Campaign Setting"
+      },
+      {
+        "level": 8,
+        "name": "Mind Blank",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "level": 9,
+        "name": "Imprisonment",
+        "source": "Player's Handbook v3.5"
+      }
+    ],
+    "note": "Page verified against the physical book at 54, not the 45 originally cited — the book's feat chapter runs several pages past where a straight page_labels lookup would place it. The three asterisked spells (zone of natural purity, nature's wrath, return to nature) are marked in the book as new spells introduced in this sourcebook and were already extracted into eberron-campaign-setting.json; the other six are standard Player's Handbook spells not normally on the druid list, newly added to players-handbook.json (spellLevelDruid: null there, since they're only druid-castable through this feat) so the full grant is represented in the data."
+  },
+  {
+    "name": "Ashbound",
+    "source": "Eberron Campaign Setting",
+    "page": 50,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": [
+        "Ability to spontaneously cast summon nature's ally"
+      ]
+    },
+    "benefit": "The duration of your summon nature's ally spells is doubled. Creatures summoned by those spells gain a +3 luck bonus on attack rolls.",
+    "repeatable": false
+  }
+]

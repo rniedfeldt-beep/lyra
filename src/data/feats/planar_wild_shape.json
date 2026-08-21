@@ -1,0 +1,8 @@
+{
+  "id": "planar_wild_shape",
+  "name": "Planar Wild Shape",
+  "source": "Pathfinder – Ultimate Combat",
+  "levelTaken": null,
+  "description": "Spend an extra wild shape use to add the celestial or fiendish template to an animal wild shape form (DM ruling for this table: 3.5 Monster Manual template stat blocks, and Lyra may pick either template per use regardless of alignment). Not modeled — the wild shape template pipeline (greenbound, advanced, giant, young) doesn't yet have a celestial/fiendish entry.",
+  "effects": []
+}

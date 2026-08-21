@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Sustain Wild Shape",
+    "source": "The Quintessential Druid",
+    "page": 42,
+    "type": "Wild",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [
+        "Wild shape"
+      ],
+      "casterLevel": null,
+      "other": [
+        "Must be able to cast 5th-level druid spells"
+      ]
+    },
+    "benefit": "When you transform back to your normal form or into another wild shape, you can sustain your previous form using a full-round action. So long as you sustain your previous form, you may return to that shape without it counting as an additional use of the wild shape ability. You cannot sustain more than one wild shape form at a time.",
+    "repeatable": false,
+    "note": "User-cited page (44) was the PDF's own internal page counter; the book's printed page number is 42, confirmed against the rendered page."
+  }
+]

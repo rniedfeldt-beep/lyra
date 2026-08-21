@@ -1,0 +1,8 @@
+{
+  "id": "sustain_wild_shape",
+  "name": "Sustain Wild Shape",
+  "source": "The Quintessential Druid",
+  "levelTaken": null,
+  "description": "Sustain a wild shape form with a full-round action when changing out of it, so returning to that same form later doesn't cost another daily use. Not modeled — the wild shape tracker is a simple used/max counter with no per-form sustain state.",
+  "effects": []
+}

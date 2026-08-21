@@ -4319,5 +4319,159 @@
     "description": "Causes a designated object or location to magically compel a specifically named kind of creature or a specifically named alignment to want to stay near or touch it, an urge nearly impossible to resist. A successful Will save breaks the compulsion temporarily, but the creature must save again 1d6x10 minutes later or return. Lasts 2 hours per caster level; counters and dispels antipathy.",
     "otherPrintings": [],
     "abilityType": "spell"
+  },
+  {
+    "name": "Banishment",
+    "source": "Player's Handbook v3.5",
+    "page": 203,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "targets",
+      "value": "One or more extraplanar creatures, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "A more powerful version of dismissal that forces extraplanar creatures out of your home plane — up to 2 Hit Dice of creatures per caster level. Presenting an object or substance the target hates, fears, or opposes improves the odds: each one grants a +1 bonus overcoming spell resistance and +2 to the save DC. Focus: any item distasteful to the subject (optional). Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 5th level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Dimensional Anchor",
+    "source": "Player's Handbook v3.5",
+    "page": 221,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Ray"
+    },
+    "duration": "1 min./level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (object)",
+    "description": "A green ray (ranged touch attack) covers the target in a shimmering field that blocks extradimensional travel — astral projection, blink, dimension door, etherealness, gate, maze, plane shift, shadow walk, teleport, and similar spell-like or psionic abilities — and prevents use of a gate or teleportation circle for the duration. Doesn't interfere with creatures already ethereal/astral when cast, doesn't block extradimensional perception or attack forms (such as a basilisk's gaze), and doesn't stop summoned creatures from disappearing when their summoning spell ends. Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 3rd level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Dimensional Lock",
+    "source": "Player's Handbook v3.5",
+    "page": 221,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft.-radius emanation centered on a point in space"
+    },
+    "duration": "One day/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "description": "Creates a barrier that completely blocks extradimensional travel into or out of the area — astral projection, blink, dimension door, ethereal jaunt, etherealness, gate, maze, plane shift, shadow walk, teleport, and similar spell-like or psionic abilities. Doesn't interfere with creatures already ethereal/astral when cast, doesn't block extradimensional perception or attack forms, and doesn't stop summoned creatures from disappearing when their summoning spell ends. Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 6th level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Imprisonment",
+    "source": "Player's Handbook v3.5",
+    "page": 244,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates; see text",
+    "spellResistance": "Yes",
+    "description": "Entombs the touched creature in suspended animation within a small sphere far beneath the earth, where it remains until a freedom spell is cast at the site of imprisonment. Divination magic (crystal ball, locate object, and the like) can't find the creature, though discern location can. Wish or miracle won't free the recipient but will reveal where it's entombed. Knowing the target's name and some facts about its life imposes a -4 penalty on its saving throw. Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 9th level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Mind Blank",
+    "source": "Player's Handbook v3.5",
+    "page": 253,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "24 hours",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Protects the subject from all devices and spells that detect, influence, or read emotions or thoughts, including mind-affecting spells/effects and divination-based information gathering. Foils limited wish, miracle, and wish when they're used to affect the subject's mind or learn about it. An area-scrying effect (such as arcane eye) still works but doesn't detect the subject; scrying targeted specifically at the subject fails outright. Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 8th level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Protection from Evil",
+    "source": "Player's Handbook v3.5",
+    "page": 266,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "Good"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "No; see text",
+    "description": "Wards the touched creature with a magical barrier against evil creatures: a +2 deflection bonus to AC and +2 resistance bonus on saves against attacks or effects from evil creatures, a block against possession and mental control (including charm and compulsion effects that grant ongoing control), and a barrier against bodily contact by summoned creatures (their natural weapon attacks fail and recoil unless they're good). Spell resistance can let a creature overcome the barrier to touch the subject. Not on the standard druid spell list; Lyra could cast this as if it were a druid spell of this level if she takes the Gatekeeper Initiate feat (Eberron Campaign Setting, p. 54). Granted at 1st level through the feat.",
+    "otherPrintings": [],
+    "abilityType": "spell"
   }
 ]

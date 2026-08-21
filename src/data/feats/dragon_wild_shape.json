@@ -1,0 +1,8 @@
+{
+  "id": "dragon_wild_shape",
+  "name": "Dragon Wild Shape",
+  "source": "Draconomicon",
+  "levelTaken": null,
+  "description": "Use wild shape to become a Small or Medium dragon, gaining its extraordinary and supernatural abilities (not spell-like abilities or spellcasting). Not modeled — the wild shape creature list (data/creatures/monster-manual.json) has no dragon entries.",
+  "effects": []
+}

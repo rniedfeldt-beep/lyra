@@ -83,6 +83,66 @@ duration, active wild shape form, Quen's current HP, and (Phase 9) `characterPro
 /sourcebooks     PDFs (never read at runtime)
 ```
 
+### Feat reference data (Aug 2026)
+
+`data/feats/<book-slug>.json`, one file per sourcebook, mirroring the `data/spells/` convention
+— this is reference/bibliographic data, distinct from `src/data/feats/*.json`, which holds the
+live calc-engine effect hooks for feats Lyra actually has or could take next (one file per
+feat, keyed by id, read by the character sheet). The level-up feat picker (Phase 9) joins the
+two by name — see "XP tracking and level-up" > Feats and class features below.
+
+**Schema**, one entry per feat: `name`, `source`, `page` (`null` if genuinely uncitable — e.g. a
+single-page excerpt with no page number printed), `type` (`"General"`, `"Item Creation"`,
+`"Metamagic"`, `"Wild"`, etc. — taken from the book's own bracketed tag where printed),
+`prerequisites` (structured: `abilityScores` array of `{ability, minimum}`, `baseAttackBonus`,
+`skills` array of `{skill, ranks}`, `feats` array, `classFeatures` array, `casterLevel`, and a
+free-text `other` array for anything that doesn't fit those buckets, e.g. "Ability to
+spontaneously cast summon nature's ally"), `benefit` (paraphrased, not full printed text),
+`repeatable` (bool — whether the feat can be taken multiple times), and an optional `note` for
+extraction caveats or DM rulings. `grantedSpells` is an additional array (`{level, name,
+source}`) on feats that grant spell access, currently only Gatekeeper Initiate.
+
+13 feats extracted so far across 9 files: `eberron-campaign-setting.json` (Gatekeeper Initiate,
+Ashbound), `quintessential-druid.json` (Sustain Wild Shape), `draconomicon.json` (Dragon Wild
+Shape), `pathfinder-ultimate-combat.json` (Planar Wild Shape), `players-handbook.json` (Scribe
+Scroll, Toughness, Natural Spell, Animal Affinity), `complete-divine.json` (Spontaneous Healer),
+`lost-empires-of-faerun.json` (Greenbound Summoning), `5e-import.json` (Fey Touched, no page —
+ported from 5e rather than any 3.5 sourcebook), and `players-guide-to-faerun.json` (Strong
+Soul — see below). `players-handbook-ii.json` also exists but is an empty array: an earlier
+guess placed Strong Soul there, which turned out to be wrong (see below); the file can't be
+deleted once written, so it's left empty rather than populated with anything real.
+
+**Gatekeeper Initiate's granted spells.** The feat grants 9 spells "as if on the druid spell
+list" at levels 1–9 (verified against the physical page, not the PDF's own page-label metadata,
+which was off by several pages here — the feat is actually on printed page 54, not 45). Three
+(zone of natural purity, nature's wrath, return to nature) are the book's own new Gatekeeper
+spells, already in `eberron-campaign-setting.json`. The other six (protection from evil,
+dimensional anchor, banishment, dimensional lock, mind blank, imprisonment) are standard PHB
+spells not normally on the druid list at all — these were newly extracted into
+`players-handbook.json` with `spellLevelDruid: null` (accurate for a generic druid) and a note
+on each explaining it's only druid-castable through this feat, at the level the feat specifies.
+
+**Spontaneous Healer — resolved, no app change needed.** The printed benefit really is a
+limited-uses-per-day spontaneous cast (Wis modifier times/day), not the unlimited
+substitute-any-prepared-spell reading elsewhere in this file and in
+`src/data/feats/spontaneous_healer.json`. Rae confirmed this is fine as-is: Lyra's Wisdom
+modifier is high and rising, so the daily cap isn't a practical constraint, and the DM has
+ruled that cure minor wounds (the orison) doesn't draw against the limit at all.
+
+**Strong Soul — source corrected.** Not a Player's Handbook II feat as `src/data/feats/
+strong_soul.json`'s "PHB" source and this project's own earlier guess both assumed. Rae
+confirmed it's a **Player's Guide to Faerûn regional feat**, gifted to the whole party as a
+1st-level bonus feat, and supplied the printed text directly (that book's PDF has no real text
+layer — CHOCR/OCR only, per the note already on its spell file — and the character-level OCR
+markup made a targeted page search impractical, so `data/feats/players-guide-to-faerun.json`
+carries `page: null`). Prerequisite is a race/region combination; Lyra qualifies as a half-elf
+of Dambrath, the Dalelands, or Silverymoon. Benefit is +1 Fort/Will normally, rising to +3
+specifically against death effects, energy drain, and ability drain — which resolves the old
+discrepancy, since CLAUDE.md's own derived stat block (Fort +8, Will +12) already used +1 as
+the flat bonus. The bug is isolated to `src/data/feats/strong_soul.json`, which currently codes
+a flat +2/+2 instead of +1 normally (+3 conditionally) — not fixed here since that's a live
+calc-engine file outside this extraction pass, flagged for a follow-up edit.
+
 ---
 
 ## Class progression — READ THIS CAREFULLY
@@ -176,13 +236,41 @@ Planar Shepherd class split) the moment a level-up is confirmed, with no redeplo
     (DM-confirmed full curve, Aug 2026: 1/day at 5, 2/day at 6, 3/day at 7–9, 4/day at 10–13,
     5/day at 14–17, 6/day at 18–20), but always shown as an editable field rather than applied
     silently, in case a future houserule changes it.
-  - **Feats and class features** — recorded manually. The feat picker only lists feats that
-    already have a JSON file in `src/data/feats/` (`getFeats()` throws on an unknown id); a
-    brand-new feat needs its data file added before it can be picked. Class features are
-    freeform text, not tied to any calc engine — e.g. the Wolf Shaman bonus feat at character
-    level 19 (druid level 9) has no dedicated code and is expected to be recorded here, then
-    (if it grants a mechanical effect) added as an actual feat with a `hp_bonus`/`ability_bonus`
-    /`save_bonus`/`grants_daily_spell` effect like any other feat.
+  - **Feats and class features** — recorded manually. The feat picker (a card per feat, not a
+    plain dropdown) lists every feat with a JSON file in `src/data/feats/` that Lyra doesn't
+    already have (`getFeats()` throws on an unknown id, so a brand-new feat needs its
+    mechanical data file added before it can be picked — `id`/`name`/`source`/`effects`, `[]`
+    for anything not modeled). Each card's prerequisites and full benefit text come from a
+    **separate join**, not from the mechanical file: `src/lib/loadFeatReferenceData.js` globs
+    the project-root `/data/feats/<book>.json` bibliographic catalog (CLAUDE.md > Feat
+    reference data — one file per sourcebook, DM-cited prerequisites/page/benefit text) into
+    `featReferenceByName`, keyed by each entry's printed `name`, and `LevelUpFlow.jsx` looks up
+    `featReferenceByName[feat.name]` for the mechanical feat being rendered. The two catalogs
+    are kept in sync by every `src/data/feats/*.json` file's `name` matching an entry in
+    `/data/feats/` exactly — the picker currently covers all 13 (8 Lyra already has, plus
+    Dragon Wild Shape, Gatekeeper Initiate, Planar Wild Shape, Scribe Scroll, Sustain Wild
+    Shape as not-yet-taken candidates); a new mechanical feat with no bibliographic match just
+    shows no prerequisites/citation rather than crashing.
+    `src/lib/calc/featPrerequisites.js` checks the reference schema (`abilityScores`,
+    `baseAttackBonus`, `skills`, `feats`, `classFeatures`, `casterLevel`, `other`) generically
+    against Lyra's current stats (including any pending ability-score-increase pick, but not a
+    hypothetical post-level-up BAB — "currently qualify" means before this level-up is
+    confirmed). `abilityScores`/`baseAttackBonus`/`skills`/`casterLevel`/`feats` are checked
+    automatically (skill-name matching is normalized — strips "the" and punctuation — so the
+    catalog's "Knowledge (planes)" matches Lyra's own "Knowledge (the planes)" skill label);
+    `classFeatures` and `other` are free text with no data source in this app to verify, so
+    they're always unverifiable rather than silently assumed true or false. Status is one of
+    three, shown as a badge and a colored left border on the card: `qualifies`, `unqualified`
+    (at least one prerequisite definitely unmet), `needs-check` (nothing definitely unmet, but
+    at least one unverifiable prerequisite). Unqualified and needs-check feats are **flagged,
+    never hidden** — a DM can always grant a feat outside its normal prerequisites — and the
+    Add button stays enabled regardless of status. Feats picked earlier in the same level-up
+    session count toward `feats`-type prerequisites too, so taking a prerequisite and its
+    dependent together resolves the chain live. Class features are freeform text, not tied to
+    any calc engine — e.g. the Wolf Shaman bonus feat at character level 19 (druid level 9) has
+    no dedicated code and is expected to be recorded here, then (if it grants a mechanical
+    effect) added as an actual feat with a `hp_bonus`/`ability_bonus`/`save_bonus`
+    /`grants_daily_spell` effect like any other feat.
 - Confirming calls `applyLevelUp` (bumps level, appends the HP roll, applies the ability
   adjustment if applicable, sets wild shape uses/day) plus `setSkillRanks`/`addFeat`/
   `addClassFeature` for each changed skill/feat/feature — all in `src/lib/liveState/actions.js`,

@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Scribe Scroll",
+    "source": "Player's Handbook v3.5",
+    "page": 99,
+    "type": "Item Creation",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": 1,
+      "other": []
+    },
+    "benefit": "You can create a scroll of any spell you know. Scribing a scroll takes one day per 1,000 gp of its base price (spell level × caster level × 25 gp). To scribe it, you spend 1/25 of that price in XP and use up raw materials costing half the base price. A scroll storing a spell with a costly material component or an XP cost also carries that commensurate cost, paid when scribing.",
+    "repeatable": false
+  },
+  {
+    "name": "Toughness",
+    "source": "Player's Handbook v3.5",
+    "page": 101,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "You gain +3 hit points.",
+    "repeatable": true,
+    "note": "Special: effects stack each time the feat is taken."
+  },
+  {
+    "name": "Natural Spell",
+    "source": "Player's Handbook v3.5",
+    "page": 98,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [
+        {
+          "ability": "Wis",
+          "minimum": 13
+        }
+      ],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [
+        "Wild shape"
+      ],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "You can complete the verbal and somatic components of spells while in a wild shape (substituting sounds and gestures appropriate to the form), and can use material components or foci melded within your current form. This doesn't grant the ability to use magic items unusable in that form, or the ability to speak while wild shaped.",
+    "repeatable": false
+  },
+  {
+    "name": "Animal Affinity",
+    "source": "Player's Handbook v3.5",
+    "page": 89,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "+2 bonus on all Handle Animal checks and Ride checks.",
+    "repeatable": false
+  }
+]

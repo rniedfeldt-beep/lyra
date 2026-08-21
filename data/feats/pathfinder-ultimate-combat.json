@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Planar Wild Shape",
+    "source": "Pathfinder – Ultimate Combat",
+    "page": null,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [
+        {
+          "skill": "Knowledge (planes)",
+          "ranks": 5
+        }
+      ],
+      "feats": [],
+      "classFeatures": [
+        "Wild shape"
+      ],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "When you use wild shape to take the form of an animal, you can expend an additional daily use of your wild shape class feature to add the celestial template or the fiendish template to your animal form. (Good druids must use the celestial template, evil druids must use the fiendish template.) If your form has the celestial template and you score a critical threat against an evil creature while using your form's natural weapons, you gain a +2 bonus on the roll to confirm the critical hit. The same bonus applies if your form has the fiendish template and you score a critical threat against a good creature.",
+    "repeatable": false,
+    "note": "Extracted from a single-page excerpt (sourcebooks/Planar Wild Shape Feat.pdf), not the full Ultimate Combat book, so no page number is available. Pathfinder feats aren't printed with a bracketed type tag the way 3.5-era books are; \"General\" is inferred here for schema consistency, matching how Draconomicon's similarly wild-shape-flavored feat is categorized. Two DM rulings for Lyra's table, both confirmed: (1) use the 3.5 Monster Manual celestial/fiendish template stat adjustments rather than the Pathfinder versions; (2) although the feat's RAW only covers good or evil druids picking a template, Lyra (chaotic neutral) may use either the celestial or the fiendish template, DM's choice/hers per use — not a RAW-supported reading, but explicitly ruled for this table."
+  }
+]

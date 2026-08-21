@@ -1,0 +1,8 @@
+{
+  "id": "gatekeeper_initiate",
+  "name": "Gatekeeper Initiate",
+  "source": "Eberron Campaign Setting",
+  "levelTaken": null,
+  "description": "+2 save vs. aberrations' supernatural/spell-like abilities. Adds Knowledge (the planes) as a druid class skill (already true for Lyra via Planar Shepherd). Grants 9 spells castable as druid spells at set levels (1st protection from evil through 9th imprisonment). Not modeled — no existing effect type covers a conditional save bonus or a per-level granted-spell-list addition.",
+  "effects": []
+}

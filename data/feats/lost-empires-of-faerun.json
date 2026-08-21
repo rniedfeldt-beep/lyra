@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Greenbound Summoning",
+    "source": "Lost Empires of Faerûn",
+    "page": 8,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": [
+        "Ability to cast any summon nature's ally spell"
+      ]
+    },
+    "benefit": "All animals that you summon using summon nature's ally acquire the greenbound template (see page 173) for as long as the summoning spell lasts.",
+    "repeatable": false,
+    "note": "RAW only covers animals; CLAUDE.md documents a DM ruling extending this to all summon nature's ally results except elementals — already an intentional, recorded houserule, not a new discrepancy."
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Fey Touched",
+    "source": "5e import (D&D 5th Edition, DM-adapted)",
+    "page": null,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "+1 Wisdom (inherent). Grants misty step and charm person, each usable 1/day, outside the normal spell slot economy.",
+    "repeatable": false,
+    "note": "Not from a 3.5e sourcebook — the DM ported this 5e feat into the campaign, so there's no page citation. Future follow-ons per CLAUDE.md: character level 9 grants otherworldly magic (an arcane cantrip), level 15 grants Otherworldly Acumen (2nd-level arcane)."
+  }
+]

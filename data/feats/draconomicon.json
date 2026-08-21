@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Dragon Wild Shape",
+    "source": "Draconomicon",
+    "page": 105,
+    "type": "General",
+    "prerequisites": {
+      "abilityScores": [
+        {
+          "ability": "Wis",
+          "minimum": 19
+        }
+      ],
+      "baseAttackBonus": null,
+      "skills": [
+        {
+          "skill": "Knowledge (nature)",
+          "ranks": 15
+        }
+      ],
+      "feats": [],
+      "classFeatures": [
+        "Wild shape"
+      ],
+      "casterLevel": null,
+      "other": []
+    },
+    "benefit": "You can use your wild shape ability to change into a Small or Medium dragon. You gain all the extraordinary and supernatural abilities of the dragon whose form you take, but not any spell-like abilities or spellcasting powers.",
+    "repeatable": false
+  }
+]

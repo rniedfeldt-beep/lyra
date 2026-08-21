@@ -126,3 +126,94 @@
 .ability-adjustments-table input[type='number'] {
   width: 100%;
 }
+
+.feat-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feat-card {
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.feat-row-qualifies {
+  border-left-color: #16a34a;
+}
+
+.feat-row-unqualified {
+  border-left-color: #c2410c;
+}
+
+.feat-row-needs-check {
+  border-left-color: #b45309;
+}
+
+.feat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feat-description {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.feat-prereq-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.feat-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.prereq-met {
+  color: #16a34a;
+}
+
+.prereq-unmet {
+  color: #c2410c;
+}
+
+.prereq-unknown {
+  color: #b45309;
+}
+
+.feat-status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.feat-status-qualifies {
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.12);
+}
+
+.feat-status-unqualified {
+  color: #c2410c;
+  background: rgba(194, 65, 12, 0.12);
+}
+
+.feat-status-needs-check {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.12);
+}

@@ -10,16 +10,23 @@ import {
   classTakenAtLevel,
 } from '../../lib/calc/leveling'
 import { computeAbilityScores } from '../../lib/calc/abilities'
+import { checkFeatQualification, buildFeatQualificationContext } from '../../lib/calc/featPrerequisites'
+import { featReferenceByName } from '../../lib/loadFeatReferenceData'
 import { feats as allFeats, classSkillsTable, wildShapeUsesPerDayTable } from '../../lib/loadData'
 import { formatMod } from '../../lib/format'
 import './leveling.css'
 
 const ABILITY_LABELS = { str: 'STR', dex: 'DEX', con: 'CON', int: 'INT', wis: 'WIS', cha: 'CHA' }
 const CLASS_LABELS = { druid: 'Druid', planarShepherd: 'Planar Shepherd' }
+const FEAT_STATUS_LABELS = {
+  qualifies: 'Qualifies',
+  unqualified: "Doesn't qualify",
+  'needs-check': 'Check manually',
+}
 
 export default function LevelUpFlow({ sheet, onClose }) {
   const { state, update } = useLiveState()
-  const { character, feats: knownFeats } = sheet
+  const { character, feats: knownFeats, progression } = sheet
   const newLevel = character.level + 1
   const abilityIncreaseLevel = isAbilityIncreaseLevel(newLevel)
   const takenClass = classTakenAtLevel(newLevel)
@@ -48,7 +55,6 @@ export default function LevelUpFlow({ sheet, onClose }) {
     wildShapeUsesPerDayTable.byLevel[String(newLevel)] ?? character.wildShape.usesPerDay,
   )
   const [skillDeltas, setSkillDeltas] = useState({})
-  const [featPick, setFeatPick] = useState('')
   const [pendingFeats, setPendingFeats] = useState([])
   const [classFeatureText, setClassFeatureText] = useState('')
   const [pendingClassFeatures, setPendingClassFeatures] = useState([])
@@ -108,6 +114,27 @@ export default function LevelUpFlow({ sheet, onClose }) {
         .sort((a, b) => a.name.localeCompare(b.name)),
     [character.feats, pendingFeats],
   )
+
+  // Qualification is checked against Lyra's *current* stats (including the
+  // pending ability-score-increase pick, if any) — not a hypothetical
+  // post-level-up BAB — since "currently qualify" means before this
+  // level-up is even confirmed. A feat that's out of reach today still
+  // shows up, just flagged, so it's visible as something to work toward
+  // rather than hidden. knownFeatNames includes pendingFeats too (by name,
+  // since prerequisites cite feats by their printed name), so picking a
+  // prerequisite feat and its dependent in the same level-up session
+  // resolves the chain live.
+  const featContext = useMemo(() => {
+    const context = buildFeatQualificationContext({
+      abilityScores: tentativeAbilityScores,
+      progression,
+      casterLevel: character.casterLevel.druid,
+      feats: knownFeats,
+      skills: character.skills,
+    })
+    const pendingFeatNames = pendingFeats.map((id) => allFeats[id].name)
+    return { ...context, knownFeatNames: [...context.knownFeatNames, ...pendingFeatNames] }
+  }, [tentativeAbilityScores, progression, character.casterLevel.druid, knownFeats, character.skills, pendingFeats])
 
   function handleConfirm() {
     let next = applyLevelUp(state, {
@@ -254,25 +281,40 @@ export default function LevelUpFlow({ sheet, onClose }) {
 
       <div className="level-up-block">
         <h3>Feats</h3>
-        <div className="tracker-row">
-          <select value={featPick} onChange={(e) => setFeatPick(e.target.value)}>
-            <option value="">Choose a feat…</option>
-            {availableFeats.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.name}
-              </option>
-            ))}
-          </select>
-          <button
-            type="button"
-            disabled={!featPick}
-            onClick={() => {
-              setPendingFeats((p) => [...p, featPick])
-              setFeatPick('')
-            }}
-          >
-            Add Feat
-          </button>
+        <div className="feat-picker-list">
+          {availableFeats.map((f) => {
+            const reference = featReferenceByName[f.name]
+            const { results, status } = checkFeatQualification(reference?.prerequisites, featContext)
+            const sourceLabel = reference?.page ? `${reference.source} p.${reference.page}` : (reference?.source ?? f.source)
+            return (
+              <div key={f.id} className={`feat-card feat-row-${status}`}>
+                <div className="feat-card-header">
+                  <span>
+                    <strong>{f.name}</strong> <span className="note">({sourceLabel})</span>
+                  </span>
+                  <span className={`feat-status-badge feat-status-${status}`}>{FEAT_STATUS_LABELS[status]}</span>
+                </div>
+                <p className="feat-description">{reference?.benefit ?? f.description}</p>
+                {results.length > 0 && (
+                  <ul className="feat-prereq-list">
+                    {results.map((r, i) => (
+                      <li
+                        key={i}
+                        className={r.met === true ? 'prereq-met' : r.met === false ? 'prereq-unmet' : 'prereq-unknown'}
+                      >
+                        {r.met === true ? '✓' : r.met === false ? '✗' : '?'} {r.label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="feat-card-footer">
+                  <button type="button" onClick={() => setPendingFeats((p) => [...p, f.id])}>
+                    Add
+                  </button>
+                </div>
+              </div>
+            )
+          })}
         </div>
         {pendingFeats.length > 0 && (
           <ul className="pending-list">
@@ -288,6 +330,8 @@ export default function LevelUpFlow({ sheet, onClose }) {
         )}
         <p className="note">
           Only feats already in the data files appear here — a brand-new feat needs its JSON file added first.
+          Feats flagged "Doesn't qualify" or "Check manually" are still pickable — the DM may grant a feat outside
+          its normal prerequisites (like a Wolf Shaman bonus feat), so this warns rather than blocks.
         </p>
       </div>
 

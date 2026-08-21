@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Strong Soul",
+    "source": "Player's Guide to Faerûn",
+    "page": null,
+    "type": "Regional",
+    "prerequisites": {
+      "abilityScores": [],
+      "baseAttackBonus": null,
+      "skills": [],
+      "feats": [],
+      "classFeatures": [],
+      "casterLevel": null,
+      "other": [
+        "Race/region: dwarf (Oldonnar), elf (Elven Court or Silverymoon), gnome (the Northdark or the Western Heartlands), half-elf (Dambrath, the Dalelands, or Silverymoon), halfling (Channath Vale or Luiren), or human (the Moonshae Isles). Lyra qualifies as a half-elf of Dambrath, the Dalelands, or Silverymoon.",
+        "Regional feat slot — may only be selected as a 1st-level character, and a character may have only one regional feat."
+      ]
+    },
+    "benefit": "+1 bonus on Fortitude and Will saves, reflecting an innate resistance to fell magic and supernatural attacks that make the soul hard to separate from the body. That bonus rises to +3 specifically against death effects, energy drain, and ability drain.",
+    "repeatable": false,
+    "note": "Source corrected (Aug 2026): not Player's Handbook II as src/data/feats/strong_soul.json's \"source: PHB\" and this project's earlier guess both assumed — Rae confirmed it's a Player's Guide to Faerûn regional feat, gifted to the whole party as a 1st-level bonus feat, and supplied the printed text directly. Page number still unconfirmed: this book's PDF has no real text layer (CHOCR/OCR only, per the existing note on players-guide-to-faerun.json's spell file), and the character-level OCR markup made a targeted page search impractical, so page is left null rather than guessed. The +1/+3 split here resolves the earlier discrepancy: CLAUDE.md's own derived stat block (Fort +8, Will +12) already used +1 as the flat Strong Soul bonus, so that math was right all along — the bug is isolated to src/data/feats/strong_soul.json, which currently codes a flat +2/+2 instead of +1 normally (+3 vs. death effects/energy drain/ability drain specifically). Not fixed here since that's a live calc-engine file outside this extraction pass — flagging for a follow-up edit."
+  }
+]
