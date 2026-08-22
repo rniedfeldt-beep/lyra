@@ -15,16 +15,19 @@ export function normalizeSourceKey(source) {
   return (source ?? '').trim().toLowerCase().replace(/^the\s+/, '')
 }
 
-// Dragon Magazine is cited per-issue ("Dragon Magazine #309 (War Spells –
-// Unleash Arcane Armageddon)") since that's the real citation for each
-// entry — but there are enough separate issues in the library that listing
-// every one as its own filter option swamps the dropdown. This collapses
-// any Dragon Magazine issue to one shared label for grouping/filtering
-// only; individual spell printings still display their own full,
-// issue-specific source text untouched.
+// Dragon Magazine is cited per-issue ("Dragon Magazine #309", with the
+// originating article in its own "article" field — see PrintingBlock) since
+// that's the real citation for each entry — but there are enough separate
+// issues in the library that listing every one as its own filter option
+// swamps the dropdown. This collapses any Dragon Magazine issue to one
+// shared label for grouping/filtering only; individual spell printings
+// still display their own full, issue-specific citation untouched. Dungeon
+// Magazine #100 (Dire Reincarnation, a web enhancement bundled into the
+// same extraction) groups under the same label — it's one entry, not a
+// separate magazine worth its own filter option.
 export function groupedSourceLabel(source) {
   if (!source) return source
-  return /^Dragon Magazine #\d+/.test(source) ? 'Dragon Magazine' : source
+  return /^(Dragon|Dungeon) Magazine #\d+/.test(source) ? 'Dragon Magazine' : source
 }
 
 function buildSpellGroup(name, entries) {

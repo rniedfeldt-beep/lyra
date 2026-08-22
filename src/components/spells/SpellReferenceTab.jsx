@@ -79,6 +79,7 @@ function PrintingBlock({ printing }) {
         <span className="spell-printing-source">
           {source}
           {page != null ? `, p. ${page}` : ''}
+          {full?.article ? ` (${full.article})` : ''}
         </span>
       </div>
       {note && <p className="note">{note}</p>}

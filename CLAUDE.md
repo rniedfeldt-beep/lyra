@@ -1044,7 +1044,14 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   Sun's defiler-score subsystem, which this Greyhawk campaign has no equivalent for —
   flagged as mechanically nonfunctional pending a DM ruling rather than assumed to just work.
   No name collisions with any other file in `data/spells/` — all 44 are genuinely new to the
-  library, so every entry's `otherPrintings` is empty.
+  library, so every entry's `otherPrintings` is empty. `source` on every entry is just the
+  issue (`"Dragon Magazine #309"`, or `"Dungeon Magazine #100"` for Dire Reincarnation); the
+  originating article title (`"War Spells – Unleash Arcane Armageddon"`, etc.) lives in its
+  own `article` field rather than being folded into `source` the way the rest of this
+  paragraph's prose still describes it — this file is the only one in `data/spells/` with an
+  `article` field, since it's the only sourcebook here that's itself an anthology of
+  originally-separate articles. All 44 descriptions were rewritten to the "length follows the
+  spell" standard documented above; see that section for which entries needed the most room.
   `lost-empires-of-faerun.json` (pp. 30, 34) covers Bloodbriars (Drd 4) and Storm Shield
   (Drd 3) — the book's own per-class spell list (p. 29) confirms these are the only two
   true druid-list spells among the ~30 new spells introduced in this chapter; an earlier
@@ -1145,7 +1152,27 @@ page, not PDF page), `spellLevelDruid`, `school`, `subschool` (`null` if none), 
 `spellResistance`, `description` (paraphrased, not full printed text — keep durations,
 bonuses, material/focus components, save/SR interactions), `otherPrintings` (array),
 `abilityType` (`"spell"` or `"spell-like"` — see below). Use `null` only for fields a book
-genuinely doesn't print.
+genuinely doesn't print. `dragon-magazine.json` additionally carries an `article` field (see
+Phase 6 log) since that compendium's `source` is just an issue number and the originating
+article title needs its own place to live.
+
+**Description length (Aug 2026) — length follows the spell, not a fixed sentence count.**
+A two-sentence description is fine for a simple spell; a spell with multiple modes, a
+scaling table, or several interacting mechanics should run as long as it takes to cover all
+of it — six to eight sentences if that's what the spell needs. The description should still
+lead with a sentence or two of the spell's own flavor in original phrasing where the printed
+text has any, then give the mechanics in full: every duration, area, bonus, save/SR
+interaction, and material or focus component, and every branch of a multi-effect or
+scaling spell, not just the most common case. Never reproduce printed text, even in part, and
+never compress a table or a multi-option effect down to "see text" in the paraphrase itself —
+that's what the source book's `page` citation is for, not an excuse to drop mechanics here.
+`dragon-magazine.json`'s 44 entries (Aug 2026) were rewritten under this standard after an
+earlier 2–4-sentence pass over-compressed several of them (Lunacy's ten-entry madness table,
+Touch of Blibdoolpoolp's and Lash of the Kraken's size-scaling damage tables, Dire
+Reincarnation's eleven-outcome roll table, Sunmace's touch-AC/spell-resistance/dispel
+interactions, and Throwing Arm of Iallanis's size/range/damage table all needed the extra
+room); other files extracted before this convention was written are not being retroactively
+re-passed unless a specific spell is flagged as under-detailed.
 
 **`abilityType` (Aug 2026).** Every entry across every file carries `abilityType`, default
 `"spell"` — a normal spell drawn from a spell list, with `spellLevelDruid` as its slot cost.
@@ -1236,11 +1263,13 @@ don't always agree verbatim (e.g. "The Quintessential Druid II" vs "Quintessenti
 **Source filter grouping.** The dropdown's option list (`sourceBooks` in
 `src/lib/spellReferenceData.js`) is built from `groupedSourceLabel()`
 (`src/lib/calc/spellReference.js`), not raw `source` strings directly — every Dragon Magazine
-issue ("Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)", "#312", …) collapses to
-one shared "Dragon Magazine" option, since listing 15+ individual issues would swamp the
-dropdown. The filter predicate applies the same grouping to each printing's own `source` before
-comparing, so selecting "Dragon Magazine" matches every issue at once. Grouping is filter-only —
-each printing still displays its own full, issue-specific citation in the card itself. Add
+issue ("Dragon Magazine #309", "#312", …) and the one Dungeon Magazine entry (#100, Dire
+Reincarnation — a web enhancement bundled into the same extraction, not a separate magazine
+worth its own option) collapse to one shared "Dragon Magazine" option, since listing each
+issue separately would swamp the dropdown. The filter predicate applies the same grouping to
+each printing's own `source` before comparing, so selecting "Dragon Magazine" matches every
+issue at once. Grouping is filter-only — each printing still displays its own full,
+issue-specific citation (source, page, and `article` if present) in the card itself. Add
 another prefix pattern to `groupedSourceLabel()` if a similarly multi-issue source (a different
 magazine, a multi-volume set) starts crowding the dropdown the same way.
 
