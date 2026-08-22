@@ -102,15 +102,23 @@ spontaneously cast summon nature's ally"), `benefit` (paraphrased, not full prin
 extraction caveats or DM rulings. `grantedSpells` is an additional array (`{level, name,
 source}`) on feats that grant spell access, currently only Gatekeeper Initiate.
 
-13 feats extracted so far across 9 files: `eberron-campaign-setting.json` (Gatekeeper Initiate,
+14 feats extracted so far across 9 files: `eberron-campaign-setting.json` (Gatekeeper Initiate,
 Ashbound), `quintessential-druid.json` (Sustain Wild Shape), `draconomicon.json` (Dragon Wild
 Shape), `pathfinder-ultimate-combat.json` (Planar Wild Shape), `players-handbook.json` (Scribe
 Scroll, Toughness, Natural Spell, Animal Affinity), `complete-divine.json` (Spontaneous Healer),
 `lost-empires-of-faerun.json` (Greenbound Summoning), `5e-import.json` (Fey Touched, no page —
 ported from 5e rather than any 3.5 sourcebook), and `players-guide-to-faerun.json` (Strong
-Soul — see below). `players-handbook-ii.json` also exists but is an empty array: an earlier
-guess placed Strong Soul there, which turned out to be wrong (see below); the file can't be
-deleted once written, so it's left empty rather than populated with anything real.
+Soul, Initiate of Nature — see below). `players-handbook-ii.json` also exists but is an empty
+array: an earlier guess placed Strong Soul there, which turned out to be wrong (see below); the
+file can't be deleted once written, so it's left empty rather than populated with anything real.
+
+**Initiate of Nature** (Player's Guide to Faerûn, `page: null` — same OCR-only limitation as
+Strong Soul below) grants rebuke/command of animals and plant creatures (3 + Cha modifier
+times/day) plus five bonus cleric/druid spells: 3rd Mold Touch, 4th Briartangle and Thorn
+Spray, 5th Fireward and Tree Healing. Only Fireward is currently in the spell library
+(`players-guide-to-faerun.json` and `spell-compendium.json`, both Drd 5, matching the level
+granted here) — Mold Touch, Briartangle, Thorn Spray, and Tree Healing aren't extracted
+anywhere yet and would need their own pass before this feat is fully usable in the app.
 
 **Gatekeeper Initiate's granted spells.** The feat grants 9 spells "as if on the druid spell
 list" at levels 1–9 (verified against the physical page, not the PDF's own page-label metadata,
@@ -998,7 +1006,7 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
   parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
   cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
-  Completed so far (22 files, `data/spells/`): `players-handbook.json` (169), `complete-
+  Completed so far (23 files, `data/spells/`): `players-handbook.json` (169), `complete-
   divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
   wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
   `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
@@ -1006,7 +1014,37 @@ elements directly instead — don't reintroduce `overflow: hidden` on `.party-se
   `races-of-the-wild.json` (3), `eberron-campaign-setting.json` (4), `faiths-of-
   eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5),
   `sandstorm.json` (52), `players-guide-to-faerun.json` (9), `libris-mortis.json` (2),
-  `lost-empires-of-faerun.json` (2) — 843 druid spell entries total.
+  `lost-empires-of-faerun.json` (2), `dragon-magazine.json` (44) — 887 druid spell entries
+  total.
+  `dragon-magazine.json` is sourced from `Complete Dragon Magazine Compendium.pdf`
+  (1,677 pages), itself an unofficial fan compilation — confirmed from its own introduction
+  page — that reorganizes spells, feats, and items out of their original Dragon/Dungeon
+  Magazine issues into topical chapters, rather than a page-preserving scan of any single
+  issue. Its "Spell Descriptions" chapter (printed pp. 2–54) cites each entry only as
+  "Dragon Magazine #NNN (Article Title)", with no original per-issue page number recoverable
+  — Rae confirmed (Aug 2026) that `page: null` is the right call for all 44 entries rather
+  than substituting this compendium's own internal pagination or trying to track down 40+
+  individual back-issue PDFs, none of which are in `/sourcebooks`. The compendium's own
+  "Druid Spells" summary (printed pp. 58–59) was used to identify the 44 druid-list spells
+  (orisons through 8th level); 43 of the 44 came from Dragon Magazine issues #309–#348, and
+  one (Dire Reincarnation, 8th level) came from a *Dungeon* Magazine #100 web enhancement,
+  flagged via its own `note`. Text extraction used the same pdfminer bbox pipeline as every
+  other book, but this compendium's true layout turned out to be **three** narrow columns
+  per page, not two — an initial two-column split badly interleaved adjacent spells until
+  this was caught and corrected. One entry, Shooting Star (page 42), sits under a decorative
+  drop-cap paragraph opening that defeated column-order reconstruction even after that fix;
+  its stat block was confirmed from legible fragments, but one uncertain secondary mechanical
+  detail was deliberately left out of the description rather than guessed, per this file's
+  note. Several entries carry the `[War]` descriptor (Morning Mists, Rolling Fire, Summon the
+  Pack and Herd, Plague Cloud, Dispel War Spell, Mire, Small Stronghold) — per the
+  compendium's own Appendix 2, war-descriptor spells can't be acquired or cast without the
+  War Magic Study feat (Great Fortitude, Iron Will, spellcaster level 3rd, not one of Lyra's
+  current feats), flagged on each affected entry rather than silently added to her available
+  list. Two entries (Detect Defiler, Revenge of the Land) are built entirely around Dark
+  Sun's defiler-score subsystem, which this Greyhawk campaign has no equivalent for —
+  flagged as mechanically nonfunctional pending a DM ruling rather than assumed to just work.
+  No name collisions with any other file in `data/spells/` — all 44 are genuinely new to the
+  library, so every entry's `otherPrintings` is empty.
   `lost-empires-of-faerun.json` (pp. 30, 34) covers Bloodbriars (Drd 4) and Storm Shield
   (Drd 3) — the book's own per-class spell list (p. 29) confirms these are the only two
   true druid-list spells among the ~30 new spells introduced in this chapter; an earlier
