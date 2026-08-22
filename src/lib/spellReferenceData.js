@@ -1,7 +1,10 @@
 import { rawSpells, spellFileCounts } from './loadSpellData'
-import { mergeSpellEntries } from './calc/spellReference'
+import { mergeSpellEntries, groupedSourceLabel } from './calc/spellReference'
 
 export { spellFileCounts }
 export const spellGroups = mergeSpellEntries(rawSpells)
 export const totalRawSpellCount = rawSpells.length
-export const sourceBooks = [...new Set(rawSpells.map((s) => s.source).filter(Boolean))].sort()
+// Grouped for the filter dropdown (e.g. every Dragon Magazine issue
+// collapses to one "Dragon Magazine" option) — individual spell printings
+// still show their own full source text regardless of this grouping.
+export const sourceBooks = [...new Set(rawSpells.map((s) => groupedSourceLabel(s.source)).filter(Boolean))].sort()

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { spellGroups, spellFileCounts, sourceBooks } from '../../lib/spellReferenceData'
-import { normalizeSourceKey } from '../../lib/calc/spellReference'
+import { normalizeSourceKey, groupedSourceLabel } from '../../lib/calc/spellReference'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
 import ErrorBoundary from '../ErrorBoundary'
 import './spellReference.css'
@@ -38,8 +38,8 @@ function LoadReport() {
         <ul className="spell-load-report-list">
           {bookTitles.map((title) => (
             <li key={title}>
-              <span>{title}</span>
-              <span>{spellFileCounts[title]}</span>
+              <span className="spell-load-report-title">{title}</span>
+              <span className="spell-load-report-count">{spellFileCounts[title]}</span>
             </li>
           ))}
         </ul>
@@ -178,7 +178,8 @@ export default function SpellReferenceTab() {
       if (q && !g.name.toLowerCase().includes(q)) return false
       if (levelFilter === 'sp' && !g.hasSpellLike) return false
       if (typeof levelFilter === 'number' && !g.levels.includes(levelFilter)) return false
-      if (sourceKey && !g.printings.some((p) => normalizeSourceKey(p.source) === sourceKey)) return false
+      if (sourceKey && !g.printings.some((p) => normalizeSourceKey(groupedSourceLabel(p.source)) === sourceKey))
+        return false
       return true
     })
     return matches.sort((a, b) => {

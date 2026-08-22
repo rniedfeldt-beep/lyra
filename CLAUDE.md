@@ -1233,6 +1233,17 @@ full mechanical block. Source-name matching is normalized (case-insensitive, str
 text — because a book's own `source` field and another book's `otherPrintings` citation of it
 don't always agree verbatim (e.g. "The Quintessential Druid II" vs "Quintessential Druid II").
 
+**Source filter grouping.** The dropdown's option list (`sourceBooks` in
+`src/lib/spellReferenceData.js`) is built from `groupedSourceLabel()`
+(`src/lib/calc/spellReference.js`), not raw `source` strings directly — every Dragon Magazine
+issue ("Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)", "#312", …) collapses to
+one shared "Dragon Magazine" option, since listing 15+ individual issues would swamp the
+dropdown. The filter predicate applies the same grouping to each printing's own `source` before
+comparing, so selecting "Dragon Magazine" matches every issue at once. Grouping is filter-only —
+each printing still displays its own full, issue-specific citation in the card itself. Add
+another prefix pattern to `groupedSourceLabel()` if a similarly multi-issue source (a different
+magazine, a multi-volume set) starts crowding the dropdown the same way.
+
 **Level disagreement.** A spell's `levels` is the distinct set of non-null
 `spellLevelDruid` values across its printings; `levelsDisagree` is true when that set has more
 than one member, surfaced as a badge on the card ("Levels differ across printings") — printing

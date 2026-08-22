@@ -60,6 +60,23 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* A flex item's default min-width is "auto" — wide enough to fit its
+   content on one line — which is exactly what lets a long source title
+   push the item, its row, and the page itself wider than the viewport.
+   min-width: 0 lets it shrink to the row's actual width instead, and
+   overflow-wrap lets the text itself wrap rather than overflow. Applied
+   everywhere a sourcebook name (or other unbounded-length text) sits
+   inside a flex row in this tab — nothing here should be able to force
+   horizontal scroll. */
+.spell-load-report-title {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.spell-load-report-count {
+  flex-shrink: 0;
+}
+
 .spell-filters {
   display: flex;
   flex-direction: column;
@@ -97,12 +114,22 @@
 }
 
 .spell-source-filter {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text-h);
   font-size: 13px;
+  /* A <select> otherwise sizes its closed box to fit its currently
+     selected option's text — a long source name would widen it (and the
+     page) the same way. Truncate with an ellipsis instead; the full text
+     is still there in the dropdown itself when opened. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .spell-results-count {
@@ -148,6 +175,8 @@
 }
 
 .spell-card-header h3 {
+  min-width: 0;
+  overflow-wrap: break-word;
   margin: 0;
   font-size: 15px;
   color: var(--text-h);
@@ -177,8 +206,9 @@
 
 .spell-printing-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 8px;
+  gap: 4px 8px;
   margin-bottom: 4px;
 }
 
@@ -198,6 +228,9 @@
 }
 
 .spell-printing-source {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
   font-size: 12px;
   color: var(--text);
 }
@@ -211,6 +244,12 @@
   margin-bottom: 6px;
 }
 
+.spell-fact-row span {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
 .spell-fact-row strong {
   color: var(--text-h);
   font-weight: 600;
@@ -218,6 +257,7 @@
 }
 
 .spell-description {
+  overflow-wrap: break-word;
   font-size: 13px;
   color: var(--text-h);
   margin: 0;
