@@ -3,7 +3,7 @@
   "name": "Strong Soul",
   "source": "Player's Guide to Faerûn (regional feat)",
   "levelTaken": 1,
-  "description": "+1 to Fortitude and Will saves, and an additional +1 on saves against death effects and energy drain.",
+  "description": "+1 to Fortitude and Will saves. This bonus increases to +3 against death effects, energy drain, and ability drain.",
   "effects": [
     { "type": "save_bonus", "save": "fort", "value": 1, "bonusType": "misc" },
     { "type": "save_bonus", "save": "will", "value": 1, "bonusType": "misc" }

@@ -449,8 +449,8 @@ Not currently taken.
 ### Feats
 
 - **Toughness** (L1)
-- **Strong Soul** (L1) — +1 Fort and Will, plus an additional +1 vs death effects and energy
-  drain
+- **Strong Soul** (L1) — +1 Fort and Will, rising to +3 (replacing, not stacking with, the +1)
+  vs death effects, energy drain, and ability drain
 - **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
 - **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
   results except elementals. **Automatic, not a toggle.**
