@@ -1,0 +1,1207 @@
+[
+  {
+    "name": "Groundsmoke",
+    "source": "Dragon Magazine #326 (Spellcraft – Cantrips and Orisons of the Academy of Apprentices)",
+    "page": null,
+    "spellLevelDruid": 0,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": null,
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One fire no larger than 5 square feet"
+    },
+    "duration": "8 hours",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "This orison keeps a small blaze from giving away its position: the smoke sinks back into the ground within inches of the flame instead of climbing into the air. It works on any fire no larger than five square feet and lasts eight hours, handy for keeping a campfire from being spotted by anything watching the sky.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Unofficial fan compilation (see file-level note); page not recoverable, only issue and article are citable."
+  },
+  {
+    "name": "Vengeful Mount",
+    "source": "Dragon Magazine #326 (Spellcraft – Cantrips and Orisons of the Academy of Apprentices)",
+    "page": null,
+    "spellLevelDruid": 0,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "This orison sours an animal's temper toward being ridden or handled. A creature that fails its save shies and balks under a rider or handler, and if it fails, anyone currently mounted on it must succeed at a Ride check just to stay in the saddle.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a riding crop or willow switch."
+  },
+  {
+    "name": "Guiding Star",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 1,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "A mote of pale starlight descends from the sky to orbit the caster's head, glowing about as bright as a candle. Ordered toward a place the caster has visited before, it stops circling and points like a compass in that direction, cutting straight through walls and obstacles rather than routing around them. It's useless for a destination never visited, or one on another plane of existence.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Motes of Moonlight",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Beam of light"
+    },
+    "duration": "1 hour/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a fixed beam of silvery light stretching from the caster to any point within line of sight, its narrow core shedding bright illumination with a wider corona of shadowy light around it. Once cast, the beam hangs motionless in the air for its full duration; the caster can dismiss it early but can't redirect it once it's up.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Stonemantle",
+    "source": "Dragon Magazine #314 (Dust to Dust – Magic of the Earthborn)",
+    "page": null,
+    "spellLevelDruid": 1,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One Tiny object per caster level (larger objects count against the same allotment)"
+    },
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "No",
+    "description": "Lends fragile gear the resilience of stone, tinting the affected surface a faint dull gray without otherwise changing its look. Treated objects gain hardness 8 and 15 hit points per inch of thickness (unless their own values are already better) plus a +5 bonus to the DC to break them. Bigger objects eat into the caster's Tiny-object allotment faster, scaling all the way up to Colossal.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a pinch of powdered marble."
+  },
+  {
+    "name": "Sun Father's Face",
+    "source": "Dragon Magazine #346 (Core Beliefs: Pelor)",
+    "page": null,
+    "spellLevelDruid": 1,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 swift action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute or until discharged",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "The caster's face and hair take on a brief golden radiance evoking the sun god Pelor, shedding candlelight and streaming outward like rays of sunlight. Before making a single turn undead attempt or wild empathy check, the caster can call on that glow for a +4 sacred bonus.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Flavor is written around Pelor specifically; mechanically it's a plain sacred bonus with no other setting dependency."
+  },
+  {
+    "name": "Curse of the Gypsies",
+    "source": "Dragon Magazine #348 (Spellcraft – The Tome of Strahd)",
+    "page": null,
+    "spellLevelDruid": 2,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Permanent",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "A vehement curse marks the target as an enemy of the caster's people and of nature itself; the caster picks one of three afflictions to inflict. Bad Luck forces a reroll (keeping the worse result) whenever the target rolls a natural 20. Mark of the Gypsies brands an invisible sigil recognizable only to the caster's own kin, marking the bearer as cursed and shunned wherever they're recognized. Unnatural Aura makes animals sense the target as wrong from thirty feet off, refusing to approach and panicking if forced closer.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Morning Mists",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 2,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 minute",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "100-ft.-radius cloud, 20 ft. high"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as obscuring mist, but at battlefield scale: a fog bank a hundred feet across that can be centered anywhere in range and, at the caster's choice, either sit in place or crawl outward at ten feet per round.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor. Per the compendium's own rules, war-descriptor spells like this one can't be acquired or cast without the War Magic Study feat (Great Fortitude, Iron Will, spellcaster level 3rd) — mechanically load-bearing, flagging for the DM. Material component bloodstones worth 100 gp."
+  },
+  {
+    "name": "Sunmace",
+    "source": "Dragon Magazine #346 (Core Beliefs: Pelor)",
+    "page": null,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Magic weapon of sunlight"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None or Will negates (see text)",
+    "spellResistance": "Yes",
+    "description": "Summons a mace of pure sunlight that hovers into the fight and strikes a designated foe at range each round, dealing 1d8 fire damage (plus 1 per three caster levels, to a maximum of +5) and dazzling the target briefly. Against undead the mace burns for 2d6 instead and can blind, with creatures especially vulnerable to sunlight saving at a penalty. It fights using the caster's base attack bonus and Wisdom modifier, ignores flanking, and returns to hover nearby if it ever loses its target or line of sight; a move action each round lets the caster redirect it.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Venomous Volley",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 2,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "15 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped burst"
+    },
+    "duration": "Instantaneous; see text",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "A cone of spectral fangs bursts from the caster's fingertips, biting everything caught in it for 1d6 damage per two caster levels (Reflex halves). Anyone struck also suffers a lingering -4 penalty on Fortitude saves against poison for a minute per caster level — an effect spell resistance can stop but no save can.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a living snake."
+  },
+  {
+    "name": "Camel's Tenacity",
+    "source": "Dragon Magazine #331 (Spellcraft – Spell Strips of the Black Pyramid)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature(s) touched (up to 1/level)"
+    },
+    "duration": "1 day/3 levels",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "Grants its targets the endurance of a desert beast of burden, letting them go without food or water for the duration. It doesn't ward off magical dehydration effects (as detailed in Sandstorm), only ordinary hunger and thirst.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a fistful of camel hair."
+  },
+  {
+    "name": "Crushing Coils",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Teleportation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One snake teleported to constrict target"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Teleports the caster's serpent focus directly against an enemy, letting it lash into a grapple without provoking an attack of opportunity and constrict on a successful hold. While the spell lasts the snake fights with a bonus to its grapple checks and constriction damage equal to half the caster's level, and gains DR 10/magic, though it deals no extra bite damage. As a move action the caster can recall the snake to their side and redeploy it against a new target before the spell ends.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a constrictor snake no more than one size larger than the caster."
+  },
+  {
+    "name": "Detect Defiler",
+    "source": "Dragon Magazine #315 (Dark Sun – Defilers of Athas)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Divination",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "60 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "Concentration, up to 10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A Dark Sun-specific detection spell for sensing defilers, spellcasters who scar the land to fuel their magic. The longer the caster studies an area the more it reveals: presence of defilers on the first round, their number and the strength of the most potent aura on the second, and the exact power and location of each aura on the third. If the strongest aura present is overwhelming and its source is at least twice the caster's level, the caster is stunned for a round and the spell ends early.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Built entirely around Dark Sun's defiler-score subsystem, which this Greyhawk campaign doesn't use. Mechanically nonfunctional without a DM ruling on whether/how 'defiler score' applies here — flagging for the DM rather than guessing at a houserule."
+  },
+  {
+    "name": "Dust Storm",
+    "source": "Dragon Magazine #331 (Spellcraft – Spell Strips of the Black Pyramid)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Sand storm cylinder, 60 ft. across and 30 ft. high"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Whips up a churning wall of dark, wind-driven sand that blinds and lacerates anything caught inside. Vision, including darkvision, is blocked past five feet, granting concealment up to that range and total concealment beyond it; anyone who ends their turn inside the storm takes 1d6 slashing damage from the stinging grit.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Fang Blade",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Transforms a snake into a weapon"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "description": "Reshapes the caster's serpent focus into a longsword with a fanged, snake-headed point, which the caster wields with automatic proficiency. Struck foes take the source snake's own poison along with normal weapon damage if it's venomous. Only the caster can wield the blade safely; anyone else who tries is bitten by the blade itself, using the original snake's statistics, and it reverts to its living form the instant the spell ends.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a live snake no more than one size larger than the caster."
+  },
+  {
+    "name": "Frostbite",
+    "source": "Dragon Magazine #312 (Thieves of Will – Evil Enchanters)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Cold"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial",
+    "spellResistance": "Yes",
+    "description": "Inflicts sudden, severe cold damage that mimics prolonged exposure to freezing temperatures: numbness, hypothermia, real frostbite. The target takes cold damage that scales with caster level (capping at 10d6) plus nonlethal cold damage (capping at 10d4), and a failed Fortitude save against the nonlethal portion leaves the target fatigued.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Geyser",
+    "source": "Dragon Magazine #334 (Spellcraft – Livre d'Aquatha)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One ray (ranged touch)"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex",
+    "spellResistance": "Yes",
+    "description": "Blasts a target with a jet of pressurized water via ranged touch attack, dealing nonlethal damage that climbs with caster level up to 8d6 at 12th, and knocking the target prone if it fails a save. It has no effect on objects or on creatures immune to nonlethal damage.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Lash of the Kraken",
+    "source": "Dragon Magazine #334 (Spellcraft – Livre d'Aquatha)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Warps one of the caster's limbs into a rubbery, barbed tentacle reminiscent of a kraken's, granting reach and a damage die that scales with size. Used as a primary attack it adds the caster's full Strength bonus to damage; used to supplement a manufactured weapon as a secondary natural attack it takes the usual -5 penalty. A successful hit lets the caster attempt a grapple without provoking an attack of opportunity and, on a hold, automatically deal tentacle damage again each round. The limb reverts to normal when the spell ends, leaving the caster briefly fatigued.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Merrshaulk's Kiss",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Enchantment",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Up to one snake per two levels, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "description": "Calls on the serpent god Merrshaulk to bless a gathering of living snakes; it affects only true animal-type snakes, never yuan-ti or other snakelike humanoids. Poisonous snakes gain a bonus to their poison's save DC, constrictors gain a bonus on grapple checks, and every affected snake gets a small morale bonus on attacks, saves, and skill checks.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a live snake."
+  },
+  {
+    "name": "Moon's Change",
+    "source": "Dragon Magazine #340 (Eye of the Night – The Moon and Its Role in D&D)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "No",
+    "description": "Grants a rolling tide of enhancement bonuses to Strength, Dexterity, and Constitution that builds, peaks, and ebbs across the spell's duration: +2 on the first round, +4 on the second, +6 through the middle rounds, then back down to +4 and finally +2 on the last two rounds before the spell ends.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component one drop of blood from a creature with the shapechanger subtype."
+  },
+  {
+    "name": "Moonbridge",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Good",
+      "Light"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Bridge, 5 ft. wide and up to 10 ft./level long"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Solidifies a shaft of moonlight, natural or conjured, into a translucent span that good creatures can walk across freely. Neutral creatures can cross only while staying in physical contact with the caster, and evil creatures find it as insubstantial as the moonlight it's made from. The bridge can angle up or down along its length as long as it stays bathed in unbroken moonlight the whole way.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Rain of Terror",
+    "source": "Dragon Magazine #348 (Spellcraft – The Tome of Strahd)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Fear"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "100 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "100-ft.-radius emanation centered on you"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons an unnerving, unnatural downpour, anything from hot blood to a hail of writhing snakes, rolled randomly or chosen with a successful Concentration check, that behaves like ordinary rain (cutting visibility, penalizing ranged attacks and Listen/Spot/Search checks, dousing flames) while also fraying nerves: everyone but the caster inside the area takes a penalty on saves against fear, and the caster gains a bonus to Intimidate. Any living creatures that fall from the sky are summoned rather than illusory, though roughly half arrive already dead from the impact, and none of them can actually harm anyone.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Rolling Fire",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire",
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 minute",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Wall of fire, 3 ft. tall and 100 ft. wide"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "Yes",
+    "description": "Conjures a low, creeping wall of fire that burns anything it touches for 2d6 damage, ignites flammable terrain, and can be walked forward or backward up to thirty feet a round as a move-equivalent action, useful for herding enemies across a battlefield.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component a copper-and-gold comb dusted with ruby powder, worth 1,500 gp."
+  },
+  {
+    "name": "Screen of Heat",
+    "source": "Dragon Magazine #331 (Spellcraft – Spell Strips of the Black Pyramid)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Illusion",
+    "subschool": "Glamer",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "A screen of heat, up to 10-ft. square/level"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures an intangible sheet of shimmering heat-haze, the kind that warps the horizon on a scorching day, which the caster can make one-sided or two-sided. Anything viewed through it appears as a wavering, indistinct shape, granting concealment; true seeing cuts through the illusion but see invisibility does not, and creatures that don't rely on sight ignore it entirely.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Sever Ties of the Moon",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One lycanthrope"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Loosens a lycanthrope's bond to the moon, giving it far greater mastery over its own shapeshifting (a hefty bonus to Control Shape) at the cost of fatigue while it holds its hybrid or animal form. Returning to humanoid shape clears the fatigue, though it comes right back if the creature shifts again before the spell ends.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Shooting Star",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Fire"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One or more shooting stars"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "description": "Calls down one or more burning fragments of star from the sky to strike precisely at chosen targets, each dealing 2d6 fire damage with a Reflex save for half. Higher-level casters can call down additional stars, one more for every three caster levels past 3rd, to a maximum of six at 18th, letting several targets be struck in the same casting. The spell fails outright anywhere the sky isn't visible, such as indoors or underground.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "This entry's printed page (42) has a severely garbled two-column layout around a decorative drop-cap opening that defeated column-order text extraction; the stat block above is confirmed from legible fragments, but one possible secondary mechanical detail (a knockdown effect on a failed save) was too garbled to confirm and was deliberately left out of the description rather than guessed. Material component a chunk of rock and a small glass lens."
+  },
+  {
+    "name": "Snake Shield",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Wreathes the caster in a spiraling cloud of ghostly, translucent snakes woven from the focus snake's own predatory essence. Any creature that touches the caster, whether striking with a weapon or delivering a touch spell, is bitten by the phantom snakes, which can use the focus snake's bite and any of its special attacks (constrict, improved grab, poison), though a grapple they establish can't be maintained past the first round.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a living snake."
+  },
+  {
+    "name": "Sticks to Snakes",
+    "source": "Dragon Magazine #317 (Dungeons & Dragons Heroes – Magic, Monsters, and Mayhem)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Up to 1 stick/4 levels"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "description": "Turns dead branches, arrow shafts, or other slender wooden objects into giant snakes loyal to the caster, which can be directed telepathically as a free action; left uncontrolled they simply attack whatever's nearby. The size and type of snake produced scales with caster level, from constrictor snakes or large vipers at low levels up to gargantuan giant constrictor snakes at 20th. Reduced to 0 hit points, a snake reverts to its harmless original object form.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Summon the Pack and Herd",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Up to 25 creatures per level (see text)"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "A mass-battle escalation of summon nature's ally II: rather than a handful of creatures, it calls twenty-five of a chosen kind per caster level, though only from the first-level summon list and no two creatures more than 100 feet apart.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component 1,500 gp worth of powdered jet."
+  },
+  {
+    "name": "Touch of Blibdoolpoolp",
+    "source": "Dragon Magazine #342 (Spellcraft – Alien Blessings – Spells of Monstrous Deities)",
+    "page": null,
+    "spellLevelDruid": 3,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "Reshapes the caster's hand into an oversized lobster-like claw sacred to the kuo-toa goddess Blibdoolpoolp, granting reach and bludgeoning damage that scales with size. Used alone as a primary attack it adds 1-1/2 times Strength to damage, or it can supplement a manufactured weapon as a secondary attack at the usual penalty. A successful hit lets the caster attempt a grapple as if one size larger without provoking an attack of opportunity, and a held grapple deals ongoing claw damage each round.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "This spell's flavor and illustration are built around the kuo-toa, an Underdark race devoted to Blibdoolpoolp — worth a look before Lyra takes it, since the theming sits oddly on a Greyhawk surface druid even though the mechanics themselves are setting-neutral."
+  },
+  {
+    "name": "Desert Burial",
+    "source": "Dragon Magazine #331 (Spellcraft – Spell Strips of the Black Pyramid)",
+    "page": null,
+    "spellLevelDruid": 4,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "20-ft.-radius spread"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "No",
+    "description": "A cruel battlefield spell that drags failed-save targets down into loose ground, burying them up to the neck (or the equivalent) while always leaving them able to breathe. A buried creature is helpless until it beats a Strength or Escape Artist check (DC scaling with caster level), and spellcasters caught inside can't cast anything with a material or somatic component unless they already have the material in hand. It only works on loose earth: dirt, mud, sand, never stone or wood.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a paper funnel and a handful of dirt, mud, or sand."
+  },
+  {
+    "name": "Elemental Guardian",
+    "source": "Dragon Magazine #347 (Ecology – Ecology of the Elemental Weird)",
+    "page": null,
+    "spellLevelDruid": 4,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Short (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned lesser elemental weird"
+    },
+    "duration": "1 day/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a lesser elemental weird bound to guard a chosen patch of its native element: a water weird tied to a pond can't leave the pond or stray more than 100 feet from the anchor point, while an air weird can roam freely within open air but can't fly beyond that same range. It attacks anything but the caster that comes within reach, obeys more nuanced instructions if the caster shares its language, and departs for its home plane when the spell ends or it's destroyed. A high-level caster can make the binding permanent with permanency at significant XP cost.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a bowl or brazier filled with an element matching the weird summoned."
+  },
+  {
+    "name": "Plague Cloud",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 4,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 minute",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "100-ft.-radius cloud, 20 ft. high"
+    },
+    "duration": "Concentration (up to 1 round/level) (see text)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "Summons a sickly gray, heavier-than-air cloud carrying a disease the caster names at casting (blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom). Anyone caught inside contracts the chosen disease immediately on a failed save, with no incubation period; the cloud drifts on natural or magical wind but has no locomotion of its own.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component 3,000 gp worth of crushed amber mixed with dried otyugh blood, sealed in a flask."
+  },
+  {
+    "name": "Spitting Cobra",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 4,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "0 ft.",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Venom concentrated within the focus snake"
+    },
+    "duration": "1 minute/level (D)",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "No",
+    "description": "Distills the venom of the caster's snake focus into a weapon the caster can spit at range: a ranged touch attack once per round out to 120 feet, delivering the focus snake's own poison on a hit (with no benefit from a critical hit). Each attack burns two minutes off the spell's remaining duration, and the willing source snake loses its own poison bite for as long as the spell lasts.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus a live, venomous snake no larger than the caster's size category."
+  },
+  {
+    "name": "Dispel War Spell",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 5,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 minute",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One spellcaster, creature, or object; or a 60-ft.-radius burst"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Functions as dispel magic, but with a hefty +10 bonus specifically against spells carrying the war descriptor, and can be used to counterspell them too, though its full minute-long casting time makes it impractical against anything faster than a similarly slow spell.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component sapphires, sunstones, and topazes worth 1,500 gp."
+  },
+  {
+    "name": "Serpent Storm",
+    "source": "Dragon Magazine #330 (Spellcraft – Volume Veneficus)",
+    "page": null,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "20-ft.-radius spread"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "description": "Fills the area with a writhing carpet of magical snakes matching the caster's focus, biting and clawing everyone caught inside for damage that scales with caster level (Reflex halves) and poisoning anyone who fails a Fortitude save. The ground itself becomes difficult terrain for the duration, and the conjured snakes can't be harmed since they aren't truly real.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Focus one snake no more than one size larger than the caster."
+  },
+  {
+    "name": "Throwing Arm of Iallanis",
+    "source": "Dragon Magazine #342 (Spellcraft – Alien Blessings – Spells of Monstrous Deities)",
+    "page": null,
+    "spellLevelDruid": 5,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "Creature touched"
+    },
+    "duration": "1 round/5 levels",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "description": "Materializes a massive stone in the target's empty hand each round, sized and weighted for a creature one size category larger than the wielder to throw as a ranged weapon; up to four rocks can accumulate over the spell's duration. A target who already has a natural rock-throwing ability gets a flat +4 bonus using these particular stones on top of any racial bonus. Small or smaller creatures are beneath the giant deity Iallanis's notice and gain nothing from the spell.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Revenge of the Land",
+    "source": "Dragon Magazine #315 (Dark Sun – Defilers of Athas)",
+    "page": null,
+    "spellLevelDruid": 5,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [
+      "Earth"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One defiler creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Fortitude partial (see text)",
+    "spellResistance": "Yes",
+    "description": "A druid-only Dark Sun spell that channels the land's own outrage against defilers, spellcasters who scar the earth to fuel their magic, dealing damage each round to every defiler in range and applying their own defiler score as a penalty against their save. Once a target's spell resistance blocks the initial casting it's immune for the rest of the spell's duration; otherwise it keeps rolling fresh saves each round until it leaves range or the spell expires.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Like Detect Defiler, this spell is built entirely around Dark Sun's defiler-score subsystem, which this Greyhawk campaign doesn't use. Mechanically nonfunctional without a DM ruling on how (or whether) 'defiler score' maps onto anything in this setting. Material component a live seed, thrown at the caster's feet and ground into the dirt."
+  },
+  {
+    "name": "Curse of Spilt Water",
+    "source": "Dragon Magazine #334 (Spellcraft – Livre d'Aquatha)",
+    "page": null,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "Water"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude negates",
+    "spellResistance": "Yes",
+    "description": "On a failed Fortitude save, permanently transforms the target, along with everything it's carrying, into an equivalent volume of ordinary water, which immediately splashes and spreads (or can be directed into a nearby container). While transformed, the victim has no consciousness and can't act. Recovering enough of the water lets a break enchantment restore the victim, but if it evaporates entirely or mixes into a larger body of water, only a limited wish, miracle, or wish can bring them back.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a rag doll soaked in seawater."
+  },
+  {
+    "name": "Lunacy",
+    "source": "Dragon Magazine #340 (Spellcraft – The Twilight Codex)",
+    "page": null,
+    "spellLevelDruid": 6,
+    "school": "Enchantment",
+    "subschool": "Compulsion",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One living creature"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Curses the target with a madness bound to the cycle of the moon. On every night of the full moon thereafter, the victim rolls on a table of bizarre compulsions, from delusion and fixation to blind flight, murderous rage, or catatonia, and acts accordingly for the whole night, whether or not the moon is actually visible. The caster names a specific task at casting that alone can lift the curse (short of break enchantment, miracle, or wish), and the victim always knows what that task is.",
+    "otherPrintings": [],
+    "abilityType": "spell"
+  },
+  {
+    "name": "Mire",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 6,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Surface rock in a 60-ft.-radius spread, 10 ft. high"
+    },
+    "duration": "Permanent (see transmute rock to mud in the Player's Handbook)",
+    "savingThrow": "See transmute rock to mud in the Player's Handbook",
+    "spellResistance": "No",
+    "description": "A battlefield-scale transmute rock to mud, functioning identically to that spell but over a much larger sixty-foot radius, enough to mire an advancing army rather than a single squad.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component brown, gray, and black gems worth 7,000 gp, dissolved in acid."
+  },
+  {
+    "name": "Small Stronghold",
+    "source": "Dragon Magazine #309 (War Spells – Unleash Arcane Armageddon)",
+    "page": null,
+    "spellLevelDruid": 7,
+    "school": "Conjuration",
+    "subschool": "Creation",
+    "descriptors": [
+      "War"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 hour",
+    "range": null,
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One small stone keep (see text)"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Conjures a small fortified keep, identical to the \"Cheap Keep\" from the Stronghold Builder's Guidebook, out of solid, magically formed rock, its walls unable to phase through or trap any creature caught inside the footprint. It collapses to dust when the spell ends, and a dispel magic check against it only affects the portion caught in that spell's own area.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Carries the [War] descriptor; per the compendium's own rules this spell can't be acquired or cast without the War Magic Study feat. Material component 10,000 gp worth of crushed agate, sapphire, and topaz mixed with clay into a model of the keep."
+  },
+  {
+    "name": "Submersion Treatment",
+    "source": "Dragon Magazine #339 (Spellcraft – Heinfroth's Manual of Methods)",
+    "page": null,
+    "spellLevelDruid": 7,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "Yes",
+    "description": "Engulfs the target in a churning column of freezing water that paralyzes it in place and deals cold damage every round, though the surrounding liquid also grants the target a defensive AC bonus. A trapped creature that can't breathe water must hold its breath and pass increasingly difficult Constitution checks or fall unconscious, then start dying, then finally drown, though an ally outside the column can attempt a Strength check as a full-round action to pull the victim free and end the spell early.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Material component a drop of water and a drop of blood."
+  },
+  {
+    "name": "Dire Reincarnation",
+    "source": "Dungeon Magazine #100 (The Lich-Queen's Beloved [Web Enhancement])",
+    "page": null,
+    "spellLevelDruid": 8,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "DF"
+    ],
+    "castingTime": "1 hour",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Dead creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "None; see text",
+    "spellResistance": "Yes (harmless)",
+    "description": "Functions exactly like reincarnate, except the returning soul always arrives in the body of a dire animal rolled on its own table, from dire rat up through dire tiger, and unlike the standard spell it doesn't require the deceased's whole body; a portion is enough, and the subject can have been dead for up to a month per caster level rather than mere days. As with ordinary reincarnation, the returned creature keeps all the movement, natural armor, natural attacks, and extraordinary abilities of its dire new form, and only a wish or miracle can restore its original body, which the reincarnated creature can resist if it wishes.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "This is this compendium's only Dragon/Dungeon-sourced 8th-level druid spell and the only one of the 44 credited to Dungeon Magazine rather than Dragon Magazine — specifically a web enhancement tied to a Dungeon #100 adventure, not the magazine's print pages. Material component rare oils and unguents worth at least 5,000 gp, spread over the remains."
+  }
+]
