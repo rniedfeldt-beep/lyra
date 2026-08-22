@@ -375,8 +375,8 @@ permanent, capped at +5 total inherent. One week of game time to read.
 - **Ref** +6 (2 base + 4 Dex)
 - **Will** +13 (7 base + 5 Wis + 1 Strong Soul)
 - **Initiative** +4
-- **Spell attack bonus** +10 (BAB +5 + Wis mod, DM-confirmed). Compute, don't hardcode — the
-  WIS 22 tome must update this automatically.
+- **Spell attack bonus** +10 (BAB +5 + Wis mod). Compute, don't hardcode — the WIS 22 tome must
+  update this automatically.
 - **Land speed** **50 ft.** (30 base + 20 permanent Totem Transformation — see speed rule)
 - **Caster level** 8
 - **Druid save DC** 15 + spell level
@@ -410,11 +410,12 @@ Conditional, surface in UI rather than baking in:
 
 - **Leafweave Studded Leather**: +3 AC, max Dex +6, 0 check penalty, 20 lb, non-metal with
   darkwood studs (druid-legal). Leafweave increases the base masterwork studded leather's max
-  Dex bonus by 1 (5→6). Reduces arcane spell failure by 5% — irrelevant since Lyra's casting is
-  divine, but worth noting on the sheet rather than silently dropping it.
+  Dex bonus by 1 (5→6). Reduces arcane spell failure by 5%.
 - Heavy wooden shield: +2 AC, −2 check penalty, 10 lb
 - Ring of protection: +1 deflection
-- Forestwarden Shroud: no penalty in difficult terrain, Tumble, Move Silently
+- Forestwarden Shroud: lightweight tunic and leggings worn over armor; negates undergrowth/heavy
+  undergrowth penalties on Tumble and Move Silently (DMG p.87, Forest Terrain). Found in the
+  Bodak Lair.
 - **Druid necklace**: 5–6 spells, 1/day each, **no spell slot**. Confirmed: *entangle*,
   *barkskin*, *plant growth*, *speak with plants*, *tree shape*, possibly one more. Track as
   independent daily checkboxes outside the slot economy.
@@ -448,10 +449,11 @@ Not currently taken.
 ### Feats
 
 - **Toughness** (L1)
-- **Strong Soul** (L1) — +1 Fort and Will; more vs death effects and energy drain
+- **Strong Soul** (L1) — +1 Fort and Will, plus an additional +1 vs death effects and energy
+  drain
 - **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
 - **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
-  results except elementals (DM-confirmed). **Automatic, not a toggle.**
+  results except elementals. **Automatic, not a toggle.**
 - **Natural Spell** (L4–5) — cast while wild shaped
 - **Animal Affinity** (L4–5) — +2 Handle Animal, +2 Ride
 - **Fey Touched** (L4–5, 5e) — +1 WIS; *misty step* and *charm person*, 1/day each

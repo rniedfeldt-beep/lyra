@@ -10,5 +10,5 @@
   "maxDexBonus": 6,
   "speedPenalty": false,
   "weightLb": 20,
-  "note": "Leafweave increases the base masterwork studded leather's max Dex bonus by 1 (5 to 6). Reduces arcane spell failure by 5%, which is irrelevant since Lyra's casting is divine."
+  "note": "Leafweave increases the base masterwork studded leather's max Dex bonus by 1 (5 to 6). Reduces arcane spell failure by 5%."
 }

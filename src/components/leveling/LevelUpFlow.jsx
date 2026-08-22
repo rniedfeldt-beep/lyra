@@ -271,8 +271,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
       <div className="level-up-block">
         <h3>Wild Shape Uses/Day</h3>
         <p className="breakdown">
-          Pre-filled from the DM-confirmed character-level curve — edit if this level ever
-          changes.
+          Pre-filled from the character-level curve — edit if this level ever changes.
         </p>
         <input
           type="number"

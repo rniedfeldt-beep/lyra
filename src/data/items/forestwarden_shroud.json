@@ -4,6 +4,6 @@
   "type": "cloak",
   "source": "DM homebrew",
   "acBonus": 0,
-  "description": "No penalty in difficult terrain. Grants a bonus on Tumble and Move Silently (exact value not yet recorded).",
+  "description": "A lightweight tunic and leggings of elven design, worn over a suit of armor. Its slick surface lets branches and leaves slide across it, negating the penalties that undergrowth and heavy undergrowth impose on Tumble and Move Silently checks (DMG p.87, Forest Terrain). Found in the Bodak Lair.",
   "effects": []
 }

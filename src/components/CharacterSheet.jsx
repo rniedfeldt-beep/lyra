@@ -48,7 +48,7 @@ function SpellcastingReference({ sheet }) {
       </div>
       <p className="breakdown">
         Spell attack bonus = BAB {formatMod(progression.bab)} + Wis mod{' '}
-        {formatMod(abilityScores.wis.mod)} (DM-confirmed)
+        {formatMod(abilityScores.wis.mod)}
       </p>
 
       <h3>Save DCs by Level</h3>
