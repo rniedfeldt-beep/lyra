@@ -1,6 +1,6 @@
 {
   "id": "class_skills",
-  "description": "Class skill lists, by the class whose level is being taken at a given level-up (CLAUDE.md > Class Progression decides which class that is for any given character level). A skill not on the list for the class being leveled is cross-class: 2 skill points per rank instead of 1, and its max rank is half the usual cap (rounded down).",
+  "description": "Class skill lists, by class (CLAUDE.md > Class Progression decides which class's level is being taken at a given character level). PHB p.59: max rank and per-rank cost are governed separately. Max rank (characterLevel + 3, half that for anything on neither list) checks whether a skill is a class skill for ANY of Lyra's classes — the union of every list below. Per-rank cost (1 vs. 2) checks only the class whose level is being taken THIS level-up — a skill can be capped at the full class-skill rank while still costing double if it isn't on the current level's own class list.",
   "planarShepherd": {
     "source": "DM-provided (Planar Shepherd, sourcebook unconfirmed)",
     "skills": [
@@ -15,7 +15,7 @@
     ]
   },
   "druid": {
-    "source": "PHB (Druid)",
+    "source": "PHB (Druid), plus Knowledge (religion) per DM ruling",
     "skills": [
       "concentration",
       "craft",
@@ -23,6 +23,7 @@
       "handleAnimal",
       "heal",
       "knowledgeNature",
+      "knowledgeReligion",
       "listen",
       "profession",
       "ride",

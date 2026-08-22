@@ -7,6 +7,7 @@ import {
   maxSkillRank,
   skillRankCost,
   isClassSkillFor,
+  isClassSkillForAnyClass,
   classTakenAtLevel,
 } from '../../lib/calc/leveling'
 import { computeAbilityScores } from '../../lib/calc/abilities'
@@ -98,10 +99,17 @@ export default function LevelUpFlow({ sheet, onClose }) {
   }, 0)
   const remaining = skillPointPool - spent
 
+  // PHB p.59: cap and cost are governed separately. Cap asks whether a
+  // skill is a class skill for *any* of Lyra's classes (the union);
+  // cost asks only about the class whose level is being taken this
+  // level-up. A skill can sit at the full class-skill cap while still
+  // costing double per rank — e.g. Heal, always druid-capped, costs
+  // 2/rank while leveling as Planar Shepherd.
   function adjustSkill(id, delta) {
-    const isClass = isClassSkillFor(id, newLevel, classSkillsTable)
-    const cost = skillRankCost(isClass)
-    const cap = maxSkillRank(newLevel, isClass)
+    const isClassForCost = isClassSkillFor(id, newLevel, classSkillsTable)
+    const isClassForCap = isClassSkillForAnyClass(id, classSkillsTable)
+    const cost = skillRankCost(isClassForCost)
+    const cap = maxSkillRank(newLevel, isClassForCap)
     if (delta > 0 && (remaining < cost || currentRanks(id) >= cap)) return
     const next = Math.max(baseRanks(id), Math.min(cap, currentRanks(id) + delta))
     setSkillDeltas((d) => ({ ...d, [id]: next }))
@@ -221,18 +229,20 @@ export default function LevelUpFlow({ sheet, onClose }) {
           </thead>
           <tbody>
             {skillIds.map((id) => {
-              const isClass = isClassSkillFor(id, newLevel, classSkillsTable)
-              const cap = maxSkillRank(newLevel, isClass)
+              const isClassForCost = isClassSkillFor(id, newLevel, classSkillsTable)
+              const isClassForCap = isClassSkillForAnyClass(id, classSkillsTable)
+              const cap = maxSkillRank(newLevel, isClassForCap)
+              const cost = skillRankCost(isClassForCost)
               const ranks = currentRanks(id)
               return (
                 <tr key={id}>
                   <td>
                     {character.skills[id].label ?? id}
-                    {!isClass && <span className="note"> (cross-class)</span>}
+                    {!isClassForCost && <span className="note"> (cross-class cost)</span>}
                   </td>
                   <td>{ranks}</td>
                   <td>{cap}</td>
-                  <td>{skillRankCost(isClass)}</td>
+                  <td>{cost}</td>
                   <td>
                     <div className="stepper">
                       <button
@@ -244,7 +254,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
                       </button>
                       <button
                         type="button"
-                        disabled={ranks >= cap || remaining < skillRankCost(isClass)}
+                        disabled={ranks >= cap || remaining < cost}
                         onClick={() => adjustSkill(id, 1)}
                       >
                         +

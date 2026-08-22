@@ -84,9 +84,24 @@ export function classTakenAtLevel(characterLevel) {
   return 'druid'
 }
 
+// Cost-governing check: is this a class skill for the class whose level is
+// being taken THIS level-up (PHB p.59 — cost looks only at the class you're
+// actually advancing, not every class you've ever taken).
 export function isClassSkillFor(skillId, characterLevel, classSkillsTable) {
   const cls = classTakenAtLevel(characterLevel)
   return classSkillsTable[cls].skills.includes(skillId)
+}
+
+// Cap-governing check: is this a class skill for *any* of Lyra's classes
+// (PHB p.59 — max rank cares whether a skill is ever a class skill, not
+// which class is being taken this level). A skill can be capped at the full
+// class-skill rank via one class while still costing double per rank
+// because the class being taken this level doesn't list it — e.g. Heal is
+// always druid-capped, but costs 2/rank while leveling as Planar Shepherd.
+export function isClassSkillForAnyClass(skillId, classSkillsTable) {
+  return Object.values(classSkillsTable).some(
+    (cls) => Array.isArray(cls.skills) && cls.skills.includes(skillId),
+  )
 }
 
 // Character levels at which a druid/any class gets a +1 ability score

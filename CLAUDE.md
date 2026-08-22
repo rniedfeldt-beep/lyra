@@ -242,13 +242,25 @@ Planar Shepherd class split) the moment a level-up is confirmed, with no redeplo
   - **Skill points** — pool = 4 + Int mod (`skillPointsForLevel`). Only skills already present
     in `character.skills` are offered (the app has no ability-per-skill lookup for skills
     Lyra doesn't have yet — a genuinely new skill needs a manual data addition first).
-    Cross-class status and the max-rank cap (`characterLevel + 3`, half that cross-class) are
-    both driven by `src/data/tables/classSkills.json`, keyed by whichever class
-    `classTakenAtLevel()` says is being taken at the new level (Druid 1–5, Planar Shepherd
-    6–15, Druid again 16–20 — same split as the class-progression table above). Planar
-    Shepherd's list (Concentration, Knowledge arcana/nature/the planes, Listen, Spellcraft,
-    Spot, Survival) is narrower than Druid's, so Heal and Handle Animal go cross-class (2
-    pts/rank, half max rank) the moment Planar Shepherd levels start stacking in.
+    **Max rank and per-rank cost are governed separately (PHB p.59)**, both driven by
+    `src/data/tables/classSkills.json` but by two different checks:
+    - **Max rank** (`isClassSkillForAnyClass`, `characterLevel + 3`, half that — rounded down —
+      for anything on neither list) asks whether a skill is a class skill for *any* of Lyra's
+      classes, the union of Druid's and Planar Shepherd's lists. This never changes once a
+      skill is a class skill for either class — it doesn't reset or shrink as the class being
+      taken changes level to level.
+    - **Per-rank cost** (`isClassSkillFor`, 1 vs. 2 points) asks only about the class whose
+      level is being taken *this* level-up, via `classTakenAtLevel()` (Druid 1–5, Planar
+      Shepherd 6–15, Druid again 16–20 — same split as the class-progression table above).
+    Planar Shepherd's list (Concentration, Knowledge arcana/nature/the planes, Listen,
+    Spellcraft, Spot, Survival) is narrower than Druid's (which also includes Knowledge
+    (religion) per a DM ruling, alongside Craft/Diplomacy/Handle Animal/Heal/Knowledge
+    (nature)/Listen/Profession/Ride/Spellcraft/Spot/Survival/Swim), so Heal, Handle Animal,
+    Ride, and Knowledge (religion) cost 2 pts/rank the moment Planar Shepherd levels start
+    stacking in — but since they're still druid class skills, their max rank stays at the full
+    `characterLevel + 3` throughout, never dropping to the half-cap "cross-class" cap. The UI
+    shows both numbers as separate table columns (Max, Cost/rank) rather than folding them into
+    one "cross-class" label, since a skill can be at the full cap while still costing double.
   - **Wild shape uses/day** — pre-filled from `src/data/tables/wildShapeUsesPerDay.json`
     (DM-confirmed full curve, Aug 2026: 1/day at 5, 2/day at 6, 3/day at 7–9, 4/day at 10–13,
     5/day at 14–17, 6/day at 18–20), but always shown as an editable field rather than applied
