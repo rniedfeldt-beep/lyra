@@ -1,9 +1,25 @@
-// BAB and base saves are a pure function of character level, looked up from
-// the blended progression table in /data/tables — never hardcoded per level.
-export function getProgression(level, progressionTable) {
-  const row = progressionTable.byLevel[String(level)]
-  if (!row) throw new Error(`No progression entry for level ${level}`)
-  return row
+import { druidLevel, goodSaveForLevel, poorSaveForLevel, threeQuarterBabForLevel } from '../rules/dnd35'
+import { classLevelsBreakdown } from './leveling'
+
+// PHB p.59: a multiclass character's BAB and base saves are the *sum* of
+// each class's own contribution, each computed from that class's own level
+// — not a single lookup keyed by character level. Druid and Planar Shepherd
+// happen to share an identical progression in this campaign (3/4 BAB, good
+// Fort, good Will, poor Ref — CLAUDE.md > Class Progression), so summing
+// classLevelsBreakdown's per-class levels through the shared formulas is
+// all multiclassing requires here; a class with a different progression
+// would just need its own formula plugged into the reduce below.
+export function computeProgression(characterLevel) {
+  const classes = classLevelsBreakdown(characterLevel, druidLevel)
+  return classes.reduce(
+    (totals, cls) => ({
+      bab: totals.bab + threeQuarterBabForLevel(cls.levels),
+      fort: totals.fort + goodSaveForLevel(cls.levels),
+      ref: totals.ref + poorSaveForLevel(cls.levels),
+      will: totals.will + goodSaveForLevel(cls.levels),
+    }),
+    { bab: 0, fort: 0, ref: 0, will: 0 },
+  )
 }
 
 // Standard iterative-attack rule: one extra attack at -5 for every full 5

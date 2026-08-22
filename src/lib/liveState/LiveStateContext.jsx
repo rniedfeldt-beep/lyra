@@ -11,7 +11,7 @@ const SAVE_DEBOUNCE_MS = 400
 // adjustments, wild shape uses), which is itself part of the live state. So
 // a level-up (which only ever edits characterProgress) recomputes the whole
 // sheet for free, with no separate "apply level-up effects" step anywhere.
-export function LiveStateProvider({ children, character, items, progressionTable, spellSlotsBaseTable, companion }) {
+export function LiveStateProvider({ children, character, items, spellSlotsBaseTable, companion }) {
   const [state, setState] = useState(null)
   const [syncStatus, setSyncStatus] = useState('loading')
   const [testMode, setTestMode] = useState(false)
@@ -19,7 +19,7 @@ export function LiveStateProvider({ children, character, items, progressionTable
   const saveTimer = useRef(null)
   const testSnapshotRef = useRef(null)
 
-  const ingredients = { character, items, progressionTable, spellSlotsBaseTable }
+  const ingredients = { character, items, spellSlotsBaseTable }
 
   useEffect(() => {
     let cancelled = false

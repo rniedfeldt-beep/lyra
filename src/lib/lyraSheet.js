@@ -1,4 +1,4 @@
-import { lyra, getItem, progressionTable, spellSlotsBaseTable } from './loadData'
+import { lyra, getItem, spellSlotsBaseTable } from './loadData'
 import { animalCompanion } from './loadCreatureData'
 
 // Static ingredients only — level/xp/hpRolls/skills/feats/abilityAdjustments
@@ -15,5 +15,5 @@ export const resolvedItems = {
   weapon: getItem(lyra.equipment.weapon),
 }
 
-export { progressionTable, spellSlotsBaseTable }
+export { spellSlotsBaseTable }
 export const companion = animalCompanion

@@ -7,9 +7,9 @@ function weaponFocusBonus(creature, attackName) {
 }
 
 // The `abilities`/`naturalArmor`/`baseAttackBonus` fields on the companion
-// record are already the effective values at its current companionLevel
-// (progressionTable is stored for future level recompute, not applied
-// here yet) — so this is a straightforward stat-block build, not a swap.
+// record are already the effective values at its current companionLevel —
+// recomputing them as Quen levels up isn't wired yet — so this is a
+// straightforward stat-block build, not a swap.
 export function computeCompanionStatBlock(companion) {
   const strMod = abilityMod(companion.abilities.str)
   const dexMod = abilityMod(companion.abilities.dex)

@@ -1,5 +1,5 @@
 import { computeAbilityScores } from './abilities'
-import { getProgression } from './progression'
+import { computeProgression } from './progression'
 import { computeSaves } from './saves'
 import { computeAC } from './ac'
 import { computeSkills } from './skills'
@@ -8,10 +8,10 @@ import { computeAttackRoutine } from './attackRoutine'
 import { computeMaxHp, collectFeatHpBonus, classLevelsBreakdown } from './leveling'
 import { druidLevel } from '../rules/dnd35'
 
-export function computeCharacterSheet({ character, feats, items, progressionTable, spellSlotsBaseTable }) {
+export function computeCharacterSheet({ character, feats, items, spellSlotsBaseTable }) {
   const characterFeats = feats
   const abilityScores = computeAbilityScores(character, characterFeats)
-  const progression = getProgression(character.level, progressionTable)
+  const progression = computeProgression(character.level)
 
   // HP, caster level, and class-level breakdown are derived from
   // character.level (+ hpRolls/Con) rather than trusted as static fields, so

@@ -8,7 +8,7 @@ import { collectDailyAbilities } from './dailyAbilities'
 // up actually change the sheet: everything downstream (HP, BAB, saves,
 // skills, spell slots, AC) is a pure function of the merged character, so
 // there's nothing else to recompute by hand.
-export function computeEffectiveSheet({ character, items, progressionTable, spellSlotsBaseTable, characterProgress }) {
+export function computeEffectiveSheet({ character, items, spellSlotsBaseTable, characterProgress }) {
   const effectiveCharacter = {
     ...character,
     level: characterProgress.level,
@@ -27,7 +27,6 @@ export function computeEffectiveSheet({ character, items, progressionTable, spel
     character: effectiveCharacter,
     feats,
     items,
-    progressionTable,
     spellSlotsBaseTable,
   })
 

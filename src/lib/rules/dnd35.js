@@ -99,10 +99,27 @@ export function averageDamage(die) {
   return Number(count) * (Number(sides) / 2 + 0.5)
 }
 
+// Standard 3.5e base-save-per-level formulas (PHB p.59 class table patterns)
+// — fixed system math, not campaign data. A "good" save is 2 + floor(level/2),
+// a "poor" save is floor(level/3), for any class or creature HD progression
+// that uses those tracks.
+export function goodSaveForLevel(level) {
+  return 2 + Math.floor(level / 2)
+}
+
+export function poorSaveForLevel(level) {
+  return Math.floor(level / 3)
+}
+
+// Standard 3/4 ("medium") base attack bonus progression — PHB p.59.
+export function threeQuarterBabForLevel(level) {
+  return Math.floor((level * 3) / 4)
+}
+
 // Base save progression by creature type (SRD "Creature Type" traits): two
-// saves are "good" (2 + floor(HD/2)), the third is "poor" (floor(HD/3)).
-// Fixed 3.5e rule, not campaign data. Only the types Summon Nature's Ally
-// can actually produce are covered — add more if a new type shows up.
+// saves are "good", the third is "poor". Fixed 3.5e rule, not campaign
+// data. Only the types Summon Nature's Ally can actually produce are
+// covered — add more if a new type shows up.
 const GOOD_SAVES_BY_TYPE = {
   Animal: ['fort', 'ref'],
   'Magical Beast': ['fort', 'ref'],
@@ -114,8 +131,8 @@ const GOOD_SAVES_BY_TYPE = {
 export function monsterBaseSaves(type, hd) {
   const good = GOOD_SAVES_BY_TYPE[type]
   if (!good) throw new Error(`No base save progression known for creature type "${type}"`)
-  const goodSave = 2 + Math.floor(hd / 2)
-  const poorSave = Math.floor(hd / 3)
+  const goodSave = goodSaveForLevel(hd)
+  const poorSave = poorSaveForLevel(hd)
   return {
     fort: good.includes('fort') ? goodSave : poorSave,
     ref: good.includes('ref') ? goodSave : poorSave,

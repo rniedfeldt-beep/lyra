@@ -137,11 +137,10 @@ layer — CHOCR/OCR only, per the note already on its spell file — and the cha
 markup made a targeted page search impractical, so `data/feats/players-guide-to-faerun.json`
 carries `page: null`). Prerequisite is a race/region combination; Lyra qualifies as a half-elf
 of Dambrath, the Dalelands, or Silverymoon. Benefit is +1 Fort/Will normally, rising to +3
-specifically against death effects, energy drain, and ability drain — which resolves the old
-discrepancy, since CLAUDE.md's own derived stat block (Fort +8, Will +12) already used +1 as
-the flat bonus. The bug is isolated to `src/data/feats/strong_soul.json`, which currently codes
-a flat +2/+2 instead of +1 normally (+3 conditionally) — not fixed here since that's a live
-calc-engine file outside this extraction pass, flagged for a follow-up edit.
+specifically against death effects, energy drain, and ability drain (not modeled as a flat
+number). `src/data/feats/strong_soul.json` used to code a flat +2/+2 instead — fixed alongside
+the multiclass BAB/saves rework below, since the two bugs had been canceling out (see
+"Leveling table").
 
 ---
 
@@ -175,12 +174,30 @@ Totemic Summons temp HP, Wolf Shaman bonus feats.
 
 ### Leveling table
 
-The DM approved a custom blended table that is **the PHB druid table run straight through all
-20 levels**. Valid because druid and Planar Shepherd share identical BAB and save
-progressions (3/4 BAB, good Fort, good Will, poor Ref). So BAB and base saves are a pure
-function of character level — one lookup table, no multiclass math.
+BAB and base saves are computed as **proper multiclass sums** (PHB p.59: each class
+contributes its own BAB and base saves, computed from that class's own level, and a
+multiclass character's totals are the sum) — not a single lookup keyed by character level.
+`src/lib/calc/progression.js`'s `computeProgression(characterLevel)` calls
+`classLevelsBreakdown()` to split character level into Druid and Planar Shepherd levels via
+`druidLevel()`, then sums each class's contribution through `src/lib/rules/dnd35.js`'s
+`threeQuarterBabForLevel`/`goodSaveForLevel`/`poorSaveForLevel` — valid because Druid and
+Planar Shepherd share an identical progression (3/4 BAB, good Fort, good Will, poor Ref), so
+no per-class branching is needed, just the same three formulas applied to each class's own
+level and added together.
 
-At level 8: BAB **+6/+1**, base Fort 6, base Ref 2, base Will 6.
+At level 8 (Druid 5 / Planar Shepherd 3): Druid 5 contributes BAB 3, Fort 4, Ref 1, Will 4;
+Planar Shepherd 3 contributes BAB 2, Fort 3, Ref 1, Will 3. Summed: **BAB +5**, base **Fort 7,
+Ref 2, Will 7**. This replaced an earlier single blended lookup table
+(`src/data/tables/progression.json`, deleted) that ran the PHB druid table straight through by
+character level — mathematically wrong for a multiclass character (it happened to match a
+single class's own level-8 row, not the sum of two classes' lower levels), overstating BAB by
+1 and understating Fort/Will by 1 each at level 8. That base-save understatement had been
+silently masked by a second, unrelated bug: `src/data/feats/strong_soul.json` coded a flat +2
+Fort/Will instead of the printed +1 (see "Feat reference data" above), so the two errors
+canceled and the *displayed* totals (Fort +9, Will +13) were coincidentally already correct —
+fixing both at once (DM-confirmed, Aug 2026) keeps those totals unchanged while making the
+breakdown underneath them accurate, and the multiclass math now scales correctly to every
+other level instead of only working by coincidence at 8.
 
 ---
 
@@ -342,12 +359,12 @@ permanent, capped at +5 total inherent. One week of game time to read.
 
 - **HP** 61
 - **AC** 20 / touch 15 / flat-footed 16 (10 + 3 armor + 2 shield + 1 deflection + 4 Dex)
-- **Fort** +8 (6 base + 1 Con + 1 Strong Soul)
+- **Fort** +9 (7 base + 1 Con + 1 Strong Soul)
 - **Ref** +6 (2 base + 4 Dex)
-- **Will** +12 (6 base + 5 Wis + 1 Strong Soul)
+- **Will** +13 (7 base + 5 Wis + 1 Strong Soul)
 - **Initiative** +4
-- **Spell attack bonus** +11 (BAB + Wis mod, DM-confirmed). Compute, don't hardcode — the WIS
-  22 tome must update this automatically.
+- **Spell attack bonus** +10 (BAB +5 + Wis mod, DM-confirmed). Compute, don't hardcode — the
+  WIS 22 tome must update this automatically.
 - **Land speed** **50 ft.** (30 base + 20 permanent Totem Transformation — see speed rule)
 - **Caster level** 8
 - **Druid save DC** 15 + spell level
@@ -404,14 +421,17 @@ Armor and shield are non-metal (druid-legal).
 
 | Action | Routine | Damage |
 |---|---|---|
-| Single attack | **+8** | 1d6+2 |
-| Full attack | **+8 / +8 / +3** | 1d6+2 |
+| Single attack | **+7** | 1d6+2 |
+| Full attack | **+7 / +7** | 1d6+2 |
 
-The extra attack is a weapon property injection, not an iterative. Build attack routines from
-BAB **plus property injections**.
+BAB +5 (below the +6 iterative-attack threshold, so no -5 iterative attack) plus +2
+enhancement, with the speed property's extra attack at full BAB inserted alongside it. The
+extra attack is a weapon property injection, not an iterative. Build attack routines from BAB
+**plus property injections**.
 
-*Player note, not a rule:* Weapon Finesse would take this to +12/+12/+7. Scimitar is a light
-weapon and qualifies. Not currently taken.
+*Player note, not a rule:* Weapon Finesse would take this to +11/+11 (BAB +5 + Dex +4 +2
+enhancement, still below the iterative threshold). Scimitar is a light weapon and qualifies.
+Not currently taken.
 
 ### Feats
 
