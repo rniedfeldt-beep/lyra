@@ -5,6 +5,7 @@ import { getEligibleWildShapeForms, computeWildShapeStatBlock } from '../../lib/
 import { monsterManual } from '../../lib/loadCreatureData'
 import { formatMod } from '../../lib/format'
 import AnarchicToggle from '../anarchic/AnarchicToggle'
+import '../trackers/trackers.css'
 import './wildShape.css'
 
 function wildShapeCost(creature) {
@@ -67,6 +68,10 @@ function AttackRoutine({ routine }) {
   )
 }
 
+// Only used for the picker's preview of a form Lyra hasn't assumed yet —
+// once a form is actually active, its numbers live in the main stat block
+// (CombatStats/ArmorClass/Saves/AttackRoutine) instead of a second copy
+// here, so this component never renders for the active case.
 function StatBlock({ statBlock }) {
   const { creature, hp, ac, saves, speed, attackRoutine, abilities } = statBlock
   const speedText = Object.entries(speed)
@@ -139,10 +144,11 @@ function StatBlock({ statBlock }) {
   )
 }
 
-export default function WildShapeCalculator({ sheet }) {
+export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
   const { state, update } = useLiveState()
   const wildShapeConfig = sheet.character.wildShape
   const maxUses = wildShapeConfig.usesPerDay
+  const [expanded, setExpanded] = useState(false)
 
   const eligibleForms = useMemo(
     () =>
@@ -160,8 +166,6 @@ export default function WildShapeCalculator({ sheet }) {
   const [selectedName, setSelectedName] = useState((canine[0] ?? other[0])?.name ?? '')
 
   const active = state.activeWildShapeForm
-  const activeCreature = active ? eligibleForms.find((c) => c.name === active.creatureName) : null
-  const activeStatBlock = activeCreature ? computeWildShapeStatBlock({ sheet, creature: activeCreature }) : null
 
   const selectedCreature = eligibleForms.find((c) => c.name === selectedName)
   const selectedCost = selectedCreature ? wildShapeCost(selectedCreature) : 1
@@ -169,60 +173,80 @@ export default function WildShapeCalculator({ sheet }) {
 
   return (
     <section className="card">
-      <h2>Wild Shape</h2>
+      <button type="button" className="collapsible-toggle wildshape-toggle" onClick={() => setExpanded((e) => !e)}>
+        <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
+        Wild Shape
+        {!expanded && wildShapeStatBlock && (
+          <span className="wildshape-toggle-summary">🐾 {wildShapeStatBlock.creature.name}</span>
+        )}
+      </button>
 
-      <AnarchicToggle sheet={sheet} />
+      {expanded && (
+        <div className="collapsible-body">
+          <AnarchicToggle sheet={sheet} />
 
-      {active && activeStatBlock ? (
-        <>
-          <p className="breakdown">
-            Currently wild shaped ({activeCreature.isCanine ? '+20 ft. Totem Transformation applied' : 'no Totem Transformation bonus — not a canine form'})
-          </p>
-          <StatBlock statBlock={activeStatBlock} />
-          <button
-            type="button"
-            className="wildshape-revert"
-            onClick={() => update((s) => revertWildShapeForm(s))}
-          >
-            Revert to normal form
-          </button>
-        </>
-      ) : (
-        <>
-          <div className="wildshape-picker">
-            <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
-              <optgroup label="Canine (+20 ft. speed)">
-                {canine.map((c) => (
-                  <option key={c.name} value={c.name}>
-                    {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Other forms">
-                {other.map((c) => (
-                  <option key={c.name} value={c.name}>
-                    {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
-                  </option>
-                ))}
-              </optgroup>
-            </select>
-            <button
-              type="button"
-              disabled={!canAssume}
-              onClick={() =>
-                update((s) => assumeWildShapeForm(s, selectedCreature.name, selectedCost, maxUses))
-              }
-            >
-              Assume Form{selectedCost > 1 ? ` (costs 2 uses)` : ''}
-            </button>
-          </div>
-          {!canAssume && selectedCreature && (
-            <p className="warning">Not enough wild shape uses remaining today.</p>
+          {active && wildShapeStatBlock ? (
+            <>
+              <p className="breakdown">
+                Currently wild shaped as <strong>{wildShapeStatBlock.creature.name}</strong> (
+                {wildShapeStatBlock.creature.isCanine
+                  ? '+20 ft. Totem Transformation applied'
+                  : 'no Totem Transformation bonus — not a canine form'}
+                ). AC, saves, speed, and the attack routine above now reflect this form — see the
+                struck-through base values on each stat for what reverting restores.
+              </p>
+              {wildShapeStatBlock.abilities.length > 0 && (
+                <>
+                  <h3>Special Qualities &amp; Attacks</h3>
+                  <p className="breakdown">{wildShapeStatBlock.abilities.join(', ')}</p>
+                </>
+              )}
+              <button
+                type="button"
+                className="wildshape-revert"
+                onClick={() => update((s) => revertWildShapeForm(s))}
+              >
+                Revert to normal form
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="wildshape-picker">
+                <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
+                  <optgroup label="Canine (+20 ft. speed)">
+                    {canine.map((c) => (
+                      <option key={c.name} value={c.name}>
+                        {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Other forms">
+                    {other.map((c) => (
+                      <option key={c.name} value={c.name}>
+                        {c.name} ({c.size}, {c.type}, {c.wildShapeMinLevel === 8 ? 'Feywild' : 'HD ' + c.hitDice})
+                      </option>
+                    ))}
+                  </optgroup>
+                </select>
+                <button
+                  type="button"
+                  disabled={!canAssume}
+                  onClick={() =>
+                    update((s) => assumeWildShapeForm(s, selectedCreature.name, selectedCost, maxUses))
+                  }
+                >
+                  Assume Form{selectedCost > 1 ? ` (costs 2 uses)` : ''}
+                </button>
+              </div>
+              {!canAssume && selectedCreature && (
+                <p className="warning">Not enough wild shape uses remaining today.</p>
+              )}
+              {selectedCreature && (
+                <StatBlock statBlock={computeWildShapeStatBlock({ sheet, creature: selectedCreature })} />
+              )}
+            </>
           )}
-          {selectedCreature && (
-            <StatBlock statBlock={computeWildShapeStatBlock({ sheet, creature: selectedCreature })} />
-          )}
-        </>
+        </div>
       )}
     </section>
   )

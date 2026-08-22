@@ -111,9 +111,9 @@ export function computeWildShapeStatBlock({ sheet, creature }) {
 
   const formAbilityScores = {
     ...abilityScores,
-    str: { ...abilityScores.str, mod: strMod },
-    dex: { ...abilityScores.dex, mod: dexMod },
-    con: { ...abilityScores.con, mod: conMod },
+    str: { ...abilityScores.str, score: creature.abilities.str, mod: strMod },
+    dex: { ...abilityScores.dex, score: creature.abilities.dex, mod: dexMod },
+    con: { ...abilityScores.con, score: creature.abilities.con, mod: conMod },
   }
   const saves = computeSaves({ baseSaves: progression, abilityScores: formAbilityScores, feats })
 
@@ -130,5 +130,23 @@ export function computeWildShapeStatBlock({ sheet, creature }) {
     speed,
     attackRoutine,
     abilities: computeAvailableAbilities(creature, character.level),
+    // Str/Dex/Con come from the form; Int/Wis/Cha pass through unchanged —
+    // consumers that need to show "what stays the same" can read either
+    // straight off this object without special-casing which three moved.
+    abilityScores: formAbilityScores,
+    initiative: dexMod,
   }
+}
+
+// Looks up the active form (if any) from characterProgress's
+// activeWildShapeForm by name and computes its full stat block in one call —
+// the single source both the collapsible Wild Shape card and the main sheet
+// components (which need the *same* numbers, not a recomputed copy) call
+// into, so there's exactly one wild-shape-active-or-not branch to reason
+// about anywhere in the app.
+export function getActiveWildShapeStatBlock({ sheet, activeForm, monsterManual }) {
+  if (!activeForm) return null
+  const creature = monsterManual.find((c) => c.name === activeForm.creatureName)
+  if (!creature) return null
+  return computeWildShapeStatBlock({ sheet, creature })
 }

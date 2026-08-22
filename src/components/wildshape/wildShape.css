@@ -1,3 +1,13 @@
+.wildshape-toggle-summary {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .wildshape-picker {
   display: flex;
   flex-wrap: wrap;

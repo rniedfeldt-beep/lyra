@@ -88,6 +88,34 @@
   color: var(--text);
   margin-top: 4px;
   line-height: 1.3;
+  cursor: help;
+}
+
+/* Wild shape: a small badge marks any label whose value is currently the
+   form's, not Lyra's own, and the struck-through number next to a current
+   value is always that stat's pre-wild-shape base — what reverting gives
+   back. Both use the same visual language everywhere they appear (stat
+   pills, the saves table, the ability grid, the combat bar). */
+.wildshape-badge {
+  font-size: 0.85em;
+  cursor: help;
+}
+
+.stat-pill-value-group {
+  display: block;
+}
+
+.wildshape-value {
+  color: var(--accent);
+}
+
+.stat-pill-base {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 2px;
+  cursor: help;
 }
 
 .stat-row-group {

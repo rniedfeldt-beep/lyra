@@ -61,12 +61,17 @@ function AddAdjustmentRow({ ability, onAdd }) {
 // land whenever the DM says the reading is done, unrelated to leveling.
 // Every field here already flows through computeAbilityScores inside
 // computeCharacterSheet, so nothing downstream needs touching to recompute.
-export default function AbilityScoreEditor({ sheet }) {
+// Str/Dex/Con are the three the form actually takes over (PHB polymorph
+// rule); Int/Wis/Cha are always Lyra's own regardless of shape.
+const FORM_CHANGED_ABILITIES = new Set(['str', 'dex', 'con'])
+
+export default function AbilityScoreEditor({ sheet, wildShapeStatBlock }) {
   const { state, update } = useLiveState()
   const [expanded, setExpanded] = useState(false)
   const { abilityScores } = sheet
   const baseScores = state.characterProgress.trueBaseAbilityScores
   const adjustments = state.characterProgress.abilityAdjustments
+  const wild = !!wildShapeStatBlock
 
   return (
     <section className="card">
@@ -80,12 +85,23 @@ export default function AbilityScoreEditor({ sheet }) {
       {!expanded ? (
         <div className="ability-grid">
           {ABILITY_ORDER.map(([key, label]) => {
-            const a = abilityScores[key]
+            const base = abilityScores[key]
+            const changedByForm = wild && FORM_CHANGED_ABILITIES.has(key)
+            const a = changedByForm ? wildShapeStatBlock.abilityScores[key] : base
             return (
               <div className="ability-block" key={key}>
-                <div className="ability-label">{label}</div>
+                <div className="ability-label">
+                  {label} {changedByForm && <span title="Changed by wild shape">🐾</span>}
+                </div>
                 <div className="ability-score">{a.score}</div>
                 <div className="ability-mod">{formatMod(a.mod)}</div>
+                {changedByForm && (
+                  <div className="ability-note" title={`Base (no wild shape): ${base.score} (${formatMod(base.mod)})`}>
+                    <s>
+                      {base.score} ({formatMod(base.mod)})
+                    </s>
+                  </div>
+                )}
               </div>
             )
           })}

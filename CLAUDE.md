@@ -542,6 +542,42 @@ At PS 9+ (character level 14+), forms also grant all Ex, Su, and Sp abilities. *
 only Ex abilities** — this is why unicorn's *greater teleport* and healing are unavailable at
 level 8.
 
+### Display: one stat block, not two (Aug 2026)
+
+While a form is active, the main sheet shows its numbers **in place** — Combat Stats, Armor
+Class, Saves, and the Reference tab's Attack Routine all switch to the form's values, rather
+than a second wild-shape stat block sitting alongside the normal one. `CharacterSheet.jsx`
+computes this once, at the top of the component, via
+`getActiveWildShapeStatBlock({ sheet, activeForm: state.activeWildShapeForm, monsterManual })`
+(`src/lib/calc/wildShape.js`) and passes the result (`wildShapeStatBlock`, `null` when no form
+is active) down to every affected component — `CombatBar`, `AbilityScoreEditor`,
+`CombatStatsCore`, `ArmorClass`, `Saves`, `AttackRoutine`, and the Wild Shape card itself — so
+there's exactly one `wild ? formValue : baseValue` branch per stat, not a parallel component
+tree. Reverting sets `state.activeWildShapeForm` back to `null`; every one of those branches
+collapses to the base sheet on its own, so there's no separate "undo the override" step to get
+wrong.
+
+Each affected stat carries a 🐾 badge next to its label, and (via the shared `StatValue`
+helper) its pre-wild-shape base value struck through and tooltipped right next to the current
+one — visible at a glance, not just on hover, so "what would reverting give me back" never
+needs a mental subtraction. Per the polymorph swap rules above: Str/Dex/Con, size, natural
+armor, AC, speed, the attack routine, and Fort/Ref saves get this treatment; HP, BAB, skill
+ranks, Int/Wis/Cha, Will, spell save DCs, spell attack bonus, and caster level are genuinely
+unchanged by wild shape and render exactly as they do out of it, no badge. The Attack Routine
+card doesn't try to show "current vs. base" per attack the way a single number can (a whole
+different weapon vs. a whole different set of natural attacks doesn't reduce to one delta) — it
+swaps wholesale to the form's attacks and adds one line noting the base weapon's single-attack
+number, struck through, since Quicksilver is unusable in most forms anyway.
+
+The Wild Shape card itself is collapsible, defaulting to collapsed (it's used a handful of
+times per session, not something that needs to stay open) — collapsed, its header shows the
+active form's name if one is assumed, same 🐾-prefixed pattern as the badges elsewhere. Expanded
+while a form is active, it's now just the confirmation line, the form's Special Qualities &
+Attacks (genuinely wild-shape-only content with no "base" equivalent, so it has nowhere else to
+live), and the Revert button — the big per-form stat block that used to render here now only
+shows for the *picker preview* (a form selected but not yet assumed), where there's no
+duplication concern since nothing is active yet.
+
 ### Known available forms
 
 Lyra can wild shape into any animal she's familiar with — common Greyhawk animals (wolf, brown

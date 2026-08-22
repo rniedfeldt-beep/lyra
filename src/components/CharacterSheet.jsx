@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef, useState } from 'react'
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveState } from '../lib/liveState/LiveStateContext'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
 import TrackersPanel from './trackers/TrackersPanel'
@@ -10,8 +10,9 @@ import CompanionPanel from './companion/CompanionPanel'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
 import TabBar from './layout/TabBar'
-import { anarchicTemplate } from '../lib/loadCreatureData'
+import { anarchicTemplate, monsterManual } from '../lib/loadCreatureData'
 import { computeAnarchicWindowMinutes, computeAnarchicInvokedMinutes, computeSmiteLawBonus } from '../lib/calc/anarchic'
+import { getActiveWildShapeStatBlock } from '../lib/calc/wildShape'
 import './CharacterSheet.css'
 
 // Lazy-loaded: the spell reference data (~850KB of extracted sourcebook
@@ -27,6 +28,34 @@ function Card({ title, children }) {
       <h2>{title}</h2>
       {children}
     </section>
+  )
+}
+
+// A small paw badge marks any stat currently driven by an assumed wild
+// shape form, so it's visually obvious at a glance which numbers are
+// "hers" and which are "the form's" without reading every value.
+function WildBadge() {
+  return (
+    <span className="wildshape-badge" title="Changed by wild shape">
+      🐾
+    </span>
+  )
+}
+
+// Renders a stat's current value, and — only while wild shaped and only for
+// stats the form actually changes — the pre-wild-shape base value right
+// alongside it, struck through and carrying a tooltip. Reverting always
+// shows this same base value, so it doubles as a preview of "what reverting
+// gives me back."
+function StatValue({ current, base, wild, format = (v) => v }) {
+  if (!wild) return <span className="stat-pill-value">{format(current)}</span>
+  return (
+    <span className="stat-pill-value-group">
+      <span className="stat-pill-value wildshape-value">{format(current)}</span>
+      <s className="stat-pill-base" title={`Base (no wild shape): ${format(base)}`}>
+        {format(base)}
+      </s>
+    </span>
   )
 }
 
@@ -81,8 +110,15 @@ function SpellcastingReference({ sheet }) {
   )
 }
 
-function CombatStatsCore({ sheet }) {
+function CombatStatsCore({ sheet, wildShapeStatBlock }) {
   const { character, initiative, speed } = sheet
+  const wild = !!wildShapeStatBlock
+  const currentInitiative = wild ? wildShapeStatBlock.initiative : initiative
+  const currentSpeed = wild ? wildShapeStatBlock.speed.land : speed.total
+  const extraMovement = wild
+    ? Object.entries(wildShapeStatBlock.speed).filter(([type]) => type !== 'land')
+    : []
+
   return (
     <Card title="Combat Stats">
       <div className="stat-row-group">
@@ -91,46 +127,82 @@ function CombatStatsCore({ sheet }) {
           <span className="stat-pill-value">{character.hp.max}</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-label">Initiative</span>
-          <span className="stat-pill-value">{formatMod(initiative)}</span>
+          <span className="stat-pill-label">
+            Initiative {wild && <WildBadge />}
+          </span>
+          <StatValue current={currentInitiative} base={initiative} wild={wild} format={formatMod} />
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-label">Speed</span>
-          <span className="stat-pill-value">{speed.total} ft.</span>
+          <span className="stat-pill-label">
+            Speed {wild && <WildBadge />}
+          </span>
+          <StatValue current={currentSpeed} base={speed.total} wild={wild} format={(v) => `${v} ft.`} />
         </div>
       </div>
       <p className="breakdown">
-        Speed: {speed.base} ft. base + {speed.enhancement} ft. ({speed.enhancementSource})
+        {wild ? (
+          <>
+            {wildShapeStatBlock.creature.name} form: {currentSpeed} ft. land
+            {extraMovement.length > 0 &&
+              `, ${extraMovement.map(([type, ft]) => `${ft} ft. ${type}`).join(', ')}`}{' '}
+            · base land speed (no wild shape) {speed.total} ft.
+          </>
+        ) : (
+          <>
+            Speed: {speed.base} ft. base + {speed.enhancement} ft. ({speed.enhancementSource})
+          </>
+        )}
       </p>
     </Card>
   )
 }
 
-function ArmorClass({ ac }) {
+function ArmorClass({ ac, wildShapeStatBlock }) {
+  const wild = !!wildShapeStatBlock
+  const currentAc = wild ? wildShapeStatBlock.ac : ac
+  const dexMod = wild ? wildShapeStatBlock.abilityScores.dex.mod : null
+
   return (
     <Card title="Armor Class">
       <div className="stat-row-group">
         <div className="stat-pill stat-pill-large">
-          <span className="stat-pill-label">AC</span>
-          <span className="stat-pill-value">{ac.total}</span>
+          <span className="stat-pill-label">
+            AC {wild && <WildBadge />}
+          </span>
+          <StatValue current={currentAc.total} base={ac.total} wild={wild} />
         </div>
         <div className="stat-pill">
           <span className="stat-pill-label">Touch</span>
-          <span className="stat-pill-value">{ac.touch}</span>
+          <StatValue current={currentAc.touch} base={ac.touch} wild={wild} />
         </div>
         <div className="stat-pill">
           <span className="stat-pill-label">Flat-footed</span>
-          <span className="stat-pill-value">{ac.flatFooted}</span>
+          <StatValue current={currentAc.flatFooted} base={ac.flatFooted} wild={wild} />
         </div>
       </div>
       <p className="breakdown">
-        {ac.breakdown.map((b) => `${b.label} ${formatMod(b.value)}`).join(' · ')}
+        {wild ? (
+          <>
+            {wildShapeStatBlock.creature.name} form: 10 + {wildShapeStatBlock.creature.size} size + Dex{' '}
+            {formatMod(dexMod)} + natural armor {formatMod(wildShapeStatBlock.creature.naturalArmor)} + persistent
+            items · base AC (no wild shape) {ac.total}
+          </>
+        ) : (
+          ac.breakdown.map((b) => `${b.label} ${formatMod(b.value)}`).join(' · ')
+        )}
       </p>
     </Card>
   )
 }
 
-function Saves({ saves }) {
+function Saves({ saves, wildShapeStatBlock }) {
+  const wild = !!wildShapeStatBlock
+  const rows = [
+    ['Fortitude', saves.fort, wild ? wildShapeStatBlock.saves.fort : null],
+    ['Reflex', saves.ref, wild ? wildShapeStatBlock.saves.ref : null],
+    ['Will', saves.will, null],
+  ]
+
   return (
     <Card title="Saves">
       <table className="data-table">
@@ -144,28 +216,85 @@ function Saves({ saves }) {
           </tr>
         </thead>
         <tbody>
-          {[
-            ['Fortitude', saves.fort],
-            ['Reflex', saves.ref],
-            ['Will', saves.will],
-          ].map(([label, s]) => (
-            <tr key={label}>
-              <td>{label}</td>
-              <td>{formatMod(s.base)}</td>
-              <td>{formatMod(s.abilityMod)}</td>
-              <td>{s.featBonus ? formatMod(s.featBonus) : '—'}</td>
-              <td className="total-cell">{formatMod(s.total)}</td>
-            </tr>
-          ))}
+          {rows.map(([label, baseSave, wildSave]) => {
+            const s = wildSave ?? baseSave
+            return (
+              <tr key={label}>
+                <td>
+                  {label} {wildSave && <WildBadge />}
+                </td>
+                <td>{formatMod(s.base)}</td>
+                <td>{formatMod(s.abilityMod)}</td>
+                <td>{s.featBonus ? formatMod(s.featBonus) : '—'}</td>
+                <td className="total-cell">
+                  <StatValue current={s.total} base={baseSave.total} wild={!!wildSave} format={formatMod} />
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </Card>
   )
 }
 
-function AttackRoutine({ sheet }) {
+function WildShapeAttackEntry({ atk }) {
+  return (
+    <li>
+      {atk.count > 1 ? `${atk.count} × ` : ''}
+      {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
+      {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
+      {!atk.primary && <span className="note"> (secondary)</span>}
+    </li>
+  )
+}
+
+function AttackRoutine({ sheet, wildShapeStatBlock }) {
   const { attackRoutine } = sheet
   const weapon = sheet.items.weapon
+
+  if (wildShapeStatBlock) {
+    const routine = wildShapeStatBlock.attackRoutine
+    return (
+      <Card title="Attack Routine">
+        <p className="weapon-name">
+          {wildShapeStatBlock.creature.name} natural weapons <WildBadge />
+        </p>
+        {routine.single.length === 0 ? (
+          <p className="note">No attacks in this form.</p>
+        ) : (
+          <>
+            <p className="action-type">Single attack — standard action</p>
+            <ul className="wildshape-attacks">
+              {routine.single.map((atk) => (
+                <WildShapeAttackEntry key={atk.name} atk={atk} />
+              ))}
+            </ul>
+            {routine.hasSecondaries && (
+              <>
+                <p className="action-type">Full attack — full-round action</p>
+                <ul className="wildshape-attacks">
+                  {routine.full.map((atk) => (
+                    <WildShapeAttackEntry key={atk.name} atk={atk} />
+                  ))}
+                </ul>
+              </>
+            )}
+          </>
+        )}
+        {weapon && attackRoutine && (
+          <p className="breakdown">
+            {weapon.name} unusable while wild shaped — base single attack (no wild shape){' '}
+            <s title={`Base: ${weapon.name} ${formatMod(attackRoutine.singleAttack)}`}>
+              {formatMod(attackRoutine.singleAttack)}
+            </s>
+            .
+          </p>
+        )}
+      </Card>
+    )
+  }
+
   if (!attackRoutine || !weapon) return null
 
   return (
@@ -405,7 +534,7 @@ function AnarchicReference({ sheet }) {
 }
 
 export default function CharacterSheet() {
-  const { sheet, dailyAbilities, companion } = useLiveState()
+  const { sheet, dailyAbilities, companion, state } = useLiveState()
   const { character } = sheet
   const [activeTab, setActiveTab] = useState('lyra')
   const [levelingUp, setLevelingUp] = useState(false)
@@ -414,6 +543,15 @@ export default function CharacterSheet() {
   // different content height) and back never disturbs where you'd scrolled
   // to on another tab.
   const scrollPositions = useRef({})
+
+  // The single source every stat-block component reads to decide whether
+  // it's showing Lyra's own numbers or the assumed form's — null whenever
+  // no form is active, so every "wild ? ... : ..." branch below collapses
+  // back to the base sheet with nothing left over to clean up on revert.
+  const wildShapeStatBlock = useMemo(
+    () => getActiveWildShapeStatBlock({ sheet, activeForm: state.activeWildShapeForm, monsterManual }),
+    [sheet, state.activeWildShapeForm],
+  )
 
   function handleTabChange(nextTab) {
     scrollPositions.current[activeTab] = window.scrollY
@@ -427,7 +565,7 @@ export default function CharacterSheet() {
 
   return (
     <>
-      <CombatBar sheet={sheet} />
+      <CombatBar sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
       <TabBar active={activeTab} onChange={handleTabChange} />
       <div className="sheet">
         <header className="sheet-header">
@@ -446,11 +584,11 @@ export default function CharacterSheet() {
             <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} onLevelUp={() => setLevelingUp(true)} />
             {levelingUp && <LevelUpFlow sheet={sheet} onClose={() => setLevelingUp(false)} />}
             <SpellcastingReference sheet={sheet} />
-            <AbilityScoreEditor sheet={sheet} />
-            <CombatStatsCore sheet={sheet} />
-            <ArmorClass ac={sheet.ac} />
-            <Saves saves={sheet.saves} />
-            <WildShapeCalculator sheet={sheet} />
+            <AbilityScoreEditor sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
+            <CombatStatsCore sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
+            <ArmorClass ac={sheet.ac} wildShapeStatBlock={wildShapeStatBlock} />
+            <Saves saves={sheet.saves} wildShapeStatBlock={wildShapeStatBlock} />
+            <WildShapeCalculator sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
             <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
           </PartySection>
         )}
@@ -479,7 +617,7 @@ export default function CharacterSheet() {
             <Equipment items={sheet.items} />
             <Feats feats={sheet.feats} />
             <AnarchicReference sheet={sheet} />
-            <AttackRoutine sheet={sheet} />
+            <AttackRoutine sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
           </PartySection>
         )}
 
