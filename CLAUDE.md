@@ -409,10 +409,10 @@ Conditional, surface in UI rather than baking in:
 ### Equipment
 
 - **Leafweave Studded Leather**: +3 AC, max Dex +6, 0 check penalty, 20 lb, non-metal with
-  darkwood studs (druid-legal). Leafweave increases the base masterwork studded leather's max
-  Dex bonus by 1 (5→6). Reduces arcane spell failure by 5%.
+  darkwood studs. Leafweave increases the base masterwork studded leather's max Dex bonus by 1
+  (5→6). Reduces arcane spell failure by 5%.
 - Heavy wooden shield: +2 AC, −2 check penalty, 10 lb
-- Ring of protection: +1 deflection
+- Ring of protection: +1 deflection bonus to AC
 - Forestwarden Shroud: lightweight tunic and leggings worn over armor; negates undergrowth/heavy
   undergrowth penalties on Tumble and Move Silently (DMG p.87, Forest Terrain). Found in the
   Bodak Lair.
@@ -453,7 +453,7 @@ Not currently taken.
   vs death effects, energy drain, and ability drain
 - **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
 - **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
-  results except elementals. **Automatic, not a toggle.**
+  results except elementals
 - **Natural Spell** (L4–5) — cast while wild shaped
 - **Animal Affinity** (L4–5) — +2 Handle Animal, +2 Ride
 - **Fey Touched** (L4–5, 5e) — +1 WIS; *misty step* and *charm person*, 1/day each

@@ -30,6 +30,13 @@ function Card({ title, children }) {
   )
 }
 
+// Data can mark a spell name for italics with *asterisks* (e.g. "Grants
+// *misty step*") rather than every description needing its own JSX —
+// wherever text is rendered through this, italics just work.
+function withItalics(text) {
+  return text.split(/\*([^*]+)\*/g).map((part, i) => (i % 2 === 1 ? <em key={i}>{part}</em> : part))
+}
+
 function SpellcastingReference({ sheet }) {
   const { character, spellAttackBonus, progression, abilityScores, spellSlots } = sheet
   const levels = [0, ...spellSlots.slots.filter((s) => s.total > 0).map((s) => s.spellLevel)]
@@ -279,7 +286,7 @@ function Equipment({ items }) {
             {items.armor.note && (
               <>
                 <br />
-                <span className="note">{items.armor.note}</span>
+                <span className="note">{withItalics(items.armor.note)}</span>
               </>
             )}
           </li>
@@ -291,12 +298,12 @@ function Equipment({ items }) {
         )}
         {items.ring && (
           <li>
-            <strong>{items.ring.name}</strong> — {formatMod(items.ring.acBonus)} deflection
+            <strong>{items.ring.name}</strong> — {formatMod(items.ring.acBonus)} deflection bonus to AC
           </li>
         )}
         {items.cloak && (
           <li>
-            <strong>{items.cloak.name}</strong> — {items.cloak.description}
+            <strong>{items.cloak.name}</strong> — {withItalics(items.cloak.description)}
           </li>
         )}
         {items.necklace && (
@@ -304,7 +311,9 @@ function Equipment({ items }) {
             <strong>{items.necklace.name}</strong> — {items.necklace.description}
             <ul className="sub-list">
               {items.necklace.grantedSpells.map((s) => (
-                <li key={s.spell}>{s.spell.replace(/_/g, ' ')}, 1/day</li>
+                <li key={s.spell}>
+                  <em>{s.spell.replace(/_/g, ' ')}</em>, 1/day
+                </li>
               ))}
             </ul>
             {items.necklace.note && <span className="note">{items.necklace.note}</span>}
@@ -322,7 +331,7 @@ function Feats({ feats }) {
         {feats.map((f) => (
           <li key={f.id}>
             <strong>{f.name}</strong> <span className="note">({f.source})</span>
-            <p>{f.description}</p>
+            <p>{withItalics(f.description)}</p>
           </li>
         ))}
       </ul>

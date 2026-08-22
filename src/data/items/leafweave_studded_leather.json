@@ -3,7 +3,7 @@
   "name": "Leafweave Studded Leather",
   "type": "armor",
   "source": "DM homebrew",
-  "material": "non-metal, darkwood studs (druid-legal)",
+  "material": "non-metal, darkwood studs",
   "acBonus": 3,
   "acBonusType": "armor",
   "armorCheckPenalty": 0,

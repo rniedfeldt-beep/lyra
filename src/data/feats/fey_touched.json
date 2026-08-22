@@ -3,7 +3,7 @@
   "name": "Fey Touched",
   "source": "5e import",
   "levelTaken": "4-5",
-  "description": "+1 Wisdom (inherent). Grants misty step and charm person, usable 1/day each, outside the normal spell slot economy.",
+  "description": "+1 Wisdom (inherent). Grants *misty step* and *charm person*, usable 1/day each, outside the normal spell slot economy.",
   "effects": [
     { "type": "ability_bonus", "ability": "wis", "value": 1, "bonusType": "inherent" },
     {

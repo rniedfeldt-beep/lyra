@@ -3,7 +3,7 @@
   "name": "Ashbound",
   "source": "Eberron Campaign Setting",
   "levelTaken": 6,
-  "description": "Summon nature's ally duration is doubled. Summoned creatures gain a +3 luck bonus on attack rolls.",
+  "description": "*Summon nature's ally* duration is doubled. Summoned creatures gain a +3 luck bonus on attack rolls.",
   "effects": [
     { "type": "summon_duration_multiplier", "value": 2, "target": "summon_nature_ally" },
     { "type": "summon_attack_bonus", "value": 3, "bonusType": "luck", "target": "summon_nature_ally" }
