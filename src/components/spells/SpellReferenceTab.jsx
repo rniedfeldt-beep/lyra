@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { spellGroups, spellFileCounts, sourceBooks } from '../../lib/spellReferenceData'
 import { normalizeSourceKey } from '../../lib/calc/spellReference'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
+import ErrorBoundary from '../ErrorBoundary'
 import './spellReference.css'
 
 const LEVELS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -253,11 +254,12 @@ export default function SpellReferenceTab() {
             const prevLevel = i > 0 ? sortLevelFor(filtered[i - 1], levelFilter) : undefined
             const isPureSpellLike = g.hasSpellLike && g.levels.length === 0
             return (
-              <SpellCard
-                key={g.name}
-                group={g}
-                levelHeader={level !== prevLevel ? levelHeaderLabel(level, isPureSpellLike) : null}
-              />
+              <ErrorBoundary key={g.name} label={`"${g.name}"`}>
+                <SpellCard
+                  group={g}
+                  levelHeader={level !== prevLevel ? levelHeaderLabel(level, isPureSpellLike) : null}
+                />
+              </ErrorBoundary>
             )
           })}
         </div>

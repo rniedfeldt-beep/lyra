@@ -1,6 +1,7 @@
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveState } from '../lib/liveState/LiveStateContext'
 import { formatMod, SPELL_LEVEL_LABELS } from '../lib/format'
+import ErrorBoundary from './ErrorBoundary'
 import TrackersPanel from './trackers/TrackersPanel'
 import LevelUpFlow from './leveling/LevelUpFlow'
 import AbilityScoreEditor from './leveling/AbilityScoreEditor'
@@ -623,9 +624,11 @@ export default function CharacterSheet() {
 
         {activeTab === 'spells' && (
           <PartySection color="spells" title="Spell Reference">
-            <Suspense fallback={<p className="breakdown">Loading spell reference…</p>}>
-              <SpellReferenceTab />
-            </Suspense>
+            <ErrorBoundary label="Spell Reference">
+              <Suspense fallback={<p className="breakdown">Loading spell reference…</p>}>
+                <SpellReferenceTab />
+              </Suspense>
+            </ErrorBoundary>
           </PartySection>
         )}
 
