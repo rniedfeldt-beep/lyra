@@ -3,6 +3,6 @@
   "name": "Animal Affinity",
   "source": "PHB",
   "levelTaken": "4-5",
-  "description": "+2 Handle Animal, +2 Ride. Baked into those skills' miscBonus directly rather than read as an effect hook here.",
+  "description": "+2 Handle Animal, +2 Ride.",
   "effects": []
 }
