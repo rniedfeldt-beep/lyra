@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { spellGroups, spellFileCounts, sourceBooks } from '../../lib/spellReferenceData'
+import { spellGroups, spellFileCounts, spellFileIssueBreakdown, sourceBooks } from '../../lib/spellReferenceData'
 import { normalizeSourceKey, groupedSourceLabel } from '../../lib/calc/spellReference'
 import { SPELL_LEVEL_LABELS } from '../../lib/format'
 import ErrorBoundary from '../ErrorBoundary'
@@ -29,6 +29,45 @@ function Collapsible({ title, defaultExpanded, children }) {
   )
 }
 
+// A grouped title (e.g. "Dragon Magazine") stands in for however many
+// distinct issues its file actually contains — expandable, defaulting to
+// collapsed, so the per-issue counts are available without cluttering the
+// list by default. A title with no breakdown renders as the plain leaf row
+// it always has.
+function SourcebookRow({ title, count, breakdown }) {
+  const [expanded, setExpanded] = useState(false)
+  if (!breakdown) {
+    return (
+      <li>
+        <span className="spell-load-report-title">{title}</span>
+        <span className="spell-load-report-count">{count}</span>
+      </li>
+    )
+  }
+  const issues = Object.keys(breakdown).sort()
+  return (
+    <li className="spell-load-report-group">
+      <button type="button" className="spell-load-report-row-toggle" onClick={() => setExpanded((e) => !e)}>
+        <span className="spell-load-report-row-toggle-label">
+          <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
+          <span className="spell-load-report-title">{title}</span>
+        </span>
+        <span className="spell-load-report-count">{count}</span>
+      </button>
+      {expanded && (
+        <ul className="spell-load-report-sublist">
+          {issues.map((issue) => (
+            <li key={issue}>
+              <span className="spell-load-report-title">{issue}</span>
+              <span className="spell-load-report-count">{breakdown[issue]}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  )
+}
+
 function LoadReport() {
   const bookTitles = Object.keys(spellFileCounts).sort()
   return (
@@ -37,10 +76,12 @@ function LoadReport() {
       <Collapsible title="Sourcebooks" defaultExpanded={false}>
         <ul className="spell-load-report-list">
           {bookTitles.map((title) => (
-            <li key={title}>
-              <span className="spell-load-report-title">{title}</span>
-              <span className="spell-load-report-count">{spellFileCounts[title]}</span>
-            </li>
+            <SourcebookRow
+              key={title}
+              title={title}
+              count={spellFileCounts[title]}
+              breakdown={spellFileIssueBreakdown[title]}
+            />
           ))}
         </ul>
       </Collapsible>

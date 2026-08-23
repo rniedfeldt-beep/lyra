@@ -1273,6 +1273,17 @@ issue-specific citation (source, page, and `article` if present) in the card its
 another prefix pattern to `groupedSourceLabel()` if a similarly multi-issue source (a different
 magazine, a multi-volume set) starts crowding the dropdown the same way.
 
+The same grouping applies to the Sourcebooks load report (`LoadReport` in
+`SpellReferenceTab.jsx`): `loadSpellData.js` keys `spellFileCounts` by
+`groupedSourceLabel(entries[0]?.source)` rather than the raw first-entry source, so a
+multi-issue file reports under one title instead of crediting its whole count to whichever
+issue happened to load first. `spellFileIssueBreakdown` separately tracks, for any file whose
+entries span more than one distinct literal `source`, a `{ issueSource: count }` map keyed by
+that same grouped title. `SourcebookRow` renders a plain leaf row for a title with no
+breakdown, or an expandable one (collapsed by default) for a title that has one — Dragon
+Magazine currently expands to all 16 individual issues (15 Dragon + Dungeon #100), each with
+its own count, summing back to the row's total.
+
 **Level disagreement.** A spell's `levels` is the distinct set of non-null
 `spellLevelDruid` values across its printings; `levelsDisagree` is true when that set has more
 than one member, surfaced as a badge on the card ("Levels differ across printings") — printing

@@ -4,18 +4,29 @@
 // loadCreatureData.js) because this file set keeps growing as more
 // sourcebooks get processed — dropping in a new data/spells/<book>.json
 // file is picked up automatically, no loader edit required.
+import { groupedSourceLabel } from './calc/spellReference'
+
 const spellModules = import.meta.glob('../../data/spells/*.json', { eager: true })
 
 // { bookTitle: spellCount }, in file order — surfaced by the Spell Reference
 // tab so a truncated or malformed extraction is easy to spot at a glance,
 // per the instruction to report load counts per file. Keyed by each file's
-// own "source" field (every entry in a file shares one) rather than its
+// own "source" field run through groupedSourceLabel (so a multi-issue file
+// like dragon-magazine.json reports as one "Dragon Magazine" title rather
+// than whichever issue happened to be its first entry) rather than its
 // filename, since that's what's actually useful to read; falls back to the
 // filename only if a file loaded with no entries at all to parse a title from.
 // Counts every raw entry the file has, even ones later skipped by
 // validateSpellEntry below, since this is a truncation check — "did the
 // file load N entries" — separate from "were they well-formed."
 export const spellFileCounts = {}
+
+// { bookTitle: { issueSource: count } } — only populated for a file whose
+// entries span more than one distinct literal "source" (i.e. a multi-issue
+// anthology like dragon-magazine.json, grouped above under one bookTitle).
+// Lets the Sourcebooks panel expand that one row into the actual issues it
+// contains instead of crediting them all to a single arbitrary issue.
+export const spellFileIssueBreakdown = {}
 
 function isPlainObject(value) {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -104,8 +115,18 @@ for (const path of Object.keys(spellModules).sort()) {
   const fileName = path.split('/').pop()
   const mod = spellModules[path]
   const entries = Array.isArray(mod) ? mod : Array.isArray(mod?.default) ? mod.default : []
-  const bookTitle = entries[0]?.source ?? fileName
+  const bookTitle = groupedSourceLabel(entries[0]?.source) ?? fileName
   spellFileCounts[bookTitle] = entries.length
+
+  const issueCounts = {}
+  for (const entry of entries) {
+    if (typeof entry?.source === 'string' && entry.source.trim()) {
+      issueCounts[entry.source] = (issueCounts[entry.source] ?? 0) + 1
+    }
+  }
+  if (Object.keys(issueCounts).length > 1) {
+    spellFileIssueBreakdown[bookTitle] = issueCounts
+  }
 
   for (const entry of entries) {
     const valid = validateSpellEntry(entry, fileName)

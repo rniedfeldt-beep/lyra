@@ -47,6 +47,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  align-items: start;
   gap: 4px 12px;
   font-size: 12px;
   color: var(--text);
@@ -58,6 +59,66 @@
   gap: 8px;
   padding: 2px 0;
   border-bottom: 1px solid var(--border);
+}
+
+/* A grouped title (e.g. "Dragon Magazine") expands in place to its own
+   per-issue breakdown — the outer <li> drops the leaf-row flex/border
+   (its inner button and sublist carry those instead), and align-items:
+   start on the grid above keeps that expansion from stretching the row
+   height of unrelated sibling cells. */
+.spell-load-report-list li.spell-load-report-group {
+  display: block;
+  padding: 0;
+  border-bottom: none;
+}
+
+.spell-load-report-row-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 2px 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.spell-load-report-row-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.spell-load-report-row-toggle .chevron {
+  flex-shrink: 0;
+  font-size: 10px;
+  transition: transform 0.15s ease;
+}
+
+.spell-load-report-row-toggle .chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.spell-load-report-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 2px 0 2px 16px;
+}
+
+.spell-load-report-sublist li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: none;
+  font-size: 11px;
 }
 
 /* A flex item's default min-width is "auto" — wide enough to fit its
