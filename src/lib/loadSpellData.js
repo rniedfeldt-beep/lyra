@@ -110,28 +110,46 @@ function validateSpellEntry(entry, fileName) {
   return { ...entry, otherPrintings: sanitizeOtherPrintings(entry.otherPrintings, `${entry.name} (${fileName})`) }
 }
 
+// Entries flagged `referenceOnly: true` (currently just data/spells/referenced-spells.json)
+// are spells that exist in our data purely so a functionsAs link elsewhere has something to
+// resolve and expand — Antimagic Field, Polymorph, etc. aren't Lyra's own spells, so they're
+// kept out of rawSpells entirely: excluded from the main list, the spell count, level filters,
+// and search, and out of spellFileCounts/spellFileIssueBreakdown too (crediting them to their
+// real book, e.g. "Player's Handbook v3.5", would double-count against that book's own file).
+// They're still validated and collected separately so SpellReferenceTab can look one up by
+// name when a functionsAs reference needs to expand inline.
 const rawSpells = []
+const referenceSpells = []
 for (const path of Object.keys(spellModules).sort()) {
   const fileName = path.split('/').pop()
   const mod = spellModules[path]
   const entries = Array.isArray(mod) ? mod : Array.isArray(mod?.default) ? mod.default : []
-  const bookTitle = groupedSourceLabel(entries[0]?.source) ?? fileName
-  spellFileCounts[bookTitle] = entries.length
+  const visibleEntries = entries.filter((e) => !e?.referenceOnly)
+  const refEntries = entries.filter((e) => e?.referenceOnly)
 
-  const issueCounts = {}
-  for (const entry of entries) {
-    if (typeof entry?.source === 'string' && entry.source.trim()) {
-      issueCounts[entry.source] = (issueCounts[entry.source] ?? 0) + 1
+  if (visibleEntries.length > 0) {
+    const bookTitle = groupedSourceLabel(visibleEntries[0]?.source) ?? fileName
+    spellFileCounts[bookTitle] = visibleEntries.length
+
+    const issueCounts = {}
+    for (const entry of visibleEntries) {
+      if (typeof entry?.source === 'string' && entry.source.trim()) {
+        issueCounts[entry.source] = (issueCounts[entry.source] ?? 0) + 1
+      }
+    }
+    if (Object.keys(issueCounts).length > 1) {
+      spellFileIssueBreakdown[bookTitle] = issueCounts
     }
   }
-  if (Object.keys(issueCounts).length > 1) {
-    spellFileIssueBreakdown[bookTitle] = issueCounts
-  }
 
-  for (const entry of entries) {
+  for (const entry of visibleEntries) {
     const valid = validateSpellEntry(entry, fileName)
     if (valid) rawSpells.push(valid)
   }
+  for (const entry of refEntries) {
+    const valid = validateSpellEntry(entry, fileName)
+    if (valid) referenceSpells.push(valid)
+  }
 }
 
-export { rawSpells }
+export { rawSpells, referenceSpells }

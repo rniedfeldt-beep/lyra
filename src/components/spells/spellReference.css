@@ -288,6 +288,27 @@
   background: rgba(8, 145, 178, 0.14);
 }
 
+/* A reference-only spell's class/level list stands in for the single
+   spell-printing-level pill — can run to 3-4 entries (Antimagic Field),
+   so it wraps as its own set of pills instead of one nowrap string. */
+.spell-printing-classlevels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.spell-printing-classlevel-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-radius: 999px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+
 .spell-printing-source {
   flex: 1 1 auto;
   min-width: 0;
@@ -309,6 +330,92 @@
   min-width: 0;
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+/* functionsAs: a citation to another spell's stat block, expandable inline
+   rather than navigating away. Indent + left border on the expansion is
+   the visual cue that it's a nested reference, not a sibling printing —
+   its own .spell-printing loses the outer block's top border/padding so
+   it doesn't look like a second citation of the same spell. */
+.functions-as-list {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+}
+
+.functions-as-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.functions-as-entry {
+  margin-bottom: 4px;
+}
+
+.functions-as-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.functions-as-toggle .chevron {
+  font-size: 9px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.functions-as-toggle .chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.functions-as-name {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.functions-as-deadend {
+  padding: 2px 0;
+  font-size: 12px;
+}
+
+.functions-as-deadend .functions-as-name {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.functions-as-note {
+  margin: 2px 0 2px 16px;
+  font-size: 11px;
+}
+
+.functions-as-expansion {
+  margin: 4px 0 4px 14px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--accent-border);
+  border-radius: 4px;
+  background: var(--accent-bg);
+}
+
+.functions-as-expansion .spell-printing {
+  padding: 0;
+  border-top: none;
 }
 
 .spell-fact-row strong {

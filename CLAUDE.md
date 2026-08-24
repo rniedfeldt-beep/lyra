@@ -1295,6 +1295,37 @@ than one member, surfaced as a badge on the card ("Levels differ across printing
 order (ascending by level) already puts the lower-level book first, so the disagreement reads
 directly off the stacked printing blocks underneath the badge.
 
+**`functionsAs` / inline reference expansion (Aug 2026).** An entry's `functionsAs` array
+(`[{ spellName, source, note? }]`) names spells it functions as — Feathers in
+`masters-of-the-wild.json` says it "functions as polymorph other," so its entry carries
+`functionsAs: [{ spellName: "Polymorph", source: "Player's Handbook v3.5", note: "..." }]`. A
+non-null `source` means the target resolves somewhere in our data; `PrintingBlock` renders the
+name as a `FunctionsAsEntry` toggle, collapsed by default, and on tap resolves and renders the
+target's own `PrintingBlock` inline directly beneath, indented and left-bordered
+(`.functions-as-expansion`) so it reads as a citation rather than a sibling result — nested
+inside an `ErrorBoundary` since it's user-triggered recursive rendering of a second entry.
+`source: null` (currently only Animal Friendship, referenced from three Quintessential Druid
+"Friendship" spells) means a confirmed dead end — a 3.0-edition spell dropped in the 3.5
+revision with no stat block anywhere to link to — rendered as plain text plus its `note`, not a
+toggle. Resolution (`resolveFunctionsAs` in `spellReferenceData.js`) checks two pools: a name
+already in the main list (e.g. Regenerate Light Wounds, cited by its own book's
+higher-level variants) returns that book's actual printing off the merged group, matched by
+`source` where possible; a name that's reference-only returns a synthetic printing built
+straight from its `referenced-spells.json` entry.
+
+**`data/spells/referenced-spells.json` and `referenceOnly`.** Holds spells that exist in our
+data only so a `functionsAs` link has something to resolve and expand — Antimagic Field,
+Contingency, Polymorph, etc. aren't Lyra's own spells. Every entry carries `referenceOnly:
+true` and a `spellLevels` array (`[{ class, level }]`) instead of `spellLevelDruid`, since
+they're not on the druid list; `PrintingBlock` renders these as wrapped
+`spell-printing-classlevel-badge` pills in place of the usual single level pill.
+`loadSpellData.js` filters `referenceOnly` entries out of `rawSpells` per-file before they ever
+reach `spellGroups` — excluded from the main list, the spell count, level filters, and search —
+and out of `spellFileCounts`/`spellFileIssueBreakdown` too, since crediting them to their real
+book (most cite "Player's Handbook v3.5") would double-count against that book's own tracked
+file. They're collected separately into `referenceSpells` purely for `resolveFunctionsAs` to
+look up by name.
+
 **Spell-like abilities.** Each printing carries `abilityType` (`"spell"` or `"spell-like"`,
 pulled straight from the raw entry — see Spell extraction conventions above) and, when
 spell-like, a `usage` string (`"at will"`, `"1/day"`, …). A printing's badge row shows a
