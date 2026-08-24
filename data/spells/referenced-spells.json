@@ -25,10 +25,22 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Cleric", "level": 8 },
-      { "class": "Sorcerer/Wizard", "level": 6 },
-      { "class": "Magic Domain", "level": 6 },
-      { "class": "Protection Domain", "level": 6 }
+      {
+        "class": "Cleric",
+        "level": 8
+      },
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 6
+      },
+      {
+        "class": "Magic Domain",
+        "level": 6
+      },
+      {
+        "class": "Protection Domain",
+        "level": 6
+      }
     ],
     "referenceOnly": true
   },
@@ -59,7 +71,10 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Sorcerer/Wizard", "level": 6 }
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 6
+      }
     ],
     "referenceOnly": true
   },
@@ -90,7 +105,10 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Cleric", "level": 1 }
+      {
+        "class": "Cleric",
+        "level": 1
+      }
     ],
     "referenceOnly": true
   },
@@ -116,8 +134,14 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Cleric", "level": 9 },
-      { "class": "Sorcerer/Wizard", "level": 9 }
+      {
+        "class": "Cleric",
+        "level": 9
+      },
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 9
+      }
     ],
     "referenceOnly": true
   },
@@ -146,8 +170,14 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Cleric", "level": 6 },
-      { "class": "Destruction Domain", "level": 6 }
+      {
+        "class": "Cleric",
+        "level": 6
+      },
+      {
+        "class": "Destruction Domain",
+        "level": 6
+      }
     ],
     "referenceOnly": true
   },
@@ -176,7 +206,10 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Sorcerer/Wizard", "level": 3 }
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 3
+      }
     ],
     "referenceOnly": true
   },
@@ -206,7 +239,10 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Sorcerer/Wizard", "level": 4 }
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 4
+      }
     ],
     "referenceOnly": true
   },
@@ -233,8 +269,14 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Cleric", "level": 4 },
-      { "class": "Paladin", "level": 4 }
+      {
+        "class": "Cleric",
+        "level": 4
+      },
+      {
+        "class": "Paladin",
+        "level": 4
+      }
     ],
     "referenceOnly": true
   },
@@ -264,8 +306,14 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Bard", "level": 3 },
-      { "class": "Sorcerer/Wizard", "level": 3 }
+      {
+        "class": "Bard",
+        "level": 3
+      },
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 3
+      }
     ],
     "referenceOnly": true
   },
@@ -297,10 +345,97 @@
     "otherPrintings": [],
     "abilityType": "spell",
     "spellLevels": [
-      { "class": "Bard", "level": 1 },
-      { "class": "Cleric", "level": 1 },
-      { "class": "Sorcerer/Wizard", "level": 1 }
+      {
+        "class": "Bard",
+        "level": 1
+      },
+      {
+        "class": "Cleric",
+        "level": 1
+      },
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 1
+      }
     ],
     "referenceOnly": true
+  },
+  {
+    "name": "Charm Person",
+    "source": "Player's Handbook v3.5",
+    "page": 209,
+    "spellLevelDruid": null,
+    "school": "Enchantment",
+    "subschool": "Charm",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One humanoid creature"
+    },
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "You cast this charm on a single humanoid within close range, and if it fails its save, it comes to regard you as a trusted friend and ally -- treated as friendly rather than however it saw you before. If the target is already being threatened or attacked by you or your allies when you cast it, it gets a +5 bonus on its saving throw. The charm doesn't let you puppet the target's actions outright; it still perceives everything you say and do in the most favorable light. You can ask it to do things, but if a request goes against what it would normally be willing to do, you need to win an opposed Charisma check to talk it into anything, and you don't get a second try if you fail. Even charmed, the target never carries out an order that's suicidal or obviously harmful, though it may still take real risks if you frame them convincingly -- a charmed fighter might hold the line against a charging dragon if you convince him it's the only way to save your life. Any hostile act from you or anyone who looks like your ally breaks the charm immediately. You need to actually speak the target's language to give it instructions, or else rely on pantomime.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      {
+        "class": "Bard",
+        "level": 1
+      },
+      {
+        "class": "Sorcerer/Wizard",
+        "level": 1
+      }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Animal Friendship",
+    "source": "Player's Handbook (3.0 edition)",
+    "page": null,
+    "spellLevelDruid": null,
+    "school": "Enchantment",
+    "subschool": "Charm",
+    "descriptors": [
+      "Mind-Affecting"
+    ],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One animal"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "You win the loyalty of a single animal, but only if you genuinely intend to be its friend -- if you're not willing to treat it that way, the spell simply fails. The bond it creates is natural rather than magical, and it doesn't fade on its own once formed. You can teach the befriended animal up to three specific tricks or tasks per point of its Intelligence score, though nothing complex qualifies; teaching it a genuinely complex trick calls for the Handle Animal skill instead. You can have befriended animals totaling no more than twice your caster level in Hit Dice at any one time, though the practical demands of adventuring generally keep that number closer to half of that. You may dismiss a befriended animal at any time to free up room for a new one.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      {
+        "class": "Druid (3.0 edition)",
+        "level": 1
+      },
+      {
+        "class": "Ranger (3.0 edition)",
+        "level": 1
+      }
+    ],
+    "referenceOnly": true,
+    "note": "This is a 3.0-edition spell with no 3.5 stat block or reprint anywhere in the sourcebooks -- 3.5 dropped it entirely. Retained here only for provenance: several spells in The Quintessential Druid (Beast, Elemental, Magical Beast, and Vermin Friendship) were explicitly modeled on it, but those entries have been written as fully standalone, self-contained descriptions and no longer depend on this one to be understood. Page number not given in the source text supplied for this entry."
   }
 ]

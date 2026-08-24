@@ -162,26 +162,31 @@
     "school": "Enchantment",
     "subschool": "Charm",
     "descriptors": [],
-    "components": null,
-    "castingTime": null,
-    "range": null,
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One beast"
     },
-    "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
-    "description": "Functions identically to animal friendship but affects beasts instead of animals. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. A druid can have befriended creatures totaling no more HD than twice his caster level, counting every creature befriended via this spell, the other friendship spells in this book, and animal friendship together; certain feats and membership in the beast whisperer prestige class can raise this cap. The druid may dismiss a befriended beast at any time to befriend a new one.",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Wins the loyalty of a single beast within close range, provided the druid genuinely wishes to be its friend -- the spell fails outright if he doesn't intend to treat it that way. The bond it creates is natural rather than magical, and once formed it lasts indefinitely rather than for a fixed duration. The druid can teach the befriended beast up to three specific tricks or simple tasks per point of its Intelligence score; anything more elaborate is beyond the spell and calls for the Handle Animal skill instead. Every beast, animal, elemental, magical beast, or vermin the druid has befriended through any of the friendship spells in this book counts toward a single shared cap of twice his caster level in Hit Dice; certain feats and membership in the beast whisperer prestige class can raise that limit. The druid may dismiss a befriended beast at any time to make room for a new one.",
     "otherPrintings": [],
     "abilityType": "spell",
     "functionsAs": [
       {
         "spellName": "Animal Friendship",
-        "source": null,
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
+        "source": "Player's Handbook (3.0 edition)",
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
       }
-    ]
+    ],
+    "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."
   },
   {
     "name": "Brother’s Staff",
@@ -421,26 +426,31 @@
     "school": "Enchantment",
     "subschool": "Charm",
     "descriptors": [],
-    "components": null,
-    "castingTime": null,
-    "range": null,
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One elemental"
     },
-    "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
-    "description": "Operates the same as animal friendship but affects an elemental instead of an animal. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. Counts toward the druid's shared befriended-creature cap of twice his caster level in HD (shared with the other friendship spells); certain feats and beast whisperer membership can raise the cap. The druid may dismiss a befriended elemental at any time to befriend a new one.",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Wins the loyalty of a single elemental within close range, provided the druid genuinely wishes to be its friend -- the spell fails outright if he doesn't intend to treat it that way. The bond it creates is natural rather than magical, and once formed it lasts indefinitely rather than for a fixed duration. The druid can teach the befriended elemental up to three specific tricks or simple tasks per point of its Intelligence score; anything more elaborate is beyond the spell and calls for the Handle Animal skill instead. Every beast, animal, elemental, magical beast, or vermin the druid has befriended through any of the friendship spells in this book counts toward a single shared cap of twice his caster level in Hit Dice; certain feats and membership in the beast whisperer prestige class can raise that limit. The druid may dismiss a befriended elemental at any time to make room for a new one.",
     "otherPrintings": [],
     "abilityType": "spell",
     "functionsAs": [
       {
         "spellName": "Animal Friendship",
-        "source": null,
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
+        "source": "Player's Handbook (3.0 edition)",
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
       }
-    ]
+    ],
+    "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."
   },
   {
     "name": "Imbue with Wild Shape",
@@ -631,26 +641,31 @@
     "school": "Enchantment",
     "subschool": "Charm",
     "descriptors": [],
-    "components": null,
-    "castingTime": null,
-    "range": null,
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "One Magical Beast"
+      "value": "One magical beast"
     },
-    "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
-    "description": "Functions identically to animal friendship except that it affects magical beasts instead of animals. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. Counts toward the druid's shared befriended-creature cap of twice his caster level in HD (shared with the other friendship spells); certain feats and beast whisperer membership can raise the cap. The druid may dismiss a befriended magical beast at any time to befriend a new one.",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "Wins the loyalty of a single magical beast within close range, provided the druid genuinely wishes to be its friend -- the spell fails outright if he doesn't intend to treat it that way. The bond it creates is natural rather than magical, and once formed it lasts indefinitely rather than for a fixed duration. The druid can teach the befriended magical beast up to three specific tricks or simple tasks per point of its Intelligence score; anything more elaborate is beyond the spell and calls for the Handle Animal skill instead. Every beast, animal, elemental, magical beast, or vermin the druid has befriended through any of the friendship spells in this book counts toward a single shared cap of twice his caster level in Hit Dice; certain feats and membership in the beast whisperer prestige class can raise that limit. The druid may dismiss a befriended magical beast at any time to make room for a new one.",
     "otherPrintings": [],
     "abilityType": "spell",
     "functionsAs": [
       {
         "spellName": "Animal Friendship",
-        "source": null,
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
+        "source": "Player's Handbook (3.0 edition)",
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
       }
-    ]
+    ],
+    "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."
   },
   {
     "name": "Summon Nature’s Horde II",

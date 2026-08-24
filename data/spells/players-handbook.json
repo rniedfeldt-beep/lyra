@@ -375,7 +375,13 @@
     "spellResistance": "Yes",
     "description": "As Charm Person, except it affects a creature of the animal type.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Charm Person",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Cure Light Wounds",
