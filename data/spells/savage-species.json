@@ -388,8 +388,7 @@
     "functionsAs": [
       {
         "spellName": "Keen Edge",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },

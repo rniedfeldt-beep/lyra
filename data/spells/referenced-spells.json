@@ -1,0 +1,306 @@
+[
+  {
+    "name": "Antimagic Field",
+    "source": "Player's Handbook v3.5",
+    "page": 200,
+    "spellLevelDruid": null,
+    "school": "Abjuration",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "1 standard action",
+    "range": "10 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "10-ft.-radius emanation, centered on you"
+    },
+    "duration": "10 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "See text",
+    "description": "You surround yourself with an invisible, mobile hemisphere of energy, 10 feet in radius, that suppresses nearly all magic within it. Inside the field, spells, spell-like abilities, and supernatural abilities simply stop functioning, and magic items carried within it go inert; a hasted creature that steps inside loses the effect of haste until it leaves, though time spent inside still counts against that spell's duration. Summoned creatures of any kind and incorporeal undead are winked out of existence the instant they enter the field, reappearing in the same spot once the field is gone (and the time they spent winked out still counts against the duration of whatever conjured them); if a summoned creature inside the area has spell resistance, you must beat it with a caster level check (1d20 + your caster level) to force it out. Ordinary, non-summoned creatures and normal missiles can enter freely, and mundane properties of magic items persist even though their magical properties don't — a magic sword inside the field is still a masterwork sword, just not a magical one. Golems and other constructs empowered during their creation (rather than summoned) are unaffected, as are elementals, corporeal undead, and outsiders unless they were summoned, though their spell-like or supernatural abilities may still be suppressed. Dispel magic can't remove the field, two overlapping antimagic fields have no effect on one another, and a handful of spells (such as wall of force, prismatic sphere, and prismatic wall) are immune to it outright, as are artifacts and deities. Any part of a creature too large to fit entirely inside the barrier is unaffected by the field where it extends past the boundary. Casting requires a pinch of powdered iron or iron filings as an arcane material component.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Cleric", "level": 8 },
+      { "class": "Sorcerer/Wizard", "level": 6 },
+      { "class": "Magic Domain", "level": 6 },
+      { "class": "Protection Domain", "level": 6 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Contingency",
+    "source": "Player's Handbook v3.5",
+    "page": 213,
+    "spellLevelDruid": null,
+    "school": "Evocation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M",
+      "F"
+    ],
+    "castingTime": "At least 10 minutes; see text",
+    "range": "Personal",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You"
+    },
+    "duration": "One day/level (D) or until discharged",
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "You bind another spell to yourself so that it activates automatically once a condition you specify comes to pass. You cast contingency and the companion spell in the same casting session — the 10-minute casting time is the minimum required for both together, and if the companion spell itself needs more than 10 minutes to cast, that longer time applies instead. The companion spell must be one that affects only your own person (such as feather fall, levitate, fly, or teleport) and its level can't exceed one-third your caster level, rounded down, to a maximum of 6th level. You must state a clear triggering condition, though it can be broad — for instance, prescribing that water breathing snaps into effect the instant you're submerged or engulfed in water, or that feather fall triggers any time you fall more than 4 feet. Once the condition occurs, the companion spell activates instantly regardless of whether you actually want it to at that moment, and if the condition you set is especially convoluted, the whole combination can simply fail to trigger when called on. You can only maintain one contingency at a time; casting a second one dispels the first if it's still active. Casting costs the companion spell's own material components plus quicksilver and an eyelash from an ogre mage, rakshasa, or similar spellcasting creature, and requires a focus — a statuette of yourself carved from elephant ivory and decorated with gems worth at least 1,500 gp — which you must keep on your person for the contingency to function.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Sorcerer/Wizard", "level": 6 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Deathwatch",
+    "source": "Player's Handbook v3.5",
+    "page": 217,
+    "spellLevelDruid": null,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [
+      "Evil"
+    ],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetAreaEffect": {
+      "type": "area",
+      "value": "Cone-shaped emanation"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Drawing on the sight of unlife, you sweep a cone out to 30 feet and instantly read the nearness of death in every creature caught within it. For each one, you learn whether it's dead, fragile (alive but down to 3 hit points or fewer), fighting off death (alive with 4 or more hit points), undead, or neither alive nor dead, such as a construct. This sight isn't fooled by any spell or ability that lets a creature feign death.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Cleric", "level": 1 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Etherealness",
+    "source": "Player's Handbook v3.5",
+    "page": 228,
+    "spellLevelDruid": null,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": null,
+    "castingTime": null,
+    "range": "Touch; see text",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "You and one other touched creature per three levels"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": null,
+    "spellResistance": "Yes",
+    "description": "This spell functions like ethereal jaunt, except that you can bring willing companions along: you and any other creatures joined to you by linked hands, together with their equipment, become ethereal, and you can bring one additional creature per three of your caster levels. Once everyone is ethereal, the group doesn't need to stay together for the spell's duration. When the spell ends, every affected creature still on the Ethereal Plane returns to material existence.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Cleric", "level": 9 },
+      { "class": "Sorcerer/Wizard", "level": 9 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Harm",
+    "source": "Player's Handbook v3.5",
+    "page": 239,
+    "spellLevelDruid": null,
+    "school": "Necromancy",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Creature touched"
+    },
+    "duration": "Instantaneous",
+    "savingThrow": "Will half; see text",
+    "spellResistance": "Yes",
+    "description": "You channel negative energy into a creature you touch, searing it for 10 points of damage per your caster level, to a maximum of 150 points at 15th level. A successful Will save halves this damage, though it can never reduce the target below 1 hit point. If you use this spell on an undead creature instead, it heals the target as though you'd cast heal on it.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Cleric", "level": 6 },
+      { "class": "Destruction Domain", "level": 6 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Keen Edge",
+    "source": "Player's Handbook v3.5",
+    "page": 246,
+    "spellLevelDruid": null,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One weapon or fifty projectiles, all of which must be in contact with each other at the time of casting"
+    },
+    "duration": "10 min./level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "description": "You make a weapon magically keen, sharpening its ability to land devastating blows. This doubles the weapon's threat range: a threat range of 20 becomes 19–20, one of 19–20 becomes 17–20, and one of 18–20 becomes 15–20. You can only cast it on a piercing or slashing weapon, and if you target arrows or crossbow bolts, the keen edge on any individual projectile lasts for only one use regardless of whether it hits (shuriken count as arrows rather than thrown weapons for this purpose). This effect doesn't stack with other threat-range increases, such as the Improved Critical feat, and you can't cast it on a natural weapon like a claw.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Sorcerer/Wizard", "level": 3 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Polymorph",
+    "source": "Player's Handbook v3.5",
+    "page": 263,
+    "spellLevelDruid": null,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Touch",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "Willing living creature touched"
+    },
+    "duration": "1 min./level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You touch a willing living creature and reshape its body into another form of living creature, chosen from aberration, animal, dragon, fey, giant, humanoid, magical beast, monstrous humanoid, ooze, plant, or vermin. The new form's Hit Dice can't exceed your caster level or the subject's own Hit Dice, whichever is lower, capping at 15 HD once you reach 15th level, and the subject can't shrink below Fine size or become incorporeal or gaseous. Its type and subtype shift to match the assumed form. The moment the change happens, the subject heals as though it had rested for a full night, though this doesn't restore temporary ability damage or grant any of resting's other benefits, and reverting doesn't heal it further. If the polymorphed creature dies, it snaps back to its original shape but remains dead. The subject takes on the Strength, Dexterity, and Constitution of the new form while keeping its own Intelligence, Wisdom, and Charisma, and it picks up any extraordinary special attacks the form has (such as constrict, improved grab, or poison) but not extraordinary special qualities like blindsense, fast healing, regeneration, or scent, nor any supernatural or spell-like abilities. Incorporeal or gaseous creatures can't be affected by this spell, and a creature with the shapechanger subtype (a lycanthrope or doppelganger, for instance) can shift back to its natural form as a standard action at will. Casting requires an empty cocoon as a material component.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Sorcerer/Wizard", "level": 4 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Restoration",
+    "source": "Player's Handbook v3.5",
+    "page": 272,
+    "spellLevelDruid": null,
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": null,
+    "range": null,
+    "targetAreaEffect": null,
+    "duration": null,
+    "savingThrow": null,
+    "spellResistance": null,
+    "description": "This spell works like lesser restoration, but it also dispels negative levels and restores one experience level to a creature that's had a level drained, provided the level was lost no longer ago than one day per your caster level — for example, a 10th-level character drained down to 9th level by a wight would be brought back up to exactly the minimum XP needed for 10th level (45,000 XP), regaining the extra Hit Die and level benefits that come with it. It also cures all temporary ability damage on the subject and restores every point permanently drained from a single ability score of your choice if more than one was drained, and it removes any fatigue or exhaustion the target is suffering. It does not restore lost class levels or Constitution points lost to death itself. Casting requires diamond dust worth 100 gp sprinkled over the target.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Cleric", "level": 4 },
+      { "class": "Paladin", "level": 4 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Slow",
+    "source": "Player's Handbook v3.5",
+    "page": 280,
+    "spellLevelDruid": null,
+    "school": "Transmutation",
+    "subschool": null,
+    "descriptors": [],
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "target",
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "description": "You drastically slow a creature's movements and reactions. A slowed creature can take only a single move action or standard action on its turn, never both, and it can't take full-round actions at all. It also suffers a –1 penalty on attack rolls, AC, and Reflex saves, and its speed is cut in half, rounded down to the nearest 5-foot increment, which in turn reduces its jumping distance the way any speed reduction does. Multiple castings of slow don't stack with each other, and the spell counters and dispels haste. Casting requires a drop of molasses.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Bard", "level": 3 },
+      { "class": "Sorcerer/Wizard", "level": 3 }
+    ],
+    "referenceOnly": true
+  },
+  {
+    "name": "Summon Monster I",
+    "source": "Player's Handbook v3.5",
+    "page": 285,
+    "spellLevelDruid": null,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "see text"
+    ],
+    "components": [
+      "V",
+      "S",
+      "F/DF"
+    ],
+    "castingTime": "1 round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned creature"
+    },
+    "duration": "1 round/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "You call forth an extraplanar creature — typically an outsider, elemental, or magical beast native to another plane — which appears wherever you designate and acts immediately on your turn, attacking your opponents to the best of its ability. If you can communicate with it, you can direct it to hold back, focus a particular foe, or take some other action instead. The spell conjures one creature from the 1st-level entry of the Summon Monster table; you choose which kind each time you cast it, and can change your choice from casting to casting. A summoned creature can't summon or otherwise conjure another creature of its own, nor use teleportation or planar travel abilities, and it can't be called into an environment that can't support it (a celestial porpoise, for example, can only be summoned somewhere aquatic). When the spell calls forth a creature with the air, chaotic, earth, evil, fire, good, lawful, or water subtype, the casting itself takes on that descriptor — summoning a fiendish dire rat, for instance, makes that casting of the spell both lawful and evil. Casting requires a tiny bag and a small candle (which needn't be lit) as an arcane focus.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "spellLevels": [
+      { "class": "Bard", "level": 1 },
+      { "class": "Cleric", "level": 1 },
+      { "class": "Sorcerer/Wizard", "level": 1 }
+    ],
+    "referenceOnly": true
+  }
+]

@@ -179,7 +179,7 @@
       {
         "spellName": "Animal Friendship",
         "source": null,
-        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
       }
     ]
   },
@@ -438,7 +438,7 @@
       {
         "spellName": "Animal Friendship",
         "source": null,
-        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
       }
     ]
   },
@@ -648,7 +648,7 @@
       {
         "spellName": "Animal Friendship",
         "source": null,
-        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, with no 3.5 stat block anywhere -- this reference is a confirmed dead end and was deliberately skipped when data/spells/referenced-spells.json was built."
       }
     ]
   },

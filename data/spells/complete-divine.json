@@ -974,8 +974,7 @@
     "functionsAs": [
       {
         "spellName": "Etherealness",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },
@@ -1720,8 +1719,7 @@
     "functionsAs": [
       {
         "spellName": "Restoration",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },

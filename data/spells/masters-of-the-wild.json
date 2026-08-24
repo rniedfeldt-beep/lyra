@@ -1009,8 +1009,8 @@
     "functionsAs": [
       {
         "spellName": "Polymorph",
-        "source": null,
-        "note": "Source text says 'polymorph other' (a 3.0-edition spell); 3.5 merged Polymorph Other into a single Polymorph spell, mapped here. Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5",
+        "note": "Source text says 'polymorph other' (a 3.0-edition spell); 3.5 merged Polymorph Other into a single Polymorph spell, mapped here."
       }
     ]
   },

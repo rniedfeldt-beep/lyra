@@ -54,8 +54,7 @@
     "functionsAs": [
       {
         "spellName": "Deathwatch",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },
@@ -4158,8 +4157,7 @@
     "functionsAs": [
       {
         "spellName": "Contingency",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       },
       {
         "spellName": "Resist Energy",
@@ -5353,8 +5351,7 @@
       },
       {
         "spellName": "Antimagic Field",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },
@@ -5609,8 +5606,7 @@
     "functionsAs": [
       {
         "spellName": "Etherealness",
-        "source": null,
-        "note": "Referenced spell not currently in data/spells/."
+        "source": "Player's Handbook v3.5"
       }
     ]
   },
