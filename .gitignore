@@ -18,6 +18,10 @@ dist-ssr
 /sourcebooks/
 *.bak
 
+# Cowork scratch space (page-image dumps used to hand-verify an extraction
+# against the source PDF) — never committed, not part of the app or its data.
+/tmp_verify/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
