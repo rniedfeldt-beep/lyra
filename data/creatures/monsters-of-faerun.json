@@ -1,0 +1,403 @@
+[
+  {
+    "name": "Hybsil",
+    "source": "Monsters of Faerûn",
+    "page": 61,
+    "size": "Small",
+    "type": "Fey",
+    "hitDice": "1d6+1",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 8,
+      "dex": 17,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "dagger",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4-1",
+        "crit": null
+      },
+      {
+        "name": "shortbow",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "sleep arrows"
+    ],
+    "specialQualities": [
+      "spell-like abilities",
+      "see invisibility",
+      "poison immunity"
+    ],
+    "feats": [
+      "Dodge",
+      "Mobility",
+      "Weapon Finesse (dagger)"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 2,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical multiplier line); baseAttackBonus (0) is derived arithmetically from the printed dagger melee attack bonus (+4 = BAB + Dex mod [+3, via Weapon Finesse] + Small size mod [+1]), which also matches the standard 1/2-BAB-per-HD progression for a 1 HD Fey. Critical multiplier isn't printed for any attack in this book's format, so it's left null rather than assuming a standard value. Note: the printed shortbow ranged attack (+0) doesn't reconcile with the same BAB using BAB + Dex + size (+4 expected) — possibly a nonproficiency penalty or a print error; recorded as printed rather than corrected. wildShapeMinLevel is null because Lyra's wild shape rules only extend to Magical Beast/Outsider/Elemental types regardless of Feywild origin; Fey creatures (like pixie/satyr) are never available to wild shape into. feywildNative marked true: the book explicitly calls hybsils kin to pixies and \"sprite relatives,\" consistent with this campaign's existing fey-Feywild framing (pixie, satyr)."
+  },
+  {
+    "name": "Ice Serpent",
+    "source": "Monsters of Faerûn",
+    "page": 62,
+    "size": "Large",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "6d8+18",
+    "speed": {
+      "land": 80
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 20,
+      "dex": 25,
+      "con": 16,
+      "int": 4,
+      "wis": 13,
+      "cha": 11
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "constrict",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8+7",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "constrict"
+    ],
+    "specialQualities": [
+      "elemental immunities",
+      "cold subtype",
+      "damage reduction 10/+1"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed constrict attack bonus (+8 = BAB + Str mod [+5] + Large size mod [-1]); the 1.5x-Str constrict damage (1d8+7, from Str mod +5) is consistent with this being the creature's sole natural attack. Critical multiplier not printed, left null. Text explicitly states \"unlike other air elementals, ice serpents do not fly\" — no fly speed despite being an Air-subtype elemental, confirmed from the description. The constrict damage line reads \"1d8+7 plus cold\" with no specific cold damage amount printed; recorded as-is with this caveat rather than inventing a die value. feywildNative is false, not ambiguous: an Inner-Planar elemental with a purely mundane cold-climate origin per the text, no fey/Feywild framing at all. wildShapeMinLevel null accordingly."
+  },
+  {
+    "name": "Unicorn, Black",
+    "source": "Monsters of Faerûn",
+    "page": 83,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "4d10+20",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 20,
+      "dex": 17,
+      "con": 21,
+      "int": 14,
+      "wis": 21,
+      "cha": 28
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "horn",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8+5",
+        "crit": null
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8+2",
+        "crit": null
+      },
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d4+2",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "inflict light wounds"
+    ],
+    "specialQualities": [
+      "teleport"
+    ],
+    "feats": [
+      "Alertness",
+      "Multiattack",
+      "Weapon Focus (horn)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "This is Monsters of Faerûn's own \"Unicorn, Black\" entry (p. 83), a distinct named variant from the core Monster Manual unicorn already in this project's data — confirmed by its own stat block (4 HD, Large, CR 3, chaotic evil) rather than assumed. Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed horn attack (+9 = BAB + Str mod [+5] + Large size mod [-1] + Weapon Focus [horn] [+1]), cross-checked against the bite/hoof line (+6 = BAB + Str mod [+5] + Large size mod [-1] - 2, this book's apparent secondary-natural-attack convention, with no Weapon Focus bonus since that feat only names the horn) — both resolve to the same BAB of 4, which also matches the standard full-BAB progression for a 4 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text explicitly frames black unicorns as \"evil creations, made from unicorns infused with the blood of demons and other hellspawn,\" i.e. a corrupted/demonic derivative, not a fey or Feywild-tied creature — the opposite framing from a Feywild-native magical beast like the core unicorn. wildShapeMinLevel null accordingly (non-Feywild-native magical beast)."
+  },
+  {
+    "name": "Alaghi",
+    "source": "Monsters of Faerûn",
+    "page": 14,
+    "size": "Medium-Size",
+    "type": "Monstrous Humanoid",
+    "hitDice": "9d8+9",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 19,
+      "dex": 12,
+      "con": 13,
+      "int": 6,
+      "wis": 10,
+      "cha": 11
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "handaxe",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6+4",
+        "crit": null
+      },
+      {
+        "name": "fist",
+        "natural": true,
+        "primary": false,
+        "damage": "1d3+2",
+        "crit": null
+      },
+      {
+        "name": "javelin (thrown, main hand)",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6+4",
+        "crit": null
+      },
+      {
+        "name": "javelin (thrown, off-hand)",
+        "natural": false,
+        "primary": false,
+        "damage": "1d6",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [],
+    "feats": [
+      "Ambidexterity",
+      "Great Fortitude",
+      "Power Attack"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Attacks line (\"Handaxe +9/+4 melee, fist +9 melee; or javelin +10/+5 ranged, javelin +6 ranged\") represents a two-weapon fighting combo (weapon in one hand, fist in the other) or two thrown javelins; recorded here as four alternate/paired attack entries rather than a single line, since the app's attacks schema doesn't have a slot for \"weapon-and-fist combo\" as one unit. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (9) is derived from the Combat text's own stated single-weapon-only full attack (\"its attack bonus rises to +13/+8\" when using the handaxe alone with both hands free to fight) via +13 = BAB + Str mod [+4] + Medium size mod [0], with the standard BAB/BAB-5 iterative gap confirming a clean derivation; this also matches the expected full-BAB progression for a 9 HD Monstrous Humanoid. Critical multiplier not printed for any attack, left null. Special Attacks and Special Qualities are both printed as \"—\" (none). feywildNative is false, not ambiguous: alaghis are described purely as ordinary forest-dwelling humanoids of the Sword Coast/Sword Coast-adjacent wilds, with no fey, Faerie, or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly."
+  },
+  {
+    "name": "Green Warder",
+    "source": "Monsters of Faerûn",
+    "page": 57,
+    "size": "Medium-Size",
+    "type": "Plant",
+    "hitDice": "4d8+11",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 15,
+      "dex": 10,
+      "con": 14,
+      "int": 7,
+      "wis": 16,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4+2",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "sleep",
+      "confusion",
+      "alarm"
+    ],
+    "specialQualities": [
+      "plant"
+    ],
+    "feats": [
+      "Toughness"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Special Attacks / Special Qualities lines just read the generic summary \"Spell-like abilities\" / \"Plant, spell-like abilities\"; the three individually named spell-like abilities (sleep, confusion, alarm), each with its own sub-header in the Combat section, are itemized in specialAttacks here instead of repeating the generic label, per the instruction to record ability names rather than vague summaries. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (3) is derived from the printed claw attack (+5 = BAB + Str mod [+2] + Medium size mod [0]), matching the standard 3/4-BAB-per-HD progression for a 4 HD Plant. Critical multiplier not printed, left null. feywildNative: OPEN QUESTION FOR THE DM. Green warders are described as elf-forest guardians shaped like \"elves made of bushes and leaves\" who \"guard the secrets of the elven woods\" and speak Elvish, but the text never states a fey or Feywild origin outright (no mention of Faerie/Feywild), so this is left false per the project's default-to-false rule for genuinely ambiguous cases (mirroring how \"Giant owl — Feywild-native?\" is flagged as pending DM ruling), rather than assumed true from the elven-woodland flavor alone. wildShapeMinLevel is null regardless (Plant type is never eligible for wild shape access under Lyra's rules)."
+  },
+  {
+    "name": "Peryton",
+    "source": "Monsters of Faerûn",
+    "page": 69,
+    "size": "Medium-Size",
+    "type": "Magical Beast",
+    "hitDice": "5d10+5",
+    "speed": {
+      "land": 20,
+      "fly": 60
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 17,
+      "dex": 16,
+      "con": 12,
+      "int": 10,
+      "wis": 13,
+      "cha": 10
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4+3",
+        "crit": null
+      },
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d3+1",
+        "crit": null
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6+1",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "heart-rip"
+    ],
+    "specialQualities": [
+      "damage reduction 10/+1",
+      "scent"
+    ],
+    "feats": [
+      "Flyby Attack",
+      "Multiattack"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Fly speed is printed as \"fly 60 ft. (poor)\" — the poor maneuverability qualifier isn't captured by the speed schema's plain numeric value, noted here instead. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (5) is derived from the printed claw attack (+8 = BAB + Str mod [+3] + Medium size mod [0]), cross-checked against the slam/bite line (+6 = BAB + Str mod [+3] + Medium size mod [0] - 2, this book's apparent secondary-natural-attack convention) — both resolve to BAB 5, matching the expected full-BAB progression for a 5 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text states perytons are \"the creation of a twisted deity,\" an artificial/cursed creature of dark divine origin, with no fey or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly."
+  },
+  {
+    "name": "Dark Tree",
+    "source": "Monsters of Faerûn",
+    "page": 31,
+    "size": "Huge",
+    "type": "Plant",
+    "hitDice": "10d8+50",
+    "speed": {
+      "land": 10
+    },
+    "naturalArmor": 13,
+    "abilities": {
+      "str": 28,
+      "dex": 8,
+      "con": 21,
+      "int": 5,
+      "wis": 10,
+      "cha": 7
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4+9",
+        "crit": null
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+13",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "grab",
+      "confusion"
+    ],
+    "specialQualities": [
+      "resist fire (15)",
+      "vulnerable to cold"
+    ],
+    "feats": [],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). No Feats: line is printed in this stat block at all (Special Qualities/Saves/Abilities run directly into Climate/Terrain) — recorded as an empty array rather than assumed. The printed Attacks line (\"2 claws +14 melee; or bite +14 melee\") is an \"or\" alternate, not a simultaneous combo (the Grab special attack text confirms claws are used to grapple, then the bite follows as a separate action) — both entries marked primary here since neither is a true secondary within one routine. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (7) is derived from both attack lines identically: claw damage 2d4+9 (full Str mod +9, consistent with dual primary natural weapons) gives +14 = BAB + Str mod [+9] + Huge size mod [-2]; bite damage 1d6+13 (1.5x Str mod [+9] = +13, consistent with a lone primary natural weapon) gives the same +14 = BAB + 9 - 2. Both resolve to BAB 7, matching the standard 3/4-BAB-per-HD progression for a 10 HD Plant. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: described as an evil, blood-drinking jungle predator that \"superficially resembles a treant\" but radiates \"palpable hatred and evil\" — no fey or Feywild framing anywhere in the text. wildShapeMinLevel null accordingly (Plant type is never eligible for wild shape access under Lyra's rules)."
+  }
+]

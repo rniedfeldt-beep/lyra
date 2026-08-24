@@ -1,0 +1,1199 @@
+[
+  {
+    "name": "Asperi",
+    "source": "Monster Manual II",
+    "page": 25,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "4d10+8",
+    "speed": {
+      "land": 60,
+      "fly": 30
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 13,
+      "dex": 12,
+      "con": 15,
+      "int": 13,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "cold subtype",
+      "darkvision 60 ft.",
+      "dodge arrows",
+      "feather fall",
+      "low-light vision",
+      "ride the wind",
+      "telepathy",
+      "uncanny dodge",
+      "wind immunity"
+    ],
+    "feats": [
+      "Alertness",
+      "Flyby Attack"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 8,
+    "lyraFamiliar": true,
+    "note": "Source uses the older 3.0 stat block format (no explicit BAB line); baseAttackBonus derived from the printed hoof attack bonus."
+  },
+  {
+    "name": "Jermlaine",
+    "source": "Monster Manual II",
+    "page": 131,
+    "size": "Tiny",
+    "type": "Fey",
+    "hitDice": "1/2d6-1",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 3,
+      "dex": 17,
+      "con": 8,
+      "int": 8,
+      "wis": 16,
+      "cha": 5
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "diminutive dart",
+        "natural": false,
+        "primary": true,
+        "damage": "1d3-4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "tiny shortspear",
+        "natural": false,
+        "primary": true,
+        "damage": "1d3-4",
+        "crit": "20/x3"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "speak with rats"
+    ],
+    "feats": [
+      "Alertness"
+    ],
+    "challengeRating": 0.5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Task list spells this \"Jermalaine\"; the printed MM2 name is \"Jermlaine.\" Hit Dice printed as \"1/2 d6-1 (1 hp)\" (a half-Hit-Die creature); baseAttackBonus derived from the printed dart/shortspear attack bonuses, both of which back-solve to +0."
+  },
+  {
+    "name": "Twig Blight",
+    "source": "Monster Manual II",
+    "page": 197,
+    "size": "Small",
+    "type": "Plant",
+    "hitDice": "1d8+1",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 8,
+      "dex": 13,
+      "con": 12,
+      "int": 5,
+      "wis": 11,
+      "cha": 4
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d3-1 plus poison",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Poison"
+    ],
+    "specialQualities": [
+      "partial immunity to piercing weapons",
+      "plant traits"
+    ],
+    "feats": [
+      "Skill Focus (Hide)"
+    ],
+    "challengeRating": 0.33,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 1,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Printed CR is \"1/3.\""
+  },
+  {
+    "name": "Cryptoclidus",
+    "source": "Monster Manual II",
+    "page": 70,
+    "size": "Large",
+    "type": "Beast (Aquatic)",
+    "hitDice": "3d10+9",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 16,
+      "con": 17,
+      "int": 2,
+      "wis": 13,
+      "cha": 9
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8+6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Improved grab",
+      "Swallow whole"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast,\" a 3.0-edition type not used in 3.5 (which splits such creatures into Animal/Magical Beast) — kept as printed, so wildShapeMinLevel is null under the Animal-only rule rather than 5. No Feats line is printed for this entry."
+  },
+  {
+    "name": "Allosaurus",
+    "source": "Monster Manual II",
+    "page": 70,
+    "size": "Huge",
+    "type": "Beast",
+    "hitDice": "10d10+30",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 24,
+      "dex": 12,
+      "con": 17,
+      "int": 2,
+      "wis": 15,
+      "cha": 11
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8+7",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d4+3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Improved grab",
+      "Rake 2d8+3",
+      "Swallow whole",
+      "Trample 5d8+10"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. No Feats line is printed for this entry."
+  },
+  {
+    "name": "Quetzalcoatlus",
+    "source": "Monster Manual II",
+    "page": 72,
+    "size": "Huge",
+    "type": "Beast",
+    "hitDice": "10d10+50",
+    "speed": {
+      "land": 20,
+      "fly": 100
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 26,
+      "dex": 13,
+      "con": 20,
+      "int": 2,
+      "wis": 17,
+      "cha": 11
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d10+8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "wing",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d6+4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Swallow whole"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision"
+    ],
+    "feats": [
+      "Flyby Attack (B)",
+      "Snatch (B)"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Fly speed printed with \"(poor)\" maneuverability, not captured by the speed object's schema."
+  },
+  {
+    "name": "Seismosaurus",
+    "source": "Monster Manual II",
+    "page": 72,
+    "size": "Colossal",
+    "type": "Beast",
+    "hitDice": "32d10+288",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 40,
+      "dex": 9,
+      "con": 29,
+      "int": 1,
+      "wis": 14,
+      "cha": 14
+    },
+    "baseAttackBonus": 24,
+    "attacks": [
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": true,
+        "damage": "4d10+22",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Trample 10d10+22"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 12,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Feats line printed as \"—\" (none)."
+  },
+  {
+    "name": "Spinosaurus",
+    "source": "Monster Manual II",
+    "page": 72,
+    "size": "Gargantuan",
+    "type": "Beast",
+    "hitDice": "20d10+120",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 36,
+      "dex": 13,
+      "con": 23,
+      "int": 2,
+      "wis": 15,
+      "cha": 10
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8+13",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d6+6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Frightful presence",
+      "Improved grab",
+      "Swallow whole",
+      "Trample 2d8+19"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 13,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Feats line printed as \"—\" (none)."
+  },
+  {
+    "name": "Dire Toad",
+    "source": "Monster Manual II",
+    "page": 76,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "4d8+8",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 10,
+      "dex": 14,
+      "con": 15,
+      "int": 2,
+      "wis": 15,
+      "cha": 7
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4 plus poison",
+        "crit": "20/x2"
+      },
+      {
+        "name": "tongue",
+        "natural": true,
+        "primary": true,
+        "damage": "—",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "Poison"
+    ],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse (bite) (B)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 4,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed \"Special Attacks\" line lists only \"Poison,\" but the body text separately describes Improved Grab and Swallow Whole (Ex) abilities (with their own grapple bonus and digestion damage) that are not included on that summary line — likely a book omission; reported here exactly as the stat-block line prints it. Attack bonus for both bite and tongue back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus feat Weapon Finesse (bite). Tongue attack deals no direct damage per the printed dash."
+  },
+  {
+    "name": "Dire Snake",
+    "source": "Monster Manual II",
+    "page": 76,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "7d8+21",
+    "speed": {
+      "land": 30,
+      "climb": 20,
+      "swim": 20
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 24,
+      "dex": 20,
+      "con": 16,
+      "int": 1,
+      "wis": 13,
+      "cha": 11
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6+10 plus poison",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Constrict 1d6+10",
+      "Improved grab",
+      "Poison"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). A creature literally named \"Dire Snake\" is printed in MM2 (Dire Animal section, p. 74-76), confirming the name used in the task list. Feats line printed as \"—\" (none)."
+  },
+  {
+    "name": "Dire Elk",
+    "source": "Monster Manual II",
+    "page": 75,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "12d8+60",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 24,
+      "dex": 11,
+      "con": 20,
+      "int": 2,
+      "wis": 11,
+      "cha": 7
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6+7",
+        "crit": "20/x2"
+      },
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d4+3",
+        "crit": "20/x2"
+      },
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8+10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Trample 2d8+10"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Attacks line prints \"Slam +14 melee and 2 hooves +9 melee, or gore +14 melee\" — the gore option (used alone, per CLAUDE.md's single-natural-weapon rule) applies 1.5x Str to damage, matching the printed 2d8+10. Feats line printed as \"—\" (none). A bull dire elk's gore attack is only available part of the year per the flavor text (antlers shed and regrow seasonally); not modeled here."
+  },
+  {
+    "name": "Dire Elephant",
+    "source": "Monster Manual II",
+    "page": 75,
+    "size": "Gargantuan",
+    "type": "Animal",
+    "hitDice": "20d8+200",
+    "speed": {
+      "land": 30,
+      "climb": 10
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 40,
+      "dex": 11,
+      "con": 30,
+      "int": 2,
+      "wis": 15,
+      "cha": 7
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8+15",
+        "crit": "20/x2"
+      },
+      {
+        "name": "stamp",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d8+7",
+        "crit": "20/x2"
+      },
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "4d6+22",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Trample 4d6+22"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 10,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Feats line printed as \"—\" (none). Printed climb speed of 10 ft. for a Gargantuan quadruped is as printed, not corrected."
+  },
+  {
+    "name": "Legendary Ape",
+    "source": "Monster Manual II",
+    "page": 136,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "13d8+39",
+    "speed": {
+      "land": 40,
+      "climb": 20
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 30,
+      "dex": 17,
+      "con": 16,
+      "int": 2,
+      "wis": 17,
+      "cha": 11
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8+10",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6+5",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Rend 2d8+15"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a gorilla, extracted directly from this entry's own printed table, not re-derived from a base creature. Feats line printed as \"—\" (none)."
+  },
+  {
+    "name": "Legendary Eagle",
+    "source": "Monster Manual II",
+    "page": 136,
+    "size": "Small",
+    "type": "Animal",
+    "hitDice": "12d8+36",
+    "speed": {
+      "land": 10,
+      "fly": 100
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 15,
+      "dex": 30,
+      "con": 17,
+      "int": 2,
+      "wis": 16,
+      "cha": 13
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d6+2",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8+1",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "feats": [
+      "Weapon Finesse (bite) (B)",
+      "Weapon Finesse (claw) (B)"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to an eagle, extracted directly from this entry's own printed table, not re-derived from a base creature. Attack bonuses back-solve using the Dexterity modifier (not Strength) for both claw and bite, consistent with the printed bonus Weapon Finesse feats; fly speed printed with \"(average)\" maneuverability, not captured by the speed object's schema."
+  },
+  {
+    "name": "Legendary Wolf",
+    "source": "Monster Manual II",
+    "page": 136,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "14d8+70",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 25,
+      "dex": 28,
+      "con": 21,
+      "int": 2,
+      "wis": 15,
+      "cha": 10
+    },
+    "baseAttackBonus": 10,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6+10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Trip"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [
+      "Weapon Finesse (bite) (B)"
+    ],
+    "challengeRating": 7,
+    "isCanine": true,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a wolf, extracted directly from this entry's own printed table, not re-derived from a base creature. Attack bonus back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus Weapon Finesse feat; damage applies the single-natural-weapon 1.5x Str rule, matching the printed 2d6+10. isCanine is true — this is a literal wolf."
+  },
+  {
+    "name": "Legendary Bear",
+    "source": "Monster Manual II",
+    "page": 137,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "20d8+140",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 36,
+      "dex": 15,
+      "con": 25,
+      "int": 2,
+      "wis": 16,
+      "cha": 13
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d6+13",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "4d6+6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Improved grab"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a bear, extracted directly from this entry's own printed table, not re-derived from a base creature. No Feats line is printed for this entry."
+  },
+  {
+    "name": "Galeb Duhr",
+    "source": "Monster Manual II",
+    "page": 107,
+    "size": "Medium",
+    "type": "Elemental (Earth)",
+    "hitDice": "8d8+40",
+    "speed": {
+      "land": 10,
+      "burrow": 10
+    },
+    "naturalArmor": 15,
+    "abilities": {
+      "str": 13,
+      "dex": 5,
+      "con": 20,
+      "int": 11,
+      "wis": 16,
+      "cha": 12
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d6+1",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Spell-like abilities"
+    ],
+    "specialQualities": [
+      "DR 15/+1",
+      "elemental traits",
+      "freeze",
+      "SR 21",
+      "tremorsense"
+    ],
+    "feats": [
+      "Iron Will"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Type is Elemental (Earth), not Feywild-tied, so wildShapeMinLevel is null under CLAUDE.md's elemental rule (native to the Elemental Plane of Earth / Material Plane, per its own flavor text, not the Feywild)."
+  },
+  {
+    "name": "Grizzly Mastodon",
+    "source": "Monster Manual II",
+    "page": 123,
+    "size": "Huge",
+    "type": "Beast",
+    "hitDice": "15d10+90",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 35,
+      "dex": 10,
+      "con": 23,
+      "int": 2,
+      "wis": 15,
+      "cha": 7
+    },
+    "baseAttackBonus": 11,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6+12",
+        "crit": "20/x2"
+      },
+      {
+        "name": "stamp",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d6+6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "4d8+12",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Trample 4d8+18"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "feats": [],
+    "challengeRating": 13,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this creature's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null despite this being an elephant-cousin animal. Feats line printed as \"—\" (none). The \"or gore\" alternative attack is printed at full Str bonus (+12, same as the slam), not the 1.5x bonus seen on Dire Elk/Dire Elephant's equivalent gore option — reported exactly as printed rather than corrected."
+  },
+  {
+    "name": "Red Sundew",
+    "source": "Monster Manual II",
+    "page": 179,
+    "size": "Huge",
+    "type": "Plant",
+    "hitDice": "15d8+75",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 29,
+      "dex": 8,
+      "con": 21,
+      "int": 2,
+      "wis": 13,
+      "cha": 8
+    },
+    "baseAttackBonus": 11,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 4,
+        "damage": "2d6+9 plus acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Improved grab",
+      "Sticky acid"
+    ],
+    "specialQualities": [
+      "immunities (fire and acid)",
+      "plant traits",
+      "woodsense"
+    ],
+    "feats": [],
+    "challengeRating": 13,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Feats line printed as absent (no Feats field at all in the stat block). All four slams are printed at the same +18 attack bonus with no primary/secondary distinction on the Attacks line, so all four are treated as primary here."
+  },
+  {
+    "name": "Sirine",
+    "source": "Monster Manual II",
+    "page": 185,
+    "size": "Medium",
+    "type": "Fey (Aquatic)",
+    "hitDice": "4d6",
+    "speed": {
+      "land": 30,
+      "swim": 60
+    },
+    "naturalArmor": 0,
+    "abilities": {
+      "str": 10,
+      "dex": 18,
+      "con": 11,
+      "int": 13,
+      "wis": 16,
+      "cha": 17
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "short sword",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "19-20/x2"
+      },
+      {
+        "name": "touch",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4 Int",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "Charming song",
+      "Intelligence damage",
+      "Spell-like abilities"
+    ],
+    "specialQualities": [
+      "deflection",
+      "low-light vision",
+      "soothing touch"
+    ],
+    "feats": [
+      "Dodge",
+      "Expertise"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). AC line shows no natural armor component (17 = 10 +4 Dex +3 deflection), so naturalArmor is 0. Touch attack deals 1d4 Intelligence damage (or 2d4 on a critical hit per the body text) rather than physical damage; no crit multiplier is printed for it. Attack bonus for both options back-solves consistently using the Strength modifier (not Dexterity), despite Sirine's high Dex, since no Weapon Finesse is listed."
+  },
+  {
+    "name": "Marraenoloth",
+    "source": "Monster Manual II",
+    "page": 203,
+    "size": "Medium",
+    "type": "Outsider (Evil)",
+    "hitDice": "10d8",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 13,
+      "dex": 15,
+      "con": 10,
+      "int": 13,
+      "wis": 14,
+      "cha": 10
+    },
+    "baseAttackBonus": 10,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+1",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Fear gaze",
+      "Spell-like abilities"
+    ],
+    "specialQualities": [
+      "outsider traits",
+      "SR 21",
+      "yugoloth traits"
+    ],
+    "feats": [
+      "Alertness",
+      "Combat Casting",
+      "Dodge"
+    ],
+    "challengeRating": 10,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Also has a Summon Yugoloth spell-like ability (1/day, 75% chance to summon another marraenoloth per the body text) grouped under the printed \"Spell-Like Abilities\" special attack rather than broken out separately, matching the stat block's own line."
+  },
+  {
+    "name": "Yagnoloth",
+    "source": "Monster Manual II",
+    "page": 203,
+    "size": "Large",
+    "type": "Outsider (Evil)",
+    "hitDice": "10d8+40",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 30,
+      "dex": 14,
+      "con": 19,
+      "int": 15,
+      "wis": 15,
+      "cha": 16
+    },
+    "baseAttackBonus": 10,
+    "attacks": [
+      {
+        "name": "greatsword",
+        "natural": false,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "19-20/x2"
+      },
+      {
+        "name": "greataxe",
+        "natural": false,
+        "primary": true,
+        "damage": "1d12",
+        "crit": "20/x3"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+10 plus stunning blow",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "Breath weapon",
+      "Energy drain",
+      "Shocking grasp",
+      "Stunning blow"
+    ],
+    "specialQualities": [
+      "DR 15/+1",
+      "outsider traits",
+      "SR 25",
+      "muscular arm",
+      "yugoloth traits"
+    ],
+    "feats": [
+      "Cleave",
+      "Power Attack",
+      "Weapon Focus (claw)"
+    ],
+    "challengeRating": 10,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Greatsword/greataxe are alternative weapon choices (\"Greatsword +9/+4 melee and claw +20 melee, or greataxe +9/+4 melee and claw +20 melee\") wielded one-handed by the yagnoloth's weak arm, which the body text states gets no Strength bonus on damage — matches the printed damage values exactly. The claw always uses the muscular-arm ability (full Strength bonus, no secondary penalty, per its own Special Quality); its printed +20 back-solves against BAB 10 + Str mod 10 + size -1 + the +1 from the printed Weapon Focus (claw) feat."
+  }
+]

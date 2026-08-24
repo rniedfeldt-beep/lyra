@@ -3607,7 +3607,7 @@
   },
   {
     "name": "Aranea",
-    "source": "Monster Manual I",
+    "source": "Monster Manual 3.5",
     "page": 15,
     "size": "Medium",
     "type": "Magical Beast",
@@ -3656,7 +3656,7 @@
   },
   {
     "name": "Blink Dog",
-    "source": "Monster Manual I",
+    "source": "Monster Manual 3.5",
     "page": 28,
     "size": "Medium",
     "type": "Magical Beast",
@@ -3704,57 +3704,8 @@
     "lyraFamiliar": true
   },
   {
-    "name": "Elven Hound",
-    "source": "Races of the Wild",
-    "page": 189,
-    "size": "Medium",
-    "type": "Magical Beast",
-    "hitDice": "2d10+2",
-    "speed": {
-      "land": 50
-    },
-    "naturalArmor": 4,
-    "abilities": {
-      "str": 17,
-      "dex": 17,
-      "con": 13,
-      "int": 2,
-      "wis": 12,
-      "cha": 8
-    },
-    "baseAttackBonus": 2,
-    "attacks": [
-      {
-        "name": "bite",
-        "natural": true,
-        "primary": true,
-        "damage": "1d8",
-        "crit": "20/x2"
-      }
-    ],
-    "specialAttacks": [],
-    "specialQualities": [
-      "immune to sleep",
-      "low-light vision",
-      "resist enchantment",
-      "scent",
-      "sprint"
-    ],
-    "feats": [
-      "Improved Natural Attack (bite)",
-      "Track"
-    ],
-    "challengeRating": 1,
-    "isCanine": true,
-    "feywildNative": true,
-    "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 8,
-    "lyraFamiliar": true,
-    "note": "Also called cooshee. Bite damage die already reflects Improved Natural Attack (bite)."
-  },
-  {
     "name": "Pegasus",
-    "source": "Monster Manual I",
+    "source": "Monster Manual 3.5",
     "page": 206,
     "size": "Large",
     "type": "Magical Beast",
@@ -3802,171 +3753,6 @@
       "Iron Will"
     ],
     "challengeRating": 3,
-    "isCanine": false,
-    "feywildNative": true,
-    "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 8,
-    "lyraFamiliar": true
-  },
-  {
-    "name": "Asperi",
-    "source": "Monster Manual II",
-    "page": 25,
-    "size": "Large",
-    "type": "Magical Beast",
-    "hitDice": "4d10+8",
-    "speed": {
-      "land": 60,
-      "fly": 30
-    },
-    "naturalArmor": 3,
-    "abilities": {
-      "str": 13,
-      "dex": 12,
-      "con": 15,
-      "int": 13,
-      "wis": 12,
-      "cha": 10
-    },
-    "baseAttackBonus": 4,
-    "attacks": [
-      {
-        "name": "hoof",
-        "natural": true,
-        "primary": true,
-        "count": 2,
-        "damage": "1d6",
-        "crit": "20/x2"
-      },
-      {
-        "name": "bite",
-        "natural": true,
-        "primary": false,
-        "damage": "1d6",
-        "crit": "20/x2"
-      }
-    ],
-    "specialAttacks": [],
-    "specialQualities": [
-      "cold subtype",
-      "darkvision 60 ft.",
-      "dodge arrows",
-      "feather fall",
-      "low-light vision",
-      "ride the wind",
-      "telepathy",
-      "uncanny dodge",
-      "wind immunity"
-    ],
-    "feats": [
-      "Alertness",
-      "Flyby Attack"
-    ],
-    "challengeRating": 4,
-    "isCanine": false,
-    "feywildNative": true,
-    "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 8,
-    "lyraFamiliar": true,
-    "note": "Source uses the older 3.0 stat block format (no explicit BAB line); baseAttackBonus derived from the printed hoof attack bonus."
-  },
-  {
-    "name": "Ur'Epona",
-    "source": "Planar Handbook",
-    "page": 130,
-    "size": "Large",
-    "type": "Magical Beast",
-    "hitDice": "3d10+6",
-    "speed": {
-      "land": 50
-    },
-    "naturalArmor": 3,
-    "abilities": {
-      "str": 16,
-      "dex": 13,
-      "con": 15,
-      "int": 6,
-      "wis": 12,
-      "cha": 15
-    },
-    "baseAttackBonus": 2,
-    "attacks": [
-      {
-        "name": "hoof",
-        "natural": true,
-        "primary": false,
-        "count": 2,
-        "damage": "1d6",
-        "crit": "20/x2"
-      }
-    ],
-    "specialAttacks": [],
-    "specialQualities": [
-      "low-light vision",
-      "plane shift",
-      "scent"
-    ],
-    "feats": [
-      "Endurance",
-      "Run"
-    ],
-    "challengeRating": 1,
-    "isCanine": false,
-    "feywildNative": true,
-    "summonNaturesAllyLevel": null,
-    "wildShapeMinLevel": 8,
-    "lyraFamiliar": true,
-    "note": "Its hoof attack is explicitly written as secondary (half Str to damage) even though it's the creature's only natural weapon -- an exception to the usual single-natural-weapon 1.5x rule."
-  },
-  {
-    "name": "Tressym",
-    "source": "Lost Empires of Faerun",
-    "page": 191,
-    "size": "Tiny",
-    "type": "Magical Beast",
-    "hitDice": "1/2d10",
-    "speed": {
-      "land": 30,
-      "fly": 50
-    },
-    "naturalArmor": 0,
-    "abilities": {
-      "str": 3,
-      "dex": 15,
-      "con": 10,
-      "int": 12,
-      "wis": 12,
-      "cha": 13
-    },
-    "baseAttackBonus": 0,
-    "attacks": [
-      {
-        "name": "claw",
-        "natural": true,
-        "primary": true,
-        "count": 2,
-        "damage": "1d2",
-        "crit": "20/x2"
-      },
-      {
-        "name": "bite",
-        "natural": true,
-        "primary": false,
-        "damage": "1d3",
-        "crit": "20/x2"
-      }
-    ],
-    "specialAttacks": [],
-    "specialQualities": [
-      "darkvision 60 ft.",
-      "low-light vision",
-      "immunity to poison",
-      "scent"
-    ],
-    "feats": [
-      "Weapon Finesse"
-    ],
-    "challengeRating": 0.25,
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": null,

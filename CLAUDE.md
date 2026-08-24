@@ -75,7 +75,9 @@ duration, active wild shape form, Quen's current HP, and (Phase 9) `characterPro
 
 ```
 /data
-  /creatures     monster-manual.json, animal-companion.json
+  /creatures     one file per sourcebook (monster-manual.json, monster-manual-ii.json,
+                 manual-of-the-planes.json, monsters-of-faerun.json, …), merged by
+                 loadCreatureData.js; animal-companion.json (Quen) excluded from the merge
   /templates     greenbound, advanced, giant, young
   /spells
   /feats
@@ -615,7 +617,7 @@ primary weapon only (count forced to 1); `full` is the full-round-action routine
 full count plus all secondaries at −5). The UI hides the full-attack block entirely when
 `hasSecondaries` is false, per DM request — no point showing two identical action options.
 
-**`lyraFamiliar` (boolean, in `data/creatures/monster-manual.json`)** gates the wild shape
+**`lyraFamiliar` (boolean, in `data/creatures/*.json`)** gates the wild shape
 picker on top of level/size/HD: true for the common Greyhawk animals named above, anything on
 a Summon Nature's Ally list Lyra can currently cast (level ≤ 4), and DM-approved Feywild forms
 (Unicorn). False for everything else — e.g. polar bear (SNA 5, not currently castable, no
@@ -1239,13 +1241,16 @@ Consumes `data/spells/*.json` (see above) as the app's first UI on top of the Ph
 extraction — pure reference, deliberately not wired to the Tab 1 prep tracker.
 
 **Loading.** `src/lib/loadSpellData.js` globs every file under `data/spells/` with
-`import.meta.glob` (not named imports, unlike `loadCreatureData.js`) specifically so dropping
-in a new sourcebook file needs no loader edit — the extraction pipeline is still adding books.
-Exports the flat `rawSpells` array plus `spellFileCounts` (`{ bookTitle: count }`, keyed by
-each file's own `source` field rather than its filename — falls back to the filename only if a
-file loaded with zero entries to read a title from), which the tab renders as a load report (a
-one-line "Spell count: N" plus a collapsed-by-default per-book breakdown) so a truncated or
-malformed extraction is visible at a glance rather than silently missing.
+`import.meta.glob` specifically so dropping in a new sourcebook file needs no loader edit —
+the extraction pipeline is still adding books. `src/lib/loadCreatureData.js` (Aug 2026) glob
+every file under `data/creatures/` the same way, merging them into one flat `monsterManual`
+array — except `animal-companion.json`, which it skips by filename since that file holds Quen,
+a single companion object, not a creature array. `loadSpellData.js` exports the flat
+`rawSpells` array plus `spellFileCounts` (`{ bookTitle: count }`, keyed by each file's own
+`source` field rather than its filename — falls back to the filename only if a file loaded
+with zero entries to read a title from), which the tab renders as a load report (a one-line
+"Spell count: N" plus a collapsed-by-default per-book breakdown) so a truncated or malformed
+extraction is visible at a glance rather than silently missing.
 
 **Merging.** `src/lib/calc/spellReference.js` (`mergeSpellEntries`) groups raw entries by
 spell name (case-insensitive) into one card per spell. Every sourcebook that reprints a spell

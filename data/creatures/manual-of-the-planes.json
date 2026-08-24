@@ -1,0 +1,1376 @@
+[
+  {
+    "name": "Genie, Dao",
+    "source": "Manual of the Planes",
+    "page": 173,
+    "size": "Large",
+    "type": "Outsider (Air, Evil)",
+    "hitDice": "8d8+16",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 11,
+      "con": 14,
+      "int": 11,
+      "wis": 15,
+      "cha": 15
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8+9",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities",
+      "earth mastery",
+      "push"
+    ],
+    "specialQualities": [
+      "plane shift",
+      "telepathy"
+    ],
+    "feats": [
+      "Cleave",
+      "Power Attack",
+      "Sunder"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Genie, Marid",
+    "source": "Manual of the Planes",
+    "page": 173,
+    "size": "Large",
+    "type": "Outsider (Chaotic, Water)",
+    "hitDice": "11d8+22",
+    "speed": {
+      "land": 20,
+      "swim": 60
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 23,
+      "dex": 16,
+      "con": 14,
+      "int": 16,
+      "wis": 15,
+      "cha": 15
+    },
+    "baseAttackBonus": 11,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8+9",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities",
+      "water mastery",
+      "drench",
+      "vortex"
+    ],
+    "specialQualities": [
+      "spell resistance 27",
+      "plane shift",
+      "telepathy"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Power Attack"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Ephemera, Ecalypse",
+    "source": "Manual of the Planes",
+    "page": 170,
+    "size": "Large",
+    "type": "Outsider",
+    "hitDice": "10d8+40",
+    "speed": {
+      "land": 40,
+      "fly": 90
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 20,
+      "dex": 16,
+      "con": 18,
+      "int": 6,
+      "wis": 10,
+      "cha": 15
+    },
+    "baseAttackBonus": 10,
+    "attacks": [
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8+5",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities"
+    ],
+    "specialQualities": [
+      "discorporate",
+      "shadow blend"
+    ],
+    "feats": [
+      "Weapon Focus (hoof)",
+      "Run",
+      "Spell Focus (Illusion)"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). No parenthetical subtype (e.g. \"Extraplanar\") is printed after \"Outsider\" for this creature's type line, unlike Dao/Marid on p. 173 — recorded exactly as printed. Fly speed carries a \"(good)\" maneuverability rating in the book not represented in this schema's speed object. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Small Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Small",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "2d8",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 10,
+      "dex": 13,
+      "con": 10,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "damage": "1d4 plus 1d4 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Medium Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Medium",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "4d8+8",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 12,
+      "dex": 17,
+      "con": 14,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+1 plus 1d6 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Large Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Large",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "8d8+24",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 14,
+      "dex": 21,
+      "con": 16,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d6+2 plus 2d6 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+1",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed. Dragon Magazine #302's own printed table lists this row's book as \"MoF\" (Monsters of Faerûn) in error — Monsters of Faerûn contains no paraelementals; Manual of the Planes is the correct and confirmed source."
+  },
+  {
+    "name": "Paraelemental, Huge Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Huge",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "16d8+64",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 18,
+      "dex": 25,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 16,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d8+4 plus 2d8 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Mobility",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Greater Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Huge",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "21d8+84",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 20,
+      "dex": 27,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 21,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d8+5 plus 2d8 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Elder Ice",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Huge",
+    "type": "Elemental (Air, Cold)",
+    "hitDice": "24d8+96",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 22,
+      "dex": 29,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 24,
+    "attacks": [
+      {
+        "name": "icicle",
+        "natural": true,
+        "primary": true,
+        "count": 4,
+        "damage": "2d8+5 plus 2d8 cold",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "chill metal"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 15/+3",
+      "cold subtype"
+    ],
+    "feats": [
+      "Combat Reflexes",
+      "Dodge",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse (icicle)"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Small Magma",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Small",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "2d8+2",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 17,
+      "dex": 8,
+      "con": 13,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "fire subtype"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Medium Magma",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Medium",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "4d8+12",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 21,
+      "dex": 8,
+      "con": 17,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8+7",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "fire subtype"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Large Magma",
+    "source": "Manual of the Planes",
+    "page": 181,
+    "size": "Large",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "8d8+32",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 25,
+      "dex": 8,
+      "con": 19,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8+10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+1",
+      "fire subtype"
+    ],
+    "feats": [
+      "Cleave",
+      "Power Attack"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed. Dragon Magazine #302's own printed table lists this row's book as \"MoF\" (Monsters of Faerûn) in error — Monsters of Faerûn contains no paraelementals; Manual of the Planes is the correct and confirmed source."
+  },
+  {
+    "name": "Paraelemental, Huge Magma",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "16d8+80",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 10,
+    "abilities": {
+      "str": 29,
+      "dex": 8,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 16,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d10+13",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "fire subtype"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Power Attack"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Greater Magma",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "21d8+105",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 12,
+    "abilities": {
+      "str": 31,
+      "dex": 8,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 21,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d10+15",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "fire subtype"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Critical (slam)",
+      "Power Attack"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Elder Magma",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Fire)",
+    "hitDice": "24d8+120",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 14,
+    "abilities": {
+      "str": 33,
+      "dex": 8,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 24,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 4,
+        "damage": "2d10+16",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 15/+3",
+      "fire subtype"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Critical (slam)",
+      "Power Attack"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Small Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Small",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "2d8+2",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 14,
+      "dex": 10,
+      "con": 13,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d6+3 plus 1d4 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Medium Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Medium",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "4d8+12",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 16,
+      "dex": 12,
+      "con": 17,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8+4 plus 1d6 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental"
+    ],
+    "feats": [
+      "Power Attack"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Large Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Large",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "8d8+32",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 20,
+      "dex": 14,
+      "con": 19,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8+7 plus 1d6 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+1"
+    ],
+    "feats": [
+      "Power Attack",
+      "Sunder"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed. Dragon Magazine #302's own printed table lists this row's book as \"MoF\" (Monsters of Faerûn) in error — Monsters of Faerûn contains no paraelementals; Manual of the Planes is the correct and confirmed source."
+  },
+  {
+    "name": "Paraelemental, Huge Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "16d8+80",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 24,
+      "dex": 18,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 16,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d10+10 plus 1d6 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "fire immunity"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Power Attack",
+      "Sunder"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Greater Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "21d8+105",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 26,
+      "dex": 20,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 21,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 3,
+        "damage": "2d10+12 plus 2d6 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2",
+      "fire immunity"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Critical (slam)",
+      "Power Attack",
+      "Sunder"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Elder Ooze",
+    "source": "Manual of the Planes",
+    "page": 183,
+    "size": "Huge",
+    "type": "Elemental (Earth, Water)",
+    "hitDice": "24d8+120",
+    "speed": {
+      "land": 20,
+      "swim": 50
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 28,
+      "dex": 22,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 24,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 4,
+        "damage": "2d10+13 plus 2d6 acid",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "acid"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 15/+3",
+      "fire immunity"
+    ],
+    "feats": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Critical (slam)",
+      "Power Attack",
+      "Sunder"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Small Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Small",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "2d8",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 10,
+      "dex": 17,
+      "con": 10,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 3,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Medium Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Medium",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "4d8+8",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 12,
+      "dex": 21,
+      "con": 14,
+      "int": 4,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 4,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4+1",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 5,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Large Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Large",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "8d8+24",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 14,
+      "dex": 25,
+      "con": 16,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d6+3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+1"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Mobility",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed. Dragon Magazine #302's own printed table lists this row's book as \"MoF\" (Monsters of Faerûn) in error — Monsters of Faerûn contains no paraelementals; Manual of the Planes is the correct and confirmed source."
+  },
+  {
+    "name": "Paraelemental, Huge Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Huge",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "16d8+64",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 29,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 16,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4+6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2"
+    ],
+    "feats": [
+      "Dodge",
+      "Improved Initiative",
+      "Mobility",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Greater Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Huge",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "21d8+84",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 20,
+      "dex": 31,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 21,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4+7",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 10/+2"
+    ],
+    "feats": [
+      "Dodge",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Mobility",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  },
+  {
+    "name": "Paraelemental, Elder Smoke",
+    "source": "Manual of the Planes",
+    "page": 184,
+    "size": "Huge",
+    "type": "Elemental (Air, Fire)",
+    "hitDice": "24d8+96",
+    "speed": {
+      "fly": 90
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 33,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 24,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4+9",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "smoke claws"
+    ],
+    "specialQualities": [
+      "elemental",
+      "damage reduction 15/+3"
+    ],
+    "feats": [
+      "Dodge",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Mobility",
+      "Weapon Finesse (claw)"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Challenge Rating and other administrative fields (Climate/Terrain, Organization, Treasure, Alignment, Advancement) are given once in a table shared by all paraelemental types and sizes (Manual of the Planes p. 185), not repeated per type/size block; Challenge Rating here is taken from that shared table. Critical multiplier is not printed in this book's compact, pre-3.5-revision stat-block format; recorded as the 3.5 core-rules default (x2) for a natural weapon attack, not itself printed."
+  }
+]
