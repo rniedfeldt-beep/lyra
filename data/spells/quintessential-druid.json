@@ -183,7 +183,7 @@
       {
         "spellName": "Animal Friendship",
         "source": "Player's Handbook (3.0 edition)",
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
+        "note": "A 3.0-edition spell, dropped in the 3.5 revision."
       }
     ],
     "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."
@@ -447,7 +447,7 @@
       {
         "spellName": "Animal Friendship",
         "source": "Player's Handbook (3.0 edition)",
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
+        "note": "A 3.0-edition spell, dropped in the 3.5 revision."
       }
     ],
     "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."
@@ -662,7 +662,7 @@
       {
         "spellName": "Animal Friendship",
         "source": "Player's Handbook (3.0 edition)",
-        "note": "Animal Friendship is a 3.0-edition spell dropped in the 3.5 revision, kept in data/spells/referenced-spells.json for provenance only, using its original 3.0 Player's Handbook text. This entry's own mechanics and description are written standalone above and don't depend on that entry to be understood."
+        "note": "A 3.0-edition spell, dropped in the 3.5 revision."
       }
     ],
     "note": "Mechanical fields and description adapted from Vermin Friendship's fully printed mechanics (same book, same spell family) -- The Quintessential Druid's own text for this spell only says 'as animal friendship, except it affects [type] instead of animals' with no restated fields, and Animal Friendship's own stat block doesn't exist in 3.5 to inherit from instead. The specific material component substance isn't given in the source (Vermin Friendship's own material -- food it likes, plus royal jelly -- is vermin-specific and wasn't assumed to carry over), so only the V/S/M component letters are adapted."

@@ -1304,14 +1304,26 @@ name as a `FunctionsAsEntry` toggle, collapsed by default, and on tap resolves a
 target's own `PrintingBlock` inline directly beneath, indented and left-bordered
 (`.functions-as-expansion`) so it reads as a citation rather than a sibling result — nested
 inside an `ErrorBoundary` since it's user-triggered recursive rendering of a second entry.
-`source: null` (currently only Animal Friendship, referenced from three Quintessential Druid
-"Friendship" spells) means a confirmed dead end — a 3.0-edition spell dropped in the 3.5
-revision with no stat block anywhere to link to — rendered as plain text plus its `note`, not a
-toggle. Resolution (`resolveFunctionsAs` in `spellReferenceData.js`) checks two pools: a name
-already in the main list (e.g. Regenerate Light Wounds, cited by its own book's
-higher-level variants) returns that book's actual printing off the merged group, matched by
-`source` where possible; a name that's reference-only returns a synthetic printing built
+`source: null` means a confirmed dead end — nothing in any edition to link to — rendered as
+plain text plus its `note`, not a toggle; no current entry hits this (Animal Friendship, the
+one case that used to, got a 3.0-edition text added to `referenced-spells.json` for exactly
+this purpose — see below). Resolution (`resolveFunctionsAs` in `spellReferenceData.js`) checks
+two pools: a name already in the main list (e.g. Regenerate Light Wounds, cited by its own
+book's higher-level variants) returns that book's actual printing off the merged group, matched
+by `source` where possible; a name that's reference-only returns a synthetic printing built
 straight from its `referenced-spells.json` entry.
+
+**Note-field content (Aug 2026).** `otherPrintings[].note` and `functionsAs[].note` are the
+only two `note`-shaped fields actually rendered anywhere in the app (`PrintingBlock` and
+`FunctionsAsEntry` in `SpellReferenceTab.jsx`) — creature and feat `note` fields aren't
+surfaced by any current UI, so they're free to stay dev-facing. These two are read at the
+table, though, so they stay strictly game-facing: what a printing changes mechanically, why a
+citation was inferred, what edition a spell is from — never how the JSON was built, assembled,
+or organized. No file paths, no "extracted"/"provenance"/"standalone" framing, no referring to
+"this entry" as a data object rather than a spell. (A spell's top-level `note` — e.g. the
+Vermin-Friendship-adapted mechanics note on Beast/Elemental/Magical Beast Friendship — isn't
+rendered at all today, so that constraint doesn't apply there; it's internal documentation like
+a code comment, and reads accordingly.)
 
 **`data/spells/referenced-spells.json` and `referenceOnly`.** Holds spells that exist in our
 data only so a `functionsAs` link has something to resolve and expand — Antimagic Field,

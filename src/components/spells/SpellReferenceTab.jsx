@@ -161,7 +161,7 @@ function FunctionsAsEntry({ reference }) {
 
 function ResolvedFunctionsAs({ reference }) {
   const resolved = resolveFunctionsAs(reference)
-  if (!resolved) return <p className="note">Referenced spell not found in data.</p>
+  if (!resolved) return <p className="note">Referenced spell not available.</p>
   return <PrintingBlock printing={resolved} />
 }
 
@@ -238,7 +238,7 @@ function PrintingBlock({ printing }) {
           )}
         </>
       ) : (
-        <p className="note">Details not yet extracted for this printing.</p>
+        <p className="note">Full stat block not available for this printing.</p>
       )}
     </div>
   )
