@@ -331,7 +331,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 2nd-level creature or 1d3 1st-level creatures of the same kind. 2nd-level options: donkey, eagle, formian worker, giant ant (worker), hyena, monstrous scorpion (Medium), monstrous spider (Medium), riding dog, medium viper snake, or vulture.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Control Sand",
@@ -376,7 +382,7 @@
       "M"
     ],
     "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft. level)",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Abrasive dust spreads in 20-ft. radius, 20 ft. high"
@@ -467,7 +473,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 3rd-level creature, 1d3 2nd-level creatures, or 1d4+1 1st-level creatures of the same kind. 3rd-level options: ashworm, bat swarm, camel, cheetah, dire badger, dire bat, giant ant (soldier), monstrous centipede (Large), or large viper snake.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Whispering Sand",
@@ -681,7 +693,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 4th-level creature, 1d3 3rd-level creatures, or 1d4+1 lower-level creatures of the same kind. 4th-level options: ankheg, deinonychus, dire jackal, giant ant (queen), giant eagle, giant owl, monstrous spider (Large), or protoceratops.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Wall of Salt",
@@ -945,7 +963,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 5th-level creature, 1d3 4th-level creatures, or 1d4+1 lower-level creatures of the same kind. 5th-level options: dire vulture, formian warrior, lion, locust swarm, monstrous centipede (Huge), monstrous scorpion (Large), or huge viper snake.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Transmute Sand to Glass",
@@ -1076,7 +1100,13 @@
     "spellResistance": "Yes",
     "description": "Functions like desiccate, except it affects multiple creatures (one per caster level, no two more than 30 ft. apart).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Desiccate",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Mephit Mob",
@@ -1185,7 +1215,13 @@
     "spellResistance": "No",
     "description": "Functions as transmute rock to mud, except it can also be cast on sand, earth, and unworked nonmagical rock, and the resulting mud is boiling hot: creatures mired in it take 5d6 fire damage/round (10d6 if fully submerged), while those merely standing atop it take 1d6/round from steam. Damage continues for 1d3 rounds after exposure ends (at a reduced 1d6/round). The mud cools after 1 round per caster level (damage dice halve each round past that point), then dries into ordinary soil. Arcane Material Component: a pinch of clay, sulfur, and water.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Transmute Rock to Mud",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Summon Desert Ally VI",
@@ -1211,7 +1247,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 6th-level creature, 1d3 5th-level creatures, or 1d4+1 lower-level creatures of the same kind. 6th-level options: diprotodon, dire lion, giant stag beetle, hippopotamus, megaraptor, monstrous centipede (Gargantuan), monstrous spider (Huge), or rhinoceros.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Wall of Magma",
@@ -1266,7 +1308,13 @@
     "spellResistance": "Yes",
     "description": "Functions like flesh to salt, except it affects multiple creatures: one additional creature per four caster levels, to a maximum of five creatures at 20th level.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Flesh to Salt",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Summon Desert Ally VII",
@@ -1292,7 +1340,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 7th-level creature, 1d3 6th-level creatures, or 1d4+1 lower-level creatures of the same kind. 7th-level options: elephant, formian taskmaster, giant banded lizard, or monstrous scorpion (Huge).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Flashflood",
@@ -1373,7 +1427,13 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 8th-level creature, 1d3 7th-level creatures, or 1d4+1 lower-level creatures of the same kind. 8th-level options: dire tortoise, dunewinder, monstrous centipede (Colossal), monstrous spider (Gargantuan), triceratops, or tyrannosaurus.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   },
   {
     "name": "Summon Desert Ally IX",
@@ -1399,6 +1459,12 @@
     "spellResistance": "No",
     "description": "Functions like summon desert ally I, except you can summon one 9th-level creature, 1d3 8th-level creatures, or 1d4+1 lower-level creatures of the same kind. 9th-level options: gargantuan monstrous scorpion or colossal monstrous spider.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Desert Ally I",
+        "source": "Sandstorm"
+      }
+    ]
   }
 ]

@@ -50,7 +50,14 @@
         "page": 170
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Deathwatch",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Animate Fire",
@@ -71,7 +78,7 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "One Small ﬁre"
+      "value": "One Small fire"
     },
     "duration": "Concentration, up to 1 round/level (D)",
     "savingThrow": "None",
@@ -117,7 +124,13 @@
         "page": 96
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Animate Fire",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Animate Wood",
@@ -402,9 +415,9 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "One willing creature/ level, no two of which are more than 20 ft. apart"
+      "value": "One willing creature/level, no two of which are more than 20 ft. apart"
     },
-    "duration": "1 minute/ level (D); see text",
+    "duration": "1 minute/level (D); see text",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Cast as an immediate action, this spell bears up to one willing creature per level (no two more than 20 ft. apart) toward the surface of a liquid at 60 feet per round until they float, rescuing a sinking air-breather from drowning. The subject then floats and can swim away or be towed. The spell ends for a subject if it is removed from the liquid. Duration 1 minute/level (D), see text.",
@@ -521,9 +534,9 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "One ﬁre source (up to a 20-ft. cube) or one creature; see text"
+      "value": "One fire source (up to a 20-ft. cube) or one creature; see text"
     },
-    "duration": "1 minute/level (D) (ﬁre source) or Instantaneous (creature)",
+    "duration": "1 minute/level (D) (fire source) or Instantaneous (creature)",
     "savingThrow": "No (fire source) or Fortitude half (creature)",
     "spellResistance": "No (fire source) or Yes (creature)",
     "description": "Turns the flames of a targeted fire source (up to a 20-ft. cube, including sufficiently small magical fires like a wall of fire) into blue-white cold flames that deal cold damage instead of fire damage to anything they contact, for 1 minute/level (D); no save, SR no. Alternatively, targeted at a creature with the fire subtype or vulnerability to cold, it instantly deals 1d6 points of cold damage per two caster levels (maximum 5d6) with no other effect; Fortitude half, SR yes.",
@@ -551,7 +564,7 @@
     },
     "duration": "1 minute/level",
     "savingThrow": "None",
-    "spellResistance": "No 53",
+    "spellResistance": "No",
     "description": "For 1 minute/level, when the touched creature charges it gains a +4 bonus on the attack roll and takes no penalty to Armor Class, replacing the normal +2 attack/-2 AC charge modifiers. If the creature can make multiple attacks after charging (such as with pounce), the bonus applies only to the first attack. Material component: a crab's leg.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -962,7 +975,7 @@
       "value": "10-ft.-radius burst centered on you"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Creates a 10-ft.-radius burst centered on the caster (range 10 ft.), instantaneous, Reflex half. Creatures in the area take 1d6 points of nonlethal damage, and any creature that fails its Reflex save is also stunned for 1 round. The caster is unaffected.",
     "otherPrintings": [
@@ -1099,7 +1112,7 @@
       "value": "One creature"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂex negates; see text",
+    "savingThrow": "Reflex negates; see text",
     "spellResistance": "Yes",
     "description": "Close-range spell (25 ft. + 5 ft./2 levels) affecting one creature, lasting 1 round/level (material component: a small piece of copper wire). Creates a small thundercloud over the subject's head that follows it unerringly even if it turns invisible or leaves the area. Each round, a miniature lightning bolt leaps from the cloud to strike the subject for 1 point of electricity damage, negated by a successful Reflex save.",
     "otherPrintings": [],
@@ -1203,7 +1216,7 @@
     "descriptors": [],
     "components": [
       "V",
-      "DF 230"
+      "DF"
     ],
     "castingTime": "1 swift action",
     "range": "Personal",
@@ -1441,7 +1454,7 @@
       "value": "One creature"
     },
     "duration": "Concentration",
-    "savingThrow": "Reﬂex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "Ranged (medium) spell against one creature, lasting as long as you concentrate. The subject can act normally but cannot move from its location; the winds carry its voice away (it can speak but not be heard) and it can hear nothing but the wind's roar. Casting a spell while bound requires a Concentration check (DC = this spell's save DC + the level of the spell being cast). No sonic or language-dependent spells or effects can pass into or out of the winds, though spells you cast on yourself work normally. Ranged attacks made into or out of the winds take a -2 penalty. The spell holds flying creatures in midair. Reflex negates, SR yes.",
     "otherPrintings": [
@@ -1555,7 +1568,7 @@
       "value": "5-ft.-radius emanation centered on you"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Causes fire to radiate 5 feet in all directions from your body for 1 round/level, illuminating the area and dealing 1d4 points of fire damage per two caster levels (maximum 5d4) each round on your turn to adjacent creatures. Reflex half, SR yes.",
     "otherPrintings": [
@@ -1679,7 +1692,13 @@
         "page": 157
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Camouflage",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Cloud Wings",
@@ -2010,7 +2029,7 @@
       "value": "Cone-shaped burst"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "A 30-ft. cone-shaped burst of cold dealing 1d4 points of cold damage per two caster levels (maximum 5d4), Reflex half. Creatures that fail the save are also dazed for 1 round. Instantaneous. Material component: three drops of water or ice fragments blown from a cupped palm.",
     "otherPrintings": [],
@@ -2095,7 +2114,7 @@
       "type": "area",
       "value": "Living creatures within a 5-ft.- radius burst"
     },
-    "duration": "1 round/level 112",
+    "duration": "1 round/level",
     "savingThrow": "Fortitude partial",
     "spellResistance": "Yes",
     "description": "Living creatures in a 5-ft.-radius burst are outlined in flame for 1 round/level, shedding light like a torch and losing the benefit of concealment from darkness (though 3rd-level+ magical darkness still works normally), blur, displacement, invisibility, or similar effects. Affected creatures that fail a Fortitude save also take 1d4 points of fire damage each round; success halves the damage each round (minimum 1). Spellcasters taking this damage must make a Concentration check (DC 10 + half the continuous damage last dealt) to cast spells. Extinguishing the fire by normal means ends the outlining effect early.",
@@ -2403,7 +2422,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like snake's swiftness, except it affects multiple allied creatures in a 20-ft.-radius burst out to medium range instead of a single subject.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Snake’s Swiftness",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Splinterbolt",
@@ -2426,7 +2451,7 @@
     },
     "duration": "Instantaneous",
     "savingThrow": "None",
-    "spellResistance": "No 203",
+    "spellResistance": "No",
     "description": "You fire a splinter of wood, requiring a ranged attack to hit; on a hit it deals 4d6 points of piercing damage and threatens a critical hit on 18-20. You can fire one additional splinterbolt for every four caster levels beyond 3rd (maximum three at 11th level), aimed at the same or different targets, provided all targets are within 30 feet of each other and all are fired simultaneously. Damage reduction applies normally, but the damage counts as magic and piercing for overcoming it. Material component: a splinter of wood.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2486,7 +2511,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like magic fang (PH 250), except it is cast as a swift action, targets a living creature (typically an animal companion), and lasts only 1 round.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Magic Fang",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Train Animal",
@@ -2679,7 +2710,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like align fang, except it affects one creature per level, no two of which may be more than 30 feet apart, at a distance (close range) rather than a single touched ally.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Align Fang",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Attune Form",
@@ -2827,7 +2864,7 @@
       "value": "5-ft.-diameter sphere"
     },
     "duration": "1 round/level",
-    "savingThrow": "None or Reﬂex partial; see text",
+    "savingThrow": "None or Reflex partial; see text",
     "spellResistance": "Yes",
     "description": "You create a 5-ft.-diameter sphere of swirling wind and dust that moves 30 feet per round in a direction you point, ignoring terrain. If it enters a creature's space, it stops for that round and attempts a bull rush against the creature (the sphere gets a +6 bonus on the check); if it wins, the creature is pushed as far as possible in a random direction (roll 1d8: 1 = toward you, 2-8 = clockwise around the creature), and a pushed creature must succeed on a Reflex save or fall prone. The sphere only moves when you actively direct it (a move action for you); otherwise it stays in place and tries to bowl over anyone in its square. The spell ends if the sphere ever moves beyond the spell's range from you.",
     "otherPrintings": [],
@@ -3044,7 +3081,7 @@
       "value": "All creatures within a 20-ft.- radius burst centered on you"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "You choose acid, cold, electricity, or fire; that energy bursts outward from you in a 20-ft-radius burst, dealing 1d8 damage +1/caster level (max +20) to nearby creatures other than you. No Reflex save is allowed, but spell resistance and any resistances/immunities to that energy type apply. If you're willing to take the damage yourself, you deal twice as much damage instead. The spell's descriptor matches the chosen energy type.",
     "otherPrintings": [
@@ -3283,7 +3320,7 @@
     },
     "duration": "1 round/2 levels",
     "savingThrow": "Fortitude negates",
-    "spellResistance": "",
+    "spellResistance": "Yes",
     "description": "A successful melee touch attack infests the target with magical maggots. On a failed Fortitude save, the maggots deal 1d4 Constitution damage each round at the start of your turn; the subject may attempt a new Fortitude save each round to negate that round's damage and end the effect. The infestation can be removed by remove disease or heal. Requires a handful of dead, dried flies as a material component. Lasts 1 round/2 levels.",
     "otherPrintings": [
       {
@@ -3338,8 +3375,8 @@
       "value": "120-ft. line"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
-    "spellResistance": "Yes 127",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
     "description": "Unleashes destructive energy in a 120-ft line, instantly killing natural plant life and leaving ash in its wake. Fey, vermin, plants and plant creatures, and animals in the area take 1d10 negative energy damage per caster level (max 10d10); Reflex halves. Requires a pinch of ash from a burnt plant as a material component.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3461,7 +3498,7 @@
       "value": "One creature/level, no two of which are more than 30 ft. apart"
     },
     "duration": "10 min./level",
-    "savingThrow": "Fortitude negates (harm-",
+    "savingThrow": "Fortitude negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Functions as resist energy (PH 272), granting resistance to a chosen energy type, except it affects one creature per level, no two of which are more than 30 ft. apart. Lasts 10 min./level; Fortitude negates (harmless).",
     "otherPrintings": [
@@ -3470,7 +3507,13 @@
         "page": 120
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Resist Energy",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Sink",
@@ -3543,7 +3586,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions as snowshoes (letting subjects walk atop snow without sinking), except it affects one creature per level, no two of which are more than 30 ft. apart. Lasts 1 hour/level (D); Will negates (harmless).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Snowshoes",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Spiderskin",
@@ -3596,7 +3645,13 @@
         "page": 181
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Brambles",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Spiritjaws",
@@ -3614,7 +3669,7 @@
       "M"
     ],
     "castingTime": "1 standard action",
-    "range": "Medium (100 + 10 ft./level)",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Jaws of force"
@@ -3646,7 +3701,7 @@
       "value": "Waves under a creature or object within range"
     },
     "duration": "10 minutes/level (D)",
-    "savingThrow": "Reﬂex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "You cause water to lift and propel a creature or object (which may itself hold creatures or objects) forward in a straight line at 60 ft./round over water. Maximum size that can be lifted scales with caster level: Medium at CL 5, Large at 7, Huge at 9, Gargantuan at 11, Colossal at 13. The wave dissipates and lowers its burden harmlessly when it reaches land. If you're riding or standing on the lifted object, it keeps moving as long as you remain on it or until you dismiss the spell; otherwise it moves only as far as the spell's range allows from where you cast it. Reflex negates; lasts up to 10 minutes/level (D).",
     "otherPrintings": [
@@ -3798,7 +3853,13 @@
         "page": 186
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Vigor, Lesser",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Vigor, Mass Lesser",
@@ -3828,7 +3889,13 @@
         "page": 186
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Vigor, Lesser",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Vine Mine",
@@ -3910,7 +3977,7 @@
       "value": "A line between two creatures"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "A bolt of electricity arcs along a line between two creatures you designate (both must be in range and valid targets), dealing 1d6 points of electricity damage per caster level (maximum 15d6) to both creatures and anything else in the line between them. Reflex half. Arcane casters need two small iron rods as a material component.",
     "otherPrintings": [
@@ -3967,7 +4034,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like the blindsight spell, except that the blindsight granted extends out to 60 feet. Touch range, 1 minute/level duration, Will negates (harmless), SR yes (harmless).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Blindsight",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Burrow, Mass",
@@ -3989,7 +4062,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like burrow, except it affects one creature per level (no two more than 30 ft. apart) instead of a single target. Each affected ally's hands take on a yellow nimbus and become large digging mole-hands. Duration 1 minute/level (D); Will negates (harmless), SR yes (harmless).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Burrow",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Chain of Eyes",
@@ -4075,7 +4154,19 @@
     "spellResistance": "No",
     "description": "Similar to contingency but narrower in scope: while active (1 hour/level (D)), the first time you take damage from acid, cold, electricity, fire, or sonic energy, the spell automatically grants you resistance 10 against that energy type for up to 10 minutes per caster level or the remainder of the duration, whichever is shorter, as if under resist energy. Once the triggering energy type is set it cannot change. Only one casting can be active on you at a time — casting it again ends the earlier one. Its resistance does not stack with resist energy or similar effects against the same energy type, but you can have this active against one energy type while under resist energy for a different type simultaneously. Material component: an oyster shell.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Contingency",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      },
+      {
+        "spellName": "Resist Energy",
+        "source": "Player's Handbook v3.5",
+        "note": "Secondary reference: the resistance granted works 'as if under resist energy.'"
+      }
+    ]
   },
   {
     "name": "Creeping Cold, Greater",
@@ -4108,7 +4199,13 @@
         "page": 160
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Creeping Cold",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Enhance Wild Shape",
@@ -4258,7 +4355,7 @@
     },
     "duration": "1 round/level",
     "savingThrow": "Will partial",
-    "spellResistance": "Yes 130",
+    "spellResistance": "Yes",
     "description": "Requires a successful ranged touch attack with a ray. The struck creature takes a Strength penalty of 1d6+1 per two caster levels (maximum 1d6+10), and if it also fails a Will save, it becomes slowed for the spell's duration (1 round/level). This slow effect counters and is countered by haste.",
     "otherPrintings": [
       {
@@ -4296,7 +4393,13 @@
         "page": 167
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Reincarnate",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Lay of the Land",
@@ -4430,7 +4533,7 @@
       "value": "Cloud spreads in a 30-ft. radius, 20 ft. high"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂex partial; see text",
+    "savingThrow": "Reflex partial; see text",
     "spellResistance": "No",
     "description": "Creates a 30-ft.-radius, 20-ft.-tall cloud of scalding steam that moves away from you in a straight line at 10 ft./round for the spell's duration (1 round/level). Anyone inside takes 2d6 points of damage and is permanently blinded, or takes half damage and avoids blinding with a successful Reflex save. Creatures in the cloud have concealment. Wind doesn't redirect the cloud, but a moderate wind (11+ mph) disperses it in 4 rounds and a strong wind (21+ mph) disperses it in 1 round.",
     "otherPrintings": [
@@ -4498,7 +4601,13 @@
         "page": 103
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Avoid Planar Effects",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Poison Vines",
@@ -4525,7 +4634,13 @@
         "page": 175
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Vine Mine",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Resistance, Greater",
@@ -4547,7 +4662,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like resistance, except it grants a +3 resistance bonus on saving throws. Touch range, lasts 24 hours.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Resistance",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Rushing Waters",
@@ -4572,7 +4693,7 @@
     },
     "duration": "Instantaneous",
     "savingThrow": "None; see text",
-    "spellResistance": "No 178",
+    "spellResistance": "No",
     "description": "A wave of cold water erupts outward from a chosen point, making a bull rush attempt against every creature in the 15-ft-radius area without provoking attacks of opportunity, using a +15 bonus on the opposed Strength check. If the wave wins, the defender is pushed 5 feet directly away from the origin point, plus 5 more feet for every 5 points by which the check result is exceeded. Any creature moved 5 feet or more must succeed on a Reflex save or fall prone. The wave also drenches the area and extinguishes any normal fire up to the size of a bonfire.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4708,7 +4829,7 @@
       "value": "One creature"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "A stalagmite up to 1 foot wide and 10 feet tall (stops growing early if it hits a ceiling) erupts from the ground beneath the target. Airborne creatures within 10 feet of the ground get a +4 bonus on their save; airborne creatures more than 10 feet up are unaffected. It deals 1d6 piercing damage per caster level (max 10d6) on a failed Reflex save (half on success); a target that fails and takes damage is impaled and cannot move until it succeeds on a DC 15 Escape Artist check, breaks free with a DC 25 Strength check (taking 3d6 slashing damage), or the stalagmite is removed by other means (e.g. stone shape). Damage reduction applies normally; the damage counts as piercing for overcoming DR.",
     "otherPrintings": [],
@@ -4734,7 +4855,7 @@
       "type": "effect",
       "value": "One summoned elementite swarm"
     },
-    "duration": "Concentration, up to 1 round/level + 1 round 214",
+    "duration": "Concentration, up to 1 round/level + 1 round",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Summons one elementite swarm (air, earth, fire, or water, caster's choice) from the corresponding Elemental Plane. It appears where designated, acts immediately on your turn, understands your speech, and obeys your commands (commanding it is a free action). You must concentrate to maintain the spell, which lasts up to 1 round per level plus 1 round. As with any summoning of an elemental creature, the spell takes on that element's descriptor.",
@@ -4766,7 +4887,13 @@
     "spellResistance": "No",
     "description": "Functions like surefooted stride, except it affects one creature per caster level, no two of which can be more than 30 feet apart, at close range.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Surefooted Stride",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Swim, Mass",
@@ -4790,7 +4917,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like swim, except it affects one creature per caster level (no two more than 30 feet apart) instead of a single target. Duration 10 minutes/level (dismissible).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Swim",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Vortex of Teeth",
@@ -4842,7 +4975,7 @@
       "value": "A straight wall whose area is up to one 10-ft. square/level (S)"
     },
     "duration": "10 minutes/level",
-    "savingThrow": "Reﬂex negates; see text",
+    "savingThrow": "Reflex negates; see text",
     "spellResistance": "No",
     "description": "Creates a 10-foot-thick vertical wall of fresh or salt water (caster's choice), up to one 10-ft square per level, which forms around any creatures or objects in its area, submerging them. A creature in the area may attempt a Reflex save to move to either side before the wall fully forms (must act on its next turn or take full effect). Creatures can cross the wall via Swim checks or by walking along the floor at half speed through the calm water. Open flames in the area are extinguished, and creatures with the fire subtype take 2d6 damage +1/caster level per round spent partly or wholly within the wall. The transparent wall grants cover against attacks from outside, cannot be destroyed by physical damage or drained away, and any water removed in a container instantly evaporates. Lasts 10 minutes/level; requires a sponge as a material component.",
     "otherPrintings": [
@@ -4927,7 +5060,13 @@
     "spellResistance": "No (harmless)",
     "description": "Functions like wings of air, except the target's flight maneuverability improves by two grades instead of one (clumsy to average, poor to good, or average to perfect). Touch range, harmless, lasts 1 minute/level.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Wings of Air",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Wood Rot",
@@ -5060,7 +5199,7 @@
       "S"
     ],
     "castingTime": "1 minute",
-    "range": "1 mile 50",
+    "range": "1 mile",
     "targetAreaEffect": {
       "type": "area",
       "value": "1-mile-radius circle centered on you"
@@ -5191,7 +5330,7 @@
       "DF"
     ],
     "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level) 94",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "area",
       "value": "One 20-ft. cube/level (S)"
@@ -5206,7 +5345,18 @@
         "page": 102
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Quench",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "spellName": "Antimagic Field",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Heal Animal Companion",
@@ -5254,7 +5404,7 @@
       "value": "20-ft.-radius burst"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "A standard-action, instantaneous spell with a 20-ft.-radius burst at long range (Reflex half, no SR). The point of origin must be on the ground; it has no effect in desert terrain or on solid stone. Ground moisture freezes into ice under a layer of soil that bursts violently, turning the ground into rubble terrain (DMG 90) and dealing 1d6 points of damage per caster level (maximum 15d6), half of which is cold damage.",
     "otherPrintings": [],
@@ -5282,7 +5432,7 @@
       "value": "One creature"
     },
     "duration": "6 rounds; see text",
-    "savingThrow": "Fortitude negates and Reﬂex partial; see text",
+    "savingThrow": "Fortitude negates and Reflex partial; see text",
     "spellResistance": "Yes",
     "description": "A standard-action, close-range spell (material: a gob of beeswax) targeting one creature for up to 6 rounds. The target takes 6d6 points of fire damage unless it succeeds on a Fortitude save; in each subsequent round the fire deals 1d6 less damage (minimum 1d6) until the spell ends or the flames are extinguished. Flammable nonmagical items the target carries automatically fail their saves against this damage. After the first round, the target can spend a full-round action for a DC 15 Reflex save to extinguish the flames (rolling prone grants +2 on this save); jumping into a large body of water or magically extinguishing the fire also ends the effect immediately. Spell resistance applies.",
     "otherPrintings": [
@@ -5455,7 +5605,14 @@
         "page": 174
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Etherealness",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Plant Body",
@@ -5512,7 +5669,13 @@
         "page": 175
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Thornskin",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Quill Blast",
@@ -5528,13 +5691,13 @@
       "M"
     ],
     "castingTime": "1 standard action",
-    "range": "20 ft. 164",
+    "range": "20 ft.",
     "targetAreaEffect": {
       "type": "area",
       "value": "20-ft.-radius spread centered on you"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half; see text",
+    "savingThrow": "Reflex half; see text",
     "spellResistance": "Yes",
     "description": "A standard-action, instantaneous spell (material: a porcupine quill) that fires needle-sharp quills outward in a 20-ft.-radius spread centered on the caster. Creatures in the area are struck by a number of quills based on size: Tiny or smaller take 4, Small take 6, Medium take 8, Large take 10, Huge or larger take 12. A successful Reflex save halves the quills for Small or larger creatures, and lets Tiny or smaller creatures avoid them entirely. Each quill deals 1d6 points of damage and lodges in the target, imposing a noncumulative −1 penalty on attack rolls, saves, and checks. All lodged quills can be safely removed as a standard action with a DC 20 Heal check; otherwise, removing them deals an extra 1d6 points of damage. Spell resistance applies.",
     "otherPrintings": [
@@ -5617,14 +5780,20 @@
     "range": null,
     "targetAreaEffect": {
       "type": "target",
-      "value": "Stone or stone objects touched, up to 10 cu. ft. + 10 cu. ft./ level 208"
+      "value": "Stone or stone objects touched, up to 10 cu. ft. + 10 cu. ft./level"
     },
     "duration": "Instantaneous",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Functions like stone shape (PH), letting you sculpt touched stone or stone objects into any shape you desire, but affects a much larger quantity: up to 10 cu. ft. + 10 cu. ft./level. Instantaneous, no save, no SR.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Stone Shape",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Swamp Stride",
@@ -5650,7 +5819,13 @@
     "spellResistance": "No",
     "description": "Functions like tree stride (PH), but you travel between pools of water instead of trees: you sense the nearest pool and other similarly deep pools, then can dive into one and emerge from another as if linked by a tunnel. Each pool must be at least 1 foot deep, the exit pool's depth must be within 1 foot of the entry pool's, and each jump has a maximum range of 500 feet (unlike tree stride). Lasts 1 hour/level or until you've made all your jumps.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Tree Stride",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Vigor, Greater",
@@ -5677,7 +5852,13 @@
         "page": 186
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Vigor, Lesser",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Wall of Sand",
@@ -5700,7 +5881,7 @@
       "type": "effect",
       "value": "A straight wall whose area is up to one 10-ft. square/level (S)"
     },
-    "duration": "Concentration + 1 round/",
+    "duration": "Concentration + 1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Conjures a 10-foot-thick, opaque, immobile wall of swirling sand (up to one 10-ft. square/level) that must rest on a solid surface. It blocks ranged attacks with normal cover, but creatures can force their way through with a full-round action and a Strength check, moving 5 feet for every 5 points the check exceeds 10. Creatures inside the wall are blinded, deafened, and unable to speak or breathe (risking suffocation). Spells with verbal components can't be cast inside, and any other spell requires a Concentration check (DC 20 + spell level). Creatures with reach can attack through the wall, but targets have total concealment and cover. Any unprotected open flame pushed into the wall is extinguished instantly. Material component: a handful of sand.",
@@ -5765,7 +5946,7 @@
       "value": "All sighted creatures within a 20-ft.-radius burst centered on you"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex negates; see text",
+    "savingThrow": "Reflex negates; see text",
     "spellResistance": "Yes",
     "description": "Your body erupts with radiance in a 20-ft.-radius burst centered on you. Any creature that can see you must save or be blinded for 1 minute/caster level. Undead in the area take 1d6 damage per two caster levels (max 10d6), or half on a successful Reflex save; if it fails its save and is the type specifically harmed by bright light (such as a vampire), it is destroyed outright. Fungi, molds, oozes, and slimes are affected the same way as undead. SR applies.",
     "otherPrintings": [
@@ -5906,7 +6087,7 @@
       "value": "400-pound ball of rock and"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "No",
     "description": "A comet plummets onto the target area, dealing 1d6 damage per caster level (max 15d6) to everything in a 5-ft.-radius burst; a failed Reflex save also knocks the creature prone, while a successful save halves the damage and avoids being knocked down. The comet leaves a 10-foot-square area filled with dense rubble on impact. You must have at least 40 feet of vertical space above the impact point, or the spell fails.",
     "otherPrintings": [
@@ -5939,7 +6120,7 @@
       "value": "20-ft.-radius spread"
     },
     "duration": "1 round/level (D)",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Spectral stampeding dinosaurs sweep through a 20-ft.-radius spread for 1 round/level (D), dealing 1d12 damage + 1/caster level (max +20) to creatures within, Reflex half; creatures more than 10 feet above the ground are unaffected. As a free action you can shift the effect's point of origin up to 40 feet along the ground each round. A creature can't be damaged more than once per round by the spell. SR applies. Material component: a fossil.",
     "otherPrintings": [],
@@ -6117,7 +6298,7 @@
       "value": "Ray"
     },
     "duration": "1 round/2 levels",
-    "savingThrow": "Reﬂex partial; see text",
+    "savingThrow": "Reflex partial; see text",
     "spellResistance": "Yes",
     "description": "Fires a ray requiring a ranged touch attack; a hit deals 2d6 cold damage, and unless the target succeeds on a Reflex save, it becomes encased in a thick ice sheath and immobilized (helpless), taking 2d6 cold damage each round while encased. An encased creature is aware and breathes normally but can't speak or move except to try to escape with a DC 22 Strength check; it can still take purely mental actions (like using spell-like abilities) or cast spells with no verbal/somatic components if the material/focus is already in hand. The ice blocks line of effect, causes flying creatures to fall, and lets swimmers float to the surface without swimming. The ice itself has hardness 0 and 15 hp and can be attacked by others to free the target; damage to a target must first destroy the ice. The ice melts when the spell's duration (1 round/2 levels) ends. Reflex partial, SR applies.",
     "otherPrintings": [],
@@ -6136,7 +6317,7 @@
       "S",
       "F"
     ],
-    "castingTime": "10 minutes 114",
+    "castingTime": "10 minutes",
     "range": "Anywhere in the area to be warded",
     "targetAreaEffect": {
       "type": "area",
@@ -6169,7 +6350,7 @@
       "value": "One Medium or smaller creature"
     },
     "duration": "1 round/level (D)",
-    "savingThrow": "Reﬂex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "A Large fleshy mass engulfs one Medium or smaller target within range unless it succeeds on a Reflex save (in which case the gizzard vanishes harmlessly). While trapped, the creature is grappled and takes 2d8+8 crushing damage plus 1d8 acid damage each round, starting the round the spell is cast. It can cast spells only if they lack somatic components, it has the material components in hand, and it succeeds on a Concentration check (DC 20 + spell level). It can cut its way out with claws or a light slashing weapon by dealing 25 damage to the gizzard (AC 12 from inside); from outside the gizzard has AC 4. The gizzard has 5 hp/caster level, is treated as an unattended object for saves, and is destroyed at 0 hp, melting into a pool of blood and gore when the creature escapes or it is destroyed. Lasts 1 round/level (D). Material component: a dried gizzard.",
     "otherPrintings": [],
@@ -6258,7 +6439,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions like the spell resistance (PH), except the touched subject gains a +6 resistance bonus on saving throws instead. Duration 24 hours (Will negates harmless; SR yes harmless).",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Resistance",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Stonehold",
@@ -6341,7 +6528,7 @@
       "value": "One creature or all creatures in a 20-ft.-radius burst"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half",
+    "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "description": "Instantaneous water attack, Reflex half, SR yes. If no large natural water source is within range, it can only strike a single target; if one exists, it instead creates a 20-ft.-radius burst centered on a chosen point. Deals 1d6 damage per caster level (max 15d6) to the target(s)/creatures in the burst. Affected creatures also suffer a bull rush via an opposed Strength check (the water gets +5, or +10 if cast near a natural water source); those who lose are pushed 5 ft. in the caster-chosen direction, plus 5 ft. for every 5 points the check is beaten by, potentially into water. The wave extinguishes unprotected open flames of Large size or smaller in its path/area, and has a 50% chance versus protected flames; if it hits a magical fire, that fire is subjected to a dispel magic effect as though the caster cast it.",
     "otherPrintings": [
@@ -6454,7 +6641,7 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "One melee or thrown weapon, or ﬁfty projectiles (all of which must be in contact with each other at the time of casting)"
+      "value": "One melee or thrown weapon, or fifty projectiles (all of which must be in contact with each other at the time of casting)"
     },
     "duration": "1 minute/level",
     "savingThrow": "Will negates (harmless, object)",
@@ -6483,7 +6670,7 @@
       "value": "One creature/level"
     },
     "duration": "10 minutes/level (D)",
-    "savingThrow": "Reﬂex negates (harmless)",
+    "savingThrow": "Reflex negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Each subject can fly at speed 60 ft. (perfect maneuverability) but only outdoors, walking on gaseous pads of cloudstuff. A subject can end the effect on itself with a standard action to shake off the cloudstuff and touch down; you can also dismiss the spell, but only for all subjects simultaneously.",
     "otherPrintings": [],
@@ -6560,7 +6747,7 @@
       "value": "15-ft.-radius spread"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "No",
     "description": "Creates a wave of green slime (DMG) that erupts from a chosen point and spreads violently to fill a 15-ft.-radius spread (Reflex negates, no SR), splashing onto nearby walls and ceilings. The slime devours flesh, organic material, and even metal on contact; each creature in the area is coated with one patch. Unlike ordinary green slime, this slime gradually evaporates and is gone by the end of the duration (1 round/level). Material component: a few drops of stagnant pond water.",
     "otherPrintings": [
@@ -6591,7 +6778,7 @@
       "type": "area",
       "value": "Cylinder (20-ft. radius, 100 ft. high)"
     },
-    "duration": "1 round/level (D) 210",
+    "duration": "1 round/level (D)",
     "savingThrow": "Fortitude negates; see text",
     "spellResistance": "Yes",
     "description": "1-round casting creates a cylinder of storm clouds and howling wind (20-ft. radius, 100 ft. high, 1 round/level, dismissible). It absorbs electricity damage dealt to anyone inside, and magic missile cannot be cast into, out of, or within it. The interior has windstorm-strength winds, making ranged attacks impossible inside (movement is unaffected). Only Gargantuan or Colossal creatures can pass through its edge freely; smaller creatures must succeed on a Fortitude save to enter or are stopped at the boundary. Those inside have concealment from those outside. The winds impose a -10 penalty on Listen checks within 50 ft., including inside the tower. Fortitude negates (see text); SR yes.",
@@ -6623,7 +6810,7 @@
     },
     "duration": "4 rounds",
     "savingThrow": "See text",
-    "spellResistance": "Yes 209",
+    "spellResistance": "Yes",
     "description": "1-round casting summons a 40-ft.-radius storm cloud 200 ft. above the ground that produces an escalating effect each round over 4 rounds. Round 1: windstorm-strength winds make ranged attacks impossible in the area; Small or smaller creatures must succeed on a Fortitude save or be blown away, Medium creatures must save or be knocked prone, and Large or larger creatures must save to move that round; flying creatures that fail are instead blown randomly (1d6x5 ft. if Large+, 1d6x10 ft. if Medium, 2d6x10 ft. if Small or smaller); spells cast in the area are disrupted unless the caster beats a Concentration DC equal to this spell's save DC + the spell's level. Round 2: falling rock deals 5d6 damage to everyone in the storm, no save. Round 3: torrential rain extinguishes unprotected flames automatically and protected ones with a 50% chance, cuts visibility to 5 ft., and halves movement. Round 4: falling flame deals 1d6 fire damage per caster level (max 15d6), Reflex half. SR yes.",
     "otherPrintings": [
       {
@@ -6680,8 +6867,8 @@
       "type": "effect",
       "value": "Cylinder (5-ft. radius, 80 ft. high)"
     },
-    "duration": "1 round/level 236",
-    "savingThrow": "Reﬂex negates",
+    "duration": "1 round/level",
+    "savingThrow": "Reflex negates",
     "spellResistance": "No",
     "description": "1-round casting creates a whirling column of water (5-ft. radius, 80 ft. high, 1 round/level) that the caster can direct as a move action, either controlling it continuously or giving it a simple movement program; it moves 30 ft. during the caster's turn and collapses if it exceeds the spell's range. Any creature or object touching it must succeed on a Reflex save or take 3d8 damage; Medium or smaller creatures that fail are sucked in and take 2d6 damage/round (no save) while trapped for 1d3 rounds, then are ejected from the top and fall back to the surface 1d8x5 ft. from the spout's base, taking 8d6 falling damage. Waterborne creatures or objects within 10 ft. of the spout (below or to the sides) that are Medium or smaller must also make a Reflex save or be sucked in with the same effects. Only very small watercraft (canoes, kayaks, coracles) can be pulled in; their occupants may substitute a Profession (sailor) check for the Reflex save. No SR.",
     "otherPrintings": [],
@@ -6765,7 +6952,7 @@
       "value": "Cylinder (15-ft. radius, 40 ft. high)"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half; see text",
+    "savingThrow": "Reflex half; see text",
     "spellResistance": "No",
     "description": "Boulders crash down in a 15-ft-radius, 40-ft-high cylinder centered on a point you designate within long range. Creatures in the area that fail a Reflex save take 1d8 points of damage per caster level (maximum 20d8) and are buried under 5 feet of rubble; a successful save halves the damage and avoids burial. A buried creature can free itself with a DC 20 Strength check (a full-round action) or be dug out by others (1 minute for a lone rescuer); while buried it can't move, can't cast spells with somatic components, and must have material components in hand. After casting, the area is left covered in 5 feet of dense rubble (DMG 90). Focus: a quartz crystal embedded in rock.",
     "otherPrintings": [
@@ -6805,7 +6992,13 @@
         "page": 157
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Brilliant Blade",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Cocoon",
@@ -6852,7 +7045,7 @@
       "value": "Mass of dead wood forming in a cylinder (20-ft. radius, 40 ft. high); see text"
     },
     "duration": "Instantaneous; see text",
-    "savingThrow": "Reﬂex partial; see text",
+    "savingThrow": "Reflex partial; see text",
     "spellResistance": "No",
     "description": "A huge, roaring tangle of logs and branches erupts and collapses within a 20-ft-radius, 40-ft-high cylinder centered on a point you choose within long range. Creatures and objects in the area take 1d6 points of damage per caster level (maximum 20d6), and creatures in the area must succeed on a Reflex save or be knocked prone. Afterward, a 5-foot-high pile of brush with a 20-foot radius remains, counting as dense rubble (DMG 90).",
     "otherPrintings": [],
@@ -6880,7 +7073,7 @@
       "value": "A whirlpool 120 ft. wide and 60 ft. deep"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂex negates; see text",
+    "savingThrow": "Reflex negates; see text",
     "spellResistance": "No",
     "description": "Creates a deadly vortex in a body of water at least 120 feet wide and 60 feet deep (otherwise the spell is wasted). Waterborne creatures or objects within 50 feet of the vortex must succeed on a Reflex save (or a Swim check instead, if higher than their Reflex bonus) or be sucked in, taking 3d8 points of damage; vessels avoid being pulled in if their operator succeeds on a Profession (sailor) check against the same DC. Once inside, victims take 3d8 points of bludgeoning damage each round at the start of your turn and remain trapped for 2d4 rounds, then are ejected to a square adjacent to the vortex's bottom (Large or smaller subjects) or top (larger subjects), with a new Reflex save to avoid being sucked back in. Duration 1 round/level; no SR.",
     "otherPrintings": [],
@@ -7051,7 +7244,7 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "targets",
-      "value": "One creature/ level, no two of which are more than 30 ft. apart"
+      "value": "One creature/level, no two of which are more than 30 ft. apart"
     },
     "duration": "1 min./level",
     "savingThrow": "Will negates (harmless)",
@@ -7063,7 +7256,13 @@
         "page": 63
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Death Ward",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   },
   {
     "name": "Drown, Mass",
@@ -7087,7 +7286,13 @@
     "spellResistance": "Yes",
     "description": "Functions like drown, except it affects one or more creatures, no two of which can be more than 30 feet apart. Instantaneous; Fortitude negates, SR yes.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Drown",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Nature’s Avatar",
@@ -7150,7 +7355,13 @@
         "note": "Planar Handbook itself does not print a target/area line; this entry's target/area is Spell Compendium's addition."
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Perinarch",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Phantom Bear",
@@ -7181,7 +7392,13 @@
         "page": 173
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Phantom Wolf",
+        "source": "Spell Compendium"
+      }
+    ]
   },
   {
     "name": "Shadow Landscape",
@@ -7203,8 +7420,8 @@
       "value": "One-mile-radius spread centered on a point in space"
     },
     "duration": "24 hours/level (D)",
-    "savingThrow": "Reﬂex partial; see text",
-    "spellResistance": "Yes 184",
+    "savingThrow": "Reflex partial; see text",
+    "spellResistance": "Yes",
     "description": "A 1-hour casting that infuses a one-mile-radius area (centered on a point within long range) with power from the Plane of Shadow, making the terrain more dangerous for 24 hours/level. Effects vary by terrain: desert temperature shifts 30 degrees hotter (or colder if it's a tundra) with hourly sand/snowstorms; forest undergrowth thickens and heavy undergrowth entangles as the entangle spell (DC = this spell's DC); hills gain heavy undergrowth and steeper slopes (2 squares of movement uphill on gradual slopes, 4 on steep ones) plus DC 25 Climb cliffs; marshes turn half their undergrowth spaces to quicksand; mountains gain DC 25 Climb cliffs/chasms, a 10% chance per failed Climb check or loud noise of triggering an avalanche, and altitude effects worsened by one category; plains gain frequent storms/tornadoes and half their undergrowth spaces entangle as above; underground, only natural caverns (not dungeons) are affected, with stone floors costing 4 squares of movement per space and stalagmites covering 10% of the floor. The spell also worsens random weather rolls (roll twice and take the higher result, or three times in plains); this doesn't apply underground. You are unaffected by your own spell's terrain effects, and you can designate one creature per four caster levels as a similarly unaffected traveler (still subject to bad weather). You may also designate up to 1 HD of native animals, plants, or magical beasts per caster level as shadow guardians; while within the area they are friendly to you and your travelers and gain (or upgrade to, if weaker) resistance to cold 10, darkvision 60 ft., DR 5/magic, evasion, and low-light vision. Reflex partial, SR yes.",
     "otherPrintings": [
       {
@@ -7269,7 +7486,7 @@
       "value": "One 10-ft. cube"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex half; see text",
+    "savingThrow": "Reflex half; see text",
     "spellResistance": "No",
     "description": "Transforms a 10-ft. cube of natural, uncut or unworked rock into an equal volume of molten lava. Creatures in the area who succeed on a Reflex save and can physically escape on their next turn take 6d6 points of fire damage; those who fail the save, or can't escape, take 20d6 points of fire damage each round they remain. While in the lava, speed drops to 5 feet and creatures take a −2 penalty on attack rolls and AC. Even after leaving, exposed creatures take half damage (3d6 or 10d6, matching their prior result) for one additional round. If cast on a cavern or tunnel ceiling, the lava falls and spreads into a 15-ft.-radius, roughly 1.5-ft.-deep pool, dealing 2d6 fire damage (Reflex half) to anyone directly beneath and 10d6 fire damage per round to those caught in the pool. Worked stone can't be targeted directly, but casting on adjacent unworked stone deals 10d6 fire damage per round to a touching structure; wooden structures instantly ignite. The lava stops dealing damage and begins reverting to stone after 2d6 hours, though a pool can take up to two days to fully cool and the core of a 10-ft. cube may stay molten for a month or more. Magical or enchanted stone is unaffected.",
     "otherPrintings": [

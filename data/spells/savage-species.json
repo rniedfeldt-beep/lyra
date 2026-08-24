@@ -227,7 +227,14 @@
     "spellResistance": "No",
     "description": "Note: Savage Species lists this on the druid spell list as 'Detect Water' (Drd 1) but prints no description; it is identical to the spell Locate Water, whose block is used here. You sense the direction of a substantial body of water, learning more the longer you concentrate on an area: 1st round — presence or absence of water; 2nd round — the number of water sources present and the rough size of the largest; 3rd round — the size and location of each source (direction only, not exact location, for any source outside your line of sight). Size categories: Small (a pond/pool of 200 cu. ft. or less, or a brook up to 5 ft. across); Medium (a large pond or small lake up to 20,000 cu. ft., or a stream up to 30 ft. across); Large (a lake up to 10 million cu. ft., or a broad river); Vast (an ocean or inland sea). The spell cannot find creatures, ignores small quantities of water (such as filled bottles or skins), reveals nothing about water quality or accessibility, and is blocked by fire or magma within its area. Arcane Focus: a forked hazel wand.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Locate Water",
+        "source": "Sandstorm",
+        "note": "No explicit book citation in the source text; inferred because this is the only printing of this spell in our data."
+      }
+    ]
   },
   {
     "name": "Embrace the Wild",
@@ -310,7 +317,13 @@
         "page": 149
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Camouflage",
+        "source": "Savage Species"
+      }
+    ]
   },
   {
     "name": "Improved Blindsight",
@@ -335,7 +348,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "As blindsight, except that the blindsight granted by the spell has a 60-foot range. (Savage Species prints this entry as 'As blindsight, except as noted above'; the mechanical fields shown here are inherited from blindsight.)",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Blindsight",
+        "source": "Savage Species"
+      }
+    ]
   },
   {
     "name": "Jagged Tooth",
@@ -365,7 +384,14 @@
         "page": 126
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Keen Edge",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Lion's Charge",

@@ -75,11 +75,12 @@
       "value": "You"
     },
     "duration": "1 minute/level",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "A mote of pale starlight descends from the sky to orbit the caster's head, shedding light equal to a candle. Ordered to seek a place the caster has visited before, it stops circling and points like a compass in that direction, hovering just inches away and holding that bearing for as long as the spell lasts (1 minute/level). It makes no adjustments for walls or obstructions, pointing straight through them rather than routing around, and it simply resumes orbiting harmlessly if given no destination, if the caster has never actually been to the named place, or if that place lies on another plane of existence entirely.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "note": "No 'Saving Throw'/'Spell Resistance' values were captured from this compendium's page-number-less extraction. Filled in as None/No on the basis that this is a Personal-range, Target: You self-transformation spell with no save-triggering effect in its own header mechanic (any subsequent attack made with the granted natural weapon or ability uses normal attack rolls, not a save, against its target) — the same pattern confirmed for the file's other self-buff entries. Flag for correction if the original issue text is ever tracked down."
   },
   {
     "name": "Motes of Moonlight",
@@ -161,12 +162,12 @@
       "value": "You"
     },
     "duration": "1 minute or until discharged",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "The caster's face and hair take on a brief golden radiance evoking the sun god Pelor, shedding light equal to a candle while their hair streams outward like rays of sunlight. Before making a single turn undead attempt or wild empathy check, the caster can call on that glow for a +4 sacred bonus, which must be declared before the roll it applies to; the effect itself lasts 1 minute or until that bonus is spent, whichever comes first.",
     "otherPrintings": [],
     "abilityType": "spell",
-    "note": "Flavor is written around Pelor specifically; mechanically it's a plain sacred bonus with no other setting dependency."
+    "note": "No 'Saving Throw'/'Spell Resistance' values were captured from this compendium's page-number-less extraction. Filled in as None/No on the basis that this is a Personal-range, Target: You self-transformation spell with no save-triggering effect in its own header mechanic (any subsequent attack made with the granted natural weapon or ability uses normal attack rolls, not a save, against its target) — the same pattern confirmed for the file's other self-buff entries. Flag for correction if the original issue text is ever tracked down."
   },
   {
     "name": "Curse of the Gypsies",
@@ -221,7 +222,14 @@
     "description": "Functions as obscuring mist, but at battlefield scale: the caster can center a fog bank a hundred feet across and twenty feet high anywhere within long range, choosing at the moment of casting whether it stays put or crawls outward at ten feet per round. Material component bloodstones worth 100 gp.",
     "otherPrintings": [],
     "abilityType": "spell",
-    "note": "Carries the [War] descriptor. Per the compendium's own rules, war-descriptor spells like this one can't be acquired or cast without the War Magic Study feat (Great Fortitude, Iron Will, spellcaster level 3rd) — mechanically load-bearing, flagging for the DM."
+    "note": "Carries the [War] descriptor. Per the compendium's own rules, war-descriptor spells like this one can't be acquired or cast without the War Magic Study feat (Great Fortitude, Iron Will, spellcaster level 3rd) — mechanically load-bearing, flagging for the DM.",
+    "functionsAs": [
+      {
+        "spellName": "Obscuring Mist",
+        "source": "Player's Handbook v3.5",
+        "note": "No explicit book citation in the source text; inferred because this is the only printing of this spell in our data."
+      }
+    ]
   },
   {
     "name": "Sunmace",
@@ -489,11 +497,12 @@
       "value": "You"
     },
     "duration": "1 minute/level",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "Warps one of the caster's limbs into a lashing, barb-covered tentacle straight out of a kraken's arsenal, granting reach and a damage die that scales with the caster's size: 1 point for Fine or Diminutive, 1d3 for Tiny, 1d4 for Small, 1d6 for Medium, 1d8 for Large, 2d6 for Huge, 2d8 for Gargantuan, or 4d6 for Colossal, with reach running from 0 ft. at Fine/Diminutive up through 60 ft. at Colossal. Used as a primary attack it adds the caster's full Strength bonus to damage; used to back up a manufactured weapon as a secondary natural attack it takes the usual -5 penalty instead. A successful tentacle hit lets the caster attempt a grapple without provoking an attack of opportunity, and on a success the tentacle automatically constricts for the same damage again, repeating every round the grapple holds; the grappled foe can escape normally with its own grapple check. A creature that already has a natural tentacle attack can use whichever damage is higher, and gains the ability to grab and constrict with all its tentacle attacks if it couldn't already. The limb reverts to normal when the spell ends (1 minute/level), leaving the caster fatigued for 1d4 minutes afterward.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "note": "No 'Saving Throw'/'Spell Resistance' values were captured from this compendium's page-number-less extraction. Filled in as None/No on the basis that this is a Personal-range, Target: You self-transformation spell with no save-triggering effect in its own header mechanic (any subsequent attack made with the granted natural weapon or ability uses normal attack rolls, not a save, against its target) — the same pattern confirmed for the file's other self-buff entries. Flag for correction if the original issue text is ever tracked down."
   },
   {
     "name": "Merrshaulk's Kiss",
@@ -741,11 +750,12 @@
       "value": "You"
     },
     "duration": "1 round/level (D)",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "Grasping the caster's serpent focus, this spell infuses it into a shimmering field of spectral, coiling snakes that spiral tightly around the caster's own body for the duration (1 round/level). Any creature that touches the caster, whether striking with a melee weapon or delivering a touch spell, is bitten by the phantom snakes, which attack using the focus snake's own bite bonus and can bring any of its special attacks (constrict, improved grab, poison) to bear as normal — though a grapple they establish this way can only be held for the one round it's made, not maintained afterward. The snakes can strike a different attacker once per round each, with no cap on how many separate attackers they can retaliate against in a single round. Focus a living snake.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "note": "No 'Saving Throw'/'Spell Resistance' values were captured from this compendium's page-number-less extraction. Filled in as None/No on the basis that this is a Personal-range, Target: You self-transformation spell with no save-triggering effect in its own header mechanic (any subsequent attack made with the granted natural weapon or ability uses normal attack rolls, not a save, against its target) — the same pattern confirmed for the file's other self-buff entries. Flag for correction if the original issue text is ever tracked down."
   },
   {
     "name": "Sticks to Snakes",
@@ -825,12 +835,12 @@
       "value": "You"
     },
     "duration": "1 minute/level",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "Reshapes the caster's hand into an oversized, lobster-like claw sacred to the kuo-toa goddess Blibdoolpoolp, granting reach and bludgeoning damage that scales with the caster's size: 1 point for Fine, 1 for Diminutive, 1d3 for Tiny, 1d4 for Small, 1d6 for Medium, 1d8 for Large, 2d6 for Huge, 2d8 for Gargantuan, or 4d6 for Colossal, with reach running from 0 ft. at Fine/Diminutive up to 60 ft. at Colossal. Used alone as a primary attack it adds one and a half times the caster's Strength bonus to damage; used to supplement a manufactured weapon as a secondary attack it takes the usual -5 penalty and adds only half Strength. The claw's grapple bonus scales with size too, from -12 at Fine up to +20 at Colossal, and applies to any disarm, grapple, or trip attempt made with it. A successful claw hit lets the caster attempt a grapple as if one size category larger without provoking an attack of opportunity, and on a success the claw establishes a hold and deals its listed damage again each round the grapple is maintained. A creature that already has its own claw attack can use whichever damage is greater. The caster can't hold objects in the transformed hand or cast spells with somatic components while it's shaped this way, though they still count as armed for the duration (1 minute/level).",
     "otherPrintings": [],
     "abilityType": "spell",
-    "note": "This spell's flavor and illustration are built around the kuo-toa, an Underdark race devoted to Blibdoolpoolp — worth a look before Lyra takes it, since the theming sits oddly on a Greyhawk surface druid even though the mechanics themselves are setting-neutral."
+    "note": "No 'Saving Throw'/'Spell Resistance' values were captured from this compendium's page-number-less extraction. Filled in as None/No on the basis that this is a Personal-range, Target: You self-transformation spell with no save-triggering effect in its own header mechanic (any subsequent attack made with the granted natural weapon or ability uses normal attack rolls, not a save, against its target) — the same pattern confirmed for the file's other self-buff entries. Flag for correction if the original issue text is ever tracked down."
   },
   {
     "name": "Desert Burial",

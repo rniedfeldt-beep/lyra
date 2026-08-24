@@ -145,6 +145,12 @@
     "spellResistance": "No",
     "description": "Showers the area with a wave of lava, dealing 1d4 fire damage per caster level (as printed, capped at a maximum of 15d6) to each creature caught in it. Acts as cure moderate wounds instead of harming firenewts. Focus: a fist-sized lump of volcanic rock.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Cure Moderate Wounds",
+        "source": "Player's Handbook v3.5"
+      }
+    ]
   }
 ]

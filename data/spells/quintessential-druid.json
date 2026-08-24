@@ -17,7 +17,7 @@
       "type": "target",
       "value": "5 kilograms of material components"
     },
-    "duration": "1 minute / level",
+    "duration": "1 minute/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Transports up to 5 kg of material components (none worth more than 1 gp, no magic items) into an invisible, extradimensional pocket magically linked to the druid. Casting a spell that needs a material component or focus stored in the pocket works without holding one physically; consumed components are used up from the bag, while foci remain available until the spell's duration ends, then are destroyed. Anything sent into the pocket is lost forever once the spell ends or is dispelled.",
@@ -43,8 +43,8 @@
       "type": "target",
       "value": "Up to 6 creatures, all of which must be physically touching when the spell is cast."
     },
-    "duration": "1 hour / level",
-    "savingThrow": "Fort Neg.  (Harmless)",
+    "duration": "1 hour/level",
+    "savingThrow": "Fort Neg. (Harmless)",
     "spellResistance": "Yes (Harmless)",
     "description": "For 1 hour/level, up to 6 creatures that are all touching when the spell is cast can each carry 50% more than normal for their Strength without suffering the effects of a medium or heavy load. It does not change Strength modifier or the maximum weight a character can lift or drag over short periods, only the light/medium/maximum carrying-capacity thresholds. Material component: a bird's feather.",
     "otherPrintings": [],
@@ -69,7 +69,7 @@
       "type": "target",
       "value": "Creature Touched"
     },
-    "duration": "1 minute / level (D)",
+    "duration": "1 minute/level (D)",
     "savingThrow": "Will Negates (harmless)",
     "spellResistance": "No (see text)",
     "description": "As protection from fire creatures, except the deflection and resistance bonuses apply against creatures with the air subtype, and only summoned or conjured air creatures are blocked from touching the subject. Material component: a stick of graphite, a pinch of diamond dust (10 gp), and a crushed firefly.",
@@ -95,7 +95,7 @@
       "type": "target",
       "value": "Creature Touched"
     },
-    "duration": "1 minute / level (D)",
+    "duration": "1 minute/level (D)",
     "savingThrow": "Will Negates (harmless)",
     "spellResistance": "No (see text)",
     "description": "As protection from fire creatures, except the deflection and resistance bonuses apply against creatures with the earth subtype, and only summoned or conjured earth creatures are blocked from touching the subject. Material component: a ruby (at least 10 gp) and three feathers plucked from a flightless bird.",
@@ -121,7 +121,7 @@
       "type": "target",
       "value": "Creature Touched"
     },
-    "duration": "1 minute / level (D)",
+    "duration": "1 minute/level (D)",
     "savingThrow": "Will Negates (harmless)",
     "spellResistance": "No (see text)",
     "description": "Wards a touched creature for 1 minute/level with a magical barrier one foot away that moves with it. The subject gains a +2 deflection bonus to AC and a +2 resistance bonus on saves against the spell-like and supernatural abilities of fire-subtype creatures. The barrier also blocks bodily contact from summoned or conjured fire creatures, causing their natural attacks to fail and forcing them to recoil if they try to touch the subject; this protection ends if the warded creature attacks or forces the barrier against the blocked creature, and spell resistance can let a creature overcome the barrier. Material component: an aquamarine (at least 10 gp) and a splash of seawater.",
@@ -147,7 +147,7 @@
       "type": "target",
       "value": "Creature Touched"
     },
-    "duration": "1 minute / level (D)",
+    "duration": "1 minute/level (D)",
     "savingThrow": "Will Negates (harmless)",
     "spellResistance": "No (see text)",
     "description": "As protection from fire creatures, except the deflection and resistance bonuses apply against creatures with the water subtype, and only summoned or conjured water creatures are blocked from touching the subject. Material component: a small sapphire (10 gp) and ashes from a bonfire.",
@@ -174,7 +174,14 @@
     "spellResistance": null,
     "description": "Functions identically to animal friendship but affects beasts instead of animals. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. A druid can have befriended creatures totaling no more HD than twice his caster level, counting every creature befriended via this spell, the other friendship spells in this book, and animal friendship together; certain feats and membership in the beast whisperer prestige class can raise this cap. The druid may dismiss a befriended beast at any time to befriend a new one.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Animal Friendship",
+        "source": null,
+        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Brother’s Staff",
@@ -195,7 +202,7 @@
       "type": "target",
       "value": "One touched nonmagical oak quarterstaff"
     },
-    "duration": "10 minutes / level",
+    "duration": "10 minutes/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Cast on a touched nonmagical oak quarterstaff for 10 minutes/level. The weapon gains an enhancement bonus to attack and damage rolls of +1 per 3 caster levels (maximum +5) and deals 1d12 damage on a hit (plus the enhancement bonus and any Strength bonus). The enhancement only functions while the casting druid wields the staff.",
@@ -244,7 +251,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1 hour / level",
+    "duration": "1 hour/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "For 1 hour/level, lets the druid see through wild shape, polymorph self, and similar shapeshifting effects on any creature he can see. He doesn't learn the creature's original form, but immediately knows its true creature type even if it currently looks like something else — for example, a human wizard polymorphed into a bird would appear to the caster as a humanoid rather than an animal. Spells or abilities that actually change a subject's type, such as wild shape, true form, or shapechange, completely fool this effect.",
@@ -266,7 +273,7 @@
       "XP"
     ],
     "castingTime": "10 minutes",
-    "range": "Close (25 ft. + 5 ft. / 2 level) (see text)",
+    "range": "Close (25 ft. + 5 ft./ 2 level) (see text)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "One summoned animal, beast, dragon, elemental, fey, giant, magical beast or vermin of up to 8 HD"
@@ -291,15 +298,15 @@
       "S"
     ],
     "castingTime": "1 action",
-    "range": "Medium (100 ft. + 10 ft. / level)",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One sacred grove"
     },
-    "duration": "1 round / 3 levels",
+    "duration": "1 round/ 3 levels",
     "savingThrow": "Will negates (see text)",
     "spellResistance": "Yes",
-    "description": "Draws on a sacred grove within medium range to fuel extra casting; the grove's seneschal gets a Will save to resist. A successful casting destroys a natural sacred grove (its radius shrinks 1d6 ft./day until gone; a second casting on a fading grove automatically fails) or, for an anchored grove, permanently reduces the site's caster level by 1. For the spell's duration, the caster can cast one extra spell per round (from the druid list, or from what a sorcerer knows / wizard has prepared) of level up to half the site's new caster level, without using normal spell slots, up to the level the caster could normally access, using only their own spellcasting class, with metamagic allowed (extending casting time as usual). Available to druids without consequence, but the seneschal and the archanix both detect the casting and may retaliate; sorcerers or wizards casting it risk being hunted down by the druidic order if discovered.",
+    "description": "Draws on a sacred grove within medium range to fuel extra casting; the grove's seneschal gets a Will save to resist. A successful casting destroys a natural sacred grove (its radius shrinks 1d6 ft./day until gone; a second casting on a fading grove automatically fails) or, for an anchored grove, permanently reduces the site's caster level by 1. For the spell's duration, the caster can cast one extra spell per round (from the druid list, or from what a sorcerer knows/wizard has prepared) of level up to half the site's new caster level, without using normal spell slots, up to the level the caster could normally access, using only their own spellcasting class, with metamagic allowed (extending casting time as usual). Available to druids without consequence, but the seneschal and the archanix both detect the casting and may retaliate; sorcerers or wizards casting it risk being hunted down by the druidic order if discovered.",
     "otherPrintings": [],
     "abilityType": "spell"
   },
@@ -322,7 +329,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1 day / level",
+    "duration": "1 day/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "For 1 day/level, the druid does not need to sleep and is unaffected by the mere passage of time, though physical or mental exertion can still fatigue or exhaust him. He must still rest normally in order to prepare spells.",
@@ -342,13 +349,13 @@
       "S"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "area",
       "value": "Cone"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex partial",
+    "savingThrow": "Reflex partial",
     "spellResistance": "Yes",
     "description": "A cone of sand blasts everyone in the area for 1d4 damage per 2 caster levels (maximum 15d4). Creatures of Medium size or smaller in the area must succeed on a Reflex save or be buried in the sand; buried creatures cannot breathe and begin to suffocate, but may attempt to dig themselves out with a Strength check (DC 25, one attempt per round, DC increasing by 1 per failure).",
     "otherPrintings": [],
@@ -368,7 +375,7 @@
       "M"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One vermin"
@@ -399,7 +406,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1 round / 2 levels (D)",
+    "duration": "1 round/ 2 levels (D)",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "For 1 round per 2 caster levels, grants the druid a barbarian's base attack bonus (using his druid caster level, replacing his normal BAB if higher), a +4 enhancement bonus to Strength and Constitution, and a +2 bonus on Will saves, at the cost of a -2 penalty to AC. The Constitution boost adds 2 hp per level, which vanish when the spell ends; ending the spell simultaneously heals 1d8 + 1 per caster level (maximum +10) hp, and if the character is still below -10 hp after that healing, he dies. While the spell is active he can't use skills or abilities requiring patience or concentration (such as Move Silently or casting spells), and can't use Expertise, item creation feats, metamagic feats, or a concentration-tied Skill Focus. When the spell ends, the druid becomes fatigued (-2 Strength, -2 Dexterity, can't charge or run) for the rest of the encounter.",
@@ -426,7 +433,14 @@
     "spellResistance": null,
     "description": "Operates the same as animal friendship but affects an elemental instead of an animal. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. Counts toward the druid's shared befriended-creature cap of twice his caster level in HD (shared with the other friendship spells); certain feats and beast whisperer membership can raise the cap. The druid may dismiss a befriended elemental at any time to befriend a new one.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Animal Friendship",
+        "source": null,
+        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Imbue with Wild Shape",
@@ -447,7 +461,7 @@
       "type": "target",
       "value": "Creature touched"
     },
-    "duration": "1 hour / level",
+    "duration": "1 hour/level",
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
     "description": "Transfers some of the druid's own wild shape uses to another living creature with Intelligence 5+ and Wisdom 9+; the druid must already have the wild shape ability being transferred and loses the transferred uses until the spell ends. Only one type of wild shape can be transferred per casting. Caster level determines how many uses transfer and what creature types they unlock: 9th-11th level, 1 use/day with no extra type restriction; 12th-14th, 2 uses/day covering beasts and undead; 15th-17th, 3 uses/day covering fey and magical beasts; 18th-19th, 4 uses/day covering dragons and oozes; 20th+, 5 uses/day covering elementals and monstrous humanoids. A druid specialized in one wild shape form can let the target transform into any suitable creature of that ability instead of just the specialist's own form, but must spend 3 daily uses per 1 granted to do so — even then, multiple transferred uses can't be combined into a bigger single transformation. The transferred ability otherwise works exactly as it would for the caster.",
@@ -470,7 +484,7 @@
     "range": "Personal and Touch",
     "targetAreaEffect": {
       "type": "target",
-      "value": "You and up to 50 lbs / level"
+      "value": "You and up to 50 lbs/level"
     },
     "duration": "Instantaneous",
     "savingThrow": "Will Negates (Harmless)",
@@ -493,12 +507,12 @@
       "DF"
     ],
     "castingTime": "1 full round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "2d4 + 2 creatures"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Summons 2d4+2 creatures chosen from the 1st-level Summon Nature's Ally list (Core Rulebook I), in any mix the druid desires, appearing anywhere within close range and acting immediately on the druid's turn. They attack the druid's enemies to the best of their ability; if the druid can communicate with them he can direct them not to attack, to target specific enemies, or to take other actions. They act normally on the last round of the spell's duration (1 round/level) and disappear at the end of that turn. All summoned creatures are neutral unless noted otherwise; summoning a creature with the air, chaotic, earth, evil, fire, good, lawful, or water subtype gives the spell that descriptor, and multiple descriptors apply if different creature types are summoned.",
@@ -550,7 +564,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "For 1 round/level, transforms the druid's arm into a poisonous, hissing viper with low-light vision and the scent ability, fully under the druid's control and attacking using his melee attack bonus. Its bite deals 1d4 + Strength modifier (Medium creatures) or 1d3 + Strength modifier (Small creatures), and injects poison dealing 1d6 temporary Constitution damage as both initial and secondary damage; the Fortitude save DC is 10 + half the caster level + the druid's Constitution modifier. Material components: viper fangs and an herb bundle of mandrake, poppy, and nettle leaves.",
@@ -571,13 +585,13 @@
       "M"
     ],
     "castingTime": "1 round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One creature of large size or smaller"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Reﬂex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "Encases a target of Large size or smaller in a shell of amber (Reflex negates). The trapped creature cannot move or speak and begins to suffocate: it can hold its breath for a number of rounds equal to twice its Constitution score, after which it must make a DC 10 Concentration check each round (DC +1 per round) to keep holding its breath. Failing that check causes it to fall unconscious at 0 hp, drop to -1 hp the following round, and die on the third round, its body then perfectly preserved in the amber. The shell has AC 15 (-5 Dexterity, +10 natural), 100 hit points, and hardness 20; only after the shell's hit points are destroyed can the trapped creature escape, which requires a DC 35 Strength check attempted from inside (one attempt per round, DC +1 per failed attempt). Incorporeal creatures are immune. Material component: sap from a conifer tree.",
     "otherPrintings": [],
@@ -629,7 +643,14 @@
     "spellResistance": null,
     "description": "Functions identically to animal friendship except that it affects magical beasts instead of animals. Animal friendship was a 3.0-edition spell dropped from the 3.5 revision (its niche largely folded into the animal companion class feature), so its stat block is unresolved here the same way Charm Animal leaves its own fields blank rather than restate the retired Charm Person's. Counts toward the druid's shared befriended-creature cap of twice his caster level in HD (shared with the other friendship spells); certain feats and beast whisperer membership can raise the cap. The druid may dismiss a befriended magical beast at any time to befriend a new one.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Animal Friendship",
+        "source": null,
+        "note": "Animal Friendship is a retired 3.0-edition spell with no 3.5 stat block anywhere; Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Summon Nature’s Horde II",
@@ -645,12 +666,12 @@
       "DF"
     ],
     "castingTime": "1 full round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Several creatures that appear within range"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As summon nature's horde I, except the druid can instead summon 2d4+2 creatures from the 2nd-level Summon Nature's Ally list, or 3d4+3 creatures from the 1st-level list.",
@@ -698,7 +719,7 @@
       "XP"
     ],
     "castingTime": "10 minutes",
-    "range": "Close (25 ft. + 5 ft. / 2 level) (see text)",
+    "range": "Close (25 ft. + 5 ft./ 2 level) (see text)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Up to 24 Hit Dice of summoned animals, beasts, dragons, elementals, fey, giants, magical beasts or vermins, no two of which can be more than 30 ft. apart when they appear."
@@ -729,7 +750,7 @@
       "type": "target",
       "value": "Creature touched"
     },
-    "duration": "up to 10 years / level",
+    "duration": "up to 10 years/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Cast only on a willing touched creature (hence no saving throw). The subject enters a deep suspended animation for up to 10 years/level of chosen duration, though from its perspective only about one day passes regardless of how long the spell lasts. When casting, the druid may set up to 1 condition per 5 caster levels (following the same rules as the contingency spell, involving anything within 100 miles) that will also wake the creature early. A physical attack wakes the creature immediately, but dispel magic and antimagic effects — even Mordenkainen's disjunction — cannot end the hibernation prematurely. Material component: a tuft of bear hair.",
@@ -776,12 +797,12 @@
       "DF"
     ],
     "castingTime": "1 full round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Several creatures that appear within range"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As summon nature's horde I, except the druid can instead summon 2d4+2 creatures from the 3rd-level Summon Nature's Ally list, 3d4+3 creatures from the 2nd-level list, or 4d4+4 creatures from the 1st-level list.",
@@ -802,12 +823,12 @@
       "DF"
     ],
     "castingTime": "1 full round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Several creatures that appear within range"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As summon nature's horde I, except the druid can instead summon 2d4+2 creatures from the 4th-level Summon Nature's Ally list, 3d4+3 creatures from the 3rd-level list, 4d4+4 creatures from the 2nd-level list, or 5d4+5 creatures from the 1st-level list.",
@@ -831,9 +852,9 @@
     "range": "Personal and touch",
     "targetAreaEffect": {
       "type": "target",
-      "value": "You and touched objects or other willing creatures weighing up to 100 lbs.  / level"
+      "value": "You and touched objects or other willing creatures weighing up to 100 lbs./level"
     },
-    "duration": "10 minutes / level (D)",
+    "duration": "10 minutes/level (D)",
     "savingThrow": "None and Will negates (object)",
     "spellResistance": "No and Yes (object)",
     "description": "Can only be cast while the druid is at least partially submerged in water. He transforms into fluid and merges into the water, bringing along up to 100 lb. per druid class level of willing creatures or objects; only the druid himself retains awareness after the change. His mind and soul spread outward — unchanged in volume the first round, then expanding by a factor of 10 each subsequent round — until they reach the limits of the connected body of water, following streams and even the narrowest connections between bodies of water, but unable to cross where there is no continuous link. While dissolved he is immune to damage, but dies if at least half of the water he occupies is evaporated. He cannot cast spells or take any action except shift his point of awareness to any spot within the water (a full-round action), and cannot see more than 5 ft. beyond the water's edge. When the spell ends (duration 10 minutes/level), he reforms at the location his attention is currently focused on, along with anything traveling with him. Material component: a vial of sunflower oil, rice wine vinegar, and egg white; six alder leaves; and a pearl worth at least 500 gp.",
@@ -854,12 +875,12 @@
       "DF"
     ],
     "castingTime": "1 full round",
-    "range": "Close (25 ft. + 5 ft. / 2 levels)",
+    "range": "Close (25 ft. + 5 ft./ 2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Several creature that appear within range"
     },
-    "duration": "1 round / level",
+    "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "As summon nature's horde I, except the druid can instead summon 2d4+2 creatures from the 5th-level Summon Nature's Ally list, 3d4+3 creatures from the 4th-level list, 4d4+4 creatures from the 3rd-level list, 5d4+5 creatures from the 2nd-level list, or 6d4+6 creatures from the 1st-level list.",
@@ -881,7 +902,7 @@
       "XP"
     ],
     "castingTime": "10 minutes",
-    "range": "Close (25 ft. + 5 ft. / 2 level) (see text)",
+    "range": "Close (25 ft. + 5 ft./ 2 level) (see text)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Up to 36 Hit Dice of summoned animals, beasts, dragons, elementals, fey, giants, magical beasts or vermin, no two of which can be more than 30 ft. apart when they appear."

@@ -150,7 +150,18 @@
         "page": 94
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Quench",
+        "source": "Player's Handbook v3.5"
+      },
+      {
+        "spellName": "Antimagic Field",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Icelance",

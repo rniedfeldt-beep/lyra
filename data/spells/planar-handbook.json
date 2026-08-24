@@ -298,7 +298,13 @@
         "page": 159
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Avoid Planar Effects",
+        "source": "Planar Handbook"
+      }
+    ]
   },
   {
     "name": "Summon Elementite Swarm",
@@ -466,6 +472,12 @@
         "note": "Spell Compendium explicitly prints a target/area line (\"A radius of raw Limbo within close range,\" inherited from perinarch) that Planar Handbook itself omits."
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Perinarch",
+        "source": "Planar Handbook"
+      }
+    ]
   }
 ]

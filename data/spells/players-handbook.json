@@ -39,8 +39,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless); see text",
+    "spellResistance": "Yes (harmless); see text",
     "description": "As Cure Light Wounds, except it cures only 1 point of damage.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -371,8 +371,8 @@
       "value": "One animal"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
     "description": "As Charm Person, except it affects a creature of the animal type.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -755,8 +755,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "Yes",
     "description": "Conjures a torch-bright flame in the caster's open hand that harms neither the caster nor their gear, providing illumination and usable as a weapon. As a melee touch attack it deals 1d6 + 1 point per caster level fire damage (maximum +5); alternatively it can be hurled up to 120 ft. as a ranged touch attack with no range penalty for the same damage, with a new flame appearing immediately in the caster's hand. Each attack made reduces the remaining duration by 1 minute, ending the spell early if it reaches zero. Duration 1 min./level; does not function underwater.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -782,7 +782,7 @@
     },
     "duration": "1 min./level",
     "savingThrow": "Will negates (object)",
-    "spellResistance": "Yes (object) the  weapon  behaves  as",
+    "spellResistance": "Yes (object)",
     "description": "Transforms the caster's own nonmagical club or quarterstaff into a weapon with a +1 enhancement bonus on attack and damage rolls (both ends, for a quarterstaff) that deals damage as though two size categories larger — a Small weapon deals 1d8, Medium 2d6, Large 3d6 — plus the enhancement bonus. These effects apply only while the caster wields the weapon; it is unaffected by anyone else. Duration 1 min./level.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -888,8 +888,8 @@
       "value": "Animals or magical beasts with"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates; see text",
+    "spellResistance": "Yes",
     "description": "Fascinates animals and magical beasts with Intelligence 1 or 2 within range; roll 2d6 to determine total HD of creatures affected, filling in from the closest targets first. Magical beasts, dire animals, and animals trained to attack or guard get a Will save; untrained animals do not. Lasts as long as you concentrate.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1046,8 +1046,8 @@
       "value": "Creature touched"
     },
     "duration": "1 hour/level",
-    "savingThrow": "Fortitude negates",
-    "spellResistance": null,
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
     "description": "The touched creature becomes temporarily immune to poison for 1 hour per level: any poison already in its system, or any it's exposed to during the duration, has no effect until the spell ends, though the spell itself doesn't heal damage poison has already dealt.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1149,7 +1149,7 @@
       "S"
     ],
     "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft. level)",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "Fog spreads in 20-ft. radius, 20 ft."
@@ -1237,8 +1237,8 @@
       "value": "One animal"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates; see text",
+    "spellResistance": "Yes",
     "description": "As hold person, except it affects an animal instead of a humanoid.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1264,7 +1264,7 @@
     },
     "duration": "1 min./level",
     "savingThrow": "Will negates (harmless)",
-    "spellResistance": "Yes spellcasters)  who",
+    "spellResistance": "Yes",
     "description": "Grants the touched creature a +4 enhancement bonus to Wisdom for 1 min./level, boosting Wisdom-based skills accordingly. Wisdom-based spellcasters gain no extra bonus spells from the increase, but their spell save DCs rise.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1288,8 +1288,8 @@
       "value": "One willing animal of Small,"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As reduce person, except it affects a single willing Small, Medium, Large, or Huge animal (not one the caster is fighting), shrinking it one size category to help it fit through tight spaces and reducing its natural attack damage accordingly. Duration 1 hour/level.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1415,8 +1415,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 2nd-level creature or 1d3 1st-level creatures of the same kind.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1442,7 +1442,7 @@
     },
     "duration": "Concentration + 2 rounds",
     "savingThrow": "None",
-    "spellResistance": "No its  area.",
+    "spellResistance": "No",
     "description": "Summons a swarm of bats, rats, or spiders (caster's choice) that attacks every other creature within its area — it can be placed to share a space with existing creatures. If no living creature is present it pursues the nearest one; the caster has no control over its target or movement. Lasts for concentration plus 2 rounds.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1591,8 +1591,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless); see text",
+    "spellResistance": "Yes (harmless); see text",
     "description": "As Cure Light Wounds, except it cures 2d8 points of damage +1 per caster level (maximum +10).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1641,8 +1641,8 @@
     "range": "See text",
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "This spell has two versions. Prune Growth shrinks normal vegetation within long range to about one-third size within a chosen 100-ft.-radius circle, 150-ft.-radius semicircle, or 200-ft.-radius quarter-circle (with portions excludable), leaving it looking neatly trimmed. Stunt Growth instead targets plants within a half-mile, reducing their productivity by a third over the following year. It counters plant growth and has no effect on plant creatures.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1690,8 +1690,8 @@
       "value": "One living creature"
     },
     "duration": "1 hour/level",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
     "description": "As magic fang, except the enhancement bonus is +1 per four caster levels (maximum +5), range is Close, duration is 1 hour/level, and the caster may instead grant a flat +1 enhancement bonus to all of the target's natural weapons regardless of caster level. Can be made permanent with permanency.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1767,8 +1767,8 @@
     "range": "See text",
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "Has two versions. Overgrowth causes normal vegetation within long range (400 ft. + 40 ft./caster level) to grow thick and tangled, reducing movement speed within the area to 5 ft. (10 ft. for Large or larger creatures); the area can be shaped as a 100-ft.-radius circle, 150-ft.-radius semicircle, or 200-ft.-radius quarter circle, with excluded pockets allowed, and requires existing brush or trees. Enrichment instead targets plants within a half-mile, raising their productivity by one-third over the following year. Counters diminish plants; has no effect on plant creatures. Instantaneous.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -1842,8 +1842,8 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None or Will negates (object)",
+    "spellResistance": "No or Yes (object)",
     "description": "Instantly extinguishes all nonmagical fire within a 20-ft. cube per caster level, and attempts to dispel fire-based spells in the area via a dispel check (1d20 + 1 per caster level, maximum +15, against DC 11 + the fire spell's caster level). Deals 1d6 damage per caster level (maximum 15d6, no save) to each fire elemental creature in the area. Alternatively can target a single fire-based magic item, suppressing its fire abilities for 1d4 hours unless it makes a Will save (artifacts are immune). Instantaneous.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2024,8 +2024,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 3rd-level creature, 1d3 2nd-level creatures, or 1d4+1 1st-level creatures of the same kind; the spell takes on the elemental/alignment subtype of whatever creature is summoned.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2106,8 +2106,8 @@
       "value": "Creature (Gargantuan or smaller) touched"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
     "description": "The subject can tread on air as if walking on solid ground, moving upward or downward at up to a 45-degree angle at half normal speed. A strong wind (21+ mph) can push the air walker along or hold it back, blowing it 5 feet per 5 mph of wind speed at the end of each turn, with the DM able to impose further penalties in severe winds. If the duration expires while the subject is still aloft, it floats down 60 ft./round for 1d6 rounds; if it reaches the ground it lands safely, otherwise it falls the remaining distance for 1d6 damage per 10 feet (dispelling ends the effect the same way, but negation by an antimagic field does not). A specially trained mount (one week of training, DC 25 Handle Animal) can also be ridden through the air under this spell.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2211,7 +2211,14 @@
     "spellResistance": "No",
     "description": "Raises or lowers water (or similar liquid) by up to 2 ft. per caster level within a squarish area up to caster level x10 ft. per side (minimum depth 1 inch when lowering); you may instead halve one horizontal dimension and double the other. In very large, deep water it can create a whirlpool that traps ships; on water elementals and other water-based creatures, the lowering version instead acts as a slow spell (Will negates), with no effect on other creatures. Requires a drop of water (to raise) or pinch of dust (to lower) as an arcane material component; lasts 10 min./level.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Slow",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Cure Serious Wounds",
@@ -2226,8 +2233,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless); see text",
+    "spellResistance": "Yes (harmless); see text",
     "description": "As Cure Light Wounds, except it cures 3d8 points of damage +1 per caster level (maximum +15).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2248,8 +2255,8 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "You can end ongoing spells or spell-like effects on a creature or object, temporarily suppress a magic item's powers, end effects within an area, or counter another spellcaster's spell. As a targeted dispel, you make a dispel check (1d20 + caster level, maximum +10) against DC 11 + the spell's caster level for each ongoing effect on the target (or against a magic item's caster level, suppressing it for 1d4 rounds on success); you automatically succeed against your own spells. As an area dispel (20-ft. radius), you attempt checks against the strongest effect on each affected creature or object, moving to progressively weaker ones until one is dispelled or you exhaust your checks (magic items on creatures are unaffected). As a counterspell, it targets an enemy caster to counter their spell, but still requires a successful dispel check rather than automatic counterspelling. Effects with an instantaneous duration can't be dispelled.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2378,7 +2385,7 @@
       "DF"
     ],
     "castingTime": "10 minutes",
-    "range": "Touch 270",
+    "range": "Touch",
     "targetAreaEffect": {
       "type": "target",
       "value": "Dead creature touched"
@@ -2436,8 +2443,8 @@
       "value": "One nonmagical ferrous object"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "A touched nonmagical iron or iron-alloy item instantly rusts, pits, and is destroyed (affecting a 3-ft.-radius volume if the item is too large to fit within that radius); magic metal items are immune. Used in melee via a successful touch attack, it instead corrodes 1d6 points off a metal-armored opponent's AC bonus (capped at the armor's total protection), or, with a touch attack against a wielded metal weapon (which provokes an attack of opportunity), destroys that weapon outright. Against a ferrous creature, a successful touch attack deals 3d6 + 1 point per caster level (maximum +15) damage. Effect lasts 1 round/level, with one melee touch attack allowed per round.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2464,7 +2471,7 @@
     },
     "duration": "1 min./level",
     "savingThrow": "Will negates",
-    "spellResistance": "Yes and  what",
+    "spellResistance": "Yes and what",
     "description": "Creates a magical sensor letting the caster see and hear a chosen creature at any distance, unless it succeeds on a Will save. The save DC is modified by how well the caster knows the subject (better knowledge and connection make the save harder to resist), by any physical link used (a picture, possession, or body part), and by a +5 bonus if the subject is on another plane. On a failed save, the caster perceives the subject and roughly 10 ft. around it, with the sensor following at up to 150 ft./round if the subject moves; certain detection spells have a 5%-per-caster-level chance of working through the sensor. A successful save blocks further scrying attempts on that subject for 24 hours. Duration 1 min./level.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2515,8 +2522,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 4th-level creature, 1d3 3rd-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2570,7 +2577,7 @@
     },
     "duration": "Instantaneous",
     "savingThrow": "None",
-    "spellResistance": "Yes atonement  must  be",
+    "spellResistance": "Yes",
     "description": "Removes the burden of a past evil act or misdeed from a truly repentant subject. If the act was unwitting or compelled, the spell works at no cost; for deliberate misdeeds you must expend 500 XP to intercede with your deity. Depending on the version cast, it can reverse a magically forced alignment change (free), restore a fallen paladin's class features, restore a cleric's or druid's lost spellcasting (costing the casting cleric 500 XP only if the transgression was intentional), or offer a creature of an opposing alignment a free, uncompelled choice to convert to your alignment (not usable on outsiders or creatures unable to change alignment naturally). Requires burning incense and prayer beads (or similar device) worth at least 500 gp as focus.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2642,8 +2649,8 @@
     "range": "Long (400 ft. + 40 ft./level)",
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
     "description": "As Call Lightning, except each bolt deals 5d6 damage (5d10 if cast outdoors in a stormy area), and you can call up to 15 bolts total.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2713,8 +2720,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless); see text",
+    "spellResistance": "Yes (harmless); see text",
     "description": "As Cure Light Wounds, except it cures 4d8 points of damage +1 per caster level (maximum +20).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2795,7 +2802,7 @@
     },
     "duration": "1 min./level",
     "savingThrow": "None",
-    "spellResistance": "No remotely trigger traps, open a portcullis to release  attack  dogs,  and  so  forth.  If  the subject  attacks  directly,  however,  it  im- mediately  becomes  visible  along  with  all its gear. Spells such as bless that specifically affect allies but not foes are not attacks for this purpose, even when they include foes in their area.",
+    "spellResistance": "No",
     "description": "You summon a number of stationary locust swarms — one per three caster levels, to a maximum of six at 18th level — within long range; each must be placed adjacent to at least one other swarm so together they form one contiguous mass, though they may share space with other creatures. Each swarm attacks any creature occupying its square, the swarms remain for 1 minute per level, and they won't pursue creatures that flee.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2844,8 +2851,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 5th-level creature, 1d3 4th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -2925,7 +2932,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1 hour/level or until expended; see text 296",
+    "duration": "1 hour/level or until expended; see text",
     "savingThrow": null,
     "spellResistance": null,
     "description": "Allows the caster to enter a living tree and instantly travel to another living tree of the same species and at least equal girth, sensing all such trees within a transport range that depends on species (3,000 ft. for oak/ash/yew down to 500 ft. for most other trees). Usable up to once per caster level as a full-round action each time; the spell ends if its 1-hour-per-level duration expires, or if the tree is destroyed while the caster is hidden inside, the caster is slain.",
@@ -3034,7 +3041,7 @@
     },
     "duration": "10 min./level (D)",
     "savingThrow": "None",
-    "spellResistance": "Yes 199",
+    "spellResistance": "Yes",
     "description": "Creates a mobile 10-ft.-radius hemispherical barrier that hedges out living creatures of most types (animals, aberrations, dragons, fey, giants, humanoids, magical beasts, monstrous humanoids, oozes, plants, vermin) while letting constructs, elementals, outsiders, and undead pass through. Purely defensive — forcing the barrier against a barred creature collapses it. Lasts 10 min./level.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3055,8 +3062,8 @@
       "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
     "description": "As Bear's Endurance, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3077,8 +3084,8 @@
       "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
     "description": "As Bull's Strength, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3099,8 +3106,8 @@
       "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
     "description": "As Cat's Grace, except it affects multiple creatures (one/level, no two more than 30 ft. apart).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3124,8 +3131,8 @@
       "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
     "duration": "Instantaneous",
-    "savingThrow": "Will half (harmless) or",
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
     "description": "Channels positive energy to cure 1d8 points of damage +1 per caster level (maximum +25) in each of several creatures (one/level, no two more than 30 ft. apart, within close range). Undead in the area take damage instead of being healed, with a Will save for half.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3143,8 +3150,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As dispel magic, except the maximum bonus on your dispel check is +20 instead of +10, and it also has a chance to dispel any effect that remove curse could remove, even ones ordinary dispel magic cannot touch.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3169,8 +3176,8 @@
       "value": "You or creature touched"
     },
     "duration": "10 min./level",
-    "savingThrow": "None or Will negates",
-    "spellResistance": null,
+    "savingThrow": "None or Will negates (harmless)",
+    "spellResistance": "No or Yes (harmless)",
     "description": "You or the touched creature can sense the shortest, most direct physical route to a named location (not an object or creature) on your current plane, for 10 minutes per level, receiving guidance on the exact path or actions needed along the way — such as noticing trip wires or the password past a glyph. It ends upon reaching the destination or when the duration expires, and can pull the subject and companions out of a maze spell in a single round, though it can't predict the actions of guardians or other creatures.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3197,8 +3204,8 @@
       "value": "Up to four touched acorns or up to eight touched holly berries"
     },
     "duration": "10 min./level or until used",
-    "savingThrow": "None or Reflex half; see",
-    "spellResistance": "No is  required",
+    "savingThrow": "None or Reflex half; see text",
+    "spellResistance": "No",
     "description": "You transform touched acorns or holly berries into fire weapons. As acorn grenades, up to four acorns become splash weapons you or an ally can throw up to 100 feet with a ranged touch attack, together dealing 1d6 fire damage per caster level (maximum 20d6) divided among them as you choose, plus 1 point of splash damage per die and ignition of nearby combustibles within 10 feet (Reflex half for those catching splash, no save for a direct hit). As holly berry bombs, up to eight berries are placed by hand (or tossed up to 5 feet) and detonate on your spoken command from within 200 feet, each dealing 1d8 fire damage +1 per caster level to everyone in a 5-ft. burst and igniting combustibles within 5 feet (Reflex half).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3298,8 +3305,8 @@
       "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
     "description": "As owl's wisdom, except it affects one creature per caster level, no two of which can be more than 30 ft. apart, at Close range.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3399,8 +3406,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 6th-level creature, 1d3 5th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3571,8 +3578,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
     "description": "As Mass Cure Light Wounds, except it cures 2d8 points of damage +1 per caster level (maximum +30).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3627,7 +3634,14 @@
     "spellResistance": "Yes (harmless)",
     "description": "Channeling positive energy into the touched creature instantly ends ability damage, blindness, confusion, being dazed or dazzled, deafness, disease, exhaustion, fatigue, feeblemindedness, insanity, nausea, sickening, stunning, and poison, and heals 10 hit points per caster level (maximum 150 at 15th level). It doesn't remove negative levels or restore permanently drained levels or ability score points, and used against an undead creature it instead functions like harm.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Harm",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Scrying, Greater",
@@ -3645,8 +3659,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": "1 hour/level",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
     "description": "As scrying, except casting time drops to 1 standard action, duration becomes 1 hour/level, and detect chaos, detect evil, detect good, detect law, detect magic, message, read magic, and tongues all function reliably through the sensor.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3669,8 +3683,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 7th-level creature, 1d3 6th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3697,8 +3711,8 @@
       "value": "Line from your hand"
     },
     "duration": "1 round/level or until all beams are exhausted",
-    "savingThrow": "Reflex negates and",
-    "spellResistance": null,
+    "savingThrow": "Reflex negates and Reflex half; see text",
+    "spellResistance": "Yes",
     "description": "For the spell's duration, the caster can spend a standard action each round to fire a blinding beam of light, gaining one beam per three caster levels (max six at 18th level). Each creature struck is blinded and takes 4d6 damage (double if harmed by sunlight), with a Reflex save negating the blindness and halving the damage. Undead (and fungi, mold, oozes, and slimes) instead take 1d6 damage per caster level (max 20d6, Reflex for half) and are destroyed if they're specifically vulnerable to bright light and fail the save.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3777,8 +3791,8 @@
       "value": "You and one touched creature per three levels"
     },
     "duration": "1 hour/level (D); see text",
-    "savingThrow": "No and Will negates",
-    "spellResistance": null,
+    "savingThrow": "No and Will negates (harmless)",
+    "spellResistance": "No and Yes (harmless)",
     "description": "Transforms the caster's body into cloudlike vapor (as gaseous form) and lets them travel through the air, bringing along other willing touched creatures who act independently. Normal flight speed is 10 feet with perfect maneuverability, or up to 600 feet per round (60 mph) with poor maneuverability if desired; wind walkers appear misty and translucent (80% likely mistaken for weather phenomena if dressed in white). Reverting to physical form and back each take 5 rounds, counted against the 1-hour-per-level duration, and the spell automatically forces a descent in its final minute as a warning it's ending.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3829,8 +3843,8 @@
       "value": "Up to 2 HD/level of plant"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will negates",
+    "spellResistance": "No",
     "description": "Lets you control the actions of one or more plant creatures (up to 2 HD/level, no two more than 30 ft. apart) for 1 min./level (Will negates). You command them by voice and they understand you regardless of language — even a silence effect won't make them attack you — and they revert to normal behavior when the spell ends; suicidal or self-destructive commands are simply ignored.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3848,8 +3862,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
     "description": "As mass cure light wounds, except it cures 3d8 points of damage +1 per caster level (maximum +35).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3956,8 +3970,8 @@
       "value": "Up to one 10-ft. cube per two"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None; see text",
+    "spellResistance": "No",
     "description": "Reverses gravity in the area, causing all unattached objects and creatures within it to fall upward and reach the top in 1 round, striking any solid obstruction (such as a ceiling) as they would in a normal fall. Anything that reaches the top without striking something hovers there, oscillating, until the spell ends, then falls back downward. A creature with something to hold onto can attempt a Reflex save to secure itself when the spell takes effect; creatures that can fly or levitate are unaffected by the fall. Area up to one 10-ft. cube per two caster levels; duration 1 round/level.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -3980,8 +3994,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 8th-level creature, 1d3 7th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4060,8 +4074,8 @@
       "value": "You and touched objects or other willing creatures"
     },
     "duration": "Instantaneous",
-    "savingThrow": "None or Will negates",
-    "spellResistance": null,
+    "savingThrow": "None or Will negates (harmless, object)",
+    "spellResistance": "No or Yes (harmless, object)",
     "description": "Instantly teleports the caster back to a specific, familiar sanctuary designated when the spell was prepared, arriving in a designated area no larger than 10 ft. by 10 ft.; works any distance within a plane but never between planes. The caster can bring carried objects and one additional willing Medium-or-smaller creature (or size equivalent) per three caster levels, all of whom must be in contact with one another and the caster; unwilling creatures cannot be transported.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4107,8 +4121,8 @@
     "range": null,
     "targetAreaEffect": null,
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
     "description": "As Mass Cure Light Wounds, except it cures 4d8 points of damage +1 per caster level (maximum +40).",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4160,8 +4174,8 @@
       "value": "See text"
     },
     "duration": "10 min./level",
-    "savingThrow": "None or Will negates",
-    "spellResistance": null,
+    "savingThrow": "None or Will negates (harmless)",
+    "spellResistance": "No or Yes (harmless)",
     "description": "For 10 minutes per level, you or a touched creature gains warnings of impending danger — sneak attacks, ambushes, or spells and ranged attacks aimed at it — and can never be surprised or caught flat-footed while the effect lasts, plus a +2 insight bonus to AC and Reflex saves (lost whenever the subject would lose its Dexterity bonus to AC). If cast on another creature, you receive the warnings instead and must relay them for the subject to benefit; that subject doesn't gain the insight bonus itself.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4211,8 +4225,8 @@
       "value": "Three or more shambling mounds, no two of which can be more than 30 ft. apart; see text"
     },
     "duration": "Seven days or seven months",
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "Conjures 1d4+2 shambling mounds (11 HD each) that willingly aid the caster in combat, carry out a mission, or serve as bodyguards, remaining for seven days unless dismissed. If created solely for guard duty, the duration extends to seven months, but the mounds can then only be ordered to guard a specific site and cannot move beyond the spell's range from where each first appeared. The mounds retain their normal fire resistance only if the terrain is rainy, marshy, or damp.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -4286,8 +4300,8 @@
       "value": "One or more creatures, no two of which can be more than 30 ft. apart"
     },
     "duration": null,
-    "savingThrow": null,
-    "spellResistance": null,
+    "savingThrow": "None",
+    "spellResistance": "No",
     "description": "As Summon Nature's Ally I, except the caster can summon one 9th-level creature, 1d3 8th-level creatures, or 1d4+1 lower-level creatures of the same kind, taking on that creature's elemental/alignment subtype.",
     "otherPrintings": [],
     "abilityType": "spell"

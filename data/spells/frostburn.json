@@ -25,7 +25,14 @@
     "spellResistance": "No",
     "description": "Creates a creature made of magical ice at a point you designate; it acts immediately on your turn and attacks your opponents to the best of its ability, or follows your directions (not to attack, attack specific foes, or perform other actions) if you can communicate with it. You conjure one creature from the 1st-level summon monster or summon nature's ally list (PHB pp.287-288); it cannot have the fire subtype. You choose which creature to conjure and can change your choice each casting. The conjured creature is a construct made of magical ice bearing the ice beast template (p.138). In all other respects it functions like summon monster I.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Summon Monster I",
+        "source": null,
+        "note": "Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Crunchy Snow",
@@ -46,7 +53,7 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "area",
-      "value": "One  20-ft.-by-20-ft.  square  of snow/level"
+      "value": "One 20-ft.-by-20-ft. square of snow/level"
     },
     "duration": "1 hour/level",
     "savingThrow": "None",
@@ -234,7 +241,7 @@
       "value": "One weapon"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂ ex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "Makes the targeted weapon brittle, reducing its hardness by 5 for the spell's duration and making it easier to sunder. In addition, rolling a natural 1 on an attack with the weapon causes the weapon itself to take damage equal to what it would have dealt on a successful hit.",
     "otherPrintings": [],
@@ -266,7 +273,13 @@
     "spellResistance": "No",
     "description": "Functions like conjure ice beast I, except you can conjure one creature from the 2nd-level summon list, or two creatures of the same kind from the 1st-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Conjure Ice Object",
@@ -401,7 +414,7 @@
       "value": "5-ft.-diameter sphere"
     },
     "duration": "1 round/level",
-    "savingThrow": "Reﬂ ex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "Creates a sphere of intense cold that rolls in the direction you point, moving 30 feet per round and able to ascend or jump up to 30 feet as part of that movement to strike a target. On entering a creature's space it stops for the round and deals 1d6 points of cold damage plus 1d4 points of Dexterity damage, though a successful Reflex save negates both. It rolls over barriers under 4 feet tall and instantly freezes water it touches in 5-foot-cube sections. It only moves while you actively direct it (a move action); otherwise it stays at rest. It has 10 hit points and DR 5/- and can be destroyed by attacks. Its spongy surface deals no damage except through cold, and it cannot push aside unwilling creatures or batter down large obstacles. It winks out of existence if it exceeds the spell's range. Arcane material component: a bit of sponge and a drop of water.",
     "otherPrintings": [],
@@ -623,7 +636,7 @@
       "value": "One 10-ft. square/level"
     },
     "duration": "1 hour/level (D)",
-    "savingThrow": "Reﬂ ex negates",
+    "savingThrow": "Reflex negates",
     "spellResistance": "Yes",
     "description": "Must be cast on a snow field, which instantly freezes and impedes movement for 1 hour/level (dismissible) across one 10-ft. square/level within medium range. A creature caught in the area moves at only half speed, unless it succeeds on a DC 20 Strength check or DC 25 Escape Artist check (normal speed that round) or succeeds on a Reflex save (unimpeded entirely). SR yes.",
     "otherPrintings": [],
@@ -648,11 +661,11 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "effect",
-      "value": "One  column  of  ice,  10-ft. radius and 5 ft./level in height"
+      "value": "One column of ice, 10-ft. radius and 5 ft./level in height"
     },
     "duration": "Permanent",
-    "savingThrow": "Reﬂ ex negates",
-    "spellResistance": "No the Player’s Handbook). The amount of tightly packed snow that fills a 5-foot-by-5-foot area weighs 500 pounds. Armed with an appropriate tool, such as a pick, crowbar, or shovel, a digger can clear loose ice and debris twice as quickly as by hand.",
+    "savingThrow": "Reflex negates",
+    "spellResistance": "No",
     "description": "A column of ice erupts from the ground, lifting anything standing in the area (including the caster) into the air; a Reflex save lets a creature avoid being lifted. Fighting or moving atop the column requires a DC 10 Balance check, and failure means falling prone and needing a DC 12 Reflex save to avoid slipping off (taking fall damage). Creatures riding the column up may be smashed against a low ceiling for 4d6 damage. The column itself is 10 ft. thick, hardness 16, 160 hp, DC 90 to break, DC 30 to climb.",
     "otherPrintings": [],
     "abilityType": "spell"
@@ -683,7 +696,13 @@
     "spellResistance": "No",
     "description": "Functions as conjure ice beast I, except it lets the caster conjure one creature from the 3rd-level list, two of the same creature from the 2nd-level list, or four of the same creature from the 1st-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Control Temperature",
@@ -849,7 +868,13 @@
     "spellResistance": "No",
     "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 4th-level list, two creatures of the same kind from the 3rd-level list, or four creatures of the same kind from a lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Freeze Armor",
@@ -869,7 +894,7 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "Metal  equipment  of  one creature/level"
+      "value": "Metal equipment of one creature/level"
     },
     "duration": "1 round/level",
     "savingThrow": "Fortitude partial; see text",
@@ -900,7 +925,7 @@
       "type": "target",
       "value": "You"
     },
-    "duration": "1  hour/level  or  until expended; see text",
+    "duration": "1 hour/level or until expended; see text",
     "savingThrow": "None",
     "spellResistance": "No",
     "description": "Grants the ability to instantly teleport between two points of slush, snow, or ice, up to a distance based on the substance touched at the point of departure (not arrival): 1,000 ft. for slush, 2,000 ft. for snow, 3,000 ft. for ice. The charge can be held for up to the spell's duration before use, and the spell ends immediately upon arrival.",
@@ -977,10 +1002,10 @@
       "S"
     ],
     "castingTime": "1 round",
-    "range": "Long  (400  ft.  + 40 ft./level)",
+    "range": "Long (400 ft. + 40 ft./level)",
     "targetAreaEffect": {
       "type": "area",
-      "value": "10  ft.-radius/level spread"
+      "value": "10 ft.-radius/level spread"
     },
     "duration": "Instantaneous",
     "savingThrow": "Reflex half; see text",
@@ -1015,7 +1040,13 @@
     "spellResistance": "No",
     "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 5th-level list, two creatures of the same kind from the 4th-level list, or four creatures of the same kind from a lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Hibernate",
@@ -1055,7 +1086,7 @@
       "V",
       "S",
       "M",
-      "Coldﬁ re"
+      "Coldfi re"
     ],
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1136,13 +1167,13 @@
     "components": [
       "V",
       "S",
-      "Coldﬁ re"
+      "Coldfi re"
     ],
     "castingTime": "1 standard action",
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "effect",
-      "value": "Opaque  sheet  of  coldfire up to 20 ft. long/level or a ring of coldfire  with  a  radius  of  up  to  5 ft.  per  two  levels;  either  form  20 ft. high"
+      "value": "Opaque sheet of coldfire up to 20 ft. long/level or a ring of coldfire with a radius of up to 5 ft. per two levels; either form 20 ft. high"
     },
     "duration": "Concentration + 1 round/",
     "savingThrow": "None",
@@ -1205,7 +1236,13 @@
     "spellResistance": "No",
     "description": "Functions as conjure ice beast I, but at this level you can conjure one creature from the 6th-level list, two creatures of the same kind from the 5th-level list, or four creatures of the same kind from a lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Death Hail",
@@ -1255,9 +1292,9 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "area",
-      "value": "One  creature/level,  no  two  of which can be more than 30 ft. apart"
+      "value": "One creature/level, no two of which can be more than 30 ft. apart"
     },
-    "duration": "Instantaneous and 1 round/ level; see text",
+    "duration": "Instantaneous and 1 round/level; see text",
     "savingThrow": "Fortitude negates",
     "spellResistance": "Yes",
     "description": "Traps living creatures target-by-target in a thick shell of ice from head to toe. A creature that makes its Fortitude save immediately breaks free but still takes 6d6 cold damage. A creature that fails is held in the ice and begins suffocating per the drowning rules, taking an additional 2d12 cold damage and 1 point of Constitution damage each round from contact with the ice. While entombed, a creature can only take actions that are purely mental or verbal. Escaping requires a DC 20 Strength check or 20 points of fire damage applied to the ice. Requires a clear gemstone worth at least 500 gp as a material component.",
@@ -1373,7 +1410,7 @@
     "range": "10 ft.",
     "targetAreaEffect": {
       "type": "area",
-      "value": "10-ft.-radius  spherical  emana- tion, centered on you"
+      "value": "10-ft.-radius spherical emana- tion, centered on you"
     },
     "duration": "1 round/level (D)",
     "savingThrow": "None",
@@ -1408,7 +1445,13 @@
     "spellResistance": "No",
     "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 7th-level list, two identical creatures from the 6th-level list, or four identical creatures from any lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Raise Ice Forest",
@@ -1457,7 +1500,7 @@
     "range": "Long (400 ft. + 40 ft./level)",
     "targetAreaEffect": {
       "type": "effect",
-      "value": "Cloud  centered  on  target spreads 120 ft. and is 20 ft. high"
+      "value": "Cloud centered on target spreads 120 ft. and is 20 ft. high"
     },
     "duration": "1 hour/level",
     "savingThrow": "None (see text)",
@@ -1492,7 +1535,13 @@
     "spellResistance": "No",
     "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 8th-level list, two identical creatures from the 7th-level list, or four identical creatures from any lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   },
   {
     "name": "Fimbulwinter",
@@ -1513,7 +1562,7 @@
     "range": "1 mile/level",
     "targetAreaEffect": {
       "type": "area",
-      "value": "1  mile/level  radius,  centered on you"
+      "value": "1 mile/level radius, centered on you"
     },
     "duration": "4d12 weeks",
     "savingThrow": "None",
@@ -1566,7 +1615,7 @@
       "DF"
     ],
     "castingTime": "1 round",
-    "range": "Close  (25  ft.  +  5  ft./2  levels); see text",
+    "range": "Close (25 ft. + 5 ft./2 levels); see text",
     "targetAreaEffect": {
       "type": "effect",
       "value": "One 20-ft. cube/2 levels"
@@ -1631,6 +1680,12 @@
     "spellResistance": "No",
     "description": "Functions like conjure ice beast I, but lets you conjure one creature from the 9th-level list, two identical creatures from the 8th-level list, or four identical creatures from any lower-level list.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Conjure Ice Beast I",
+        "source": "Frostburn"
+      }
+    ]
   }
 ]

@@ -65,7 +65,7 @@
     "range": "Personal",
     "targetAreaEffect": {
       "type": "target",
-      "value": "All creatures within a 15-ft .-radius burst centered on you"
+      "value": "All creatures within a 15-ft.-radius burst centered on you"
     },
     "duration": "Instantaneous",
     "savingThrow": "Fortitude negates (harmless)",
@@ -209,7 +209,7 @@
       "S",
       "M"
     ],
-    "castingTime": "1 action t",
+    "castingTime": "1 action",
     "range": "Personal",
     "targetAreaEffect": {
       "type": "target",
@@ -229,7 +229,8 @@
         "page": 43
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "note": "Masters of the Wild's own printed text reads '+10 competence bonus on Hide checks' (confirmed against the source PDF) — every other printing of this spell (Complete Divine, Savage Species, Spell Compendium) says 'circumstance bonus' instead. Kept as printed here rather than silently corrected, since it's the book's own wording, not an extraction error; flag for the DM if the discrepancy matters at the table."
   },
   {
     "name": "Hawkeye",
@@ -367,7 +368,7 @@
       "DF"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft . + 5 ft ./2 levels)",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "effect",
       "value": "One nature servant"
@@ -458,7 +459,7 @@
     "range": "5 ft.",
     "targetAreaEffect": {
       "type": "area",
-      "value": "5-ft .-radius emanation centered on you"
+      "value": "5-ft.-radius emanation centered on you"
     },
     "duration": "1 round/level",
     "savingThrow": "Reflex half",
@@ -493,7 +494,7 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "area",
-      "value": "Plants in a 40-ft .-radius spread"
+      "value": "Plants in a 40-ft.-radius spread"
     },
     "duration": "1 minute/level",
     "savingThrow": "See text",
@@ -600,7 +601,7 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "effect",
-      "value": "20-ft .-long, 1-ft .-thick wall of vegetation"
+      "value": "20-ft.-long, 1-ft.-thick wall of vegetation"
     },
     "duration": "1 round/level",
     "savingThrow": "None",
@@ -684,7 +685,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, but grants fast healing 2 hp/round instead.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Regenerate Light Wounds",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Speed of the Wind",
@@ -887,7 +894,7 @@
       "DF"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft . + 5 ft/2 levels)",
+    "range": "Close (25 ft. + 5 ft/2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "Waves under a creature or object within range"
@@ -998,7 +1005,14 @@
     "spellResistance": "Yes (harmless)",
     "description": "Functions as polymorph other, except each willing subject (one per level, all becoming the same chosen species) is turned into a Small or smaller feathered animal for 1 hour/level. Any subject may revert to normal form as a full-round action, ending the spell for that individual only; otherwise all subjects stay in bird form until the spell ends or the caster dismisses it, restoring everyone still affected.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Polymorph",
+        "source": null,
+        "note": "Source text says 'polymorph other' (a 3.0-edition spell); 3.5 merged Polymorph Other into a single Polymorph spell, mapped here. Referenced spell not currently in data/spells/."
+      }
+    ]
   },
   {
     "name": "Forestfold",
@@ -1013,7 +1027,7 @@
       "S",
       "M"
     ],
-    "castingTime": "1 action t",
+    "castingTime": "1 action",
     "range": "Personal",
     "targetAreaEffect": {
       "type": "target",
@@ -1038,7 +1052,13 @@
         "page": 149
       }
     ],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Camouflage",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Languor",
@@ -1124,10 +1144,10 @@
       "S"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft. + 5 ft ./2 levels)",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
-      "value": "Any number of animals, beasts, and magical beasts with Intelligence 1 or 2, no two of which can be more than 30 ft . apart"
+      "value": "Any number of animals, beasts, and magical beasts with Intelligence 1 or 2, no two of which can be more than 30 ft. apart"
     },
     "duration": "1 minute/level",
     "savingThrow": "Will negates (see text)",
@@ -1150,7 +1170,7 @@
       "DF"
     ],
     "castingTime": "1 action",
-    "range": "Medium (100 ft . + 10 ft ./level)",
+    "range": "Medium (100 ft. + 10 ft./level)",
     "targetAreaEffect": {
       "type": "target",
       "value": "One living creature"
@@ -1194,7 +1214,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, but grants fast healing 3 hp/round instead.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Regenerate Light Wounds",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Waterball",
@@ -1213,7 +1239,7 @@
     "range": "Long (400 ft. + 40 ft./level)",
     "targetAreaEffect": {
       "type": "area",
-      "value": "20-ft .-radius spread"
+      "value": "20-ft.-radius spread"
     },
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
@@ -1353,7 +1379,7 @@
       "S"
     ],
     "castingTime": "1 action",
-    "range": "Close (25 ft . + 5 ft ./2 levels)",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
     "targetAreaEffect": {
       "type": "target",
       "value": "Any number of animals, beasts, and magical beasts with intelligence 1 or 2, no two of which may be more than 30 ft. apart"
@@ -1388,7 +1414,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate light wounds, except it grants fast healing at a rate of 4 hit points per round.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Regenerate Light Wounds",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Contagious Touch",
@@ -1449,7 +1481,14 @@
     "spellResistance": "Yes",
     "description": "Functions like call lightning, but you can call down a bolt every 5 minutes instead of the normal interval, as long as you remain in a stormy area (rain shower, tornado/whirlwind from a djinni or air elemental of 7+ HD, clouds and wind, or even hot cloudy conditions). You need not call a bolt immediately and may take other actions, including casting other spells, between calls, but calling each bolt requires a standard action to concentrate. Each bolt strikes any point you designate within range, traveling the shortest unobstructed path from a nearby cloud, and affects any creature within 10 ft. of its path or impact point (Reflex half) for 1d10 electricity damage per caster level (max 15d10). Usable only outdoors — it doesn't work indoors, underground, or underwater — and ends if you leave the stormy area.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Call Lightning",
+        "source": "Player's Handbook v3.5",
+        "note": "No explicit book citation in the source text; inferred because this is the only printing of this spell in our data."
+      }
+    ]
   },
   {
     "name": "Mandragora",
@@ -1470,7 +1509,7 @@
     "range": "15 ft.",
     "targetAreaEffect": {
       "type": "effect",
-      "value": "All creatures in a 15-ft . radius"
+      "value": "All creatures in a 15-ft. radius"
     },
     "duration": "1 round/level",
     "savingThrow": "Will negates",
@@ -1528,7 +1567,13 @@
     "spellResistance": "Yes (harmless)",
     "description": "Identical to regenerate ring, except it grants fast healing at a rate of 3 hit points per round.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Regenerate Ring",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Cloudwalkers",
@@ -1591,7 +1636,13 @@
     "spellResistance": "Yes",
     "description": "Identical to creeping cold, but adds a fourth round of effect dealing 4d6 points of damage. If the caster is at least 15th level, a fifth round is added dealing 5d6; if at least 20th level, a sixth round is added dealing 6d6.",
     "otherPrintings": [],
-    "abilityType": "spell"
+    "abilityType": "spell",
+    "functionsAs": [
+      {
+        "spellName": "Creeping Cold",
+        "source": "Masters of the Wild"
+      }
+    ]
   },
   {
     "name": "Slime Wave",
@@ -1807,7 +1858,7 @@
       "S"
     ],
     "castingTime": "1 action",
-    "range": "Long (400 ft. + 40 ft ./level)",
+    "range": "Long (400 ft. + 40 ft./level)",
     "targetAreaEffect": {
       "type": "area",
       "value": "Pattern of lightning spreads similar to a fireball (see text)"
