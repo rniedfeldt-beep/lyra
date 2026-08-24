@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Ur'Epona",
+    "source": "Planar Handbook",
+    "page": 130,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "3d10+6",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 16,
+      "dex": 13,
+      "con": 15,
+      "int": 6,
+      "wis": 12,
+      "cha": 15
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision",
+      "plane shift",
+      "scent"
+    ],
+    "feats": [
+      "Endurance",
+      "Run"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 8,
+    "lyraFamiliar": true,
+    "note": "Its hoof attack is explicitly written as secondary (half Str to damage) even though it's the creature's only natural weapon -- an exception to the usual single-natural-weapon 1.5x rule."
+  }
+]

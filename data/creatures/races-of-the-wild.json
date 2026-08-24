@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Elven Hound",
+    "source": "Races of the Wild",
+    "page": 189,
+    "size": "Medium",
+    "type": "Magical Beast",
+    "hitDice": "2d10+2",
+    "speed": {
+      "land": 50
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 17,
+      "dex": 17,
+      "con": 13,
+      "int": 2,
+      "wis": 12,
+      "cha": 8
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "immune to sleep",
+      "low-light vision",
+      "resist enchantment",
+      "scent",
+      "sprint"
+    ],
+    "feats": [
+      "Improved Natural Attack (bite)",
+      "Track"
+    ],
+    "challengeRating": 1,
+    "isCanine": true,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 8,
+    "lyraFamiliar": true,
+    "note": "Also called cooshee. Bite damage die already reflects Improved Natural Attack (bite)."
+  }
+]
