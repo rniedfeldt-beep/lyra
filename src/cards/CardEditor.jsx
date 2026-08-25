@@ -58,7 +58,124 @@ function DescriptionFields({ value, onChange, idPrefix }) {
   )
 }
 
-export default function CardEditor({ mechFields, draft, onChange, onSave, onAddToQueue, saveStatus }) {
+// The card's own mechanical fields — pre-filled from the spell's real
+// data/spells/ entry (canonicalMechFields) but editable here, not read-only:
+// paste-to-fill can set a different class's level (Lyra's data only tracks
+// a druid level; a card made for a sorcerer needs its own), and a value the
+// parser got slightly wrong is meant to be fixed by hand. Edits never touch
+// the spell's own JSON fields — they're stored as a card.mech override (see
+// buildCardToSave in cardRender.js), only when they actually differ from
+// the canonical values.
+function MechFields({ mech, onChange }) {
+  const set = (field, val) => onChange({ ...mech, [field]: val })
+  return (
+    <div className="mech-grid">
+      <div>
+        <label className="field-label" htmlFor="mech-level">
+          Level
+        </label>
+        <input
+          id="mech-level"
+          className="field-input"
+          type="number"
+          value={mech.level ?? ''}
+          onChange={(e) => set('level', e.target.value === '' ? null : Number(e.target.value))}
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-school">
+          School
+        </label>
+        <input id="mech-school" className="field-input" value={mech.school || ''} onChange={(e) => set('school', e.target.value)} />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-subschool">
+          Subschool
+        </label>
+        <input
+          id="mech-subschool"
+          className="field-input"
+          value={mech.subschool || ''}
+          onChange={(e) => set('subschool', e.target.value || null)}
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-descriptors">
+          Descriptors
+        </label>
+        <input
+          id="mech-descriptors"
+          className="field-input"
+          value={(mech.descriptors || []).join(', ')}
+          onChange={(e) =>
+            set(
+              'descriptors',
+              e.target.value.split(',').map((s) => s.trim()).filter(Boolean),
+            )
+          }
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-castingTime">
+          Casting Time
+        </label>
+        <input
+          id="mech-castingTime"
+          className="field-input"
+          value={mech.castingTime || ''}
+          onChange={(e) => set('castingTime', e.target.value)}
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-range">
+          Range
+        </label>
+        <input id="mech-range" className="field-input" value={mech.range || ''} onChange={(e) => set('range', e.target.value)} />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-components">
+          Components
+        </label>
+        <input
+          id="mech-components"
+          className="field-input"
+          value={mech.components || ''}
+          onChange={(e) => set('components', e.target.value)}
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-duration">
+          Duration
+        </label>
+        <input id="mech-duration" className="field-input" value={mech.duration || ''} onChange={(e) => set('duration', e.target.value)} />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-save">
+          Save
+        </label>
+        <input
+          id="mech-save"
+          className="field-input"
+          value={mech.savingThrow || ''}
+          onChange={(e) => set('savingThrow', e.target.value || null)}
+        />
+      </div>
+      <div>
+        <label className="field-label" htmlFor="mech-sr">
+          SR
+        </label>
+        <input
+          id="mech-sr"
+          className="field-input"
+          value={mech.spellResistance || ''}
+          onChange={(e) => set('spellResistance', e.target.value || null)}
+        />
+      </div>
+    </div>
+  )
+}
+
+export default function CardEditor({ mechFields, mechDraft, onMechChange, draft, onChange, onSave, onAddToQueue, saveStatus }) {
   const continueOn = !!draft.continued
 
   function toggleContinue() {
@@ -68,58 +185,10 @@ export default function CardEditor({ mechFields, draft, onChange, onSave, onAddT
     })
   }
 
-  const hasStSr = !!(mechFields.savingThrow || mechFields.spellResistance)
-
   return (
     <div className="panel">
       <h2>{mechFields.name}</h2>
-      <dl className="mech-grid">
-        <div>
-          <dt>Level</dt>
-          <dd>{mechFields.level}</dd>
-        </div>
-        <div>
-          <dt>School</dt>
-          <dd>
-            {mechFields.school || '—'}
-            {mechFields.subschool ? ` (${mechFields.subschool})` : ''}
-          </dd>
-        </div>
-        {mechFields.descriptors.length > 0 && (
-          <div className="full">
-            <dt>Descriptors</dt>
-            <dd>{mechFields.descriptors.join(', ')}</dd>
-          </div>
-        )}
-        <div>
-          <dt>Casting Time</dt>
-          <dd>{mechFields.castingTime || '—'}</dd>
-        </div>
-        <div>
-          <dt>Range</dt>
-          <dd>{mechFields.range || '—'}</dd>
-        </div>
-        <div>
-          <dt>Components</dt>
-          <dd>{mechFields.components || '—'}</dd>
-        </div>
-        <div>
-          <dt>Duration</dt>
-          <dd>{mechFields.duration || '—'}</dd>
-        </div>
-        {hasStSr && (
-          <>
-            <div>
-              <dt>Save</dt>
-              <dd>{mechFields.savingThrow || '—'}</dd>
-            </div>
-            <div>
-              <dt>SR</dt>
-              <dd>{mechFields.spellResistance || '—'}</dd>
-            </div>
-          </>
-        )}
-      </dl>
+      <MechFields mech={mechDraft} onChange={onMechChange} />
 
       <DescriptionFields value={draft} onChange={onChange} idPrefix="card" />
 

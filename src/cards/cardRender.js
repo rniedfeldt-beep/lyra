@@ -288,6 +288,71 @@ export function buildCardSpell(mechFields, card) {
   }
 }
 
+const MECH_KEYS = [
+  'level',
+  'school',
+  'subschool',
+  'castingTime',
+  'range',
+  'components',
+  'duration',
+  'savingThrow',
+  'spellResistance',
+]
+
+// The mechanical fields as shown/edited on one particular card — distinct
+// from canonicalMechFields()'s JSON-derived values, since a card can show a
+// different class's level (paste-to-fill's whole point: Lyra's data is
+// druid-only, but a card can be made for a sorcerer too) or a hand-fixed
+// value, without touching the spell's own JSON entry. Starts from a
+// previously-saved card.mech if there is one, else from the canonical
+// fields, falling back per-field in case an older saved mech is missing a
+// key added since.
+export function initialMechDraft(canonical) {
+  const saved = canonical.existingCard?.mech
+  const pick = (key) => (saved && saved[key] !== undefined ? saved[key] : canonical[key])
+  const draft = {}
+  for (const key of MECH_KEYS) draft[key] = pick(key)
+  draft.descriptors = pick('descriptors') ?? []
+  return draft
+}
+
+export function mechFieldsEqual(a, b) {
+  if (!a || !b) return a === b
+  if ((a.descriptors || []).join(',') !== (b.descriptors || []).join(',')) return false
+  return MECH_KEYS.every((k) => (a[k] ?? null) === (b[k] ?? null))
+}
+
+// Layers a paste-to-fill result onto an existing mechDraft/card block —
+// only where the parse actually found something. A field it didn't find
+// (blank string, null level, empty descriptors) leaves the existing value
+// alone rather than blanking out an already-correct canonical field or a
+// previously hand-typed one — "fill what you can" shouldn't mean "erase
+// what you already had."
+export function applyMechPatch(base, patch) {
+  const out = { ...base }
+  if (patch.level != null) out.level = patch.level
+  if (patch.school) out.school = patch.school
+  if (patch.subschool) out.subschool = patch.subschool
+  if (patch.descriptors?.length) out.descriptors = patch.descriptors
+  if (patch.castingTime) out.castingTime = patch.castingTime
+  if (patch.range) out.range = patch.range
+  if (patch.components) out.components = patch.components
+  if (patch.duration) out.duration = patch.duration
+  if (patch.savingThrow) out.savingThrow = patch.savingThrow
+  if (patch.spellResistance) out.spellResistance = patch.spellResistance
+  return out
+}
+
+export function applyCardPatch(base, patch) {
+  return {
+    ...base,
+    flavor: patch.flavor || base.flavor,
+    primary: patch.primary || base.primary,
+    note: patch.note || base.note,
+  }
+}
+
 export function blankCardBlock() {
   return { flavor: '', primary: '', secondary: '', note: '', table: null, continued: null }
 }
@@ -314,4 +379,17 @@ export function cleanCard(draft) {
   const continued = cleanBlock(draft?.continued)
   if (continued) base.continued = continued
   return base
+}
+
+// What actually gets persisted into data/spells/<file>.json's "card" field:
+// the cleaned description block, plus a `mech` override only when the
+// current mechanical fields differ from the spell's own canonical values —
+// omitted otherwise, so a card nobody's touched doesn't carry a redundant
+// copy of data that's already in the entry proper.
+export function buildCardToSave(draft, mechDraft, canonicalMech) {
+  const base = cleanCard(draft) || {}
+  if (!mechFieldsEqual(mechDraft, canonicalMech)) {
+    base.mech = { ...mechDraft }
+  }
+  return Object.keys(base).length ? base : null
 }

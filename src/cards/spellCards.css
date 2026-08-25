@@ -548,26 +548,22 @@
 .mech-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px 12px;
-  font-size: 9.5pt;
+  gap: 2px 12px;
   margin-bottom: 4px;
 }
-.mech-grid div {
+.mech-grid > div {
   overflow-wrap: break-word;
 }
-.mech-grid .full {
-  grid-column: 1 / -1;
+.mech-grid .field-label {
+  margin: 8px 0 3px;
 }
-.mech-grid dt {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 7.5pt;
-  letter-spacing: 0.08em;
-  color: #888;
-  text-transform: uppercase;
-  margin: 0;
-}
-.mech-grid dd {
-  margin: 0;
+.field-input {
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid #c9c9ca;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 9.5pt;
   color: #111;
 }
 
@@ -681,6 +677,46 @@
 }
 .save-status.err {
   color: #a32714;
+}
+
+.paste-textarea {
+  min-height: 160px;
+  font-family: 'Fira Mono', monospace;
+  font-size: 9pt;
+}
+
+.paste-results {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #d8d8d9;
+}
+.paste-results-summary {
+  font-size: 9.5pt;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.paste-results-list {
+  font-size: 8.5pt;
+  color: #555;
+  margin: 0 0 4px;
+}
+.paste-results-list.ok {
+  color: #2a7a2a;
+}
+.paste-results-list.err {
+  color: #a32714;
+}
+
+.level-picker {
+  margin: 8px 0;
+  font-size: 9.5pt;
+}
+.level-picker-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 12px 0 0;
+  cursor: pointer;
 }
 
 .preview-frame {

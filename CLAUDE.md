@@ -1429,16 +1429,68 @@ in the port:**
    browsers.
 
 **Data model.** A spell's mechanical fields (name, level, school, subschool, descriptors,
-castingTime, range, components, duration, savingThrow, spellResistance) come straight from its
-`data/spells/*.json` entry — read-only in the editor, via `canonicalMechFields()` reading the
-first printing with a `full` entry off its `spellGroups` group. What you type lives in a new
-`card` field on that same entry: `{ flavor, primary, secondary, note, table?, continued? }`,
-matching `spell-cards-v2.html`'s own `SPELLS[].card` shape exactly. `continued` (same shape,
-minus its own `continued`) is what "continue on second card" fills in — its presence is what
+castingTime, range, components, duration, savingThrow, spellResistance) start out from its
+`data/spells/*.json` entry, via `canonicalMechFields()` reading the first printing with a
+`full` entry off its `spellGroups` group — but they're editable in the form
+(`mechDraft`/`MechFields` in `CardEditor.jsx`), not read-only display, since a card can need a
+different class's level than the one Lyra's own druid-only data tracks (see Paste to fill,
+below) or a hand-fixed value. Editing never touches the spell's own JSON fields; it's captured
+as an optional `card.mech` override — `initialMechDraft()` seeds the form from a previously-
+saved `card.mech` if there is one, else from the canonical fields, and `buildCardToSave()`
+(`cardRender.js`) only writes `mech` back out when it actually differs from canonical
+(`mechFieldsEqual()`), so a card nobody's touched doesn't carry a redundant copy of data
+that's already in the entry proper. What you type lives in the rest of that same `card` field:
+`{ flavor, primary, secondary, note, table?, continued?, mech? }`, matching
+`spell-cards-v2.html`'s own `SPELLS[].card` shape (plus `mech`, new here). `continued` (same
+shape, minus its own `continued`/`mech` — the two card faces of a fold pair always share one
+set of mechanical fields) is what "continue on second card" fills in — its presence is what
 makes a spell render as a `.fold` pair instead of one `.card` (`unitHTML()` in
 `cardRender.js`, mirroring the reference's `w: s.card.continued ? 2 : 1` pagination weight).
 `table` is `{ head: [...], rows: [[...], ...] }`, built by `TableBuilder.jsx`. `**bold**` /
 `*italic*` and blank-line-starts-a-paragraph (`fmt()`) work in every field.
+
+**Paste to fill (Aug 2026).** `PasteToFill.jsx` + `pasteParser.js` — a textarea for a spell's
+raw text (stat block and description) copied out of a PDF, parsed offline with pure regex/rule
+logic, no API calls. `cleanPastedText()` runs first: normalizes smart quotes/en-dashes, fixes
+the handful of common spell-vocabulary words a PDF ligature bug splits with a stray space
+(`Refl ex` → `Reflex` — a small known-word dictionary, `LIGATURE_WORDS`, deliberately not a
+general "letters space letters" regex, which would just as happily mangle "to flee" into
+"toflee"), and strips standalone page numbers and short all-caps running headers.
+`parsePastedSpell()` then reads the SRD's own regular structure: name is the first non-empty
+line, school the next (parsing `(subschool)` and `[descriptors]` out of it), then the labeled
+stat-block lines (`Level:`, `Components:`, `Casting Time:`, `Range:`, `Target:`/`Area:`/
+`Effect:`, `Duration:`, `Saving Throw:`, `Spell Resistance:` — matched case-insensitively,
+tolerant of no space after the colon). `scanStatBlock()` finds every label line first rather
+than walking sequentially, so a field bounds by the *next known label's position* — reliable
+regardless of how its own value wrapped across lines — for every field but the last, which has
+no next label to bound it and falls back to `looksIncomplete()` (an unclosed paren or a
+trailing `+`/`-`/`/`/`,`/"and"/"or") to decide whether to pull in one more line. Everything
+after the last label is the description: split into paragraphs on blank lines, hard-wraps
+within a paragraph collapsed to spaces; a paragraph starting `Material Component:`,
+`Arcane Material Component:`, `Focus:`, `Divine Focus:`, `XP Cost:`, or `Special:` goes to
+`note`, the first remaining paragraph to `flavor`, everything else to `primary` — no cleverer
+than that, since the fields stay just as easy to hand-edit and reorder afterward as any other.
+A `missing` list on the result names every expected label the parser couldn't find, shown
+verbatim rather than guessed at; `Target`/`Area`/`Effect` has no card field to land in at all
+(the template doesn't display it), so it's surfaced as reference text in the results panel
+instead, for writing Primary by hand against.
+
+Since Lyra's data is druid-only, a spell listing several classes (`Level: Drd 3, Rgr 2`)
+becomes a radio group in the results — `Drd` is pre-picked when present, else the first class
+listed, always switchable before filling. Filling looks the parsed name up in `spellGroups`
+by exact case-insensitive match (a faster alternative to searching first, not a replacement
+for it — you've already got the full text) and loads that spell exactly like picking it from
+`SpellPicker` would, then layers the parse on top via `applyMechPatch`/`applyCardPatch`
+(`cardRender.js`) — both apply a field only when the parser actually found something, so a
+label the paste didn't have (or that `missing` flags) leaves the existing canonical or
+previously-typed value alone rather than blanking it out. A name with no match in `spellGroups`
+reports `not found in data/spells/` rather than silently doing nothing.
+
+A paste of several spells' text back to back (detected by more than one `Level:` line —
+`splitMultipleSpells()` anchors each occurrence and walks back to the two non-empty lines
+before it for that spell's name/school) skips the single-card editor entirely: each block is
+parsed, looked up, and — if found — pushed straight to the print queue with a best-effort
+save to its file, reporting which spells were added and which were skipped and why.
 
 **Persistence.** Two layers, deliberately different lifetimes:
 - **localStorage** (`src/cards/persist.js`) autosaves the current draft per spell name and the
