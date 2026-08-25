@@ -28,6 +28,12 @@ export const spellFileCounts = {}
 // contains instead of crediting them all to a single arbitrary issue.
 export const spellFileIssueBreakdown = {}
 
+// { spellName: fileName } for every entry in rawSpells — lets the spell-card
+// tool (src/cards) know which data/spells/*.json file to write a "card" block
+// back into without re-deriving it from groupedSourceLabel (which collapses
+// multi-issue files like dragon-magazine.json to one title, not one filename).
+export const spellNameToFile = {}
+
 function isPlainObject(value) {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
@@ -144,7 +150,10 @@ for (const path of Object.keys(spellModules).sort()) {
 
   for (const entry of visibleEntries) {
     const valid = validateSpellEntry(entry, fileName)
-    if (valid) rawSpells.push(valid)
+    if (valid) {
+      rawSpells.push(valid)
+      spellNameToFile[valid.name] = fileName
+    }
   }
   for (const entry of refEntries) {
     const valid = validateSpellEntry(entry, fileName)

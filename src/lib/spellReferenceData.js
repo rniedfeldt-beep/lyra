@@ -1,7 +1,7 @@
-import { rawSpells, referenceSpells, spellFileCounts, spellFileIssueBreakdown } from './loadSpellData'
+import { rawSpells, referenceSpells, spellFileCounts, spellFileIssueBreakdown, spellNameToFile } from './loadSpellData'
 import { mergeSpellEntries, groupedSourceLabel, normalizeSourceKey } from './calc/spellReference'
 
-export { spellFileCounts, spellFileIssueBreakdown }
+export { spellFileCounts, spellFileIssueBreakdown, spellNameToFile }
 export const spellGroups = mergeSpellEntries(rawSpells)
 export const totalRawSpellCount = rawSpells.length
 // Grouped for the filter dropdown (e.g. every Dragon Magazine issue

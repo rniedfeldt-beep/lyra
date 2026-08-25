@@ -83,6 +83,7 @@ duration, active wild shape form, Quen's current HP, and (Phase 9) `characterPro
   /feats
   /items
 /sourcebooks     PDFs (never read at runtime)
+/cards           cards/index.html — second Vite entry point, see "Spell cards (/cards)"
 ```
 
 ### Feat reference data (Aug 2026)
@@ -1397,6 +1398,78 @@ landing in its own ~157KB chunk, fetched only on first opening the tab. The `Sus
 fallback ("Loading spell reference…") is the whole loading state — no separate manual
 loading flag needed, since the chunk's own JS/JSON is what's slow to fetch, not something the
 component does after mounting.
+
+---
+
+## Spell cards (`/cards`)
+
+A printing tool, not a card viewer — search a spell, compose its card, add it to a print
+queue, print. Deployed as its own page (`cards/index.html` → `src/cards/main.jsx` →
+`CardsApp.jsx`), not a route inside the main SPA, since there's no router in this project and
+a separate Vite multi-page entry is simpler than adding one. `vite.config.js`'s
+`build.rollupOptions.input` builds both `index.html` and `cards/index.html`; on GitHub Pages
+that lands at `/lyra/cards/`.
+
+**Reference implementation.** `spell-cards-v2.html` (project root) is a working, tested
+standalone prototype — the card geometry, type sizes, auto-fitter, and print pagination in
+`src/cards/cardRender.js`/`spellCards.css` are ported from it as closely as the React
+adaptation allows, not rebuilt from scratch. Its own header comment has the full PSD
+measurements (card is 2.233in × 3.265in at aspect 0.684, interior row heights as % of card
+height, point sizes per element). **Three things break if changed carelessly, all preserved
+in the port:**
+1. `@page` can't read CSS variables — the print margin (`margin: .25in`) is a literal in
+   `spellCards.css`, hand-kept in sync with `--page-pad-v`/`--page-pad-h`. `var()` there
+   silently no-ops and the browser falls back to its own margins.
+2. The auto-fitter (`fitWithin` in `cardRender.js`) must run after `document.fonts.ready`
+   (`fontsReady()`) — measuring against fallback font metrics sizes cards wrong and text
+   overflows once Fira Sans swaps in. Every fit call in the app goes through
+   `useFitCards`/`fontsReady()`, never a bare `useEffect`.
+3. Interior row heights (`--r-head`/`--r-band`/`--r-stat`) are `calc()` against `--card-h`,
+   not percentages — percentage heights collapse inconsistently in a nested flex column across
+   browsers.
+
+**Data model.** A spell's mechanical fields (name, level, school, subschool, descriptors,
+castingTime, range, components, duration, savingThrow, spellResistance) come straight from its
+`data/spells/*.json` entry — read-only in the editor, via `canonicalMechFields()` reading the
+first printing with a `full` entry off its `spellGroups` group. What you type lives in a new
+`card` field on that same entry: `{ flavor, primary, secondary, note, table?, continued? }`,
+matching `spell-cards-v2.html`'s own `SPELLS[].card` shape exactly. `continued` (same shape,
+minus its own `continued`) is what "continue on second card" fills in — its presence is what
+makes a spell render as a `.fold` pair instead of one `.card` (`unitHTML()` in
+`cardRender.js`, mirroring the reference's `w: s.card.continued ? 2 : 1` pagination weight).
+`table` is `{ head: [...], rows: [[...], ...] }`, built by `TableBuilder.jsx`. `**bold**` /
+`*italic*` and blank-line-starts-a-paragraph (`fmt()`) work in every field.
+
+**Persistence.** Two layers, deliberately different lifetimes:
+- **localStorage** (`src/cards/persist.js`) autosaves the current draft per spell name and the
+  whole print queue on every change — survives a reload regardless of environment, and is what
+  "load it into the editor... rather than starting blank" falls back on before anything's
+  reached the repo.
+- **The repo itself** — `data/spells/<file>.json`'s own `card` field, via `POST
+  /api/cards/save`, a dev/preview-only Vite middleware (`cardSavePlugin` in `vite.config.js`,
+  wired into both `configureServer` and `configurePreviewServer`) that writes the file
+  directly. `spellNameToFile` (`loadSpellData.js`) maps a spell name to its real filename,
+  since `groupedSourceLabel` collapses multi-issue files like `dragon-magazine.json` to one
+  title and can't be reversed back to a filename. This endpoint doesn't exist in the static
+  build shipped to GitHub Pages — there's no server there — so a failed save is the expected,
+  only outcome in production, and `CardsApp.jsx` falls back to copying the card JSON to the
+  clipboard instead (`copyCardJSON`). Saving happens on "Save" and again (best-effort) before
+  "Add to Print Queue" adds the current card.
+
+**Rendering.** `cardRender.js`'s `headHTML`/`bodyHTML`/`cardHTML`/`unitHTML` build the same raw
+HTML strings the reference does (SVGs, markdown-lite paragraphs, the table) and every card face
+is mounted via one `dangerouslySetInnerHTML` at its outermost element — never nested React
+components inside a `.card`/`.fold`/`.row`, since the auto-fitter's `querySelector('.body')`
+calls and the grid/flex geometry both depend on the exact sibling structure the reference
+builds, and an extra React-inserted wrapper `<div>` around `.card` or `.fold` would become the
+actual grid item inside `.row` instead of the card itself. `PrintSheets.jsx` (the always-
+visible, actually-printed output) and `CardPreview.jsx` (the single-card live preview beside
+the editor) both call `unitHTML`/`sheetsHTMLFromPages` and then `fitWithin` through
+`useFitCards`; `.no-print` (on everything except `PrintSheets`) is what `window.print()`
+actually outputs. The overflow flag ("TEXT CLIPPED", red outline) is unchanged from the
+reference — any card still overflowing at the 7pt floor after the auto-fitter's nine steps
+gets flagged, both in the live preview and in the print sheets, meaning the spell needs
+"continue on second card."
 
 ---
 

@@ -1,0 +1,738 @@
+/* ═══════════════════════════════════════════════════════════════
+   CARD GEOMETRY — ported verbatim from spell-cards-v2.html (the
+   reference implementation, measured from
+   Spell_Cards_Comp_Vaelith_Lyra-34.psd at 300 DPI). Do not change
+   card dimensions, interior proportions, or font sizes here — see
+   CLAUDE.md > Spell cards (/cards) for the three things that break
+   if edited carelessly: @page can't read CSS variables, the
+   auto-fitter must run after document.fonts.ready, and interior row
+   heights use calc() against --card-h rather than percentages.
+
+     card          2.233in wide x 3.265in tall   (aspect 0.684)
+     internal rules, as % of card height
+       header block ends   18.07%
+       school band ends    27.16%
+       stat row 1 ends     39.31%
+       stat row 2 ends     51.51%
+       description        remaining 48.49%
+
+     spell name     17.8pt  Fira Sans Regular
+     level numeral  23.6pt  Fira Mono Bold
+     school         13.6pt  Fira Sans Regular
+     components     13.3pt  Fira Sans Bold
+     field values    9.6pt  Fira Sans Regular
+     ST / SR         6.8pt  Fira Sans Bold
+     body            6.6 - 9.7pt
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --abjuration: #a36a15;
+  --conjuration: #2740cc;
+  --divination: #6d10a3;
+  --enchantment: #cc3181;
+  --evocation: #a32714;
+  --illusion: #bf62f5;
+  --necromancy: #8bcc45;
+  --transmutation: #387a3d;
+  --universal: #000000;
+
+  --card-w: 2.233in;
+  --card-h: 3.265in;
+
+  --r-head: calc(var(--card-h) * 0.1807);
+  --r-band: calc(var(--card-h) * 0.0909);
+  --r-stat: calc(var(--card-h) * 0.1217);
+
+  --col-gap: 0.15in;
+  --row-gap: 0.8in;
+  --page-pad-v: 1in;
+  --page-pad-h: 0.4in;
+
+  --rule: #c9c9c9;
+}
+
+[data-school='abjuration'] {
+  --ink: var(--abjuration);
+}
+[data-school='conjuration'] {
+  --ink: var(--conjuration);
+}
+[data-school='divination'] {
+  --ink: var(--divination);
+}
+[data-school='enchantment'] {
+  --ink: var(--enchantment);
+}
+[data-school='evocation'] {
+  --ink: var(--evocation);
+}
+[data-school='illusion'] {
+  --ink: var(--illusion);
+}
+[data-school='necromancy'] {
+  --ink: var(--necromancy);
+}
+[data-school='transmutation'] {
+  --ink: var(--transmutation);
+}
+[data-school='universal'] {
+  --ink: var(--universal);
+}
+
+.cards-app * {
+  box-sizing: border-box;
+}
+.cards-app {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+  background: #ececed;
+  color: #111;
+  min-height: 100vh;
+}
+
+/* ── page ─────────────────────────────────────────────────────── */
+.sheet {
+  width: 8.5in;
+  height: 11in;
+  margin: 0.25in auto;
+  padding: var(--page-pad-v) var(--page-pad-h);
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--row-gap);
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
+  grid-auto-rows: var(--card-h);
+  column-gap: var(--col-gap);
+  justify-content: center;
+}
+
+/* ── card ─────────────────────────────────────────────────────── */
+.card {
+  width: var(--card-w);
+  height: var(--card-h);
+  border: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.card-head {
+  height: var(--r-head);
+  flex: 0 0 var(--r-head);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  gap: 3px;
+  padding: 0.04in 0.05in 0 0.05in;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.card-head.has-stsr {
+  padding-bottom: 0.11in;
+}
+.sigil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 0.23in;
+  padding-top: 0.02in;
+}
+.sigil span {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 4pt;
+  letter-spacing: 0.11em;
+  margin-top: 1px;
+}
+.card-name {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.card-name span {
+  font-size: 17.8pt;
+  line-height: 1.03;
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+}
+
+.level {
+  width: 0.42in;
+  height: 0.42in;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  position: relative;
+  align-self: start;
+  margin-top: -0.04in;
+}
+.level svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.level span {
+  position: relative;
+  line-height: 1;
+  font-family: 'Fira Mono', monospace;
+  font-weight: 700;
+  font-size: 16pt;
+}
+.st-sr {
+  position: absolute;
+  right: 0.05in;
+  bottom: 0.01in;
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.st-sr i {
+  font-style: normal;
+  font-weight: 400;
+}
+
+.band {
+  height: var(--r-band);
+  flex: 0 0 var(--r-band);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 0.04in 1px;
+}
+.band .school {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.band .school span {
+  font-size: 13.6pt;
+  color: var(--ink);
+  line-height: 1.05;
+  text-align: center;
+}
+.band .school em {
+  font-style: normal;
+  font-size: 0.7em;
+}
+.band .school .desc {
+  font-size: 0.6em;
+}
+.band .tag {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 4pt;
+  letter-spacing: 0.15em;
+  color: #333;
+  text-align: center;
+}
+
+.stat-row {
+  height: var(--r-stat);
+  flex: 0 0 var(--r-stat);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+  min-height: 0;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  text-align: center;
+  min-width: 0;
+  overflow: hidden;
+}
+.stat + .stat {
+  border-left: 1px solid var(--rule);
+}
+.stat .k {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 4pt;
+  letter-spacing: 0.15em;
+  color: #333;
+  margin-bottom: 1px;
+  white-space: nowrap;
+}
+.stat .v {
+  font-size: 9.6pt;
+  color: var(--ink);
+  line-height: 1.05;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.stat .v small {
+  font-size: 7pt;
+  display: block;
+}
+.stat .v.comp {
+  font-size: 13.3pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.desc-tag {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 4pt;
+  letter-spacing: 0.15em;
+  color: #333;
+  text-align: center;
+  padding: 2px 0 1px;
+}
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  color: var(--ink);
+  padding: 0 0.055in 0.05in;
+  --fs-flavor: 11pt;
+  --fs-primary: 10pt;
+  --fs-secondary: 9pt;
+  --fs-note: 8pt;
+  --ff-body: 'Fira Sans', sans-serif;
+  font-family: var(--ff-body);
+}
+.body p {
+  margin: 0 0 3.5px;
+}
+.body p:last-child {
+  margin-bottom: 0;
+}
+.body .flavor {
+  font-style: italic;
+  font-size: var(--fs-flavor);
+  line-height: 1.19;
+}
+.body .primary {
+  font-size: var(--fs-primary);
+  line-height: 1.21;
+}
+.body .secondary {
+  font-size: var(--fs-secondary);
+  line-height: 1.21;
+}
+.body .note {
+  font-size: var(--fs-note);
+  line-height: 1.19;
+}
+.body b {
+  font-weight: 700;
+}
+
+.body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-note);
+  margin: 2.5px 0 3.5px;
+}
+.body th {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 500;
+  padding: 1.5px 2px;
+  border: 1px solid var(--ink);
+}
+.body td {
+  text-align: center;
+  padding: 1.5px 2px;
+  border: 1px solid var(--ink);
+  color: #111;
+}
+
+.fold {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: var(--card-w) var(--card-w);
+  column-gap: var(--col-gap);
+  position: relative;
+}
+.fold::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 0.5px);
+  top: -0.09in;
+  bottom: -0.09in;
+  border-left: 1px dashed #b0b0b0;
+}
+
+.card,
+.fold {
+  outline: 1px dashed #cfcfcf;
+  outline-offset: 0.04in;
+}
+.fold > .card {
+  outline: none;
+}
+
+.overflowing {
+  outline: 2px solid #d81b1b;
+  outline-offset: 2px;
+}
+.overflow-flag {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 5pt;
+  color: #d81b1b;
+  letter-spacing: 0.06em;
+}
+
+/* ── print ────────────────────────────────────────────────────── */
+/* @page lives outside the document tree, so var() does NOT resolve
+   here — keep these literals in sync with --page-pad-* above. */
+@page {
+  size: 8.5in 11in;
+  margin: 0.25in;
+}
+@media print {
+  html,
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .sheet {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.75in 0.15in; /* + @page 0.25in = 1in top, 0.4in sides */
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  .sheet:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .row,
+  .fold,
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .overflowing {
+    outline: 1px dashed #cfcfcf;
+  }
+  .overflow-flag {
+    display: none;
+  }
+  .card,
+  .body th {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TOOL CHROME — new UI around the ported card template: search,
+   editor form, live preview frame, queue list. None of this governs
+   card geometry, so it's free to evolve independent of the rules
+   above.
+   ═══════════════════════════════════════════════════════════════ */
+.cards-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .cards-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+.cards-header h1 {
+  font-size: 15pt;
+  font-weight: 500;
+  margin: 0 0 2px;
+}
+.cards-header p {
+  font-size: 9pt;
+  color: #555;
+  margin: 0;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d8d8d9;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.panel + .panel {
+  margin-top: 16px;
+}
+.panel h2 {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 10.5pt;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.field-search {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #c9c9ca;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 10.5pt;
+}
+.search-results {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+}
+.search-results li {
+  border-bottom: 1px solid #eee;
+}
+.search-results button {
+  width: 100%;
+  text-align: left;
+  padding: 7px 4px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 10pt;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.search-results button:hover {
+  background: #f4f4f5;
+}
+.search-results .lvl {
+  color: #888;
+  font-size: 9pt;
+  flex-shrink: 0;
+}
+.search-results .has-card {
+  color: #2740cc;
+  font-size: 8pt;
+  margin-left: 6px;
+}
+
+.mech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  font-size: 9.5pt;
+  margin-bottom: 4px;
+}
+.mech-grid div {
+  overflow-wrap: break-word;
+}
+.mech-grid .full {
+  grid-column: 1 / -1;
+}
+.mech-grid dt {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 7.5pt;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-transform: uppercase;
+  margin: 0;
+}
+.mech-grid dd {
+  margin: 0;
+  color: #111;
+}
+
+.field-label {
+  display: block;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+  color: #555;
+  text-transform: uppercase;
+  margin: 10px 0 4px;
+}
+.field-hint {
+  font-size: 8pt;
+  color: #888;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-left: 6px;
+}
+.field-textarea {
+  width: 100%;
+  min-height: 54px;
+  padding: 7px 9px;
+  border: 1px solid #c9c9ca;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 10pt;
+  resize: vertical;
+  line-height: 1.35;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 4px;
+  font-size: 9.5pt;
+  cursor: pointer;
+}
+.continued-block {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #d8d8d9;
+}
+
+.table-builder {
+  margin-top: 10px;
+}
+.table-builder table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 6px;
+}
+.table-builder input {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 3px 4px;
+  font-size: 9pt;
+  font-family: inherit;
+}
+.table-builder th,
+.table-builder td {
+  border: 1px solid #eee;
+  padding: 2px;
+}
+.table-builder-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 9pt;
+  padding: 6px 12px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.btn:hover {
+  background: #f0f0f0;
+}
+.btn-primary {
+  background: #111;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #333;
+}
+.btn-small {
+  font-size: 8pt;
+  padding: 3px 8px;
+}
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.save-status {
+  font-size: 8.5pt;
+  margin-top: 8px;
+  min-height: 1.2em;
+}
+.save-status.ok {
+  color: #2a7a2a;
+}
+.save-status.err {
+  color: #a32714;
+}
+
+.preview-frame {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: #ececed;
+  border-radius: 8px;
+}
+
+.queue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.queue-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 9.5pt;
+}
+.queue-list .qname {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.queue-list .qmeta {
+  color: #888;
+  font-size: 8.5pt;
+}
+.queue-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.queue-empty {
+  font-size: 9.5pt;
+  color: #888;
+}
+
+.print-sheets-wrap {
+  margin-top: 8px;
+}
+.sheets-count {
+  max-width: 8.5in;
+  margin: 0 auto 8px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 9pt;
+  color: #555;
+  text-align: center;
+}

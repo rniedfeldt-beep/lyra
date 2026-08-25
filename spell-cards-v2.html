@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lyra — Spell Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Fira+Sans+Condensed:ital,wght@0,400;0,500;0,700;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,500;0,700;1,400&family=Fira+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Measured from Spell_Cards_Comp_Vaelith_Lyra-34.psd (300 DPI).
+   All six cards in that file are identical:
+
+     card          2.233in wide x 3.265in tall   (aspect 0.684)
+     internal rules, as % of card height
+       header block ends   18.07%
+       school band ends    27.16%
+       stat row 1 ends     39.31%
+       stat row 2 ends     51.51%
+       description        remaining 48.49%
+
+   Type, converted from the PSD's 300dpi pixel sizes to points:
+       spell name     17.8pt  Fira Sans Regular
+       level numeral  23.6pt  Fira Mono Bold
+       school         13.6pt  Fira Sans Regular
+       components     13.3pt  Fira Sans Bold
+       field values    9.6pt  Fira Sans Regular
+       ST / SR         6.8pt  Fira Sans Bold
+       body            6.6 - 9.7pt
+
+   The original swaps to Fira Sans Compressed for dense spells
+   rather than only shrinking. The auto-fitter below does the
+   same, stepping through Condensed and Extra Condensed as it
+   goes, which holds x-height far better than size alone.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  /* School colours, from the template legend */
+  --abjuration:    #a36a15;
+  --conjuration:   #2740cc;
+  --divination:    #6d10a3;
+  --enchantment:   #cc3181;
+  --evocation:     #a32714;
+  --illusion:      #bf62f5;   /* legend reads "#bf62fs" — assumed OCR slip */
+  --necromancy:    #8bcc45;
+  --transmutation: #387a3d;
+  --universal:     #000000;
+
+  /* Card size — the PSD's true measurement. This is not arbitrary:
+     three 2.5in cards across is 7.5in of card alone, leaving only
+     1in of a Letter sheet for both side margins AND two gaps, which
+     is less than most printers' non-printable edge. At 2.233in the
+     row is 7.2in and there is real margin to spare. */
+  --card-w: 2.233in;
+  --card-h: 3.265in;
+
+  /* Interior proportions, straight from the PSD. Expressed as calc()
+     against the card height rather than percentages — percentage
+     heights inside a nested flex column resolve inconsistently across
+     browsers, which collapses the header row in some of them. */
+  --r-head:  calc(var(--card-h) * 0.1807);
+  --r-band:  calc(var(--card-h) * 0.0909);
+  --r-stat:  calc(var(--card-h) * 0.1217);
+
+  --col-gap: 0.15in;
+  --row-gap: 0.80in;
+  --page-pad-v: 1in;
+  --page-pad-h: 0.4in;
+
+  --rule: #c9c9c9;
+}
+
+[data-school="abjuration"]    { --ink: var(--abjuration); }
+[data-school="conjuration"]   { --ink: var(--conjuration); }
+[data-school="divination"]    { --ink: var(--divination); }
+[data-school="enchantment"]   { --ink: var(--enchantment); }
+[data-school="evocation"]     { --ink: var(--evocation); }
+[data-school="illusion"]      { --ink: var(--illusion); }
+[data-school="necromancy"]    { --ink: var(--necromancy); }
+[data-school="transmutation"] { --ink: var(--transmutation); }
+[data-school="universal"]     { --ink: var(--universal); }
+
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:"Fira Sans",sans-serif; background:#ececed; color:#111; }
+
+/* ── page ─────────────────────────────────────────────────────── */
+.sheet{
+  width:8.5in; height:11in;
+  margin:0.25in auto;
+  padding:var(--page-pad-v) var(--page-pad-h);
+  background:#fff;
+  box-shadow:0 2px 14px rgba(0,0,0,.16);
+  display:flex; flex-direction:column; align-items:center;
+  gap:var(--row-gap);
+}
+.row{
+  display:grid;
+  grid-template-columns:repeat(3, var(--card-w));
+  grid-auto-rows:var(--card-h);
+  column-gap:var(--col-gap);
+  justify-content:center;
+}
+
+/* ── card ─────────────────────────────────────────────────────── */
+.card{
+  width:var(--card-w); height:var(--card-h);
+  border:1px solid #111;
+  display:flex; flex-direction:column;
+  overflow:hidden; position:relative; background:#fff;
+}
+
+/* header — icon left, name centre, hexagon pinned top-right */
+.card-head{
+  height:var(--r-head);
+  flex:0 0 var(--r-head);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:stretch;
+  gap:3px;
+  padding:0.04in 0.05in 0 0.05in;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+/* reserve room for the ST/SR line so the name can't collide with it */
+.card-head.has-stsr{ padding-bottom:0.11in; }
+.sigil{
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:flex-start;
+  width:0.23in; padding-top:0.02in;
+}
+.sigil span{
+  font-family:"Fira Sans Condensed",sans-serif;
+  font-size:4pt; letter-spacing:.11em; margin-top:1px;
+}
+.card-name{
+  margin:0; min-width:0; overflow:hidden;
+  display:grid; place-items:center;
+}
+.card-name span{
+  font-size:17.8pt; line-height:1.03; font-weight:400;
+  color:var(--ink); text-align:center;
+}
+
+.level{
+  width:0.42in; height:0.42in;
+  display:grid; place-items:center;
+  color:var(--ink); position:relative;
+  align-self:start; margin-top:-0.04in;
+}
+.level svg{ position:absolute; inset:0; width:100%; height:100%; }
+.level span{
+  position:relative; line-height:1;
+  font-family:"Fira Mono",monospace; font-weight:700; font-size:16pt;
+}
+.st-sr{
+  position:absolute; right:0.05in; bottom:0.01in;
+  font-size:6.8pt; font-weight:700; color:var(--ink); white-space:nowrap;
+}
+.st-sr i{ font-style:normal; font-weight:400; }
+
+/* school band */
+.band{
+  height:var(--r-band); flex:0 0 var(--r-band);
+  border-bottom:1px solid var(--rule);
+  display:flex; flex-direction:column;
+  align-items:stretch; justify-content:center;
+  padding:0 0.04in 1px;
+}
+.band .school{
+  flex:1; min-height:0; overflow:hidden;
+  display:grid; place-items:center;
+}
+.band .school span{
+  font-size:13.6pt; color:var(--ink); line-height:1.05; text-align:center;
+}
+.band .school em{ font-style:normal; font-size:0.7em; }
+.band .school .desc{ font-size:0.6em; }
+.band .tag{
+  font-family:"Fira Sans Condensed",sans-serif;
+  font-size:4pt; letter-spacing:.15em; color:#333; text-align:center;
+}
+
+/* two stat rows — direct children of .card so their percentage
+   heights resolve against the card's fixed height */
+.stat-row{
+  height:var(--r-stat); flex:0 0 var(--r-stat);
+  display:grid; grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--rule);
+  min-height:0;
+}
+.stat{
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:0 2px; text-align:center; min-width:0; overflow:hidden;
+}
+.stat + .stat{ border-left:1px solid var(--rule); }
+.stat .k{
+  font-family:"Fira Sans Condensed",sans-serif;
+  font-size:4pt; letter-spacing:.15em; color:#333; margin-bottom:1px;
+  white-space:nowrap;
+}
+.stat .v{
+  font-size:9.6pt; color:var(--ink); line-height:1.05;
+  overflow-wrap:break-word; max-width:100%;
+}
+.stat .v small{ font-size:7pt; display:block; }
+.stat .v.comp{ font-size:13.3pt; font-weight:700; letter-spacing:.05em; }
+
+/* description */
+.desc-tag{
+  font-family:"Fira Sans Condensed",sans-serif;
+  font-size:4pt; letter-spacing:.15em; color:#333;
+  text-align:center; padding:2px 0 1px;
+}
+.body{
+  flex:1; min-height:0; overflow:hidden;
+  color:var(--ink); padding:0 0.055in 0.05in;
+  /* overwritten per card by the auto-fitter */
+  --fs-flavor:11pt; --fs-primary:10pt; --fs-secondary:9pt; --fs-note:8pt;
+  --ff-body:"Fira Sans", sans-serif;
+  font-family:var(--ff-body);
+}
+.body p{ margin:0 0 3.5px; }
+.body p:last-child{ margin-bottom:0; }
+.body .flavor   { font-style:italic; font-size:var(--fs-flavor);    line-height:1.19; }
+.body .primary  { font-size:var(--fs-primary);   line-height:1.21; }
+.body .secondary{ font-size:var(--fs-secondary); line-height:1.21; }
+.body .note     { font-size:var(--fs-note);      line-height:1.19; }
+.body b{ font-weight:700; }
+
+.body table{ width:100%; border-collapse:collapse; font-size:var(--fs-note); margin:2.5px 0 3.5px; }
+.body th{ background:var(--ink); color:#fff; font-weight:500; padding:1.5px 2px; border:1px solid var(--ink); }
+.body td{ text-align:center; padding:1.5px 2px; border:1px solid var(--ink); color:#111; }
+
+/* fold pair — two cards side by side, folded down the middle */
+.fold{
+  grid-column:span 2;
+  display:grid;
+  grid-template-columns:var(--card-w) var(--card-w);
+  column-gap:var(--col-gap);
+  position:relative;
+}
+.fold::after{
+  content:""; position:absolute;
+  left:calc(50% - .5px); top:-0.09in; bottom:-0.09in;
+  border-left:1px dashed #b0b0b0;
+}
+
+/* cut guides */
+.card, .fold{ outline:1px dashed #cfcfcf; outline-offset:0.04in; }
+.fold > .card{ outline:none; }
+
+/* ── screen chrome ────────────────────────────────────────────── */
+.toolbar{
+  max-width:8.5in; margin:0.5in auto -0.05in; padding:0 0.3in;
+  display:flex; align-items:baseline; gap:14px;
+  font-family:"Fira Sans Condensed",sans-serif;
+}
+.toolbar h1{ font-size:13pt; font-weight:500; margin:0; }
+.toolbar p{ font-size:9pt; color:#555; margin:0; }
+.toolbar button{
+  font-family:inherit; font-size:9pt; padding:5px 13px;
+  border:1px solid #111; background:#111; color:#fff; cursor:pointer; margin-left:auto;
+}
+.overflowing{ outline:2px solid #d81b1b; outline-offset:2px; }
+.overflow-flag{
+  position:absolute; right:2px; bottom:1px;
+  font-family:"Fira Sans Condensed",sans-serif;
+  font-size:5pt; color:#d81b1b; letter-spacing:.06em;
+}
+
+/* ── print ────────────────────────────────────────────────────── */
+/* @page lives outside the document tree, so var() does NOT resolve
+   here — keep these literals in sync with --page-pad-* above.
+   The margin is deliberately split: a small amount here, the rest as
+   padding on .sheet below. Some browsers add the printer's hardware
+   margin on top of @page, so leaning entirely on @page can push the
+   row off the edge. Element padding is always honoured. */
+@page{ size:8.5in 11in; margin:0.25in; }
+@media print{
+  html,body{ background:#fff; margin:0; padding:0; }
+  .toolbar{ display:none; }
+  .sheet{
+    width:auto; height:auto; margin:0;
+    padding:0.75in 0.15in;   /* + @page 0.25in = 1in top, 0.4in sides */
+    box-shadow:none; break-after:page; page-break-after:always;
+  }
+  .sheet:last-child{ break-after:auto; page-break-after:auto; }
+  .row,.fold,.card{ break-inside:avoid; page-break-inside:avoid; }
+  .overflowing{ outline:1px dashed #cfcfcf; }
+  .overflow-flag{ display:none; }
+  .card,.body th{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Spell Cards</h1>
+  <p id="count"></p>
+  <button onclick="window.print()">Print</button>
+</div>
+
+<div id="sheets"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   DATA — everything above `card` already exists in the app's
+   data/spells/*.json. The `card` block is the new part.
+   ═══════════════════════════════════════════════════════════════ */
+const SPELLS = [
+  { name:"Aspect of the Wolf", level:1, school:"Transmutation",
+    castingTime:"1 standard action", range:"Medium<small>(100' + 10'/lvl)</small>",
+    components:"V S M/DF", duration:"10 min/lvl (D)",
+    card:{
+      flavor:"With a howl, you grow short, thick fur, bend your spine and neck, drop to hands and knees, and quickly shorten into canine limbs. Become a wolf (MM 283).",
+      primary:"Gain a bite attack (**1d6+1**) and the wolf's trip attack.",
+      table:{ head:["Size","Space/Reach","Speed","Nat. Arm+"], rows:[["Med","5ft/5ft","50ft","+2"]] },
+      continued:{
+        primary:"Class, level, HP, alignment, attack bonus, and saving throws remain the same. Lose (ex) abilities and spell-like/(Su) ones. Keep class-level (ex) attacks but lose those from your normal form.\n\nCan't speak or cast spells in wolf form (can with Natural Spell).\n\nEquipment melds into your new form and becomes nonfunctional.",
+        note:"**Arcane Material Component**: A whisker from a wolf."
+      }
+    }},
+
+  { name:"Impeding Stones", level:1, school:"Transmutation",
+    savingThrow:"Ref partial (txt)", spellResistance:"No",
+    castingTime:"1 standard action", range:"Medium<small>(100' + 10'/lvl)</small>",
+    components:"V S DF", duration:"1 min/lvl (D)",
+    card:{
+      flavor:"At your command, cobblestones shudder and crack, sending foes staggering.",
+      primary:"Stones, bricks, or hard dirt in a **40' radius** crack and shift, making footing treacherous and tripping anyone nearby.",
+      secondary:"Creatures failing their Reflex save are knocked prone; those who save move at 1/2 normal speed, but must make a new Reflex save or Balance check each round to remain upright.\n\nContinuous stone shifts require a Concentration check (DC 15 + spell lvl) for spellcasting; attacks within the area take a –2 penalty; doesn't stack with prone attack penalty if the save failed."
+    }},
+
+  { name:"True Casting", level:1, school:"Divination",
+    castingTime:"1 standard action", range:"Personal",
+    components:"V S", duration:"One spell",
+    card:{
+      flavor:"You focus your magic deep in your soul until it becomes a torrent that must be unleashed.",
+      primary:"Your next single spell (if cast before the end of the next round) gains a **+10 insight bonus** on any caster level check made to overcome spell resistance."
+    }},
+
+  { name:"Steel Shadows", level:1, school:"Abjuration",
+    castingTime:"1 standard action", range:"Personal",
+    components:"S", duration:"10 min/lvl (D)",
+    card:{
+      flavor:"Darkness coalesces about your body, forming a shadow-shape of armor and another that looks like a shield. Although weightless as the air, you know they'll protect as well as steel.",
+      primary:"Grants a **+3 armor bonus** and **+3 shield bonus** to AC, but without AC penalty, arcane spell failure chance, or speed reduction.",
+      secondary:"Not a force effect, and incorporeal creatures ignore it."
+    }},
+
+  { name:"Summon Fey", level:1, school:"Conjuration", subschool:"Summoning", descriptors:["Scales"],
+    savingThrow:"None", spellResistance:"No",
+    castingTime:"1 full round", range:"Close<small>(25' + 5'/2 levels)</small>",
+    components:"V S M", duration:"1 min/lvl",
+    card:{
+      primary:"You summon a fey creature with Hit Dice equal to or less than *summon fey*'s level.",
+      note:"**Material Component**: A pat of butter."
+    }},
+
+  { name:"Read Magic", level:0, school:"Divination",
+    savingThrow:"None", spellResistance:"No",
+    castingTime:"1 standard action", range:"Personal",
+    components:"V S F", duration:"10 min/lvl",
+    card:{
+      primary:"Decipher magical inscriptions on objects like books, scrolls, and weapons that are otherwise unintelligible. Doesn't usually trigger the magic in the writing, though may in the case of a cursed scroll.",
+      secondary:"Once cast and the magical inscription read, you can read that writing without read magic. Read at 1 page (250 words)/minute. Identifies a warding glyph (**DC 13**), a greater glyph (**DC 16**), or any symbol spell (**DC 10 + spell level**) with a Spellcraft check. Can be made permanent with a permanency spell.",
+      note:"**Focus**: A clear crystal or mineral prism."
+    }},
+
+  { name:"Embrace the Wild", level:2, school:"Transmutation",
+    castingTime:"1 standard action", range:"Personal",
+    components:"V", duration:"10 min/lvl (D)",
+    card:{
+      flavor:"Picturing a certain kind of animal in your mind, you cry out in imitation of its most common call.",
+      primary:"Immediately perceive your surroundings as the imagined animal would. Gain animal senses: low-light vision + **blindsense** out to 30ft **OR** scent (your choice).",
+      secondary:"**+2** to Listen &amp; Spot checks"
+    }}
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER
+   ═══════════════════════════════════════════════════════════════ */
+const fmt = s => (s||"")
+  .replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")
+  .replace(/\*(.+?)\*/g,"<i>$1</i>")
+  .split("\n\n").filter(Boolean);
+
+const SIGIL = `<svg width="16" height="15.5" viewBox="0 0 26 25" fill="none"
+  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2.7" y="2.5" width="13.2" height="18.8" rx="2"/>
+  <path d="M6.5 3.4v17"/>
+  <rect x="8.9" y="6.2" width="5.1" height="6" rx="0.8"/>
+  <path d="M11.45 7.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" fill="currentColor" stroke="none"/>
+  <rect x="11.6" y="14.4" width="2.4" height="2.4" rx="0.5"/>
+  <path d="M20.4 1.2l.85 2.1 2.1.85-2.1.85-.85 2.1-.85-2.1-2.1-.85 2.1-.85z" fill="currentColor" stroke="none"/>
+  <path d="M23.5 8.1l.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4z" fill="currentColor" stroke="none"/></svg>`;
+
+const HEX = `<svg viewBox="0 0 31 35" preserveAspectRatio="none" aria-hidden="true">
+  <polygon points="15.5,1.4 29.6,9.5 29.6,25.5 15.5,33.6 1.4,25.5 1.4,9.5"
+    fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`;
+
+function schoolLine(s){
+  let o = s.school;
+  if (s.subschool) o += ` <em>(${s.subschool})</em>`;
+  if (s.descriptors?.length) o += ` <span class="desc">[${s.descriptors.join(", ")}]</span>`;
+  return o;
+}
+
+/* Shrink an element's text until it fits its box. Used for the spell
+   name and the school line, both of which vary wildly in length —
+   "Read Magic" against "Conjuration (Summoning) [Scales]". */
+function shrinkToFit(box, sizes){
+  const inner = box.firstElementChild;
+  for (const pt of sizes){
+    inner.style.fontSize = pt + "pt";
+    if (box.scrollHeight <= box.clientHeight + 1 &&
+        inner.scrollWidth <= box.clientWidth + 1) return pt;
+  }
+  return sizes[sizes.length - 1];
+}
+const NAME_SIZES   = [17.8,16.5,15,13.5,12,11,10,9,8];
+const SCHOOL_SIZES = [13.6,12.5,11.5,10.5,9.5,8.5,7.5,6.5];
+
+function head(s){
+  const hasStSr = !!(s.savingThrow || s.spellResistance);
+  const stsr = hasStSr
+    ? `<div class="st-sr">ST: <i>${s.savingThrow||"—"}</i> SR: <i>${s.spellResistance||"—"}</i></div>` : "";
+  return `
+  <div class="card-head${hasStSr?" has-stsr":""}">
+    <div class="sigil">${SIGIL}<span>SPELL</span></div>
+    <h1 class="card-name"><span>${s.name}</span></h1>
+    <div class="level">${HEX}<span>${s.level}</span></div>
+    ${stsr}
+  </div>
+  <div class="band">
+    <span class="school"><span>${schoolLine(s)}</span></span>
+    <span class="tag">LEVEL &amp; TYPE</span>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="k">CASTING TIME</span><span class="v">${s.castingTime}</span></div>
+    <div class="stat"><span class="k">RANGE</span><span class="v">${s.range}</span></div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><span class="k">COMPONENTS</span><span class="v comp">${s.components}</span></div>
+    <div class="stat"><span class="k">DURATION</span><span class="v">${s.duration}</span></div>
+  </div>
+  <div class="desc-tag">SPELL DESCRIPTION</div>`;
+}
+
+function bodyHTML(c){
+  let h = "";
+  if (c.flavor)    h += fmt(c.flavor).map(p=>`<p class="flavor">${p}</p>`).join("");
+  if (c.primary)   h += fmt(c.primary).map(p=>`<p class="primary">${p}</p>`).join("");
+  if (c.table){
+    h += `<table><tr>${c.table.head.map(x=>`<th>${x}</th>`).join("")}</tr>`
+       + c.table.rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")
+       + `</table>`;
+  }
+  if (c.secondary) h += fmt(c.secondary).map(p=>`<p class="secondary">${p}</p>`).join("");
+  if (c.note)      h += fmt(c.note).map(p=>`<p class="note">${p}</p>`).join("");
+  return h;
+}
+
+const cardEl = (s,cont) =>
+  `<article class="card${cont?" cont":""}" data-school="${s.school.toLowerCase()}">
+     ${head(s)}<div class="body">${bodyHTML(cont ? s.card.continued : s.card)}</div>
+   </article>`;
+
+/* ── pagination: six upright per sheet, fold pairs kept together ── */
+const queue = SPELLS.map(s => ({ s, w: s.card.continued ? 2 : 1 }));
+const pages = [];
+while (queue.length){
+  const rows = [[],[]];
+  for (const row of rows){
+    let w = 0;
+    while (queue.length && w + queue[0].w <= 3){ w += queue[0].w; row.push(queue.shift()); }
+  }
+  pages.push(rows);
+}
+
+const unitEl = u => u.w === 2
+  ? `<div class="fold">${cardEl(u.s,false)}${cardEl(u.s,true)}</div>`
+  : cardEl(u.s,false);
+
+document.getElementById("sheets").innerHTML = pages.map(rows => `
+  <div class="sheet">
+    ${rows.filter(r=>r.length).map(r=>`<div class="row">${r.map(unitEl).join("")}</div>`).join("")}
+  </div>`).join("");
+
+/* ═══════════════════════════════════════════════════════════════
+   AUTO-FIT
+   Nine steps. Size falls from 11pt to a 7pt floor (6pt for the
+   component line), and the face narrows as it goes — Fira Sans,
+   then Condensed, then Extra Condensed — which is how the PSD
+   handles dense spells. Hierarchy holds throughout:
+   flavor > mechanics > qualifiers > components.
+   ═══════════════════════════════════════════════════════════════ */
+const SANS = '"Fira Sans", sans-serif',
+      COND = '"Fira Sans Condensed", sans-serif',
+      XCND = '"Fira Sans Extra Condensed", sans-serif';
+
+const SCALE = [
+  { f:11,   p:10,   s:9,   n:8,   ff:SANS },
+  { f:10.5, p:9.5,  s:8.5, n:7.5, ff:SANS },
+  { f:10,   p:9,    s:8,   n:7,   ff:SANS },
+  { f:10.5, p:9.5,  s:8.5, n:7.5, ff:COND },
+  { f:10,   p:9,    s:8,   n:7,   ff:COND },
+  { f:9.5,  p:8.5,  s:7.5, n:6.5, ff:COND },
+  { f:9,    p:8.5,  s:7.5, n:6.5, ff:XCND },
+  { f:8,    p:7.5,  s:7,   n:6,   ff:XCND },
+  { f:7,    p:7,    s:7,   n:6,   ff:XCND }
+];
+
+function setStep(card,i){
+  const b = card.querySelector(".body"), t = SCALE[i];
+  b.style.setProperty("--fs-flavor",    t.f+"pt");
+  b.style.setProperty("--fs-primary",   t.p+"pt");
+  b.style.setProperty("--fs-secondary", t.s+"pt");
+  b.style.setProperty("--fs-note",      t.n+"pt");
+  b.style.setProperty("--ff-body",      t.ff);
+}
+function fitStep(card){
+  const b = card.querySelector(".body");
+  for (let i=0;i<SCALE.length;i++){
+    setStep(card,i);
+    if (b.scrollHeight <= b.clientHeight + 1) return i;
+  }
+  return SCALE.length-1;
+}
+
+/* Fit only once the webfonts are in. Measuring against fallback
+   metrics sizes cards for the wrong typeface, and the text then
+   overflows when Fira Sans swaps in. */
+function fitAll(){
+  /* headers first — the name and school boxes are fixed height, so
+     they don't affect the body's available space, but they do need
+     to be sized before anything is measured for overflow */
+  document.querySelectorAll(".card-name").forEach(n => shrinkToFit(n, NAME_SIZES));
+  document.querySelectorAll(".band .school").forEach(n => shrinkToFit(n, SCHOOL_SIZES));
+
+  document.querySelectorAll(".fold").forEach(pair=>{
+    const cards=[...pair.querySelectorAll(".card")];
+    const step=Math.max(...cards.map(fitStep));
+    cards.forEach(c=>setStep(c,step));
+  });
+  document.querySelectorAll(".card").forEach(c=>{
+    if(!c.closest(".fold")) setStep(c,fitStep(c));
+  });
+
+  let over=0;
+  document.querySelectorAll(".overflow-flag").forEach(e=>e.remove());
+  document.querySelectorAll(".body").forEach(b=>{
+    const card=b.closest(".card");
+    card.classList.remove("overflowing");
+    if(b.scrollHeight > b.clientHeight+1){
+      over++;
+      card.classList.add("overflowing");
+      card.insertAdjacentHTML("beforeend",
+        '<span class="overflow-flag">TEXT CLIPPED</span>');
+    }
+  });
+  document.getElementById("count").textContent =
+    `${document.querySelectorAll(".card").length} cards · ` +
+    `${pages.length} sheet${pages.length===1?"":"s"} · 6 per page` +
+    (over ? ` · ${over} overflowing` : "");
+}
+
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+else window.addEventListener("load", fitAll);
+
+/* re-fit before printing, in case anything shifted */
+window.addEventListener("beforeprint", fitAll);
+</script>
+</body>
+</html>
