@@ -1428,6 +1428,29 @@ in the port:**
    not percentages — percentage heights collapse inconsistently in a nested flex column across
    browsers.
 
+Card size (2.233in × 3.265in) and interior proportions were re-confirmed (Aug 2026) against a
+second reference, `Spell_Cards_Comp_Vaelith_Lyra-35.png` — its 2.5in × 3.5in canvas has the
+actual card frame drawn inset at 670×979px/300dpi, i.e. the same 2.233in × 3.265in as
+`spell-cards-v2.html`'s own PSD measurement. Unchanged.
+
+**Level hexagon (Aug 2026).** Tilted and pinned to the card's top-right corner rather than
+sitting in its own `card-head` grid column — `headHTML()` emits `.level` as a sibling of
+`.card-head` (a direct child of `.card`), not nested inside it, so `position: absolute; top:
+0; right: 0;` aligns it to the *card's* actual border, not the header's padded interior.
+`.level-spacer` takes `.level`'s old grid-column slot inside `.card-head`, reserving width so
+`card-name`'s auto-fit (`shrinkToFit`) still shrinks the name away from the hexagon — sized
+wider (`0.52in`) than the hexagon's own box (`0.45in`) because the *visual* hexagon extends
+past its box (see below), and text merely fitting within the hex's nominal box still read as
+colliding with it in testing. `--level-hex-rotate: 20deg` on `.level` is a variable
+specifically so the tilt is tunable without hunting through the rest of the file; it's applied
+only to `.level svg`, never to `.level span` (the numeral), which is why the numeral stays
+upright while the outline tilts. The SVG is also oversized relative to its box (`inset: -18%;
+width: 136%`) — the hexagon polygon sits inset within its own viewBox, and rotating a shape
+doesn't make vertices that weren't already at the box edge suddenly reach it; oversizing and
+letting `.card`'s `overflow: hidden` clip the corner is what actually gets two vertices
+touching the card's real top and right edges, verified visually rather than computed exactly
+(the PNG reference language was "roughly 20°," not a precision spec).
+
 **Data model.** A spell's mechanical fields (name, level, school, subschool, descriptors,
 castingTime, range, components, duration, savingThrow, spellResistance) start out from its
 `data/spells/*.json` entry, via `canonicalMechFields()` reading the first printing with a
@@ -1448,6 +1471,20 @@ makes a spell render as a `.fold` pair instead of one `.card` (`unitHTML()` in
 `cardRender.js`, mirroring the reference's `w: s.card.continued ? 2 : 1` pagination weight).
 `table` is `{ head: [...], rows: [[...], ...] }`, built by `TableBuilder.jsx`. `**bold**` /
 `*italic*` and blank-line-starts-a-paragraph (`fmt()`) work in every field.
+
+`mech.components` is set via toggle pills (`ComponentsField`, `CardEditor.jsx`), not free text —
+`V`, `S`, `M`, `DF`, `F`, `M/DF` (its own token, not `M`+`DF` toggled together — 3.5e's
+caster's-choice symbol, distinct from requiring both), and `XP` (Aug 2026, added alongside the
+others for a spell like Reincarnate that cites an XP cost right on the component line).
+Selected options join in that fixed order regardless of click order.
+
+The form's field *labels* (Aug 2026: Flavor, Main description, Mechanics, Material
+Component/Focus) describe how the fields actually get used and don't match the underlying
+`card` keys (`flavor`, `primary`, `secondary`, `note`) — those stay as-is, since they're also
+the class names driving the card's own print CSS (`.body .primary`, `.body .secondary`, …) and
+renaming them would be a schema change with no upside. A static hint under Mechanics
+(`.field-note` — not bound to any field value, never printed) reminds that bold there is for
+die rolls and calculations, not general emphasis.
 
 **Paste to fill (Aug 2026).** `PasteToFill.jsx` + `pasteParser.js` — a textarea for a spell's
 raw text (stat block and description) copied out of a PDF, parsed offline with pure regex/rule

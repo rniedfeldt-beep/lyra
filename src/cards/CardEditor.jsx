@@ -1,5 +1,33 @@
 import TableBuilder from './TableBuilder'
 
+// The standard 3.5e component letters, plus XP (a spell with an XP cost —
+// e.g. Reincarnate — cites it right alongside V/S/M on the stat line).
+// M/DF is its own token, not M and DF toggled together — a caster's-choice
+// symbol distinct from requiring both.
+const COMPONENT_OPTIONS = ['V', 'S', 'M', 'DF', 'F', 'M/DF', 'XP']
+
+function ComponentsField({ value, onChange }) {
+  const selected = (value || '').split(/\s+/).filter(Boolean)
+  function toggle(opt) {
+    const next = selected.includes(opt) ? selected.filter((s) => s !== opt) : [...selected, opt]
+    onChange(COMPONENT_OPTIONS.filter((o) => next.includes(o)).join(' '))
+  }
+  return (
+    <div className="component-toggles">
+      {COMPONENT_OPTIONS.map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          className={`component-toggle${selected.includes(opt) ? ' active' : ''}`}
+          onClick={() => toggle(opt)}
+        >
+          {opt}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 // One set of description fields — used for the primary card and, when
 // "continue on second card" is on, again for the continued block. Field
 // order matches render order on the card: flavor, primary, table, secondary,
@@ -21,7 +49,7 @@ function DescriptionFields({ value, onChange, idPrefix }) {
       />
 
       <label className="field-label" htmlFor={`${idPrefix}-primary`}>
-        Primary <span className="field-hint">core effect</span>
+        Main description
       </label>
       <textarea
         id={`${idPrefix}-primary`}
@@ -36,7 +64,7 @@ function DescriptionFields({ value, onChange, idPrefix }) {
       <TableBuilder table={v.table || null} onChange={(table) => set('table', table)} />
 
       <label className="field-label" htmlFor={`${idPrefix}-secondary`}>
-        Secondary <span className="field-hint">qualifiers</span>
+        Mechanics
       </label>
       <textarea
         id={`${idPrefix}-secondary`}
@@ -44,9 +72,12 @@ function DescriptionFields({ value, onChange, idPrefix }) {
         value={v.secondary || ''}
         onChange={(e) => set('secondary', e.target.value)}
       />
+      <p className="field-note">
+        Bold is for die rolls and calculations — damage, healing, DCs — not general emphasis.
+      </p>
 
       <label className="field-label" htmlFor={`${idPrefix}-note`}>
-        Note <span className="field-hint">material component, focus, XP cost</span>
+        Material Component/Focus
       </label>
       <textarea
         id={`${idPrefix}-note`}
@@ -132,16 +163,9 @@ function MechFields({ mech, onChange }) {
         </label>
         <input id="mech-range" className="field-input" value={mech.range || ''} onChange={(e) => set('range', e.target.value)} />
       </div>
-      <div>
-        <label className="field-label" htmlFor="mech-components">
-          Components
-        </label>
-        <input
-          id="mech-components"
-          className="field-input"
-          value={mech.components || ''}
-          onChange={(e) => set('components', e.target.value)}
-        />
+      <div className="full">
+        <label className="field-label">Components</label>
+        <ComponentsField value={mech.components} onChange={(v) => set('components', v)} />
       </div>
       <div>
         <label className="field-label" htmlFor="mech-duration">

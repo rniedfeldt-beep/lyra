@@ -82,9 +82,10 @@ export function headHTML(s) {
   <div class="card-head${hasStSr ? ' has-stsr' : ''}">
     <div class="sigil">${SIGIL}<span>SPELL</span></div>
     <h1 class="card-name"><span>${s.name}</span></h1>
-    <div class="level">${HEX}<span>${s.level}</span></div>
+    <div class="level-spacer"></div>
     ${stsr}
   </div>
+  <div class="level">${HEX}<span>${s.level}</span></div>
   <div class="band">
     <span class="school"><span>${schoolLine(s)}</span></span>
     <span class="tag">LEVEL &amp; TYPE</span>

@@ -165,21 +165,42 @@
   text-align: center;
 }
 
+/* Reserves the level hexagon's footprint inside the card-head grid, so
+   card-name's auto-fit sizing (shrinkToFit, cardRender.js) correctly
+   shrinks the name away from it — the hexagon itself, positioned
+   independently below, is free to overlap slightly past this reserved
+   column on purpose. */
+.level-spacer {
+  width: 0.52in;
+}
+
+/* Pinned to the card's literal top-right corner rather than living in its
+   own grid column, so it can overlap the name area the way the reference
+   PNG does. --level-hex-rotate is a variable specifically so the tilt can
+   be tuned without hunting through the rest of this file — only the SVG
+   outline rotates; the numeral (.level span) stays upright. */
 .level {
-  width: 0.42in;
-  height: 0.42in;
+  --level-hex-rotate: 20deg;
+  width: 0.45in;
+  height: 0.45in;
   display: grid;
   place-items: center;
   color: var(--ink);
-  position: relative;
-  align-self: start;
-  margin-top: -0.04in;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
+/* Sized a bit past its box, not exactly to it — the hexagon polygon
+   itself sits inset within its own SVG viewBox, and rotating a shape
+   doesn't make vertices that weren't already at the box edge reach it.
+   Oversizing here and letting .card's overflow:hidden clip the corner is
+   what actually gets two vertices touching the card's real edges. */
 .level svg {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -18%;
+  width: 136%;
+  height: 136%;
+  transform: rotate(var(--level-hex-rotate));
 }
 .level span {
   position: relative;
@@ -554,6 +575,9 @@
 .mech-grid > div {
   overflow-wrap: break-word;
 }
+.mech-grid .full {
+  grid-column: 1 / -1;
+}
 .mech-grid .field-label {
   margin: 8px 0 3px;
 }
@@ -583,6 +607,13 @@
   text-transform: none;
   letter-spacing: normal;
   margin-left: 6px;
+}
+/* Context for composing the card, not part of it — never printed. */
+.field-note {
+  font-size: 8pt;
+  color: #888;
+  margin: 2px 0 0;
+  font-style: italic;
 }
 .field-textarea {
   width: 100%;
@@ -659,6 +690,27 @@
 .btn-small {
   font-size: 8pt;
   padding: 3px 8px;
+}
+.component-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.component-toggle {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 9pt;
+  font-weight: 600;
+  padding: 4px 10px;
+  border: 1px solid #c9c9ca;
+  border-radius: 999px;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+}
+.component-toggle.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
 }
 .btn-row {
   display: flex;
