@@ -176,13 +176,14 @@
 
 /* Pinned to the card's literal top-right corner rather than living in its
    own grid column, so it can overlap the name area the way the reference
-   PNG does. --level-hex-rotate is a variable specifically so the tilt can
-   be tuned without hunting through the rest of this file — only the SVG
-   outline rotates; the numeral (.level span) stays upright. */
+   PNG does. Width/height are set inline by headHTML() (cardRender.js),
+   not here — they have to match HEX_ASPECT (the rotated hexagon's actual
+   bounding-box ratio) exactly, and hardcoding a separately-guessed value
+   here is what let the box and the shape drift out of sync last time.
+   The rotation itself is baked into the hexagon's SVG points, not a CSS
+   transform (see cardRender.js) — only the outline is affected; the
+   numeral (.level span) stays upright since it's a plain sibling. */
 .level {
-  --level-hex-rotate: 20deg;
-  width: 0.45in;
-  height: 0.45in;
   display: grid;
   place-items: center;
   color: var(--ink);
@@ -190,17 +191,10 @@
   top: 0;
   right: 0;
 }
-/* Sized a bit past its box, not exactly to it — the hexagon polygon
-   itself sits inset within its own SVG viewBox, and rotating a shape
-   doesn't make vertices that weren't already at the box edge reach it.
-   Oversizing here and letting .card's overflow:hidden clip the corner is
-   what actually gets two vertices touching the card's real edges. */
 .level svg {
-  position: absolute;
-  inset: -18%;
-  width: 136%;
-  height: 136%;
-  transform: rotate(var(--level-hex-rotate));
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .level span {
   position: relative;

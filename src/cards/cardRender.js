@@ -22,9 +22,61 @@ export const SIGIL = `<svg width="16" height="15.5" viewBox="0 0 26 25" fill="no
   <path d="M20.4 1.2l.85 2.1 2.1.85-2.1.85-.85 2.1-.85-2.1-2.1-.85 2.1-.85z" fill="currentColor" stroke="none"/>
   <path d="M23.5 8.1l.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4z" fill="currentColor" stroke="none"/></svg>`
 
-export const HEX = `<svg viewBox="0 0 31 35" preserveAspectRatio="none" aria-hidden="true">
-  <polygon points="15.5,1.4 29.6,9.5 29.6,25.5 15.5,33.6 1.4,25.5 1.4,9.5"
-    fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`
+// Level hexagon — a regular pointy-top hexagon, tilted clockwise by
+// HEX_ROTATE_DEG. The tilt is baked into these vertex coordinates rather
+// than applied as a CSS transform on the rendered SVG: a CSS-rotated
+// element needs a box bigger than its own content to avoid clipping by
+// .card's overflow:hidden, and getting that box's size right for an
+// arbitrary rotation angle by eye is exactly how this went wrong the first
+// time (stretched, clipped, off-center — see CLAUDE.md > Spell cards >
+// Level hexagon). Baking the rotation into the points instead means the
+// viewBox can be sized to exactly fit the rotated shape (plus half the
+// stroke width, so the stroke itself isn't clipped), so two vertices land
+// tangent to the card's top and right edges by construction, and the
+// hexagon's own geometric center is exactly the viewBox's center — which
+// is what makes the numeral center on it correctly (see .level in
+// spellCards.css). No preserveAspectRatio="none": the viewBox is square-
+// ish but not stretched to fit it, so the hexagon stays regular. Change
+// HEX_ROTATE_DEG to retune the tilt — HEX_ASPECT below and headHTML()'s
+// inline size on .level both derive from it, nothing else needs touching.
+const HEX_ROTATE_DEG = 20
+const HEX_R = 30
+const HEX_STROKE = 2.4
+
+function hexPolygonPoints(rotateDeg, r) {
+  const toRad = (d) => (d * Math.PI) / 180
+  const rot = toRad(rotateDeg)
+  const cosR = Math.cos(rot)
+  const sinR = Math.sin(rot)
+  const points = []
+  for (let k = 0; k < 6; k++) {
+    const a = toRad(k * 60)
+    const x = r * Math.sin(a)
+    const y = -r * Math.cos(a)
+    points.push([x * cosR - y * sinR, x * sinR + y * cosR])
+  }
+  return points
+}
+
+const HEX_POINTS = hexPolygonPoints(HEX_ROTATE_DEG, HEX_R)
+const HEX_MAX_X = Math.max(...HEX_POINTS.map((p) => Math.abs(p[0])))
+const HEX_MAX_Y = Math.max(...HEX_POINTS.map((p) => Math.abs(p[1])))
+const HEX_PAD = HEX_STROKE / 2 + 0.3
+const HEX_VB_W = (HEX_MAX_X + HEX_PAD) * 2
+const HEX_VB_H = (HEX_MAX_Y + HEX_PAD) * 2
+
+// .level's own box must share this aspect ratio, or the SVG stretches to
+// fill it — same bug as preserveAspectRatio="none" did. Computed and
+// inlined by headHTML() below rather than hardcoded in spellCards.css, so
+// changing HEX_ROTATE_DEG/HEX_R can't silently fall out of sync with a
+// separately-hand-tuned CSS size the way the box size did last time.
+export const HEX_ASPECT = HEX_VB_W / HEX_VB_H
+const HEX_BOX_W_IN = 0.45
+const HEX_BOX_H_IN = HEX_BOX_W_IN / HEX_ASPECT
+
+export const HEX = `<svg viewBox="${-HEX_VB_W / 2} ${-HEX_VB_H / 2} ${HEX_VB_W} ${HEX_VB_H}" aria-hidden="true">
+  <polygon points="${HEX_POINTS.map((p) => p.map((n) => n.toFixed(2)).join(',')).join(' ')}"
+    fill="none" stroke="currentColor" stroke-width="${HEX_STROKE}" stroke-linejoin="round"/></svg>`
 
 export function schoolLine(s) {
   let o = s.school || ''
@@ -85,7 +137,7 @@ export function headHTML(s) {
     <div class="level-spacer"></div>
     ${stsr}
   </div>
-  <div class="level">${HEX}<span>${s.level}</span></div>
+  <div class="level" style="width:${HEX_BOX_W_IN}in;height:${HEX_BOX_H_IN.toFixed(4)}in">${HEX}<span>${s.level}</span></div>
   <div class="band">
     <span class="school"><span>${schoolLine(s)}</span></span>
     <span class="tag">LEVEL &amp; TYPE</span>
