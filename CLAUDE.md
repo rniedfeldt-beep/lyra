@@ -1542,10 +1542,26 @@ failed to match `[data-school='divination']`). Then it normalizes smart quotes/e
 the handful of common spell-vocabulary words a PDF ligature bug splits with a stray space
 (`Refl ex` → `Reflex` — a small known-word dictionary, `LIGATURE_WORDS`, deliberately not a
 general "letters space letters" regex, which would just as happily mangle "to flee" into
-"toflee"), and strips standalone page numbers and short all-caps running headers.
-`parsePastedSpell()` then reads the SRD's own regular structure: name is the first non-empty
-line, school the next (parsing `(subschool)` and `[descriptors]` out of it), then the labeled
-stat-block lines (`Level:`, `Components:`, `Casting Time:`, `Range:`, `Target:`/`Area:`/
+"toflee"), and strips standalone page numbers and versioned running headers (`PLAYER'S
+HANDBOOK v3.5`) — a trailing version tag is required for a short all-caps line to count as a
+header (Aug 2026 — see below for why an all-caps check alone isn't safe).
+`parsePastedSpell()` then reads the SRD's own regular structure: `extractNameAndSchool()` takes
+name and school as the *last two* non-empty lines immediately before the stat block (skipping
+any blank line between them), not simply the first two lines of the header region — whatever's
+above those two, however many lines and whatever it says (a running header `stripPageNoise()`
+didn't catch, a page number, a chapter title), is ignored positionally rather than by trying to
+recognize it, which is what `splitMultipleSpells()` (below) already did for the same reason. A
+single header line means name and school were printed on one line (`splitNameSchoolLine()`
+tries a 2-plus-space gap, then ` - `, before giving up and leaving school blank for a hand fix
+rather than guessing wrong). `toDisplayCase()` then converts either an all-caps name or school
+line to Title Case, but only when the text actually *is* all-caps — sourcebooks commonly print
+a spell's own name in full caps as a heading style, and the previous version's forward-order
+"first two header lines, strip anything all-caps and short as a header" logic couldn't tell
+that apart from a genuine running header: an all-caps name got deleted by the same check meant
+for page furniture, leaving the *next* line (the school) misread as the name and the school
+itself blank (Aug 2026 — reported against Assay Spell Resistance, printed
+`ASSAY SPELL RESISTANCE` in the source). Parsing then continues through the labeled stat-block
+lines (`Level:`, `Components:`, `Casting Time:`, `Range:`, `Target:`/`Area:`/
 `Effect:`, `Duration:`, `Saving Throw:`, `Spell Resistance:` — matched case-insensitively,
 tolerant of no space after the colon). `scanStatBlock()` finds every label line first rather
 than walking sequentially, so a field bounds by the *next known label's position* — reliable

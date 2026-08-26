@@ -67,9 +67,14 @@ function normalizeInvisibleChars(text) {
     .replace(/[\u200B\u200C\u200D\u2060\uFEFF]/g, '')
 }
 
-// Standalone page numbers and short all-caps running headers, each on
-// their own line — never legitimate content in a spell's stat block or
-// description, which is always title-case prose.
+// Standalone page numbers and versioned running headers, each on their
+// own line. An all-caps line alone is NOT enough to call it a header —
+// sourcebooks routinely set a spell's own name in full caps too (see
+// extractNameAndSchool, below), and treating every short all-caps line as
+// page furniture used to delete the spell's name right along with actual
+// headers. A trailing version tag ("PLAYER'S HANDBOOK v3.5") is the one
+// signal that reliably marks a line as a running header rather than a
+// spell name, so it's now required, not just a nice-to-strip extra.
 function stripPageNoise(text) {
   return text
     .split('\n')
@@ -77,11 +82,10 @@ function stripPageNoise(text) {
       const t = line.trim()
       if (t === '') return true
       if (/^\d+$/.test(t)) return false
+      const versionMatch = t.match(/\s+v\d[\d.]*\s*$/i)
+      if (!versionMatch) return true
       const words = t.split(/\s+/)
-      // Strip a trailing version fragment ("v3.5") before the all-caps
-      // check — a running header like "PLAYER'S HANDBOOK v3.5" is still a
-      // header even though that suffix isn't itself all-caps.
-      const letters = t.replace(/\s*v?\d[\d.]*\s*$/i, '').replace(/[^A-Za-z]/g, '')
+      const letters = t.slice(0, versionMatch.index).replace(/[^A-Za-z]/g, '')
       if (words.length <= 8 && letters.length > 0 && letters === letters.toUpperCase()) return false
       return true
     })
@@ -179,6 +183,46 @@ function scanStatBlock(lines) {
   return { fields, headerLines: lines.slice(0, firstLabelIdx), bodyStartIdx }
 }
 
+// Sourcebooks often set a spell's name — and occasionally its school line
+// — in full caps for a stat-block heading style. Converts only when the
+// text actually *is* all-caps (letters-only); anything already
+// mixed-case, the normal case, is left untouched.
+function toDisplayCase(text) {
+  const letters = text.replace(/[^A-Za-z]/g, '')
+  if (!letters || letters !== letters.toUpperCase()) return text
+  return text.replace(/\S+/g, (w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
+}
+
+// Splits a single "Name    School" line — a two-column PDF layout that
+// collapsed onto one line — on whatever gap-like separator is present.
+// Returns null rather than guessing when nothing looks like a clean split
+// point, since a wrong guess here would corrupt the name instead of just
+// leaving school blank for a hand fix.
+function splitNameSchoolLine(line) {
+  let m = line.match(/^(.+?)\s{2,}(\S.*)$/)
+  if (m) return { name: m[1].trim(), schoolLine: m[2].trim() }
+  m = line.match(/^(.+?)\s+-\s+(\S.*)$/)
+  if (m) return { name: m[1].trim(), schoolLine: m[2].trim() }
+  return null
+}
+
+// The name and school are always the last two non-empty lines
+// immediately before the stat block, skipping any blank line between
+// them — anything above that, however many lines and whatever it says (a
+// running header stripPageNoise didn't catch, a chapter title, a page
+// number), is page furniture and gets ignored positionally rather than by
+// trying to recognize it. A single header line means the name and school
+// were printed on the same line (splitNameSchoolLine), or the school is
+// genuinely missing from the paste.
+function extractNameAndSchool(headerLines) {
+  const nonEmpty = headerLines.map((l) => l.trim()).filter(Boolean)
+  if (nonEmpty.length === 0) return { name: '', schoolLine: '' }
+  if (nonEmpty.length === 1) {
+    return splitNameSchoolLine(nonEmpty[0]) ?? { name: nonEmpty[0], schoolLine: '' }
+  }
+  return { name: nonEmpty[nonEmpty.length - 2], schoolLine: nonEmpty[nonEmpty.length - 1] }
+}
+
 // "Transmutation" / "Conjuration (Creation)" / "Evocation [Cold]" /
 // "Conjuration (Creation) [Fire]" — parenthesized is subschool, bracketed
 // is descriptors (comma-split).
@@ -232,9 +276,9 @@ export function parsePastedSpell(rawText) {
 
   const { fields, headerLines, bodyStartIdx } = scanStatBlock(lines)
 
-  const headerNonEmpty = headerLines.filter((l) => l.trim() !== '')
-  const name = (headerNonEmpty[0] || '').trim()
-  const schoolLine = (headerNonEmpty[1] || '').trim()
+  const { name: rawName, schoolLine: rawSchoolLine } = extractNameAndSchool(headerLines)
+  const name = toDisplayCase(rawName)
+  const schoolLine = toDisplayCase(rawSchoolLine)
   const { school, subschool, descriptors } = schoolLine
     ? parseSchoolLine(schoolLine)
     : { school: '', subschool: null, descriptors: [] }
