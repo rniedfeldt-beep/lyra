@@ -1,14 +1,12 @@
-// Browser-side persistence for the card composer. Two layers:
+// Browser-side localStorage helpers for the card composer — a safety net
+// only, not the persistence layer. The real store is Supabase
+// (supabaseCards.js): saved cards live there, shared between both players,
+// and survive a reload on their own. What lives here is narrower:
 //
-// 1. localStorage — an immediate autosave of whatever's currently typed, per
-//    spell name, plus the print queue. Survives a reload regardless of
-//    environment; this is what "load it into the editor... rather than
-//    starting blank" falls back to before a save has ever reached the repo.
-// 2. The repo itself — data/spells/<file>.json's own "card" field, written
-//    via the local dev/preview-only /api/cards/save endpoint (see
-//    vite.config.js). That endpoint doesn't exist on the deployed static
-//    site, so callers should expect saveCardToFile() to reject there and
-//    fall back to copyCardJSON().
+// 1. An immediate autosave of whatever's currently typed, per (character,
+//    spell), so navigating away before hitting Save doesn't lose it.
+// 2. The print queue, which is genuinely local/per-device — there's no
+//    reason two people printing different things need a shared queue.
 
 const DRAFT_KEY = 'lyra-cards-drafts-v1'
 const QUEUE_KEY = 'lyra-cards-queue-v1'
@@ -30,14 +28,18 @@ function writeJSON(key, value) {
   }
 }
 
-export function loadDraft(spellName) {
-  const all = readJSON(DRAFT_KEY, {})
-  return all[spellName] ?? null
+function draftKey(character, spellName) {
+  return `${character}::${spellName}`
 }
 
-export function saveDraft(spellName, card) {
+export function loadDraft(character, spellName) {
   const all = readJSON(DRAFT_KEY, {})
-  all[spellName] = card
+  return all[draftKey(character, spellName)] ?? null
+}
+
+export function saveDraft(character, spellName, draft) {
+  const all = readJSON(DRAFT_KEY, {})
+  all[draftKey(character, spellName)] = draft
   writeJSON(DRAFT_KEY, all)
 }
 
@@ -47,19 +49,4 @@ export function loadQueue() {
 
 export function saveQueue(queue) {
   writeJSON(QUEUE_KEY, queue)
-}
-
-export async function saveCardToFile({ fileName, spellName, card }) {
-  const res = await fetch('/api/cards/save', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fileName, spellName, card }),
-  })
-  const data = await res.json().catch(() => null)
-  if (!res.ok || !data?.ok) throw new Error(data?.error || `Save failed (HTTP ${res.status})`)
-  return data
-}
-
-export async function copyCardJSON(card) {
-  await navigator.clipboard.writeText(JSON.stringify(card, null, 2))
 }

@@ -17,3 +17,30 @@ create policy "anon full access to character_state"
   to anon
   using (true)
   with check (true);
+
+-- Spell cards (/cards tool) — one row per (character, spell), so the same
+-- spell can carry a different card for Lyra vs. Vaelith. mech/card are the
+-- same shapes the card composer already works with (see
+-- src/cards/cardRender.js): mech is the card's own mechanical fields
+-- (level, school, casting time, …), card is the description block
+-- (flavor/primary/secondary/note/table/continued). No login: same
+-- permissive-policy tradeoff as character_state, for the same reason —
+-- two trusted people, no data worth gating behind auth.
+create table if not exists spell_cards (
+  id bigint generated always as identity primary key,
+  character text not null,
+  spell_name text not null,
+  mech jsonb not null default '{}'::jsonb,
+  card jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now(),
+  unique (character, spell_name)
+);
+
+alter table spell_cards enable row level security;
+
+create policy "anon full access to spell_cards"
+  on spell_cards
+  for all
+  to anon
+  using (true)
+  with check (true);

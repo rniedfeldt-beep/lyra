@@ -343,7 +343,6 @@ export function canonicalMechFields(group) {
     duration: full?.duration ?? '',
     savingThrow: full?.savingThrow ?? null,
     spellResistance: full?.spellResistance ?? null,
-    existingCard: full?.card ?? null,
   }
 }
 
@@ -376,27 +375,22 @@ const MECH_KEYS = [
   'spellResistance',
 ]
 
-// The mechanical fields as shown/edited on one particular card — distinct
-// from canonicalMechFields()'s JSON-derived values, since a card can show a
-// different class's level (paste-to-fill's whole point: Lyra's data is
-// druid-only, but a card can be made for a sorcerer too) or a hand-fixed
-// value, without touching the spell's own JSON entry. Starts from a
-// previously-saved card.mech if there is one, else from the canonical
-// fields, falling back per-field in case an older saved mech is missing a
-// key added since.
-export function initialMechDraft(canonical) {
-  const saved = canonical.existingCard?.mech
-  const pick = (key) => (saved && saved[key] !== undefined ? saved[key] : canonical[key])
+// The mechanical fields as shown/edited on one particular card — always a
+// full, independent copy now, not a diff against data/spells/ (that only
+// ever covers Lyra's druid list; Vaelith's sorcerer cards have no
+// canonical entry to diff against at all). pickMechFields() reads the nine
+// mech keys out of *any* source with that shape — a canonicalMechFields()
+// result, a Supabase row's own `mech` column, whatever — so callers don't
+// need to care where a given draft's starting point came from.
+export function pickMechFields(source) {
   const draft = {}
-  for (const key of MECH_KEYS) draft[key] = pick(key)
-  draft.descriptors = pick('descriptors') ?? []
+  for (const key of MECH_KEYS) draft[key] = source?.[key] ?? null
+  draft.descriptors = source?.descriptors ?? []
   return draft
 }
 
-export function mechFieldsEqual(a, b) {
-  if (!a || !b) return a === b
-  if ((a.descriptors || []).join(',') !== (b.descriptors || []).join(',')) return false
-  return MECH_KEYS.every((k) => (a[k] ?? null) === (b[k] ?? null))
+export function blankMechDraft() {
+  return pickMechFields(null)
 }
 
 // Layers a paste-to-fill result onto an existing mechDraft/card block —
@@ -455,17 +449,4 @@ export function cleanCard(draft) {
   const continued = cleanBlock(draft?.continued)
   if (continued) base.continued = continued
   return base
-}
-
-// What actually gets persisted into data/spells/<file>.json's "card" field:
-// the cleaned description block, plus a `mech` override only when the
-// current mechanical fields differ from the spell's own canonical values —
-// omitted otherwise, so a card nobody's touched doesn't carry a redundant
-// copy of data that's already in the entry proper.
-export function buildCardToSave(draft, mechDraft, canonicalMech) {
-  const base = cleanCard(draft) || {}
-  if (!mechFieldsEqual(mechDraft, canonicalMech)) {
-    base.mech = { ...mechDraft }
-  }
-  return Object.keys(base).length ? base : null
 }

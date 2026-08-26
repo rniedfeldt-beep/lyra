@@ -89,18 +89,25 @@ function DescriptionFields({ value, onChange, idPrefix }) {
   )
 }
 
-// The card's own mechanical fields — pre-filled from the spell's real
-// data/spells/ entry (canonicalMechFields) but editable here, not read-only:
-// paste-to-fill can set a different class's level (Lyra's data only tracks
-// a druid level; a card made for a sorcerer needs its own), and a value the
-// parser got slightly wrong is meant to be fixed by hand. Edits never touch
-// the spell's own JSON fields — they're stored as a card.mech override (see
-// buildCardToSave in cardRender.js), only when they actually differ from
-// the canonical values.
+// The card's own mechanical fields — pre-filled from data/spells/
+// (canonicalMechFields) when the spell's there, or from a previously-saved
+// Supabase card, or blank, but always editable: paste-to-fill can set a
+// different class's level (Lyra's data only tracks a druid level; a card
+// made for a sorcerer needs its own), and a value the parser got slightly
+// wrong is meant to be fixed by hand. Name is editable too, for the same
+// reason — a card isn't required to match a data/spells/ entry at all.
+// Edits never touch data/spells/ itself; they're saved as this card's own
+// row in Supabase (CardsApp.jsx), independent of the JSON extraction.
 function MechFields({ mech, onChange }) {
   const set = (field, val) => onChange({ ...mech, [field]: val })
   return (
     <div className="mech-grid">
+      <div className="full">
+        <label className="field-label" htmlFor="mech-name">
+          Name
+        </label>
+        <input id="mech-name" className="field-input" value={mech.name || ''} onChange={(e) => set('name', e.target.value)} />
+      </div>
       <div>
         <label className="field-label" htmlFor="mech-level">
           Level
@@ -199,7 +206,7 @@ function MechFields({ mech, onChange }) {
   )
 }
 
-export default function CardEditor({ mechFields, mechDraft, onMechChange, draft, onChange, onSave, onAddToQueue, saveStatus }) {
+export default function CardEditor({ mechDraft, onMechChange, draft, onChange, onSave, onAddToQueue, saveStatus }) {
   const continueOn = !!draft.continued
 
   function toggleContinue() {
@@ -211,7 +218,7 @@ export default function CardEditor({ mechFields, mechDraft, onMechChange, draft,
 
   return (
     <div className="panel">
-      <h2>{mechFields.name}</h2>
+      <h2>{mechDraft.name || 'New card'}</h2>
       <MechFields mech={mechDraft} onChange={onMechChange} />
 
       <DescriptionFields value={draft} onChange={onChange} idPrefix="card" />

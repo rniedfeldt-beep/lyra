@@ -31,22 +31,26 @@ function resultToCardPatch(result) {
 const TAE_LABEL = { target: 'Target', area: 'Area', effect: 'Effect' }
 
 // A textarea for a spell's raw pasted text (stat block + description),
-// parsed offline with no API calls — see src/cards/pasteParser.js. Finds
-// the matching spell in data/spells/ by the parsed name and fills the
-// currently-relevant card via onFillSingle; a paste of several spells
-// (detected by more than one "Level:" line) instead adds one queue entry
-// per spell it can match, via onBulkAdd. Both callbacks return
-// { ok, reason? } so this component can report what happened without
-// knowing anything about how spells are looked up or saved.
+// parsed offline with no API calls — see src/cards/pasteParser.js. This
+// works for *any* spell, not just Lyra's druid list: onFillSingle always
+// fills the form from the parse, whether or not the name happens to match
+// something in data/spells/ (that lookup, when it does match, is only used
+// to enrich fields the parse missed — never a requirement). A paste of
+// several spells (detected by more than one "Level:" line) instead adds
+// one queue entry per spell, via onBulkAdd — same "always works" rule.
+// Both callbacks return { ok, foundInData? } so this component can show
+// what happened without knowing anything about how spells are looked up
+// or saved; "not found" is informational here, not an error — the parse
+// still succeeded and the card still gets built.
 export default function PasteToFill({ onFillSingle, onBulkAdd }) {
   const [text, setText] = useState('')
   const [result, setResult] = useState(null)
   const [chosenLevel, setChosenLevel] = useState(null)
   const [bulkSummary, setBulkSummary] = useState(null)
-  const [fillWarning, setFillWarning] = useState(null)
+  const [fillNote, setFillNote] = useState(null)
 
   function handleParse() {
-    setFillWarning(null)
+    setFillNote(null)
     const blocks = splitMultipleSpells(text)
 
     if (blocks.length > 1) {
@@ -56,12 +60,11 @@ export default function PasteToFill({ onFillSingle, onBulkAdd }) {
       for (const block of blocks) {
         const r = parsePastedSpell(block)
         if (!r.name) {
-          skipped.push({ name: '(unnamed)', reason: 'no name found' })
+          skipped.push('(unnamed block — no name found)')
           continue
         }
-        const outcome = onBulkAdd(r.name, resultToMech(r, pickLevel(r.levels)), resultToCardPatch(r))
-        if (outcome?.ok) added.push(r.name)
-        else skipped.push({ name: r.name, reason: outcome?.reason || 'not found in data/spells/' })
+        onBulkAdd(r.name, resultToMech(r, pickLevel(r.levels)), resultToCardPatch(r))
+        added.push(r.name)
       }
       setBulkSummary({ added, skipped })
       return
@@ -75,7 +78,11 @@ export default function PasteToFill({ onFillSingle, onBulkAdd }) {
 
   function handleFill() {
     const outcome = onFillSingle(result.name, resultToMech(result, chosenLevel), resultToCardPatch(result))
-    setFillWarning(outcome?.ok ? null : outcome?.reason || `Could not find "${result.name}" in data/spells/.`)
+    setFillNote(
+      outcome?.foundInData
+        ? null
+        : 'Not in the extracted druid sourcebooks — filling from your pasted text.',
+    )
   }
 
   return (
@@ -101,9 +108,7 @@ export default function PasteToFill({ onFillSingle, onBulkAdd }) {
           </p>
           {bulkSummary.added.length > 0 && <p className="paste-results-list ok">Added: {bulkSummary.added.join(', ')}</p>}
           {bulkSummary.skipped.length > 0 && (
-            <p className="paste-results-list err">
-              Skipped: {bulkSummary.skipped.map((s) => `${s.name} (${s.reason})`).join('; ')}
-            </p>
+            <p className="paste-results-list err">Skipped: {bulkSummary.skipped.join('; ')}</p>
           )}
         </div>
       )}
@@ -129,9 +134,9 @@ export default function PasteToFill({ onFillSingle, onBulkAdd }) {
               ))}
             </div>
           )}
-          {fillWarning && <p className="save-status err">{fillWarning}</p>}
+          {fillNote && <p className="paste-results-list">{fillNote}</p>}
           <div className="btn-row">
-            <button type="button" className="btn btn-primary" onClick={handleFill}>
+            <button type="button" className="btn btn-primary" onClick={handleFill} disabled={!result.name}>
               Fill This Card
             </button>
           </div>

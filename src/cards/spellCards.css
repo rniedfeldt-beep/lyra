@@ -706,6 +706,11 @@
   gap: 8px;
   margin-top: 14px;
   flex-wrap: wrap;
+  align-items: center;
+}
+.btn-row .field-input {
+  flex: 1 1 auto;
+  min-width: 120px;
 }
 
 .save-status {

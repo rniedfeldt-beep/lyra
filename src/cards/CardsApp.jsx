@@ -1,18 +1,21 @@
-import { useEffect, useState } from 'react'
-import { spellGroups, spellNameToFile } from '../lib/spellReferenceData'
+import { useEffect, useMemo, useState } from 'react'
+import { spellGroups } from '../lib/spellReferenceData'
 import {
   applyCardPatch,
   applyMechPatch,
   blankCardBlock,
+  blankMechDraft,
   buildCardSpell,
-  buildCardToSave,
   canonicalMechFields,
   cleanCard,
-  initialMechDraft,
+  pickMechFields,
 } from './cardRender'
-import { copyCardJSON, loadDraft, loadQueue, saveCardToFile, saveDraft, saveQueue } from './persist'
+import { loadDraft, loadQueue, saveDraft, saveQueue } from './persist'
+import { fetchCardsForCharacter, fetchCharacters, saveCard } from './supabaseCards'
+import CharacterPicker from './CharacterPicker'
 import SpellPicker from './SpellPicker'
 import PasteToFill from './PasteToFill'
+import SavedCards from './SavedCards'
 import CardEditor from './CardEditor'
 import CardPreview from './CardPreview'
 import QueueList from './QueueList'
@@ -25,95 +28,119 @@ function findGroupByName(name) {
 }
 
 export default function CardsApp() {
-  const [mechFields, setMechFields] = useState(null)
+  const [character, setCharacter] = useState('Lyra')
+  const [characters, setCharacters] = useState(['Lyra', 'Vaelith'])
+  const [savedCards, setSavedCards] = useState([])
   const [mechDraft, setMechDraft] = useState(null)
   const [draft, setDraft] = useState(null)
   const [queue, setQueue] = useState(() => loadQueue())
   const [saveStatus, setSaveStatus] = useState(null)
 
   useEffect(() => {
+    fetchCharacters().then((list) => setCharacters((cs) => [...new Set([...cs, ...list])]))
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+    fetchCardsForCharacter(character).then((rows) => {
+      if (!cancelled) setSavedCards(rows)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [character])
+
+  useEffect(() => {
     saveQueue(queue)
   }, [queue])
 
   useEffect(() => {
-    if (!mechFields || !draft) return
-    saveDraft(mechFields.name, draft)
-  }, [mechFields, draft])
+    if (!mechDraft?.name || !draft) return
+    saveDraft(character, mechDraft.name, draft)
+  }, [character, mechDraft, draft])
 
-  function loadSpell(group) {
-    const mech = canonicalMechFields(group)
-    const initial = loadDraft(mech.name) ?? mech.existingCard ?? blankCardBlock()
-    setMechFields(mech)
-    setMechDraft(initialMechDraft(mech))
-    setDraft({ ...blankCardBlock(), ...initial })
+  const savedByName = useMemo(
+    () => new Map(savedCards.map((row) => [row.spell_name.toLowerCase(), row])),
+    [savedCards],
+  )
+  const savedNames = useMemo(() => new Set(savedByName.keys()), [savedByName])
+
+  // The single "what do we know about this spell already" lookup, used by
+  // every entry point below (search, paste-fill, saved-card load): a
+  // previously-saved card for *this* character always wins, since it's the
+  // most specific and most recently intentional thing we know; the
+  // druid-only data/spells/ match (if any) is only a fallback for a spell
+  // that's never been saved before, and blank is the fallback under that.
+  function baseFor(name, group) {
+    const saved = savedByName.get((name || '').toLowerCase())
+    if (saved) {
+      return {
+        mech: pickMechFields(saved.mech),
+        card: { ...blankCardBlock(), ...saved.card },
+      }
+    }
+    if (group) {
+      return { mech: pickMechFields(canonicalMechFields(group)), card: blankCardBlock() }
+    }
+    return { mech: blankMechDraft(), card: blankCardBlock() }
+  }
+
+  function loadInto(name, group) {
+    const base = baseFor(name, group)
+    setMechDraft({ name, ...base.mech })
+    setDraft(loadDraft(character, name) ?? base.card)
     setSaveStatus(null)
-    return mech
   }
 
   function handleSelect(group) {
-    loadSpell(group)
+    loadInto(group.name, group)
   }
 
-  // Paste to Fill's single-spell path: find the spell by its parsed name
-  // (a faster alternative to searching for it manually — you've already
-  // got the full text), load it exactly like handleSelect, then layer the
-  // parsed mech/description fields on top of whatever that load produced.
+  function handleLoadSaved(row) {
+    loadInto(row.spell_name, findGroupByName(row.spell_name))
+  }
+
+  // Paste to Fill's single-spell path. Never gated on data/spells/ — a
+  // match there (or a previously-saved card for this character) is used to
+  // fill in whatever the paste itself didn't find, but the paste always
+  // succeeds and always populates the form on its own.
   function handleFillSingle(name, mechPatch, cardPatch) {
     const group = findGroupByName(name)
-    if (!group) return { ok: false, reason: 'not found in data/spells/' }
-    const mech = loadSpell(group)
-    setMechDraft((prev) => applyMechPatch(prev ?? initialMechDraft(mech), mechPatch))
-    setDraft((prev) => applyCardPatch(prev ?? blankCardBlock(), cardPatch))
-    return { ok: true }
+    const base = baseFor(name, group)
+    setMechDraft({ name, ...applyMechPatch(base.mech, mechPatch) })
+    setDraft(applyCardPatch(base.card, cardPatch))
+    setSaveStatus(null)
+    return { ok: true, foundInData: !!group }
   }
 
-  // Paste to Fill's multi-spell path: same lookup, but skips the editor
-  // entirely and pushes straight to the print queue, best-effort-saving
-  // each to its file too (silently — see persistCurrent for why a failed
-  // save there isn't an error worth surfacing per spell in a bulk import).
+  // Paste to Fill's multi-spell path: same "always works" rule, straight
+  // to the print queue and a Supabase save per spell, no editor round-trip.
   function handleBulkAdd(name, mechPatch, cardPatch) {
     const group = findGroupByName(name)
-    if (!group) return { ok: false, reason: 'not found in data/spells/' }
-    const mech = canonicalMechFields(group)
-    const mechFull = applyMechPatch(initialMechDraft(mech), mechPatch)
-    const cardFull = applyCardPatch(blankCardBlock(), cardPatch)
-    const cleaned = buildCardToSave(cardFull, mechFull, mech)
+    const base = baseFor(name, group)
+    const mech = applyMechPatch(base.mech, mechPatch)
+    const card = cleanCard(applyCardPatch(base.card, cardPatch)) ?? {}
 
-    setQueue((q) => [...q, buildCardSpell({ name: mech.name, ...mechFull }, cleanCard(cardFull))])
-
-    const fileName = spellNameToFile[mech.name]
-    if (fileName) saveCardToFile({ fileName, spellName: mech.name, card: cleaned }).catch(() => {})
+    setQueue((q) => [...q, buildCardSpell({ name, ...mech }, card)])
+    saveCard(character, name, mech, card).catch((err) => console.warn('Bulk save to Supabase failed:', err.message))
     return { ok: true }
   }
 
-  // Saves to data/spells/<file>.json via the local dev/preview-only endpoint;
-  // falls back to a clipboard copy of the card JSON when that's unavailable,
-  // which is the expected outcome on the deployed static site. Returns the
-  // cleaned card (or null if nothing was typed/overridden) either way, for
-  // the queue.
   async function persistCurrent() {
-    if (!mechFields || !mechDraft) return null
-    const cleaned = buildCardToSave(draft, mechDraft, mechFields)
-    const fileName = spellNameToFile[mechFields.name]
-    if (!fileName) {
-      setSaveStatus({ type: 'err', message: 'No source file found for this spell — nothing saved.' })
-      return cleaned
+    if (!mechDraft?.name) {
+      setSaveStatus({ type: 'err', message: 'Nothing to save — no spell name.' })
+      return null
     }
+    const { name, ...mech } = mechDraft
+    const card = cleanCard(draft) ?? {}
     try {
-      await saveCardToFile({ fileName, spellName: mechFields.name, card: cleaned })
-      setSaveStatus({ type: 'ok', message: `Saved to data/spells/${fileName}.` })
-    } catch {
-      try {
-        await copyCardJSON(cleaned ?? {})
-        setSaveStatus({
-          type: 'err',
-          message: 'Local save unavailable (expected on the deployed site) — card JSON copied to clipboard instead.',
-        })
-      } catch {
-        setSaveStatus({ type: 'err', message: 'Local save unavailable and clipboard copy failed.' })
-      }
+      await saveCard(character, name, mech, card)
+      setSaveStatus({ type: 'ok', message: `Saved for ${character}.` })
+      setSavedCards(await fetchCardsForCharacter(character))
+    } catch (err) {
+      setSaveStatus({ type: 'err', message: `Save failed: ${err.message}` })
     }
-    return cleaned
+    return card
   }
 
   async function handleSave() {
@@ -121,16 +148,22 @@ export default function CardsApp() {
   }
 
   async function handleAddToQueue() {
-    const cleaned = await persistCurrent()
-    setQueue((q) => [...q, buildCardSpell({ name: mechFields.name, ...mechDraft }, cleaned)])
+    const card = await persistCurrent()
+    if (card == null) return
+    const { name, ...mech } = mechDraft
+    setQueue((q) => [...q, buildCardSpell({ name, ...mech }, card)])
   }
 
   function handleRemove(i) {
     setQueue((q) => q.filter((_, idx) => idx !== i))
   }
 
-  const previewSpell =
-    mechFields && mechDraft && draft ? buildCardSpell({ name: mechFields.name, ...mechDraft }, draft) : null
+  function handleAddCharacter(name) {
+    setCharacters((cs) => (cs.includes(name) ? cs : [...cs, name]))
+    setCharacter(name)
+  }
+
+  const previewSpell = mechDraft && draft ? buildCardSpell(mechDraft, draft) : null
 
   return (
     <div className="cards-app">
@@ -141,11 +174,11 @@ export default function CardsApp() {
 
       <div className="cards-layout no-print">
         <div>
-          <SpellPicker onSelect={handleSelect} />
+          <CharacterPicker character={character} characters={characters} onChange={setCharacter} onAdd={handleAddCharacter} />
+          <SpellPicker onSelect={handleSelect} savedNames={savedNames} />
           <PasteToFill onFillSingle={handleFillSingle} onBulkAdd={handleBulkAdd} />
-          {mechFields && mechDraft && draft && (
+          {mechDraft && draft && (
             <CardEditor
-              mechFields={mechFields}
               mechDraft={mechDraft}
               onMechChange={setMechDraft}
               draft={draft}
@@ -166,6 +199,7 @@ export default function CardsApp() {
             )}
           </div>
           <QueueList queue={queue} onRemove={handleRemove} />
+          <SavedCards character={character} savedCards={savedCards} onLoad={handleLoadSaved} />
         </div>
       </div>
 

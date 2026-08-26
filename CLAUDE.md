@@ -60,6 +60,9 @@ with a **permissive policy** allowing anonymous select, insert, and update on
 **Note:** RLS with no policies blocks everything, including the app itself. If saves silently
 fail, check the policy exists before debugging anything else.
 
+Same project, same tradeoff, second table: `spell_cards` backs the `/cards` tool's saved cards,
+tagged by character — see "Spell cards (`/cards`)" > Persistence, below.
+
 ### Client design
 
 - All state access goes through one storage adapter (`saveState()` / `loadState()`).
@@ -1492,14 +1495,17 @@ nothing about the hexagon's size lives outside this one computed block. Change
 castingTime, range, components, duration, savingThrow, spellResistance) start out from its
 `data/spells/*.json` entry, via `canonicalMechFields()` reading the first printing with a
 `full` entry off its `spellGroups` group — but they're editable in the form
-(`mechDraft`/`MechFields` in `CardEditor.jsx`), not read-only display, since a card can need a
-different class's level than the one Lyra's own druid-only data tracks (see Paste to fill,
-below) or a hand-fixed value. Editing never touches the spell's own JSON fields; it's captured
-as an optional `card.mech` override — `initialMechDraft()` seeds the form from a previously-
-saved `card.mech` if there is one, else from the canonical fields, and `buildCardToSave()`
-(`cardRender.js`) only writes `mech` back out when it actually differs from canonical
-(`mechFieldsEqual()`), so a card nobody's touched doesn't carry a redundant copy of data
-that's already in the entry proper. What you type lives in the rest of that same `card` field:
+(`mechDraft`/`MechFields` in `CardEditor.jsx`, including Name itself, Aug 2026), not read-only
+display, since a card can need a different class's level than the one Lyra's own druid-only
+data tracks (see Paste to fill, below), a hand-fixed value, or — for a spell with no
+`data/spells/` entry at all (any of Vaelith's sorcerer cards) — every field typed from scratch.
+Editing never touches `data/spells/`; a card is always its own complete, independent row in
+Supabase (see Persistence, below), not a diff against canonical data. `CardsApp.jsx`'s
+`baseFor(name, group)` decides what a newly-loaded card starts from, in priority order: (1) a
+previously-saved Supabase card for the *current character*, since that's the most specific and
+most recently intentional thing known about this spell; (2) the `data/spells/` canonical
+fields, if the name matches — fallback enrichment only, never required; (3) blank. What you
+type lives in the rest of that same `card` field:
 `{ flavor, primary, secondary, note, table?, continued?, mech? }`, matching
 `spell-cards-v2.html`'s own `SPELLS[].card` shape (plus `mech`, new here). `continued` (same
 shape, minus its own `continued`/`mech` — the two card faces of a fold pair always share one
@@ -1551,36 +1557,57 @@ instead, for writing Primary by hand against.
 
 Since Lyra's data is druid-only, a spell listing several classes (`Level: Drd 3, Rgr 2`)
 becomes a radio group in the results — `Drd` is pre-picked when present, else the first class
-listed, always switchable before filling. Filling looks the parsed name up in `spellGroups`
-by exact case-insensitive match (a faster alternative to searching first, not a replacement
-for it — you've already got the full text) and loads that spell exactly like picking it from
-`SpellPicker` would, then layers the parse on top via `applyMechPatch`/`applyCardPatch`
-(`cardRender.js`) — both apply a field only when the parser actually found something, so a
-label the paste didn't have (or that `missing` flags) leaves the existing canonical or
-previously-typed value alone rather than blanking it out. A name with no match in `spellGroups`
-reports `not found in data/spells/` rather than silently doing nothing.
+listed, always switchable before filling. **Filling never gates on `data/spells/` (Aug 2026).**
+Early versions returned immediately with no-op when the parsed name had no match there, which
+silently left the form showing whatever was previously loaded — since most of what gets pasted
+now is Vaelith's sorcerer spells, that made filling *look* broken for exactly the spells this
+feature exists for. `handleFillSingle`/`handleBulkAdd` (`CardsApp.jsx`) always populate the
+form (or queue entry) from the parse; a `data/spells/` match, via the same `baseFor()` priority
+chain described above, only fills in whatever the parser itself didn't find. The results panel
+still says so — `foundInData: false` renders as neutral text ("Not in the extracted druid
+sourcebooks — filling from your pasted text.", `.paste-results-list`, not the red `.err`
+class), since a spell not being in Lyra's druid-only data isn't a failure, and filling still
+fully succeeds either way.
 
 A paste of several spells' text back to back (detected by more than one `Level:` line —
 `splitMultipleSpells()` anchors each occurrence and walks back to the two non-empty lines
 before it for that spell's name/school) skips the single-card editor entirely: each block is
-parsed, looked up, and — if found — pushed straight to the print queue with a best-effort
-save to its file, reporting which spells were added and which were skipped and why.
+parsed and pushed straight to the print queue plus a Supabase save, under the same never-gated
+rule — the only thing that can land in "skipped" is a block with no name at all.
 
-**Persistence.** Two layers, deliberately different lifetimes:
-- **localStorage** (`src/cards/persist.js`) autosaves the current draft per spell name and the
-  whole print queue on every change — survives a reload regardless of environment, and is what
-  "load it into the editor... rather than starting blank" falls back on before anything's
-  reached the repo.
-- **The repo itself** — `data/spells/<file>.json`'s own `card` field, via `POST
-  /api/cards/save`, a dev/preview-only Vite middleware (`cardSavePlugin` in `vite.config.js`,
-  wired into both `configureServer` and `configurePreviewServer`) that writes the file
-  directly. `spellNameToFile` (`loadSpellData.js`) maps a spell name to its real filename,
-  since `groupedSourceLabel` collapses multi-issue files like `dragon-magazine.json` to one
-  title and can't be reversed back to a filename. This endpoint doesn't exist in the static
-  build shipped to GitHub Pages — there's no server there — so a failed save is the expected,
-  only outcome in production, and `CardsApp.jsx` falls back to copying the card JSON to the
-  clipboard instead (`copyCardJSON`). Saving happens on "Save" and again (best-effort) before
-  "Add to Print Queue" adds the current card.
+**Persistence.** `spell_cards` in Supabase — the same project as `character_state` (see
+"Persistence and sync" above), same permissive-RLS tradeoff, different table: one row per
+`(character, spell_name)` (unique constraint), `mech`/`card` jsonb columns holding exactly the
+shapes the card composer already works with. `character` (`CharacterPicker.jsx`) is a first-
+class dropdown — seeded with `Lyra`/`Vaelith`, plus whatever else has ever been saved
+(`fetchCharacters()`), and "Add" appends a new name locally and switches to it immediately, no
+Supabase write required until something's actually saved under it. Every load path —
+`SpellPicker` search-select, Paste to Fill (single and bulk), and `SavedCards.jsx`'s
+load-for-revision list — goes through `baseFor()`, so a previously-saved card for the current
+character always takes priority over the `data/spells/` canonical fields. No login: both
+players are trusted and see all saved cards for all characters, same rationale as
+`character_state`. `src/cards/supabaseCards.js` mirrors `storageAdapter.js`'s
+`createClient(url, anonKey)` pattern exactly, reusing the same `VITE_SUPABASE_URL`/
+`VITE_SUPABASE_ANON_KEY` env vars (baked in at build time, already wired through
+`.github/workflows/deploy.yml`) — no separate config needed for the two tables. Every
+Supabase-reading function degrades gracefully on failure (missing table, offline, RLS
+misconfigured) rather than crashing: `fetchCharacters`/`fetchCardsForCharacter` `console.warn`
+and fall back to `[]`/the seed list; `saveCard` throws, which `CardsApp.jsx` turns into a
+visible, non-blocking `saveStatus` message. Printing is never gated on a Supabase save
+succeeding — "Add to Print Queue" adds to the (localStorage-backed) queue regardless of
+whether the save alongside it failed. **Setup:** the `spell_cards` table + policy block in
+`supabase/setup.sql` must be run once in the Supabase SQL editor, exactly like the original
+`character_state` setup, before saving/loading cards works.
+
+Older, removed (Aug 2026): the previous version stored a card inside `data/spells/<file>.json`
+itself, via a dev/preview-only Vite middleware (`cardSavePlugin`) that doesn't exist in the
+static GitHub Pages build, plus a clipboard-copy fallback for when it wasn't reachable
+(`copyCardJSON`) — this is what produced the 405 in production. Both are gone; Supabase is now
+the only persistence path, and it works identically in dev, preview, and production. What's
+still local-only: `src/cards/persist.js`'s autosave-while-typing draft (keyed by
+`${character}::${spellName}`, a safety net against navigating away before hitting Save) and
+the print queue itself, which is genuinely per-device and has no reason to sync between
+players.
 
 **Rendering.** `cardRender.js`'s `headHTML`/`bodyHTML`/`cardHTML`/`unitHTML` build the same raw
 HTML strings the reference does (SVGs, markdown-lite paragraphs, the table) and every card face

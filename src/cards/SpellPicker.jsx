@@ -2,9 +2,14 @@ import { useMemo, useState } from 'react'
 import { spellGroups } from '../lib/spellReferenceData'
 
 // Search-and-pick, sourced straight from data/spells/ (via the same
-// spellGroups the Spell Reference tab uses) — no separate card-only spell
-// list to keep in sync.
-export default function SpellPicker({ onSelect }) {
+// spellGroups the Spell Reference tab uses) — Lyra's druid list only, a
+// convenience for her cards specifically. A spell with no match here (any
+// of Vaelith's sorcerer spells, say) simply won't show up in search —
+// paste its text into Paste to Fill instead. savedNames (spell names with
+// a saved card for the *current* character, from Supabase) drives the
+// "has card" badge, not anything in data/spells/ — a card is per-character
+// now, so "has card" has to be too.
+export default function SpellPicker({ onSelect, savedNames }) {
   const [q, setQ] = useState('')
 
   const results = useMemo(() => {
@@ -27,7 +32,7 @@ export default function SpellPicker({ onSelect }) {
         <ul className="search-results">
           {results.map((g) => {
             const printing = g.printings.find((p) => p.full) ?? g.printings[0]
-            const hasCard = !!printing?.full?.card
+            const hasCard = savedNames?.has(g.name.toLowerCase())
             return (
               <li key={g.name}>
                 <button type="button" onClick={() => onSelect(g)}>
