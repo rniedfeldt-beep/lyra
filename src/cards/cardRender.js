@@ -280,9 +280,27 @@ export function fontsReady() {
    pagination loop underneath it — six upright cards per sheet (two
    rows of three card-widths), fold pairs (continued cards) counting
    as width 2 and kept together on one row. */
+// Normalizes a school name into the colour-lookup key
+// `[data-school='...']` (spellCards.css) matches against: trims stray or
+// invisible whitespace (a paste, or a hand-typed value, can carry a
+// non-breaking or zero-width character that looks identical to a normal
+// space), strips any parenthesized subschool or bracketed descriptor that
+// ended up folded into the same string, and lowercases. Any of those would
+// otherwise silently fail to match one of the nine `[data-school=...]`
+// selectors and the card would render with no school colour at all, even
+// though the school itself parsed correctly.
+function normalizeSchoolKey(school) {
+  return (school || '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\[[^\]]*\]/g, '')
+    .replace(/[\s\u00A0\u2007\u202F\u200B\u200C\u200D\u2060\uFEFF]+/g, ' ')
+    .trim()
+    .toLowerCase()
+}
+
 export function cardHTML(spell, continued) {
   const block = continued ? spell.card?.continued : spell.card
-  return `<article class="card" data-school="${(spell.school || '').toLowerCase()}">
+  return `<article class="card" data-school="${normalizeSchoolKey(spell.school)}">
     ${headHTML(spell)}<div class="body">${bodyHTML(block)}</div>
   </article>`
 }

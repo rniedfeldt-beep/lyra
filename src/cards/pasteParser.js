@@ -52,6 +52,21 @@ function normalizePunctuation(text) {
     .replace(/[–—−]/g, '-')
 }
 
+// A PDF copy/paste routinely carries non-breaking or other Unicode space
+// variants (most often U+00A0, e.g. between a number and its unit) and,
+// less often, zero-width characters left over from ligature substitution
+// or a BOM. Both look identical to a normal space or nothing at all once
+// rendered, but neither is stripped by String.prototype.trim() the way a
+// caller might expect for the *zero-width* ones — and both, if they land
+// in a value later compared exactly (school → card colour, see
+// normalizeSchoolKey in cardRender.js), silently break that match even
+// though the text reads as correct everywhere it's displayed.
+function normalizeInvisibleChars(text) {
+  return text
+    .replace(/[\u00A0\u2007\u202F]/g, ' ')
+    .replace(/[\u200B\u200C\u200D\u2060\uFEFF]/g, '')
+}
+
 // Standalone page numbers and short all-caps running headers, each on
 // their own line — never legitimate content in a spell's stat block or
 // description, which is always title-case prose.
@@ -75,6 +90,7 @@ function stripPageNoise(text) {
 
 export function cleanPastedText(raw) {
   let text = (raw || '').replace(/\r\n?/g, '\n')
+  text = normalizeInvisibleChars(text)
   text = normalizePunctuation(text)
   text = fixLigatures(text)
   text = stripPageNoise(text)

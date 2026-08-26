@@ -1531,7 +1531,14 @@ die rolls and calculations, not general emphasis.
 
 **Paste to fill (Aug 2026).** `PasteToFill.jsx` + `pasteParser.js` — a textarea for a spell's
 raw text (stat block and description) copied out of a PDF, parsed offline with pure regex/rule
-logic, no API calls. `cleanPastedText()` runs first: normalizes smart quotes/en-dashes, fixes
+logic, no API calls. `cleanPastedText()` runs first: `normalizeInvisibleChars()` converts
+non-breaking and other Unicode space variants (U+00A0, U+2007, U+202F — a PDF often uses one
+between a number and its unit) to a plain space and strips zero-width characters and a leading
+BOM (U+200B/U+200C/U+200D/U+2060/U+FEFF) entirely, since either kind is invisible in a text
+field but breaks an exact-string comparison downstream — see the school→card-colour match
+below, which is exactly how this was first noticed (Aug 2026: a pasted "Divination" carried a
+trailing NBSP + zero-width space, read as correct everywhere it was displayed, and silently
+failed to match `[data-school='divination']`). Then it normalizes smart quotes/en-dashes, fixes
 the handful of common spell-vocabulary words a PDF ligature bug splits with a stray space
 (`Refl ex` → `Reflex` — a small known-word dictionary, `LIGATURE_WORDS`, deliberately not a
 general "letters space letters" regex, which would just as happily mangle "to flee" into
@@ -1623,6 +1630,35 @@ actually outputs. The overflow flag ("TEXT CLIPPED", red outline) is unchanged f
 reference — any card still overflowing at the 7pt floor after the auto-fitter's nine steps
 gets flagged, both in the live preview and in the print sheets, meaning the spell needs
 "continue on second card."
+
+A card's school colour is a CSS custom property (`--ink`, `spellCards.css`) set by a
+`[data-school='...']` attribute selector — nine exact-string keys, one per school. `cardHTML()`
+derives that key with `normalizeSchoolKey()` (Aug 2026) rather than a bare `.toLowerCase()`:
+trims (including the invisible-character classes `cleanPastedText()` already strips at the
+paste boundary — see Paste to fill, above — since a hand-typed School field has no such
+cleanup pass of its own) and strips any `(subschool)`/`[descriptor]` fragment that ended up
+folded into the same string, before lowercasing. Any of those breaks the exact-string
+attribute-selector match silently — the school still reads correctly everywhere it's
+displayed, only the card's colour goes missing — which is what made the underlying paste-time
+NBSP bug (above) hard to spot by eye.
+
+**Editor state (Aug 2026).** `CardsApp.jsx` holds exactly one card in the editor at a time
+(`mechDraft`/`draft`), and nothing about it should survive past the point it stops being
+relevant — a rule that's easy to state and was violated in three different places at once
+until this pass: switching `character` didn't touch either piece of state, so the previous
+character's card (name, hand-typed Mechanics/Material Component text, everything) stayed
+sitting in the form under the new character; "Add to Print Queue" queued the card but left the
+same fields open afterward; and there was no way to blank the form at all without navigating
+away and back. `clearEditor()` (sets both to `null`) now runs after a successful queue-add and
+on every character change (`handleCharacterChange`, `handleAddCharacter`); `handleNewCard()` —
+wired to the "New Card" button in the page header — opens a genuinely blank, fully editable
+form (`{ name: '', ...blankMechDraft() }` / `blankCardBlock()`) for typing a card from scratch,
+for a spell with neither a `data/spells/` entry nor pasteable text at all. None of this touches
+`loadInto()` or `handleFillSingle()`/`handleBulkAdd()` — both already computed a fresh
+`baseFor()` for the *new* name on every call before this pass, so a paste-fill for a spell that
+was never previously loaded or saved was never actually at risk of carrying over a previous
+card's fields; the bug was specifically that the *previous* card kept showing whenever nothing
+happened to explicitly replace it.
 
 ---
 

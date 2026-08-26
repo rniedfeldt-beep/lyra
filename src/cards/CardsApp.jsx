@@ -92,6 +92,33 @@ export default function CardsApp() {
     setSaveStatus(null)
   }
 
+  // Closes the editor entirely rather than leaving whatever was last in it
+  // on screen — used wherever the "current card" stops meaning anything:
+  // switching character (a different character's cards, nothing about the
+  // old one applies) and after queueing (that card is done; the next
+  // action should be an explicit pick, paste, or "New card", not editing
+  // leftover fields). Nothing from a previous card should survive unless
+  // it's an explicit load (loadInto/handleFillSingle, both of which start
+  // from a fresh baseFor() every time, or "New card" below).
+  function clearEditor() {
+    setMechDraft(null)
+    setDraft(null)
+    setSaveStatus(null)
+  }
+
+  function handleCharacterChange(next) {
+    setCharacter(next)
+    clearEditor()
+  }
+
+  // An explicit blank slate for typing a card by hand — a spell with
+  // neither a data/spells/ entry nor pasteable text still needs a way in.
+  function handleNewCard() {
+    setMechDraft({ name: '', ...blankMechDraft() })
+    setDraft(blankCardBlock())
+    setSaveStatus(null)
+  }
+
   function handleSelect(group) {
     loadInto(group.name, group)
   }
@@ -152,6 +179,7 @@ export default function CardsApp() {
     if (card == null) return
     const { name, ...mech } = mechDraft
     setQueue((q) => [...q, buildCardSpell({ name, ...mech }, card)])
+    clearEditor()
   }
 
   function handleRemove(i) {
@@ -161,6 +189,7 @@ export default function CardsApp() {
   function handleAddCharacter(name) {
     setCharacters((cs) => (cs.includes(name) ? cs : [...cs, name]))
     setCharacter(name)
+    clearEditor()
   }
 
   const previewSpell = mechDraft && draft ? buildCardSpell(mechDraft, draft) : null
@@ -170,11 +199,14 @@ export default function CardsApp() {
       <div className="cards-header no-print">
         <h1>Spell Cards</h1>
         <p>Search a spell, compose its card, add it to the print queue, then print.</p>
+        <button type="button" className="btn btn-small" onClick={handleNewCard}>
+          New Card
+        </button>
       </div>
 
       <div className="cards-layout no-print">
         <div>
-          <CharacterPicker character={character} characters={characters} onChange={setCharacter} onAdd={handleAddCharacter} />
+          <CharacterPicker character={character} characters={characters} onChange={handleCharacterChange} onAdd={handleAddCharacter} />
           <SpellPicker onSelect={handleSelect} savedNames={savedNames} />
           <PasteToFill onFillSingle={handleFillSingle} onBulkAdd={handleBulkAdd} />
           {mechDraft && draft && (
