@@ -28,20 +28,31 @@ export const SIGIL = `<svg width="16" height="15.5" viewBox="0 0 26 25" fill="no
 // element needs a box bigger than its own content to avoid clipping by
 // .card's overflow:hidden, and getting that box's size right for an
 // arbitrary rotation angle by eye is exactly how this went wrong the first
-// time (stretched, clipped, off-center — see CLAUDE.md > Spell cards >
-// Level hexagon). Baking the rotation into the points instead means the
-// viewBox can be sized to exactly fit the rotated shape (plus half the
-// stroke width, so the stroke itself isn't clipped), so two vertices land
-// tangent to the card's top and right edges by construction, and the
-// hexagon's own geometric center is exactly the viewBox's center — which
-// is what makes the numeral center on it correctly (see .level in
-// spellCards.css). No preserveAspectRatio="none": the viewBox is square-
-// ish but not stretched to fit it, so the hexagon stays regular. Change
-// HEX_ROTATE_DEG to retune the tilt — HEX_ASPECT below and headHTML()'s
-// inline size on .level both derive from it, nothing else needs touching.
+// time (stretched, clipped). Baking the rotation into the points instead
+// means the viewBox can be sized to exactly fit the rotated shape (plus
+// half the stroke width, so the stroke itself isn't clipped), so two
+// vertices land tangent to the card's top and right edges by construction.
+// No preserveAspectRatio="none": the viewBox fits the shape's own
+// proportions, nothing is stretched to force it square.
+//
+// The level numeral is a <text> element inside this same SVG, at (0,0) —
+// the hexagon's own geometric center, since HEX_POINTS is symmetric about
+// the origin by construction. Not a separate HTML <span> positioned by CSS
+// grid centering: that was the second bug (see CLAUDE.md > Spell cards >
+// Level hexagon) — two elements centered via two different mechanisms
+// (SVG viewBox math vs. CSS grid placement) can drift apart, which is
+// exactly what happened when .level svg's position:absolute got dropped
+// and the grid placed the SVG and the span in separate implicit rows
+// instead of stacking them. A <text> at the polygon's own origin can't
+// drift from it — there's only one coordinate system. It also needs no
+// counter-rotation: since the tilt is baked into the polygon's points
+// rather than applied as a transform on the SVG (or a <g> around it), the
+// text was never rotated to begin with.
 const HEX_ROTATE_DEG = 20
 const HEX_R = 30
 const HEX_STROKE = 2.4
+const HEX_BOX_W_IN = 0.48
+const HEX_NUMERAL_PT = 16
 
 function hexPolygonPoints(rotateDeg, r) {
   const toRad = (d) => (d * Math.PI) / 180
@@ -68,15 +79,27 @@ const HEX_VB_H = (HEX_MAX_Y + HEX_PAD) * 2
 // .level's own box must share this aspect ratio, or the SVG stretches to
 // fill it — same bug as preserveAspectRatio="none" did. Computed and
 // inlined by headHTML() below rather than hardcoded in spellCards.css, so
-// changing HEX_ROTATE_DEG/HEX_R can't silently fall out of sync with a
-// separately-hand-tuned CSS size the way the box size did last time.
+// changing HEX_ROTATE_DEG/HEX_R/HEX_BOX_W_IN can't silently fall out of
+// sync with a separately-hand-tuned CSS size.
 export const HEX_ASPECT = HEX_VB_W / HEX_VB_H
-const HEX_BOX_W_IN = 0.45
-const HEX_BOX_H_IN = HEX_BOX_W_IN / HEX_ASPECT
+export const HEX_BOX_H_IN = HEX_BOX_W_IN / HEX_ASPECT
 
-export const HEX = `<svg viewBox="${-HEX_VB_W / 2} ${-HEX_VB_H / 2} ${HEX_VB_W} ${HEX_VB_H}" aria-hidden="true">
-  <polygon points="${HEX_POINTS.map((p) => p.map((n) => n.toFixed(2)).join(',')).join(' ')}"
-    fill="none" stroke="currentColor" stroke-width="${HEX_STROKE}" stroke-linejoin="round"/></svg>`
+// 16pt is the numeral's physical size regardless of how big the hexagon
+// itself is drawn — converts that target through this SVG's own
+// units-per-inch (HEX_VB_W spans HEX_BOX_W_IN once placed on the card).
+const HEX_NUMERAL_SVG_SIZE = (HEX_NUMERAL_PT / 72) * (HEX_VB_W / HEX_BOX_W_IN)
+
+const HEX_POLYGON_POINTS_ATTR = HEX_POINTS.map((p) => p.map((n) => n.toFixed(2)).join(',')).join(' ')
+
+export function hexSvg(level) {
+  return `<svg viewBox="${-HEX_VB_W / 2} ${-HEX_VB_H / 2} ${HEX_VB_W} ${HEX_VB_H}" aria-hidden="true">
+  <polygon points="${HEX_POLYGON_POINTS_ATTR}"
+    fill="none" stroke="currentColor" stroke-width="${HEX_STROKE}" stroke-linejoin="round"/>
+  <text x="0" y="0" text-anchor="middle" dominant-baseline="central"
+    font-family="'Fira Mono', monospace" font-weight="700"
+    font-size="${HEX_NUMERAL_SVG_SIZE.toFixed(2)}" fill="currentColor">${level}</text>
+</svg>`
+}
 
 export function schoolLine(s) {
   let o = s.school || ''
@@ -137,7 +160,7 @@ export function headHTML(s) {
     <div class="level-spacer"></div>
     ${stsr}
   </div>
-  <div class="level" style="width:${HEX_BOX_W_IN}in;height:${HEX_BOX_H_IN.toFixed(4)}in">${HEX}<span>${s.level}</span></div>
+  <div class="level" style="width:${HEX_BOX_W_IN}in;height:${HEX_BOX_H_IN.toFixed(4)}in">${hexSvg(s.level)}</div>
   <div class="band">
     <span class="school"><span>${schoolLine(s)}</span></span>
     <span class="tag">LEVEL &amp; TYPE</span>

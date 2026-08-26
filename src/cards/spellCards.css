@@ -179,29 +179,24 @@
    PNG does. Width/height are set inline by headHTML() (cardRender.js),
    not here — they have to match HEX_ASPECT (the rotated hexagon's actual
    bounding-box ratio) exactly, and hardcoding a separately-guessed value
-   here is what let the box and the shape drift out of sync last time.
-   The rotation itself is baked into the hexagon's SVG points, not a CSS
-   transform (see cardRender.js) — only the outline is affected; the
-   numeral (.level span) stays upright since it's a plain sibling. */
+   here is what let the box and the shape drift out of sync before. Only
+   one child now — the hexagon SVG, numeral included as a <text> inside
+   it (cardRender.js's hexSvg()) — so there's no second element to center
+   independently and no CSS grid/flex placement step that could put it
+   somewhere else; the SVG's own viewBox math is the only coordinate
+   system involved. The rotation itself is baked into the hexagon's SVG
+   points, not a CSS transform, which is also why the numeral needs no
+   counter-rotation to stay upright — it was never rotated. */
 .level {
-  display: grid;
-  place-items: center;
-  color: var(--ink);
   position: absolute;
   top: 0;
   right: 0;
+  color: var(--ink);
 }
 .level svg {
   display: block;
   width: 100%;
   height: 100%;
-}
-.level span {
-  position: relative;
-  line-height: 1;
-  font-family: 'Fira Mono', monospace;
-  font-weight: 700;
-  font-size: 16pt;
 }
 .st-sr {
   position: absolute;

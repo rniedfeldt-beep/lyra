@@ -1433,42 +1433,60 @@ second reference, `Spell_Cards_Comp_Vaelith_Lyra-35.png` — its 2.5in × 3.5in 
 actual card frame drawn inset at 670×979px/300dpi, i.e. the same 2.233in × 3.265in as
 `spell-cards-v2.html`'s own PSD measurement. Unchanged.
 
-**Level hexagon (Aug 2026, corrected).** Tilted and pinned to the card's top-right corner
-rather than sitting in its own `card-head` grid column — `headHTML()` emits `.level` as a
-sibling of `.card-head` (a direct child of `.card`), not nested inside it, so `position:
+**Level hexagon (Aug 2026, twice-corrected).** Tilted and pinned to the card's top-right
+corner rather than sitting in its own `card-head` grid column — `headHTML()` emits `.level` as
+a sibling of `.card-head` (a direct child of `.card`), not nested inside it, so `position:
 absolute; top: 0; right: 0;` aligns it to the *card's* actual border, not the header's padded
 interior. `.level-spacer` takes `.level`'s old grid-column slot inside `.card-head`, reserving
 width so `card-name`'s auto-fit (`shrinkToFit`) still shrinks the name away from the hexagon.
 
-The first version of this rotated the SVG with a CSS `transform` and tried to compensate for
-the resulting clipping/off-center numeral by empirically oversizing and offsetting the SVG
-inside its box — wrong approach: it clipped the shape flat against `.card`'s `overflow:
-hidden`, and (the actual root cause) the hexagon's original `viewBox="0 0 31 35"` used
-`preserveAspectRatio="none"` to force a non-square shape into a square box, silently
-stretching it into an irregular hexagon before any rotation even happened.
+Two rounds of bugs here, both from the same root mistake: treating "the hexagon shape" and
+"the numeral on top of it" as two things that each need to be positioned/sized *separately*
+and then trusted to land in the same place.
 
-The fix (`cardRender.js`) computes the hexagon instead of approximating it: `HEX_ROTATE_DEG`
-(20) and `HEX_R` (circumradius) define a regular pointy-top hexagon, and
-`hexPolygonPoints()` rotates its six vertices with a plain 2D rotation matrix *before* they're
-written into the SVG's `points` attribute — the tilt is baked into the coordinates, not
-applied as a CSS transform, so there's no "rotate an element and hope its box still fits it"
-step at all. `HEX_MAX_X`/`HEX_MAX_Y` (the rotated points' bounding box) plus half the stroke
-width set the `viewBox`, so it exactly frames the rotated shape — no `preserveAspectRatio`
-override needed, since nothing forces the shape into a mismatched box; the polygon stays
-regular. Because a rotated regular hexagon is still point-symmetric about its own center, that
-bounding box is centered exactly on the hexagon's true geometric center — which is *why* the
-numeral centers correctly: `HEX_ASPECT` (the viewBox's width:height ratio) is used to size
-`.level`'s box in `headHTML()`'s inline `style`, so `.level`'s CSS `place-items: center` (for
-the `<span>` numeral, a plain sibling of the SVG — never rotated) lands on the same point the
-hexagon itself is centered on. And because the viewBox tightly frames the rotated vertices
-(plus stroke padding, so the *stroke* isn't clipped either), positioning that box flush against
-the card's corner (`top: 0; right: 0`) puts two vertices exactly tangent to the card's top and
-right edges — geometrically guaranteed, not tuned by eye. Change `HEX_ROTATE_DEG` (or
-`HEX_R`) to retune the hexagon; `HEX_ASPECT` and the inline box size both derive from it
-automatically, so there's nothing else to keep in sync by hand. `.level`'s box size lives here
-(computed and inlined) rather than as a hardcoded value in `spellCards.css`, specifically
-because a hand-tuned CSS number next to computed SVG geometry is exactly what drifted out of
-sync and caused this bug in the first place.
+*Round one* rotated the SVG with a CSS `transform` and empirically oversized/offset it to dodge
+`.card`'s `overflow: hidden` — wrong approach, and the actual root cause was upstream of that:
+the hexagon's original `viewBox="0 0 31 35"` used `preserveAspectRatio="none"` to force a
+non-square shape into a square box, stretching it into an irregular hexagon before any rotation
+happened. Fixed by computing the hexagon instead of approximating it — `HEX_ROTATE_DEG` (20)
+and `HEX_R` (circumradius) define a regular pointy-top hexagon, `hexPolygonPoints()` rotates
+its six vertices with a plain 2D rotation matrix *before* they're written into the SVG's
+`points` attribute (tilt baked into the coordinates, no CSS transform, no "rotate an element
+and hope its box still fits it"), and the `viewBox` is sized from `HEX_MAX_X`/`HEX_MAX_Y` (the
+rotated points' bounding box) plus half the stroke width, so it exactly frames the shape with
+no `preserveAspectRatio` override needed.
+
+*Round two*: with the hexagon fixed, the numeral (still an HTML `<span>` sibling of the SVG,
+centered via `.level`'s CSS `display: grid; place-items: center`) drifted below-left of it.
+Cause: `.level svg` had lost its `position: absolute` in the round-one fix (no longer needed
+for the old oversizing hack), which meant the SVG and the `<span>` were now both *normal* grid
+items — and with no explicit `grid-template-columns`/`rows`, CSS Grid's default auto-flow
+placed them in separate implicit rows instead of stacking them on top of each other. Two
+elements, two positioning mechanisms (SVG viewBox math vs. CSS grid placement), drifting apart
+the moment either one changed underneath — the actual lesson, not just this specific CSS
+mistake.
+
+The fix removes the second coordinate system entirely: the numeral is a `<text x="0" y="0"
+text-anchor="middle" dominant-baseline="central">` *inside* `hexSvg()`'s own SVG, at (0,0) —
+the hexagon's own geometric center, since `HEX_POINTS` is symmetric about the origin by
+construction (a rotated regular hexagon stays point-symmetric about its center). One
+coordinate system, so the numeral can't drift from the shape regardless of what CSS around it
+does. It needs no counter-rotation either, for the same reason round one already established:
+the tilt is baked into the polygon's points, not applied as a transform on the SVG or a `<g>`
+around it, so nothing was rotated to begin with. `.level` itself dropped back to a one-child
+box (`position: absolute; top: 0; right: 0;`, no grid/flex needed) since there's nothing left
+to place independently.
+
+`hexSvg(level)` (not a static `HEX` string anymore, since the numeral is spell-specific) also
+sets the numeral's `font-family`/`font-weight` (Fira Mono, 700) and a `font-size` computed from
+`HEX_NUMERAL_PT` (16, matching the numeral's prior physical size) converted through this SVG's
+own units-per-inch — so the numeral's *printed* size stays constant even if `HEX_R` or
+`HEX_BOX_W_IN` (0.48, "noticeably larger than the upright version it replaced") change later.
+`HEX_ASPECT` and `HEX_BOX_H_IN` are exported and used to size `.level`'s box via an inline
+`style` in `headHTML()` rather than a hardcoded value in `spellCards.css` — a hand-tuned CSS
+number next to computed SVG geometry drifting out of sync is what caused round one's bug, so
+nothing about the hexagon's size lives outside this one computed block. Change
+`HEX_ROTATE_DEG`/`HEX_R`/`HEX_BOX_W_IN` to retune it; everything else here derives from them.
 
 **Data model.** A spell's mechanical fields (name, level, school, subschool, descriptors,
 castingTime, range, components, duration, savingThrow, spellResistance) start out from its
