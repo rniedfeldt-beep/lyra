@@ -46,6 +46,24 @@ function Collapsible({ title, defaultExpanded, children }) {
   )
 }
 
+// Marks an ability as coming from the Greenbound template rather than the
+// base creature's own stat block.
+function TemplateTag() {
+  return <span className="template-tag">Greenbound</span>
+}
+
+function greenboundQualityLines(q) {
+  const { racialSkillBonus: r, resistances } = q
+  return [
+    `DR ${q.damageReduction}`,
+    `Fast healing ${q.fastHealing}`,
+    `+${q.grappleBonus} grapple bonus`,
+    `Resist cold ${resistances.cold}, electricity ${resistances.electricity}`,
+    `Tremorsense ${q.tremorsenseFt} ft.`,
+    `+${r.value} racial bonus on ${r.skills.join(' and ')} checks ${r.condition}`,
+  ]
+}
+
 function AttackEntry({ atk }) {
   return (
     <li>
@@ -100,6 +118,11 @@ function SummonStatBlock({ statBlock }) {
     qualities,
     spellLikeAbilities,
   } = statBlock
+
+  // Every summon carries the Greenbound template (except elementals), so its
+  // description is the template's version; a creature with no such variant
+  // falls back to the plain one.
+  const appearanceText = (statBlock.greenboundEligible && creature.appearanceGreenbound) || creature.appearance
 
   const speedText = Object.entries(speed)
     .map(([t, ft]) => `${t === 'land' ? '' : t + ' '}${ft} ft.`)
@@ -208,26 +231,62 @@ function SummonStatBlock({ statBlock }) {
         </p>
       )}
 
-      {qualities && (
+      {(creature.specialAttacks?.length > 0 || spellLikeAbilities) && (
         <>
-          <h3>Qualities</h3>
-          <p className="breakdown">
-            DR {qualities.damageReduction} · Fast healing {qualities.fastHealing} · +{qualities.grappleBonus} grapple ·
-            Resist cold {qualities.resistances.cold}/electricity {qualities.resistances.electricity} · Tremorsense{' '}
-            {qualities.tremorsenseFt} ft. · +{qualities.racialSkillBonus.value}{' '}
-            {qualities.racialSkillBonus.skills.join('/')} {qualities.racialSkillBonus.condition}
-          </p>
+          <h3>Special Attacks</h3>
+          <ul className="summon-abilities">
+            {creature.specialAttacks?.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+            {spellLikeAbilities && (
+              <li>
+                <TemplateTag />
+                Spell-like abilities — at will: {spellLikeAbilities.atWill.join(', ')};{' '}
+                {spellLikeAbilities.perDay.map((s) => `${s.spell} ${s.usesPerDay}/day`).join(', ')}. DC = 10 + spell
+                level + {formatMod(chaMod)} (CHA)
+              </li>
+            )}
+          </ul>
         </>
       )}
 
-      {spellLikeAbilities && (
+      {(creature.specialQualities?.length > 0 || qualities) && (
         <>
-          <h3>Spell-Like Abilities</h3>
-          <p className="breakdown">
-            At will — {spellLikeAbilities.atWill.join(', ')}; {spellLikeAbilities.perDay.map((s) => `${s.spell} 1/day`).join(', ')}.
-            DC = 10 + spell level + {formatMod(chaMod)} (CHA)
-          </p>
+          <h3>Special Qualities</h3>
+          <ul className="summon-abilities">
+            {creature.specialQualities?.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+            {qualities &&
+              greenboundQualityLines(qualities).map((text) => (
+                <li key={text}>
+                  <TemplateTag />
+                  {text}
+                </li>
+              ))}
+          </ul>
         </>
+      )}
+
+      {creature.skills && (
+        <p className="breakdown">
+          <strong>Skills:</strong> {creature.skills}
+        </p>
+      )}
+
+      {(appearanceText || creature.behavior) && (
+        <Collapsible title="Appearance & Behavior" defaultExpanded={false}>
+          {appearanceText && (
+            <p className="summon-flavor">
+              <strong>Appearance.</strong> {appearanceText}
+            </p>
+          )}
+          {creature.behavior && (
+            <p className="summon-flavor">
+              <strong>Behavior.</strong> {creature.behavior}
+            </p>
+          )}
+        </Collapsible>
       )}
     </div>
   )

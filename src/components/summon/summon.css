@@ -211,3 +211,33 @@
   color: var(--text-h);
   font-size: 11px;
 }
+
+.summon-abilities {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.summon-abilities li {
+  margin-bottom: 4px;
+}
+
+.template-tag {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.summon-flavor {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.45;
+}

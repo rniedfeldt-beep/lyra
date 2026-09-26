@@ -36,13 +36,17 @@
       }
     ],
     "specialAttacks": [
-      "sleep arrows"
+      "sleep arrows (10% chance an individual hybsil carries 1d3 sleep arrows acquired from pixies; a creature struck by one must succeed at a Fortitude save DC 15 or be affected as though by a sleep spell)"
     ],
     "specialQualities": [
-      "spell-like abilities",
-      "see invisibility",
-      "poison immunity"
+      "spell-like abilities: pass without trace at will (as a 3rd-level druid); dancing lights, mirror image, and jump, each 1/day (as a 1st-level sorcerer)",
+      "see invisibility (Su, at will — hybsils cannot themselves turn invisible, but can see invisible creatures and objects)",
+      "poison immunity (Ex, immune to poisons of all types)"
     ],
+    "skills": "Bluff +4, Craft (any one) +5, Disable Device +5*, Hide +11, Jump +5, Listen +5, Search +5*, Spot +4, Use Rope +6, Wilderness Lore +8 (*+4 racial bonus on Disable Device and Search outdoors, in plains and forests, for locating and disabling traps such as snares and pits)",
+    "appearance": "A hybsil looks like a three-foot-tall centaur with the body of an antelope rather than a horse, in coloration ranging across the browns, blacks, stripes, and spots seen on ordinary antelopes. Males grow large forking antlers that molt each winter and regrow in spring, while females carry smaller straight or spiral antlers year-round.",
+    "behavior": "Hybsils live in nomadic tribes that roam wide hunting ranges, deliberately keeping distance from their own family camps so as not to lead enemies home. Their culture prizes obligation, vengeance, and daring, with elders tracking favors owed and younger hunters proving themselves by darting into danger and back out again.",
+    "appearanceGreenbound": "The hybsil's antelope body thickens into pulpy, fibrous wood, its hide replaced by mats of moss and creeping vine that still trace the animal's familiar spotted or striped patterning in mottled greens. Its forking antlers harden into knotted heartwood spurs, small leafy branches sprout along its flanks and centaur-like torso, and its eyes take on a faint luminous glow beneath a fringe of hanging leaves, though its small stature and antelope-legged silhouette remain unmistakably hybsil.",
     "feats": [
       "Dodge",
       "Mobility",
@@ -54,7 +58,7 @@
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical multiplier line); baseAttackBonus (0) is derived arithmetically from the printed dagger melee attack bonus (+4 = BAB + Dex mod [+3, via Weapon Finesse] + Small size mod [+1]), which also matches the standard 1/2-BAB-per-HD progression for a 1 HD Fey. Critical multiplier isn't printed for any attack in this book's format, so it's left null rather than assuming a standard value. Note: the printed shortbow ranged attack (+0) doesn't reconcile with the same BAB using BAB + Dex + size (+4 expected) — possibly a nonproficiency penalty or a print error; recorded as printed rather than corrected. wildShapeMinLevel is null because Lyra's wild shape rules only extend to Magical Beast/Outsider/Elemental types regardless of Feywild origin; Fey creatures (like pixie/satyr) are never available to wild shape into. feywildNative marked true: the book explicitly calls hybsils kin to pixies and \"sprite relatives,\" consistent with this campaign's existing fey-Feywild framing (pixie, satyr)."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical multiplier line); baseAttackBonus (0) is derived arithmetically from the printed dagger melee attack bonus (+4 = BAB + Dex mod [+3, via Weapon Finesse] + Small size mod [+1]), which also matches the standard 1/2-BAB-per-HD progression for a 1 HD Fey. Critical multiplier isn't printed for any attack in this book's format, so it's left null rather than assuming a standard value. Note: the printed shortbow ranged attack (+0) doesn't reconcile with the same BAB using BAB + Dex + size (+4 expected) — possibly a nonproficiency penalty or a print error; recorded as printed rather than corrected. wildShapeMinLevel is null because Lyra's wild shape rules only extend to Magical Beast/Outsider/Elemental types regardless of Feywild origin; Fey creatures (like pixie/satyr) are never available to wild shape into. feywildNative marked true: the book explicitly calls hybsils kin to pixies and \"sprite relatives,\" consistent with this campaign's existing fey-Feywild framing (pixie, satyr). specialAttacks/specialQualities verified directly against the book's p.61 stat block and Combat section text (sleep arrows: 10% chance an individual has 1d3 such arrows, DC 15 Fort save vs. sleep, not the wording in the user's summary that implied a per-shot chance of extra damage — no \"1d3 points of damage\" mechanic is printed anywhere for hybsil sleep arrows; that phrasing did not match the book and was not used). Spell-like abilities confirmed as pass without trace at will as a 3rd-level druid, plus dancing lights/mirror image/jump each 1/day as a 1st-level sorcerer, exactly as printed."
   },
   {
     "name": "Ice Serpent",
@@ -86,13 +90,16 @@
       }
     ],
     "specialAttacks": [
-      "constrict"
+      "constrict (1d8+7 plus cold, on a successful grapple check after a constrict attack)"
     ],
     "specialQualities": [
-      "elemental immunities",
-      "cold subtype",
+      "elemental immunities (immune to poison, sleep, paralysis, and stunning; not subject to critical hits or flanking, per standard elemental traits)",
+      "cold subtype (immune to cold damage, double damage from fire except on a successful save)",
       "damage reduction 10/+1"
     ],
+    "skills": "Move Silently +15, Spot +9",
+    "appearance": "An ice serpent looks like a writhing, snakelike churn of loose ice crystals and snow sweeping low over frozen ground, made of frigid air held in constant motion. It stirs up whatever loose material lies in its path — snow, ice, leaves, even small rocks — as it goes, and is naturally invisible unless it's actively kicking up debris this way.",
+    "behavior": "Unlike other air elementals, an ice serpent never takes to the sky; it pushes itself along the ground in a sinuous, snakelike glide instead of flying.",
     "feats": [
       "Power Attack"
     ],
@@ -102,7 +109,7 @@
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed constrict attack bonus (+8 = BAB + Str mod [+5] + Large size mod [-1]); the 1.5x-Str constrict damage (1d8+7, from Str mod +5) is consistent with this being the creature's sole natural attack. Critical multiplier not printed, left null. Text explicitly states \"unlike other air elementals, ice serpents do not fly\" — no fly speed despite being an Air-subtype elemental, confirmed from the description. The constrict damage line reads \"1d8+7 plus cold\" with no specific cold damage amount printed; recorded as-is with this caveat rather than inventing a die value. feywildNative is false, not ambiguous: an Inner-Planar elemental with a purely mundane cold-climate origin per the text, no fey/Feywild framing at all. wildShapeMinLevel null accordingly."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed constrict attack bonus (+8 = BAB + Str mod [+5] + Large size mod [-1]); the 1.5x-Str constrict damage (1d8+7, from Str mod +5) is consistent with this being the creature's sole natural attack. Critical multiplier not printed, left null. Text explicitly states \"unlike other air elementals, ice serpents do not fly\" — no fly speed despite being an Air-subtype elemental, confirmed from the description. The constrict damage line reads \"1d8+7 plus cold\" with no specific cold damage amount printed; recorded as-is with this caveat rather than inventing a die value. feywildNative is false, not ambiguous: an Inner-Planar elemental with a purely mundane cold-climate origin per the text, no fey/Feywild framing at all. wildShapeMinLevel null accordingly. No appearanceGreenbound field: this creature's type is Elemental, the one base-creature type CLAUDE.md's Greenbound rule genuinely excludes (\"applies to every summon except elementals\"), so a Greenbound-templated appearance is never actually usable in play for this entry."
   },
   {
     "name": "Unicorn, Black",
@@ -154,6 +161,10 @@
     "specialQualities": [
       "teleport"
     ],
+    "skills": "Intimidate +15, Listen +13, Move Silently +9, Spot +13, Wilderness Lore +11",
+    "appearance": "A black unicorn is a coal-dark, horse-sized creature with a silky black mane and burning red eyes, its long spiraled horn chased in silver. It carries none of the pale, gentle bearing of its natural cousins, instead radiating an unmistakably corrupt and menacing presence.",
+    "behavior": "Black unicorns are hateful, demented creatures that live for violence and combat, having been twisted from ordinary unicorns through infusion with demonic and hellspawn blood. They are highly intelligent and capable of learning Common, and some evil spellcasters are rumored to be trying to teach them to cast spells using only verbal components.",
+    "appearanceGreenbound": "The black unicorn's coal-dark hide sloughs away into pulpy, fibrous wood wrapped in cords of dark creeper-vine, its once-silky mane replaced by a cascade of black-green moss and trailing leaves. Its silver-chased horn hardens into a spiraled length of blackened heartwood, and its burning red eyes dim into twin glowing seed-pods nestled where sockets once were, though its equine size and menacing bearing remain instantly recognizable.",
     "feats": [
       "Alertness",
       "Multiattack",
@@ -165,7 +176,7 @@
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "This is Monsters of Faerûn's own \"Unicorn, Black\" entry (p. 83), a distinct named variant from the core Monster Manual unicorn already in this project's data — confirmed by its own stat block (4 HD, Large, CR 3, chaotic evil) rather than assumed. Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed horn attack (+9 = BAB + Str mod [+5] + Large size mod [-1] + Weapon Focus [horn] [+1]), cross-checked against the bite/hoof line (+6 = BAB + Str mod [+5] + Large size mod [-1] - 2, this book's apparent secondary-natural-attack convention, with no Weapon Focus bonus since that feat only names the horn) — both resolve to the same BAB of 4, which also matches the standard full-BAB progression for a 4 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text explicitly frames black unicorns as \"evil creations, made from unicorns infused with the blood of demons and other hellspawn,\" i.e. a corrupted/demonic derivative, not a fey or Feywild-tied creature — the opposite framing from a Feywild-native magical beast like the core unicorn. wildShapeMinLevel null accordingly (non-Feywild-native magical beast)."
+    "note": "This is Monsters of Faerûn's own \"Unicorn, Black\" entry (p. 83), a distinct named variant from the core Monster Manual unicorn already in this project's data — confirmed by its own stat block (4 HD, Large, CR 3, chaotic evil) rather than assumed. Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (4) is derived from the printed horn attack (+9 = BAB + Str mod [+5] + Large size mod [-1] + Weapon Focus [horn] [+1]), cross-checked against the bite/hoof line (+6 = BAB + Str mod [+5] + Large size mod [-1] - 2, this book's apparent secondary-natural-attack convention, with no Weapon Focus bonus since that feat only names the horn) — both resolve to the same BAB of 4, which also matches the standard full-BAB progression for a 4 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text explicitly frames black unicorns as \"evil creations, made from unicorns infused with the blood of demons and other hellspawn,\" i.e. a corrupted/demonic derivative, not a fey or Feywild-tied creature — the opposite framing from a Feywild-native magical beast like the core unicorn. wildShapeMinLevel null accordingly (non-Feywild-native magical beast). specialAttacks/specialQualities (inflict light wounds, teleport) and skills confirmed verbatim against the p.83 stat block; the book prints no further mechanical detail for either ability (no caster level, DC, or range given for either inflict light wounds or teleport in this entry) — recorded exactly as printed rather than inventing specifics."
   },
   {
     "name": "Alaghi",
@@ -219,6 +230,10 @@
     ],
     "specialAttacks": [],
     "specialQualities": [],
+    "skills": "Hide +8, Listen +7, Move Silently +8, Spot +7",
+    "appearance": "An alaghi is a barrel-chested, thick-necked humanoid with a wide, flat-browed head, broad shoulders, and long, powerful arms over short but sturdy legs and oversized hands and feet. Its whole body is covered in thick hair — usually blond, reddish-brown, or charcoal gray — and blond individuals often have green eyes with a greenish sheen through their fur; a typical adult stands about 6 feet tall and weighs around 330 pounds.",
+    "behavior": "Alaghis are shy, peaceful forest-dwellers who kill only for food and generally avoid conflict unless provoked. Nomadic bands speak a debased form of Sylvan, while settled communities pick up Common, Goblin, or Giant from nearby neighbors, and solitary hermits go on to learn still more languages out of curiosity.",
+    "appearanceGreenbound": "The alaghi's thick coat of body hair thins into hanging moss and creeping vine over a frame that has gone pulpy and fibrous like waterlogged wood, its broad chest and long arms now ridged with small sprouting branches at the shoulders and forearms. Its hands and feet hold their oversized, powerful shape, but the fingers taper into short hardened thorns, and its once-green-tinged eyes now glow with a soft inner light beneath a fringe of leaves.",
     "feats": [
       "Ambidexterity",
       "Great Fortitude",
@@ -230,7 +245,7 @@
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Attacks line (\"Handaxe +9/+4 melee, fist +9 melee; or javelin +10/+5 ranged, javelin +6 ranged\") represents a two-weapon fighting combo (weapon in one hand, fist in the other) or two thrown javelins; recorded here as four alternate/paired attack entries rather than a single line, since the app's attacks schema doesn't have a slot for \"weapon-and-fist combo\" as one unit. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (9) is derived from the Combat text's own stated single-weapon-only full attack (\"its attack bonus rises to +13/+8\" when using the handaxe alone with both hands free to fight) via +13 = BAB + Str mod [+4] + Medium size mod [0], with the standard BAB/BAB-5 iterative gap confirming a clean derivation; this also matches the expected full-BAB progression for a 9 HD Monstrous Humanoid. Critical multiplier not printed for any attack, left null. Special Attacks and Special Qualities are both printed as \"—\" (none). feywildNative is false, not ambiguous: alaghis are described purely as ordinary forest-dwelling humanoids of the Sword Coast/Sword Coast-adjacent wilds, with no fey, Faerie, or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Attacks line (\"Handaxe +9/+4 melee, fist +9 melee; or javelin +10/+5 ranged, javelin +6 ranged\") represents a two-weapon fighting combo (weapon in one hand, fist in the other) or two thrown javelins; recorded here as four alternate/paired attack entries rather than a single line, since the app's attacks schema doesn't have a slot for \"weapon-and-fist combo\" as one unit. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (9) is derived from the Combat text's own stated single-weapon-only full attack (\"its attack bonus rises to +13/+8\" when using the handaxe alone with both hands free to fight) via +13 = BAB + Str mod [+4] + Medium size mod [0], with the standard BAB/BAB-5 iterative gap confirming a clean derivation; this also matches the expected full-BAB progression for a 9 HD Monstrous Humanoid. Critical multiplier not printed for any attack, left null. Special Attacks and Special Qualities are both printed as \"—\" (none). feywildNative is false, not ambiguous: alaghis are described purely as ordinary forest-dwelling humanoids of the Sword Coast/Sword Coast-adjacent wilds, with no fey, Faerie, or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly. specialAttacks/specialQualities confirmed empty against the book (no Special Attacks/Special Qualities lines are printed at all in this stat block, per the earlier note); skills confirmed verbatim against the p.14 stat block."
   },
   {
     "name": "Green Warder",
@@ -263,13 +278,18 @@
       }
     ],
     "specialAttacks": [
-      "sleep",
-      "confusion",
-      "alarm"
+      "sleep (Sp, every 1d3 rounds, as cast by a 4th-level sorcerer, Will save DC 11 negates; a successful save grants a cumulative +2 bonus on further saves against this ability for 24 hours)",
+      "confusion (Sp, every 1d6 rounds, as cast by an 8th-level sorcerer, DC 14; a successful save grants a cumulative +2 bonus on further saves against this ability for 24 hours)",
+      "alarm (Sp, 2/day, full-round action, in a natural setting such as a forest or underground, as cast by a 3rd-level sorcerer; the alarm is audible, not mental, and sounds like a long mournful bird call instead of a bell)"
     ],
     "specialQualities": [
-      "plant"
+      "plant (immune to mind-influencing effects, poison, sleep, paralysis, polymorphing, and stunning; not subject to critical hits, per standard plant traits)",
+      "spell-like abilities (see specialAttacks: sleep, confusion, and alarm)"
     ],
+    "skills": "Hide +4*, Intuit Direction +7, Listen +7, Move Silently +7, Spot +5, Wilderness Lore +9 (*+12 racial bonus on Hide checks while in a forest)",
+    "appearance": "A green warder looks like a seven-foot-tall elf woven together from bushes and leaves, remarkably light for its size at only 70 to 80 pounds. Its limbs are solid wood, and its arms bear large thorns that function as claws; when tended, it's pruned into the likeness of a specific elven figure or given a fanciful headdress, but left alone it grows bushy and unkempt.",
+    "behavior": "Green warders prefer to avoid direct combat, instead raising alarms and using confusion and sleep to send intruders stumbling harmlessly away from the groves they guard. They generally leave sleeping or confused foes alone and will flee a fight at the first opportunity, only lashing out with their thorned arms when truly cornered.",
+    "appearanceGreenbound": "Beneath the Greenbound template, the green warder's already leaf-and-branch body grows denser and wilder still, its neatly bush-shaped limbs bursting into a tangle of new shoots, hanging vines, and unpruned growth that no longer resembles any elven figure. Fresh blossoms and pale seed pods bud along its thorned arms, and its wooden frame is now shot through with faintly glowing sap-lines, giving the whole silhouette a feral, overgrown intensity it never had before.",
     "feats": [
       "Toughness"
     ],
@@ -279,7 +299,7 @@
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Special Attacks / Special Qualities lines just read the generic summary \"Spell-like abilities\" / \"Plant, spell-like abilities\"; the three individually named spell-like abilities (sleep, confusion, alarm), each with its own sub-header in the Combat section, are itemized in specialAttacks here instead of repeating the generic label, per the instruction to record ability names rather than vague summaries. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (3) is derived from the printed claw attack (+5 = BAB + Str mod [+2] + Medium size mod [0]), matching the standard 3/4-BAB-per-HD progression for a 4 HD Plant. Critical multiplier not printed, left null. feywildNative: OPEN QUESTION FOR THE DM. Green warders are described as elf-forest guardians shaped like \"elves made of bushes and leaves\" who \"guard the secrets of the elven woods\" and speak Elvish, but the text never states a fey or Feywild origin outright (no mention of Faerie/Feywild), so this is left false per the project's default-to-false rule for genuinely ambiguous cases (mirroring how \"Giant owl — Feywild-native?\" is flagged as pending DM ruling), rather than assumed true from the elven-woodland flavor alone. wildShapeMinLevel is null regardless (Plant type is never eligible for wild shape access under Lyra's rules)."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed Special Attacks / Special Qualities lines just read the generic summary \"Spell-like abilities\" / \"Plant, spell-like abilities\"; the three individually named spell-like abilities (sleep, confusion, alarm), each with its own sub-header in the Combat section, are itemized in specialAttacks here instead of repeating the generic label, per the instruction to record ability names rather than vague summaries. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (3) is derived from the printed claw attack (+5 = BAB + Str mod [+2] + Medium size mod [0]), matching the standard 3/4-BAB-per-HD progression for a 4 HD Plant. Critical multiplier not printed, left null. feywildNative: OPEN QUESTION FOR THE DM. Green warders are described as elf-forest guardians shaped like \"elves made of bushes and leaves\" who \"guard the secrets of the elven woods\" and speak Elvish, but the text never states a fey or Feywild origin outright (no mention of Faerie/Feywild), so this is left false per the project's default-to-false rule for genuinely ambiguous cases (mirroring how \"Giant owl — Feywild-native?\" is flagged as pending DM ruling), rather than assumed true from the elven-woodland flavor alone. wildShapeMinLevel is null regardless (Plant type is never eligible for wild shape access under Lyra's rules). Full mechanical detail (frequency, caster level, save DC, duration/cumulative-save clause) for sleep, confusion, and alarm, plus skills, confirmed directly against the p.57 stat block and Combat section text."
   },
   {
     "name": "Peryton",
@@ -328,12 +348,16 @@
       }
     ],
     "specialAttacks": [
-      "heart-rip"
+      "heart-rip (Ex — perytons save claw and bite attacks for last, always taking a coup de grace on a helpless opponent as a full-round action for an automatic critical hit; a defender who survives must succeed at a Fortitude save, DC 10 + damage dealt, or die, and a defender killed this way has his heart eaten)"
     ],
     "specialQualities": [
       "damage reduction 10/+1",
       "scent"
     ],
+    "skills": "Intimidate +2, Listen +5, Move Silently +5, Spot +9, Wilderness Lore +9",
+    "appearance": "A peryton has the seven-foot-long body of a giant eagle joined to the antlered head of a demonic purple stag, with heavy sweeping horns and a vicious fanged bite. It flies with a low, nap-of-the-earth style rather than soaring, and notably casts no shadow of its own — instead throwing the shadow of whatever creature's heart it most recently devoured.",
+    "behavior": "Perytons hunt humans and humanoids specifically to tear out and consume their hearts, believing that eating the one perfect heart will let them ascend beyond their miserable existence; some are said to herd and starve captive humanoids to prepare them first. They prefer swooping flyby attacks from ambush, circling for another pass against weak or non-magical prey, but will drop into melee against tougher or spellcasting foes, and they refuse to eat the hearts of elves even though they'll kill one out of spite.",
+    "appearanceGreenbound": "The peryton's eagle body and stag-like head thicken into pulpy, fibrous wood wrapped in cords of creeper-vine, its feathers replaced wing-to-tail by layered moss and broad leaves while its once-purple antlers harden into gnarled, thorn-tipped heartwood. Its wings keep their sweeping raptor shape well enough to still carry it in its low, nap-of-the-earth glide, but its eyes now glow with a faint verdant light beneath a leafy crest, and small blossoms nestle where its ears once were.",
     "feats": [
       "Flyby Attack",
       "Multiattack"
@@ -344,7 +368,7 @@
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Fly speed is printed as \"fly 60 ft. (poor)\" — the poor maneuverability qualifier isn't captured by the speed schema's plain numeric value, noted here instead. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (5) is derived from the printed claw attack (+8 = BAB + Str mod [+3] + Medium size mod [0]), cross-checked against the slam/bite line (+6 = BAB + Str mod [+3] + Medium size mod [0] - 2, this book's apparent secondary-natural-attack convention) — both resolve to BAB 5, matching the expected full-BAB progression for a 5 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text states perytons are \"the creation of a twisted deity,\" an artificial/cursed creature of dark divine origin, with no fey or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Fly speed is printed as \"fly 60 ft. (poor)\" — the poor maneuverability qualifier isn't captured by the speed schema's plain numeric value, noted here instead. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (5) is derived from the printed claw attack (+8 = BAB + Str mod [+3] + Medium size mod [0]), cross-checked against the slam/bite line (+6 = BAB + Str mod [+3] + Medium size mod [0] - 2, this book's apparent secondary-natural-attack convention) — both resolve to BAB 5, matching the expected full-BAB progression for a 5 HD Magical Beast. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: the text states perytons are \"the creation of a twisted deity,\" an artificial/cursed creature of dark divine origin, with no fey or Feywild framing anywhere in the entry. wildShapeMinLevel null accordingly. Heart-rip mechanical detail and skills confirmed directly against the p.69 stat block and Combat section text."
   },
   {
     "name": "Dark Tree",
@@ -384,13 +408,16 @@
       }
     ],
     "specialAttacks": [
-      "grab",
-      "confusion"
+      "grab (Ex — if a dark tree hits with both claw attacks, it grabs the victim with a free grapple check, no attack of opportunity provoked; on a successful hold it draws the victim close enough to follow up with its bite attack)",
+      "confusion (Sp, free action once per round, targets one victim within 50 feet; as the confusion spell cast by a 10th-level sorcerer, no saving throw noted; when used on an unsuspecting target, victims completely lose their sense of direction and often become hopelessly lost in the jungle)"
     ],
     "specialQualities": [
-      "resist fire (15)",
-      "vulnerable to cold"
+      "resist fire (15) — wet, slimy bark protects it from fire",
+      "vulnerable to cold (-2 penalty on saving throws against cold attacks)"
     ],
+    "appearance": "A dark tree resembles a cypress with unusually dark bark and little moss growing on it, concealing two deep black eyes that are almost impossible to spot unless you know exactly where to look. It superficially resembles a treant, but its aura of palpable hatred and evil makes clear it is nothing so benign.",
+    "behavior": "Dark trees feed on the blood of humans and other intelligent creatures that stray into their jungle territory, delighting in tormenting adventurers before finishing them off. In combat they use their two arm-like limbs to grab and drag victims toward their gaping maw so they can drink their blood.",
+    "appearanceGreenbound": "The dark tree's already wood-and-bark form thickens further under the Greenbound template, its dark cypress-like bark splitting to reveal pulpy, over-corded creeper tissue beneath, and its sparse moss gives way to a full mantle of thick green growth, vines, and small flowering shoots along its trunk and limbs. Its two black eyes now glow with a faint, malevolent green light through the new growth, and the bark itself seems to pulse faintly as though something moves just beneath its surface.",
     "feats": [],
     "challengeRating": 7,
     "isCanine": false,
@@ -398,6 +425,6 @@
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). No Feats: line is printed in this stat block at all (Special Qualities/Saves/Abilities run directly into Climate/Terrain) — recorded as an empty array rather than assumed. The printed Attacks line (\"2 claws +14 melee; or bite +14 melee\") is an \"or\" alternate, not a simultaneous combo (the Grab special attack text confirms claws are used to grapple, then the bite follows as a separate action) — both entries marked primary here since neither is a true secondary within one routine. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (7) is derived from both attack lines identically: claw damage 2d4+9 (full Str mod +9, consistent with dual primary natural weapons) gives +14 = BAB + Str mod [+9] + Huge size mod [-2]; bite damage 1d6+13 (1.5x Str mod [+9] = +13, consistent with a lone primary natural weapon) gives the same +14 = BAB + 9 - 2. Both resolve to BAB 7, matching the standard 3/4-BAB-per-HD progression for a 10 HD Plant. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: described as an evil, blood-drinking jungle predator that \"superficially resembles a treant\" but radiates \"palpable hatred and evil\" — no fey or Feywild framing anywhere in the text. wildShapeMinLevel null accordingly (Plant type is never eligible for wild shape access under Lyra's rules)."
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). No Skills: or Feats: line is printed in this stat block at all (Special Qualities/Saves/Abilities run directly into Climate/Terrain) — recorded as an empty array rather than assumed. The printed Attacks line (\"2 claws +14 melee; or bite +14 melee\") is an \"or\" alternate, not a simultaneous combo (the Grab special attack text confirms claws are used to grapple, then the bite follows as a separate action) — both entries marked primary here since neither is a true secondary within one routine. Source uses the 3.0-format stat block (no explicit Base Attack Bonus or Critical line); baseAttackBonus (7) is derived from both attack lines identically: claw damage 2d4+9 (full Str mod +9, consistent with dual primary natural weapons) gives +14 = BAB + Str mod [+9] + Huge size mod [-2]; bite damage 1d6+13 (1.5x Str mod [+9] = +13, consistent with a lone primary natural weapon) gives the same +14 = BAB + 9 - 2. Both resolve to BAB 7, matching the standard 3/4-BAB-per-HD progression for a 10 HD Plant. Critical multiplier not printed, left null. feywildNative is false, not ambiguous: described as an evil, blood-drinking jungle predator that \"superficially resembles a treant\" but radiates \"palpable hatred and evil\" — no fey or Feywild framing anywhere in the text. wildShapeMinLevel null accordingly (Plant type is never eligible for wild shape access under Lyra's rules). Grab and confusion mechanical detail confirmed directly against the p.31–32 stat block and Combat section text (confusion prints no saving throw for its own use, distinct from the base confusion spell's Will save — recorded as printed rather than assuming one)."
   }
 ]

@@ -32,9 +32,13 @@
     "specialAttacks": [],
     "specialQualities": [
       "low-light vision",
-      "plane shift",
+      "plane shift (Sp -- 1/day, transports itself and its rider to a plane of the rider's choice; an unwilling rider may resist with a DC 17 Will save; caster level 9th)",
       "scent"
     ],
+    "skills": "Listen +4, Spot +4",
+    "appearance": "A large, horselike creature with a hide that bears no fixed color, shifting instead between glistening white and deep sable as its mood changes. Its build is powerful and equine, marking it as a distant descendant of a horse-goddess.",
+    "behavior": "An ur'Epona avoids combat when it can, though it will fight to protect itself and its offspring if pressed. It cannot speak, but understands any language spoken to it, and can be trained over weeks of patient work to bear a rider or carry them between planes.",
+    "appearanceGreenbound": "The ur'Epona's shifting hide has thickened into pulpy, bark-like wood, its color-changing sheen replaced by mottled patches of lichen and moss that darken and pale in the same restless way its coat once did. Slender green vines trail from its mane and fetlocks like living tack, and small budding twigs push out along its withers and flanks, though its equine silhouette and powerful gait are unmistakably preserved.",
     "feats": [
       "Endurance",
       "Run"

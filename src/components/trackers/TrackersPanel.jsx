@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLiveState } from '../../lib/liveState/LiveStateContext'
 import {
   applyDamage,
@@ -162,6 +162,34 @@ function SpellSlotTracker({ spellSlots }) {
 // druid's SNA conversion) that never consume a preparation slot — casting
 // one still spends a slot from that level's tracker, though, so it stays
 // separate from the SpellSlotTracker above rather than replacing it.
+// A short description for an at-will ability, pulled from its data/spells/
+// entry rather than hardcoded: the lead-in up to the first colon, plus the
+// round-3 "which plane..." clause when the entry has one (Detect Manifest
+// Zone reveals more each round). Loaded lazily — the spell data is a large
+// chunk the Spells tab already splits out — and only once Prepared Spells is
+// expanded; renders nothing until it arrives or if there's no entry.
+function briefSpellDescription(description) {
+  const [lead, ...rest] = description.split(':')
+  const plane = rest.join(':').match(/round 3, (which plane[^,;.]*)/i)?.[1]
+  const brief = lead.split('. ')[0].trim()
+  return plane ? `${brief}; round 3: ${plane}` : brief
+}
+
+function AtWillDescription({ spellName }) {
+  const [text, setText] = useState(null)
+  useEffect(() => {
+    let cancelled = false
+    import('../../lib/loadSpellData').then(({ rawSpells }) => {
+      const spell = rawSpells.find((s) => s.name.toLowerCase() === spellName.toLowerCase())
+      if (!cancelled && spell?.description) setText(briefSpellDescription(spell.description))
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [spellName])
+  return text ? <> {text}.</> : null
+}
+
 function PreparedSpellsTracker({ spellSlots }) {
   const { state, update, clearPreparedSpells } = useLiveState()
   const levels = [
@@ -175,7 +203,7 @@ function PreparedSpellsTracker({ spellSlots }) {
         {spontaneousConversions.alwaysAvailable?.length > 0 && (
           <div className="always-available-block">
             <div className="spontaneous-conversions">
-              <span className="spontaneous-label">Always available</span>
+              <span className="spontaneous-label">At-will</span>
               <ul>
                 {spontaneousConversions.alwaysAvailable.map((a) => (
                   <li key={a.name}>{a.name}</li>
@@ -186,6 +214,7 @@ function PreparedSpellsTracker({ spellSlots }) {
               (a) => a.note && (
                 <p className="note" key={a.name}>
                   {a.name} — {a.note}
+                  {a.spell && <AtWillDescription spellName={a.spell} />}
                 </p>
               ),
             )}

@@ -929,6 +929,15 @@ houserule (no `spellSlotsUsed` tracker for level 0 at all), so *summon nature's 
 alongside *cure minor wounds* at that level costs nothing to cast — the "spends a slot" caveat
 only applies to levels 1–5.
 
+The table's separate `alwaysAvailable` list (Detect Manifest Zone, a Planar Shepherd 2 Sp at
+will) is a different thing: a genuine at-will spell-like ability with no slot and no daily
+limit, so it sits under its own **"At-will"** label rather than "Always available" — that label
+stays on the per-level cure/SNA conversions, which do cost a slot. Its `spell` field names the
+`data/spells/` entry whose description is shown beneath it (the lead-in up to the first colon,
+plus the "round 3, which plane…" clause; `AtWillDescription`, `TrackersPanel.jsx`) instead of
+hardcoded text. That entry's spell data is loaded lazily (dynamic import) only once Prepared
+Spells is expanded, to keep the large spell chunk out of the main bundle.
+
 **Druid Cure progression is offset from cleric/bard by one level past 1st** (DM-confirmed):
 cure light wounds stays at 1st, but moderate/serious/critical shift up to 3rd/4th/5th — so
 2nd level has *no* Cure spell, only the Summon Nature's Ally conversion. Cure critical wounds
@@ -967,6 +976,20 @@ respectively) within a tab.
 - **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
   trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
   per-instance HP and wall of thorns tracking.
+  **Stat block contents (Sept 2026).** `SummonStatBlock` shows the base creature's full
+  `specialAttacks` and `specialQualities` (the data now carries each ability's mechanics in
+  parentheses) with what Greenbound adds appended and marked by a `Greenbound` pill
+  (`TemplateTag`, `.template-tag`): the template's spell-like abilities go under Special
+  Attacks, its DR / fast healing / grapple / resistances / tremorsense / racial skill bonus
+  under Special Qualities, so base and template abilities read as one list but stay
+  distinguishable. `skills` is stored as a single sentence-format string and printed as-is.
+  Appearance and behavior sit in a collapsed-by-default "Appearance & Behavior" section
+  (flavor, not combat info): a Greenbound-eligible summon shows `appearanceGreenbound`
+  (falling back to `appearance` where none exists, e.g. elementals, which aren't
+  Greenbound), `behavior` is unchanged either way. All of these are conditional — a creature
+  missing a field just omits that piece, and an active summon saved before these fields
+  existed still renders.
+
   **Crash-proofing (Sept 2026).** Selecting Jermlaine (SNA 1, MM2) used to blank the whole
   page: its hit dice print as `1/2d6-1` (a fractional die *with* a modifier) and
   `parseHitDice` only accepted the fractional form without one, throwing from inside

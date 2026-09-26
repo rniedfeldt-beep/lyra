@@ -44,6 +44,10 @@
       "immunity to poison",
       "scent"
     ],
+    "skills": "Balance +12, Climb +4, Hide +16 (+20 in tall grass or trees in leaf*), Listen +3, Move Silently +8, Spot +2; uses Dex modifier for Climb checks; *the tressym's Hide racial bonus rises from +4 to +8 in areas of tall grass or trees in leaf",
+    "appearance": "A winged cat roughly the size of a housecat, with feathered, leathery wings spanning about 3 feet. Its coloring and build otherwise read as an ordinary small cat, aside from those wings.",
+    "behavior": "Shy and skittish, a tressym avoids fights with anything larger than itself, preferring to fly off or wedge into a small crevice to hide from bigger flying predators. It is quite intelligent despite lacking speech, and good-aligned wizards often seek tressyms out as familiars.",
+    "appearanceGreenbound": "The tressym's fur has become a soft pelt of moss and tiny leaves, with a faint bark-like texture along its back and tail. Its feathered wings are now membranes of overlapping leaves threaded with fine living vines, still light and pliable enough for flight, and its whiskers have lengthened into thin curling tendrils, while its small, alert feline shape stays entirely recognizable.",
     "feats": [
       "Weapon Finesse"
     ],

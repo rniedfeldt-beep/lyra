@@ -39,26 +39,30 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "cold subtype",
+      "cold subtype (immune to cold; takes double damage from fire, or half on a successful save)",
       "darkvision 60 ft.",
-      "dodge arrows",
-      "feather fall",
+      "dodge arrows (+2 dodge bonus to AC against ranged attacks in any round it takes a move action; a rider gains the same bonus)",
+      "feather fall (4/day, caster level 4th)",
       "low-light vision",
-      "ride the wind",
-      "telepathy",
-      "uncanny dodge",
-      "wind immunity"
+      "ride the wind (as air walk; gains +1 ft. fly speed per 1 mph of wind over 20 mph; a rider can cast spells with no Concentration check while the asperi flies calmly)",
+      "telepathy (60 ft., with any creature of Intelligence 1 or higher)",
+      "uncanny dodge (keeps Dex bonus to AC even when flat-footed; cannot be flanked)",
+      "wind immunity (unaffected by natural or magical winds unless it chooses to ride them)"
     ],
     "feats": [
       "Alertness",
       "Flyby Attack"
     ],
+    "skills": "Intimidate +7, Listen +10, Spot +10, Wilderness Lore +8",
     "challengeRating": 4,
     "isCanine": false,
     "feywildNative": true,
     "summonNaturesAllyLevel": null,
     "wildShapeMinLevel": 8,
     "lyraFamiliar": true,
+    "appearance": "An asperi looks like an unusually large, graceful horse in white, gray, or dun, with a flowing mane of silver, white, or pale gray and a second streak of the same shade running down the front of its legs. Older asperis with five or more Hit Dice develop iridescent, snow-bright hides and manes shot through with rainbow hues.",
+    "behavior": "Naturally inoffensive, an asperi would rather outrun trouble than fight it, but it lashes out ferociously with hooves and teeth when cornered. It usually ranges the high peaks alone or with one or two companions, drifting loosely within a larger herd, and drives off rival hippogriffs and griffons on sight while tolerating pegasi.",
+    "appearanceGreenbound": "A greenbound asperi's sleek coat coarsens into overlapping plates of pale bark, and its flowing mane thickens into a cascade of trailing moss and small white blossoms. Slim branches needle up along its withers and legs, its hooves harden into knotted heartwood, and the wind-catching membranes of its wings become woven lattices of vine and broad leaf.",
     "note": "Source uses the older 3.0 stat block format (no explicit BAB line); baseAttackBonus derived from the printed hoof attack bonus."
   },
   {
@@ -100,17 +104,21 @@
     "specialAttacks": [],
     "specialQualities": [
       "low-light vision",
-      "speak with rats"
+      "speak with rats (Sp, at will \u2014 as speak with animals, but only with rats and dire rats; caster level 3rd)"
     ],
     "feats": [
       "Alertness"
     ],
+    "skills": "Animal Empathy +1, Craft (trapmaking) +3, Hide +15, Listen +9, Move Silently +7, Spot +9",
     "challengeRating": 0.5,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A jermlaine is a shaggy, foot-tall humanoid with tiny beady eyes and sparse, filthy hair, its loose wrinkled skin perpetually crusted with grime. It goes about in dirty rags and scraps of hide, or wears nothing at all.",
+    "behavior": "Jermlaines fight only from ambush, singling out injured, sick, or sleeping victims and relying on pits, snares, and net traps to capture prey without a fair fight; once something is caught, they swarm it to beat it unconscious, sometimes dousing a helpless victim in acid or flaming oil. Their speech is a chitter of squeaks easily mistaken for rats or bats, and only a few individuals bother to learn a single humanoid language.",
+    "appearanceGreenbound": "A greenbound jermlaine's baggy skin thickens into pulpy, dark bark, and its sparse filthy hair gives way to a fringe of moss and curling tendrils. Small thorns bud along its knuckles and shoulders in place of its old grime, though its tiny hunched frame stays just as recognizable.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Task list spells this \"Jermalaine\"; the printed MM2 name is \"Jermlaine.\" Hit Dice printed as \"1/2 d6-1 (1 hp)\" (a half-Hit-Die creature); baseAttackBonus derived from the printed dart/shortspear attack bonuses, both of which back-solve to +0."
   },
   {
@@ -144,21 +152,25 @@
       }
     ],
     "specialAttacks": [
-      "Poison"
+      "Poison (Ex, claw; Fort DC 11, 1 point Strength damage, no secondary damage)"
     ],
     "specialQualities": [
       "partial immunity to piercing weapons",
-      "plant traits"
+      "plant traits (Ex \u2014 immune to poison, sleep, paralysis, stunning, and polymorphing; not subject to critical hits or mind-affecting effects; low-light vision)"
     ],
     "feats": [
       "Skill Focus (Hide)"
     ],
+    "skills": "Hide +10, Listen +4, Move Silently +5, Spot +4",
     "challengeRating": 0.33,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A twig blight stands about three and a half feet tall, its leafless branches interlocking into a roughly humanoid shape that lets it pass for a heap of dead brush or firewood. It roots into ordinary soil like any shrub, but its evil nature drives it to crave blood rather than draw nourishment from the sun.",
+    "behavior": "Twig blights cluster together and hold still to blend into surrounding vegetation or debris, waiting for prey to wander near a campsite or waterhole before striking. They reproduce through their own root systems rather than seeds, and speak Sylvan among themselves.",
+    "appearanceGreenbound": "A greenbound twig blight's already wooden limbs thicken into gnarled, moss-flecked bark, and small pale flowers bud where dead twigs used to jut from its shoulders. Its interlocking branch-fingers sharpen into hardened thorns, and faint spots of luminous green moss glow where its eyes once were, though its slight, spindly silhouette remains unmistakable.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Printed CR is \"1/3.\""
   },
   {
@@ -191,8 +203,8 @@
       }
     ],
     "specialAttacks": [
-      "Improved grab",
-      "Swallow whole"
+      "Improved grab (Ex \u2014 if it hits with a bite an opponent at least one size smaller, deals normal damage and starts a grapple as a free action with no attack of opportunity, grapple bonus +10; may instead simply hold the opponent in its jaws at a \u201320 grapple penalty without being considered grappled itself)",
+      "Swallow whole (Ex \u2014 a held opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +10; takes 1d8+4 bludgeoning plus 1d6+2 acid damage per round inside the gullet, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Large cryptoclidus's gullet holds 1 Small, 4 Tiny, or 16 Diminutive or smaller opponents)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -200,13 +212,17 @@
       "scent"
     ],
     "feats": [],
+    "skills": "Hide +4, Listen +6, Spot +6",
     "challengeRating": 3,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast,\" a 3.0-edition type not used in 3.5 (which splits such creatures into Animal/Magical Beast) — kept as printed, so wildShapeMinLevel is null under the Animal-only rule rather than 5. No Feats line is printed for this entry."
+    "appearance": "Cryptoclidus is a ten-foot aquatic reptile much like elasmosaurus, with a shorter neck but the same rounded, ovoid body, propelled through the water by four paddle-like fins and a finned tail.",
+    "behavior": "Cryptoclidus mainly hunts fish, darting its neck into passing schools to snap them up with its small sharp teeth, though it will surface and go after larger prey when the opportunity arises.",
+    "appearanceGreenbound": "A greenbound cryptoclidus's smooth hide roughens into layered bark plates, and its paddle-fins broaden into fans of overlapping leaves that still cut cleanly through the water. Trailing fronds of moss stream from its neck and tail in place of slick reptilian skin, though its long-necked, barrel-bodied shape is unchanged.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast,\" a 3.0-edition type not used in 3.5 (which splits such creatures into Animal/Magical Beast) \u2014 kept as printed, so wildShapeMinLevel is null under the Animal-only rule rather than 5. No Feats line is printed for this entry."
   },
   {
     "name": "Allosaurus",
@@ -246,10 +262,10 @@
       }
     ],
     "specialAttacks": [
-      "Improved grab",
-      "Rake 2d8+3",
-      "Swallow whole",
-      "Trample 5d8+10"
+      "Improved grab (Ex \u2014 a bite that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +22; can rake in the same round if it gets a hold, and swallow whole the following round; may instead hold the opponent in its jaws at a \u201320 grapple penalty without being considered grappled itself)",
+      "Rake (Ex \u2014 while holding an opponent, two rake attacks at +12 melee for 2d8+3 damage each; also usable when pouncing)",
+      "Swallow whole (Ex \u2014 a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +22; takes 2d8+12 bludgeoning plus 1d8 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Huge allosaurus's gullet holds 1 Medium-size, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)",
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 5d8+10 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 22 Reflex save for half damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -257,13 +273,17 @@
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +9, Spot +10",
     "challengeRating": 7,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. No Feats line is printed for this entry."
+    "appearance": "Allosaurus is a massive, thirty-six-foot flesh-eating dinosaur with a long balancing tail, an S-shaped bulldog-like neck, powerful clawed hind limbs, and short but strong three-fingered forelimbs. Bony ridges crown its head above jaws lined with serrated, blade-like teeth.",
+    "behavior": "Allosaurus eats anything it can catch, latching onto prey too large to swallow whole and raking it apart with its hind claws until it stops moving.",
+    "appearanceGreenbound": "A greenbound allosaurus's hide thickens into rough bark plates ridged like old growth, and its balancing tail sprouts trailing vines and small leaves along its length. Its bony head-ridges harden into knotted heartwood spikes, and its serrated teeth take on the pale sheen of hardened thorn, though its massive bulldog-necked silhouette is unmistakable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" \u2014 kept as printed, so wildShapeMinLevel is null. No Feats line is printed for this entry."
   },
   {
     "name": "Quetzalcoatlus",
@@ -304,7 +324,7 @@
       }
     ],
     "specialAttacks": [
-      "Swallow whole"
+      "Swallow whole (Ex \u2014 a snatched opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +23; takes 1d8+4 bludgeoning plus 1d4 acid damage per round in its gizzard, can cut free by dealing 15 points of damage to the AC 15 gizzard, or climb out with a further grapple check; a Huge quetzalcoatlus's gizzard holds 1 Medium-size, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -314,13 +334,17 @@
       "Flyby Attack (B)",
       "Snatch (B)"
     ],
+    "skills": "Spot +16",
     "challengeRating": 8,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Fly speed printed with \"(poor)\" maneuverability, not captured by the speed object's schema."
+    "appearance": "Quetzalcoatlus is a massive flying reptile with a long neck and head, a relatively large brain for a dinosaur, and wide leathery wings formed from skin stretched across its forelimbs and elongated fingers.",
+    "behavior": "It hunts by gliding low over open water to scoop fish and aquatic reptiles from just beneath the surface, or by swooping down to snatch small land creatures, and it prefers to strike from the air since it is vulnerable to other predators once grounded.",
+    "appearanceGreenbound": "A greenbound quetzalcoatlus's leathery wing-membranes are replaced by broad, vein-laced leaves stretched taut between branch-thin finger bones, and its long neck roughens into layered bark. Trailing moss and small pale blossoms hang from its wing joints and crest, though its long-necked, wide-winged glider's shape stays exactly as fearsome.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" \u2014 kept as printed, so wildShapeMinLevel is null. Fly speed printed with \"(poor)\" maneuverability, not captured by the speed object's schema."
   },
   {
     "name": "Seismosaurus",
@@ -352,7 +376,7 @@
       }
     ],
     "specialAttacks": [
-      "Trample 10d10+22"
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 10d10+22 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 41 Reflex save for half damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -360,13 +384,17 @@
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +7, Spot +7",
     "challengeRating": 12,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Feats line printed as \"—\" (none)."
+    "appearance": "Seismosaurus is the largest known dinosaur, an immense four-legged herbivore with a small head, a bulky body, and a long neck and tail, its nostrils set high atop its skull.",
+    "behavior": "It is simply too enormous to have natural predators and is far more likely to inadvertently crush an opponent underfoot than to deliberately swing its tail at one; it grazes across the landscape, sometimes defoliating several square miles within a few weeks.",
+    "appearanceGreenbound": "A greenbound seismosaurus's colossal bulk roughens into thick, weathered bark scored with deep furrows, and its long neck and tail trail great skeins of hanging moss and creeper. Small clusters of pale flowers bloom along its spine, though its towering, long-necked profile remains as unmistakable as ever.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" \u2014 kept as printed, so wildShapeMinLevel is null. Feats line printed as \"\u2014\" (none)."
   },
   {
     "name": "Spinosaurus",
@@ -406,10 +434,10 @@
       }
     ],
     "specialAttacks": [
-      "Frightful presence",
-      "Improved grab",
-      "Swallow whole",
-      "Trample 2d8+19"
+      "Frightful presence (Ex \u2014 a bellow, as a standard action, forces all creatures within 30 ft. with fewer HD/levels than the spinosaurus to succeed at a DC 20 Will save or become shaken for 5d6 rounds; a successful save grants 24 hours of immunity to that spinosaurus's frightful presence)",
+      "Improved grab (Ex \u2014 a bite that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +40; can attempt to swallow the opponent the following round if it gets a hold; may instead hold the opponent in its jaws at a \u201320 grapple penalty without being considered grappled itself)",
+      "Swallow whole (Ex \u2014 a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +40; takes 2d8+10 bludgeoning plus 1d8+4 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Gargantuan spinosaurus's gullet holds 2 Large, 8 Medium-size, 32 Small, or 128 Tiny or smaller opponents)",
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 2d8+19 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 33 Reflex save for half damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -417,13 +445,17 @@
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +11, Spot +11",
     "challengeRating": 13,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null. Feats line printed as \"—\" (none)."
+    "appearance": "Spinosaurus is the largest bipedal predatory dinosaur, larger even than tyrannosaurus, with longer forelimbs it sometimes drops onto to move on all fours and a tall, sail-like ribbed fin along its spine. Its powerful crocodilian jaw is set with sharp, straight, unserrated teeth.",
+    "behavior": "It prefers to freeze prey in place with a soul-chilling bellow before closing in, and when it must run down quarry it tramples smaller creatures underfoot while seizing larger ones in its jaws and tearing with its claws.",
+    "appearanceGreenbound": "A greenbound spinosaurus's tall spinal sail thins into a lattice of woven vines and broad leaves that still arches above its back, and its hide thickens into ridged bark scored like old growth. Trailing moss hangs from its jaw and forelimbs, and its once-straight teeth take on the pale sheen of hardened thorn, though its towering, sail-backed profile is unmistakable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this dinosaur's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" \u2014 kept as printed, so wildShapeMinLevel is null. Feats line printed as \"\u2014\" (none)."
   },
   {
     "name": "Dire Toad",
@@ -457,12 +489,14 @@
         "name": "tongue",
         "natural": true,
         "primary": true,
-        "damage": "—",
+        "damage": "\u2014",
         "crit": null
       }
     ],
     "specialAttacks": [
-      "Poison"
+      "Poison (Ex, bite; Fort DC 14, 1d6 Con/1d6 Con)",
+      "Improved grab (Ex \u2014 a bite or tongue attack that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +3; can attempt to swallow the opponent if it gets a hold; may instead hold the opponent in its jaws at a \u201320 grapple penalty without being considered grappled itself)",
+      "Swallow whole (Ex \u2014 a grabbed opponent at least one size smaller can be swallowed with a successful grapple check, grapple bonus +3; takes 1d6 bludgeoning plus 1d4 acid damage per round in its stomach, can cut free by dealing 10 points of damage to the AC 13 gizzard, or climb out with a further grapple check; a Medium-size dire toad's stomach holds 2 Small or 8 Tiny or smaller opponents)"
     ],
     "specialQualities": [
       "low-light vision"
@@ -470,13 +504,17 @@
     "feats": [
       "Weapon Finesse (bite) (B)"
     ],
+    "skills": "Hide +12, Jump +11, Listen +7, Spot +11",
     "challengeRating": 3,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed \"Special Attacks\" line lists only \"Poison,\" but the body text separately describes Improved Grab and Swallow Whole (Ex) abilities (with their own grapple bonus and digestion damage) that are not included on that summary line — likely a book omission; reported here exactly as the stat-block line prints it. Attack bonus for both bite and tongue back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus feat Weapon Finesse (bite). Tongue attack deals no direct damage per the printed dash."
+    "appearance": "A dire toad is a much larger, warty cousin of the ordinary toad, capable of lashing out with a sticky tongue at range up to 10 feet before closing in to bite.",
+    "behavior": "Generally shy and non-aggressive, a dire toad avoids trouble and poses little danger to humanoids unless disturbed, at which point it snaps and swallows without hesitation.",
+    "appearanceGreenbound": "A greenbound dire toad's warty hide roughens into knobbed bark, and patches of moss cling where its slick skin used to glisten. Its long tongue thickens into a supple vine-tipped whip, and small pale blossoms dot its wide back, though its squat, wide-mouthed shape stays entirely recognizable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). The printed \"Special Attacks\" line lists only \"Poison,\" but the body text separately describes Improved Grab and Swallow Whole (Ex) abilities (with their own grapple bonus and digestion damage) that are not included on that summary line \u2014 likely a book omission; reported here exactly as the stat-block line prints it. Attack bonus for both bite and tongue back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus feat Weapon Finesse (bite). Tongue attack deals no direct damage per the printed dash."
   },
   {
     "name": "Dire Snake",
@@ -510,22 +548,26 @@
       }
     ],
     "specialAttacks": [
-      "Constrict 1d6+10",
-      "Improved grab",
-      "Poison"
+      "Constrict (Ex \u2014 a successful grapple check deals 1d6+10 bludgeoning damage)",
+      "Improved grab (Ex \u2014 a bite that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity; can constrict in the same round if it gets a hold; may instead hold the opponent in its coils at a \u201320 grapple penalty without being considered grappled itself)",
+      "Poison (Ex, bite; Fort DC 16, 1d6 Con/1d6 Con)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
     "feats": [],
+    "skills": "Balance +14, Climb +15, Hide +7, Listen +9, Spot +9",
     "challengeRating": 5,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). A creature literally named \"Dire Snake\" is printed in MM2 (Dire Animal section, p. 74-76), confirming the name used in the task list. Feats line printed as \"—\" (none)."
+    "appearance": "The dire snake looks like an enormous viper with dull green or brown scales, long fangs, and two bony horn-like protrusions set just behind its eyes.",
+    "behavior": "It combines a constrictor's crushing coils with a viper's venomous bite, wrapping and biting an opponent in the same motion rather than relying on either alone.",
+    "appearanceGreenbound": "A greenbound dire snake's dull scales thicken into overlapping plates of bark, and thin creeper-vines coil along its whole length in place of its old dull coloring. The bony horns behind its eyes harden into pale thorns, though its long coiled body and viper's head keep their familiar menace.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). A creature literally named \"Dire Snake\" is printed in MM2 (Dire Animal section, p. 74-76), confirming the name used in the task list. Feats line printed as \"\u2014\" (none)."
   },
   {
     "name": "Dire Elk",
@@ -572,20 +614,24 @@
       }
     ],
     "specialAttacks": [
-      "Trample 2d8+10"
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 2d8+10 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 23 Reflex save for half damage)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +6, Spot +6",
     "challengeRating": 7,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Attacks line prints \"Slam +14 melee and 2 hooves +9 melee, or gore +14 melee\" — the gore option (used alone, per CLAUDE.md's single-natural-weapon rule) applies 1.5x Str to damage, matching the printed 2d8+10. Feats line printed as \"—\" (none). A bull dire elk's gore attack is only available part of the year per the flavor text (antlers shed and regrow seasonally); not modeled here."
+    "appearance": "A dire elk is a much larger, more heavily built version of the ordinary elk, covered in dark shaggy hair; a bull's antlers can span up to twelve feet across and he can weigh as much as three tons.",
+    "behavior": "A bull dire elk who feels challenged bellows and paws the ground before charging with lowered antlers, following up with trampling attacks, though a bull's gore attack is unavailable for part of the year while its antlers are shed and regrowing, and cows never carry antlers at all. Cows are less aggressive overall but fight fiercely when their calves are threatened.",
+    "appearanceGreenbound": "A greenbound dire elk's shaggy coat is replaced by a mane of trailing moss and broad leaves, and its hide thickens into pale bark along the flanks. Its great branching antlers harden further into knotted, thorn-studded heartwood, though its towering, broad-shouldered shape is unchanged.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Attacks line prints \"Slam +14 melee and 2 hooves +9 melee, or gore +14 melee\" \u2014 the gore option (used alone, per CLAUDE.md's single-natural-weapon rule) applies 1.5x Str to damage, matching the printed 2d8+10. Feats line printed as \"\u2014\" (none). A bull dire elk's gore attack is only available part of the year per the flavor text (antlers shed and regrow seasonally); not modeled here."
   },
   {
     "name": "Dire Elephant",
@@ -633,20 +679,24 @@
       }
     ],
     "specialAttacks": [
-      "Trample 4d6+22"
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 4d6+22 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 35 Reflex save for half damage)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
     "feats": [],
+    "skills": "Climb +23, Listen +8, Spot +8",
     "challengeRating": 10,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 8,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Feats line printed as \"—\" (none). Printed climb speed of 10 ft. for a Gargantuan quadruped is as printed, not corrected."
+    "appearance": "A dire elephant is a far larger version of the ordinary elephant, its spine armored with bony plates and its tusks grown huge and vicious, with small, mean-looking eyes.",
+    "behavior": "It attacks by slamming opponents with its massive trunk and then stamping them into the ground, and when facing several foes at once it typically switches to trampling them instead; despite its size it is somewhat unpredictable and moody, and giants sometimes capture and train it as a mount or beast of burden.",
+    "appearanceGreenbound": "A greenbound dire elephant's thick gray hide roughens into deeply furrowed bark, and cascades of moss and creeper hang from its trunk and flanks in place of coarse skin. Its huge curved tusks harden into pale, thorn-like heartwood, though its titanic, plate-backed silhouette remains unmistakable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Feats line printed as \"\u2014\" (none). Printed climb speed of 10 ft. for a Gargantuan quadruped is as printed, not corrected."
   },
   {
     "name": "Legendary Ape",
@@ -687,20 +737,24 @@
       }
     ],
     "specialAttacks": [
-      "Rend 2d8+15"
+      "Rend (Ex \u2014 if both claws hit a single target in the same round, the legendary ape latches on and tears flesh for an additional 2d8+15 damage)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
     "feats": [],
+    "skills": "Climb +19, Move Silently +11, Spot +9",
     "challengeRating": 7,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a gorilla, extracted directly from this entry's own printed table, not re-derived from a base creature. Feats line printed as \"—\" (none)."
+    "appearance": "A legendary ape looks much like an unusually large, powerfully built gorilla, its markings little different from an ordinary one's despite its far greater size and strength.",
+    "behavior": "Legendary apes are aggressive and fiercely territorial, dropping from the trees onto intruders to rend them with claws and teeth.",
+    "appearanceGreenbound": "A greenbound legendary ape's coarse fur is replaced by a thick pelt of dark moss and small curling vines, and knots of pale bark ridge its powerful shoulders and forearms. Its claws harden into curved thorns, though its broad-chested, tree-dwelling silhouette stays entirely familiar.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a gorilla, extracted directly from this entry's own printed table, not re-derived from a base creature. Feats line printed as \"\u2014\" (none)."
   },
   {
     "name": "Legendary Eagle",
@@ -748,12 +802,16 @@
       "Weapon Finesse (bite) (B)",
       "Weapon Finesse (claw) (B)"
     ],
+    "skills": "Listen +10, Spot +10* (*+12 racial bonus on Spot checks made in daylight)",
     "challengeRating": 6,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
+    "appearance": "The legendary eagle is marked in brilliant white and yellow feathers, larger and more striking than an ordinary eagle of its kind, and is regarded across many lands as an omen of fair weather and good fortune to come.",
+    "behavior": "Like any bird of prey, it hunts smaller birds, reptiles, and mammals, swooping down from the air to strike with talon and beak.",
+    "appearanceGreenbound": "A greenbound legendary eagle's bright feathers are replaced by layered leaves in white and pale gold, rustling with every wingbeat, and slender vine-tendrils trail from its wingtips and tail. Its talons harden into curved thorns, though its proud, soaring silhouette is unmistakable.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to an eagle, extracted directly from this entry's own printed table, not re-derived from a base creature. Attack bonuses back-solve using the Dexterity modifier (not Strength) for both claw and bite, consistent with the printed bonus Weapon Finesse feats; fly speed printed with \"(average)\" maneuverability, not captured by the speed object's schema."
   },
   {
@@ -786,7 +844,7 @@
       }
     ],
     "specialAttacks": [
-      "Trip"
+      "Trip (Ex \u2014 a bite that hits allows a free trip attempt with no touch attack and no attack of opportunity; if the trip attempt fails, the opponent cannot react to trip the legendary wolf in return)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -795,13 +853,17 @@
     "feats": [
       "Weapon Finesse (bite) (B)"
     ],
+    "skills": "Hide +13, Listen +10, Move Silently +12, Spot +10, Wilderness Lore +4* (*+8 racial bonus when tracking by scent)",
     "challengeRating": 7,
     "isCanine": true,
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a wolf, extracted directly from this entry's own printed table, not re-derived from a base creature. Attack bonus back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus Weapon Finesse feat; damage applies the single-natural-weapon 1.5x Str rule, matching the printed 2d6+10. isCanine is true — this is a literal wolf."
+    "appearance": "A legendary wolf is a fierce-looking wolf with black, white, or gray fur, larger and more dangerous than an ordinary wolf of its kind but otherwise similar in build.",
+    "behavior": "It is generally not aggressive toward humanoids unless driven by extreme hunger, and when encountered alone it may fight or retreat to gather its pack, since legendary wolves prefer to live, move, and hunt together.",
+    "appearanceGreenbound": "A greenbound legendary wolf's black, white, or gray coat is replaced by a shaggy pelt of dark moss and thin trailing vines, and small pale flowers cling along its ruff and haunches. Its fangs hold the pale sheen of hardened thorn, though its lean, pack-hunting shape stays entirely recognizable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a wolf, extracted directly from this entry's own printed table, not re-derived from a base creature. Attack bonus back-solves using the Dexterity modifier (not Strength), consistent with the printed bonus Weapon Finesse feat; damage applies the single-natural-weapon 1.5x Str rule, matching the printed 2d6+10. isCanine is true \u2014 this is a literal wolf."
   },
   {
     "name": "Legendary Bear",
@@ -841,19 +903,23 @@
       }
     ],
     "specialAttacks": [
-      "Improved grab"
+      "Improved grab (Ex \u2014 a claw that hits a Medium-size or smaller opponent starts a free grapple with no attack of opportunity, grapple bonus +32; may instead hold the opponent with its claw at a \u201320 grapple penalty without being considered grappled itself)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +8, Spot +8, Swim +18",
     "challengeRating": 9,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": false,
+    "appearance": "A legendary bear appears as an unusually large, powerfully built bear, no larger in stature than others of its kind but plainly stronger, faster, and tougher, as is true of all legendary animals.",
+    "behavior": "The legendary bear doesn't usually attack humans and feeds mainly on plants and fish, fighting only when necessary and relying on a crushing grapple once its claws find a hold.",
+    "appearanceGreenbound": "A greenbound legendary bear's dense fur is replaced by a heavy coat of dark moss and knotted creeper-vines, and broad plates of pale bark ridge its shoulders and back. Its massive claws harden into curved thorns, though its powerful, hulking bear's shape remains entirely recognizable.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2's own \"Legendary Animal\" template applied to a bear, extracted directly from this entry's own printed table, not re-derived from a base creature. No Feats line is printed for this entry."
   },
   {
@@ -888,24 +954,27 @@
       }
     ],
     "specialAttacks": [
-      "Spell-like abilities"
+      "Spell-like abilities (at will\u2014animate objects [stone only], stone shape; 1/day\u2014move earth, passwall, transmute rock to mud, wall of stone; caster level 20th, save DC 11 + spell level)"
     ],
     "specialQualities": [
       "DR 15/+1",
-      "elemental traits",
-      "freeze",
+      "elemental traits (Ex \u2014 immune to poison, sleep, paralysis, and stunning; not subject to critical hits or flanking; cannot be raised or resurrected; darkvision 60 ft.)",
+      "freeze (Ex \u2014 can hold stone-still and pass for an ordinary boulder; a DC 30 Spot check is needed to notice it is alive)",
       "SR 21",
-      "tremorsense"
+      "tremorsense (Ex \u2014 automatically senses anything within 300 ft. that is in contact with the ground)"
     ],
     "feats": [
       "Iron Will"
     ],
+    "skills": "Concentration +12, Diplomacy +3, Knowledge (geography) +7, Perform +10 (ballad, chant, sing, storytelling, and five others), Sense Motive +14",
     "challengeRating": 9,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A galeb duhr looks like a living boulder given two dark, brooding eyes, a mouth, and rough-hewn stony limbs for hands and feet; a typical specimen stands about 4 feet tall, though advanced individuals can reach 16 feet.",
+    "behavior": "Galeb duhrs are slow-moving, slow to anger, and endlessly patient, spending much of their time sitting motionless and nearly indistinguishable from the surrounding stone, though their deep, resonant, often melancholy songs can give them away. They are intensely territorial about the rocks and mountains they call home, and anyone caught damaging or mining that terrain finds fierce, staunch opposition.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Type is Elemental (Earth), not Feywild-tied, so wildShapeMinLevel is null under CLAUDE.md's elemental rule (native to the Elemental Plane of Earth / Material Plane, per its own flavor text, not the Feywild)."
   },
   {
@@ -953,7 +1022,7 @@
       }
     ],
     "specialAttacks": [
-      "Trample 4d8+18"
+      "Trample (Ex \u2014 as a standard action, tramples opponents at least one size smaller for 4d8+18 bludgeoning damage; a trampled creature may attempt an attack of opportunity at \u20134 or a DC 29 Reflex save for half damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -961,13 +1030,17 @@
       "scent"
     ],
     "feats": [],
+    "skills": "Listen +10, Spot +9",
     "challengeRating": 13,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this creature's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" — kept as printed, so wildShapeMinLevel is null despite this being an elephant-cousin animal. Feats line printed as \"—\" (none). The \"or gore\" alternative attack is printed at full Str bonus (+12, same as the slam), not the 1.5x bonus seen on Dire Elk/Dire Elephant's equivalent gore option — reported exactly as printed rather than corrected."
+    "appearance": "A grizzly mastodon is a shaggy, elephantine beast covered in gray, brown, or black fur flecked with gray hairs like a grizzly bear's coat, and unlike a true elephant it carries two full pairs of ivory tusks. A typical adult stands twenty feet tall and weighs some 22,000 pounds.",
+    "behavior": "Suspicious and unfriendly by nature, grizzly mastodons are fiercely protective of their young and their feeding grounds, driving off or trampling any intruder without hesitation and showing no fear even when badly outmatched if their offspring are threatened.",
+    "appearanceGreenbound": "A greenbound grizzly mastodon's shaggy fur is replaced by a heavy mane of moss and trailing creeper, and thick plates of pale bark ridge its flanks and shoulders. All four of its curved tusks harden into knotted, thorn-tipped heartwood, though its towering, shaggy-coated silhouette stays entirely recognizable.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). MM2 prints this creature's type as \"Beast\" (3.0-edition terminology) rather than \"Animal\" \u2014 kept as printed, so wildShapeMinLevel is null despite this being an elephant-cousin animal. Feats line printed as \"\u2014\" (none). The \"or gore\" alternative attack is printed at full Str bonus (+12, same as the slam), not the 1.5x bonus seen on Dire Elk/Dire Elephant's equivalent gore option \u2014 reported exactly as printed rather than corrected."
   },
   {
     "name": "Red Sundew",
@@ -1000,13 +1073,13 @@
       }
     ],
     "specialAttacks": [
-      "Improved grab",
-      "Sticky acid"
+      "Improved grab (Ex \u2014 a slam that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +28; may instead hold the opponent with a tentacle at a \u201320 grapple penalty without being considered grappled itself)",
+      "Sticky acid (Ex \u2014 any creature or object in physical contact with a red sundew is smeared with acid dealing 1d6 damage per round until removed; a successful hit by or against the red sundew automatically applies this to the target or its weapon; the acid persists 1d4+1 rounds and cannot be scraped off, only washed away with a full-round action and at least 1 gallon of water)"
     ],
     "specialQualities": [
-      "immunities (fire and acid)",
-      "plant traits",
-      "woodsense"
+      "immunities (Ex \u2014 immune to fire and acid)",
+      "plant traits (Ex \u2014 immune to poison, sleep, paralysis, stunning, and polymorphing; not subject to critical hits or mind-affecting effects; low-light vision)",
+      "woodsense (Ex \u2014 automatically senses anything within 60 ft. that is in contact with vegetation, whether or not it touches the same vegetation as the sundew)"
     ],
     "feats": [],
     "challengeRating": 13,
@@ -1015,6 +1088,9 @@
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A red sundew is an enormous, twenty-foot-tall mass of tangled, rope-like vines in shades of red, green, and rust, coated in a sweet-smelling, sticky goo that gives the whole mass a slick, wet sheen. Beneath the vines is a single central stem some twelve feet high and five feet across, held up by two leglike appendages.",
+    "behavior": "Red sundews are aggressive, nomadic hunters that wrap their acid-coated tentacles around prey to hold it in place while digestion begins, often traveling and hunting in small groups, though the whole patch flees once more than half its number has fallen.",
+    "appearanceGreenbound": "A greenbound red sundew's sticky, rope-like vines coarsen into true woody creepers wrapped in living moss, and clusters of pale flowers bloom where its sweet-smelling goo once glistened. Its central stem thickens into deeply furrowed bark, though its towering, vine-draped mass keeps the same unsettling silhouette.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Feats line printed as absent (no Feats field at all in the stat block). All four slams are printed at the same +18 attack bonus with no primary/secondary distinction on the Attacks line, so all four are treated as primary here."
   },
   {
@@ -1055,25 +1131,29 @@
       }
     ],
     "specialAttacks": [
-      "Charming song",
-      "Intelligence damage",
-      "Spell-like abilities"
+      "Charming song (Sp, at will \u2014 as charm person, caster level 2nd, save DC 14, but lasts 11 hours and affects every creature that hears it)",
+      "Intelligence damage (Su \u2014 a successful touch attack deals 1d4 points of Intelligence damage, or 2d4 on a critical hit)",
+      "Spell-like abilities (1/day\u2014fog cloud, improved invisibility, polymorph self; caster level 11th, save DC 13 + spell level)"
     ],
     "specialQualities": [
-      "deflection",
+      "deflection (Su \u2014 a surrounding aura grants a deflection bonus to AC equal to its Charisma bonus)",
       "low-light vision",
-      "soothing touch"
+      "soothing touch (Su \u2014 can touch to restore 1d6 points of Intelligence damage caused by any sirine)"
     ],
     "feats": [
       "Dodge",
       "Expertise"
     ],
+    "skills": "Animal Empathy +10, Concentration +7, Heal +10, Hide +11, Perform (dancing, singing, plus one other) +14, Swim +15, Wilderness Lore +10 (+8 racial bonus on Perform checks already included in the total above)",
     "challengeRating": 5,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A sirine looks like a normal human woman in most respects, though her skin often carries a faint yellow or green tinge and her hair may be any ordinary human shade or a lustrous silver or dark green. She wears only light clothing on land and often nothing at all in the water, and typically carries a short sword or dagger.",
+    "behavior": "Sirines are playful and gregarious, delighting in song, swimming, dancing, and drawing in strangers for a few hours of company, but they are fiercely private about their communities and rarely grant a visitor more than a brief welcome before slipping away underwater. They trust no one but other sirines, though they will accept help in need without feeling obligated to repay it beyond an occasional small gift.",
+    "appearanceGreenbound": "A greenbound sirine's fair skin roughens into smooth pale bark, and her flowing hair is replaced by trailing strands of moss and tiny aquatic blossoms. Slim vines coil along her arms and shoulders in place of jewelry, though her human shape and easy, graceful bearing remain just as beguiling.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). AC line shows no natural armor component (17 = 10 +4 Dex +3 deflection), so naturalArmor is 0. Touch attack deals 1d4 Intelligence damage (or 2d4 on a critical hit per the body text) rather than physical damage; no crit multiplier is printed for it. Attack bonus for both options back-solves consistently using the Strength modifier (not Dexterity), despite Sirine's high Dex, since no Weapon Finesse is listed."
   },
   {
@@ -1106,25 +1186,30 @@
       }
     ],
     "specialAttacks": [
-      "Fear gaze",
-      "Spell-like abilities"
+      "Fear gaze (Su \u2014 a creature the marraenoloth stares at must succeed at a DC 15 Will save or become shaken for 1d4 rounds; a mind-affecting fear effect)",
+      "Spell-like abilities (at will\u2014alter self, animate dead, charm person, phantasmal killer, poison, produce flame, teleport without error; caster level 10th, save DC 10 + spell level)",
+      "Summon yugoloth (Sp, 1/day \u2014 75% chance to summon another marraenoloth)"
     ],
     "specialQualities": [
-      "outsider traits",
+      "outsider traits (darkvision 60 ft.; cannot be raised or resurrected)",
       "SR 21",
-      "yugoloth traits"
+      "yugoloth traits (immune to poison and acid; resistance 20 to cold, fire, and electricity; telepathy with any language-using creature within 100 ft.)"
     ],
     "feats": [
       "Alertness",
       "Combat Casting",
       "Dodge"
     ],
+    "skills": "Appraise +14, Balance +15, Bluff +13, Diplomacy +2, Intimidate +2, Intuit Direction +15, Knowledge (the planes) +14, Listen +4, Profession (boater) +13, Spot +4, Swim +13",
     "challengeRating": 10,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 8,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
+    "appearance": "A marraenoloth is a pallid, skeletal humanoid wrapped in rotted robes and grave-wrappings, its only sign of life a pair of dully glowing red eyes.",
+    "behavior": "Marraenoloths serve as ferrymen on the River Styx, poling their grim skiffs across that dead river and the horrid planes it touches; pitiless and mercenary like all yugoloths, they nonetheless remain scrupulously neutral in their dealings so as to keep moving freely through the evil-aligned Outer Planes, though a chartered journey always carries some risk of delivering its passengers straight into an ambush.",
+    "appearanceGreenbound": "A greenbound marraenoloth's skeletal frame is wrapped not in rotted cloth but in dense, overlapping bark and hanging moss, its grave-wrappings replaced by trailing creeper-vines. Small pale, faintly luminous blossoms glow where its red eyes once burned, though its gaunt, robed silhouette remains just as unsettling.",
     "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Also has a Summon Yugoloth spell-like ability (1/day, 75% chance to summon another marraenoloth per the body text) grouped under the printed \"Spell-Like Abilities\" special attack rather than broken out separately, matching the stat block's own line."
   },
   {
@@ -1171,29 +1256,33 @@
       }
     ],
     "specialAttacks": [
-      "Breath weapon",
-      "Energy drain",
-      "Shocking grasp",
-      "Stunning blow"
+      "Breath weapon (Su \u2014 as a standard action, every 1d4 rounds can exhale a cloud of acid filling a single 5-ft. cone for 1 round; DC 19 Reflex save or take 2d6 acid damage and be stunned for a number of rounds equal to the damage taken)",
+      "Energy drain (Su \u2014 pressed against an unconscious or stunned victim, drains 1d4 negative levels per full round of contact; DC 18 Fortitude save to remove each negative level)",
+      "Shocking grasp (Sp, 3/day \u2014 1d8+10 points of electricity damage per use; caster level 10th)",
+      "Stunning blow (Ex \u2014 a creature struck by the yagnoloth's massive claw must succeed at a DC 25 Fortitude save or be stunned for a number of rounds equal to the damage dealt)"
     ],
     "specialQualities": [
       "DR 15/+1",
-      "outsider traits",
+      "outsider traits (darkvision 60 ft.; cannot be raised or resurrected)",
       "SR 25",
-      "muscular arm",
-      "yugoloth traits"
+      "muscular arm (Ex \u2014 the larger arm functions as a primary natural weapon even when used for a secondary attack, negating the secondary attack penalty and granting full Strength bonus on its claw whether primary or secondary)",
+      "yugoloth traits (immune to poison and acid; resistance 20 to cold, fire, and electricity; telepathy with any language-using creature within 100 ft.; cannot summon other yugoloths)"
     ],
     "feats": [
       "Cleave",
       "Power Attack",
       "Weapon Focus (claw)"
     ],
+    "skills": "Climb +22, Concentration +17, Diplomacy +5, Intimidate +16, Jump +20, Knowledge (the planes) +15, Listen +15, Sense Motive +15, Spot +15",
     "challengeRating": 10,
     "isCanine": false,
     "feywildNative": false,
     "summonNaturesAllyLevel": 8,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Greatsword/greataxe are alternative weapon choices (\"Greatsword +9/+4 melee and claw +20 melee, or greataxe +9/+4 melee and claw +20 melee\") wielded one-handed by the yagnoloth's weak arm, which the body text states gets no Strength bonus on damage — matches the printed damage values exactly. The claw always uses the muscular-arm ability (full Strength bonus, no secondary penalty, per its own Special Quality); its printed +20 back-solves against BAB 10 + Str mod 10 + size -1 + the +1 from the printed Weapon Focus (claw) feat."
+    "appearance": "A yagnoloth is a hulking, ten- to fifteen-foot-tall humanoid with red, scaly hide and a small skeletal head crowned by ears like a bat's wings. Its favored arm is enormous, thickly muscled, and long enough to drag along the ground, while its other arm is roughly the size of an ordinary human's.",
+    "behavior": "A yagnoloth rules its own territory as a minor lord over lesser yugoloths, squeezing every advantage from a position of authority it did not earn through strength or wit alone, and it earns particular resentment for sanctioning executions of subjects more physically or magically powerful than itself; unable to summon reinforcements of its own kind, it fights personally, wielding a weapon one-handed in its weaker arm while its powerful arm delivers a stunning claw.",
+    "appearanceGreenbound": "A greenbound yagnoloth's scaled red hide thickens into deep rust-colored bark scored with fissures, and its bat-like ears stiffen into thin, leaf-veined membranes. Its massive dragging arm coarsens into a knotted trunk of hardened wood bristling with thorns, though its hulking, lopsided silhouette stays every bit as menacing.",
+    "note": "Added to the summon nature's ally list at this level by Dragon Magazine #302 (\"The Summoners,\" Dec. 2002, p. 28). Greatsword/greataxe are alternative weapon choices (\"Greatsword +9/+4 melee and claw +20 melee, or greataxe +9/+4 melee and claw +20 melee\") wielded one-handed by the yagnoloth's weak arm, which the body text states gets no Strength bonus on damage \u2014 matches the printed damage values exactly. The claw always uses the muscular-arm ability (full Strength bonus, no secondary penalty, per its own Special Quality); its printed +20 back-solves against BAB 10 + Str mod 10 + size -1 + the +1 from the printed Weapon Focus (claw) feat."
   }
 ]

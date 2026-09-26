@@ -30,14 +30,18 @@
       }
     ],
     "specialAttacks": [
-      "spell-like abilities",
-      "earth mastery",
-      "push"
+      "spell-like abilities (at will—alter self, detect good, detect magic, gaseous form, invisibility, misdirection, passwall, persistent image, wall of stone; 3/day—move earth, transmute rock to mud; 1/day—grant up to three limited wishes, to nongenies only; caster level 19th, save DC 12 + spell level)",
+      "earth mastery (+1 bonus on attack and damage rolls if both the dao and its foe touch the ground; the dao takes a -4 penalty on attack and damage rolls if its opponent is airborne or waterborne)",
+      "push (can start a bull rush maneuver without provoking an attack of opportunity; earth mastery's combat modifiers also apply to the dao's opposed Strength check)"
     ],
     "specialQualities": [
-      "plane shift",
-      "telepathy"
+      "plane shift (Sp, at will; transports the dao and up to six other creatures who link hands with it to any Elemental Plane, the Astral Plane, or the Material Plane)",
+      "telepathy (Su, communicates telepathically with any creature within 100 feet that has a language)"
     ],
+    "skills": "Appraise +11, Craft (any) +11, Sense Motive +13, Spellcraft +9, Spot +13",
+    "appearance": "A dao looks like an unusually tall, powerfully muscled human wrapped in fine silk robes and hung with jewelry at every wrist, ear, and throat. Even disguised, its stony bearing and unnatural height give away that it is not truly human.",
+    "behavior": "Dao are shrewd, grasping traders who see weaker creatures chiefly as resources to exploit and discard once they've served their purpose, and they organize themselves into rival mining bands and underground fiefdoms ruled by whichever dao proves toughest. In a fight a dao reshapes the terrain around it with earth magic to hem in its foes before wading into melee.",
+    "appearanceGreenbound": "A greenbound dao's broad, stony frame is overtaken by pulpy heartwood and thick, corded creeper-tissue beneath its jewelry and silks, with knots of small branches pushing up through its shoulders and brow. Patches of coarse bark have replaced its granite-hard skin, and its eyes have dimmed to a pair of dull, moss-rimmed hollows that still track every movement in the room.",
     "feats": [
       "Cleave",
       "Power Attack",
@@ -83,16 +87,20 @@
       }
     ],
     "specialAttacks": [
-      "spell-like abilities",
-      "water mastery",
-      "drench",
-      "vortex"
+      "spell-like abilities (at will—create water, detect evil, detect good, detect magic, invisibility, polymorph self, purify food and drink (water only), see invisibility; 5/day—control water, gaseous form, solid fog, water breathing; 1/year—limited wish, to nongenies only; caster level 19th, save DC 12 + spell level)",
+      "water mastery (+1 bonus on attack and damage rolls if both the marid and its opponent touch water; the marid takes a -4 penalty on attack and damage rolls if it or its opponent is landbound)",
+      "drench (a marid's touch puts out torches, campfires, exposed lanterns, and other open flames of nonmagical origin of Large size or smaller, and it can dispel magical fire it touches as dispel magic cast by an 11th-level sorcerer)",
+      "vortex (Su, once every 10 minutes while underwater a marid can transform into a whirlpool for up to 5 rounds, 5 ft. wide at the base and up to 30 ft. wide at the top, 10-40 ft. tall as the marid chooses; a creature smaller than Large that contacts it takes 2d6 damage unless it succeeds at a DC 19 Reflex save, and must succeed at a second DC 19 Reflex save or be swept up and held suspended in the current, taking damage each round until a further Reflex save lets it escape; if the vortex's base touches bottom it also raises a swirling debris cloud that obscures vision beyond 5 feet and requires a DC 19 Concentration check to cast spells within)"
     ],
     "specialQualities": [
       "spell resistance 27",
-      "plane shift",
-      "telepathy"
+      "plane shift (Sp, at will; transports the marid and up to six other creatures who link hands with it to any Elemental Plane, the Astral Plane, or the Material Plane)",
+      "telepathy (Su, communicates telepathically with any creature within 100 feet that has a language)"
     ],
+    "skills": "Craft (any two) +17, Escape Artist +12, Intimidate +16, Listen +16, Move Silently +17, Sense Motive +16, Spellcraft +17, Spot +16",
+    "appearance": "Marids look like towering, blue-tinted humans some sixteen feet tall, their skin carrying a faint sheen like sunlit water. When they bother to dress at all, they favor garments woven of seaweed and trimmed with coral and pearls, cut so as never to hinder swimming.",
+    "behavior": "Marids are proud and fiercely independent, their moods shifting as capriciously as a calm sea turning stormy, and they hunt the ocean depths for sport and treasure as much as necessity. Many who linger on the Material Plane take a cruel delight in capsizing ships and drowning sailors, though a marid always prefers to fight within the water rather than out of it.",
+    "appearanceGreenbound": "A greenbound marid's towering, water-slick frame is threaded through with corded, vine-like tissue and waterlogged heartwood beneath its blue-tinged skin. Trailing fronds of moss and river-weed hang from its shoulders in place of any finery, and its eyes have become a pair of dark, glistening seed pods that never seem to dry.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -138,12 +146,16 @@
       }
     ],
     "specialAttacks": [
-      "spell-like abilities"
+      "spell-like abilities (at will—find the path, shadow walk; 3/day—repulsion; 1/day—plane shift, self and rider only; caster level 15th sorcerer, save DC 12 + spell level)"
     ],
     "specialQualities": [
-      "discorporate",
-      "shadow blend"
+      "discorporate (Su, standard action to become incorporeal; can be harmed only by other incorporeal creatures, +1 or better magic weapons, or magic, with a 50% chance to ignore damage from a corporeal source; passes through solid objects at will and always moves silently; AC becomes 14 while incorporeal; its hooves deliver incorporeal touch attacks that ignore natural armor, armor, and shields, +13 melee touch, 1d8 damage)",
+      "shadow blend (Su, in any conditions other than full daylight the ecalypse can meld into shadow for nine-tenths concealment; artificial illumination, even a light or continual flame spell, does not negate this, though a daylight spell does)"
     ],
+    "skills": "Hide +7, Intuit Direction +13, Listen +13, Sense Motive +8, Spot +13",
+    "appearance": "From a distance an ecalypse could pass for an ordinary horse, but up close it plainly is not: it stands on six legs, its coat a flat, almost insubstantial gray that lets the shadow of a rib cage and skull show through beneath the skin, and its hooves, mane, and tail all trail off into drifting mist. Its eyes are flat black orbs that catch no light, and rather than neigh or whinny it communicates with its herd, and any rider it accepts, purely by telepathy.",
+    "behavior": "An ecalypse fights by lashing out with hooves that coalesce out of its own shadowy mist, and if a battle turns against it, the creature simply goes incorporeal and flees rather than press a losing fight. A rider skilled or determined enough to master one gains a fiercely loyal mount that shares in its ability to turn insubstantial.",
+    "appearanceGreenbound": "A greenbound ecalypse's six misty legs have thickened into gnarled, root-like columns of pale heartwood, and its shadow-stuff hide is overtaken by a pelt of dark moss and trailing creeper in place of its usual gray coat. Its mane and tail unravel into hanging fronds of leaf and vine instead of mist, and its once-black eyes have dimmed into a pair of dull, glinting seed pods.",
     "feats": [
       "Weapon Focus (hoof)",
       "Run",
@@ -187,12 +199,15 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 5-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 11)"
     ],
     "specialQualities": [
-      "elemental",
-      "cold subtype"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +5, Spot +5",
+    "appearance": "A small ice paraelemental looks like a roughly hewn, translucent statue of ice no larger than a child, covered head to toe in jagged, sharpened icicles; light glinting off its frozen surface gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Weapon Finesse (icicle)"
@@ -235,12 +250,15 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 10-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 12)"
     ],
     "specialQualities": [
-      "elemental",
-      "cold subtype"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +7, Spot +7",
+    "appearance": "A medium ice paraelemental looks like a roughly hewn, translucent statue of ice about the height of a person, covered head to toe in jagged, sharpened icicles; light glinting off its frozen surface gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Weapon Finesse (icicle)"
@@ -284,13 +302,16 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 15-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 14)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+1",
-      "cold subtype"
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +12, Spot +12",
+    "appearance": "A large ice paraelemental looks like a roughly hewn, translucent statue of ice twice the height of a person, covered head to toe in jagged, sharpened icicles; light glinting off its frozen surface gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Dodge",
@@ -335,13 +356,16 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 20-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 18)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
-      "cold subtype"
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +18, Spot +18",
+    "appearance": "A huge ice paraelemental looms as a massive, roughly hewn statue of translucent ice, covered head to toe in jagged, sharpened icicles; light glinting off its frozen bulk gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Dodge",
@@ -387,13 +411,16 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 25-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 20)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
-      "cold subtype"
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +23, Spot +23",
+    "appearance": "A greater ice paraelemental towers as an immense, roughly hewn statue of translucent ice, covered head to toe in jagged, sharpened icicles; light glinting off its frozen bulk gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Dodge",
@@ -440,13 +467,16 @@
       }
     ],
     "specialAttacks": [
-      "chill metal"
+      "chill metal (Su, functions as the druid spell chill metal except it affects everything within a 30-ft. radius of the ice paraelemental; takes 3 rounds for affected metal to reach the freezing stage, then remains frozen until the ice paraelemental takes a standard action to end the effect, returning to normal temperature 2 rounds later; save DC 22)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 15/+3",
-      "cold subtype"
+      "cold subtype (cold immunity; takes double damage from fire except on a successful save)"
     ],
+    "skills": "Listen +26, Spot +26",
+    "appearance": "An elder ice paraelemental looms largest of all its kind, a colossal, roughly hewn statue of translucent ice, covered head to toe in jagged, sharpened icicles; light glinting off its frozen bulk gives it the unsettling look of winking, ever-shifting eyes.",
+    "behavior": "Ice paraelementals are patient fighters willing to let foes come to them, and larger individuals will even feign being caught flat-footed to lure enemies within reach of their many attacks of opportunity. They maneuver to catch as many opponents as possible within their chilling aura, trusting the cold to wear an enemy down faster than the enemy can wear them down.",
     "feats": [
       "Combat Reflexes",
       "Dodge",
@@ -492,12 +522,15 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 10 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
-      "fire subtype"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +5, Spot +5",
+    "appearance": "A small magma paraelemental is a squat, roughly humanoid shape of molten rock no bigger than a child, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Power Attack"
     ],
@@ -539,12 +572,15 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 11 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
-      "fire subtype"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +7, Spot +7",
+    "appearance": "A medium magma paraelemental is a hulking, human-sized shape of molten rock, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Power Attack"
     ],
@@ -587,13 +623,16 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 13 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+1",
-      "fire subtype"
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +12, Spot +12",
+    "appearance": "A large magma paraelemental is a hulking, oversized humanoid shape of molten rock, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Cleave",
       "Power Attack"
@@ -637,13 +676,16 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 17 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
-      "fire subtype"
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +14, Spot +14",
+    "appearance": "A huge magma paraelemental looms as a massive humanoid shape of molten rock, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -689,13 +731,16 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 19 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
-      "fire subtype"
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +23, Spot +23",
+    "appearance": "A greater magma paraelemental towers as an immense humanoid shape of molten rock, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -742,13 +787,16 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex, a creature grappled by the magma paraelemental or struck by its slam attack must succeed at a DC 21 Reflex save or catch fire, burning for 1d4 rounds unless it takes a move-equivalent action to put out the flame; a creature striking the magma paraelemental with a natural weapon or an unarmed attack must likewise succeed at a Reflex save or catch fire)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 15/+3",
-      "fire subtype"
+      "fire subtype (fire immunity; takes double damage from cold except on a successful save)"
     ],
+    "skills": "Listen +26, Spot +26",
+    "appearance": "An elder magma paraelemental looms largest of all its kind, a colossal humanoid shape of molten rock, its chest, arms, and legs crusted over where the lava has cooled, while its hands and feet still glow fiery red; two embers smolder where its eyes should be, above a mouth that gapes as a seam of open flame.",
+    "behavior": "Magma paraelementals are eager brawlers that love to charge straight into melee, and given the chance they'll grapple an opponent smaller than themselves and hold on while the creature burns.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -795,11 +843,14 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 11 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)"
     ],
+    "skills": "Listen +5, Spot +5",
+    "appearance": "A small ooze paraelemental is little more than a dark, muck-brown torso, head, and pair of arms rising out of a modest pool of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Power Attack"
     ],
@@ -842,11 +893,14 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 13 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)"
     ],
+    "skills": "Listen +7, Spot +7",
+    "appearance": "A medium ooze paraelemental takes the form of a dark, muck-brown torso, head, and arms rising out of a spreading pool of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Power Attack"
     ],
@@ -890,12 +944,15 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 16 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+1"
     ],
+    "skills": "Listen +12, Spot +12",
+    "appearance": "A large ooze paraelemental takes the form of a dark, muck-brown torso, head, and arms rising out of a wide pool of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Power Attack",
       "Sunder"
@@ -940,13 +997,16 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 22 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
       "fire immunity"
     ],
+    "skills": "Listen +18, Spot +18",
+    "appearance": "A huge ooze paraelemental rises as a dark, muck-brown torso, head, and arms out of a churning expanse of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -993,13 +1053,16 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 25 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2",
       "fire immunity"
     ],
+    "skills": "Listen +23, Spot +23",
+    "appearance": "A greater ooze paraelemental rises as an immense, dark, muck-brown torso, head, and arms out of a churning expanse of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -1047,13 +1110,16 @@
       }
     ],
     "specialAttacks": [
-      "acid"
+      "acid (Ex, every melee hit deals acid damage in addition to slam damage; the acid deals 40 points of damage per round to metal or wooden objects, and a struck creature's armor or clothing dissolves and becomes useless immediately unless it succeeds at a DC 28 Reflex save; a metal weapon that strikes the ooze paraelemental in melee likewise dissolves unless it succeeds at that save; if the ooze paraelemental successfully grapples an opponent, that opponent's armor must make the same save at a -4 penalty or dissolve into uselessness)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 15/+3",
       "fire immunity"
     ],
+    "skills": "Listen +26, Spot +26",
+    "appearance": "An elder ooze paraelemental rises largest of all its kind, a colossal, dark, muck-brown torso, head, and arms out of a churning expanse of slime, with gaping black hollows standing in for eyes and mouth; it travels only as fast as its own pool of muck can flow across the ground.",
+    "behavior": "Ooze paraelementals relish combat against humanoid foes in particular, since their corrosive touch is just as happy to dissolve weapons and armor as it is flesh.",
     "feats": [
       "Cleave",
       "Great Cleave",
@@ -1100,11 +1166,14 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 11 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)"
     ],
+    "skills": "Listen +5, Spot +5",
+    "appearance": "A small smoke paraelemental is a modest, roiling pillar of thick black smoke with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Improved Initiative",
@@ -1149,11 +1218,14 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 13 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental"
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)"
     ],
+    "skills": "Listen +7, Spot +7",
+    "appearance": "A medium smoke paraelemental is a roiling pillar of thick black smoke about the height of a person, with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Improved Initiative",
@@ -1198,12 +1270,15 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 17 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+1"
     ],
+    "skills": "Listen +12, Spot +12",
+    "appearance": "A large smoke paraelemental is a towering, roiling pillar of thick black smoke, with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Improved Initiative",
@@ -1249,12 +1324,15 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 22 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2"
     ],
+    "skills": "Listen +18, Spot +18",
+    "appearance": "A huge smoke paraelemental billows as a massive, roiling pillar of thick black smoke, with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Improved Initiative",
@@ -1300,12 +1378,15 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 26 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 10/+2"
     ],
+    "skills": "Listen +23, Spot +23",
+    "appearance": "A greater smoke paraelemental billows as an immense, roiling pillar of thick black smoke, with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Flyby Attack",
@@ -1352,12 +1433,15 @@
       }
     ],
     "specialAttacks": [
-      "smoke claws"
+      "smoke claws (Ex, can engulf an opponent smaller than itself by moving on top of it without provoking an attack of opportunity; the target must succeed at a DC 29 Fortitude save or inhale part of the paraelemental, which solidifies inside it into a claw or talon that automatically deals double the paraelemental's claw damage each round until the victim succeeds at a further Fortitude save, made anew each round, to cough out the smoke)"
     ],
     "specialQualities": [
-      "elemental",
+      "elemental (immune to poison, sleep, paralysis, and stunning; not subject to critical hits)",
       "damage reduction 15/+3"
     ],
+    "skills": "Listen +26, Spot +26",
+    "appearance": "An elder smoke paraelemental billows largest of all its kind, a colossal, roiling pillar of thick black smoke, with a pair of red, cinder-bright eyes glowing from within, its two arms ending in tenebrous, sickle-shaped claws that lash out at anything nearby.",
+    "behavior": "Smoke paraelementals lean on their great speed in the air, wheeling in tight circles around slower, land-bound opponents to strike from every angle rather than meeting a foe head-on.",
     "feats": [
       "Dodge",
       "Flyby Attack",

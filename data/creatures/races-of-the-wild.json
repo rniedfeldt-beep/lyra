@@ -32,10 +32,14 @@
     "specialQualities": [
       "immune to sleep",
       "low-light vision",
-      "resist enchantment",
+      "resist enchantment (+2 racial bonus on saving throws against enchantment spells or effects)",
       "scent",
-      "sprint"
+      "sprint (once per hour, can move five times its normal speed -- 250 ft. -- when making a charge)"
     ],
+    "skills": "Balance +7, Hide +7, Jump +15, Listen +5, Spot +5, Survival +2*, Swim +6; *+4 racial bonus on Survival checks when tracking by scent",
+    "appearance": "An oddly large dog, nearly the size of a pony, with a thick greenish coat mottled with large brown spots. Its oversized paws end in long, curved claws suited for traction on soft forest loam, and its ears stand straight up, giving it a keen, attentive look.",
+    "behavior": "A ferocious and effective fighter with a bone-crushing bite, kept by wood elves (and occasionally high or gray elves) for hunting and guard duty, especially to run down prey already scattered by elven archers. Long-lived for a hound, commonly reaching a century of age.",
+    "appearanceGreenbound": "The elven hound's greenish coat has become a dense coat of moss and creeping leaves, its brown spots now patches of rough bark-like hide showing through underneath. Its curved claws have hardened into woody thorns, and slender vines trail from its upright ears and haunches, though its pony-sized, alert silhouette remains plainly that of a hunting hound.",
     "feats": [
       "Improved Natural Attack (bite)",
       "Track"

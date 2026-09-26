@@ -29,12 +29,16 @@
       }
     ],
     "specialAttacks": [
-      "trip"
+      "trip (+1 check modifier on a successful bite, free action, no touch attack or attack of opportunity; failure means the opponent cannot react to trip the wolf)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Hide +2, Listen +3, Move Silently +3, Spot +3, Survival +1*; *+4 racial bonus on Survival checks when tracking by scent",
+    "appearance": "An ordinary gray wolf, lean and quick, built for the chase.",
+    "behavior": "Wolves are pack hunters known for their persistence and cunning, favoring a tactic of sending a few individuals against a foe's front while the rest of the pack circles to flank or strike from behind.",
+    "appearanceGreenbound": "A greenbound wolf's lean frame is built from pulpy, fibrous wood wrapped in corded creeper-tissue, with slender branches bristling along its spine and haunches. Its coat has become a pelt of moss and trailing vines, and its muzzle ends in a snarl of thorn-hard teeth. Where its eyes once were, two pale, faintly glowing seed pods watch the dark.",
     "feats": [
       "Track",
       "Weapon Focus (bite)"
@@ -76,12 +80,16 @@
       }
     ],
     "specialAttacks": [
-      "trip"
+      "trip (+11 check modifier on a successful bite, free action, no touch attack or attack of opportunity; failure means the opponent cannot react to trip the dire wolf)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Hide +0, Listen +7, Move Silently +4, Spot +7, Survival +2*; *+4 racial bonus on Survival checks when tracking by scent",
+    "appearance": "This immense gray wolf seems as big as a horse, with fiery eyes and a thick coat of fur. Dire wolves are mottled gray or black, about 9 feet long and weighing some 800 pounds.",
+    "behavior": "Dire wolves are efficient pack hunters that will kill anything they can catch, preferring to attack in packs that surround and flank a foe when they can.",
+    "appearanceGreenbound": "This towering wolf's frame is now wood and knotted creeper fiber beneath a shaggy coat of moss, hanging vines, and small flowering shoots. Twiggy branches erupt along its shoulders and haunches, and its once-fiery eyes have become two luminous blossoms. Its bite remains a wolf's bite — only now lined with hardened, thorn-like teeth.",
     "feats": [
       "Alertness",
       "Run",
@@ -127,8 +135,12 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blindsense 40 ft."
+      "blindsense 40 ft. (locates creatures within 40 ft. by echolocation; opponents still have total concealment against it unless it can actually see them; lost if blindsense is negated)"
     ],
+    "skills": "Hide +4, Listen +12*, Move Silently +11, Spot +8*; *+4 racial bonus on Spot and Listen checks, lost if its blindsense is negated",
+    "appearance": "This terrifying bat has a body as big as a horse's and leathery wings that spread farther than a dragon's. Shaggy fur covers most of the body, with patches of bony armor showing through here and there. A dire bat has a wingspan of 15 feet and weighs about 200 pounds.",
+    "behavior": "These nocturnal hunters get excited easily and usually try to slay or drive off any creatures they encounter, swooping down on unsuspecting prey from above.",
+    "appearanceGreenbound": "The dire bat's leathery wings have thinned to membranes of leaf and creeper-vine stretched between wooden finger-bones, rustling audibly in flight. Patches of bony armor have become overlapping plates of bark, and moss creeps across its once-shaggy hide. Its small eyes now glow a faint green, like fireflies caught in bark.",
     "feats": [
       "Alertness",
       "Stealthy"
@@ -171,12 +183,16 @@
       }
     ],
     "specialAttacks": [
-      "disease"
+      "disease (filth fever — bite, Fortitude DC 11, incubation period 1d3 days, damage 1d3 Dex and 1d3 Con; save DC is Constitution-based)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Climb +11, Hide +8, Listen +4, Move Silently +4, Spot +4, Swim +11",
+    "appearance": "This enormous rat looks bigger and more vicious than most dogs. It has coarse, spiky fur, malevolent eyes, and a long, naked tail, growing up to 4 feet long and weighing over 50 pounds.",
+    "behavior": "Dire rats are omnivorous scavengers that will attack to defend their nests and territories, with packs biting and chewing fearlessly.",
+    "appearanceGreenbound": "This oversized rat's spiky fur has given way to tangled moss and creeping vines bristling across a body of dense, pulpy wood. Small leafy shoots sprout from its shoulders and haunches, and its once-naked tail is now a whip of woven creeper. Its malevolent eyes have become two small, glinting seed pods.",
     "feats": [
       "Alertness",
       "Weapon Finesse"
@@ -228,12 +244,15 @@
       }
     ],
     "specialAttacks": [
-      "rage"
+      "rage (Ex — when damaged in combat, flies into a berserk rage on its next turn: +4 Strength, +4 Constitution, –2 AC, cannot end voluntarily, fights until it or its foe is dead)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Climb +10, Listen +6, Spot +6",
+    "appearance": "These creatures are similar to badgers but are bigger, stronger, and even more ferocious.",
+    "appearanceGreenbound": "The wolverine's stocky frame is now corded wood wrapped in creeper-tissue, with tufts of moss standing in for its coarse fur. Hardened, thorn-like claws have replaced its digging talons, and small branches jut from its shoulders and skull. Its eyes have become dark, glossy seed pods that seem to watch every direction at once.",
     "feats": [
       "Alertness",
       "Toughness",
@@ -285,12 +304,16 @@
       }
     ],
     "specialAttacks": [
-      "rage"
+      "rage (Ex — when damaged in combat, flies into a berserk rage on its next turn: +4 Strength, +4 Constitution, –2 AC, cannot end voluntarily, fights until it or its foe is dead)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Climb +14, Listen +7, Spot +7",
+    "appearance": "This massive, low-slung creature has a wedge-shaped head and body covered in coarse, shaggy fur. Its legs are short and thick, and it has claws like pickaxes on its feet. Dire wolverines grow to about 12 feet in length and can weigh as much as 2,000 pounds.",
+    "behavior": "These foul-tempered creatures have been known to attack settlements, destroying both livestock and food stores, and are reputed to be utterly fearless — attacking opponents wantonly and fearing no other creature.",
+    "appearanceGreenbound": "This low-slung, powerful creature's shaggy fur has become a mat of moss, vines, and small flowering shoots over a body of dense, pulpy wood. Its pickaxe-like claws are now blackened heartwood thorns, and knotted branches push out along its back and haunches. Its eyes glow faintly, like embers caught inside blossoms.",
     "feats": [
       "Alertness",
       "Toughness",
@@ -341,12 +364,16 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (Ex — must hit with bite attack, free action grapple with no attack of opportunity; on a won grapple check establishes a hold, drags the opponent into deep water, and attempts to pin it to the bottom)"
     ],
     "specialQualities": [
-      "hold breath",
+      "hold breath (can hold its breath for a number of rounds equal to 4 × its Constitution score before risking drowning)",
       "low-light vision"
     ],
+    "skills": "Hide +7*, Listen +4, Spot +4, Swim +12; *+4 racial bonus on Hide checks when in the water, and can lie in the water with only its eyes and nostrils showing for a +10 cover bonus on Hide checks",
+    "appearance": "Crocodiles are aggressive predators 11 to 12 feet long, typically seen with only their eyes and nostrils showing above the waterline.",
+    "behavior": "They lie mostly submerged in rivers or marshes, patiently waiting for prey to come within reach before striking.",
+    "appearanceGreenbound": "The crocodile's armored hide has become overlapping plates of bark-like wood, with trailing moss and creeper vines threading between the scutes. Small branches push out along its spine and tail, and its jaws bristle with hardened thorn-teeth. Its eyes remain reptilian and watchful, though they now glint like polished seed pods.",
     "feats": [
       "Alertness",
       "Skill Focus (Hide)"
@@ -396,12 +423,16 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (Ex — must hit with a claw attack, free action grapple with no attack of opportunity)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Listen +4, Spot +7, Swim +12",
+    "appearance": "These massive carnivores weigh more than 1,800 pounds and stand nearly 9 feet tall when they rear up on their hind legs.",
+    "behavior": "They are bad-tempered and territorial, attacking mainly by tearing at opponents with their claws.",
+    "appearanceGreenbound": "This massive bear's bulk is now dense, pulpy wood wrapped in corded creeper-tissue, with its thick fur replaced by moss, trailing vines, and small clusters of leaves. Gnarled branches erupt from its shoulders and back, and its claws have hardened into wicked thorns. Its eyes have become two softly glowing blossoms set deep in a mossy face.",
     "feats": [
       "Endurance",
       "Run",
@@ -456,6 +487,10 @@
     "specialQualities": [
       "low-light vision"
     ],
+    "skills": "Listen +2, Spot +14",
+    "appearance": "Eagles inhabit nearly every terrain and climate, though they all prefer high, secluded nesting spots. A typical eagle is about 3 feet long and has a wingspan of about 7 feet.",
+    "behavior": "Eagles dive at prey, raking with their powerful talons.",
+    "appearanceGreenbound": "The eagle's feathers have become layered, overlapping leaves that rustle with every wingbeat, framing a body of light, pulpy wood beneath. Its talons have hardened into curved thorns, and small vines trail from its wingtips like living streamers. Its eyes remain sharp and golden, though faint moss has crept along its brow.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -500,6 +535,10 @@
       "low-light vision",
       "scent"
     ],
+    "skills": "Jump +7, Listen +5, Spot +5, Survival +1*; *+4 racial bonus on Survival checks when tracking by scent",
+    "appearance": "The statistics presented here describe a fairly small dog of about 20 to 50 pounds in weight, also usable for small wild canines such as coyotes, jackals, and African wild dogs.",
+    "behavior": "Dogs generally hunt in packs, chasing and exhausting prey until they can drag it down.",
+    "appearanceGreenbound": "This dog's coat has become a thick mat of moss and creeping vines over a lean frame of pulpy wood, with small leafy shoots sprouting along its spine. Its teeth have hardened into short thorns, and slender branches push out from its shoulders. Its eyes have taken on the soft glow of small, pale blossoms.",
     "feats": [
       "Alertness",
       "Track"
@@ -553,6 +592,10 @@
       "low-light vision",
       "scent"
     ],
+    "skills": "Balance +10, Climb +6, Hide +14*, Jump +10, Listen +3, Move Silently +6, Spot +3; *in areas of tall grass or heavy undergrowth, the Hide bonus rises to +8 (as printed)",
+    "appearance": "The statistics presented here describe a common housecat.",
+    "behavior": "Cats prefer to sneak up on their prey.",
+    "appearanceGreenbound": "This housecat-sized creature's sleek fur has become a fine coat of moss and tiny leaves over a body of light, pulpy wood. Its claws have hardened into delicate thorns, and thin creeper-vines trail from its tail like living fur. Its eyes now glow like tiny seed pods nestled in green.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -598,6 +641,10 @@
     "specialQualities": [
       "low-light vision"
     ],
+    "skills": "Balance +10, Climb +10, Hide +10, Listen +3, Spot +3",
+    "appearance": "The statistics presented here can describe any arboreal monkey that is no bigger than a housecat, such as a colobus or capuchin.",
+    "behavior": "Monkeys generally flee into the safety of the trees, but if cornered can fight ferociously.",
+    "appearanceGreenbound": "The monkey's fur has become a shaggy coat of moss and trailing vines over a lean, wooden frame, with small branches sprouting from its long limbs. Its grasping fingers have hardened at the tips into small thorns, useful for gripping bark and vine alike. Its eyes have become two small, dark seed pods that seem endlessly curious.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -646,13 +693,17 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (Ex — must hit an opponent of any size with its arms attack, free action grapple with no attack of opportunity; on a won grapple check establishes a hold and automatically deals bite damage)"
     ],
     "specialQualities": [
-      "ink cloud",
-      "jet",
+      "ink cloud (Ex — once per minute as a free action, emits a 10-ft.-by-10-ft.-by-10-ft. cloud of black ink providing total concealment; all vision within it is obscured)",
+      "jet (Ex — once per round as a full-round action, jets backward 200 ft. in a straight line without provoking attacks of opportunity)",
       "low-light vision"
     ],
+    "skills": "Escape Artist +13, Hide +11, Listen +2, Spot +5, Swim +9",
+    "appearance": "These bottom-dwelling sea creatures show little in the way of distinct markings in the printed text beyond their small size and aquatic build.",
+    "behavior": "They are dangerous only to their prey and, if disturbed, usually try to escape rather than fight.",
+    "appearanceGreenbound": "This octopus's rubbery flesh has become pulpy, fibrous wood wrapped in trailing creeper-tissue, its arms now thick vines studded with small thorn-like barbs in place of suckers. Patches of moss and small leaves cling along its bulbous head, swaying gently underwater. Its eyes glow faintly, like pale blossoms floating in the deep.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -697,6 +748,10 @@
     "specialQualities": [
       "low-light vision"
     ],
+    "skills": "Listen +14, Move Silently +17, Spot +6*; *+8 racial bonus on Spot checks in areas of shadowy illumination",
+    "appearance": "The statistics presented here describe nocturnal birds of prey from 1 to 2 feet long, with wingspans up to 6 feet.",
+    "behavior": "Owls swoop quietly down onto prey, attacking with their powerful talons.",
+    "appearanceGreenbound": "The owl's feathers have become soft, overlapping leaves in shades of green and brown, rustling silently as it flies. Its talons have hardened into short thorns, and thin vines trail from its wingtips and tail. Its wide eyes now glow like twin blossoms in the dark.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -738,10 +793,14 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blindsight 120 ft.",
-      "hold breath",
+      "blindsight 120 ft. (Ex — locates objects and creatures by emitting high-frequency sounds; a silence spell negates this and forces reliance on vision)",
+      "hold breath (can hold its breath for a number of rounds equal to 6 × its Constitution score before risking drowning)",
       "low-light vision"
     ],
+    "skills": "Listen +8*, Spot +7*, Swim +8; *+4 racial bonus on Spot and Listen checks, lost if its blindsight is negated",
+    "appearance": "A typical porpoise is 4 to 6 feet long and weighs 110 to 160 pounds.",
+    "behavior": "Porpoises are mammals that tend to be playful, friendly, and helpful.",
+    "appearanceGreenbound": "This porpoise's sleek body is now dense, pulpy wood wrapped in slick, creeper-like tissue that ripples as it swims. Trailing strands of kelp-like vine replace where fins meet body, and small leafy growths cluster along its back. Its eyes have taken on a faint glow, like blossoms glimpsed beneath the waves.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -784,11 +843,15 @@
       }
     ],
     "specialAttacks": [
-      "poison"
+      "poison (Ex — bite, Fortitude DC 10, initial and secondary damage 1d6 Con; save DC is Constitution-based)"
     ],
     "specialQualities": [
       "scent"
     ],
+    "skills": "Balance +11, Climb +11, Hide +11, Listen +7, Spot +7, Swim +6",
+    "appearance": "A small, scaled serpent of viper build — quick and slender, marked no differently from its larger kin beyond its size.",
+    "behavior": "Snakes usually are not aggressive and flee when confronted, though a viper will often lash out with a bite before attempting to retreat.",
+    "appearanceGreenbound": "This small viper's scaled body has become a slender length of pulpy wood wrapped in thin, creeper-like tissue, with tiny leaves and moss growing between its overlapping scutes. Its fangs have hardened into sharp thorns, and a scattering of small buds trails down its spine. Its eyes glow faintly, like a pair of tiny seed pods.",
     "feats": [
       "Weapon Finesse"
     ],
@@ -841,6 +904,10 @@
       "low-light vision",
       "scent"
     ],
+    "skills": "Climb +4, Listen +4, Spot +4, Swim +8",
+    "appearance": "The black bear is a forest-dwelling omnivore, rarely more than 5 feet long, and can be pure black, blond, or cinnamon in color.",
+    "behavior": "It usually is not dangerous unless an interloper threatens its cubs or food supply, ripping at prey with its claws and teeth when it does fight.",
+    "appearanceGreenbound": "This black bear's shaggy coat has become a thick mat of moss, vines, and small flowering shoots over a body of dense, pulpy wood. Gnarled branches push out from its shoulders and back, and its claws have hardened into blackened thorns. Its dark eyes have become two softly glowing blossoms.",
     "feats": [
       "Endurance",
       "Run"
@@ -891,12 +958,16 @@
       }
     ],
     "specialAttacks": [
-      "rage"
+      "rage (Ex — when damaged in combat, flies into a berserk rage on its next turn: +4 Strength, +4 Constitution, –2 AC, cannot end voluntarily, fights until it or its foe is dead)"
     ],
     "specialQualities": [
       "low-light vision",
       "scent"
     ],
+    "skills": "Listen +6, Spot +6",
+    "appearance": "This squat, muscular creature is covered in wild, thick fur. Its stout legs end in clawed feet, and its pointed snout has a wide mouth full of sharp teeth. A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.",
+    "behavior": "These vicious creatures tolerate no intrusions; when burrowing through anything softer than solid rock, a dire badger typically leaves behind a usable tunnel about 5 feet in diameter.",
+    "appearanceGreenbound": "This squat, muscular creature's thick fur has become a tangle of moss and creeper vines over a body of dense, pulpy wood. Its digging claws have hardened into stout thorns, and small branches push out along its back and snout. Its eyes have become two small, glinting seed pods set in a mossy face.",
     "feats": [
       "Alertness",
       "Toughness",
@@ -939,13 +1010,16 @@
       }
     ],
     "specialAttacks": [
-      "air mastery",
-      "whirlwind"
+      "air mastery (Ex — airborne creatures take a –1 penalty on attack and damage rolls against the elemental)",
+      "whirlwind (Su — once every 10 minutes, transforms into a whirlwind for up to 1 round; 5 ft. wide at the base, 10–20 ft. tall for a Small elemental; a creature contacting it takes a Reflex DC 11 save or 1d4 damage and risks being lifted and held; movement while whirlwind does not provoke attacks of opportunity)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
       "elemental traits"
     ],
+    "skills": "Listen +2, Spot +3",
+    "appearance": "This creature appears to be an amorphous, shifting cloud surrounded by fast-moving currents of air. Darker bits of twirling vapor form the suggestion of two eyes and a mouth, but this could be a trick of the swirling air.",
+    "behavior": "Air elementals are among the swiftest and most agile creatures in existence. They seldom leave their home plane except when summoned elsewhere by a spell.",
     "feats": [
       "Flyby Attack",
       "Improved Initiative",
@@ -988,14 +1062,17 @@
       }
     ],
     "specialAttacks": [
-      "earth mastery",
-      "push"
+      "earth mastery (Ex — +1 bonus on attack and damage rolls if both it and its foe are touching the ground; –4 penalty on attack and damage rolls if the opponent is airborne or waterborne)",
+      "push (Ex — can start a bull rush without provoking an attack of opportunity; earth mastery's modifiers apply to the opposed Strength check)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
-      "earth glide",
+      "earth glide (Ex — can glide through stone, dirt, or almost any other sort of earth except metal as easily as a fish swims through water, leaving no tunnel, hole, or other trace of its passage)",
       "elemental traits"
     ],
+    "skills": "Listen +3, Spot +2",
+    "appearance": "Like a walking hill, the creature plods forward on two featureless legs of rock and earth, its clublike arms of jagged stone swinging at its sides, and its featureless head staring blankly ahead.",
+    "behavior": "Earth elementals are immensely strong and tough — the larger ones can pound almost anything into rubble — but they seldom leave their home plane except when summoned elsewhere by a spell.",
     "feats": [
       "Power Attack"
     ],
@@ -1036,7 +1113,7 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (Ex — slam attack deals fire damage in addition to bludgeoning; a creature hit must succeed on a Reflex save (DC 11 for a Small elemental) or catch fire for 1d4 rounds, extinguishable with a move action; creatures hitting it with natural weapons or unarmed attacks take fire damage and may catch fire unless they succeed on a Reflex save; save DC is Constitution-based)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -1044,6 +1121,9 @@
       "immunity to fire",
       "vulnerability to cold"
     ],
+    "skills": "Listen +2, Spot +3",
+    "appearance": "A mass of ambulatory flame races across the ground, seeming to flicker and spark from a central, humanoid-shaped conflagration.",
+    "behavior": "Fire elementals are fast and agile, taking joy in burning the creatures and objects of the Material Plane to ashes; the merest touch from their fiery bodies is enough to set many materials aflame, though a body of water is an impassable barrier they must step or jump over.",
     "feats": [
       "Dodge",
       "Improved Initiative",
@@ -1087,14 +1167,17 @@
       }
     ],
     "specialAttacks": [
-      "water mastery",
-      "drench",
-      "vortex"
+      "water mastery (Ex — +1 bonus on attack and damage rolls if both it and its opponent are touching water; –4 penalty on attack and damage rolls if it or the opponent is touching the ground)",
+      "drench (Ex — its touch puts out torches, campfires, exposed lanterns, and other open flames of Large size or smaller of nonmagical origin; can dispel magical fire it touches as dispel magic, caster level equal to its Hit Dice)",
+      "vortex (Su — once every 10 minutes while underwater, transforms into a whirlpool for up to 1 round; 5 ft. wide at the base, 10–20 ft. tall for a Small elemental; a creature contacting it takes a Reflex DC 13 save or 1d4 damage and risks being swept up; movement while in vortex form does not provoke attacks of opportunity)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
       "elemental traits"
     ],
+    "skills": "Listen +2, Spot +3",
+    "appearance": "A vortex of water rolls across the ground, though it never seems to crash or lose its shape. The waves cascade and storm around a central, humanoid-shaped whirlpool, with watery appendages that pound with the force of an ocean storm.",
+    "behavior": "A water elemental can be as ferocious and powerful as a stormy sea, though it can't venture more than 180 feet from the body of water from which it was conjured.",
     "feats": [
       "Power Attack"
     ],
@@ -1158,7 +1241,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +4, Spot +8 (includes +4 racial bonus)",
+    "appearance": "A hippogriff combines the body and hindquarters of a horse with the head, wings, and forelegs of a giant eagle, standing roughly nine feet long with a twenty-foot wingspan and weighing around a thousand pounds.",
+    "behavior": "Aggressive and voracious, it hunts humanoids as readily as any other prey and is fiercely territorial, diving repeatedly on intruders that stray near its hunting range or nest.",
+    "appearanceGreenbound": "Greenbound, the hippogriff's equine haunches thicken into knotted, bark-ridged wood while its raptor half sprouts overlapping leaf-plates in place of feathers along the wings and neck; its foreclaws harden into curved thorns and its eyes take on the dull glow of embered seed pods, though the unmistakable horse-and-eagle silhouette remains."
   },
   {
     "name": "Shark, Medium",
@@ -1191,8 +1278,8 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blindsense",
-      "keen scent"
+      "blindsense (locate creatures within 30 ft. while underwater)",
+      "keen scent (detect creatures by scent in a 180-ft. radius, and blood in the water up to 1 mile away)"
     ],
     "feats": [
       "Alertness",
@@ -1203,7 +1290,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +6, Spot +6, Swim +9",
+    "appearance": "This carnivorous fish is built for speed and sudden violence, with a torpedo-shaped body, rows of serrated teeth, and small eyes suited more to scent-tracking than sight. A medium-sized specimen runs five to eight feet long, no bigger than many of the fish it preys on.",
+    "behavior": "It circles potential prey at a wary distance before darting in for a single slashing bite and withdrawing, rarely pressing an attack against anything that fights back hard.",
+    "appearanceGreenbound": "Its sleek gray hide has thickened into overlapping plates of pale bark, and trailing streamers of waterlogged moss now ripple behind it in place of loose skin. The rows of teeth have hardened into woody thorns, and its once-flat eyes have swollen into small dark seed pods."
   },
   {
     "name": "Snake, Medium Viper",
@@ -1237,7 +1328,7 @@
       }
     ],
     "specialAttacks": [
-      "poison"
+      "poison (bite, Fort DC 11, initial and secondary damage 1d6 Con)"
     ],
     "specialQualities": [
       "scent"
@@ -1250,7 +1341,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +11, Climb +11, Hide +12, Listen +5, Spot +5, Swim +7",
+    "appearance": "This snake's patterning ranges widely by region, but every specimen carries a wedge-shaped, venom-gland-swollen head atop a slender, quick-moving body no more than a few feet long.",
+    "behavior": "It isn't especially aggressive and prefers to avoid conflict, but if cornered it lashes out with a single venomous bite before trying to retreat.",
+    "appearanceGreenbound": "Its scales have given way to overlapping flecks of dark bark separated by thin lines of moss, and the swollen glands behind its jaw now bulge with sap instead of venom. Two small pale blossoms sit where its eyes used to be, and thin vine-tendrils trail along its spine."
   },
   {
     "name": "Squid",
@@ -1289,11 +1384,11 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (hit with an arms attack, then free grapple; a won grapple check establishes a hold and automatically deals bite damage)"
     ],
     "specialQualities": [
-      "ink cloud",
-      "jet",
+      "ink cloud (a 10-ft. by 10-ft. by 10-ft. cloud of ink once per minute as a free action, providing total concealment)",
+      "jet (move backward in a straight line at 240 ft. as a full-round action, without provoking attacks of opportunity)",
       "low-light vision"
     ],
     "feats": [
@@ -1305,7 +1400,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +7, Spot +7, Swim +10",
+    "appearance": "This free-swimming mollusk trails a cluster of grasping arms around a sharp, parrot-like beak, its soft body tapering into twin fins that let it glide through open water. It's fairly aggressive for its unassuming size.",
+    "behavior": "It's more feared than sharks in some coastal communities, seizing prey with its arms before biting, and it vanishes behind a cloud of ink and a sudden burst of speed the moment a fight turns against it.",
+    "appearanceGreenbound": "Its once-slick arms have thickened into ropes of fibrous vine-wood ending in small barbed thorns instead of suckers, and patches of moss now mottle its mantle in green. Its ink sac has become a bladder of thick green sap, and pale, glowing seed-pods sit where its eyes used to be."
   },
   {
     "name": "Ape",
@@ -1359,7 +1458,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Climb +14, Listen +6, Spot +6",
+    "appearance": "This powerful primate closely resembles a gorilla, though it is considerably more aggressive than its mundane cousins. An adult male stands five and a half to six feet tall and weighs 300 to 400 pounds, all of it corded muscle.",
+    "behavior": "It kills and eats nearly anything it can catch, often opening an attack with a display of aggression meant to intimidate potential foes before it closes.",
+    "appearanceGreenbound": "Its shaggy black fur has become a dense coat of moss and curling vine-leaves, and small branches now push out along its heavily muscled forearms and shoulders. Its knuckles have hardened into knots of dense heartwood, and its eyes glow faintly beneath a heavy brow of bark."
   },
   {
     "name": "Dire Weasel",
@@ -1391,8 +1494,8 @@
       }
     ],
     "specialAttacks": [
-      "attach",
-      "blood drain"
+      "attach (a bite hit latches the dire weasel onto its target, losing its Dex bonus to AC for an effective AC of 12; it can be struck normally or grappled off, which requires a pin to remove)",
+      "blood drain (1d4 Con damage each round it remains attached)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -1408,7 +1511,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Hide +8, Listen +3, Move Silently +8, Spot +5",
+    "appearance": "This sleek, fur-covered predator has a body longer than a human is tall, a wedge-shaped head crowned with short horns, four short legs, and a stumpy tail. It grows up to ten feet long and can weigh as much as 700 pounds.",
+    "behavior": "It is aggressive and almost manic, possessed of boundless energy; it stalks prey through the dark before leaping onto it to bite and claw, then clamps down and drains its victim's blood.",
+    "appearanceGreenbound": "Its sleek fur has become a pelt of overlapping moss and small curling leaves, and the short horns crowning its head have hardened into points of pale thorn-wood. Its stumpy tail now ends in a cluster of small dark seed pods, and thin vines trail from its flanks as it moves."
   },
   {
     "name": "Eagle, Giant",
@@ -1462,7 +1569,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Knowledge (nature) +2, Listen +6, Sense Motive +4, Spot +15, Survival +3",
+    "appearance": "This immense bird of prey resembles its smaller mundane cousins in nearly every respect except size — it stands about 10 feet tall, has a wingspan of up to 20 feet, and weighs about 500 pounds.",
+    "behavior": "It is intelligent and sometimes associates with good creatures, generally ignoring anything that doesn't appear threatening; it attacks whatever seems to endanger it, especially nest raiders, typically diving from a great height to strike with talons and beak.",
+    "appearanceGreenbound": "Its feathers have become layered plates of thin bark interwoven with trailing moss, thickest along its powerful wings, and small branches now sprout from its shoulders and the ridge of its neck. Its talons have hardened into curved black thorns, and its eyes hold a faint green glow."
   },
   {
     "name": "Lion",
@@ -1502,9 +1613,9 @@
       }
     ],
     "specialAttacks": [
-      "pounce",
-      "improved grab",
-      "rake"
+      "pounce (a charge allows a full attack, including two rake attacks)",
+      "improved grab (hit with a bite attack, then free grapple; a won grapple check establishes a hold and allows rake)",
+      "rake (+7 melee, 1d4+2 damage)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -1519,7 +1630,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +7, Hide +3 (improves to +12 in tall grass or heavy undergrowth), Listen +5, Move Silently +11, Spot +5",
+    "appearance": "This male African lion is five to eight feet long and weighs 330 to 550 pounds; females are slightly smaller but built the same way, all lean muscle beneath a tawny coat.",
+    "appearanceGreenbound": "Its tawny coat has become a mane and pelt of dry moss and curling vine-leaves, thickest around its head and shoulders, and small woody branches now push from along its spine and haunches. Its claws have hardened into curved thorns, and its once-golden eyes now hold a faint green glow."
   },
   {
     "name": "Owl, Giant",
@@ -1561,7 +1675,7 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "superior low-light vision"
+      "superior low-light vision (sees five times as far as a human in dim light)"
     ],
     "feats": [
       "Alertness",
@@ -1572,7 +1686,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 8,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Knowledge (nature) +2, Listen +17, Move Silently +8 (an additional +8 bonus while in flight), Spot +10",
+    "appearance": "This giant owl resembles its smaller cousins in nearly every way but size, standing about 9 feet tall with a wingspan of up to 20 feet.",
+    "behavior": "It is a nocturnal hunter feared for its ability to strike in near silence; intelligent but naturally suspicious, it sometimes associates with good creatures, and it attacks by gliding just above its prey before plunging down when directly overhead.",
+    "appearanceGreenbound": "Its feathers have become overlapping plates of pale, papery bark interwoven with moss, thickest across its broad wings, and small branches now sprout from behind its rounded facial disc. Its talons have hardened into curved thorns, and its great eyes hold a faint glow like twin seed pods catching the light."
   },
   {
     "name": "Satyr (without pipes)",
@@ -1618,7 +1736,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Bluff +9, Diplomacy +3, Disguise +1 (+3 acting), Hide +13, Intimidate +3, Knowledge (nature) +9, Listen +15, Move Silently +13, Perform (wind instruments) +9, Spot +15, Survival +1 (+3 aboveground)",
+    "appearance": "This creature looks like a horned man with the legs of a goat, its hair red or chestnut brown and its hooves and horns jet black. It stands about as tall and heavy as a half-elf.",
+    "behavior": "It is hedonistic, frolicking through the wild places of the world and favoring fine food, strong drink, and passionate romance; it mostly leaves travelers alone but is mischievous, seeking amusement at the expense of those who wander too near its woodland home, and its keen senses make it nearly impossible to catch off guard.",
+    "appearanceGreenbound": "Its goat legs have become jointed limbs of pale, fibrous heartwood, and curling green vines now grow in place of the hair on its head and haunches. Its horns have thickened into knots of dark thorn-wood, and small leaves sprout along its shoulders and forearms."
   },
   {
     "name": "Shark, Large",
@@ -1651,8 +1773,8 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blindsense",
-      "keen scent"
+      "blindsense (locate creatures within 30 ft. while underwater)",
+      "keen scent (detect creatures by scent in a 180-ft. radius, and blood in the water up to 1 mile away)"
     ],
     "feats": [
       "Alertness",
@@ -1664,7 +1786,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +8, Spot +7, Swim +11",
+    "appearance": "This large shark can reach around 15 feet in length, a serious threat to anything sharing the water with it, its torpedo-shaped body built for sudden bursts of speed.",
+    "behavior": "It circles and observes potential prey before darting in to bite with its powerful jaws, relying on scent and the ability to sense motion in the water to find a meal.",
+    "appearanceGreenbound": "Its gray hide has thickened into layered plates of pale bark, and long streamers of waterlogged moss now trail from its fins and flanks. Its teeth have hardened into rows of small woody thorns, and its eyes have swollen into dark, glistening seed pods."
   },
   {
     "name": "Snake, Constrictor",
@@ -1698,8 +1824,8 @@
       }
     ],
     "specialAttacks": [
-      "constrict",
-      "improved grab"
+      "constrict (1d3+4 damage on a successful grapple check)",
+      "improved grab (hit with a bite attack, then free grapple; a won grapple check establishes a hold and allows constrict)"
     ],
     "specialQualities": [
       "scent"
@@ -1713,7 +1839,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +11, Climb +14, Hide +10, Listen +7, Spot +7, Swim +11",
+    "appearance": "This snake is thick-bodied and powerfully muscled along its entire length, built to squeeze the life from prey rather than poison it. It usually isn't aggressive and flees when confronted.",
+    "behavior": "It hunts by grabbing prey with its mouth before squeezing it in its powerful coils, but it doesn't attempt to make a meal of anything too large to constrict.",
+    "appearanceGreenbound": "Its thick, muscular coils have become ropes of dense, fibrous vine-wood wrapped in trailing moss, and small leaves now sprout along its entire length. Its head has hardened into a wedge of pale bark, and two small glowing seed pods sit where its eyes once were."
   },
   {
     "name": "Snake, Large Viper",
@@ -1747,7 +1877,7 @@
       }
     ],
     "specialAttacks": [
-      "poison"
+      "poison (bite, Fort DC 11, initial and secondary damage 1d6 Con)"
     ],
     "specialQualities": [
       "scent"
@@ -1761,7 +1891,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +11, Climb +11, Hide +8, Listen +5, Spot +6, Swim +8",
+    "appearance": "This snake's patterning ranges widely by region, but its large size, wedge-shaped venomous head, and quick, sinuous body mark it clearly as a viper.",
+    "behavior": "It isn't especially aggressive and prefers to avoid conflict, but if cornered it lashes out with a venomous bite before trying to retreat.",
+    "appearanceGreenbound": "Its scales have given way to overlapping bark plates threaded with moss, and its swollen venom glands now bulge with thick green sap. Pale blossoms have replaced its eyes, and thin curling vines trail the length of its body."
   },
   {
     "name": "Thoqqua",
@@ -1794,8 +1928,8 @@
       }
     ],
     "specialAttacks": [
-      "heat",
-      "burn"
+      "heat (a touch, or being touched, automatically deals 2d6 fire damage)",
+      "burn (a slam hit forces a DC 12 Reflex save or the target catches fire, burning for 1d4 rounds unless extinguished sooner with a full-round action)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -1813,7 +1947,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +5, Move Silently +3, Survival +3",
+    "appearance": "This wormlike creature has a sinuous body segmented like an earthworm's, glowing orange-white with heat along its entire length. It is about a foot in diameter and four to five feet long, weighing about 200 pounds.",
+    "behavior": "It has a choleric mood and a foul temper, spending most of its time burrowing through rock in search of minerals to eat; when disturbed, its first instinct is to attack, favoring a tactic of springing directly at a foe by bursting from rock or coiling and launching itself like a spring."
   },
   {
     "name": "Arrowhawk, Juvenile",
@@ -1852,7 +1989,7 @@
       }
     ],
     "specialAttacks": [
-      "electricity ray"
+      "electricity ray (Su, usable once per round, 50-ft. range, +9 ranged touch, 2d6 electricity damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -1868,7 +2005,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Diplomacy +3, Escape Artist +11, Knowledge (the planes) +6, Listen +7, Move Silently +11, Search +6, Sense Motive +7, Spot +7, Survival +7 (+9 following tracks, +9 on the Plane of Air), Use Rope +5 (+7 with bindings)",
+    "appearance": "This sinuous, snakelike creature has a long neck and tail, two pairs of feathered wings extending from the top and bottom of its body, and iridescent blue scales with tufts of yellow feathers at the base of its neck and tail. Its head bears a black, toothed beak and four eyes, one pair above the beak and one below. A juvenile is about 5 feet long with a 7-foot wingspan and weighs about 20 pounds.",
+    "behavior": "It is a predator and scavenger that spends its entire life on the wing, never touching ground even to eat, sleep, or mate; it is extremely territorial and always hungry, attacking almost any creature it meets, firing its electricity ray from a distance before closing to bite.",
+    "appearanceGreenbound": "Its iridescent scales have become overlapping plates of pale bark dusted with moss, and its feathered wings are now fringed with trailing vines instead of plumage. Its four eyes have swollen into small glowing seed pods, and its toothed beak has hardened into a point of dark thorn-wood."
   },
   {
     "name": "Crocodile, Giant",
@@ -1908,10 +2049,10 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (hit with a bite attack, then free grapple; a won grapple check establishes a hold and the crocodile drags its victim into deep water, attempting to pin it to the bottom)"
     ],
     "specialQualities": [
-      "hold breath",
+      "hold breath (can hold its breath for a number of rounds equal to 4 × its Constitution score before risking drowning)",
       "low-light vision"
     ],
     "feats": [
@@ -1924,7 +2065,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Hide +1 (+4 in water, plus a +10 cover bonus when only its eyes and nostrils show above the waterline), Listen +5, Spot +5, Swim +16",
+    "appearance": "This huge crocodile usually lives in salt water and can grow to more than 20 feet long, dwarfing its smaller cousins but sharing their armored, powerful build.",
+    "behavior": "It fights and behaves just like a smaller crocodile, lying mostly submerged with only its eyes and nostrils showing while it waits for prey to come within reach.",
+    "appearanceGreenbound": "Its armored hide has become a shell of thick, waterlogged bark plates trailing long streamers of moss, and small branches now push from along its powerful tail. Its teeth have hardened into rows of pale thorns, and its eyes hold a faint glow just above the waterline."
   },
   {
     "name": "Deinonychus",
@@ -1971,7 +2116,7 @@
       }
     ],
     "specialAttacks": [
-      "pounce"
+      "pounce (a charge allows a full attack)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -1986,7 +2131,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Hide +8, Jump +26, Listen +10, Spot +10, Survival +10",
+    "appearance": "This lean, long-legged bipedal dinosaur has wicked claws on its feet and a brightly colored hide reminiscent of a tropical bird; it stands about as tall as a human, with an outstretched tail making it at least twice as long. It is bright green along its back and flanks with a lighter shade underneath and darker spots or stripes, and weighs about 600 pounds.",
+    "behavior": "It hunts by running at prey, leaping, and ripping with the killing talons on its hind feet while it claws and bites, and its relatively large brain lets its packs hunt with real cunning.",
+    "appearanceGreenbound": "Its brightly patterned hide has become mottled bark plates threaded through with moss, thickest along its back and tail, and small branches now bristle from its bony tail supports. Its killing talons have hardened into curved black thorns, and its eyes hold a faint green glow."
   },
   {
     "name": "Dire Ape",
@@ -2027,7 +2176,7 @@
       }
     ],
     "specialAttacks": [
-      "rend"
+      "rend (2d6+9 damage automatically dealt when both claw attacks hit)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -2042,7 +2191,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Climb +14, Listen +5, Move Silently +4, Spot +6",
+    "appearance": "This great, feral ape is about the size of an ogre but even more muscular, barrel-chested with thick black fur, long arms, and a broad muzzle well equipped with claws and teeth. It stands about 9 feet tall and weighs 800 to 1,200 pounds.",
+    "behavior": "It is territorial and attacks anything that enters its territory, even other dire apes; if an opponent's armor foils its attacks it grapples and pins the foe, then rends the prone target.",
+    "appearanceGreenbound": "Its thick black fur has become a shaggy coat of dark moss and curling vine-leaves, and small branches now push out along its heavily muscled arms and back. Its claws have hardened into curved thorns of pale heartwood, and its eyes hold a faint inner glow beneath a heavy brow of bark."
   },
   {
     "name": "Dire Boar",
@@ -2074,7 +2227,7 @@
       }
     ],
     "specialAttacks": [
-      "ferocity"
+      "ferocity (continues fighting without penalty even while disabled or dying)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -2090,7 +2243,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +8, Spot +8",
+    "appearance": "This giant boar has an arched back as tall as a human, spiny armor across its head and back, great gleaming tusks, and small, furious eyes. It grows up to 12 feet long and weighs as much as 2,000 pounds.",
+    "behavior": "It spends most of its time rooting around much like an ordinary pig, but viciously attacks anything that approaches it, charging opponents in an attempt to rip them open with its tusks.",
+    "appearanceGreenbound": "Its spiny armored hide has become plates of dark, gnarled bark bristling with small branches, and patches of moss now cling along its flanks. Its tusks have thickened into great curved thorns, and its small furious eyes hold a faint green glow."
   },
   {
     "name": "Elemental, Medium Air",
@@ -2122,8 +2279,8 @@
       }
     ],
     "specialAttacks": [
-      "air mastery",
-      "whirlwind"
+      "air mastery (airborne creatures take a -1 penalty on attack and damage rolls against it)",
+      "whirlwind (Su, usable once every 10 minutes, lasting up to 1 round per 2 HD; 5 ft. wide at the base and up to 30 ft. wide and tall for this size; a creature touching it takes 1d6 damage on a failed DC 13 Reflex save (Strength-based) and, on a second failed save, is picked up and held suspended, taking damage each round until it escapes)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2140,7 +2297,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +3, Spot +4",
+    "appearance": "This creature appears to be an amorphous, shifting cloud surrounded by fast-moving currents of air, with darker twists of vapor suggesting two eyes and a mouth that may just be a trick of the swirling wind.",
+    "behavior": "It is among the swiftest and most agile of elementals, seldom leaving its home plane except when summoned, and its rapid speed makes it especially dangerous across open battlefields or in aerial combat."
   },
   {
     "name": "Elemental, Medium Earth",
@@ -2172,12 +2332,12 @@
       }
     ],
     "specialAttacks": [
-      "earth mastery",
-      "push"
+      "earth mastery (+1 bonus on attack and damage rolls if both it and its foe are touching the ground; a -4 penalty applies against an airborne or waterborne foe)",
+      "push (can start a bull rush maneuver without provoking an attack of opportunity, using the same earth mastery modifiers on the opposed Strength check)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
-      "earth glide",
+      "earth glide (can glide through stone, dirt, or almost any other earth except metal as easily as a fish swims, leaving no tunnel or trace)",
       "elemental traits"
     ],
     "feats": [
@@ -2189,7 +2349,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +4, Spot +3",
+    "appearance": "This creature plods forward like a walking hill, on two featureless legs of rock and earth, with clublike arms of jagged stone swinging at its sides and a featureless head staring blankly ahead.",
+    "behavior": "It is immensely strong and tough, capable of pounding almost anything into rubble, and though it moves slowly it is a relentless opponent; it cannot swim and must walk around or glide beneath any body of water."
   },
   {
     "name": "Elemental, Medium Fire",
@@ -2221,7 +2384,7 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (a slam hit deals fire damage and forces a DC 14 Reflex save or the target catches fire, burning for 1d4 rounds unless extinguished; anything striking it with natural weapons or unarmed attacks takes fire damage and risks catching fire too)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2240,7 +2403,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +3, Spot +4",
+    "appearance": "This mass of ambulatory flame races across the ground, flickering and sparking from a central, humanoid-shaped conflagration, like a living inferno of heat and flame.",
+    "behavior": "It is fast, agile, and fierce, attacking directly and savagely and taking joy in burning the creatures and objects of the Material Plane to ashes; it cannot enter water or any other nonflammable liquid."
   },
   {
     "name": "Elemental, Medium Water",
@@ -2273,9 +2439,9 @@
       }
     ],
     "specialAttacks": [
-      "water mastery",
-      "drench",
-      "vortex"
+      "water mastery (+1 bonus on attack and damage rolls if both it and its foe are touching water; a -4 penalty applies if either is touching the ground)",
+      "drench (its touch extinguishes torches, campfires, and other open flames of Large size or smaller, and it can dispel magical fire it touches as dispel magic at a caster level equal to its HD)",
+      "vortex (Su, usable once every 10 minutes while underwater, lasting up to 1 round per 2 HD; 5 ft. wide at the base and up to 30 ft. wide and at least 10 ft. tall; a creature touching it takes 1d6 damage on a failed DC 15 Reflex save (Strength-based) and, on a second failed save, is swept up and held, taking damage each round until it escapes)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2290,7 +2456,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +3, Spot +4",
+    "appearance": "This creature is a rolling vortex of water that never seems to crash or lose its shape, waves cascading and storming around a central, humanoid-shaped whirlpool with watery appendages that pound like an ocean storm.",
+    "behavior": "It can be as ferocious and powerful as a stormy sea, preferring to fight in a large body of water where it can vanish beneath the waves and suddenly swell up behind its opponents; it cannot venture more than 180 feet from the water it was conjured from."
   },
   {
     "name": "Salamander, Flamebrother",
@@ -2329,9 +2498,9 @@
       }
     ],
     "specialAttacks": [
-      "constrict",
-      "heat",
-      "improved grab"
+      "constrict (1d4 plus 1d6 fire damage on a successful grapple check)",
+      "heat (its intense body heat deals extra fire damage on a successful touch, and its metal weapons conduct the same heat)",
+      "improved grab (hit with a tail slap against a foe up to one size larger, then free grapple; a won grapple check establishes a hold and allows constrict)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2347,7 +2516,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Craft (blacksmithing) +8, Hide +12, Listen +11, Move Silently +6, Spot +11",
+    "appearance": "This being has a muscular humanoid upper body with a hawkish face, a serpentine lower body covered in red and black scales, and flame-shaped spines sprouting from its spine, arms, and head. It is the smallest of the salamanders.",
+    "behavior": "It is selfish and cruel, enjoying the torment of others, and bloodthirsty and sadistic in a fight, quick to attack the strongest opponent first while saving weaker foes for slower, more agonizing treatment; it favors metal spears heated red-hot by its own furnacelike body.",
+    "appearanceGreenbound": "Its red and black scales have become mottled plates of dark bark threaded with charred-looking moss, and the flame-shaped spines along its spine and head have hardened into rows of dark thorns. Its serpentine lower body is now wrapped in trailing vines, and its eyes hold a faint green glow instead of firelight."
   },
   {
     "name": "Sea Cat",
@@ -2388,7 +2561,7 @@
       }
     ],
     "specialAttacks": [
-      "rend"
+      "rend (2d6+6 damage automatically dealt when both claw attacks hit)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2406,7 +2579,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +8, Spot +7, Swim +12",
+    "appearance": "This creature has a body like a porpoise or small whale, with a leonine head and forepaws, and a ruff of silky hair running from the top of its head all the way to its tail flukes.",
+    "behavior": "It is a fearsome aquatic predator, lairing in undersea caves or shipwreck wreckage in shallow coastal waters, and it hunts fish, aquatic mammals, sea birds, and anything else it can catch and kill.",
+    "appearanceGreenbound": "Its sleek hide has become smooth, waterlogged bark mottled with moss, and its silky ruff of hair is now a trailing mane of long green vines running from head to tail flukes. Its claws have hardened into curved thorns, and its leonine face holds a faint glow behind eyes like dark seed pods."
   },
   {
     "name": "Shark, Huge",
@@ -2439,8 +2616,8 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blindsense",
-      "keen scent"
+      "blindsense (locate creatures within 30 ft. while underwater)",
+      "keen scent (detect creatures by scent in a 180-ft. radius, and blood in the water up to 1 mile away)"
     ],
     "feats": [
       "Alertness",
@@ -2453,7 +2630,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Listen +10, Spot +10, Swim +13",
+    "appearance": "This huge shark is a true monster of the deep, exceeding 20 feet in length, like a great white grown to nightmarish proportions.",
+    "behavior": "It circles and observes potential prey before darting in to bite with its immense jaws, relying on scent and the ability to sense motion in the water to find a meal.",
+    "appearanceGreenbound": "Its gray hide has thickened into massive layered plates of pale bark, and huge streamers of waterlogged moss now trail from its fins the length of its body. Its teeth have hardened into rows of dense woody thorns, and its eyes have swollen into dark, glistening seed pods."
   },
   {
     "name": "Snake, Huge Viper",
@@ -2487,7 +2668,7 @@
       }
     ],
     "specialAttacks": [
-      "poison"
+      "poison (bite, Fort DC 14, initial and secondary damage 1d6 Con)"
     ],
     "specialQualities": [
       "scent"
@@ -2502,7 +2683,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +10, Climb +11, Hide +3, Listen +7, Spot +7, Swim +11",
+    "appearance": "This viper is enormous, its wedge-shaped venomous head and thick, quick-moving body dwarfing its smaller kin.",
+    "behavior": "It isn't especially aggressive and prefers to avoid conflict, but if cornered it lashes out with a venomous bite before trying to retreat.",
+    "appearanceGreenbound": "Its scales have given way to broad plates of dark bark threaded with moss, and its swollen venom glands now bulge with thick green sap. Pale blossoms have replaced its eyes, and heavy curling vines trail the length of its long body."
   },
   {
     "name": "Tiger",
@@ -2542,9 +2727,9 @@
       }
     ],
     "specialAttacks": [
-      "improved grab",
-      "pounce",
-      "rake"
+      "improved grab (hit with a claw or bite attack, then free grapple; a won grapple check establishes a hold and allows rake)",
+      "pounce (a charge allows a full attack, including two rake attacks)",
+      "rake (+9 melee, 1d8+3 damage)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -2560,7 +2745,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Balance +6, Hide +3 (improves to +8 in tall grass or heavy undergrowth), Listen +3, Move Silently +9, Spot +3, Swim +11",
+    "appearance": "This great cat stands more than 3 feet tall at the shoulder and is about 9 feet long, weighing 400 to 600 pounds.",
+    "appearanceGreenbound": "Its striped coat has become mottled plates of pale bark threaded with dark moss, thickest along its back and tail, and small branches now bristle from its shoulders and haunches. Its claws have hardened into curved black thorns, and its eyes hold a faint green glow."
   },
   {
     "name": "Tojanida, Juvenile",
@@ -2601,11 +2789,11 @@
       }
     ],
     "specialAttacks": [
-      "improved grab",
-      "ink cloud"
+      "improved grab (hit with a bite or claw attack, then free grapple; underwater it can tow a grabbed victim of its own size or smaller at its swim speed)",
+      "ink cloud (a 30-ft.-radius cloud of ink once per minute as a free action, functioning as fog cloud at a caster level equal to its HD; out of water it can instead squirt a stream of ink up to 30 ft. into a foe's eyes, Fort DC 13 or blinded for 1 round)"
     ],
     "specialQualities": [
-      "all-around vision",
+      "all-around vision (+4 racial bonus on Spot and Search checks; can't be flanked)",
       "darkvision 60 ft.",
       "immunity to acid and cold",
       "resistance to electricity 10 and fire 10"
@@ -2619,7 +2807,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Diplomacy +1, Escape Artist +7, Hide +11, Knowledge (the planes) +6, Listen +7, Search +6, Sense Motive +7, Spot +9, Survival +1 (+3 on other planes and following tracks), Swim +10, Use Rope +1 (+3 with bindings)",
+    "appearance": "This creature resembles a snapping turtle, with a spindle-shaped shell of hexagonal plates and a narrow head whose jaws open horizontally rather than vertically. Crablike claws and paddles sprout from openings at both ends of its shell. A juvenile's shell is about 3 feet long, and it weighs about 60 pounds.",
+    "behavior": "It is fairly even-tempered but can turn ferocious if molested, and it is jealous of its food supply, growing testy if it suspects a newcomer is trying to beat it to a meal; despite its clumsy appearance it is a nimble swimmer and capable fighter.",
+    "appearanceGreenbound": "Its hexagonal shell plates have become knotted plates of dark bark bound together with trailing moss, and small leaves now sprout from the shell's edges. Its crablike claws have hardened into curved thorns, and its stalked eyes have swollen into pale, glowing seed pods."
   },
   {
     "name": "Unicorn",
@@ -2661,12 +2853,12 @@
     "specialAttacks": [],
     "specialQualities": [
       "darkvision 60 ft.",
-      "magic circle against evil",
-      "spell-like abilities",
+      "magic circle against evil (Su, continuous, cannot be suppressed)",
+      "spell-like abilities (at will — detect evil, as a free action; 1/day — greater teleport, within its home forest only; cure light wounds 3/day and cure moderate wounds 1/day by touching a wounded creature with its horn, caster level 5th; 1/day — neutralize poison by touch, DC 21, caster level 8th)",
       "immunity to poison, charm, and compulsion",
       "low-light vision",
       "scent",
-      "wild empathy"
+      "wild empathy (as the druid class feature, with a +6 racial bonus on the check)"
     ],
     "feats": [
       "Alertness",
@@ -2677,7 +2869,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 8,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Jump +21, Listen +11, Move Silently +9, Spot +11, Survival +8 (a +3 competence bonus applies within the boundaries of its own forest)",
+    "appearance": "This powerful equine creature has a gleaming white coat, big lively eyes, and long silky white hair in its mane and forelock. A single ivory-colored horn about 2 feet long grows from the center of its forehead, and its hooves are cloven.",
+    "behavior": "It is fierce and noble, shunning contact with all but sylvan creatures and showing itself only to defend its woodland home; it attacks only in self-defense or to protect its forest, charging to impale foes on its horn or striking with its hooves, and it will attack any being it finds killing for sport or maliciously damaging the forest.",
+    "appearanceGreenbound": "Its gleaming white coat has become a hide of pale, silvery bark dusted with pale green moss, and its silky mane and forelock now trail as long ribbons of flowering vine. Its ivory horn has thickened into a spiraling length of hardened heartwood, and its once-lively eyes hold a soft, blossom-like glow."
   },
   {
     "name": "Xorn, Minor",
@@ -2719,7 +2915,7 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "all-around vision",
+      "all-around vision (+4 racial bonus on Spot and Search checks; can't be flanked)",
       "earth glide",
       "damage reduction 5/bludgeoning",
       "darkvision 60 ft.",
@@ -2736,7 +2932,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Hide +10, Intimidate +3, Knowledge (dungeoneering) +6, Listen +6, Move Silently +3, Search +6, Spot +8, Survival +6 (+8 following tracks or underground)",
+    "appearance": "This bizarre creature has a wide body made of pebbly, stonelike material, a large powerful mouth on top of its head, and three long arms tipped with sharp talons positioned symmetrically around it. Between the arms sit large, stone-lidded eyes that see in every direction, and at its base are three thick, short legs, each directly beneath an eye. A minor xorn is about 3 feet tall and wide and weighs about 120 pounds.",
+    "behavior": "It is a scavenger from the Elemental Plane of Earth that does not attack fleshly beings except in self-defense, since it can't digest meat; it is otherwise indifferent to material-plane creatures except anyone carrying precious metals or minerals, which it can smell up to 20 feet away and will aggressively pursue. Its favorite tactic is to wait just beneath a stone surface until a foe comes within reach, then emerge suddenly.",
+    "appearanceGreenbound": "Its pebbly stone hide has become knotted plates of dark bark bound with mossy growth, and small twisted branches now push out between its stony joints. Its sharp talons have hardened into curved thorns, and its stone-lidded eyes have become pale, glowing seed pods set into knots of heartwood."
   },
   {
     "name": "Arrowhawk, Adult",
@@ -2775,7 +2975,7 @@
       }
     ],
     "specialAttacks": [
-      "electricity ray"
+      "electricity ray (ranged touch +12, 2d8 electricity, 50-ft. range, usable once per round)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -2792,7 +2992,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Diplomacy +3, Escape Artist +15, Knowledge (the planes) +10, Listen +11, Move Silently +15, Search +10, Sense Motive +11, Spot +11, Survival +11 (+13 following tracks, +13 Plane of Air), Use Rope +5 (+7 with bindings)",
+    "appearance": "An arrowhawk has a long, sinuous, snakelike body with a lengthy neck and tail, and two pairs of feathered wings -- one above and one below -- that let it fly in any direction without ever landing. Iridescent blue scales cover most of its length, broken by tufts of yellow feathers at the base of its neck and tail, and its blunt, toothed beak sits beneath two pairs of eyes.",
+    "behavior": "Arrowhawks are relentlessly territorial and always hungry, attacking almost any creature they encounter either for a meal or to drive off a rival. They prefer to strike from range with their electricity ray and only close to bite when they have no other choice.",
+    "appearanceGreenbound": "In its greenbound state the arrowhawk's scaled hide has hardened into overlapping plates of pale bark, and its four wings are now membranes of woven leaves stretched over vine-like ribs. Its once-feathered tufts have become tight clusters of moss and small white blossoms, and a faint green light glimmers from each of its four eyes."
   },
   {
     "name": "Bear, Polar",
@@ -2833,7 +3037,7 @@
       }
     ],
     "specialAttacks": [
-      "improved grab"
+      "improved grab (grapple as a free action following a claw hit, no attack of opportunity)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -2849,7 +3053,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Hide -2*, Listen +5, Spot +7, Swim +16 (*white coat grants +12 racial bonus on Hide checks in snowy areas; can always take 10 on Swim checks and use the run action while swimming in a straight line)",
+    "appearance": "A polar bear is a long, lean carnivore, slightly taller at the shoulder than a brown bear, with a heavy white coat suited to its cold habitat.",
+    "behavior": "Polar bears fight much as brown bears do, tearing into prey with their claws and following up with a crushing bite.",
+    "appearanceGreenbound": "The greenbound polar bear's white coat has become a shag of pale moss and lichen over limbs of pale, waterlogged-looking wood, and its claws have hardened into curved white thorns. Patches of small pale flowers dot its shoulders and back like scattered frost."
   },
   {
     "name": "Dire Lion",
@@ -2889,9 +3097,9 @@
       }
     ],
     "specialAttacks": [
-      "improved grab",
-      "pounce",
-      "rake"
+      "improved grab (grapple as a free action following a bite hit; a successful grapple check lets it rake)",
+      "pounce (can make a full attack, including two rake attacks, after a charge)",
+      "rake (+12 melee, 1d6+3 damage)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -2907,7 +3115,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Hide +2*, Listen +7, Move Silently +5, Spot +7 (*+8 in tall grass or heavy undergrowth)",
+    "appearance": "This immense lion has a short mane and a spotted, tawny coat, but bony protrusions ring its eyes and shoulders, and spiked ridges run the length of its back.",
+    "behavior": "Dire lions are patient hunters like their smaller cousins, but far more willing to take on larger prey -- they run down a target, leap onto it, and rake with their hind claws while clawing and biting.",
+    "appearanceGreenbound": "The dire lion's tawny coat has become a tangle of dry moss and creeping vine, its mane a corona of thin, leafy branches, and the bony ridges along its back and around its eyes have swollen into knots of hardened, thorny heartwood."
   },
   {
     "name": "Elasmosaurus",
@@ -2954,7 +3166,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Hide -4*, Listen +4, Spot +9, Swim +16 (*+8 racial bonus on Hide checks in water)",
+    "appearance": "An elasmosaurus has a thick, ovoid body with fins in place of legs and an extremely long, snakelike neck and tail, the neck alone accounting for half its total length; a glimpse of only its head or tail is easily mistaken for a giant snake.",
+    "behavior": "An elasmosaurus is aggressive and attacks anything it notices, using its strength, speed, and maneuverability to turn quickly and lunge at prey; when hunting it swims with its head above the surface, snapping down suddenly to seize its target.",
+    "appearanceGreenbound": "The elasmosaurus's fins have broadened into leaf-shingled paddles and its long neck is now a corded vine of pulpy wood ending in a head plated with bark-like scales. Small white blossoms trail down the length of its serpentine neck like a string of lights."
   },
   {
     "name": "Elemental, Large Air",
@@ -2987,8 +3203,8 @@
       }
     ],
     "specialAttacks": [
-      "air mastery",
-      "whirlwind"
+      "air mastery (airborne creatures take a -1 penalty on attack and damage rolls against it)",
+      "whirlwind (Su, usable once every 10 minutes, lasts up to 4 rounds; forms a 10-40-ft.-tall vortex; a creature caught must succeed on a Reflex DC 16 save or take 2d6 damage and be swept up)"
     ],
     "specialQualities": [
       "damage reduction 5/-",
@@ -3007,7 +3223,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +5, Spot +6",
+    "appearance": "A Large air elemental looks like a churning, man-sized column of cloud and racing wind, with darker wisps of vapor swirling into the vague suggestion of eyes and a mouth.",
+    "behavior": "Air elementals are among the swiftest and most agile creatures in existence, rarely leaving their home plane except when summoned; their speed makes them formidable on open battlefields or in extended aerial combat."
   },
   {
     "name": "Elemental, Large Earth",
@@ -3040,12 +3259,12 @@
       }
     ],
     "specialAttacks": [
-      "earth mastery",
-      "push"
+      "earth mastery (+1 bonus on attack and damage rolls when both it and its foe are touching the ground; -4 penalty against an airborne or waterborne foe)",
+      "push (can attempt a bull rush without provoking an attack of opportunity, using its earth mastery bonuses)"
     ],
     "specialQualities": [
       "damage reduction 5/-",
-      "earth glide",
+      "earth glide (can burrow through stone, dirt, or nearly any other earth as easily as swimming, leaving no tunnel or trace)",
       "darkvision 60 ft.",
       "elemental traits"
     ],
@@ -3059,7 +3278,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +6, Spot +5",
+    "appearance": "A Large earth elemental plods forward on two thick, featureless legs of packed stone and soil, its blocky arms of jagged rock swinging at its sides beneath a featureless, staring head.",
+    "behavior": "Though slow, an earth elemental is a relentless opponent that can pound nearly anything to rubble; it rarely leaves its home plane except when summoned elsewhere."
   },
   {
     "name": "Elemental, Large Fire",
@@ -3092,7 +3314,7 @@
       }
     ],
     "specialAttacks": [
-      "burn"
+      "burn (a successful slam deals extra fire damage, and the target must succeed on a Reflex DC 17 save or catch fire for 1d4 rounds; a creature striking it with a natural weapon or unarmed attack takes fire damage and risks catching fire as well)"
     ],
     "specialQualities": [
       "damage reduction 5/-",
@@ -3114,7 +3336,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +5, Spot +6",
+    "appearance": "A Large fire elemental is a roaring, roughly humanoid mass of flame that flickers and sparks as it moves, radiating heat like a walking bonfire.",
+    "behavior": "Fire elementals are quick and fierce combatants that delight in setting the creatures and objects of the Material Plane ablaze, attacking directly and savagely rather than with any subtlety."
   },
   {
     "name": "Elemental, Large Water",
@@ -3148,9 +3373,9 @@
       }
     ],
     "specialAttacks": [
-      "water mastery",
-      "drench",
-      "vortex"
+      "water mastery (+1 bonus on attack and damage rolls when both it and its foe are touching water; -4 penalty if either it or its foe is touching the ground)",
+      "drench (its touch extinguishes small nonmagical flames and can dispel magical fire it touches, as dispel magic at its Hit Dice)",
+      "vortex (Su, usable once every 10 minutes while underwater, lasts up to 4 rounds; forms a 10-40-ft.-tall whirlpool; a creature caught must succeed on a Reflex DC 19 save or take 2d6 damage and be swept up)"
     ],
     "specialQualities": [
       "damage reduction 5/-",
@@ -3170,7 +3395,10 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +5, Spot +6",
+    "appearance": "A Large water elemental is a rolling, ever-shifting vortex of water shaped roughly like a humanoid, its surface constantly cascading and churning like a small storm at sea.",
+    "behavior": "A water elemental prefers to fight from within a large body of water, where it can vanish beneath the surface and swell up suddenly behind its foes; it can also swamp small boats and slow larger ships that cross its path."
   },
   {
     "name": "Griffon",
@@ -3211,8 +3439,8 @@
       }
     ],
     "specialAttacks": [
-      "pounce",
-      "rake"
+      "pounce (can make a full attack, including two rake attacks, after diving on or charging a foe)",
+      "rake (+8 melee, 1d6+2 damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -3229,7 +3457,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Jump +8, Listen +6, Spot +10",
+    "appearance": "This creature's body resembles a muscular lion's, but its head and forelegs belong to a great eagle, and a pair of broad golden wings rise from its back.",
+    "behavior": "Griffons are aggressive, territorial hunters that swoop down on prey with a shrill, eaglelike cry, favoring the flesh of horses above all else, though they are shrewd enough to avoid obviously powerful foes.",
+    "appearanceGreenbound": "The griffon's golden plumage has become a mantle of layered leaves down its wings and back, while its leonine hindquarters are covered in mossy fur over creeper-corded muscle. Its beak and talons have hardened into pale, thorn-sharp wood, and small buds sprout along the trailing edge of each wing."
   },
   {
     "name": "Janni",
@@ -3269,13 +3501,13 @@
       }
     ],
     "specialAttacks": [
-      "change size",
-      "spell-like abilities"
+      "change size (Sp, 2/day, functions as enlarge person or reduce person and can target itself, Fortitude DC 13 negates, caster level 2nd)",
+      "spell-like abilities (3/day--invisibility [self only], speak with animals; 1/day--create food and water [caster level 7th], ethereal jaunt [caster level 12th, 1 hour]; caster level 12th)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
-      "elemental endurance",
-      "plane shift",
+      "elemental endurance (can survive on the Elemental Planes of Air, Earth, Fire, or Water for up to 48 hours before taking 1 point of damage per additional hour there)",
+      "plane shift (Sp, can transport itself and up to eight other creatures linking hands between the Elemental Planes, the Astral Plane, and the Material Plane, as the spell)",
       "resistance to fire 10",
       "telepathy 100 ft."
     ],
@@ -3290,7 +3522,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Appraise +11, Concentration +10, Craft (any two) +11, Diplomacy +3, Escape Artist +6, Listen +11, Move Silently +6, Ride +11, Sense Motive +11, Spot +11, Use Rope +2 (+4 with bindings)",
+    "appearance": "A janni looks like a tall human of unusually regal bearing, standing proudly as though it belonged to nobility.",
+    "behavior": "Jann are physically strong and courageous and take insult or injury poorly; if a fight turns against them they retreat into flight and invisibility to regroup rather than press a losing fight. Many bands live as nomads, herding camels, goats, or sheep between desert oases, and are easily mistaken for ordinary human travelers until provoked.",
+    "appearanceGreenbound": "The janni's human-seeming skin has given way to mottled bark and thick creeper-like tissue over its regal frame, with short leafy branches pushing free at the shoulders and along the spine. Its eyes have taken on a faint green luminance, and tufts of moss cling where hair once grew."
   },
   {
     "name": "Rhinoceros",
@@ -3322,7 +3558,7 @@
       }
     ],
     "specialAttacks": [
-      "powerful charge"
+      "powerful charge (deals 4d6+24 damage when it charges)"
     ],
     "specialQualities": [
       "low-light vision"
@@ -3337,7 +3573,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +14, Spot +3",
+    "appearance": "The rhinoceros is a massive herbivore known for its bad temper and willingness to charge intruders, bearing a huge plate of bone over the front of its head from which project two great horns and a shorter nasal horn.",
+    "behavior": "When harassed or annoyed, a rhinoceros lowers its head and charges rather than tolerate the disturbance.",
+    "appearanceGreenbound": "The rhinoceros's thick gray hide has thickened further into slabs of rough bark, and its great horns have taken on the pale sheen of hardened heartwood. Moss grows in the deep creases of its hide, and small leafy shoots sprout along its spine and haunches."
   },
   {
     "name": "Satyr (with pipes)",
@@ -3369,7 +3609,7 @@
       }
     ],
     "specialAttacks": [
-      "pipes"
+      "pipes (Su, a satyr carrying pan pipes can affect all creatures except satyrs within a 60-ft. spread with charm person, sleep, or fear (satyr's choice) unless they succeed on a DC 13 Will save; caster level 10th; a creature that saves cannot be affected by the same pipes again for 24 hours)"
     ],
     "specialQualities": [
       "damage reduction 5/cold iron",
@@ -3385,7 +3625,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Bluff +9, Diplomacy +3, Disguise +1 (+3 acting), Hide +13, Intimidate +3, Knowledge (nature) +9, Listen +15, Move Silently +13, Perform (wind instruments) +9, Spot +15, Survival +1 (+3 aboveground)",
+    "appearance": "A satyr looks like a horned man with the legs of a goat, its hair red or chestnut brown and its hooves and horns jet black; it stands about as tall and heavy as a half-elf.",
+    "behavior": "Satyrs are hedonistic, mischievous fey that frolic through the wild places of the world and love fine food, strong drink, and passionate romance; they mostly leave travelers alone but delight in playing pranks on those who wander too near their woodland homes.",
+    "appearanceGreenbound": "The satyr's goat legs have become jointed limbs of pale, fibrous wood wrapped in curling vine, and its chestnut hair has been replaced by trailing moss and small woodland flowers. Its once-black horns and hooves have hardened into pale, thorn-like heartwood, faintly gleaming at the tips."
   },
   {
     "name": "Snake, Giant Constrictor",
@@ -3419,8 +3663,8 @@
       }
     ],
     "specialAttacks": [
-      "constrict",
-      "improved grab"
+      "constrict (1d8+10 damage on a successful grapple check)",
+      "improved grab (grapple as a free action following a bite hit; underwater it can tow a grabbed victim of its own size or smaller at its swim speed)"
     ],
     "specialQualities": [
       "scent"
@@ -3436,7 +3680,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Balance +11, Climb +17, Hide +10, Listen +9, Spot +9, Swim +16",
+    "appearance": "A giant constrictor snake is an enormous serpent whose sheer bulk allows it to squeeze the life from prey many times its own size.",
+    "behavior": "Giant constrictor snakes are more aggressive than their smaller kin, largely because their size demands a correspondingly large amount of food to survive.",
+    "appearanceGreenbound": "The giant constrictor's scaled hide has become an armor of overlapping bark-plates over a body of pulpy, fibrous wood, and thin trailing vines hang from its coils like moss from a branch. Its eyes have taken on a faint green glow, and small pale blossoms nestle between its coils."
   },
   {
     "name": "Nixie",
@@ -3476,15 +3724,15 @@
       }
     ],
     "specialAttacks": [
-      "charm person"
+      "charm person (Sp, 3/day, as the spell, caster level 4th; a target that fails a DC 15 Will save is charmed for 24 hours)"
     ],
     "specialQualities": [
-      "amphibious",
+      "amphibious (can survive indefinitely on land despite being aquatic)",
       "damage reduction 5/cold iron",
       "low-light vision",
       "spell resistance 16",
-      "water breathing",
-      "wild empathy"
+      "water breathing (Sp, 1/day, as the spell, caster level 12th)",
+      "wild empathy (as the druid class feature, with a +6 racial bonus)"
     ],
     "feats": [
       "Dodge",
@@ -3495,7 +3743,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Bluff +8, Craft (any one) +5, Escape Artist +6, Handle Animal +8, Hide +7*, Listen +6, Perform (sing) +7, Search +3, Sense Motive +5, Spot +6, Swim +6 (*+5 racial bonus on Hide checks in the water)",
+    "appearance": "A nixie looks something like a small elf, with green skin, webbed fingers and toes, pointed ears, and wide silver eyes; most are slim and comely, with pale green scaled skin and dark green hair often twined with shells and pearl strings.",
+    "behavior": "Nixies are reclusive aquatic fey who dwell in and jealously protect pristine ponds and lakes, treating intruders with suspicion and hostility; they prefer to charm trespassers into leaving or performing labor for their community rather than fight outright.",
+    "appearanceGreenbound": "The nixie's pale green scaled skin has become a mosaic of moss and thin bark over pulpy, fibrous limbs, and her dark green hair now trails as living vine threaded with tiny water-lily blossoms. Her webbed fingers have lengthened into slender, leaf-tipped twigs."
   },
   {
     "name": "Tojanida, Adult",
@@ -3536,11 +3788,11 @@
       }
     ],
     "specialAttacks": [
-      "improved grab",
-      "ink cloud"
+      "improved grab (grapple as a free action following a bite or claw hit; underwater it can tow a grabbed victim of its own size or smaller at its swim speed)",
+      "ink cloud (Ex, 1/minute, fills a 30-ft.-radius spherical area like a fog cloud cast at its Hit Dice; out of water it squirts a 30-ft. stream of ink that blinds a target for 1 round unless it succeeds on a Reflex DC 15 save)"
     ],
     "specialQualities": [
-      "all-around vision",
+      "all-around vision (+4 racial bonus on Spot and Search checks; opponents get no flanking bonus against it)",
       "darkvision 60 ft.",
       "immunity to acid and cold",
       "resistance to electricity 10 and fire 10"
@@ -3555,7 +3807,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Diplomacy +1, Escape Artist +11, Hide +11, Knowledge (the planes) +6, Listen +11, Search +14, Sense Motive +11, Spot +15, Survival +1 (+3 other planes and following tracks), Swim +11, Use Rope +1 (+3 with bindings)",
+    "appearance": "A tojanida resembles a snapping turtle with a spindle-shaped shell of hexagonal plates and a narrow head whose jaws open horizontally rather than vertically; an array of crablike claws and paddles emerge from openings at both ends of its shell. An adult's shell runs about 6 feet long and weighs roughly 220 pounds.",
+    "behavior": "Tojanidas are omnivores native to the Elemental Plane of Water; though they seem clumsy at first glance, they are nimble swimmers and capable fighters, generally even-tempered but quick to turn ferocious if their food supply is threatened.",
+    "appearanceGreenbound": "The tojanida's hexagonal shell plates have become slabs of thick, water-worn bark, and its paddle-limbs are corded with pulpy, fibrous green tissue. Small trailing vines and pale blossoms sprout from the vents along its shell where its stalked limbs emerge."
   },
   {
     "name": "Whale, Orca",
@@ -3589,7 +3845,7 @@
     "specialAttacks": [],
     "specialQualities": [
       "blindsight 120 ft.",
-      "hold breath",
+      "hold breath (can hold its breath for a number of rounds equal to 8x its Constitution score before risking drowning)",
       "low-light vision"
     ],
     "feats": [
@@ -3603,7 +3859,11 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "skills": "Listen +14*, Spot +14*, Swim +16 (*+4 racial bonus on Spot and Listen checks, lost if blindsight is negated)",
+    "appearance": "An orca is a ferocious, streamlined whale about 30 feet long, powerful enough to prey on fish, squid, seals, and even other whales.",
+    "behavior": "Orcas are vicious predators among the smaller whales, attacking virtually anything they detect rather than merely fleeing or defending themselves.",
+    "appearanceGreenbound": "The orca's smooth black-and-white hide has become mottled bark over a body of dense, pulpy wood, its dorsal fin now a broad blade of pale heartwood. Trailing strands of kelp-like vine and small pale blossoms cling along its flanks where barnacles might once have gathered."
   },
   {
     "name": "Aranea",
@@ -3636,12 +3896,12 @@
       }
     ],
     "specialAttacks": [
-      "poison",
-      "spells",
-      "web"
+      "poison (Ex, bite, Fortitude DC 13, initial damage 1d6 Str, secondary damage 2d6 Str)",
+      "spells (casts arcane spells as a 3rd-level sorcerer, favoring illusions and enchantments over fire spells; typically knows 0--daze, detect magic, ghost sound, light, resistance; 1st--mage armor, silent image, sleep; DC 12 + spell level)",
+      "web (Ex, 6/day, thrown up to 50 ft. with a 10-ft. increment, effective against targets up to Large, anchoring them in place; the web has 6 hp, hardness 0, and takes double damage from fire; entangled creatures escape with a DC 13 Escape Artist check or a DC 17 Strength check)"
     ],
     "specialQualities": [
-      "change shape",
+      "change shape (Su, can assume a unique Small or Medium humanoid form, which loses its bite/web/poison, or a Medium spider-humanoid hybrid form retaining all three; a true seeing spell reveals its natural spider form)",
       "darkvision 60 ft.",
       "low-light vision"
     ],
@@ -3652,7 +3912,11 @@
     "summonNaturesAllyLevel": null,
     "wildShapeMinLevel": 8,
     "lyraFamiliar": true,
-    "note": "Shapechanger subtype (spider/humanoid/hybrid forms); Feats and Challenge Rating could not be reliably extracted from the source PDF's column layout and need manual verification. Bite is modeled as the sole natural weapon (bite and web are alternatives, not a combo)."
+    "note": "Shapechanger subtype (spider/humanoid/hybrid forms); Feats and Challenge Rating could not be reliably extracted from the source PDF's column layout and need manual verification. Bite is modeled as the sole natural weapon (bite and web are alternatives, not a combo).",
+    "skills": "Climb +14, Concentration +8, Escape Artist +5, Jump +13, Listen +6, Spot +6",
+    "appearance": "In its natural form an aranea resembles a big spider with a humpbacked body a little larger than a human torso, fanged mandibles, and two small clawed arms tipped with many-jointed, double-thumbed hands; in humanoid form it takes on a fixed, unique appearance, while in its hybrid form it looks human at a glance but for its fangs and spinnerets.",
+    "behavior": "An aranea avoids physical combat, preferring to immobilize or distract the most aggressive foes with its webs and spells, and often subdues opponents for ransom rather than killing them.",
+    "appearanceGreenbound": "The aranea's spider body has become a knot of pulpy, bark-plated limbs bound with creeper-like tissue, its humanoid arms ending in twiggy, thorn-tipped fingers. Moss creeps across its humped back, and small pale blossoms nestle where its many eyes once glinted."
   },
   {
     "name": "Blink Dog",
@@ -3685,9 +3949,9 @@
     ],
     "specialAttacks": [],
     "specialQualities": [
-      "blink",
+      "blink (Su, as the blink spell, caster level 8th; can evoke or end the effect as a free action)",
       "darkvision 60 ft.",
-      "dimension door",
+      "dimension door (Su, as the dimension door spell, caster level 8th, usable once per round as a free action; affects only the blink dog, which never appears within a solid object and can act immediately after teleporting)",
       "low-light vision",
       "scent"
     ],
@@ -3701,7 +3965,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": null,
     "wildShapeMinLevel": 8,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Hide +3, Listen +5, Sense Motive +3, Spot +5, Survival +4",
+    "appearance": "A blink dog is a big canine with yellow-brown fur and large ears, indistinguishable from an ordinary dog until it vanishes in the blink of an eye and reappears somewhere else entirely.",
+    "behavior": "Blink dogs are social pack hunters that teleport in seemingly random bursts to surround prey and gain flanking position; when not hunting they are playful with each other but fiercely protective of their pups, and they avoid human lands while driving off evil humanoids that trespass on their territory.",
+    "appearanceGreenbound": "The blink dog's yellow-brown fur has become a coat of fine moss and trailing leaves over limbs of pulpy, fibrous wood, its large ears now thin, leaf-shaped fronds. Small pale flowers bloom along its spine, and its eyes carry a faint green glimmer."
   },
   {
     "name": "Pegasus",
@@ -3746,7 +4014,7 @@
       "darkvision 60 ft.",
       "low-light vision",
       "scent",
-      "spell-like abilities"
+      "spell-like abilities (at will--detect good and detect evil within a 60-ft. radius; caster level 5th)"
     ],
     "feats": [
       "Flyby Attack",
@@ -3757,7 +4025,11 @@
     "feywildNative": true,
     "summonNaturesAllyLevel": null,
     "wildShapeMinLevel": 8,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "skills": "Diplomacy +3, Listen +8, Sense Motive +9, Spot +8",
+    "appearance": "A pegasus looks like a magnificent horse with a pair of large, feathered wings, its coat and wings pure white, though rumor tells of rare brown or black specimens; it stands about 6 feet at the shoulder with a 20-foot wingspan.",
+    "behavior": "The pegasus is a wild and shy creature not easily tamed, though highly prized as an aerial steed in service of good; mated pairs nest in high, remote places and fight together to the death defending their eggs and young.",
+    "appearanceGreenbound": "The pegasus's white coat has become a soft down of pale moss and lichen over limbs of pulpy, fibrous wood, and its great wings are now feathered with broad, layered leaves. Small white blossoms cluster at the base of its mane and along the trailing edge of each wing."
   },
   {
     "name": "Bat",
@@ -3795,7 +4067,10 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Hide +14, Listen +8*, Move Silently +6, Spot +8* (*+4 racial bonus on Spot and Listen, lost if blindsense is negated)",
+    "appearance": "Bats are small, nocturnal flying mammals; these statistics describe a common insectivorous bat.",
+    "appearanceGreenbound": "The bat's tiny leathery wings have thinned into membranes of pale, translucent leaf stretched between twig-like fingers, and its fur has given way to a soft down of moss. A cluster of small white blossoms nestles at the base of each ear."
   },
   {
     "name": "Lizard",
@@ -3840,7 +4115,11 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Balance +10, Climb +12, Hide +10, Listen +3, Spot +3",
+    "appearance": "This describes a small, nonvenomous lizard a foot or two in length, such as an iguana.",
+    "behavior": "A lizard prefers flight to combat, though it can deliver a painful bite if given no other option.",
+    "appearanceGreenbound": "The lizard's scaled hide has taken on the mottled look of thin bark over a body of pulpy green wood, and tiny leaf-buds have sprouted along its spine and tail. Its claws have hardened into small dark thorns."
   },
   {
     "name": "Rat",
@@ -3887,7 +4166,11 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Balance +10, Climb +12, Hide +14, Move Silently +10, Swim +10",
+    "appearance": "These omnivorous rodents thrive almost anywhere, growing to only a few inches long with coarse fur and a naked tail.",
+    "behavior": "Rats usually run away from danger and bite only as a last resort.",
+    "appearanceGreenbound": "The rat's coarse fur has thinned into wisps of pale moss over a small frame of pulpy wood, and its naked tail has become a slender, vine-like tendril. Tiny pale buds dot its back like scattered seeds."
   },
   {
     "name": "Raven",
@@ -3932,7 +4215,10 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Listen +3, Spot +5",
+    "appearance": "These glossy black birds are about 2 feet long with wingspans of roughly 4 feet, and combine both claws into a single attack.",
+    "appearanceGreenbound": "The raven's glossy black feathers have become layered scales of dark, waxy leaf over a small frame of pulpy wood, its beak hardened into a spur of pale heartwood. Tiny dark buds fleck its wings like drops of dew."
   },
   {
     "name": "Snake, Tiny Viper",
@@ -3966,7 +4252,7 @@
       }
     ],
     "specialAttacks": [
-      "poison"
+      "poison (Ex, bite, initial and secondary damage 1d6 Con, Fortitude DC 10 negates, Constitution-based)"
     ],
     "specialQualities": [
       "scent"
@@ -3980,7 +4266,11 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Balance +11, Climb +11, Hide +15, Listen +6, Spot +6, Swim +5",
+    "appearance": "Viper snakes range widely in size; this one is barely large enough to coil in a hand.",
+    "behavior": "Viper snakes are not particularly aggressive and will often lash out with a single bite before attempting to retreat.",
+    "appearanceGreenbound": "The tiny viper's scaled hide has become a thin sheath of pale bark over a body of pulpy green wood, its coils threaded with hair-fine vine. Its eyes carry a faint green glimmer, and a scatter of pinprick blossoms mark its length."
   },
   {
     "name": "Toad",
@@ -4017,7 +4307,11 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Hide +21, Listen +4, Spot +4",
+    "appearance": "The book gives no further description of a toad's appearance beyond its size class; it is a Diminutive amphibian.",
+    "behavior": "Toads are innocuous, beneficial creatures that live on a diet of insects and pose no threat to anything larger than a bug.",
+    "appearanceGreenbound": "The toad's small frame has become a knot of damp moss over pulpy wood, with a scatter of dew-bright blossoms across its back. Its throat sac has taken on the pale sheen of a budding flower."
   },
   {
     "name": "Weasel",
@@ -4050,7 +4344,7 @@
       }
     ],
     "specialAttacks": [
-      "attach"
+      "attach (Ex, a hit automatically deals bite damage each round it remains latched on; an attached weasel loses its Dexterity bonus to AC, AC 12; removing it requires a pin in a grapple)"
     ],
     "specialQualities": [
       "low-light vision",
@@ -4065,6 +4359,10 @@
     "summonNaturesAllyLevel": 0,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true,
-    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive."
+    "note": "One of eight creatures named by summon nature's minor ally (Quintessential Druid II, Drd 0); the spell actually allows any Tiny or Diminutive animal of 1/2 HD or less, so this list is illustrative rather than exhaustive.",
+    "skills": "Balance +10, Climb +10, Hide +11, Move Silently +8, Spot +3",
+    "appearance": "The book gives no further physical description of a weasel beyond its size class; these statistics can also describe a ferret.",
+    "behavior": "Weasels are aggressive predators, though they usually confine themselves to prey smaller than themselves.",
+    "appearanceGreenbound": "The weasel's short fur has become a fine pelt of moss over a slender frame of pulpy wood, its tail thinning into a whip-like vine. Small pale buds dot its back, and its teeth have hardened into tiny dark thorns."
   }
 ]
