@@ -46,12 +46,13 @@ export function stepSize(size, steps) {
 
 // Parses a hit-dice string like "6d8+18" or the fractional "1/2d8" form used
 // for Tiny/Fine animals into { count, die, mod }. count is a number (0.5 for
-// the fractional form).
+// the fractional form). The fractional form can carry a modifier too
+// ("1/2d6-1", Jermlaine) — this used to throw on that shape.
 export function parseHitDice(hitDice) {
-  const fractional = hitDice.match(/^(\d+)\/(\d+)d(\d+)$/)
+  const fractional = hitDice.match(/^(\d+)\/(\d+)d(\d+)([+-]\d+)?$/)
   if (fractional) {
-    const [, num, den, die] = fractional
-    return { count: Number(num) / Number(den), die: Number(die), mod: 0 }
+    const [, num, den, die, mod] = fractional
+    return { count: Number(num) / Number(den), die: Number(die), mod: mod ? Number(mod) : 0 }
   }
   const match = hitDice.match(/^(\d+)d(\d+)([+-]\d+)?$/)
   if (!match) throw new Error(`Unrecognized hit dice format "${hitDice}"`)
@@ -122,6 +123,9 @@ export function threeQuarterBabForLevel(level) {
 // covered — add more if a new type shows up.
 const GOOD_SAVES_BY_TYPE = {
   Animal: ['fort', 'ref'],
+  // 3.0-edition type MM2 still prints for a few dinosaurs (Cryptoclidus);
+  // 3.5 folds these into Animal, which has the same progression.
+  Beast: ['fort', 'ref'],
   'Magical Beast': ['fort', 'ref'],
   Outsider: ['fort', 'ref', 'will'],
   Fey: ['ref', 'will'],
@@ -129,7 +133,9 @@ const GOOD_SAVES_BY_TYPE = {
 }
 
 export function monsterBaseSaves(type, hd) {
-  const good = GOOD_SAVES_BY_TYPE[type]
+  // Subtypes are printed in parentheses ("Elemental (Air, Cold)") and don't
+  // change the base save progression, so look up the bare type.
+  const good = GOOD_SAVES_BY_TYPE[type.replace(/\s*\(.*\)\s*$/, '')]
   if (!good) throw new Error(`No base save progression known for creature type "${type}"`)
   const goodSave = goodSaveForLevel(hd)
   const poorSave = poorSaveForLevel(hd)

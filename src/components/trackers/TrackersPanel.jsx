@@ -163,7 +163,7 @@ function SpellSlotTracker({ spellSlots }) {
 // one still spends a slot from that level's tracker, though, so it stays
 // separate from the SpellSlotTracker above rather than replacing it.
 function PreparedSpellsTracker({ spellSlots }) {
-  const { state, update } = useLiveState()
+  const { state, update, clearPreparedSpells } = useLiveState()
   const levels = [
     { level: 0, count: spellSlots.orisons.prepared },
     ...spellSlots.slots.filter((s) => s.total > 0).map((s) => ({ level: s.spellLevel, count: s.total })),
@@ -217,6 +217,15 @@ function PreparedSpellsTracker({ spellSlots }) {
             )}
           </div>
         ))}
+        <button
+          type="button"
+          className="clear-prepared-button"
+          onClick={() => {
+            if (window.confirm('Clear all prepared spells and start with blank slots?')) clearPreparedSpells()
+          }}
+        >
+          Clear prepared spells
+        </button>
       </Collapsible>
     </div>
   )
@@ -376,7 +385,7 @@ function SyncBar() {
           onClick={() => {
             if (
               window.confirm(
-                'Long Rest: reset HP, spell slots, prepared spells, wild shape uses, and all daily abilities?',
+                'Long Rest: reset HP, spell slots, wild shape uses, and all daily abilities? Prepared spells are kept.',
               )
             ) {
               longRest()

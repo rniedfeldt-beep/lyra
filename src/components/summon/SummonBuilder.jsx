@@ -12,6 +12,7 @@ import { abilityMod } from '../../lib/calc/abilities'
 import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/loadCreatureData'
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
 import PartySection from '../layout/PartySection'
+import ErrorBoundary from '../ErrorBoundary'
 import './summon.css'
 
 const ABILITY_ORDER = [
@@ -320,8 +321,8 @@ export function ActiveSummonSections() {
   if (groups.length === 0) return null
 
   return groups.map((s) => (
+    <ErrorBoundary key={s.id} label={`Summon "${s.label}"`}>
     <PartySection
-      key={s.id}
       color="summon"
       title={`${s.label} ×${s.members.length} — ${s.remainingRounds} rounds left`}
     >
@@ -349,7 +350,9 @@ export function ActiveSummonSections() {
           per instance. Older saved summons predate this field. */}
       {s.statBlock && (
         <Collapsible title="Stat Block" defaultExpanded={true}>
-          <SummonStatBlock statBlock={s.statBlock} />
+          <ErrorBoundary label={`Stat block for "${s.label}"`}>
+            <SummonStatBlock statBlock={s.statBlock} />
+          </ErrorBoundary>
         </Collapsible>
       )}
 
@@ -365,6 +368,7 @@ export function ActiveSummonSections() {
         />
       ))}
     </PartySection>
+    </ErrorBoundary>
   ))
 }
 
@@ -384,15 +388,26 @@ export default function SummonBuilder({ sheet }) {
     [level],
   )
   const selected = loadouts[selectedIndex]
-  const statBlock = selected
-    ? computeSummonStatBlock({
+  // A creature entry with an unexpected shape makes this throw. It runs in
+  // this component's own render, which an ErrorBoundary below can't catch,
+  // so it's guarded here: log, show a note in place of the preview, and keep
+  // the picker usable so another creature can still be chosen.
+  let statBlock = null
+  let statBlockError = null
+  if (selected) {
+    try {
+      statBlock = computeSummonStatBlock({
         sheet,
         creature: selected.creature,
         templateId: selected.templateId,
         simpleTemplates,
         greenboundTemplate,
       })
-    : null
+    } catch (err) {
+      console.error(`Could not build a stat block for "${selected.creature.name}":`, err)
+      statBlockError = err
+    }
+  }
 
   function handleSummon() {
     if (!statBlock) return
@@ -457,13 +472,21 @@ export default function SummonBuilder({ sheet }) {
                 onChange={(e) => setQuantity(e.target.value)}
               />
             </label>
-            <button type="button" className="summon-button" onClick={handleSummon}>
+            <button type="button" className="summon-button" onClick={handleSummon} disabled={!statBlock}>
               Summon
             </button>
           </div>
+          {statBlockError && (
+            <p className="warning">
+              ⚠ "{selected.creature.name}" couldn't be built ({statBlockError.message}) and was skipped. Pick another
+              creature.
+            </p>
+          )}
           {statBlock && (
             <Collapsible title="Stat Block Preview" defaultExpanded={false}>
-              <SummonStatBlock statBlock={statBlock} />
+              <ErrorBoundary key={`${selected.creature.name}-${selected.templateId}-${level}`} label="Stat block preview">
+                <SummonStatBlock statBlock={statBlock} />
+              </ErrorBoundary>
             </Collapsible>
           )}
         </>

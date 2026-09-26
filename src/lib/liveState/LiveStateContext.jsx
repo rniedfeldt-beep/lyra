@@ -63,8 +63,29 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
     setState((prev) => updater(prev))
   }
 
+  // Resets everything except the prepared-spell text: the player keeps most
+  // of the previous day's list and swaps one or two, so wiping it would mean
+  // retyping nearly all of it. Slot counters (spellSlotsUsed) still reset
+  // like every other tracker. If a level-up added slots since the text was
+  // typed, the new ones start blank rather than being dropped.
   function longRest() {
-    setState((prev) => getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress: prev.characterProgress }))
+    setState((prev) => {
+      const fresh = getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress: prev.characterProgress })
+      const preparedSpells = { ...fresh.preparedSpells }
+      for (const [level, blanks] of Object.entries(fresh.preparedSpells)) {
+        const kept = prev.preparedSpells?.[level] ?? []
+        preparedSpells[level] = kept.length >= blanks.length ? kept : [...kept, ...blanks.slice(kept.length)]
+      }
+      return { ...fresh, preparedSpells }
+    })
+  }
+
+  function clearPreparedSpells() {
+    setState((prev) => ({
+      ...prev,
+      preparedSpells: getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress: prev.characterProgress })
+        .preparedSpells,
+    }))
   }
 
   function replaceAll(nextState) {
@@ -102,6 +123,7 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
         state,
         update,
         longRest,
+        clearPreparedSpells,
         replaceAll,
         syncStatus,
         isSupabaseConfigured,

@@ -246,6 +246,17 @@
   font-size: 13px;
 }
 
+.clear-prepared-button {
+  margin-top: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .always-available-block {
   margin-bottom: 14px;
   padding-bottom: 12px;

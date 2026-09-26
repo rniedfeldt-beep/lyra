@@ -597,14 +597,20 @@ export default function CharacterSheet() {
         {activeTab === 'companions' && (
           <>
             <PartySection color="quen" title={companion.name} subtitle="Animal companion">
-              <CompanionPanel companion={companion} />
+              <ErrorBoundary label="Animal companion">
+                <CompanionPanel companion={companion} />
+              </ErrorBoundary>
             </PartySection>
 
             <PartySection color="summon" title="Summon Nature's Ally" subtitle="Build a new summon">
-              <SummonBuilder sheet={sheet} />
+              <ErrorBoundary label="Summon builder">
+                <SummonBuilder sheet={sheet} />
+              </ErrorBoundary>
             </PartySection>
 
-            <ActiveSummonSections />
+            <ErrorBoundary label="Active summons">
+              <ActiveSummonSections />
+            </ErrorBoundary>
           </>
         )}
 

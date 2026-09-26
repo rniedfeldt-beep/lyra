@@ -47,9 +47,10 @@ export function getDefaultLiveState({ sheet, dailyAbilities, companion, characte
   }
 
   // One free-text slot per prepared spell — orisons plus each leveled slot
-  // total (base + Wisdom bonus). Re-filled after every Long Rest, since
-  // Lyra re-prepares from the full druid list each morning rather than
-  // having a fixed spell list (CLAUDE.md > Spell preparation model).
+  // total (base + Wisdom bonus). Lyra re-prepares from the full druid list
+  // rather than having a fixed spell list (CLAUDE.md > Spell preparation
+  // model). Long Rest carries the previous text over (LiveStateContext.
+  // longRest); this blank shape is what "Clear prepared spells" resets to.
   const preparedSpells = { 0: Array(sheet.spellSlots.orisons.prepared).fill('') }
   for (const slot of sheet.spellSlots.slots) {
     if (slot.total > 0) preparedSpells[slot.spellLevel] = Array(slot.total).fill('')

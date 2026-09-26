@@ -906,8 +906,13 @@ by meditation after every long rest. `PreparedSpellsTracker` (`src/components/tr
 TrackersPanel.jsx`) is the fill-in-after-rest flow: one free-text input per prepared-spell slot
 (6 orisons, plus each leveled slot's `total`), no validation against a spell list. State lives
 in `state.preparedSpells` (`{ [level]: string[] }`, keyed 0–4), persists to Supabase like every
-other tracker, and is wiped back to blank slots by Long Rest (it's just part of
-`getDefaultLiveState`, so it resets for free along with everything else).
+other tracker. **Long Rest keeps the prepared-spell text** (Sept 2026 — the player usually
+carries most of the previous day's list over and swaps one or two, so wiping it meant
+retyping nearly everything): `longRest()` in `LiveStateContext.jsx` re-runs
+`getDefaultLiveState` for everything else (slot counters, HP, daily uses…) but overlays the
+previous `preparedSpells` onto it, padding with blanks if a level-up added slots since. A
+separate "Clear prepared spells" button inside the Prepared Spells section
+(`clearPreparedSpells()`) resets just that field to `getDefaultLiveState`'s blank shape.
 
 Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
 typed slot above, but casting one still spends a slot from that level's tracker (except at
@@ -962,6 +967,19 @@ respectively) within a tab.
 - **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
   trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
   per-instance HP and wall of thorns tracking.
+  **Crash-proofing (Sept 2026).** Selecting Jermlaine (SNA 1, MM2) used to blank the whole
+  page: its hit dice print as `1/2d6-1` (a fractional die *with* a modifier) and
+  `parseHitDice` only accepted the fractional form without one, throwing from inside
+  `SummonBuilder`'s render. Fixed at the source, plus: `SummonBuilder` computes the stat
+  block in a try/catch (a boundary can't catch its own component's render) and shows a
+  "couldn't be built … Pick another creature" note with Summon disabled; the stat-block
+  displays, each active summon group, Quen's panel, the builder and the active-summons list
+  are each wrapped in `ErrorBoundary` (same component as the Spell Reference tab), which logs
+  to the console. A sweep of all 76 reachable loadouts at every spell level found a second
+  cause: `monsterBaseSaves` didn't strip subtypes (`Elemental (Air, Cold)`) or know the 3.0
+  `Beast` type (now handled). **Still failing, gracefully:** Twig Blight (type `Plant`) —
+  Plant's base-save progression isn't in `GOOD_SAVES_BY_TYPE` and wasn't guessed; add it there
+  once confirmed against the book.
 - **Tab 3 — Reference**: spell slot summary table, equipment descriptions, feat descriptions,
   the Quicksilver attack routine (rarely used mid-combat, so it moved out of Tab 1).
 - **Tab 4 — Spells**: `SpellReferenceTab` (`src/components/spells/`) — searchable reference
