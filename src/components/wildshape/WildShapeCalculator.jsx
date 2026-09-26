@@ -4,12 +4,14 @@ import { assumeWildShapeForm, revertWildShapeForm } from '../../lib/liveState/ac
 import { getEligibleWildShapeForms, computeWildShapeStatBlock } from '../../lib/calc/wildShape'
 import { monsterManual } from '../../lib/loadCreatureData'
 import { formatMod } from '../../lib/format'
+import { bareCreatureType } from '../../lib/rules/dnd35'
 import AnarchicToggle from '../anarchic/AnarchicToggle'
 import '../trackers/trackers.css'
 import './wildShape.css'
 
 function wildShapeCost(creature) {
-  return creature.type === 'Elemental' || creature.type === 'Outsider' ? 2 : 1
+  const type = bareCreatureType(creature.type)
+  return type === 'Elemental' || type === 'Outsider' ? 2 : 1
 }
 
 function byName(a, b) {

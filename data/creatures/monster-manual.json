@@ -1768,7 +1768,7 @@
     "source": "Monster Manual 3.5",
     "page": 242,
     "size": "Medium",
-    "type": "Elemental",
+    "type": "Elemental (Earth, Fire)",
     "hitDice": "3d8+3",
     "speed": {
       "land": 30,

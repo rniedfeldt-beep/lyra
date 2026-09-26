@@ -246,7 +246,7 @@ export function computeSummonStatBlock({ sheet, creature, templateId, simpleTemp
   // don't change HD count, only HP die and ability scores, so HD comes from
   // the base creature's hit dice string regardless of pipeline stage.
   const { count: hdCount } = parseHitDice(creature.hitDice)
-  const baseSaves = monsterBaseSaves(creature.type, hdCount)
+  const baseSaves = monsterBaseSaves(creature.type, hdCount, creature.name)
   const saves = {
     fort: { base: baseSaves.fort, abilityMod: conMod, total: baseSaves.fort + conMod },
     ref: { base: baseSaves.ref, abilityMod: dexMod, total: baseSaves.ref + dexMod },

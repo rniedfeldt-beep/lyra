@@ -117,26 +117,65 @@ export function threeQuarterBabForLevel(level) {
   return Math.floor((level * 3) / 4)
 }
 
-// Base save progression by creature type (SRD "Creature Type" traits): two
-// saves are "good", the third is "poor". Fixed 3.5e rule, not campaign
-// data. Only the types Summon Nature's Ally can actually produce are
-// covered — add more if a new type shows up.
+// Base save progression by creature type — Monster Manual Table 4-1,
+// Creature Improvement by Type (p.290). Fixed 3.5e rule, not campaign data.
+// Two kinds of type don't fit a plain lookup:
+//  - Elemental: which save is good depends on the element subtype (Air/Fire
+//    -> Reflex, Earth/Water -> Fortitude), see ELEMENT_GOOD_SAVE below.
+//  - Humanoid: "one good save, varies" per race — there is no type-wide
+//    answer, so it's deliberately absent and throws rather than guessing.
+// Beast is the 3.0-edition type MM2 still prints for a few dinosaurs; 3.5
+// folds those into Animal, which has the same progression.
 const GOOD_SAVES_BY_TYPE = {
+  Aberration: ['will'],
   Animal: ['fort', 'ref'],
-  // 3.0-edition type MM2 still prints for a few dinosaurs (Cryptoclidus);
-  // 3.5 folds these into Animal, which has the same progression.
   Beast: ['fort', 'ref'],
-  'Magical Beast': ['fort', 'ref'],
-  Outsider: ['fort', 'ref', 'will'],
+  Construct: [],
+  Dragon: ['fort', 'ref', 'will'],
   Fey: ['ref', 'will'],
-  Elemental: ['fort'],
+  Giant: ['fort'],
+  'Magical Beast': ['fort', 'ref'],
+  'Monstrous Humanoid': ['ref', 'will'],
+  Ooze: [],
+  Outsider: ['fort', 'ref', 'will'],
+  Plant: ['fort'],
+  Undead: ['will'],
+  Vermin: ['fort'],
 }
 
-export function monsterBaseSaves(type, hd) {
-  // Subtypes are printed in parentheses ("Elemental (Air, Cold)") and don't
-  // change the base save progression, so look up the bare type.
-  const good = GOOD_SAVES_BY_TYPE[type.replace(/\s*\(.*\)\s*$/, '')]
-  if (!good) throw new Error(`No base save progression known for creature type "${type}"`)
+const ELEMENT_GOOD_SAVE = { air: 'ref', fire: 'ref', earth: 'fort', water: 'fort' }
+
+// A creature with two element subtypes (paraelementals: "Elemental (Earth,
+// Fire)") gets the good save of each — the table doesn't say how to combine
+// them, so this is the union. Bare "Elemental" entries carry their element
+// in the name instead ("Elemental, Small Air"), so the name is the fallback.
+function elementalGoodSaves(subtypes, name) {
+  let elements = subtypes.map((s) => s.toLowerCase()).filter((s) => s in ELEMENT_GOOD_SAVE)
+  if (elements.length === 0 && name) {
+    elements = Object.keys(ELEMENT_GOOD_SAVE).filter((e) => new RegExp(`\\b${e}\\b`, 'i').test(name))
+  }
+  if (elements.length === 0) return null
+  return [...new Set(elements.map((e) => ELEMENT_GOOD_SAVE[e]))]
+}
+
+// "Elemental (Air, Cold)" -> "Elemental". Anything comparing a creature's
+// type against a plain name should go through this, since subtypes are
+// printed in parentheses on the type.
+export function bareCreatureType(type) {
+  return type.replace(/\s*\(.*\)\s*$/, '')
+}
+
+export function monsterBaseSaves(type, hd, name) {
+  const bareType = bareCreatureType(type)
+  const subtypes = (type.match(/\((.*)\)/)?.[1] ?? '').split(',').map((s) => s.trim()).filter(Boolean)
+  const good = bareType === 'Elemental' ? elementalGoodSaves(subtypes, name) : GOOD_SAVES_BY_TYPE[bareType]
+  if (!good) {
+    throw new Error(
+      bareType === 'Elemental'
+        ? `Can't tell which element "${name ?? type}" is, so its good save is unknown`
+        : `No base save progression known for creature type "${type}"`,
+    )
+  }
   const goodSave = goodSaveForLevel(hd)
   const poorSave = poorSaveForLevel(hd)
   return {

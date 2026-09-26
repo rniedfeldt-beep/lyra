@@ -977,9 +977,18 @@ respectively) within a tab.
   are each wrapped in `ErrorBoundary` (same component as the Spell Reference tab), which logs
   to the console. A sweep of all 76 reachable loadouts at every spell level found a second
   cause: `monsterBaseSaves` didn't strip subtypes (`Elemental (Air, Cold)`) or know the 3.0
-  `Beast` type (now handled). **Still failing, gracefully:** Twig Blight (type `Plant`) —
-  Plant's base-save progression isn't in `GOOD_SAVES_BY_TYPE` and wasn't guessed; add it there
-  once confirmed against the book.
+  `Beast` type. **Base-save table** (`GOOD_SAVES_BY_TYPE`, `dnd35.js`) now covers every type in
+  Monster Manual Table 4-1 (p.290), including Plant (good Fort only). Two types don't fit a
+  plain lookup: *Elemental* takes its good save from the element subtype (Air/Fire → Ref,
+  Earth/Water → Fort; a two-element paraelemental gets the union, since the table doesn't say
+  how to combine them; a bare `Elemental` entry reads the element from its name, "Elemental,
+  Small Air"), and *Humanoid* ("one good save, varies") is deliberately absent and throws
+  rather than guessing — no Humanoid is summonable today. Note this changed bare Air/Fire
+  elementals from good Fort (wrong) to good Ref. Thoqqua's data type was bare `Elemental`
+  with no element anywhere, so it's now `Elemental (Earth, Fire)` (from memory of the MM
+  printing — verify if it matters). `bareCreatureType()` strips subtypes for plain-name
+  comparisons; `WildShapeCalculator`'s Elemental/Outsider two-uses rule now uses it (it
+  used an exact match, which subtyped elementals slipped past).
 - **Tab 3 — Reference**: spell slot summary table, equipment descriptions, feat descriptions,
   the Quicksilver attack routine (rarely used mid-combat, so it moved out of Tab 1).
 - **Tab 4 — Spells**: `SpellReferenceTab` (`src/components/spells/`) — searchable reference
