@@ -914,6 +914,24 @@ previous `preparedSpells` onto it, padding with blanks if a level-up added slots
 separate "Clear prepared spells" button inside the Prepared Spells section
 (`clearPreparedSpells()`) resets just that field to `getDefaultLiveState`'s blank shape.
 
+**Spell search on the slots (Nov 2026).** Each slot, orisons included (level 0), is a free-text
+input *plus* an optional pick-list — `PreparedSpellSlot.jsx`. After two typed characters it
+offers up to 8 spells whose druid level matches that slot (names or any word starting with the
+query first, then substring; `suggestSpells`, `src/lib/preparedSpellSearch.js`; arrow keys +
+Enter, or tap). Picking fills the canonical name; **nothing forces a selection** — typed text is
+saved exactly as typed whether or not it matches, unmatched entries are normal (the DM gifts
+spells from books that aren't extracted) and just get no description block. A slot whose text
+exactly names an extracted spell (case-insensitive, `’`/`'` folded, *any* level — so a spell
+prepared in a slot of a different level than its druid level still resolves) shows a chevron
+that expands that spell's full reference entry, every printing, collapsed by default, rendered
+by the same `PrintingBlock` as the Spells tab (extracted into `spells/SpellPrinting.jsx` and
+shared; `SpellDescription.jsx` wraps it per-spell in an `ErrorBoundary`). An expanded slot
+spans the full grid row. The spell data (the 900 kB `loadSpellData` chunk) is pulled in by
+dynamic import (`loadSpellGroups`) only once Prepared Spells is expanded, so it stays out of the
+main bundle. Storage is unchanged — still plain strings in `state.preparedSpells` — so Long
+Rest keeps them, "Clear prepared spells" wipes them, and the always-available/at-will blocks and
+the Hand of the Oakfather necklace tracker are untouched.
+
 Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
 typed slot above, but casting one still spends a slot from that level's tracker (except at
 orison level — see below):

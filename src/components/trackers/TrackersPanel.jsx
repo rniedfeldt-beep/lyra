@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLiveState } from '../../lib/liveState/LiveStateContext'
+import PreparedSpellSlot from './PreparedSpellSlot'
 import {
   applyDamage,
   applyHeal,
@@ -157,7 +158,8 @@ function SpellSlotTracker({ spellSlots }) {
   )
 }
 
-// Free-text prepared-spell slots per level, plus a fixed "always available"
+// Prepared-spell slots per level (free text with an optional spell search —
+// see PreparedSpellSlot), plus a fixed "always available"
 // section of spontaneous conversions (Spontaneous Healer's cure spells, the
 // druid's SNA conversion) that never consume a preparation slot — casting
 // one still spends a slot from that level's tracker, though, so it stays
@@ -225,12 +227,12 @@ function PreparedSpellsTracker({ spellSlots }) {
             <span className="prepared-level-label">{SPELL_LEVEL_LABELS[level]}</span>
             <div className="prepared-slots">
               {Array.from({ length: count }, (_, i) => (
-                <input
+                <PreparedSpellSlot
                   key={i}
-                  type="text"
-                  placeholder={`Slot ${i + 1}`}
+                  level={level}
+                  index={i}
                   value={state.preparedSpells[level]?.[i] ?? ''}
-                  onChange={(e) => update((s) => setPreparedSpell(s, level, i, e.target.value))}
+                  onChange={(value) => update((s) => setPreparedSpell(s, level, i, value))}
                 />
               ))}
             </div>
