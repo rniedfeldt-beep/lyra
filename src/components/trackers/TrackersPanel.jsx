@@ -384,7 +384,7 @@ function SyncBar() {
       try {
         replaceAll(JSON.parse(reader.result))
       } catch {
-        window.alert('That file is not valid JSON.')
+        window.alert("That isn't a valid Lyra export file.")
       }
     }
     reader.readAsText(file)

@@ -194,8 +194,7 @@ export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
                 {wildShapeStatBlock.creature.isCanine
                   ? '+20 ft. Totem Transformation applied'
                   : 'no Totem Transformation bonus — not a canine form'}
-                ). AC, saves, speed, and the attack routine above now reflect this form — see the
-                struck-through base values on each stat for what reverting restores.
+                ).
               </p>
               {wildShapeStatBlock.abilities.length > 0 && (
                 <>

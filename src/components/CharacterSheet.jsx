@@ -638,7 +638,6 @@ export default function CharacterSheet() {
           </PartySection>
         )}
 
-        <p className="phase-note">Phase 9 — XP tracking and level-up live, character progress synced via Supabase.</p>
       </div>
     </>
   )

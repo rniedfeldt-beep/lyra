@@ -270,9 +270,6 @@ export default function LevelUpFlow({ sheet, onClose }) {
 
       <div className="level-up-block">
         <h3>Wild Shape Uses/Day</h3>
-        <p className="breakdown">
-          Pre-filled from the character-level curve — edit if this level ever changes.
-        </p>
         <input
           type="number"
           min="0"
@@ -284,7 +281,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
       {newLevel === 9 && (
         <div className="level-up-block level-up-callout">
           <h3>Level 9 unlocks</h3>
-          <p>5th-level spell slots and cure critical wounds as a spontaneous conversion — both apply automatically once this level-up is confirmed.</p>
+          <p>5th-level spell slots, and cure critical wounds as a spontaneous conversion.</p>
         </div>
       )}
 
@@ -337,11 +334,6 @@ export default function LevelUpFlow({ sheet, onClose }) {
             ))}
           </ul>
         )}
-        <p className="note">
-          Only feats already in the data files appear here — a brand-new feat needs its JSON file added first.
-          Feats flagged "Doesn't qualify" or "Check manually" are still pickable — the DM may grant a feat outside
-          its normal prerequisites (like a Wolf Shaman bonus feat), so this warns rather than blocks.
-        </p>
       </div>
 
       <div className="level-up-block">

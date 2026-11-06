@@ -250,9 +250,3 @@
   color: var(--text);
 }
 
-.phase-note {
-  text-align: center;
-  font-size: 12px;
-  color: var(--text);
-  margin-top: 24px;
-}

@@ -30,6 +30,27 @@ mod" instructions.
    Greenbound, with two feat effects layered on top. Build template application as a pipeline
    of composable transforms, not special-cased logic.
 
+7. **On-screen text describes the game, never the data or the app** (Nov 2026 rule; swept
+   once, hold the line). Anything about JSON/data files, extraction, imports, sourcebook
+   coverage, phases, how a feature is implemented, or *why* it behaves as it does goes in
+   this file, a code comment, or a non-displayed JSON field — not in a paragraph, note, or
+   dialog the player reads. Error states are the exception and should say what's wrong in
+   plain words ("can't be built right now"), with the technical detail in the console.
+   Removed in the sweep: the level-up feat-picker footnote explaining the "Doesn't qualify" /
+   "Check manually" flags (the flags themselves stay: they're a quick glance; the *why* is
+   that prerequisites are checked against the data files' structured fields and anything
+   unstructured needs a human, and a flagged feat stays pickable because the DM can grant a
+   feat outside its prerequisites); the "Phase 9 …synced via Supabase" footer; the wild shape
+   "pre-filled from the curve" and "struck-through base values" explanations; level-9 "applies
+   automatically" wording; the summon builder's raw error message; the Import dialog's "not
+   valid JSON" (now "isn't a valid Lyra export file"). Feat JSON `description` is displayed, so
+   the "Not modeled — …" caveats that used to sit in it (Dragon Wild Shape, Gatekeeper
+   Initiate, Planar Wild Shape, Scribe Scroll, Sustain Wild Shape) moved to a new
+   non-displayed `implementationNote` field on those files; "slot economy" jargon in the
+   Hand of the Oakfather and Fey Touched descriptions became "without spending a spell slot".
+   Still on screen and deliberately left, since they state a fact about a spell rather than the
+   app: "Full stat block not available for this printing" / "Referenced spell not available".
+
 ## Persistence and sync — DECIDED
 
 **Supabase is the source of truth. Do not rely on localStorage alone.**

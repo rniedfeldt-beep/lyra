@@ -221,8 +221,7 @@ function SummonStatBlock({ statBlock }) {
         </>
       )}
       {!statBlock.naturalWeaponRoutine && !statBlock.slamRoutine && (
-        <p className="note">No attacks — this creature has no natural weapons of its own, and Greenbound
-          doesn't apply to grant a slam.</p>
+        <p className="note">No natural attacks.</p>
       )}
 
       {!statBlock.greenboundEligible && (
@@ -537,8 +536,7 @@ export default function SummonBuilder({ sheet }) {
           </div>
           {statBlockError && (
             <p className="warning">
-              ⚠ "{selected.creature.name}" couldn't be built ({statBlockError.message}) and was skipped. Pick another
-              creature.
+              ⚠ {selected.creature.name} can't be built right now. Pick another creature.
             </p>
           )}
           {statBlock && (
