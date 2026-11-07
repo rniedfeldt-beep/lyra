@@ -26,6 +26,19 @@ export const SIZE_MODIFIER = {
   Colossal: -8,
 }
 
+// Grapple checks use a different size scale than AC/attack (PHB p.155).
+export const GRAPPLE_SIZE_MODIFIER = {
+  Fine: -16,
+  Diminutive: -12,
+  Tiny: -8,
+  Small: -4,
+  Medium: 0,
+  Large: 4,
+  Huge: 8,
+  Gargantuan: 12,
+  Colossal: 16,
+}
+
 export function sizeIndex(size) {
   const i = SIZE_ORDER.indexOf(size)
   if (i === -1) throw new Error(`Unknown size "${size}"`)

@@ -10,7 +10,8 @@ import {
   isClassSkillForAnyClass,
   classTakenAtLevel,
 } from '../../lib/calc/leveling'
-import { computeAbilityScores } from '../../lib/calc/abilities'
+import { abilityMod, computeAbilityScores } from '../../lib/calc/abilities'
+import { companionHdGained, companionProgressionRow, computeEffectiveCompanion } from '../../lib/calc/companion'
 import { checkFeatQualification, buildFeatQualificationContext } from '../../lib/calc/featPrerequisites'
 import { featReferenceByName } from '../../lib/loadFeatReferenceData'
 import { feats as allFeats, classSkillsTable, wildShapeUsesPerDayTable } from '../../lib/loadData'
@@ -26,7 +27,7 @@ const FEAT_STATUS_LABELS = {
 }
 
 export default function LevelUpFlow({ sheet, onClose }) {
-  const { state, update } = useLiveState()
+  const { state, update, companion } = useLiveState()
   const { character, feats: knownFeats, progression } = sheet
   const newLevel = character.level + 1
   const abilityIncreaseLevel = isAbilityIncreaseLevel(newLevel)
@@ -42,6 +43,18 @@ export default function LevelUpFlow({ sheet, onClose }) {
   const [hpRollInput, setHpRollInput] = useState('1')
   const hpRoll = Math.max(1, Math.min(8, parseInt(hpRollInput, 10) || 1))
   const [abilityChoice, setAbilityChoice] = useState('wis')
+
+  // Quen gains Hit Dice as Lyra levels (CLAUDE.md > Quen): one d8 roll per
+  // new die, asked for the same way as Lyra's own. Raw strings for the same
+  // reason as hpRollInput above.
+  const companionNewHd = companionHdGained(companion, character.level, newLevel)
+  const [companionRollInputs, setCompanionRollInputs] = useState(() => Array(companionNewHd).fill('1'))
+  const companionRolls = companionRollInputs.map((v) => Math.max(1, Math.min(8, parseInt(v, 10) || 1)))
+  const companionConMod = abilityMod(companion.abilities.con)
+  const companionHpGain = companionRolls.reduce((sum, r) => sum + r + companionConMod, 0)
+  const companionAfter = computeEffectiveCompanion(companion, newLevel, [])
+  const companionRow = companionProgressionRow(companion, newLevel)
+  const companionChanged = companionRow !== companionProgressionRow(companion, character.level)
   const hpBlockRef = useRef(null)
 
   // useEffect already runs after the DOM commit for this render, so the
@@ -148,6 +161,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
     let next = applyLevelUp(state, {
       newLevel,
       hpRoll,
+      companionHdRolls: companionRolls,
       wildShapeUsesPerDay: wildShapeUses,
       abilityIncrease: abilityIncreaseLevel ? { ability: abilityChoice } : null,
     })
@@ -189,6 +203,47 @@ export default function LevelUpFlow({ sheet, onClose }) {
           </span>
         </div>
       </div>
+
+      {companionChanged && (
+        <div className="level-up-block">
+          <h3>{companion.name}</h3>
+          <p className="breakdown">
+            Companion level {newLevel}: Str/Dex {formatMod(companionRow.abilityAdjustment)}, natural armor{' '}
+            {formatMod(companionRow.naturalArmor)}, {companionRow.bonusTricks} bonus tricks
+            {companionRow.special.length > 0 && <>, gains {companionRow.special.join(', ')}</>}.
+          </p>
+          {companionNewHd > 0 && (
+            <>
+              {companionRollInputs.map((value, i) => (
+                <div className="tracker-row" key={i}>
+                  <label>
+                    Hit Die {i + 1} (d8)
+                    <input
+                      type="number"
+                      min="1"
+                      max="8"
+                      value={value}
+                      onChange={(e) =>
+                        setCompanionRollInputs((r) => r.map((v, j) => (j === i ? e.target.value : v)))
+                      }
+                      onBlur={() =>
+                        setCompanionRollInputs((r) => r.map((v, j) => (j === i ? String(companionRolls[i]) : v)))
+                      }
+                    />
+                  </label>
+                  <span className="breakdown">
+                    {companionRolls[i]} + Con {formatMod(companionConMod)} ={' '}
+                    <strong>+{companionRolls[i] + companionConMod} HP</strong>
+                  </span>
+                </div>
+              ))}
+              <p className="breakdown">
+                {companionAfter.hitDice} total · <strong>+{companionHpGain} max HP</strong>
+              </p>
+            </>
+          )}
+        </div>
+      )}
 
       {abilityIncreaseLevel && (
         <div className="level-up-block">

@@ -15,6 +15,9 @@ export function getDefaultCharacterProgress(character) {
     feats: [...character.feats],
     classFeatures: [],
     wildShapeUsesPerDay: character.wildShape.usesPerDay,
+    // Quen's rolled d8s for the bonus Hit Dice he's gained past the level-8
+    // snapshot in animal-companion.json: [{ level, roll }].
+    companionHdRolls: [],
   }
 }
 

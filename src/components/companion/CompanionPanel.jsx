@@ -15,12 +15,9 @@ const ABILITY_ORDER = [
 ]
 
 export default function CompanionPanel({ companion }) {
-  const { state, update, sheet } = useLiveState()
+  const { state, update } = useLiveState()
   const hpMax = companion.hp.max
-  const { ac, saves, attackRoutine, speed, abilities, initiative } = computeCompanionStatBlock(
-    companion,
-    sheet.character.level,
-  )
+  const { ac, saves, attackRoutine, speed, abilities, initiative, grapple } = computeCompanionStatBlock(companion)
 
   return (
     <>
@@ -40,11 +37,34 @@ export default function CompanionPanel({ companion }) {
             <span className="stat-pill-label">Initiative</span>
             <span className="stat-pill-value">{formatMod(initiative)}</span>
           </div>
+          <div className="stat-pill">
+            <span className="stat-pill-label">BAB</span>
+            <span className="stat-pill-value">{formatMod(companion.baseAttackBonus)}</span>
+          </div>
+          <div className="stat-pill">
+            <span className="stat-pill-label">Grapple</span>
+            <span className="stat-pill-value">{formatMod(grapple)}</span>
+          </div>
+          <div className="stat-pill">
+            <span className="stat-pill-label">Hit Dice</span>
+            <span className="stat-pill-value">{companion.hitDice}</span>
+          </div>
         </div>
+        {companion.specialAbilities.length > 0 && (
+          <p className="breakdown">
+            <strong>Special abilities:</strong> {companion.specialAbilities.join(', ')}
+          </p>
+        )}
       </div>
 
       <div className="tracker-block">
         <h3>Hit Points</h3>
+        {companion.hdPending > 0 && (
+          <p className="warning">
+            {companion.hdPending} new Hit {companion.hdPending === 1 ? 'Die has' : 'Dice have'} no HP roll yet, so
+            max HP is short by that much.
+          </p>
+        )}
         <div className="tracker-row">
           <label>
             Current
@@ -110,7 +130,7 @@ export default function CompanionPanel({ companion }) {
             ))}
           </tbody>
         </table>
-        {companion.specialAbilityNotes?.Devotion && (
+        {companion.specialAbilities.includes('Devotion') && companion.specialAbilityNotes?.Devotion && (
           <p className="breakdown">Devotion: {companion.specialAbilityNotes.Devotion}</p>
         )}
       </div>
@@ -161,6 +181,7 @@ export default function CompanionPanel({ companion }) {
       {companion.knownTricks?.length > 0 && (
         <div className="tracker-block">
           <h3>Known Tricks</h3>
+          <p className="breakdown">Bonus tricks: {companion.bonusTricks}</p>
           <ul className="sub-list">
             {companion.knownTricks.map((t) => (
               <li key={t}>{t}</li>

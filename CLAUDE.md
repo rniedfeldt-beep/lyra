@@ -915,20 +915,37 @@ Max Dex +5 never binds — Quen doesn't reach Dex 20 until character level 18.
 
 Store the full companion progression table so Quen recomputes at any level.
 
-**Ability scores and initiative (Nov 2026).** The Companions tab opens with Quen's six
-ability scores and modifiers (same `.ability-grid` as Lyra's) and a large **Initiative** pill
-(his Dex modifier — he has no Improved Initiative). They are *computed*, not read from the
-record: `computeCompanionAbilities(companion, characterLevel)` in `companion.js` takes
-`baseCreature.abilities` (the wolf's 13/15/15/2/12/6) and adds the progression row's
-`abilityAdjustment` to **Str and Dex only**, picking the row by `levelRange`
-(`companionProgressionRow`; effective druid level = character level, see above; past level 20
-uses the last row). The record's own `abilities` (15/17) are just the level-8 snapshot. So
-Str/Dex are +2 on the 6–8 row (levels 6–8), **+3 at level 9** (the 9–11 row), +4 at 12, and so
-on; the table is the source of truth. `computeCompanionStatBlock(companion, level)` feeds the
-computed scores through AC, saves and attacks, so those stay consistent with what's shown
-(level 8 reproduces the numbers above exactly: AC 21, bite +7, initiative +3). **Still
-static at level-8 values:** natural armor, Hit Dice/BAB, max HP, and the other progression
-columns — only the abilities are wired to the level so far.
+**Quen follows the progression table (Nov 2026).** Everything about Quen is now derived from
+`progressionTable` in `animal-companion.json` + the character level, via
+`computeEffectiveCompanion(companion, level, hdRolls)` (`src/lib/calc/companion.js`), which
+`LiveStateProvider` exposes as `companion` the way it exposes `sheet` for Lyra (recomputed from
+`characterProgress`, never stored). Effective druid level = character level. The row is picked
+by `levelRange` (`companionProgressionRow`; past level 20 uses the last row) and supplies, on
+top of the base wolf in `baseCreature` (2d8+4, NA 2, 13/15/15/2/12/6):
+- **Bonus HD** → Hit Dice (2 + bonus; `6d8+12` at 8, `8d8+16` at 9), d8 each, +Con per die.
+- **Natural armor** → NA = base 2 + row (6 at 8, 8 at 9).
+- **Str/Dex adjustment** → added to Str and Dex only (+2 on 6–8, **+3 on 9–11**, +4 on 12–14…).
+- **BAB** → ¾ of total HD (Animal), so +4 at 6 HD, +6 at 8 HD; grapple = BAB + Str mod (+ size).
+- **Bonus tricks** and **special abilities** (cumulative: Link, Share Spells, Evasion,
+  Devotion, **Multiattack at 9**, Improved Evasion at 18).
+Saves (Animal progression by total HD), AC, the bite attack/damage, initiative (= Dex mod, no
+Improved Initiative) and grapple all recompute from those, so the block is internally
+consistent at every level. The Companions tab shows the six scores, Initiative, BAB, Grapple,
+Hit Dice and the special-ability list at the top. **The record's own top-level `abilities`,
+`hitDice`, `naturalArmor`, `baseAttackBonus`, `bonusHD`, `bonusTricks`, `specialAbilities`,
+`companionLevel` are a level-8 snapshot and are overridden**; level 8 reproduces them exactly
+(AC 21, bite +7, 45 HP, init +3). The table is the source of truth — it says **+3** at 9–11
+(the +4 row is 12–14); if a DM ruling differs, change the table, not the code.
+
+**Quen's max HP can't be derived**, so it comes from rolls, like Lyra's. `hp.max` (45) is the
+HP total *at the snapshot* (level 8, 4 bonus HD) and is kept as the baseline. Each bonus HD
+gained past it needs a d8 roll, stored in `characterProgress.companionHdRolls`
+(`[{ level, roll }]`, backfilled to `[]` for older saves); max HP = 45 + Σ(roll + Con mod).
+The level-up flow shows a "Quen" block whenever his row changes (what he gains) and, when he
+gains Hit Dice (when he enters a new row: character levels 3, 6, 9, 12, 15, 18 — two dice each
+time), one d8 input per die with the same free-form-then-clamp input as Lyra's own roll
+and the same default of 1. `applyLevelUp` records them. A die with no recorded roll adds
+nothing and shows a "no HP roll yet" warning above his HP rather than a guessed value.
 
 **Open:** at 6 HD Quen is entitled to three feats but shows only Track (bonus) and Weapon
 Focus (bite). He may have two unassigned feats — ask the DM.

@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useRef, useState } from 
 import { loadState, saveState, isSupabaseConfigured } from '../storage/storageAdapter'
 import { getDefaultLiveState, mergeCharacterProgress, mergeWithDefaults } from './defaultLiveState'
 import { computeEffectiveSheet } from './computeEffectiveSheet'
+import { computeEffectiveCompanion } from '../calc/companion'
 
 const LiveStateContext = createContext(null)
 const SAVE_DEBOUNCE_MS = 400
@@ -11,7 +12,7 @@ const SAVE_DEBOUNCE_MS = 400
 // adjustments, wild shape uses), which is itself part of the live state. So
 // a level-up (which only ever edits characterProgress) recomputes the whole
 // sheet for free, with no separate "apply level-up effects" step anywhere.
-export function LiveStateProvider({ children, character, items, spellSlotsBaseTable, companion }) {
+export function LiveStateProvider({ children, character, items, spellSlotsBaseTable, companion: baseCompanion }) {
   const [state, setState] = useState(null)
   const [syncStatus, setSyncStatus] = useState('loading')
   const [testMode, setTestMode] = useState(false)
@@ -21,13 +22,18 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
 
   const ingredients = { character, items, spellSlotsBaseTable }
 
+  // Quen as he stands at the current character level, like `sheet` for Lyra:
+  // derived from the static record plus characterProgress, never stored.
+  const companionFor = (progress) =>
+    computeEffectiveCompanion(baseCompanion, progress.level, progress.companionHdRolls ?? [])
+
   useEffect(() => {
     let cancelled = false
     loadState().then(({ state: loaded, source }) => {
       if (cancelled) return
       const characterProgress = mergeCharacterProgress(loaded?.characterProgress, character)
       const { sheet, dailyAbilities } = computeEffectiveSheet({ ...ingredients, characterProgress })
-      const defaults = getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress })
+      const defaults = getDefaultLiveState({ sheet, dailyAbilities, companion: companionFor(characterProgress), characterProgress })
       setState(mergeWithDefaults(loaded, defaults))
       setSyncStatus(source === 'supabase' ? 'synced' : isSupabaseConfigured ? 'error' : 'offline')
       readyRef.current = true
@@ -59,6 +65,12 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.characterProgress])
 
+  const companion = useMemo(
+    () => (state ? companionFor(state.characterProgress) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [state?.characterProgress],
+  )
+
   function update(updater) {
     setState((prev) => updater(prev))
   }
@@ -70,7 +82,12 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
   // typed, the new ones start blank rather than being dropped.
   function longRest() {
     setState((prev) => {
-      const fresh = getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress: prev.characterProgress })
+      const fresh = getDefaultLiveState({
+        sheet,
+        dailyAbilities,
+        companion: companionFor(prev.characterProgress),
+        characterProgress: prev.characterProgress,
+      })
       const preparedSpells = { ...fresh.preparedSpells }
       for (const [level, blanks] of Object.entries(fresh.preparedSpells)) {
         const kept = prev.preparedSpells?.[level] ?? []
@@ -83,7 +100,12 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
   function clearPreparedSpells() {
     setState((prev) => ({
       ...prev,
-      preparedSpells: getDefaultLiveState({ sheet, dailyAbilities, companion, characterProgress: prev.characterProgress })
+      preparedSpells: getDefaultLiveState({
+        sheet,
+        dailyAbilities,
+        companion: companionFor(prev.characterProgress),
+        characterProgress: prev.characterProgress,
+      })
         .preparedSpells,
     }))
   }
@@ -91,7 +113,7 @@ export function LiveStateProvider({ children, character, items, spellSlotsBaseTa
   function replaceAll(nextState) {
     const characterProgress = mergeCharacterProgress(nextState.characterProgress ?? state.characterProgress, character)
     const effective = computeEffectiveSheet({ ...ingredients, characterProgress })
-    const defaults = getDefaultLiveState({ ...effective, companion, characterProgress })
+    const defaults = getDefaultLiveState({ ...effective, companion: companionFor(characterProgress), characterProgress })
     setState(mergeWithDefaults(nextState, defaults))
   }
 

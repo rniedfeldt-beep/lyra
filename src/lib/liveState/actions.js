@@ -145,6 +145,19 @@ export function addHpRoll(state, level, roll) {
   }
 }
 
+export function addCompanionHdRolls(state, level, rolls) {
+  return {
+    ...state,
+    characterProgress: {
+      ...state.characterProgress,
+      companionHdRolls: [
+        ...(state.characterProgress.companionHdRolls ?? []),
+        ...rolls.map((roll) => ({ level, roll })),
+      ],
+    },
+  }
+}
+
 export function updateHpRoll(state, level, roll) {
   return {
     ...state,
@@ -238,17 +251,19 @@ export function setWildShapeUsesPerDay(state, uses) {
   return { ...state, characterProgress: { ...state.characterProgress, wildShapeUsesPerDay: uses } }
 }
 
-// Compound level-up action: bumps level, records this level's HP roll, and
+// Compound level-up action: bumps level, records this level's HP roll (and
+// Quen's, if he gained Hit Dice), and
 // (only at ability-increase levels) appends the ability bump. Skill ranks,
 // feats, and class features are recorded separately via the actions above —
 // the level-up flow calls all of these together, but they stay independent
 // so each can be edited later without re-running the whole level-up.
-export function applyLevelUp(state, { newLevel, hpRoll, wildShapeUsesPerDay, abilityIncrease }) {
+export function applyLevelUp(state, { newLevel, hpRoll, companionHdRolls = [], wildShapeUsesPerDay, abilityIncrease }) {
   let next = {
     ...state,
     characterProgress: { ...state.characterProgress, level: newLevel },
   }
   next = addHpRoll(next, newLevel, hpRoll)
+  if (companionHdRolls.length > 0) next = addCompanionHdRolls(next, newLevel, companionHdRolls)
   if (wildShapeUsesPerDay != null) next = setWildShapeUsesPerDay(next, wildShapeUsesPerDay)
   if (abilityIncrease) {
     next = addAbilityAdjustment(next, {

@@ -1,5 +1,11 @@
 import { abilityMod } from './abilities'
-import { SIZE_MODIFIER, parseHitDice, monsterBaseSaves } from '../rules/dnd35'
+import {
+  GRAPPLE_SIZE_MODIFIER,
+  SIZE_MODIFIER,
+  parseHitDice,
+  monsterBaseSaves,
+  threeQuarterBabForLevel,
+} from '../rules/dnd35'
 
 function weaponFocusBonus(creature, attackName) {
   const pattern = new RegExp(`^Weapon Focus \\(${attackName}\\)$`, 'i')
@@ -19,24 +25,70 @@ export function companionProgressionRow(companion, characterLevel) {
   return (match ?? (characterLevel < rows[0].lo ? rows[0] : rows[rows.length - 1])).row
 }
 
-// Quen's effective ability scores at a character level: his base wolf's
-// scores plus the progression row's Str/Dex adjustment. Computed rather than
-// read from the record's own `abilities`, which only holds the values as they
-// stood at level 8.
-export function computeCompanionAbilities(companion, characterLevel) {
-  const { abilityAdjustment } = companionProgressionRow(companion, characterLevel)
-  const base = companion.baseCreature.abilities
-  return { ...base, str: base.str + abilityAdjustment, dex: base.dex + abilityAdjustment }
+// Bonus Hit Dice Quen gains between two character levels — the number of d8
+// HP rolls a level-up has to ask for. Never negative.
+export function companionHdGained(companion, fromLevel, toLevel) {
+  const gained =
+    companionProgressionRow(companion, toLevel).bonusHD - companionProgressionRow(companion, fromLevel).bonusHD
+  return Math.max(0, gained)
 }
 
-// Abilities follow the character level via the progression table. Natural
-// armor, Hit Dice, BAB and max HP are still the record's level-8 values —
-// recomputing those as Quen levels up isn't wired yet — so everything below
-// is a straightforward stat-block build, not a swap.
-export function computeCompanionStatBlock(companion, characterLevel) {
-  const abilities =
-    characterLevel == null ? companion.abilities : computeCompanionAbilities(companion, characterLevel)
-  companion = { ...companion, abilities }
+// Every special ability granted at or below a character level. The table
+// lists each row's *new* abilities, so they accumulate.
+function specialAbilitiesAt(companion, characterLevel) {
+  const row = companionProgressionRow(companion, characterLevel)
+  const upTo = companion.progressionTable.indexOf(row)
+  return companion.progressionTable.slice(0, upTo + 1).flatMap((r) => r.special)
+}
+
+// The companion as it stands at a character level — every column of the
+// progression table applied to the base wolf — so nothing downstream reads a
+// stale level-8 snapshot. The record's own `abilities`, `hitDice`,
+// `naturalArmor`, `baseAttackBonus`, `bonusHD`, `bonusTricks`,
+// `specialAbilities` and `companionLevel` fields are that snapshot (as of
+// companionLevel 8) and are all overridden here; `hp.max` is the one snapshot
+// value that's *kept*, as the HP total at the snapshot, because HP comes from
+// rolled dice and can't be derived. Each bonus Hit Die gained past the
+// snapshot adds its own d8 roll (`hdRolls`, [{ level, roll }], entered at
+// level-up) plus Con. Dice with no roll recorded yet add nothing and are
+// reported as `hdPending` rather than guessed.
+export function computeEffectiveCompanion(companion, characterLevel, hdRolls = []) {
+  // `snapshot` keeps the original record reachable, so this is safe to call
+  // again on an already-effective companion (the level-up preview does).
+  const snapshot = companion.snapshot ?? companion
+  const row = companionProgressionRow(companion, characterLevel)
+  const base = companion.baseCreature
+  const { abilityAdjustment } = row
+  const abilities = { ...base.abilities, str: base.abilities.str + abilityAdjustment, dex: base.abilities.dex + abilityAdjustment }
+
+  const baseHd = parseHitDice(base.hitDice).count
+  const hdTotal = baseHd + row.bonusHD
+  const conMod = abilityMod(abilities.con)
+
+  const hdSinceSnapshot = Math.max(0, row.bonusHD - snapshot.bonusHD)
+  const rolls = hdRolls.slice(0, hdSinceSnapshot)
+  const hpMax = snapshot.hp.max + rolls.reduce((sum, r) => sum + r.roll + conMod, 0)
+
+  return {
+    ...companion,
+    snapshot,
+    abilities,
+    abilityAdjustment,
+    bonusHD: row.bonusHD,
+    hitDice: `${hdTotal}d8${conMod * hdTotal >= 0 ? '+' : ''}${conMod * hdTotal}`,
+    naturalArmor: base.naturalArmor + row.naturalArmor,
+    baseAttackBonus: threeQuarterBabForLevel(hdTotal),
+    hp: { ...companion.hp, max: hpMax },
+    hdPending: hdSinceSnapshot - rolls.length,
+    bonusTricks: row.bonusTricks,
+    specialAbilities: specialAbilitiesAt(companion, characterLevel),
+    companionLevel: characterLevel,
+  }
+}
+
+// Straightforward stat-block build from an *effective* companion
+// (computeEffectiveCompanion) — not a swap.
+export function computeCompanionStatBlock(companion) {
   const strMod = abilityMod(companion.abilities.str)
   const dexMod = abilityMod(companion.abilities.dex)
   const conMod = abilityMod(companion.abilities.con)
@@ -75,6 +127,7 @@ export function computeCompanionStatBlock(companion, characterLevel) {
   const speed = companion.armor?.speed ?? companion.speed.land
 
   const initiative = dexMod
+  const grapple = companion.baseAttackBonus + strMod + GRAPPLE_SIZE_MODIFIER[companion.size]
 
-  return { ac, saves, attackRoutine, speed, abilities, initiative }
+  return { ac, saves, attackRoutine, speed, abilities: companion.abilities, initiative, grapple }
 }
