@@ -3,14 +3,46 @@ import { setCompanionHp } from '../../lib/liveState/actions'
 import { DamageHealRow } from '../trackers/TrackersPanel'
 import { formatMod } from '../../lib/format'
 import { computeCompanionStatBlock } from '../../lib/calc/companion'
+import { abilityMod } from '../../lib/calc/abilities'
+
+const ABILITY_ORDER = [
+  ['str', 'STR'],
+  ['dex', 'DEX'],
+  ['con', 'CON'],
+  ['int', 'INT'],
+  ['wis', 'WIS'],
+  ['cha', 'CHA'],
+]
 
 export default function CompanionPanel({ companion }) {
-  const { state, update } = useLiveState()
+  const { state, update, sheet } = useLiveState()
   const hpMax = companion.hp.max
-  const { ac, saves, attackRoutine, speed } = computeCompanionStatBlock(companion)
+  const { ac, saves, attackRoutine, speed, abilities, initiative } = computeCompanionStatBlock(
+    companion,
+    sheet.character.level,
+  )
 
   return (
     <>
+      <div className="tracker-block">
+        <h3>Ability Scores</h3>
+        <div className="ability-grid">
+          {ABILITY_ORDER.map(([key, label]) => (
+            <div className="ability-block" key={key}>
+              <div className="ability-label">{label}</div>
+              <div className="ability-score">{abilities[key]}</div>
+              <div className="ability-mod">{formatMod(abilityMod(abilities[key]))}</div>
+            </div>
+          ))}
+        </div>
+        <div className="stat-row-group">
+          <div className="stat-pill stat-pill-large">
+            <span className="stat-pill-label">Initiative</span>
+            <span className="stat-pill-value">{formatMod(initiative)}</span>
+          </div>
+        </div>
+      </div>
+
       <div className="tracker-block">
         <h3>Hit Points</h3>
         <div className="tracker-row">

@@ -915,6 +915,21 @@ Max Dex +5 never binds — Quen doesn't reach Dex 20 until character level 18.
 
 Store the full companion progression table so Quen recomputes at any level.
 
+**Ability scores and initiative (Nov 2026).** The Companions tab opens with Quen's six
+ability scores and modifiers (same `.ability-grid` as Lyra's) and a large **Initiative** pill
+(his Dex modifier — he has no Improved Initiative). They are *computed*, not read from the
+record: `computeCompanionAbilities(companion, characterLevel)` in `companion.js` takes
+`baseCreature.abilities` (the wolf's 13/15/15/2/12/6) and adds the progression row's
+`abilityAdjustment` to **Str and Dex only**, picking the row by `levelRange`
+(`companionProgressionRow`; effective druid level = character level, see above; past level 20
+uses the last row). The record's own `abilities` (15/17) are just the level-8 snapshot. So
+Str/Dex are +2 on the 6–8 row (levels 6–8), **+3 at level 9** (the 9–11 row), +4 at 12, and so
+on; the table is the source of truth. `computeCompanionStatBlock(companion, level)` feeds the
+computed scores through AC, saves and attacks, so those stay consistent with what's shown
+(level 8 reproduces the numbers above exactly: AC 21, bite +7, initiative +3). **Still
+static at level-8 values:** natural armor, Hit Dice/BAB, max HP, and the other progression
+columns — only the abilities are wired to the level so far.
+
 **Open:** at 6 HD Quen is entitled to three feats but shows only Track (bonus) and Weapon
 Focus (bite). He may have two unassigned feats — ask the DM.
 

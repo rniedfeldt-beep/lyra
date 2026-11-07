@@ -6,11 +6,37 @@ function weaponFocusBonus(creature, attackName) {
   return (creature.feats ?? []).some((f) => pattern.test(f)) ? 1 : 0
 }
 
-// The `abilities`/`naturalArmor`/`baseAttackBonus` fields on the companion
-// record are already the effective values at its current companionLevel —
-// recomputing them as Quen levels up isn't wired yet — so this is a
-// straightforward stat-block build, not a swap.
-export function computeCompanionStatBlock(companion) {
+// The progression-table row (companion.progressionTable) that applies at a
+// character level. Planar Shepherd levels stack with druid levels for
+// companion abilities, so Quen's effective druid level is the character level
+// (CLAUDE.md > Quen). A level past the table's last row uses the last row.
+export function companionProgressionRow(companion, characterLevel) {
+  const rows = companion.progressionTable.map((row) => {
+    const [lo, hi] = row.levelRange.split('-').map(Number)
+    return { row, lo, hi: hi ?? lo }
+  })
+  const match = rows.find(({ lo, hi }) => characterLevel >= lo && characterLevel <= hi)
+  return (match ?? (characterLevel < rows[0].lo ? rows[0] : rows[rows.length - 1])).row
+}
+
+// Quen's effective ability scores at a character level: his base wolf's
+// scores plus the progression row's Str/Dex adjustment. Computed rather than
+// read from the record's own `abilities`, which only holds the values as they
+// stood at level 8.
+export function computeCompanionAbilities(companion, characterLevel) {
+  const { abilityAdjustment } = companionProgressionRow(companion, characterLevel)
+  const base = companion.baseCreature.abilities
+  return { ...base, str: base.str + abilityAdjustment, dex: base.dex + abilityAdjustment }
+}
+
+// Abilities follow the character level via the progression table. Natural
+// armor, Hit Dice, BAB and max HP are still the record's level-8 values —
+// recomputing those as Quen levels up isn't wired yet — so everything below
+// is a straightforward stat-block build, not a swap.
+export function computeCompanionStatBlock(companion, characterLevel) {
+  const abilities =
+    characterLevel == null ? companion.abilities : computeCompanionAbilities(companion, characterLevel)
+  companion = { ...companion, abilities }
   const strMod = abilityMod(companion.abilities.str)
   const dexMod = abilityMod(companion.abilities.dex)
   const conMod = abilityMod(companion.abilities.con)
@@ -48,5 +74,7 @@ export function computeCompanionStatBlock(companion) {
 
   const speed = companion.armor?.speed ?? companion.speed.land
 
-  return { ac, saves, attackRoutine, speed }
+  const initiative = dexMod
+
+  return { ac, saves, attackRoutine, speed, abilities, initiative }
 }
