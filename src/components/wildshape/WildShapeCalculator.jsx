@@ -174,10 +174,15 @@ export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
   const canAssume = !active && selectedCreature && state.wildShapeUsed + selectedCost <= maxUses
 
   return (
-    <section className="card">
-      <button type="button" className="collapsible-toggle wildshape-toggle" onClick={() => setExpanded((e) => !e)}>
+    <div className="tracker-block">
+      <button
+        type="button"
+        className="collapsible-toggle collapsible-toggle-prominent wildshape-toggle"
+        aria-expanded={expanded}
+        onClick={() => setExpanded((e) => !e)}
+      >
         <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
-        Wild Shape
+        Wild Shape Form
         {!expanded && wildShapeStatBlock && (
           <span className="wildshape-toggle-summary">🐾 {wildShapeStatBlock.creature.name}</span>
         )}
@@ -249,6 +254,6 @@ export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
           )}
         </div>
       )}
-    </section>
+    </div>
   )
 }

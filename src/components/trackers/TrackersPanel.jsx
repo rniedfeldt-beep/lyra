@@ -23,11 +23,16 @@ function parsePositiveAmount(raw) {
 
 // Defaults collapsed for Prepared Spells — filled in once after a Long Rest
 // and then mostly just noise taking up space on Tab 1 for the rest of the day.
-function Collapsible({ title, defaultExpanded, children }) {
+function Collapsible({ title, defaultExpanded, prominent = false, children }) {
   const [expanded, setExpanded] = useState(defaultExpanded)
   return (
     <div className="collapsible">
-      <button type="button" className="collapsible-toggle" onClick={() => setExpanded((e) => !e)}>
+      <button
+        type="button"
+        className={`collapsible-toggle${prominent ? ' collapsible-toggle-prominent' : ''}`}
+        aria-expanded={expanded}
+        onClick={() => setExpanded((e) => !e)}
+      >
         <span className={`chevron${expanded ? '' : ' collapsed'}`}>▾</span>
         {title}
       </button>
@@ -201,7 +206,7 @@ function PreparedSpellsTracker({ spellSlots }) {
 
   return (
     <div className="tracker-block">
-      <Collapsible title="Prepared Spells" defaultExpanded={false}>
+      <Collapsible title="Prepared Spells" defaultExpanded={false} prominent>
         {spontaneousConversions.alwaysAvailable?.length > 0 && (
           <div className="always-available-block">
             <div className="spontaneous-conversions">
@@ -444,7 +449,10 @@ function SyncBar() {
   )
 }
 
-export default function TrackersPanel({ sheet, dailyAbilities, onLevelUp }) {
+// wildShapeForms is the form picker, rendered by the caller (it needs the
+// computed wild shape stat block) but placed here, directly under the use
+// counter it belongs with.
+export default function TrackersPanel({ sheet, dailyAbilities, onLevelUp, wildShapeForms }) {
   return (
     <section className="card trackers-card">
       <h2>Trackers</h2>
@@ -454,6 +462,7 @@ export default function TrackersPanel({ sheet, dailyAbilities, onLevelUp }) {
       <SpellSlotTracker spellSlots={sheet.spellSlots} />
       <PreparedSpellsTracker spellSlots={sheet.spellSlots} />
       <WildShapeTracker max={sheet.character.wildShape.usesPerDay} />
+      {wildShapeForms}
       <DailyUsesTracker dailyAbilities={dailyAbilities} />
     </section>
   )

@@ -667,7 +667,7 @@ wild-shape changes untouched, because `state.anarchicTemplate` is a wholly separ
 key from `activeWildShapeForm` — nothing in `assumeWildShapeForm`/`revertWildShapeForm` reads
 or writes it. Don't couple the two.
 
-**Split across two tabs.** Tab 1 (`AnarchicToggle.jsx`, embedded inside the Wild Shape card,
+**Split across two tabs.** Tab 1 (`AnarchicToggle.jsx`, embedded inside the Wild Shape Form section,
 right after its `<h2>`) is the live tracker: one checkbox, "Iconic Manifestation active." Tab 3
 Reference (`AnarchicReference`, a local component in `CharacterSheet.jsx` alongside
 Equipment/Feats) is the full write-up — description, the complete DR/fast-healing table, Smite
@@ -1043,7 +1043,15 @@ respectively) within a tab.
 
 - **Tab 1 — Lyra**: resource trackers (spell slots, wild shape uses, per-day abilities,
   necklace spells), spellcasting reference (save DCs by level, spell attack bonus, caster
-  level), ability scores, combat stats, AC, saves, wild shape, skills.
+  level), ability scores, combat stats, AC, saves, skills. **Order inside the Trackers card**
+  (Nov 2026): XP, HP, spell slots, **Prepared Spells**, Wild Shape use counter, **Wild Shape
+  Form** picker (`WildShapeCalculator`, collapsed by default, rendered by `CharacterSheet` into
+  `TrackersPanel`'s `wildShapeForms` slot so it sits directly under the counter it spends from),
+  then Daily Abilities. The two sections played with most — Prepared Spells and Wild Shape Form
+  — use `.collapsible-toggle-prominent` (accent-tinted bordered bar, heavier type, accent
+  chevron, `aria-expanded`) instead of the plain uppercase label other collapsibles use, so
+  they read as controls and are easy to spot while scrolling. Wild shape is no longer a
+  separate card lower on the tab; the Anarchic toggle that lives inside it moved with it.
 - **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
   trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
   per-instance HP and wall of thorns tracking.

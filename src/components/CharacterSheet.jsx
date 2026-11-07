@@ -582,14 +582,18 @@ export default function CharacterSheet() {
 
         {activeTab === 'lyra' && (
           <PartySection color="lyra" title={character.name} subtitle="Player character">
-            <TrackersPanel sheet={sheet} dailyAbilities={dailyAbilities} onLevelUp={() => setLevelingUp(true)} />
+            <TrackersPanel
+              sheet={sheet}
+              dailyAbilities={dailyAbilities}
+              onLevelUp={() => setLevelingUp(true)}
+              wildShapeForms={<WildShapeCalculator sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />}
+            />
             {levelingUp && <LevelUpFlow sheet={sheet} onClose={() => setLevelingUp(false)} />}
             <SpellcastingReference sheet={sheet} />
             <AbilityScoreEditor sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
             <CombatStatsCore sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
             <ArmorClass ac={sheet.ac} wildShapeStatBlock={wildShapeStatBlock} />
             <Saves saves={sheet.saves} wildShapeStatBlock={wildShapeStatBlock} />
-            <WildShapeCalculator sheet={sheet} wildShapeStatBlock={wildShapeStatBlock} />
             <Skills skills={sheet.skills} conditionalAbilityBonuses={character.conditionalAbilityBonuses} />
           </PartySection>
         )}
