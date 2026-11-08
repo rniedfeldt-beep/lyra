@@ -1,0 +1,41 @@
+/* Expandable spell references (SpellRef.jsx) — a spell name that opens its full
+   entry in place. Reads as a link-like control, not body text. */
+.spell-ref-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.spell-ref-toggle:hover {
+  text-decoration-style: solid;
+}
+
+.spell-ref-toggle .chevron {
+  display: inline-block;
+  font-size: 0.8em;
+  transition: transform 0.15s ease;
+}
+
+.spell-ref-toggle .chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.spell-ref-block {
+  display: block;
+  margin: 6px 0 8px;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+}

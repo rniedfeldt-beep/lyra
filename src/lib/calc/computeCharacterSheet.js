@@ -7,6 +7,7 @@ import { computeSpellSlots } from './spellSlots'
 import { computeAttackRoutine } from './attackRoutine'
 import { computeMaxHp, collectFeatHpBonus, classLevelsBreakdown } from './leveling'
 import { druidLevel } from '../rules/dnd35'
+import skillsTable from '../../data/tables/skills.json'
 
 export function computeCharacterSheet({ character, feats, items, spellSlotsBaseTable }) {
   const characterFeats = feats
@@ -46,6 +47,8 @@ export function computeCharacterSheet({ character, feats, items, spellSlotsBaseT
   const skills = computeSkills({
     skills: character.skills,
     abilityScores,
+    skillTable: skillsTable.skills,
+    armorCheckPenalty: (items.armor?.armorCheckPenalty ?? 0) + (items.shield?.armorCheckPenalty ?? 0),
   })
 
   const spellSlots = computeSpellSlots({

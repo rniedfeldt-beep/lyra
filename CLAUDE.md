@@ -438,6 +438,22 @@ Base table value is 6/4/3/3/2; the rest is Wisdom bonus spells. Compute, don't h
 | Spot | 8 | +13 |
 | Survival | 5 | +10 |
 
+**All skills are listed (Nov 2026).** The Skills card shows every 3.5 skill, not only the ones
+with ranks: `src/data/tables/skills.json` is the full PHB list (key ability, trained-only,
+armor-check-penalty multiplier), `computeSkills` (`src/lib/calc/skills.js`) emits an entry for
+each, merging Lyra's own ranks / misc bonuses / label overrides from `character.skills`. The
+card splits **Trained** (ranks > 0) from a muted **Untrained** group so the trained list stays
+easy to scan, but untrained modifiers are still the number to roll. A **●** marks a class
+skill for *any* of her classes (the union in `classSkills.json`, same rule as the max-rank
+cap); untrained trained-only skills say "trained only"; Speak Language has no ability and no
+check, so shows "—". The **armor check penalty** (sum of worn armor + shield; currently −2 from
+the heavy wooden shield) is now applied to the skills it governs (Swim ×2) and flagged with a
+`*`; none of her ranked skills are affected, so their totals didn't change. Craft, Perform and
+Profession are single "(any)" rows. Ride has no ranks, so it sits in Untrained with its +2 misc
+and conditional +5 still shown. Spending ranks at level-up is *still limited to skills she
+already has an entry for* (`LevelUpFlow` iterates `character.skills`) — buying a first rank in
+a brand-new skill isn't wired yet.
+
 Conditional, surface in UI rather than baking in:
 - Wild empathy with **canines**: full-round action, +4 bonus
 
@@ -984,6 +1000,31 @@ dynamic import (`loadSpellGroups`) only once Prepared Spells is expanded, so it 
 main bundle. Storage is unchanged — still plain strings in `state.preparedSpells` — so Long
 Rest keeps them, "Clear prepared spells" wipes them, and the always-available/at-will blocks and
 the Hand of the Oakfather necklace tracker are untouched.
+
+**Expandable spell references everywhere (Nov 2026).** Any place the app names a spell makes it
+expandable (collapsed by default, same full entry as the Spells tab), via
+`src/components/spells/SpellRef.jsx`: the always-available / at-will conversions
+(`SpellPillGroup`), Daily Abilities rows — the Hand of the Oakfather and Fey Touched spells —
+(`SpellRefWith`), the Hand of the Oakfather list on the Reference tab, `*italicised*` spell names
+in feat descriptions (`RichText`, e.g. Fey Touched's misty step / charm person), and creature
+abilities in summon stat blocks and wild-shape forms (`AbilityText`), including the Greenbound
+spell-like abilities. **A spell with no entry is shown as plain text — no toggle, no empty block** —
+which is the normal case for most arcane spells (misty step, plane shift, sleep, magic circle
+against evil, greater teleport…): `findSpellByName` (`spellReferenceData.js`) searches the merged
+druid extraction first, then the reference-only pool (`referenced-spells.json`, e.g. charm person).
+The spell data is lazy (`spellLookup.js`), so names render as plain text until it arrives, then
+upgrade in place.
+
+Creature ability text is free prose, so `src/lib/spellMentions.js` only looks in three places a
+spell is really being named, never anywhere in the string (plenty of words are also spells —
+"immune to sleep", "poison (Ex …)", "fly speed"): (1) the leading name of an `(Sp …)` or short /
+spell-like `(Su …)` ability ("plane shift (Sp …)", "chill metal (Su …)"; a long Su with its own
+mechanics, like an air elemental's whirlwind, is *not* the Whirlwind spell); (2) right after a
+pointer phrase — "as the X spell", "functions as X or Y", "as though by a X spell", "like a X",
+"with X, Y, or Z" (hybsil sleep arrows, satyr pipes, nixie, change size); (3) the whole body of a
+"spell-like abilities …" / "spells …" entry. A name must end its phrase ("polymorph self" does
+not match "polymorph"). If a new creature's ability text isn't picked up, extend those zones
+rather than scanning the whole string.
 
 Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
 typed slot above, but casting one still spends a slot from that level's tracker (except at

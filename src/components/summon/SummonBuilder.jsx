@@ -13,6 +13,7 @@ import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/lo
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
 import PartySection from '../layout/PartySection'
 import ErrorBoundary from '../ErrorBoundary'
+import { AbilityText, SpellRef } from '../spells/SpellRef'
 import './summon.css'
 
 const ABILITY_ORDER = [
@@ -235,14 +236,28 @@ function SummonStatBlock({ statBlock }) {
           <h3>Special Attacks</h3>
           <ul className="summon-abilities">
             {creature.specialAttacks?.map((text) => (
-              <li key={text}>{text}</li>
+              <li key={text}>
+                <AbilityText text={text} />
+              </li>
             ))}
             {spellLikeAbilities && (
               <li>
                 <TemplateTag />
-                Spell-like abilities — at will: {spellLikeAbilities.atWill.join(', ')};{' '}
-                {spellLikeAbilities.perDay.map((s) => `${s.spell} ${s.usesPerDay}/day`).join(', ')}. DC = 10 + spell
-                level + {formatMod(chaMod)} (CHA)
+                Spell-like abilities — at will:{' '}
+                {spellLikeAbilities.atWill.map((name, i) => (
+                  <span key={name}>
+                    {i > 0 && ', '}
+                    <SpellRef name={name} />
+                  </span>
+                ))}
+                ;{' '}
+                {spellLikeAbilities.perDay.map((s, i) => (
+                  <span key={s.spell}>
+                    {i > 0 && ', '}
+                    <SpellRef name={s.spell}> {s.usesPerDay}/day</SpellRef>
+                  </span>
+                ))}
+                . DC = 10 + spell level + {formatMod(chaMod)} (CHA)
               </li>
             )}
           </ul>
@@ -254,7 +269,9 @@ function SummonStatBlock({ statBlock }) {
           <h3>Special Qualities</h3>
           <ul className="summon-abilities">
             {creature.specialQualities?.map((text) => (
-              <li key={text}>{text}</li>
+              <li key={text}>
+                <AbilityText text={text} />
+              </li>
             ))}
             {qualities &&
               greenboundQualityLines(qualities).map((text) => (

@@ -8,12 +8,15 @@ import AbilityScoreEditor from './leveling/AbilityScoreEditor'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
+import { RichText, SpellRef } from './spells/SpellRef'
 import CombatBar from './layout/CombatBar'
 import PartySection from './layout/PartySection'
 import TabBar from './layout/TabBar'
 import { anarchicTemplate, monsterManual } from '../lib/loadCreatureData'
 import { computeAnarchicWindowMinutes, computeAnarchicInvokedMinutes, computeSmiteLawBonus } from '../lib/calc/anarchic'
 import { getActiveWildShapeStatBlock } from '../lib/calc/wildShape'
+import { isClassSkillForAnyClass } from '../lib/calc/leveling'
+import { classSkillsTable } from '../lib/loadData'
 import './CharacterSheet.css'
 
 // Lazy-loaded: the spell reference data (~850KB of extracted sourcebook
@@ -335,32 +338,65 @@ function formatTotalWithConditionals(s) {
   return `${formatMod(s.total)} (${parenthetical})`
 }
 
+function SkillRow({ s, isClassSkill }) {
+  const misc = s.miscBonus + s.armorCheckPenalty
+  return (
+    <tr className={s.trained ? undefined : 'skill-row-untrained'}>
+      <td>
+        <span className={`class-skill-mark${isClassSkill ? ' is-class-skill' : ''}`} title={isClassSkill ? 'Class skill' : undefined}>
+          {isClassSkill ? '●' : ''}
+        </span>
+        {s.label}
+        {s.armorCheckPenalty !== 0 && <span title="Includes the armor check penalty"> *</span>}
+        {!s.trained && s.trainedOnly && <span className="note"> trained only</span>}
+      </td>
+      <td>{s.ranks || '—'}</td>
+      <td>{s.ability ? formatMod(s.abilityMod) : '—'}</td>
+      <td>{misc ? formatMod(misc) : '—'}</td>
+      <td className="total-cell">{s.total == null ? '—' : formatTotalWithConditionals(s)}</td>
+    </tr>
+  )
+}
+
+function SkillsTable({ rows }) {
+  return (
+    <table className="data-table skills-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Ranks</th>
+          <th>Ability</th>
+          <th>Misc</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(([id, s]) => (
+          <SkillRow key={id} s={s} isClassSkill={isClassSkillForAnyClass(id, classSkillsTable)} />
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+// Every 3.5 skill, trained ones first (the list that matters in play), then
+// the untrained ones set apart and muted — their modifier is still the number
+// to roll against. A ● marks a class skill (for any of Lyra's classes).
 function Skills({ skills, conditionalAbilityBonuses }) {
-  const rows = Object.values(skills).sort((a, b) => a.label.localeCompare(b.label))
+  const sorted = Object.entries(skills).sort(([, a], [, b]) => a.label.localeCompare(b.label))
+  const trained = sorted.filter(([, s]) => s.trained)
+  const untrained = sorted.filter(([, s]) => !s.trained)
+  const armorPenalty = sorted.find(([, s]) => s.armorCheckPenalty !== 0)?.[1].armorCheckPenalty
   return (
     <Card title="Skills">
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Skill</th>
-            <th>Ranks</th>
-            <th>Ability</th>
-            <th>Misc</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((s) => (
-            <tr key={s.label}>
-              <td>{s.label}</td>
-              <td>{s.ranks}</td>
-              <td>{formatMod(s.abilityMod)}</td>
-              <td>{s.miscBonus ? formatMod(s.miscBonus) : '—'}</td>
-              <td className="total-cell">{formatTotalWithConditionals(s)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <p className="breakdown">
+        <span className="class-skill-mark is-class-skill">●</span> class skill
+        {armorPenalty != null && <> · * includes the armor check penalty</>}
+      </p>
+      <h3 className="skills-group-heading">Trained</h3>
+      <SkillsTable rows={trained} />
+      <h3 className="skills-group-heading skills-group-untrained">Untrained</h3>
+      <SkillsTable rows={untrained} />
       {conditionalAbilityBonuses?.map((a) => (
         <p className="breakdown" key={a.id}>
           {a.label}:{' '}
@@ -442,7 +478,7 @@ function Equipment({ items }) {
             <ul className="sub-list">
               {items.necklace.grantedSpells.map((s) => (
                 <li key={s.spell}>
-                  <em>{s.spell.replace(/_/g, ' ')}</em>, 1/day
+                  <SpellRef name={s.spell.replace(/_/g, ' ')}>, {s.usesPerDay}/day</SpellRef>
                 </li>
               ))}
             </ul>
@@ -461,7 +497,9 @@ function Feats({ feats }) {
         {feats.map((f) => (
           <li key={f.id}>
             <strong>{f.name}</strong> <span className="note">({f.source})</span>
-            <p>{withItalics(f.description)}</p>
+            <div className="feat-description">
+              <RichText text={f.description} />
+            </div>
           </li>
         ))}
       </ul>

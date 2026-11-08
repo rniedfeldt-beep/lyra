@@ -4,6 +4,7 @@ import { assumeWildShapeForm, revertWildShapeForm } from '../../lib/liveState/ac
 import { getEligibleWildShapeForms, computeWildShapeStatBlock } from '../../lib/calc/wildShape'
 import { monsterManual } from '../../lib/loadCreatureData'
 import { formatMod } from '../../lib/format'
+import { AbilityText } from '../spells/SpellRef'
 import { bareCreatureType } from '../../lib/rules/dnd35'
 import AnarchicToggle from '../anarchic/AnarchicToggle'
 import '../trackers/trackers.css'
@@ -139,7 +140,13 @@ function StatBlock({ statBlock }) {
       {abilities.length > 0 && (
         <>
           <h3>Special Qualities &amp; Attacks</h3>
-          <p className="breakdown">{abilities.join(', ')}</p>
+          <ul className="summon-abilities">
+            {abilities.map((text) => (
+              <li key={text}>
+                <AbilityText text={text} />
+              </li>
+            ))}
+          </ul>
         </>
       )}
     </div>
@@ -204,7 +211,13 @@ export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
               {wildShapeStatBlock.abilities.length > 0 && (
                 <>
                   <h3>Special Qualities &amp; Attacks</h3>
-                  <p className="breakdown">{wildShapeStatBlock.abilities.join(', ')}</p>
+                  <ul className="summon-abilities">
+                    {wildShapeStatBlock.abilities.map((text) => (
+                      <li key={text}>
+                        <AbilityText text={text} />
+                      </li>
+                    ))}
+                  </ul>
                 </>
               )}
               <button

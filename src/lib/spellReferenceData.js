@@ -1,5 +1,6 @@
 import { rawSpells, referenceSpells, spellFileCounts, spellFileIssueBreakdown, spellNameToFile } from './loadSpellData'
 import { mergeSpellEntries, groupedSourceLabel, normalizeSourceKey } from './calc/spellReference'
+import { normalizeSpellName } from './spellMentions'
 
 export { spellFileCounts, spellFileIssueBreakdown, spellNameToFile }
 export const spellGroups = mergeSpellEntries(rawSpells)
@@ -41,4 +42,28 @@ export function resolveFunctionsAs({ spellName, source }) {
     }
   }
   return null
+}
+
+// Lookup by spell name for anywhere in the app that names a spell (prepared
+// slots, daily abilities, creature abilities, feat text). Both pools are
+// searched: the merged druid-extraction groups first, then reference-only
+// spells (arcane/divine spells cited by other entries). Returns a group-shaped
+// object SpellDescription can render, or null — most arcane spells a creature
+// or item names simply aren't extracted, which callers treat as normal.
+const groupsByNormalizedName = new Map(spellGroups.map((g) => [normalizeSpellName(g.name), g]))
+const referenceByNormalizedName = new Map(referenceSpells.map((s) => [normalizeSpellName(s.name), s]))
+
+export const knownSpellNames = new Set([...groupsByNormalizedName.keys(), ...referenceByNormalizedName.keys()])
+
+export function findSpellByName(name) {
+  const key = normalizeSpellName(name)
+  const group = groupsByNormalizedName.get(key)
+  if (group) return group
+  const ref = referenceByNormalizedName.get(key)
+  if (!ref) return null
+  return {
+    name: ref.name,
+    printings: [resolveFunctionsAs({ spellName: ref.name, source: null })].filter(Boolean),
+    levels: [],
+  }
 }

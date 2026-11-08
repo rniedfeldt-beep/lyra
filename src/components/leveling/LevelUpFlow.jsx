@@ -16,6 +16,7 @@ import { checkFeatQualification, buildFeatQualificationContext } from '../../lib
 import { featReferenceByName } from '../../lib/loadFeatReferenceData'
 import { feats as allFeats, classSkillsTable, wildShapeUsesPerDayTable } from '../../lib/loadData'
 import { formatMod } from '../../lib/format'
+import { SpellRef } from '../spells/SpellRef'
 import './leveling.css'
 
 const ABILITY_LABELS = { str: 'STR', dex: 'DEX', con: 'CON', int: 'INT', wis: 'WIS', cha: 'CHA' }
@@ -336,7 +337,9 @@ export default function LevelUpFlow({ sheet, onClose }) {
       {newLevel === 9 && (
         <div className="level-up-block level-up-callout">
           <h3>Level 9 unlocks</h3>
-          <p>5th-level spell slots, and cure critical wounds as a spontaneous conversion.</p>
+          <div>
+            5th-level spell slots, and <SpellRef name="cure critical wounds" /> as a spontaneous conversion.
+          </div>
         </div>
       )}
 

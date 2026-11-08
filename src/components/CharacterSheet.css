@@ -250,3 +250,40 @@
   color: var(--text);
 }
 
+
+.feat-description {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.skills-group-heading {
+  margin: 14px 0 4px;
+}
+
+.skills-group-untrained {
+  margin-top: 22px;
+  padding-top: 12px;
+  border-top: 2px solid var(--border);
+}
+
+.skills-table .skill-row-untrained td {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.skills-table .skill-row-untrained .total-cell {
+  font-weight: 500;
+}
+
+.class-skill-mark {
+  display: inline-block;
+  width: 14px;
+  color: transparent;
+  font-size: 9px;
+  vertical-align: 1px;
+}
+
+.class-skill-mark.is-class-skill {
+  color: var(--accent);
+}

@@ -1,0 +1,322 @@
+{
+  "id": "skills",
+  "description": "Every skill in the 3.5 Player's Handbook (ch. 4), with its key ability, whether it can only be used trained, and its armor check penalty multiplier (0 = none, 1 = the penalty, 2 = double, as for Swim). Craft, Perform and Profession are shown once; each is really a separate skill per specialty. Speak Language has no check, so no ability. Lyra's own ranks, misc bonuses and label overrides live in character/lyra.json; whether a skill is a class skill comes from classSkills.json.",
+  "source": "Player's Handbook v3.5, ch. 4 (Skills)",
+  "skills": [
+    {
+      "id": "appraise",
+      "label": "Appraise",
+      "ability": "int",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "balance",
+      "label": "Balance",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "bluff",
+      "label": "Bluff",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "climb",
+      "label": "Climb",
+      "ability": "str",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "concentration",
+      "label": "Concentration",
+      "ability": "con",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "craft",
+      "label": "Craft (any)",
+      "ability": "int",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "decipherScript",
+      "label": "Decipher Script",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "diplomacy",
+      "label": "Diplomacy",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "disableDevice",
+      "label": "Disable Device",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "disguise",
+      "label": "Disguise",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "escapeArtist",
+      "label": "Escape Artist",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "forgery",
+      "label": "Forgery",
+      "ability": "int",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "gatherInformation",
+      "label": "Gather Information",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "handleAnimal",
+      "label": "Handle Animal",
+      "ability": "cha",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "heal",
+      "label": "Heal",
+      "ability": "wis",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "hide",
+      "label": "Hide",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "intimidate",
+      "label": "Intimidate",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "jump",
+      "label": "Jump",
+      "ability": "str",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "knowledgeArcana",
+      "label": "Knowledge (arcana)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeArchitecture",
+      "label": "Knowledge (architecture and engineering)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeDungeoneering",
+      "label": "Knowledge (dungeoneering)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeGeography",
+      "label": "Knowledge (geography)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeHistory",
+      "label": "Knowledge (history)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeLocal",
+      "label": "Knowledge (local)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeNature",
+      "label": "Knowledge (nature)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeNobility",
+      "label": "Knowledge (nobility and royalty)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgePlanes",
+      "label": "Knowledge (the planes)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "knowledgeReligion",
+      "label": "Knowledge (religion)",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "listen",
+      "label": "Listen",
+      "ability": "wis",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "moveSilently",
+      "label": "Move Silently",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "openLock",
+      "label": "Open Lock",
+      "ability": "dex",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "perform",
+      "label": "Perform (any)",
+      "ability": "cha",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "profession",
+      "label": "Profession (any)",
+      "ability": "wis",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "ride",
+      "label": "Ride",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "ability": "int",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "senseMotive",
+      "label": "Sense Motive",
+      "ability": "wis",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "sleightOfHand",
+      "label": "Sleight of Hand",
+      "ability": "dex",
+      "trainedOnly": true,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "speakLanguage",
+      "label": "Speak Language",
+      "ability": null,
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "spellcraft",
+      "label": "Spellcraft",
+      "ability": "int",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "spot",
+      "label": "Spot",
+      "ability": "wis",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "ability": "wis",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "swim",
+      "label": "Swim",
+      "ability": "str",
+      "trainedOnly": false,
+      "armorCheckPenalty": 2
+    },
+    {
+      "id": "tumble",
+      "label": "Tumble",
+      "ability": "dex",
+      "trainedOnly": true,
+      "armorCheckPenalty": 1
+    },
+    {
+      "id": "useMagicDevice",
+      "label": "Use Magic Device",
+      "ability": "cha",
+      "trainedOnly": true,
+      "armorCheckPenalty": 0
+    },
+    {
+      "id": "useRope",
+      "label": "Use Rope",
+      "ability": "dex",
+      "trainedOnly": false,
+      "armorCheckPenalty": 0
+    }
+  ]
+}

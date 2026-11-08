@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLiveState } from '../../lib/liveState/LiveStateContext'
 import PreparedSpellSlot from './PreparedSpellSlot'
+import { SpellPillGroup, SpellRefWith } from '../spells/SpellRef'
 import {
   applyDamage,
   applyHeal,
@@ -209,14 +210,7 @@ function PreparedSpellsTracker({ spellSlots }) {
       <Collapsible title="Prepared Spells" defaultExpanded={false} prominent>
         {spontaneousConversions.alwaysAvailable?.length > 0 && (
           <div className="always-available-block">
-            <div className="spontaneous-conversions">
-              <span className="spontaneous-label">At-will</span>
-              <ul>
-                {spontaneousConversions.alwaysAvailable.map((a) => (
-                  <li key={a.name}>{a.name}</li>
-                ))}
-              </ul>
-            </div>
+            <SpellPillGroup label="At-will" names={spontaneousConversions.alwaysAvailable.map((a) => a.name)} />
             {spontaneousConversions.alwaysAvailable.map(
               (a) => a.note && (
                 <p className="note" key={a.name}>
@@ -242,14 +236,7 @@ function PreparedSpellsTracker({ spellSlots }) {
               ))}
             </div>
             {spontaneousConversions.byLevel[level] && (
-              <div className="spontaneous-conversions">
-                <span className="spontaneous-label">Always available</span>
-                <ul>
-                  {spontaneousConversions.byLevel[level].map((name) => (
-                    <li key={name}>{name}</li>
-                  ))}
-                </ul>
-              </div>
+              <SpellPillGroup label="Always available" names={spontaneousConversions.byLevel[level]} />
             )}
           </div>
         ))}
@@ -301,22 +288,30 @@ function DailyUsesTracker({ dailyAbilities }) {
           if (a.usesPerDay === 1) {
             return (
               <li key={a.id}>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={used >= 1}
-                    onChange={(e) => update((s) => setDailyUse(s, a.id, e.target.checked ? 1 : 0))}
-                  />
-                  {a.label} <span className="note">({a.source})</span>
-                </label>
+                <SpellRefWith name={a.label}>
+                  {(nameNode) => (
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={used >= 1}
+                        onChange={(e) => update((s) => setDailyUse(s, a.id, e.target.checked ? 1 : 0))}
+                      />
+                      {nameNode} <span className="note">({a.source})</span>
+                    </label>
+                  )}
+                </SpellRefWith>
               </li>
             )
           }
           return (
             <li key={a.id} className="daily-use-counted">
-              <span>
-                {a.label} <span className="note">({a.source})</span>
-              </span>
+              <SpellRefWith name={a.label}>
+                {(nameNode) => (
+                  <span>
+                    {nameNode} <span className="note">({a.source})</span>
+                  </span>
+                )}
+              </SpellRefWith>
               <div className="stepper">
                 <button
                   type="button"

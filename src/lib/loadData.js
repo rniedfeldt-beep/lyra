@@ -39,3 +39,4 @@ export { default as spellSlotsBaseTable } from '../data/tables/spellSlotsBase.js
 export { default as spontaneousConversions } from '../data/tables/spontaneousConversions.json'
 export { default as wildShapeUsesPerDayTable } from '../data/tables/wildShapeUsesPerDay.json'
 export { default as classSkillsTable } from '../data/tables/classSkills.json'
+export { default as skillsTable } from '../data/tables/skills.json'
