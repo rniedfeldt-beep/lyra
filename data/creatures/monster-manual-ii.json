@@ -267,7 +267,7 @@
     "specialAttacks": [
       "Improved grab (Ex — a bite that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +22; can rake in the same round if it gets a hold, and swallow whole the following round; may instead hold the opponent in its jaws at a –20 grapple penalty without being considered grappled itself)",
       "Rake (Ex — while holding an opponent, two rake attacks at +12 melee for 2d8+3 damage each; also usable when pouncing)",
-      "Swallow whole (Ex — a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +22; takes 2d8+12 bludgeoning plus 1d8 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Huge allosaurus's gullet holds 1 Medium-size, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)",
+      "Swallow whole (Ex — a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +22; takes 2d8+12 bludgeoning plus 1d8 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Huge allosaurus's gullet holds 1 Medium, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)",
       "Trample (Ex — as a standard action, tramples opponents at least one size smaller for 5d8+10 bludgeoning damage; a trampled creature may attempt an attack of opportunity at –4 or a DC 22 Reflex save for half damage)"
     ],
     "specialQualities": [
@@ -327,7 +327,7 @@
       }
     ],
     "specialAttacks": [
-      "Swallow whole (Ex — a snatched opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +23; takes 1d8+4 bludgeoning plus 1d4 acid damage per round in its gizzard, can cut free by dealing 15 points of damage to the AC 15 gizzard, or climb out with a further grapple check; a Huge quetzalcoatlus's gizzard holds 1 Medium-size, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)"
+      "Swallow whole (Ex — a snatched opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +23; takes 1d8+4 bludgeoning plus 1d4 acid damage per round in its gizzard, can cut free by dealing 15 points of damage to the AC 15 gizzard, or climb out with a further grapple check; a Huge quetzalcoatlus's gizzard holds 1 Medium, 4 Small, 16 Tiny, or 64 Diminutive or smaller opponents)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -439,7 +439,7 @@
     "specialAttacks": [
       "Frightful presence (Ex — a bellow, as a standard action, forces all creatures within 30 ft. with fewer HD/levels than the spinosaurus to succeed at a DC 20 Will save or become shaken for 5d6 rounds; a successful save grants 24 hours of immunity to that spinosaurus's frightful presence)",
       "Improved grab (Ex — a bite that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +40; can attempt to swallow the opponent the following round if it gets a hold; may instead hold the opponent in its jaws at a –20 grapple penalty without being considered grappled itself)",
-      "Swallow whole (Ex — a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +40; takes 2d8+10 bludgeoning plus 1d8+4 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Gargantuan spinosaurus's gullet holds 2 Large, 8 Medium-size, 32 Small, or 128 Tiny or smaller opponents)",
+      "Swallow whole (Ex — a grabbed opponent at least two sizes smaller can be swallowed with a successful grapple check, grapple bonus +40; takes 2d8+10 bludgeoning plus 1d8+4 acid damage per round, can cut free by dealing 25 points of damage to the AC 20 digestive tract, or climb out with a further grapple check; a Gargantuan spinosaurus's gullet holds 2 Large, 8 Medium, 32 Small, or 128 Tiny or smaller opponents)",
       "Trample (Ex — as a standard action, tramples opponents at least one size smaller for 2d8+19 bludgeoning damage; a trampled creature may attempt an attack of opportunity at –4 or a DC 33 Reflex save for half damage)"
     ],
     "specialQualities": [
@@ -499,7 +499,7 @@
     "specialAttacks": [
       "Poison (Ex, bite; Fort DC 14, 1d6 Con/1d6 Con)",
       "Improved grab (Ex — a bite or tongue attack that hits an opponent at least one size smaller starts a free grapple with no attack of opportunity, grapple bonus +3; can attempt to swallow the opponent if it gets a hold; may instead hold the opponent in its jaws at a –20 grapple penalty without being considered grappled itself)",
-      "Swallow whole (Ex — a grabbed opponent at least one size smaller can be swallowed with a successful grapple check, grapple bonus +3; takes 1d6 bludgeoning plus 1d4 acid damage per round in its stomach, can cut free by dealing 10 points of damage to the AC 13 gizzard, or climb out with a further grapple check; a Medium-size dire toad's stomach holds 2 Small or 8 Tiny or smaller opponents)"
+      "Swallow whole (Ex — a grabbed opponent at least one size smaller can be swallowed with a successful grapple check, grapple bonus +3; takes 1d6 bludgeoning plus 1d4 acid damage per round in its stomach, can cut free by dealing 10 points of damage to the AC 13 gizzard, or climb out with a further grapple check; a Medium dire toad's stomach holds 2 Small or 8 Tiny or smaller opponents)"
     ],
     "specialQualities": [
       "low-light vision"
@@ -906,7 +906,7 @@
       }
     ],
     "specialAttacks": [
-      "Improved grab (Ex — a claw that hits a Medium-size or smaller opponent starts a free grapple with no attack of opportunity, grapple bonus +32; may instead hold the opponent with its claw at a –20 grapple penalty without being considered grappled itself)"
+      "Improved grab (Ex — a claw that hits a Medium or smaller opponent starts a free grapple with no attack of opportunity, grapple bonus +32; may instead hold the opponent with its claw at a –20 grapple penalty without being considered grappled itself)"
     ],
     "specialQualities": [
       "low-light vision",

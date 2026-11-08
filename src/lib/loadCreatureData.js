@@ -3,7 +3,8 @@
 // this replaces) via import.meta.glob, the same pattern loadSpellData.js
 // uses for data/spells/ — dropping in a new data/creatures/<book>.json
 // file is picked up automatically, no loader edit required.
-import animalCompanion from '../../data/creatures/animal-companion.json'
+import animalCompanionData from '../../data/creatures/animal-companion.json'
+import { normalizeSize } from './rules/dnd35'
 import greenboundTemplate from '../../data/templates/greenbound.json'
 import advancedTemplate from '../../data/templates/advanced.json'
 import giantTemplate from '../../data/templates/giant.json'
@@ -20,8 +21,12 @@ for (const path of Object.keys(creatureModules).sort()) {
   if (path.endsWith('/animal-companion.json')) continue
   const mod = creatureModules[path]
   const entries = Array.isArray(mod) ? mod : Array.isArray(mod?.default) ? mod.default : []
-  monsterManual.push(...entries)
+  // 3.0 books print "Medium-size"; sizes are normalised once here so every
+  // display and comparison downstream sees the 3.5 name.
+  monsterManual.push(...entries.map((c) => ({ ...c, size: normalizeSize(c.size) })))
 }
+
+const animalCompanion = { ...animalCompanionData, size: normalizeSize(animalCompanionData.size) }
 
 export { monsterManual, animalCompanion, greenboundTemplate, anarchicTemplate }
 

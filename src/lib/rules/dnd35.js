@@ -39,8 +39,27 @@ export const GRAPPLE_SIZE_MODIFIER = {
   Colossal: 16,
 }
 
+// Size names as the books print them are not always the 3.5 spelling: 3.0
+// books say "Medium-size" (or "Medium-Size"). Every size read from data goes
+// through here — trim, drop a "-size" suffix, match case-insensitively — so
+// "Medium-Size", "medium-size" and " MEDIUM " all mean Medium. An unrecognised
+// name comes back trimmed and unchanged (and fails the lookups loudly).
+export function normalizeSize(size) {
+  if (typeof size !== 'string') return size
+  const cleaned = size.trim().replace(/-size$/i, '').trim()
+  return SIZE_ORDER.find((s) => s.toLowerCase() === cleaned.toLowerCase()) ?? cleaned
+}
+
+export function sizeModifier(size) {
+  return SIZE_MODIFIER[normalizeSize(size)]
+}
+
+export function grappleSizeModifier(size) {
+  return GRAPPLE_SIZE_MODIFIER[normalizeSize(size)]
+}
+
 export function sizeIndex(size) {
-  const i = SIZE_ORDER.indexOf(size)
+  const i = SIZE_ORDER.indexOf(normalizeSize(size))
   if (i === -1) throw new Error(`Unknown size "${size}"`)
   return i
 }

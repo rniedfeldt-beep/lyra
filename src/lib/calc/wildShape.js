@@ -1,6 +1,6 @@
 import { abilityMod } from './abilities'
 import { computeSaves } from './saves'
-import { SIZE_MODIFIER, sizeAtMost, parseHitDice, averageDamage } from '../rules/dnd35'
+import { sizeModifier, sizeAtMost, parseHitDice, averageDamage } from '../rules/dnd35'
 
 // Which special qualities/attacks are available below Planar Shepherd 9
 // (character level 14): only Extraordinary (Ex). Animals never have Su/Sp
@@ -70,7 +70,7 @@ function computeFormAttackRoutine({ bab, creature, strMod }) {
   // attack option in that form.
   if (creature.attacks.length === 0) return { single: [], full: [], hasSecondaries: false }
 
-  const sizeMod = SIZE_MODIFIER[creature.size]
+  const sizeMod = sizeModifier(creature.size)
   const attackBonusBase = bab + strMod + sizeMod
   const singleWeapon = creature.attacks.length === 1
 
@@ -100,7 +100,7 @@ export function computeWildShapeStatBlock({ sheet, creature }) {
   const strMod = abilityMod(creature.abilities.str)
   const dexMod = abilityMod(creature.abilities.dex)
   const conMod = abilityMod(creature.abilities.con)
-  const sizeMod = SIZE_MODIFIER[creature.size]
+  const sizeMod = sizeModifier(creature.size)
 
   const deflection = sheet.items.ring?.acBonus ?? 0
   const ac = {

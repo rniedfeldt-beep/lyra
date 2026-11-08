@@ -4429,13 +4429,13 @@
     "challengeRating": 3,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": null,
+    "summonNaturesAllyLevel": 2,
     "summonedBy": [
       "Summon Fey"
     ],
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. Dragon Magazine #302 lists this creature on the summon nature's ally list at level 2; summonNaturesAllyLevel is left null by DM instruction, so it is reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). "
+    "note": "Fey, so never a wild shape form. Not on the Player's Handbook summon nature's ally table; level 2 comes from Dragon Magazine #302's summon nature's ally list. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable)."
   },
   {
     "name": "Grig",
@@ -4494,16 +4494,1131 @@
     "challengeRating": 1,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": null,
+    "summonNaturesAllyLevel": 9,
     "summonedBy": [
       "Summon Fey"
     ],
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. Sprite is the Monster Manual's family heading for grig, nixie and pixie, not a separate creature. Sprites share a +2 racial bonus on Search, Spot and Listen, already counted in the printed skills. Dragon Magazine #302 lists this creature on the summon nature's ally list at level 2; summonNaturesAllyLevel is left null by DM instruction, so it is reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). "
+    "note": "Fey, so never a wild shape form. The summon nature's ally IX grig carries the fiddle (one grig in each band has one). Sprite is the Monster Manual's family heading for grig, nixie and pixie, not a separate creature; sprites share a +2 racial bonus on Search, Spot and Listen, already counted in the printed skills. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable)."
   },
   {
-    "name": "Pixie",
+    "name": "Dire Bear",
+    "source": "Monster Manual 3.5",
+    "page": 63,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "12d8+51",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 31,
+      "dex": 13,
+      "con": 19,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- must hit with a claw attack, free action grapple with no attack of opportunity)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Listen +10, Spot +10, Swim +13",
+    "appearance": "A hulking bear with heavy bony brow ridges, claws like sickles, and a cold, piercing, destructive gleam in its eyes. It runs about 12 feet long and weighs as much as 8,000 pounds.",
+    "behavior": "It usually leaves creatures alone if they keep clear, but defends a kill or food source aggressively and will tear apart anything that might be edible. It fights by ripping with its claws.",
+    "appearanceGreenbound": "The dire bear's shaggy coat has become thick, rough bark with moss packed into every crevice, and its sickle claws are hardened thorns. Roots trail from its paws and a crown of leafy twigs rises along its spine.",
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Run",
+      "Toughness",
+      "Weapon Focus (claw)"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elephant",
+    "source": "Monster Manual 3.5",
+    "page": 272,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "11d8+55",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 30,
+      "dex": 10,
+      "con": 21,
+      "int": 2,
+      "wis": 13,
+      "cha": 7
+    },
+    "baseAttackBonus": 8,
+    "attacks": [
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "stamp",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "trample (Ex -- 2d8+15, Reflex half DC 25)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Listen +12, Spot +10",
+    "appearance": "A massive herbivore of tropical lands. The statistics describe an African elephant; Indian elephants are slightly weaker (Str 28) but easier to train (Wis 15), and the same block can stand in for mammoths and mastodons.",
+    "behavior": "Unpredictable creatures, though sometimes used as mounts or beasts of burden. They tend to charge anything that threatens them.",
+    "appearanceGreenbound": "The elephant's wrinkled hide has turned to deep-grooved bark, its tusks to pale knotted wood, and its ears to broad, rustling leaves. Vines coil about its legs and its eyes gleam from beneath a mossy brow.",
+    "feats": [
+      "Alertness",
+      "Endurance",
+      "Iron Will",
+      "Skill Focus (Listen)"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "The printed full attack is either slam plus two stamps, or the gore alone; both gore and slam are listed as primary attacks."
+  },
+  {
+    "name": "Girallon",
+    "source": "Monster Manual 3.5",
+    "page": 126,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "7d10+20",
+    "speed": {
+      "land": 40,
+      "climb": 40
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 22,
+      "dex": 17,
+      "con": 14,
+      "int": 2,
+      "wis": 12,
+      "cha": 7
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 4,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "rend (Ex -- a girallon that hits with two or more claw attacks latches on and tears flesh for an automatic extra 2d4+9 damage)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Climb +14 (+8 racial bonus, can take 10 while rushed or threatened), Move Silently +8, Spot +6",
+    "appearance": "An albino gorilla with four arms, razor-sharp teeth and long claws, standing about 8 feet tall with thick white fur and weighing around 800 pounds. On the ground it walks on its legs and lower arms.",
+    "behavior": "Savage, aggressive and highly territorial, it attacks anything that enters its range, even other girallons. It likes to lie hidden in branches or leaf litter with only its nose showing, charge when it spots or smells prey, and carry off anything small enough before the victim's friends can respond.",
+    "appearanceGreenbound": "The girallon's white fur has become pale, shaggy moss over a body of hard, ridged wood, and its four arms end in claws like splintered branches. Leafy shoots crown its head and its eyes glow a dull green.",
+    "feats": [
+      "Iron Will",
+      "Toughness"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "The printed stat block gives rend as 2d4+9 (1.5 x Str 22); the combat text prints 2d4+12. The stat block value is used. Toughness is taken twice."
+  },
+  {
+    "name": "Megaraptor",
+    "source": "Monster Manual 3.5",
+    "page": 60,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "8d8+43",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 21,
+      "dex": 15,
+      "con": 21,
+      "int": 2,
+      "wis": 15,
+      "cha": 10
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "talons",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "foreclaw",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "pounce (Ex -- a charge allows a full attack)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Hide +5, Jump +27, Listen +12, Spot +12, Survival +12 (+8 racial bonus on Hide, Jump, Listen, Spot and Survival)",
+    "appearance": "A larger version of the deinonychus, standing about 12 feet tall and 24 feet long, with the same look, habits and abilities.",
+    "behavior": "It hunts like its smaller cousin, pouncing on prey with a full attack.",
+    "appearanceGreenbound": "The megaraptor's scales have become overlapping strips of green bark and its clawed feet knobbed roots. A fringe of leaves runs along its spine and tail, and its toothy jaws are lined with thorn-sharp splinters.",
+    "feats": [
+      "Run",
+      "Toughness",
+      "Track"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Octopus, Giant",
+    "source": "Monster Manual 3.5",
+    "page": 276,
+    "size": "Large",
+    "type": "Animal (Aquatic)",
+    "hitDice": "8d8+11",
+    "speed": {
+      "land": 20,
+      "swim": 30
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 20,
+      "dex": 15,
+      "con": 13,
+      "int": 2,
+      "wis": 12,
+      "cha": 3
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "tentacle",
+        "natural": true,
+        "primary": true,
+        "count": 8,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- must hit an opponent of any size with a tentacle, free action grapple with no attack of opportunity; a won grapple check establishes a hold and allows constrict)",
+      "constrict (Ex -- 2d8+6 damage on a successful grapple check)"
+    ],
+    "specialQualities": [
+      "ink cloud (Ex -- once per minute as a free action, a 20-ft. cube of jet-black ink giving total concealment)",
+      "jet (Ex -- once per round as a full-round action, jets backward 200 ft. in a straight line without provoking attacks of opportunity)",
+      "low-light vision"
+    ],
+    "skills": "Escape Artist +12, Hide +12, Listen +4, Spot +6, Swim +13 (+4 Hide from color change, +10 Escape Artist from contorting, +8 racial on Swim checks for special actions or hazards; can take 10 and run while swimming)",
+    "appearance": "An aggressive, territorial hunter with arms 10 feet or more long, their undersides studded with barbs and sharp-edged suckers.",
+    "behavior": "It seizes prey with its tentacles and crushes it, and escapes losing fights behind an ink cloud and a backward jet.",
+    "appearanceGreenbound": "The giant octopus's skin has become rough green bark, ridged and knotted, and its tentacles thick, supple vines tipped with thorns instead of suckers. Mossy tufts and leaves float around its mantle.",
+    "feats": [
+      "Alertness",
+      "Skill Focus (Hide)",
+      "Toughness"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "May be summoned only into an aquatic or watery environment."
+  },
+  {
+    "name": "Whale, Baleen",
+    "source": "Monster Manual 3.5",
+    "page": 282,
+    "size": "Gargantuan",
+    "type": "Animal",
+    "hitDice": "12d8+78",
+    "speed": {
+      "swim": 40
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 35,
+      "dex": 13,
+      "con": 22,
+      "int": 2,
+      "wis": 12,
+      "cha": 6
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsight 120 ft. (a silence spell negates it and leaves the whale with human-quality vision)",
+      "hold breath (Ex -- 8 x its Con score in rounds, 176, before risking drowning)",
+      "low-light vision"
+    ],
+    "skills": "Listen +15, Spot +14, Swim +20 (+4 racial bonus on Listen and Spot, lost if blindsight is negated; +8 racial on Swim checks for special actions or hazards, can take 10 and run while swimming)",
+    "appearance": "A plankton-feeding whale of 30 to 60 feet, such as a gray, humpback or right whale.",
+    "behavior": "Surprisingly gentle: if harassed or provoked it is as likely to flee as to retaliate.",
+    "appearanceGreenbound": "The baleen whale's skin has hardened into thick, barnacle-like bark crusted with moss, its fins into broad leafy paddles. Its dark eyes gleam beneath a brow of knotted wood.",
+    "feats": [
+      "Alertness",
+      "Diehard",
+      "Endurance",
+      "Toughness"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken twice."
+  },
+  {
+    "name": "Salamander, Average",
+    "source": "Monster Manual 3.5",
+    "page": 219,
+    "size": "Medium",
+    "type": "Outsider",
+    "hitDice": "9d8+18",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 14,
+      "dex": 13,
+      "con": 14,
+      "int": 14,
+      "wis": 15,
+      "cha": 13
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "spear",
+        "natural": false,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "x3"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict (Ex -- automatic tail slap damage, including fire, on a successful grapple check: 2d6+1 plus 1d6 fire)",
+      "heat (Ex -- its touch deals extra fire damage (1d6) and its metallic weapons conduct the same heat)",
+      "improved grab (Ex -- must hit a creature up to one size larger with its tail slap, free action grapple; a won grapple check establishes a hold and allows constrict)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/magic (its natural weapons count as magic)",
+      "darkvision 60 ft.",
+      "immunity to fire",
+      "vulnerability to cold (+50% cold damage)"
+    ],
+    "skills": "Bluff +11, Craft (blacksmithing) +19 (+4 racial), Diplomacy +3, Disguise +1 (+3 acting), Hide +11, Intimidate +3, Listen +8, Move Silently +11, Search +12, Spot +8",
+    "appearance": "A muscular humanoid upper body on a serpentine lower body covered in red and black scales, with flame-shaped spines on its head, arms and back. Medium-sized, with a reach of 10 feet with its tail.",
+    "behavior": "Salamanders reproduce asexually, each producing a single larva every ten years and incubating it in fire pits. Average salamanders and flamebrothers are separate species; nobles rise from the ranks of the average. Bloodthirsty and sadistic, they favor spears heated red-hot by their own bodies, attack the apparently strongest foe first, and save weaker enemies for slow torment.",
+    "appearanceGreenbound": "The salamander's scales have turned to blackened, cracked bark with ember-glowing seams, and the flame spines to licks of smoldering twigs. Its serpentine body ends in a root-like tail that smokes faintly.",
+    "feats": [
+      "Alertness",
+      "Multiattack",
+      "Power Attack"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. The spear's extra fire damage is 1d6."
+  },
+  {
+    "name": "Xorn, Average",
+    "source": "Monster Manual 3.5",
+    "page": 261,
+    "size": "Medium",
+    "type": "Outsider",
+    "hitDice": "7d8+17",
+    "speed": {
+      "land": 20,
+      "burrow": 20
+    },
+    "naturalArmor": 14,
+    "abilities": {
+      "str": 17,
+      "dex": 10,
+      "con": 15,
+      "int": 10,
+      "wis": 11,
+      "cha": 10
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "4d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "count": 3,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "all-around vision (+4 racial bonus on Spot and Search checks; can't be flanked)",
+      "earth glide",
+      "damage reduction 5/bludgeoning",
+      "darkvision 60 ft.",
+      "immunity to cold and fire",
+      "resistance to electricity 10",
+      "tremorsense 60 ft."
+    ],
+    "skills": "Hide +10, Intimidate +10, Knowledge (dungeoneering) +10, Listen +10, Move Silently +10, Search +10, Spot +10, Survival +10 (+12 following tracks or underground)",
+    "appearance": "A wide body of pebbly, stonelike material with a large powerful mouth on top of its head and three long, taloned arms placed symmetrically around it. Between the arms sit large stone-lidded eyes that see in every direction, over three short legs.",
+    "behavior": "A scavenger from the Plane of Earth that does not hunt fleshly beings, since it can't digest meat, but pursues anyone carrying precious metals or minerals. It likes to wait just under a stone surface until a foe comes within reach.",
+    "appearanceGreenbound": "The xorn's pebbled body has taken on the texture of rough bark with moss filling its seams, and its three arms have become thick, root-like limbs ending in thorn claws. Small leafy shoots grow between its stone-lidded eyes.",
+    "feats": [
+      "Cleave",
+      "Improved Bull Rush",
+      "Multiattack",
+      "Power Attack",
+      "Toughness"
+    ],
+    "challengeRating": 6,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Pixie (no special arrows)",
+    "source": "Monster Manual 3.5",
+    "page": 236,
+    "size": "Small",
+    "type": "Fey",
+    "hitDice": "1d6",
+    "speed": {
+      "land": 20,
+      "fly": 60
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 7,
+      "dex": 18,
+      "con": 11,
+      "int": 16,
+      "wis": 15,
+      "cha": 16
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "short sword",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "19-20/x2"
+      },
+      {
+        "name": "longbow",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "x3"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities (caster level 8th, Cha-based DCs): 1/day -- lesser confusion (DC 14), dancing lights, detect chaos, detect good, detect evil, detect law, detect thoughts (DC 15), dispel magic, entangle (DC 14), permanent image (DC 19, visual and auditory only), polymorph (self only)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/cold iron",
+      "greater invisibility (Su -- constant, remains invisible when attacking, can suppress or resume as a free action)",
+      "low-light vision",
+      "spell resistance 15"
+    ],
+    "skills": "Bluff +7, Concentration +4, Escape Artist +8, Hide +8, Listen +8, Move Silently +8, Ride +8, Search +9, Sense Motive +6, Spot +8",
+    "appearance": "A very small elf, about two and a half feet tall, with longer ears and gossamer wings, usually in bright clothing with a cap and curl-toed shoes.",
+    "behavior": "Merry pranksters who love to lead travelers astray and tease the greedy with treasure they don't covet. They turn fierce against evil creatures and intruders, using invisibility and their other tricks to harass and drive them off.",
+    "appearanceGreenbound": "The pixie's wings have become pale, veined leaves, and its skin and cap have taken on the grain and color of pale wood and curled bark. Tiny buds and tendrils sprout along its arms and ears, and it glows faintly green.",
+    "feats": [
+      "Dodge",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Fey, so never a wild shape form. The summon nature's ally VI pixie: no special arrows and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
+    "summonedBy": [
+      "Summon Fey"
+    ]
+  },
+  {
+    "name": "Arrowhawk, Elder",
+    "source": "Monster Manual 3.5",
+    "page": 19,
+    "size": "Large",
+    "type": "Outsider",
+    "hitDice": "15d8+45",
+    "speed": {
+      "fly": 60
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 21,
+      "con": 16,
+      "int": 10,
+      "wis": 13,
+      "cha": 13
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "electricity ray",
+        "natural": false,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "electricity ray (ranged touch +19, 2d8 electricity, 50-ft. range, usable once per round)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "immunity to acid, electricity, and poison",
+      "resistance to cold 10 and fire 10"
+    ],
+    "skills": "Diplomacy +3, Escape Artist +23, Knowledge (the planes) +18, Listen +21, Move Silently +23, Search +18, Sense Motive +19, Spot +21, Survival +19 (+21 following tracks, +21 Plane of Air), Use Rope +5 (+7 involving bindings)",
+    "appearance": "An elder arrowhawk is a long, snakelike creature about 20 feet from beak to tail, with a 30-foot wingspan and a weight around 800 pounds, flying on two pairs of feathered wings in any direction without landing.",
+    "behavior": "Extremely territorial and always hungry, it attacks almost any creature it meets, either for food or to drive off a rival. Its main weapon is an electricity ray fired from the tail. It is not usually talkative, but speaks Auran.",
+    "appearanceGreenbound": "The elder arrowhawk's scales have thickened into layered bark with mossy seams and its wing feathers into broad, rustling leaves. Its beak has turned to a hard woody hook and a spray of thorny vines streams from its tail.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Combat Reflexes",
+      "Dodge",
+      "Flyby Attack",
+      "Weapon Finesse",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Dire Tiger",
+    "source": "Monster Manual 3.5",
+    "page": 65,
+    "size": "Large",
+    "type": "Animal",
+    "hitDice": "16d8+48",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 27,
+      "dex": 15,
+      "con": 17,
+      "int": 2,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- must hit with its bite, free action grapple with no attack of opportunity; on a won grapple check it establishes a hold and can rake)",
+      "pounce (Ex -- a charge allows a full attack, including two rake attacks)",
+      "rake (Ex -- +18 melee, 2d4+4)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Hide +7 (+4 racial bonus on Hide and Move Silently, Hide +8 more in tall grass or heavy undergrowth), Jump +14, Listen +6, Move Silently +11, Spot +7, Swim +10",
+    "appearance": "An immense, monstrous cat almost as tall at the shoulder as a human, with a long body, bold stripes and paws the size of bucklers. It can reach over 12 feet long and weigh up to 6,000 pounds.",
+    "behavior": "It preys on nearly anything that moves, patiently stalking a meal and striking when the creature lets its guard down: it runs at the prey, leaps, claws and bites, and rakes with its rear claws.",
+    "appearanceGreenbound": "The dire tiger's stripes have become bold bands of dark and pale bark over a body of flexible wood, and its claws are curved thorns. Its ears are broad leaves and tendrils of ivy trail along its flanks.",
+    "feats": [
+      "Alertness",
+      "Improved Natural Attack (claw)",
+      "Improved Natural Attack (bite)",
+      "Run",
+      "Stealthy",
+      "Weapon Focus (claw)"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Djinni",
+    "source": "Monster Manual 3.5",
+    "page": 114,
+    "size": "Large",
+    "type": "Outsider (Air)",
+    "hitDice": "7d8+14",
+    "speed": {
+      "land": 20,
+      "fly": 60
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 18,
+      "dex": 19,
+      "con": 14,
+      "int": 14,
+      "wis": 15,
+      "cha": 15
+    },
+    "baseAttackBonus": 7,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery (Ex -- airborne creatures take -1 on attack and damage rolls against it)",
+      "spell-like abilities (caster level 20th, Cha-based DCs): at will -- invisibility (self only); 1/day -- create food and water, create wine, major creation (vegetable matter permanent), persistent image (DC 17), wind walk; once per day can assume gaseous form for up to 1 hour",
+      "whirlwind (Su -- once every 10 minutes, up to 7 rounds; a creature touching it makes a DC 20 Reflex save or takes 3d6, then a second DC 20 Reflex save or is held aloft, taking 1d8 per round, and flying creatures get a DC 20 save each round to escape)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "immunity to acid",
+      "plane shift (Sp -- can enter any Elemental Plane, the Astral Plane or the Material Plane, carrying itself and up to eight other creatures who link hands with it; as the spell, caster level 13th)",
+      "telepathy 100 ft."
+    ],
+    "skills": "Appraise +12, Concentration +12, Craft (any one) +12, Diplomacy +4, Escape Artist +14, Knowledge (any one) +12, Listen +12, Move Silently +14, Sense Motive +12, Spellcraft +12, Spot +12, Use Rope +4 (+6 with bindings)",
+    "appearance": "A well-formed human figure with a dark complexion, nearly twice as tall as a man, about 10 and a half feet and 1,000 pounds.",
+    "behavior": "Djinn are genies of the Plane of Air who live on floating islands of earth and rock, ruled by local sheiks within a caliph's realm. They disdain physical combat and prefer magic and aerial tactics; one that is losing takes flight and becomes a whirlwind to harass pursuers. Djinn speak Auran, Celestial, Common and Ignan.",
+    "appearanceGreenbound": "The djinni's skin has the grain and texture of dark polished wood, with green shoots spiraling from its arms and a crown of fresh leaves. Its eyes glow a soft green and its lower body swirls like a tangle of leaf-laden vines.",
+    "feats": [
+      "Combat Casting",
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Whirlwind and the plane shift wording are paraphrased. A noble djinni is CR 8 with extra abilities; only the standard djinni is the summon nature's ally VII creature. The printed plane shift line details were not recorded beyond the summary above."
+  },
+  {
+    "name": "Invisible Stalker",
+    "source": "Monster Manual 3.5",
+    "page": 160,
+    "size": "Large",
+    "type": "Elemental (Air)",
+    "hitDice": "8d8+16",
+    "speed": {
+      "land": 30,
+      "fly": 30
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 19,
+      "con": 14,
+      "int": 14,
+      "wis": 15,
+      "cha": 11
+    },
+    "baseAttackBonus": 6,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits",
+      "natural invisibility (Su -- constant, remains invisible when attacking, not subject to invisibility purge)",
+      "improved tracking (Ex -- makes Spot checks instead of Survival to trace a creature's passage)"
+    ],
+    "skills": "Listen +13, Move Silently +15, Search +13, Spot +13, Survival +2 (+4 following tracks)",
+    "appearance": "An amorphous cloud-like creature of the Plane of Air. A see invisibility spell shows only a dim outline of a cloud, and true seeing reveals a roiling cloud of vapor.",
+    "behavior": "Often summoned by wizards and sorcerers for specific tasks, it follows a command until the task is done and obeys only its summoner, though it resents long missions and complex tasks and twists its instructions to suit itself. It attacks with a sudden, intense blast of wind on one target on its plane. It can be killed only on the Plane of Air; elsewhere it returns home when damaged enough to be destroyed. It speaks only Auran but understands Common.",
+    "feats": [
+      "Combat Reflexes",
+      "Improved Initiative",
+      "Weapon Focus (slam)"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Elemental-typed, so no Greenbound; flying speed is perfect maneuverability. Printed type includes Extraplanar."
+  },
+  {
+    "name": "Squid, Giant",
+    "source": "Monster Manual 3.5",
+    "page": 281,
+    "size": "Huge",
+    "type": "Animal (Aquatic)",
+    "hitDice": "12d8+18",
+    "speed": {
+      "swim": 80
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 26,
+      "dex": 17,
+      "con": 13,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "tentacle",
+        "natural": true,
+        "primary": true,
+        "count": 10,
+        "damage": "1d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict (Ex -- 1d6+8 on a successful grapple check)",
+      "improved grab (Ex -- must hit an opponent of any size with a tentacle, free action grapple with no attack of opportunity; a won check establishes a hold and allows constrict; +4 racial grapple bonus)"
+    ],
+    "specialQualities": [
+      "ink cloud (Ex -- once per minute as a free action, a 20-ft. cube of jet-black ink giving total concealment)",
+      "jet (Ex -- once per round as a full-round action, jets backward 320 ft. in a straight line without provoking attacks of opportunity)",
+      "low-light vision"
+    ],
+    "skills": "Listen +10, Spot +11, Swim +16 (+8 racial bonus on Swim checks for special actions or hazards; can take 10 and run while swimming)",
+    "appearance": "A voracious sea creature whose body can exceed 20 feet in length.",
+    "behavior": "It attacks almost anything it meets. Its tentacles can be sundered (10 hp each; severing one deals 5 damage to the squid) and it usually withdraws after losing five; limbs regrow in 1d10+10 days.",
+    "appearanceGreenbound": "The giant squid's mantle has become glossy, ribbed bark and its tentacles long, thorned vines trailing leaves and water-weed. A brow of knotted wood overhangs its large, unblinking eyes.",
+    "feats": [
+      "Alertness",
+      "Diehard",
+      "Endurance",
+      "Toughness"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken twice."
+  },
+  {
+    "name": "Triceratops",
+    "source": "Monster Manual 3.5",
+    "page": 61,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "16d8+124",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 11,
+    "abilities": {
+      "str": 30,
+      "dex": 9,
+      "con": 25,
+      "int": 1,
+      "wis": 12,
+      "cha": 7
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "gore",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "powerful charge (Ex -- a charging gore deals 4d8+20)",
+      "trample (Ex -- 2d12+15, Reflex half DC 28)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Listen +13, Spot +12",
+    "appearance": "A massive herbivore with a great bony plate over the front of its 6-foot head, two big horns and a shorter nose horn; about 25 feet long and 20,000 pounds.",
+    "behavior": "Fairly short-tempered and aggressive, it will charge and skewer any creature of at least Large size that intrudes on its territory, and tramples smaller opponents.",
+    "appearanceGreenbound": "The triceratops' frill has become a broad shield of layered bark and its horns hard, gnarled branches. Its hide is rough and mossy, with leafy shoots growing from the crest and spine.",
+    "feats": [
+      "Alertness",
+      "Great Fortitude",
+      "Toughness"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Toughness is taken four times."
+  },
+  {
+    "name": "Tyrannosaurus",
+    "source": "Monster Manual 3.5",
+    "page": 61,
+    "size": "Huge",
+    "type": "Animal",
+    "hitDice": "18d8+99",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 28,
+      "dex": 12,
+      "con": 21,
+      "int": 2,
+      "wis": 15,
+      "cha": 10
+    },
+    "baseAttackBonus": 13,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "3d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- must hit with its bite, free action grapple with no attack of opportunity; a won check establishes a hold and allows swallow)",
+      "swallow whole (Ex -- swallows a grabbed foe up to two sizes smaller on a successful grapple check; the swallowed creature takes 2d8+8 bludgeoning and 8 acid per round; it can cut out with a light slashing or piercing weapon dealing 25 damage to the gizzard (AC 12); the gizzard holds 2 Medium, 8 Small, 32 Tiny, or 128 Diminutive or smaller)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "scent"
+    ],
+    "skills": "Hide -2, Listen +14, Spot +14 (+2 racial bonus on Listen and Spot)",
+    "appearance": "A towering predator with a huge head about 6 feet long, a mouth of dagger-sized teeth, and only vestigial forelimbs, on two powerful legs; slightly over 30 feet long and weighing about 6 tons.",
+    "behavior": "The most fearsome of the carnivorous dinosaurs and a swift runner despite its size. It eats almost anything, spends much time scavenging carrion, and drives smaller predators off their kills.",
+    "appearanceGreenbound": "The tyrannosaurus's hide has become ridged, mossy bark and its vast teeth jagged splinters of hard wood. Roots grip the ground at every footfall and leafy vines hang from its jaw and small arms.",
+    "feats": [
+      "Alertness",
+      "Improved Natural Attack (bite)",
+      "Run",
+      "Toughness",
+      "Track"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Toughness is taken three times."
+  },
+  {
+    "name": "Whale, Cachalot",
+    "source": "Monster Manual 3.5",
+    "page": 283,
+    "size": "Gargantuan",
+    "type": "Animal",
+    "hitDice": "12d8+87",
+    "speed": {
+      "swim": 40
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 35,
+      "dex": 13,
+      "con": 24,
+      "int": 2,
+      "wis": 14,
+      "cha": 6
+    },
+    "baseAttackBonus": 9,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "4d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": false,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "blindsight 120 ft. (a silence spell negates it)",
+      "hold breath (Ex -- 8 x its Con score in rounds, 192)",
+      "low-light vision"
+    ],
+    "skills": "Listen +15, Spot +14, Swim +20 (+4 racial bonus on Listen and Spot, lost if blindsight is negated; +8 racial on Swim checks for special actions or hazards)",
+    "appearance": "A sperm whale up to 60 feet long, with a huge square head.",
+    "behavior": "It preys on giant squids, and is the ferocious predator of the deep.",
+    "appearanceGreenbound": "The cachalot's skin has become deeply furrowed bark, its great head a mossy knot of wood. Weeds and small vines trail from its flukes and its teeth are long, hard splinters.",
+    "feats": [
+      "Alertness",
+      "Diehard",
+      "Endurance",
+      "Improved Natural Attack (bite)",
+      "Toughness"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "May be summoned only into an aquatic or watery environment."
+  },
+  {
+    "name": "Xorn, Elder",
+    "source": "Monster Manual 3.5",
+    "page": 261,
+    "size": "Large",
+    "type": "Outsider",
+    "hitDice": "15d8+63",
+    "speed": {
+      "land": 20,
+      "burrow": 20
+    },
+    "naturalArmor": 16,
+    "abilities": {
+      "str": 25,
+      "dex": 10,
+      "con": 19,
+      "int": 10,
+      "wis": 11,
+      "cha": 10
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "4d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "count": 3,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "all-around vision (+4 racial bonus on Spot and Search checks; can't be flanked)",
+      "earth glide",
+      "damage reduction 5/bludgeoning",
+      "darkvision 60 ft.",
+      "immunity to cold and fire",
+      "resistance to electricity 10",
+      "tremorsense 60 ft."
+    ],
+    "skills": "Hide +14, Intimidate +18, Knowledge (dungeoneering) +18, Listen +18, Move Silently +18, Search +22, Spot +22, Survival +18 (+20 following tracks or underground)",
+    "appearance": "A wide body of pebbly stone with a powerful mouth on top and three long taloned arms, large and Large-sized, with stone-lidded eyes that see in every direction.",
+    "behavior": "A scavenger from the Plane of Earth, indifferent to material creatures except those carrying precious metals or minerals. It likes to wait just under a stone surface until a foe is within reach.",
+    "appearanceGreenbound": "The elder xorn's body has become rough, ridged bark thick with moss, and its three arms are heavy, root-like limbs ending in thorn claws. Leafy shoots sprout between its stone-lidded eyes.",
+    "feats": [
+      "Awesome Blow",
+      "Cleave",
+      "Great Cleave"
+    ],
+    "challengeRating": 8,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "The printed feat line for the elder xorn is cut off after \"Awesome Blow, Cleave, Great\" in the book itself; the feats shown are the legible ones."
+  },
+  {
+    "name": "Pixie (sleep arrows)",
     "source": "Monster Manual 3.5",
     "page": 236,
     "size": "Small",
@@ -4541,8 +5656,7 @@
     ],
     "specialAttacks": [
       "spell-like abilities (caster level 8th, Cha-based DCs): 1/day -- lesser confusion (DC 14), dancing lights, detect chaos, detect good, detect evil, detect law, detect thoughts (DC 15), dispel magic, entangle (DC 14), permanent image (DC 19, visual and auditory only), polymorph (self only)",
-      "Otto's irresistible dance (Sp -- 1/day, caster level 8th; only about one pixie in ten has it, and CR rises to 5 if so)",
-      "special arrows (Ex -- an arrow that does no damage but either wipes memory (DC 15 Will or lose all memory until healed by heal, or limited wish/wish/miracle; skills, languages and class abilities remain) or puts the target to sleep regardless of HD (DC 15 Fortitude, as sleep); DCs include +2 racial bonus)"
+      "special arrows (Ex -- sleep arrow: deals no damage; any opponent struck, regardless of HD, must make a DC 15 Fortitude save (Cha-based, includes +2 racial bonus) or be affected as by a sleep spell)"
     ],
     "specialQualities": [
       "damage reduction 10/cold iron",
@@ -4552,7 +5666,7 @@
     ],
     "skills": "Bluff +7, Concentration +4, Escape Artist +8, Hide +8, Listen +8, Move Silently +8, Ride +8, Search +9, Sense Motive +6, Spot +8",
     "appearance": "A very small elf, about two and a half feet tall, with longer ears and gossamer wings, usually in bright clothing with a cap and curl-toed shoes.",
-    "behavior": "Merry pranksters who love to lead travelers astray, and who tease the greedy by taunting them with treasure they themselves don't covet. They turn fierce against evil creatures and unwanted intruders, using invisibility and their other tricks to harass and drive them off.",
+    "behavior": "Merry pranksters who love to lead travelers astray and tease the greedy with treasure they don't covet. They turn fierce against evil creatures and intruders, using invisibility and their other tricks to harass and drive them off.",
     "appearanceGreenbound": "The pixie's wings have become pale, veined leaves, and its skin and cap have taken on the grain and color of pale wood and curled bark. Tiny buds and tendrils sprout along its arms and ears, and it glows faintly green.",
     "feats": [
       "Dodge",
@@ -4561,12 +5675,1131 @@
     "challengeRating": 4,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": null,
-    "summonedBy": [
-      "Summon Fey"
-    ],
+    "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. Dragon Magazine #302 lists this creature on the summon nature's ally list at level 5; summonNaturesAllyLevel is left null by DM instruction, so it is reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). "
+    "note": "Fey, so never a wild shape form. The summon nature's ally VII pixie: sleep arrows only and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
+    "summonedBy": [
+      "Summon Fey"
+    ]
+  },
+  {
+    "name": "Roc",
+    "source": "Monster Manual 3.5",
+    "page": 215,
+    "size": "Gargantuan",
+    "type": "Animal",
+    "hitDice": "18d8+126",
+    "speed": {
+      "land": 20,
+      "fly": 80
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 34,
+      "dex": 15,
+      "con": 24,
+      "int": 2,
+      "wis": 13,
+      "cha": 11
+    },
+    "baseAttackBonus": 13,
+    "attacks": [
+      {
+        "name": "talon",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "skills": "Hide -3, Listen +10, Spot +14 (+4 racial bonus on Spot)",
+    "appearance": "An enormous bird of prey, easily the size of a building: 30 feet from beak to tail base, with an 80-foot wingspan, weighing around 8,000 pounds. Plumage is dark brown or golden; rare red, black or white rocs are seen as bad omens.",
+    "behavior": "Rocs nest in vast stick-and-timber nests high in warm mountains, far from other rocs, and hunt within about 10 miles. A roc swoops to snatch prey in its talons; a lone roc will attack any Medium or larger creature that looks edible, and a mated pair fights to the death to protect nest or young.",
+    "appearanceGreenbound": "The roc's plumage has become layers of broad, overlapping leaves in browns and golds, and its talons thorn-hooked branches. Vines trail from its tail and its great beak has the grain and knots of heartwood.",
+    "feats": [
+      "Alertness",
+      "Flyby Attack",
+      "Iron Will",
+      "Multiattack",
+      "Power Attack",
+      "Snatch",
+      "Wingover"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Salamander, Noble",
+    "source": "Monster Manual 3.5",
+    "page": 219,
+    "size": "Large",
+    "type": "Outsider",
+    "hitDice": "15d8+45",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 13,
+      "con": 16,
+      "int": 16,
+      "wis": 15,
+      "cha": 15
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "longspear",
+        "natural": false,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "x3"
+      },
+      {
+        "name": "tail slap",
+        "natural": true,
+        "primary": false,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "constrict (Ex -- automatic tail slap damage including fire on a successful grapple check: 2d8+3 plus 1d8 fire; can constrict several creatures at once if each is at least two sizes smaller)",
+      "heat (Ex -- its touch deals extra fire damage (1d8) and its metallic weapons conduct the same heat)",
+      "improved grab (Ex -- must hit a creature up to one size larger with its tail slap, free action grapple; a won check establishes a hold and allows constrict)",
+      "spell-like abilities (caster level 15th, Cha-based DCs): 3/day -- burning hands (DC 13), fireball (DC 15), flaming sphere (DC 14), wall of fire (DC 16); 1/day -- dispel magic, summon monster VII (Huge fire elemental)"
+    ],
+    "specialQualities": [
+      "damage reduction 15/magic (its natural weapons count as magic)",
+      "darkvision 60 ft.",
+      "immunity to fire",
+      "vulnerability to cold (+50% cold damage)"
+    ],
+    "skills": "Bluff +19, Craft (blacksmithing) +25 (+4 racial), Diplomacy +4, Hide +15, Intimidate +4, Listen +13, Move Silently +17, Spot +13",
+    "appearance": "A muscular, Large humanoid upper body on a serpentine lower body covered in red and black scales, with flame-shaped spines, reaching 10 feet (20 with its tail or longspear). Nobles rise from the ranks of average salamanders.",
+    "behavior": "Cruel, bloodthirsty and sadistic, a noble attacks the strongest-looking foe first and saves weaker enemies for slow torment. It fights with a longspear heated red-hot by its own body, and speaks Ignan and Common.",
+    "appearanceGreenbound": "The noble salamander's scales have blackened into ember-seamed bark, and its flame-spines are crown-like thickets of smoldering branches. Its serpentine body ends in a thick, smoking root tail.",
+    "feats": [
+      "Alertness",
+      "Cleave",
+      "Great Cleave",
+      "Multiattack",
+      "Power Attack",
+      "Skill Focus (Craft blacksmithing)"
+    ],
+    "challengeRating": 10,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. Treasure is double standard (nonflammables only) and a longspear."
+  },
+  {
+    "name": "Shark, Dire",
+    "source": "Monster Manual 3.5",
+    "page": 64,
+    "size": "Huge",
+    "type": "Animal (Aquatic)",
+    "hitDice": "18d8+66",
+    "speed": {
+      "swim": 60
+    },
+    "naturalArmor": 7,
+    "abilities": {
+      "str": 23,
+      "dex": 15,
+      "con": 17,
+      "int": 1,
+      "wis": 12,
+      "cha": 10
+    },
+    "baseAttackBonus": 13,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- must hit with its bite, free action grapple with no attack of opportunity; a won check establishes a hold and allows swallow)",
+      "swallow whole (Ex -- swallows a grabbed foe up to one size smaller on a successful grapple check; the swallowed creature takes 2d6+6 bludgeoning plus 1d8+4 acid per round; it can cut out with a light slashing or piercing weapon dealing 25 damage to the digestive tract (AC 13))"
+    ],
+    "specialQualities": [
+      "keen scent"
+    ],
+    "skills": "Listen +12, Spot +11, Swim +14",
+    "appearance": "An enormous sea monster with a streamlined body, a triangular dorsal fin, a toothy mouth well beneath a long snout and a crescent tail; up to 25 feet long and over 20,000 pounds.",
+    "behavior": "It attacks anything it thinks edible, even larger creatures, biting with powerful jaws and swallowing smaller creatures in one gulp.",
+    "appearanceGreenbound": "The dire shark's hide has become dense, ridged bark and its fin a stiff, leafy blade, with rows of splintered-wood teeth. Seaweed streams from its flanks and tail.",
+    "feats": [
+      "Improved Natural Attack (bite)",
+      "Toughness",
+      "Weapon Focus (bite)"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken four times."
+  },
+  {
+    "name": "Tojanida, Elder",
+    "source": "Monster Manual 3.5",
+    "page": 244,
+    "size": "Large",
+    "type": "Outsider",
+    "hitDice": "15d8+60",
+    "speed": {
+      "land": 10,
+      "swim": 90
+    },
+    "naturalArmor": 14,
+    "abilities": {
+      "str": 22,
+      "dex": 13,
+      "con": 19,
+      "int": 10,
+      "wis": 12,
+      "cha": 9
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": true,
+        "damage": "4d6",
+        "crit": "20/x2"
+      },
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "improved grab (Ex -- grapple as a free action following a bite or claw hit; underwater it can tow a grabbed victim of its own size or smaller at its swim speed)",
+      "ink cloud (Ex -- 1/minute, fills a 30-ft.-radius sphere like a fog cloud cast at its Hit Dice; out of water it squirts a 30-ft. stream that blinds a target for 1 round unless it makes a Reflex DC 21 save)"
+    ],
+    "specialQualities": [
+      "all-around vision (+4 racial bonus on Spot and Search checks; opponents get no flanking bonus against it)",
+      "darkvision 60 ft.",
+      "immunity to acid and cold",
+      "resistance to electricity 10 and fire 10"
+    ],
+    "skills": "Escape Artist +19, Hide +15, Intimidate +17, Knowledge (the planes) +18, Listen +21, Search +22, Sense Motive +17, Spot +25, Survival +1 (+3 other planes and following tracks), Swim +14, Use Rope +1 (+3 with bindings)",
+    "appearance": "A snapping-turtle-like creature with a spindle-shaped shell of hexagonal plates and a narrow, horizontal-jawed head; an elder's shell is about 9 feet long. Eight vents in the shell let stalks tipped with paddles, claws, or the head extend in any configuration.",
+    "behavior": "Omnivores native to the Plane of Water, nimble swimmers and capable fighters, usually even-tempered but ferocious if their food is threatened. Elders can reach 150 years of age.",
+    "appearanceGreenbound": "The elder tojanida's shell has become layered, ribbed bark with moss and small ferns in the seams, and its stalks supple vines tipped with thorn-claws. Its narrow head is a knot of dark heartwood with glossy, leaf-green eyes.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Cleave",
+      "Dodge",
+      "Improved Sunder",
+      "Power Attack"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 8,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Unicorn, Celestial Charger",
+    "source": "Monster Manual 3.5",
+    "page": 250,
+    "size": "Large",
+    "type": "Magical Beast",
+    "hitDice": "15d8+75",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 6,
+    "abilities": {
+      "str": 24,
+      "dex": 18,
+      "con": 20,
+      "int": 13,
+      "wis": 27,
+      "cha": 22
+    },
+    "baseAttackBonus": 13,
+    "attacks": [
+      {
+        "name": "horn",
+        "natural": true,
+        "primary": true,
+        "damage": "1d8",
+        "crit": "20/x2"
+      },
+      {
+        "name": "hoof",
+        "natural": true,
+        "primary": false,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "turn undead (13/day)",
+      "smite evil (Su -- 1/day, one melee attack deals +15 damage against an evil foe)",
+      "cleric spells (7th level, Animal and Good domains; save DC 18 + spell level; prepared 6/7/6/5/4: orisons detect magic, detect poison x2, light, virtue x2; 1st bless x2, calm animals, obscuring mist, remove fear, sanctuary, shield of faith; 2nd aid x2, animal messenger, lesser restoration, remove paralysis, shield other; 3rd prayer, protection from energy, remove curse, searing light x2; 4th air walk, divine power, holy smite, restoration)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/magic (its natural weapons count as magic)",
+      "darkvision 60 ft.",
+      "immunity to poison, charm, and compulsion",
+      "low-light vision",
+      "magic circle against evil (Su, continuous)",
+      "resistance to acid 10, cold 10, and electricity 10",
+      "scent",
+      "spell-like abilities (at will -- detect evil as a free action; 1/day -- greater teleport within its own forest only; cure light wounds 3/day and cure moderate wounds 1/day by horn touch; neutralize poison 1/day by touch, DC 20, caster level 8th)",
+      "spell resistance 20",
+      "wild empathy (as the druid class feature, +6 racial bonus)"
+    ],
+    "skills": "Concentration +11, Knowledge (nature) +9, Knowledge (religion) +8, Listen +15, Move Silently +12 (+4 racial), Spellcraft +5, Spot +15, Survival +15 (+17 aboveground; +3 competence within its forest)",
+    "appearance": "A white unicorn grown into a champion for good, the fierce enemy of evil beings that would destroy woodlands and their inhabitants, a dedicated follower of Ehlonna.",
+    "behavior": "The sample celestial charger is an 8 HD celestial unicorn with seven levels of cleric. It is a solitary creature of the Seven Mounting Heavens of Celestia, always chaotic good.",
+    "appearanceGreenbound": "The charger's white coat has become smooth pale bark threaded with silver-green lichen, and its horn a spiraled shaft of polished heartwood. Its mane and tail are cascades of fresh leaves, and its eyes shine a steady, clear gold.",
+    "feats": [
+      "Alertness",
+      "Combat Casting",
+      "Extra Turning",
+      "Improved Turning",
+      "Run",
+      "Skill Focus (Survival)"
+    ],
+    "challengeRating": 13,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "The printed Hit Dice are 8d10+7d8+75 (an 8 HD unicorn plus 7 cleric levels), which can't be written as a single dice string here; 15d8+75 is a stand-in, so hit points will not match the printed 155. The printed AC of 24 includes +5 bracers of armor +5, which are not part of this entry. Printed BAB +13 is 8 (magical beast HD) plus 5 (cleric)."
+  },
+  {
+    "name": "Pixie (sleep and memory loss arrows)",
+    "source": "Monster Manual 3.5",
+    "page": 236,
+    "size": "Small",
+    "type": "Fey",
+    "hitDice": "1d6",
+    "speed": {
+      "land": 20,
+      "fly": 60
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 7,
+      "dex": 18,
+      "con": 11,
+      "int": 16,
+      "wis": 15,
+      "cha": 16
+    },
+    "baseAttackBonus": 0,
+    "attacks": [
+      {
+        "name": "short sword",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "19-20/x2"
+      },
+      {
+        "name": "longbow",
+        "natural": false,
+        "primary": true,
+        "damage": "1d6",
+        "crit": "x3"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities (caster level 8th, Cha-based DCs): 1/day -- lesser confusion (DC 14), dancing lights, detect chaos, detect good, detect evil, detect law, detect thoughts (DC 15), dispel magic, entangle (DC 14), permanent image (DC 19, visual and auditory only), polymorph (self only)",
+      "Otto's irresistible dance (Sp -- 1/day, caster level 8th)",
+      "special arrows (Ex -- sleep arrow: deals no damage; any opponent struck, regardless of HD, must make a DC 15 Fortitude save (Cha-based, includes +2 racial bonus) or be affected as by a sleep spell. Memory loss arrow: deals no damage; an opponent struck must make a DC 15 Will save or lose all memory, keeping skills, languages and class abilities but forgetting everything else until healed by heal, or by limited wish, wish, or miracle (memory restoration))"
+    ],
+    "specialQualities": [
+      "damage reduction 10/cold iron",
+      "greater invisibility (Su -- constant, remains invisible when attacking, can suppress or resume as a free action)",
+      "low-light vision",
+      "spell resistance 15"
+    ],
+    "skills": "Bluff +7, Concentration +4, Escape Artist +8, Hide +8, Listen +8, Move Silently +8, Ride +8, Search +9, Sense Motive +6, Spot +8",
+    "appearance": "A very small elf, about two and a half feet tall, with longer ears and gossamer wings, usually in bright clothing with a cap and curl-toed shoes.",
+    "behavior": "Merry pranksters who love to lead travelers astray and tease the greedy with treasure they don't covet. They turn fierce against evil creatures and intruders, using invisibility and their other tricks to harass and drive them off.",
+    "appearanceGreenbound": "The pixie's wings have become pale, veined leaves, and its skin and cap have taken on the grain and color of pale wood and curled bark. Tiny buds and tendrils sprout along its arms and ears, and it glows faintly green.",
+    "feats": [
+      "Dodge",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 5,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Fey, so never a wild shape form. The summon nature's ally IX pixie: sleep and memory loss arrows, and can cast Otto's irresistible dance (CR 5 with it). Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
+    "summonedBy": [
+      "Summon Fey"
+    ]
+  },
+  {
+    "name": "Elemental, Huge Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "16d8+64",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 29,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery (airborne creatures take a -1 penalty on attack and damage rolls against it)",
+      "whirlwind (Su, usable once every 10 minutes, lasts up to 8 rounds; forms a 10-50 ft.-tall vortex; a creature caught must succeed on a Reflex DC 22 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +11, Spot +12",
+    "appearance": "A towering, howling pillar of storm cloud with racing wind inside, darker streaks swirling into hints of eyes and a mouth.",
+    "behavior": "Swift, agile and fierce, it rarely leaves its home plane except when summoned and dominates open ground and the air.",
+    "feats": [
+      "Alertness",
+      "Combat Reflexes",
+      "Dodge",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Greater Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "21d8+84",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 20,
+      "dex": 31,
+      "con": 18,
+      "int": 8,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery (airborne creatures take a -1 penalty on attack and damage rolls against it)",
+      "whirlwind (Su, usable once every 10 minutes, lasts up to 10 rounds; forms a 10-60 ft.-tall vortex; a creature caught must succeed on a Reflex DC 25 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +14, Spot +14",
+    "appearance": "A colossal, roaring column of dark cloud, lit by flickers of lightning, crackling with raw wind.",
+    "behavior": "Swift, agile and fierce, it rarely leaves its home plane except when summoned and dominates open ground and the air.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Combat Reflexes",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Iron Will",
+      "Mobility",
+      "Power Attack",
+      "Spring Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Elder Air",
+    "source": "Monster Manual 3.5",
+    "page": 96,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "24d8+96",
+    "speed": {
+      "fly": 100
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 33,
+      "con": 18,
+      "int": 10,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 18,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "air mastery (airborne creatures take a -1 penalty on attack and damage rolls against it)",
+      "whirlwind (Su, usable once every 10 minutes, lasts up to 12 rounds; forms a 10-60 ft.-tall vortex; a creature caught must succeed on a Reflex DC 28 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +29, Spot +29",
+    "appearance": "A vast, boiling tower of black storm cloud, its heart ablaze with lightning and its voice a gale.",
+    "behavior": "Swift, agile and fierce, it rarely leaves its home plane except when summoned and dominates open ground and the air.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Cleave",
+      "Combat Reflexes",
+      "Flyby Attack",
+      "Improved Initiative",
+      "Iron Will",
+      "Mobility",
+      "Power Attack",
+      "Spring Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Huge Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "16d8+80",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 11,
+    "abilities": {
+      "str": 29,
+      "dex": 8,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery (+1 bonus on attack and damage rolls when both it and its foe are touching the ground; -4 penalty against an airborne or waterborne foe)",
+      "push (can attempt a bull rush without provoking an attack of opportunity, using its earth mastery bonuses)"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "earth glide (can burrow through stone, dirt, or nearly any other earth as easily as swimming, leaving no tunnel or trace)",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +10, Spot +9",
+    "appearance": "A giant of packed stone and soil, shoulders of jagged rock above thick, featureless legs.",
+    "behavior": "Slow but relentless, it pounds nearly anything to rubble and rarely leaves its plane except when summoned.",
+    "feats": [
+      "Awesome Blow",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Iron Will",
+      "Power Attack"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Greater Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "21d8+105",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 13,
+    "abilities": {
+      "str": 31,
+      "dex": 8,
+      "con": 21,
+      "int": 8,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery (+1 bonus on attack and damage rolls when both it and its foe are touching the ground; -4 penalty against an airborne or waterborne foe)",
+      "push (can attempt a bull rush without provoking an attack of opportunity, using its earth mastery bonuses)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "earth glide (can burrow through stone, dirt, or nearly any other earth as easily as swimming, leaving no tunnel or trace)",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +14, Spot +14",
+    "appearance": "A mountainous figure of fused boulders, its slow steps cracking the ground, with veins of ore in its limbs.",
+    "behavior": "Slow but relentless, it pounds nearly anything to rubble and rarely leaves its plane except when summoned.",
+    "feats": [
+      "Alertness",
+      "Awesome Blow",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Sunder",
+      "Iron Will",
+      "Power Attack"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Elder Earth",
+    "source": "Monster Manual 3.5",
+    "page": 97,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "24d8+120",
+    "speed": {
+      "land": 30
+    },
+    "naturalArmor": 15,
+    "abilities": {
+      "str": 33,
+      "dex": 8,
+      "con": 21,
+      "int": 10,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 18,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "19-20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "earth mastery (+1 bonus on attack and damage rolls when both it and its foe are touching the ground; -4 penalty against an airborne or waterborne foe)",
+      "push (can attempt a bull rush without provoking an attack of opportunity, using its earth mastery bonuses)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "earth glide (can burrow through stone, dirt, or nearly any other earth as easily as swimming, leaving no tunnel or trace)",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +29, Spot +29",
+    "appearance": "A living hillside of stone, studded with crystal and metal veins, whose footfalls shake the ground.",
+    "behavior": "Slow but relentless, it pounds nearly anything to rubble and rarely leaves its plane except when summoned.",
+    "feats": [
+      "Alertness",
+      "Awesome Blow",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Critical (slam)",
+      "Improved Sunder",
+      "Iron Will",
+      "Power Attack"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Huge Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "16d8+64",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 18,
+      "dex": 25,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn (a successful slam adds 2d8 fire damage, and the target must succeed on a Reflex DC 22 save or catch fire for 1d4 rounds; a creature striking it with a natural weapon or unarmed attack takes fire damage and risks catching fire as well)"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "skills": "Listen +11, Spot +12",
+    "appearance": "A towering, roughly humanoid inferno that sparks and flickers as it moves, radiating heat like a burning house.",
+    "behavior": "Quick and ferocious, it delights in burning creatures and objects of the Material Plane, attacking head-on and without subtlety.",
+    "feats": [
+      "Alertness",
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative",
+      "Iron Will",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Greater Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "21d8+84",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 20,
+      "dex": 27,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn (a successful slam adds 2d8 fire damage, and the target must succeed on a Reflex DC 24 save or catch fire for 1d4 rounds; a creature striking it with a natural weapon or unarmed attack takes fire damage and risks catching fire as well)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "skills": "Listen +14, Spot +14",
+    "appearance": "A colossal blaze in giant human shape, its core white-hot and its edges trailing flame.",
+    "behavior": "Quick and ferocious, it delights in burning creatures and objects of the Material Plane, attacking head-on and without subtlety.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative",
+      "Iron Will",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse",
+      "Weapon Focus (slam)"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Elder Fire",
+    "source": "Monster Manual 3.5",
+    "page": 99,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "24d8+96",
+    "speed": {
+      "land": 60
+    },
+    "naturalArmor": 8,
+    "abilities": {
+      "str": 22,
+      "dex": 29,
+      "con": 18,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 18,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d8",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "burn (a successful slam adds 2d8 fire damage, and the target must succeed on a Reflex DC 26 save or catch fire for 1d4 rounds; a creature striking it with a natural weapon or unarmed attack takes fire damage and risks catching fire as well)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "skills": "Listen +28, Spot +29",
+    "appearance": "A vast furnace-bright figure of roaring fire, so hot the air bends around it.",
+    "behavior": "Quick and ferocious, it delights in burning creatures and objects of the Material Plane, attacking head-on and without subtlety.",
+    "feats": [
+      "Alertness",
+      "Blind-Fight",
+      "Combat Reflexes",
+      "Dodge",
+      "Great Fortitude",
+      "Improved Initiative",
+      "Iron Will",
+      "Mobility",
+      "Spring Attack",
+      "Weapon Finesse",
+      "Weapon Focus (slam)"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Huge Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "16d8+80",
+    "speed": {
+      "land": 30,
+      "swim": 120
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 24,
+      "dex": 18,
+      "con": 21,
+      "int": 6,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 12,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "water mastery (+1 bonus on attack and damage rolls when both it and its foe are touching water; -4 penalty if either it or its foe is touching the ground)",
+      "drench (its touch extinguishes small nonmagical flames and can dispel magical fire it touches, as dispel magic at its Hit Dice)",
+      "vortex (Su, usable once every 10 minutes while underwater, lasts up to 8 rounds; forms a 10-50 ft.-tall whirlpool; a creature caught must succeed on a Reflex DC 25 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 5/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +11, Spot +12",
+    "appearance": "A towering, humanoid whirl of water, its surface cascading and churning like a storm at sea.",
+    "behavior": "It prefers to fight in a large body of water where it can vanish under the surface and rise behind its foes, and it can overturn small ships and halt larger ones.",
+    "feats": [
+      "Alertness",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Iron Will",
+      "Power Attack"
+    ],
+    "challengeRating": 7,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 6,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Greater Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "21d8+105",
+    "speed": {
+      "land": 30,
+      "swim": 120
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 26,
+      "dex": 20,
+      "con": 21,
+      "int": 8,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 15,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "water mastery (+1 bonus on attack and damage rolls when both it and its foe are touching water; -4 penalty if either it or its foe is touching the ground)",
+      "drench (its touch extinguishes small nonmagical flames and can dispel magical fire it touches, as dispel magic at its Hit Dice)",
+      "vortex (Su, usable once every 10 minutes while underwater, lasts up to 10 rounds; forms a 10-60 ft.-tall whirlpool; a creature caught must succeed on a Reflex DC 28 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +14, Spot +14",
+    "appearance": "A colossal wave in giant shape, crashing and swelling with a deep, rolling roar.",
+    "behavior": "It prefers to fight in a large body of water where it can vanish under the surface and rise behind its foes, and it can overturn small ships and halt larger ones.",
+    "feats": [
+      "Alertness",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Sunder",
+      "Iron Will",
+      "Lightning Reflexes",
+      "Power Attack"
+    ],
+    "challengeRating": 9,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 7,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
+  },
+  {
+    "name": "Elemental, Elder Water",
+    "source": "Monster Manual 3.5",
+    "page": 100,
+    "size": "Huge",
+    "type": "Elemental",
+    "hitDice": "24d8+120",
+    "speed": {
+      "land": 30,
+      "swim": 120
+    },
+    "naturalArmor": 9,
+    "abilities": {
+      "str": 28,
+      "dex": 22,
+      "con": 21,
+      "int": 10,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 18,
+    "attacks": [
+      {
+        "name": "slam",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "2d10",
+        "crit": "19-20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "water mastery (+1 bonus on attack and damage rolls when both it and its foe are touching water; -4 penalty if either it or its foe is touching the ground)",
+      "drench (its touch extinguishes small nonmagical flames and can dispel magical fire it touches, as dispel magic at its Hit Dice)",
+      "vortex (Su, usable once every 10 minutes while underwater, lasts up to 12 rounds; forms a 10-60 ft.-tall whirlpool; a creature caught must succeed on a Reflex DC 31 save or take 2d8 damage and be swept up)"
+    ],
+    "specialQualities": [
+      "damage reduction 10/-",
+      "darkvision 60 ft.",
+      "elemental traits"
+    ],
+    "skills": "Listen +29, Spot +29",
+    "appearance": "A vast, surging wall of dark water in rough human form, rolling like a tempest.",
+    "behavior": "It prefers to fight in a large body of water where it can vanish under the surface and rise behind its foes, and it can overturn small ships and halt larger ones.",
+    "feats": [
+      "Alertness",
+      "Cleave",
+      "Great Cleave",
+      "Improved Bull Rush",
+      "Improved Critical (slam)",
+      "Improved Sunder",
+      "Iron Will",
+      "Lightning Reflexes",
+      "Power Attack"
+    ],
+    "challengeRating": 11,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": 9,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false
   }
 ]

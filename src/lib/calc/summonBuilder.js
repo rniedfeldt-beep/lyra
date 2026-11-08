@@ -1,6 +1,7 @@
 import { abilityMod } from './abilities'
 import {
-  SIZE_MODIFIER,
+  sizeModifier,
+  normalizeSize,
   stepSize,
   stepDamageDie,
   parseHitDice,
@@ -39,7 +40,7 @@ function availableTemplateIds(creature, simpleTemplates) {
   if (creature.isCanine) ids.push('young', 'advanced', 'giant')
   return ids.filter((id) => {
     if (id == null) return true
-    if (simpleTemplates[id].colossalRestricted && creature.size === 'Colossal') return false
+    if (simpleTemplates[id].colossalRestricted && normalizeSize(creature.size) === 'Colossal') return false
     return true
   })
 }
@@ -108,7 +109,7 @@ export function spellDurationRounds(spell, casterLevel) {
 
 function applySimpleTemplate(creature, templateId, simpleTemplates) {
   const tmpl = templateId ? simpleTemplates[templateId] : null
-  const size = tmpl ? stepSize(creature.size, tmpl.sizeSteps) : creature.size
+  const size = tmpl ? stepSize(creature.size, tmpl.sizeSteps) : normalizeSize(creature.size)
 
   const abilities = { ...creature.abilities }
   if (tmpl) {
@@ -140,7 +141,7 @@ function applyGreenbound(intermediate, creature, greenboundTemplate) {
   const conMod = abilityMod(abilities.con)
   const hp = averageHp(hdCount, greenboundTemplate.hitDieOverride, conMod)
 
-  const tableSlamDie = greenboundTemplate.slamDamageBySize[intermediate.size]
+  const tableSlamDie = greenboundTemplate.slamDamageBySize[normalizeSize(intermediate.size)]
   const existingSlam = intermediate.attacks.find((a) => a.name === 'slam')
   const slamDie =
     existingSlam && averageDamage(existingSlam.damage) > averageDamage(tableSlamDie)
@@ -200,7 +201,7 @@ function buildOneAttack(atk, { creature, attackBonusBase, strMod, singleWeapon, 
 // (full-round action, primary at full count plus all secondaries at -5).
 function buildAttackRoutine({ creature, attacks, statBlock, luckBonus }) {
   const strMod = abilityMod(statBlock.abilities.str)
-  const sizeMod = SIZE_MODIFIER[statBlock.size]
+  const sizeMod = sizeModifier(statBlock.size)
   const attackBonusBase = creature.baseAttackBonus + strMod + sizeMod
   const singleWeapon = attacks.length === 1
 
@@ -298,7 +299,7 @@ export function computeSummonStatBlock({
     ? buildAttackRoutine({ creature, attacks: [final.slamAttack], statBlock: final, luckBonus: luckAttackBonus })
     : null
 
-  const sizeMod = SIZE_MODIFIER[final.size]
+  const sizeMod = sizeModifier(final.size)
   const dexMod = abilityMod(final.abilities.dex)
   const conMod = abilityMod(final.abilities.con)
   const wisMod = abilityMod(final.abilities.wis)

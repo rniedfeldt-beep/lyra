@@ -738,6 +738,12 @@ wonder why those fields are missing from the overlay.
 
 ## Summoning
 
+**Sizes are normalised on read.** 3.0 books print "Medium-Size"; `normalizeSize()`
+(`rules/dnd35.js`) trims, drops a `-size` suffix and matches case-insensitively, and
+`loadCreatureData.js` applies it to every creature (and Quen) at load. Every size lookup
+goes through `sizeModifier` / `grappleSizeModifier` / `sizeIndex` / `normalizeSize`, never
+`SIZE_MODIFIER[x]` on a raw string — including the Greenbound slam table.
+
 A canine summon can stack a simple template, Greenbound, and two feat effects.
 
 **Greenbound applies to every summon except elementals (DM-confirmed).** Anything with a
@@ -881,6 +887,14 @@ The SNA builder is untouched apart from the shared stat block and ability tracki
   (`roundsPerCasterLevel` + `extraRounds`; the label is what's shown), and `effects`.
   Durations in rounds: Summon Fey and Dire Hawk are 1 minute/level (×10); the Elementite Swarm is
   concentration, up to 1 round/level + 1 round.
+- **`summonedBy` and `summonNaturesAllyLevel` are independent.** A creature can carry both (a
+  creature on the SNA list *and* reachable through Summon Fey) — one never implies or nulls the
+  other. Don't null an SNA level because a creature is also tagged `summonedBy`.
+- **Creature variants are separate entries.** A creature that appears on the SNA list several
+  times with different capabilities is one entry per variant, each with its own level and its
+  own abilities — the pixie is `Pixie (no special arrows)` SNA VI, `Pixie (sleep arrows)` SNA
+  VII, `Pixie (sleep and memory loss arrows)` SNA IX (the last also has Otto's irresistible
+  dance). Variants carrying `summonedBy` all show up in that spell's pool.
 - **Creature pool**: a creature names the spell(s) that produce it in `summonedBy`
   (`data/creatures/*.json`). A scalable spell (Summon Fey) caps Hit Dice at the slot level
   (a 1 HD fey from a 1st-level slot, 5 HD from a 5th) — `getSpellSummonPool`, with `≤`, so
@@ -895,11 +909,12 @@ The SNA builder is untouched apart from the shared stat block and ability tracki
   summon nature's ally with all three effects on (output verified identical to before for
   every SNA loadout). With Greenbound on, the exclusion test uses the bare creature type, so
   `Elemental (Air, Swarm)` is still excluded.
-- **Effects ledger**: every stat block (both builders) shows one row per feat — ✓ Applied
-  (accent colour) or ✗ Not applied (struck through, muted) with the reason — so a Greenbound
-  SNA summon and a plain one differ at a glance. The headline reads "Exactly as printed — no
-  feat effects" when none applied. Built by `buildEffectsLedger`, stored on the stat block as
-  `effects`; groups saved before it existed fall back to the old elementals note.
+- **Effects ledger**: a stat block where any feat effect took effect shows a Feat effects box
+  with one row per feat — ✓ Applied (accent colour) or ✗ Not applied (struck through, muted)
+  with the reason — so a Greenbound SNA summon and a plain one differ at a glance. When
+  nothing applied (the default for these spells) there is no box and no message at all. Built
+  by `buildEffectsLedger`, stored on the stat block as `effects`; groups saved before it
+  existed fall back to the old elementals note.
 - **Swarms**: crit is `null` in the data. Attacks of a creature whose type includes `Swarm`
   read "no critical hits"; any other null crit reads "crit —".
 - **Notes**: for these spells' creatures the stat block shows the creature's `note`

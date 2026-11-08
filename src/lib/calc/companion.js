@@ -1,7 +1,7 @@
 import { abilityMod } from './abilities'
 import {
-  GRAPPLE_SIZE_MODIFIER,
-  SIZE_MODIFIER,
+  grappleSizeModifier,
+  sizeModifier,
   parseHitDice,
   monsterBaseSaves,
   threeQuarterBabForLevel,
@@ -93,7 +93,7 @@ export function computeCompanionStatBlock(companion) {
   const dexMod = abilityMod(companion.abilities.dex)
   const conMod = abilityMod(companion.abilities.con)
   const wisMod = abilityMod(companion.abilities.wis)
-  const sizeMod = SIZE_MODIFIER[companion.size]
+  const sizeMod = sizeModifier(companion.size)
 
   const armorBonus = companion.armor?.armorBonus ?? 0
   const ac = {
@@ -127,7 +127,7 @@ export function computeCompanionStatBlock(companion) {
   const speed = companion.armor?.speed ?? companion.speed.land
 
   const initiative = dexMod
-  const grapple = companion.baseAttackBonus + strMod + GRAPPLE_SIZE_MODIFIER[companion.size]
+  const grapple = companion.baseAttackBonus + strMod + grappleSizeModifier(companion.size)
 
   return { ac, saves, attackRoutine, speed, abilities: companion.abilities, initiative, grapple }
 }

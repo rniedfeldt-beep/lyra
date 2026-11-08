@@ -170,7 +170,7 @@ export function usedUses(member, ability) {
 // how the entry was compiled (which list it was added to, which field was
 // left empty). Only the first kind belongs on a stat block.
 const COMPILATION_NOTE =
-  /summonNaturesAllyLevel|wildShapeMinLevel|feywildNative|baseAttackBonus|specialAttacks|specialQualities|\bnull\b|Dragon Magazine|Task list|reachable only through|never a wild shape form|not by summon nature's ally|creature entry is on p\.|naturalArmor|back-solves?|Hit Dice printed as|confirmed as|verified directly/i
+  /summonNaturesAllyLevel|wildShapeMinLevel|feywildNative|baseAttackBonus|specialAttacks|specialQualities|\bnull\b|Dragon Magazine|Task list|reachable only through|never a wild shape form|not by summon nature's ally|creature entry is on p\.|also reachable through|Player's Handbook summon nature's ally|comes from Dragon|^The summon nature's ally [IVX]+ |naturalArmor|back-solves?|Hit Dice printed as|confirmed as|verified directly/i
 
 export function noteSentences(creature) {
   if (!creature.note) return []

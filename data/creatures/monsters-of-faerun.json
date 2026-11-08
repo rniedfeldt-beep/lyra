@@ -185,7 +185,7 @@
     "name": "Alaghi",
     "source": "Monsters of Faerûn",
     "page": 14,
-    "size": "Medium-Size",
+    "size": "Medium",
     "type": "Monstrous Humanoid",
     "hitDice": "9d8+9",
     "speed": {
@@ -254,7 +254,7 @@
     "name": "Green Warder",
     "source": "Monsters of Faerûn",
     "page": 57,
-    "size": "Medium-Size",
+    "size": "Medium",
     "type": "Plant",
     "hitDice": "4d8+11",
     "speed": {
@@ -308,7 +308,7 @@
     "name": "Peryton",
     "source": "Monsters of Faerûn",
     "page": 69,
-    "size": "Medium-Size",
+    "size": "Medium",
     "type": "Magical Beast",
     "hitDice": "5d10+5",
     "speed": {

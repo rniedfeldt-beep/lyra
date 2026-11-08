@@ -109,13 +109,13 @@ function AttackRoutineList({ title, routine, noCrits }) {
 
 // Which feat effects reached this summon and which did not — a plain summon
 // and a Greenbound one read differently at a glance.
-function EffectsLedger({ effects, fromSpell }) {
-  const anyApplied = effects.some((e) => e.applied)
+function EffectsLedger({ effects }) {
+  // Nothing applied (a summon spell that carries no feat effects) means
+  // nothing to show — the box is for summons where something took effect.
+  if (!effects.some((e) => e.applied)) return null
   return (
     <div className="summon-effects">
-      <p className="summon-effects-headline">
-        {anyApplied ? 'Feat effects' : fromSpell ? 'Exactly as printed — no feat effects' : 'No feat effects'}
-      </p>
+      <p className="summon-effects-headline">Feat effects</p>
       <ul>
         {effects.map((e) => (
           <li key={e.id} className={e.applied ? 'effect-applied' : 'effect-skipped'}>
@@ -182,7 +182,7 @@ export function SummonStatBlock({ statBlock }) {
         </p>
       )}
 
-      {effects && <EffectsLedger effects={effects} fromSpell={spell != null} />}
+      {effects && <EffectsLedger effects={effects} />}
 
       <div className="stat-row-group">
         <div className="stat-pill">
