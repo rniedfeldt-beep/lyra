@@ -51,5 +51,66 @@
     "wildShapeMinLevel": 8,
     "lyraFamiliar": true,
     "note": "Also called cooshee. Bite damage die already reflects Improved Natural Attack (bite)."
+  },
+  {
+    "name": "Dire Hawk",
+    "source": "Races of the Wild",
+    "page": 189,
+    "size": "Medium",
+    "type": "Animal",
+    "hitDice": "5d8+10",
+    "speed": {
+      "land": 10,
+      "fly": 80
+    },
+    "naturalArmor": 3,
+    "abilities": {
+      "str": 12,
+      "dex": 22,
+      "con": 15,
+      "int": 2,
+      "wis": 15,
+      "cha": 11
+    },
+    "baseAttackBonus": 3,
+    "attacks": [
+      {
+        "name": "talons",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      },
+      {
+        "name": "bite",
+        "natural": true,
+        "primary": false,
+        "damage": "1d6",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [],
+    "specialQualities": [
+      "low-light vision"
+    ],
+    "skills": "Listen +8, Move Silently +8, Spot +10 (an extra +8 racial bonus on Spot in daylight)",
+    "appearance": "A hawk grown to roughly five feet long with an eleven-foot wingspan. A bony ridge crowns the upper beak, and long feathers trail from its underside and tail.",
+    "behavior": "Strong enough to carry off pigs, sheep, and now and then a small horse. It favors high, remote nesting sites.",
+    "appearanceGreenbound": "The dire hawk's plumage has become layers of broad, overlapping leaves that hiss with each wingbeat, over a body of pale, springy wood. Its talons are hooked thorns, thin vines stream from the wingtips and tail like living ribbons, and the bony ridge on its beak has turned to a knot of bark.",
+    "feats": [
+      "Alertness",
+      "Weapon Finesse"
+    ],
+    "challengeRating": 2,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": 5,
+    "lyraFamiliar": false,
+    "note": "Summoned by Summon Dire Hawk (Races of the Wild p.174, Drd 2), not by summon nature's ally, so it carries no summonNaturesAllyLevel. The creature entry is on p.189 of Races of the Wild, not Kingdoms of Kalamar.",
+    "summonedBy": [
+      "Summon Dire Hawk"
+    ]
   }
 ]

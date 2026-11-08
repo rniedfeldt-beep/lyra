@@ -1,0 +1,36 @@
+{
+  "spells": [
+    {
+      "id": "summon_fey",
+      "name": "Summon Fey",
+      "slotLevel": null,
+      "scalable": true,
+      "castingTime": "1 full round",
+      "duration": { "label": "1 minute/level", "roundsPerCasterLevel": 10, "extraRounds": 0, "concentration": false },
+      "effects": { "greenboundSummoning": false, "ashbound": false, "totemicSummons": false }
+    },
+    {
+      "id": "summon_dire_hawk",
+      "name": "Summon Dire Hawk",
+      "slotLevel": 2,
+      "scalable": false,
+      "castingTime": "1 round",
+      "duration": { "label": "1 minute/level", "roundsPerCasterLevel": 10, "extraRounds": 0, "concentration": false },
+      "effects": { "greenboundSummoning": false, "ashbound": false, "totemicSummons": false }
+    },
+    {
+      "id": "summon_elementite_swarm",
+      "name": "Summon Elementite Swarm",
+      "slotLevel": 4,
+      "scalable": false,
+      "castingTime": "1 round",
+      "duration": {
+        "label": "Concentration, up to 1 round/level + 1 round",
+        "roundsPerCasterLevel": 1,
+        "extraRounds": 1,
+        "concentration": true
+      },
+      "effects": { "greenboundSummoning": false, "ashbound": false, "totemicSummons": false }
+    }
+  ]
+}

@@ -50,5 +50,239 @@
     "wildShapeMinLevel": 8,
     "lyraFamiliar": true,
     "note": "Its hoof attack is explicitly written as secondary (half Str to damage) even though it's the creature's only natural weapon -- an exception to the usual single-natural-weapon 1.5x rule."
+  },
+  {
+    "name": "Air Elementite Swarm",
+    "source": "Planar Handbook",
+    "page": 114,
+    "size": "Tiny",
+    "type": "Elemental (Air, Extraplanar, Swarm)",
+    "hitDice": "7d8",
+    "speed": {
+      "fly": 80
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 10,
+      "dex": 15,
+      "con": 10,
+      "int": 2,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "swarm",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "air mastery (Ex -- airborne creatures take -1 on attack and damage rolls against it)",
+      "distraction (Ex -- a living creature the swarm can damage that starts its turn in the swarm's square is nauseated for 1 round unless it makes a DC 13 Fortitude save; casting or concentrating in the swarm needs a Concentration check, DC 20 + spell level; patient skills need a DC 20 Concentration check)",
+      "trip (Ex -- free action, no touch attack or attack of opportunity, +4 check modifier, treated as Large; a failed attempt cannot be turned back on it)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits (immune to poison, sleep, paralysis, stunning; no critical hits or flanking damage; cannot be raised or resurrected)",
+      "swarm traits (no critical-hit or flanking damage; never staggered or dying, breaks up at 0 hp; cannot be tripped, grappled or bull rushed and cannot grapple; immune to single-target effects; takes +50% damage from area effects)"
+    ],
+    "skills": "Hide +10, Listen +7, Spot +7",
+    "appearance": "A faint, cloud-like shimmer drifting through the air. Up close, countless tiny air elementals can be picked out within it.",
+    "behavior": "Swarms wander the Plane of Air like restless clouds, sometimes grouping until the air is thick with them. They hunt down and harass anything that isn't an air elemental.",
+    "feats": [
+      "Alertness",
+      "Dodge",
+      "Improved Initiative"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Summoned by Summon Elementite Swarm (Planar Handbook p.105, Drd 4), not by summon nature's ally. Occupies a 10-ft. space with 0 reach but can squeeze into any four contiguous 5-ft. squares and through any gap a Tiny creature fits. Never makes attacks of opportunity. Fly is perfect maneuverability.",
+    "summonedBy": [
+      "Summon Elementite Swarm"
+    ]
+  },
+  {
+    "name": "Earth Elementite Swarm",
+    "source": "Planar Handbook",
+    "page": 115,
+    "size": "Tiny",
+    "type": "Elemental (Earth, Extraplanar, Swarm)",
+    "hitDice": "7d8+7+9",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 5,
+    "abilities": {
+      "str": 15,
+      "dex": 8,
+      "con": 12,
+      "int": 2,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "swarm",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "distraction (Ex -- a living creature the swarm can damage that starts its turn in the swarm's square is nauseated for 1 round unless it makes a DC 14 Fortitude save; casting or concentrating in the swarm needs a Concentration check, DC 20 + spell level; patient skills need a DC 20 Concentration check)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits (immune to poison, sleep, paralysis, stunning; no critical hits or flanking damage; cannot be raised or resurrected)",
+      "swarm traits (no critical-hit or flanking damage; never staggered or dying, breaks up at 0 hp; cannot be tripped, grappled or bull rushed and cannot grapple; immune to single-target effects; takes +50% damage from area effects)",
+      "earth glide (Ex -- moves through stone, dirt and any earth but metal as a fish swims, leaving no tunnel or trace; move earth flings it back 30 ft. and stuns it 1 round unless it makes a DC 15 Fortitude save)"
+    ],
+    "skills": "Hide +11, Listen +5, Spot +5",
+    "appearance": "The ground buckles as if from a small local tremor. The swarm is a crowded mass of cat-sized rocks.",
+    "behavior": "They delight in crushing, rolling over terrain and creatures and grinding anything in the way to rubble.",
+    "feats": [
+      "Toughness",
+      "Toughness",
+      "Toughness"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Summoned by Summon Elementite Swarm (Planar Handbook p.105, Drd 4), not by summon nature's ally. Occupies a 10-ft. space with 0 reach but can squeeze into any four contiguous 5-ft. squares and through any gap a Tiny creature fits. Never makes attacks of opportunity. Printed Initiative +3 and Ref +8 don't fit the printed Dex 8 (Dex -1 would give Init -1, Ref +4) and Fort +2 doesn't include the Con bonus; the book entry looks misprinted. Toughness is taken three times (9 bonus hp).",
+    "summonedBy": [
+      "Summon Elementite Swarm"
+    ]
+  },
+  {
+    "name": "Fire Elementite Swarm",
+    "source": "Planar Handbook",
+    "page": 116,
+    "size": "Tiny",
+    "type": "Elemental (Fire, Extraplanar, Swarm)",
+    "hitDice": "7d8",
+    "speed": {
+      "land": 40
+    },
+    "naturalArmor": 1,
+    "abilities": {
+      "str": 9,
+      "dex": 17,
+      "con": 10,
+      "int": 2,
+      "wis": 10,
+      "cha": 11
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "swarm",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6 plus 2d6 fire",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "burn (Ex -- the swarm's attack adds fire damage from its flaming bodies; those swarmed must make a DC 15 Reflex save or catch fire for 1d4 rounds, and a burning creature can use a move action to put out the flames; creatures that hit it with natural weapons or unarmed attacks take fire damage as if swarmed and catch fire unless they make a Reflex save)",
+      "distraction (Ex -- a living creature the swarm can damage that starts its turn in the swarm's square is nauseated for 1 round unless it makes a DC 15 Fortitude save; casting or concentrating in the swarm needs a Concentration check, DC 20 + spell level; patient skills need a DC 20 Concentration check)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits (immune to poison, sleep, paralysis, stunning; no critical hits or flanking damage; cannot be raised or resurrected)",
+      "swarm traits (no critical-hit or flanking damage; never staggered or dying, breaks up at 0 hp; cannot be tripped, grappled or bull rushed and cannot grapple; immune to single-target effects; takes +50% damage from area effects)",
+      "immunity to fire",
+      "vulnerability to cold"
+    ],
+    "skills": "Hide +11, Spot +10",
+    "appearance": "A crackling mass of tiny flames sweeping toward you. Closer inspection shows each flame acting as one member of the group.",
+    "behavior": "They love burning things. They are more curious than cruel, but are too dim to follow attempts at communication.",
+    "feats": [
+      "Ability Focus (burn)",
+      "Ability Focus (distraction)",
+      "Improved Initiative"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Summoned by Summon Elementite Swarm (Planar Handbook p.105, Drd 4), not by summon nature's ally. Occupies a 10-ft. space with 0 reach but can squeeze into any four contiguous 5-ft. squares and through any gap a Tiny creature fits. Never makes attacks of opportunity.",
+    "summonedBy": [
+      "Summon Elementite Swarm"
+    ]
+  },
+  {
+    "name": "Water Elementite Swarm",
+    "source": "Planar Handbook",
+    "page": 116,
+    "size": "Tiny",
+    "type": "Elemental (Water, Extraplanar, Swarm)",
+    "hitDice": "7d8+10",
+    "speed": {
+      "land": 20,
+      "swim": 90
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 13,
+      "dex": 10,
+      "con": 12,
+      "int": 2,
+      "wis": 11,
+      "cha": 11
+    },
+    "baseAttackBonus": 5,
+    "attacks": [
+      {
+        "name": "swarm",
+        "natural": true,
+        "primary": true,
+        "damage": "2d6",
+        "crit": null
+      }
+    ],
+    "specialAttacks": [
+      "distraction (Ex -- a living creature the swarm can damage that starts its turn in the swarm's square is nauseated for 1 round unless it makes a DC 14 Fortitude save; casting or concentrating in the swarm needs a Concentration check, DC 20 + spell level; patient skills need a DC 20 Concentration check)",
+      "drown (Ex -- the swarm floods a creature in its space, filling its lungs; the victim cannot hold its breath and is at once at risk of drowning, making a Constitution check every round)"
+    ],
+    "specialQualities": [
+      "darkvision 60 ft.",
+      "elemental traits (immune to poison, sleep, paralysis, stunning; no critical hits or flanking damage; cannot be raised or resurrected)",
+      "swarm traits (no critical-hit or flanking damage; never staggered or dying, breaks up at 0 hp; cannot be tripped, grappled or bull rushed and cannot grapple; immune to single-target effects; takes +50% damage from area effects)",
+      "drench (Ex -- extinguishes nonmagical torches, campfires and lanterns of Large size or smaller; can dispel magical fire it touches as dispel magic, caster level 7th)",
+      "water mastery (Ex -- +1 attack and damage if both swarm and foe touch water; -4 if either touches the ground)"
+    ],
+    "skills": "Hide +8, Listen +7, Spot +7",
+    "appearance": "A patch of water that swirls and ripples. Tiny wave-like creatures can be seen inside it, acting together as one larger body of water.",
+    "behavior": "They learn about creatures by crawling all over them, and are a real danger to visitors on the Plane of Water. They don't overturn ships the way larger water elementals do; instead they flow over the deck and through the holds, and enough of them can sink a small vessel.",
+    "feats": [
+      "Alertness",
+      "Improved Initiative",
+      "Toughness"
+    ],
+    "challengeRating": 4,
+    "isCanine": false,
+    "feywildNative": false,
+    "summonNaturesAllyLevel": null,
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Summoned by Summon Elementite Swarm (Planar Handbook p.105, Drd 4), not by summon nature's ally. Occupies a 10-ft. space with 0 reach but can squeeze into any four contiguous 5-ft. squares and through any gap a Tiny creature fits. Never makes attacks of opportunity. Printed Fort +2 doesn't include the Con bonus.",
+    "summonedBy": [
+      "Summon Elementite Swarm"
+    ]
   }
 ]

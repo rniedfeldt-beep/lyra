@@ -88,6 +88,26 @@ export function updateSummonMember(state, summonId, memberId, updates) {
   }
 }
 
+// Records how many uses of one limited-use ability (keyed as in
+// calc/summonAbilities.limitedUseAbilities) a single summoned creature has
+// spent. Tracked per member, never per group: one wolf using its ability
+// doesn't spend another's. Lives and dies with the summon.
+export function setSummonAbilityUsed(state, summonId, memberId, abilityKey, used) {
+  return {
+    ...state,
+    activeSummons: state.activeSummons.map((s) =>
+      s.id !== summonId
+        ? s
+        : {
+            ...s,
+            members: s.members.map((m) =>
+              m.id === memberId ? { ...m, abilityUses: { ...m.abilityUses, [abilityKey]: used } } : m,
+            ),
+          },
+    ),
+  }
+}
+
 // Anarchic template overlay — a single active/inactive toggle (the Lyra-tab
 // checkbox pays both the spell-slot and wild-shape-use costs at once; the
 // cast/invoke-window distinction is documented as reference material on the

@@ -40,3 +40,4 @@ export { default as spontaneousConversions } from '../data/tables/spontaneousCon
 export { default as wildShapeUsesPerDayTable } from '../data/tables/wildShapeUsesPerDay.json'
 export { default as classSkillsTable } from '../data/tables/classSkills.json'
 export { default as skillsTable } from '../data/tables/skills.json'
+export { default as summonSpellsTable } from '../data/tables/summonSpells.json'

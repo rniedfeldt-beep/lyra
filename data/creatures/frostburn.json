@@ -1,0 +1,176 @@
+[
+  {
+    "name": "Domovoi",
+    "source": "Frostburn",
+    "page": 121,
+    "size": "Small",
+    "type": "Fey (Fire)",
+    "hitDice": "2d6+2",
+    "speed": {
+      "land": 20
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 8,
+      "dex": 15,
+      "con": 13,
+      "int": 15,
+      "wis": 16,
+      "cha": 16
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d3",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "spell-like abilities (caster level 3rd, Cha-based DCs): at will -- produce flame, pyrotechnics (smoke cloud only, DC 15); 3/day -- flaming sphere (DC 15)",
+      "produce flame attack: +4 ranged touch, 1d6+3 fire"
+    ],
+    "specialQualities": [
+      "immunity to fire",
+      "low-light vision",
+      "slippery (Ex -- +2 racial bonus on Escape Artist and grapple checks, already counted)",
+      "vulnerability to cold (takes +50% cold damage)"
+    ],
+    "skills": "Balance +9, Escape Artist +9, Hide +11, Jump +1, Listen +8, Move Silently +7, Sleight of Hand +7, Spot +8, Tumble +7, Use Rope +2 (+4 with bindings)",
+    "appearance": "A two-foot-tall, hairy little man with a thick beard, sooty skin and rag clothing cast off by his hosts.",
+    "behavior": "A nocturnal house spirit that protects the hearths of cold-country settlements, keeping fires warmer and cold, night-dwelling creatures away. It dislikes fighting and prefers fire and smoke to its weak claws, and never burns down a host's home; it puts fires out when it can.",
+    "appearanceGreenbound": "The domovoi's soot-dark skin has become knotted bark, and its beard a tangle of dry moss and trailing vines. Its claws are pointed twigs and a faint glow of embers shows in its eyes.",
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "summonedBy": [
+      "Summon Fey"
+    ],
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Fey, so never a wild shape form. Not on the Dragon Magazine #302 summon nature's ally list; reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). Frostburn's printed Base Attack/Grapple marks the grapple as including its +2 slippery bonus."
+  },
+  {
+    "name": "Rusalka",
+    "source": "Frostburn",
+    "page": 151,
+    "size": "Medium",
+    "type": "Fey (Aquatic)",
+    "hitDice": "2d6",
+    "speed": {
+      "land": 30,
+      "swim": 30
+    },
+    "naturalArmor": 2,
+    "abilities": {
+      "str": 10,
+      "dex": 18,
+      "con": 10,
+      "int": 12,
+      "wis": 14,
+      "cha": 18
+    },
+    "baseAttackBonus": 1,
+    "attacks": [
+      {
+        "name": "dagger",
+        "natural": false,
+        "primary": true,
+        "damage": "1d4",
+        "crit": "19-20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "beguiling song (Su -- sonic, mind-affecting; one creature she can see within 300 ft. of her water that can hear her must make a DC 17 Will save or be utterly beguiled and move toward her, with a second save if the route is dangerous; a successful save makes the target immune to her song for 24 hours; a creature that moves within 5 ft. of her must make a DC 18 Will save or be charmed as charm monster by an 8th-level sorcerer; she needn't keep singing to hold the charm)"
+    ],
+    "specialQualities": [
+      "low-light vision",
+      "water breathing (Sp -- 4/day, as a 12th-level sorcerer)",
+      "water symbiosis (Su -- bound to a body of water; she can move up to 300 yards from it and breathe normally, but beyond that must hold her breath or drown)"
+    ],
+    "skills": "Diplomacy +6, Escape Artist +9 (+4 more in her own water), Hide +9 (+4 more in her own water), Listen +7, Move Silently +9, Perform (sing) +9, Spot +7, Swim +8 (+8 racial on Swim checks for a special action or hazard, can take 10 and run while swimming), Use Rope +4 (+6 with bindings)",
+    "appearance": "A beautiful girl sitting by a river bank, pale-skinned, with strange golden-green hair and only a thin shawl.",
+    "behavior": "A female water spirit, tied to one lake, river or stream and often mistaken for a drowned maiden's ghost. She seeks lovers or victims rather than battle and flees if threatened; evil rusalkas let victims drown, while good ones give water breathing to enamored mortals, though such relationships end sadly.",
+    "appearanceGreenbound": "The rusalka's pale skin has taken on the look of smooth, damp wood, with fine green tendrils trailing from her gold-and-green hair like river weed. Small buds of water lilies dot her shoulders, and her shawl has become a drape of pliant leaves.",
+    "feats": [
+      "Weapon Finesse"
+    ],
+    "challengeRating": 1,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "summonedBy": [
+      "Summon Fey"
+    ],
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Fey, so never a wild shape form. Not on the Dragon Magazine #302 summon nature's ally list; reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable)."
+  },
+  {
+    "name": "Vodyanoi",
+    "source": "Frostburn",
+    "page": 161,
+    "size": "Medium",
+    "type": "Fey (Aquatic)",
+    "hitDice": "5d6+5",
+    "speed": {
+      "land": 30,
+      "swim": 60
+    },
+    "naturalArmor": 4,
+    "abilities": {
+      "str": 15,
+      "dex": 16,
+      "con": 12,
+      "int": 12,
+      "wis": 14,
+      "cha": 11
+    },
+    "baseAttackBonus": 2,
+    "attacks": [
+      {
+        "name": "claw",
+        "natural": true,
+        "primary": true,
+        "count": 2,
+        "damage": "1d4",
+        "crit": "20/x2"
+      }
+    ],
+    "specialAttacks": [
+      "control water (Sp -- 3/day, as a 10th-level sorcerer)",
+      "fish cloud (Sp -- 3/day; when submerged, summons a school of magic fish giving total concealment (50% miss, attacker can't locate by sight); lasts 40 minutes or until a strong current disperses it in 4 rounds, a very strong current in 1; the fish are not real and objects pass through them)",
+      "improved grab (Ex -- if both claws hit a foe its size or smaller, it can start a grapple as a free action without provoking; it will often pin the foe and drown it)"
+    ],
+    "specialQualities": [
+      "amphibious",
+      "low-light vision",
+      "spell resistance 16"
+    ],
+    "skills": "Bluff +8, Diplomacy +2, Disguise +0 (+2 acting), Hide +11, Intimidate +10, Knowledge (nature) +3, Listen +10, Move Silently +11 (both Hide and Move Silently get +8 in contact with its water), Spot +10, Survival +10, Swim +10 (+8 racial on Swim checks for a special action or hazard, can take 10 and run while swimming)",
+    "appearance": "A strange old man with a potbelly, long arms, greenish wet skin and a beard and hair of green and yellow reeds. His long nails are thick, dirty claws.",
+    "behavior": "A moody river and lake fey that is both provider and destroyer: villagers leave fish or cattle offerings, and a pleased vodyanoi keeps the river in its bed and the fish plentiful. Slighted, it drowns someone or floods the village. It ambushes anyone already in or at the edge of its water.",
+    "appearanceGreenbound": "The vodyanoi's reeds have thickened into leafy stalks and his skin into slick, mossy wood. His claws are barbed thorns and long water weeds trail from his arms like vines.",
+    "feats": [
+      "Weapon Finesse",
+      "Weapon Focus (claw)"
+    ],
+    "challengeRating": 3,
+    "isCanine": false,
+    "feywildNative": true,
+    "summonNaturesAllyLevel": null,
+    "summonedBy": [
+      "Summon Fey"
+    ],
+    "wildShapeMinLevel": null,
+    "lyraFamiliar": false,
+    "note": "Fey, so never a wild shape form. Not on the Dragon Magazine #302 summon nature's ally list; reachable only through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). Claws are both primary attacks (two claws on a full attack)."
+  }
+]

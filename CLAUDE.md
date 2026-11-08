@@ -799,7 +799,9 @@ scores, and natural armor.
   1/day — *wall of thorns*. CL = creature's character level.
   DC = 10 + spell level + creature's CHA mod (remember the +4).
   **Wall of thorns is per-instance**, not per-casting — a batch of 3 greenbound wolves each
-  gets their own daily use, tracked alongside that instance's individual HP.
+  gets their own daily use, tracked alongside that instance's individual HP. It is now one
+  of the generic per-instance daily-ability checkboxes (see "Daily abilities per summoned
+  creature" below), not a hardcoded field.
 - CR +2
 
 Slam damage by size: Fine 1, Dim 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6,
@@ -865,6 +867,75 @@ a *summoned* Bat/Toad still gets a slam via Greenbound ("gains a slam attack if 
 one") since Greenbound applies to both regardless of whether the base creature already had a
 natural weapon.
 
+### Other summon spells (Summon Fey, Summon Dire Hawk, Summon Elementite Swarm)
+
+A second builder, **Other Summon Spells**, sits under the Summon Nature's Ally builder on the
+Companions tab (`SpellSummonBuilder.jsx`). Flow: pick the spell → pick the slot level → pick
+the creature → cast. Casting spends a slot of that level in the existing tracker
+(`setSpellSlotUsed`) and is disabled when none are left. Each cast is one creature in its own
+group (no quantity box — these spells summon one creature); several groups can be out at once.
+The SNA builder is untouched apart from the shared stat block and ability tracking below.
+
+- **Spell config**: `src/data/tables/summonSpells.json` (`summonSpellsTable`) — per spell:
+  `slotLevel` (null = scalable), `scalable`, `castingTime`, `duration`
+  (`roundsPerCasterLevel` + `extraRounds`; the label is what's shown), and `effects`.
+  Durations in rounds: Summon Fey and Dire Hawk are 1 minute/level (×10); the Elementite Swarm is
+  concentration, up to 1 round/level + 1 round.
+- **Creature pool**: a creature names the spell(s) that produce it in `summonedBy`
+  (`data/creatures/*.json`). A scalable spell (Summon Fey) caps Hit Dice at the slot level
+  (a 1 HD fey from a 1st-level slot, 5 HD from a 5th) — `getSpellSummonPool`, with `≤`, so
+  lower-HD fey stay available at higher slots. The other two have a fixed slot level.
+- **Feat effects are a per-spell flag, not an exclusion.** Greenbound Summoning, Ashbound and
+  Totemic Summons all name summon nature's ally, so `effects` is
+  `{ greenboundSummoning, ashbound, totemicSummons }` = all `false` for these spells and the
+  creature appears exactly as printed: no template, no doubled duration, no luck attack bonus,
+  no temp HP, HP from the printed Hit Dice line (`printedAverageHp`, which keeps Toughness).
+  To switch an effect on for a spell, set its flag to `true` in that JSON — nothing else changes.
+  `computeSummonStatBlock` takes `spell` (with the chosen `slotLevel`); omitted, it is
+  summon nature's ally with all three effects on (output verified identical to before for
+  every SNA loadout). With Greenbound on, the exclusion test uses the bare creature type, so
+  `Elemental (Air, Swarm)` is still excluded.
+- **Effects ledger**: every stat block (both builders) shows one row per feat — ✓ Applied
+  (accent colour) or ✗ Not applied (struck through, muted) with the reason — so a Greenbound
+  SNA summon and a plain one differ at a glance. The headline reads "Exactly as printed — no
+  feat effects" when none applied. Built by `buildEffectsLedger`, stored on the stat block as
+  `effects`; groups saved before it existed fall back to the old elementals note.
+- **Swarms**: crit is `null` in the data. Attacks of a creature whose type includes `Swarm`
+  read "no critical hits"; any other null crit reads "crit —".
+- **Notes**: for these spells' creatures the stat block shows the creature's `note`
+  sentences, filtered by `noteSentences()` (`summonAbilities.js`): sentences about how the entry
+  was compiled (field names, which list a creature was added to, "left null") are dropped
+  by a pattern list; everything else shows — printed errata (the earth and water swarms'
+  misprinted saves/initiative), how a swarm squeezes through gaps, and so on. If a new note
+  leaks compilation talk onto a stat block, extend `COMPILATION_NOTE`.
+- **Active list**: both builders write to `state.activeSummons`, so everything out is in one
+  place — a **Summons Out** overview (name, count alive, source spell and slot, rounds left)
+  above the per-group sections. Groups record `source` (`{kind: 'sna'|'spell', slotLevel,
+  spellId, spellName}`); older groups without it are labelled summon nature's ally.
+  Round countdown is the same manual stepper.
+
+### Daily abilities per summoned creature
+
+Every summoned creature shows a checkbox for each limited-use ability it has, from any source
+(`limitedUseAbilities(statBlock)` in `src/lib/calc/summonAbilities.js`, derived at render from
+the stored stat block so older groups work too):
+
+- the Greenbound template's per-day spell-like abilities (wall of thorns 1/day), only when
+  the template was applied — so a pixie from Summon Fey shows the pixie's own abilities and an
+  SNA summon also shows wall of thorns;
+- the creature's own printed abilities with a **per-day** limit, read from the
+  `specialAttacks` / `specialQualities` text: `name (Sp|Su|Ex, N/day …)`, and the
+  spell-like-abilities blocks in their printed layouts (`at will -- a; 3/day -- b, c`,
+  `(1/day—a, b; caster level …)`, `a, b, and c, each 1/day`, `x 3/day and y 1/day`).
+  Cooldowns ("once every 10 minutes", "once per round") are not daily limits and aren't tracked.
+  Check this parser against every pool creature when new creature data lands.
+
+An N/day ability gets N boxes (ticking one spends it and the uses before it). Uses are stored
+**per member**, never per group — `member.abilityUses[key]`, via `setSummonAbilityUsed` — so one
+wolf using its ability doesn't spend another's, and they persist for as long as the summon is
+active. `usedUses()` reads the legacy `wallOfThornsUsed` boolean for summons cast before this.
+Spell names in the list are expandable like everywhere else.
+
 ### Summon builder UI
 
 Player picks a spell slot level, sees which creatures are reachable at which template loadouts,
@@ -872,7 +943,7 @@ gets the finished stat block (ability scores, saves, AC/touch/flat-footed, initi
 both attack routines, qualities, spell-like abilities) in a collapsible preview that defaults
 **collapsed** — useful while deciding, noise once summoned. Summon Nature's Ally can produce
 more than one creature (the player rolls the count, e.g. 1d4+1, and types it in) — each
-instance is tracked individually (own HP, temp HP, wall of thorns, dead/dismissed status)
+instance is tracked individually (own HP, temp HP, daily-ability uses, dead/dismissed status)
 since they take damage separately, grouped under one summon with a **shared** stat block and
 **shared** remaining duration (doubled by Ashbound). The full stat block is stored on the
 group at cast time (not recomputed later) and shown once per group in a collapsible section
@@ -880,7 +951,7 @@ that defaults **expanded**, with the per-instance trackers underneath.
 
 **Each cast is its own group, even for the same creature.** Casting Summon Nature's Ally I for
 2 wolves, then again later for 3 more, produces two independent groups — separate durations,
-separate HP/wall-of-thorns trackers. Never merge groups by creature name. Group headers show
+separate HP and daily-ability trackers. Never merge groups by creature name. Group headers show
 creature, count, and remaining duration together (`Dire Rat (Greenbound) ×2 — 12 rounds left`)
 so multiple active groups stay distinguishable at a glance.
 
@@ -1095,7 +1166,7 @@ respectively) within a tab.
   separate card lower on the tab; the Anarchic toggle that lives inside it moved with it.
 - **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
   trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
-  per-instance HP and wall of thorns tracking.
+  per-instance HP and daily-ability tracking.
   **Stat block contents (Sept 2026).** `SummonStatBlock` shows the base creature's full
   `specialAttacks` and `specialQualities` (the data now carries each ability's mechanics in
   parentheses) with what Greenbound adds appended and marked by a `Greenbound` pill

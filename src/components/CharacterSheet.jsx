@@ -7,6 +7,7 @@ import LevelUpFlow from './leveling/LevelUpFlow'
 import AbilityScoreEditor from './leveling/AbilityScoreEditor'
 import WildShapeCalculator from './wildshape/WildShapeCalculator'
 import SummonBuilder, { ActiveSummonSections } from './summon/SummonBuilder'
+import SpellSummonBuilder from './summon/SpellSummonBuilder'
 import CompanionPanel from './companion/CompanionPanel'
 import { RichText, SpellRef } from './spells/SpellRef'
 import CombatBar from './layout/CombatBar'
@@ -647,6 +648,12 @@ export default function CharacterSheet() {
             <PartySection color="summon" title="Summon Nature's Ally" subtitle="Build a new summon">
               <ErrorBoundary label="Summon builder">
                 <SummonBuilder sheet={sheet} />
+              </ErrorBoundary>
+            </PartySection>
+
+            <PartySection color="summon" title="Other Summon Spells" subtitle="Summon Fey, Dire Hawk, Elementite Swarm">
+              <ErrorBoundary label="Other summon spells builder">
+                <SpellSummonBuilder sheet={sheet} />
               </ErrorBoundary>
             </PartySection>
 

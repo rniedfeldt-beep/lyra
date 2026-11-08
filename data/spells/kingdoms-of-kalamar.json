@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Summon Fey",
+    "source": "Kingdoms of Kalamar Player's Guide",
+    "page": 188,
+    "spellLevelDruid": 1,
+    "school": "Conjuration",
+    "subschool": "Summoning",
+    "descriptors": [
+      "Scalable"
+    ],
+    "scalable": true,
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "1 full round",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetAreaEffect": {
+      "type": "effect",
+      "value": "One summoned creature"
+    },
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "description": "Summons one fey creature whose Hit Dice are no greater than the level of the spell. The spell is scalable, so casting it from a higher-level slot raises that Hit Die cap to the slot's level. Material component: a pat of butter.",
+    "otherPrintings": [],
+    "abilityType": "spell",
+    "note": "Printed class line is Drd/Sha 1 (druid or shaman). Kingdoms of Kalamar is a 3.0-era book, so its stat-block conventions differ from 3.5."
+  }
+]

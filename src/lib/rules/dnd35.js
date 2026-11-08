@@ -59,18 +59,28 @@ export function stepSize(size, steps) {
 
 // Parses a hit-dice string like "6d8+18" or the fractional "1/2d8" form used
 // for Tiny/Fine animals into { count, die, mod }. count is a number (0.5 for
-// the fractional form). The fractional form can carry a modifier too
-// ("1/2d6-1", Jermlaine) — this used to throw on that shape.
+// the fractional form). Either form can carry a modifier ("1/2d6-1",
+// Jermlaine), and a modifier can be printed as separate terms ("7d8+7+9" —
+// Con plus three Toughness feats) which are summed.
 export function parseHitDice(hitDice) {
-  const fractional = hitDice.match(/^(\d+)\/(\d+)d(\d+)([+-]\d+)?$/)
+  const sumMods = (mods) => (mods ? (mods.match(/[+-]\d+/g) ?? []).reduce((a, m) => a + Number(m), 0) : 0)
+  const fractional = hitDice.match(/^(\d+)\/(\d+)d(\d+)((?:[+-]\d+)*)$/)
   if (fractional) {
-    const [, num, den, die, mod] = fractional
-    return { count: Number(num) / Number(den), die: Number(die), mod: mod ? Number(mod) : 0 }
+    const [, num, den, die, mods] = fractional
+    return { count: Number(num) / Number(den), die: Number(die), mod: sumMods(mods) }
   }
-  const match = hitDice.match(/^(\d+)d(\d+)([+-]\d+)?$/)
+  const match = hitDice.match(/^(\d+)d(\d+)((?:[+-]\d+)*)$/)
   if (!match) throw new Error(`Unrecognized hit dice format "${hitDice}"`)
-  const [, count, die, mod] = match
-  return { count: Number(count), die: Number(die), mod: mod ? Number(mod) : 0 }
+  const [, count, die, mods] = match
+  return { count: Number(count), die: Number(die), mod: sumMods(mods) }
+}
+
+// Average hit points exactly as the Hit Dice line prints them: the dice
+// average plus the printed flat modifier (so Toughness and the like are
+// included, unlike averageHp below, which rebuilds the bonus from Con).
+export function printedAverageHp(hitDice) {
+  const { count, die, mod } = parseHitDice(hitDice)
+  return Math.max(1, Math.floor(count * (die / 2 + 0.5)) + mod)
 }
 
 // Average hit points for a full set of HD at a given die size and Con mod,

@@ -5,15 +5,17 @@ import {
   updateSummonDuration,
   removeActiveSummon,
   updateSummonMember,
+  setSummonAbilityUsed,
   setSpellSlotUsed,
 } from '../../lib/liveState/actions'
 import { getReachableLoadouts, computeSummonStatBlock } from '../../lib/calc/summonBuilder'
+import { limitedUseAbilities, usedUses, noteSentences } from '../../lib/calc/summonAbilities'
 import { abilityMod } from '../../lib/calc/abilities'
 import { monsterManual, greenboundTemplate, simpleTemplates } from '../../lib/loadCreatureData'
 import { formatMod, SPELL_LEVEL_LABELS } from '../../lib/format'
 import PartySection from '../layout/PartySection'
 import ErrorBoundary from '../ErrorBoundary'
-import { AbilityText, SpellRef } from '../spells/SpellRef'
+import { AbilityText, SpellRef, SpellRefWith } from '../spells/SpellRef'
 import './summon.css'
 
 const ABILITY_ORDER = [
@@ -34,7 +36,7 @@ function loadoutLabel(creature, templateId, greenboundEligible) {
 // Collapsible wrapper used both for the picker's preview (default collapsed
 // — useful while deciding, noise once summoned) and each active group's
 // full stat block (default expanded — that's the one you need mid-combat).
-function Collapsible({ title, defaultExpanded, children }) {
+export function Collapsible({ title, defaultExpanded, children }) {
   const [expanded, setExpanded] = useState(defaultExpanded)
   return (
     <div className="collapsible">
@@ -65,25 +67,30 @@ function greenboundQualityLines(q) {
   ]
 }
 
-function AttackEntry({ atk }) {
+function critText(crit, noCrits) {
+  if (noCrits) return 'no critical hits'
+  return `crit ${crit ?? '—'}`
+}
+
+function AttackEntry({ atk, noCrits }) {
   return (
     <li>
       {atk.count > 1 ? `${atk.count} × ` : ''}
       {atk.name} {formatMod(atk.attackBonus)}, {atk.damage.die}
-      {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, crit {atk.damage.crit}
+      {atk.damage.bonus ? formatMod(atk.damage.bonus) : ''}, {critText(atk.damage.crit, noCrits)}
       {!atk.primary && <span className="note"> (secondary)</span>}
     </li>
   )
 }
 
-function AttackRoutineList({ title, routine }) {
+function AttackRoutineList({ title, routine, noCrits }) {
   return (
     <>
       <h3>{title}</h3>
       <p className="action-type">Single attack — standard action</p>
       <ul className="summon-attacks">
         {routine.single.map((atk) => (
-          <AttackEntry key={atk.name} atk={atk} />
+          <AttackEntry key={atk.name} atk={atk} noCrits={noCrits} />
         ))}
       </ul>
       {routine.hasSecondaries && (
@@ -91,7 +98,7 @@ function AttackRoutineList({ title, routine }) {
           <p className="action-type">Full attack — full-round action</p>
           <ul className="summon-attacks">
             {routine.full.map((atk) => (
-              <AttackEntry key={atk.name} atk={atk} />
+              <AttackEntry key={atk.name} atk={atk} noCrits={noCrits} />
             ))}
           </ul>
         </>
@@ -100,7 +107,32 @@ function AttackRoutineList({ title, routine }) {
   )
 }
 
-function SummonStatBlock({ statBlock }) {
+// Which feat effects reached this summon and which did not — a plain summon
+// and a Greenbound one read differently at a glance.
+function EffectsLedger({ effects, fromSpell }) {
+  const anyApplied = effects.some((e) => e.applied)
+  return (
+    <div className="summon-effects">
+      <p className="summon-effects-headline">
+        {anyApplied ? 'Feat effects' : fromSpell ? 'Exactly as printed — no feat effects' : 'No feat effects'}
+      </p>
+      <ul>
+        {effects.map((e) => (
+          <li key={e.id} className={e.applied ? 'effect-applied' : 'effect-skipped'}>
+            <span className="effect-mark" aria-hidden="true">
+              {e.applied ? '✓' : '✗'}
+            </span>
+            <span className="effect-label">{e.label}</span>
+            <span className="effect-state">{e.applied ? 'Applied' : 'Not applied'}</span>
+            {e.detail && <span className="effect-detail">{e.detail}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export function SummonStatBlock({ statBlock }) {
   const {
     creature,
     size,
@@ -118,7 +150,11 @@ function SummonStatBlock({ statBlock }) {
     castAsStandardAction,
     qualities,
     spellLikeAbilities,
+    effects,
+    spell,
   } = statBlock
+  const noCrits = /\bSwarm\b/.test(type)
+  const notes = spell ? noteSentences(creature) : []
 
   // Every summon carries the Greenbound template (except elementals), so its
   // description is the template's version; a creature with no such variant
@@ -134,10 +170,19 @@ function SummonStatBlock({ statBlock }) {
       <p className="summon-title">
         {creature.name} — {size} {type}
       </p>
-      <p className="breakdown">
-        Spell level {spellLevel} · Duration {durationRounds} rounds
-        {castAsStandardAction ? ' · cast as a standard action (Totemic Summons)' : ''}
-      </p>
+      {spell ? (
+        <p className="breakdown">
+          {spell.name} · {SPELL_LEVEL_LABELS[spell.slotLevel]}-level slot · Casting time {spell.castingTime} · Duration{' '}
+          {durationRounds} rounds ({spell.duration})
+        </p>
+      ) : (
+        <p className="breakdown">
+          Spell level {spellLevel} · Duration {durationRounds} rounds
+          {castAsStandardAction ? ' · cast as a standard action (Totemic Summons)' : ''}
+        </p>
+      )}
+
+      {effects && <EffectsLedger effects={effects} fromSpell={spell != null} />}
 
       <div className="stat-row-group">
         <div className="stat-pill">
@@ -211,11 +256,11 @@ function SummonStatBlock({ statBlock }) {
       <p className="breakdown">Speed: {speedText}</p>
 
       {statBlock.naturalWeaponRoutine && (
-        <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} />
+        <AttackRoutineList title="Natural Weapon Routine" routine={statBlock.naturalWeaponRoutine} noCrits={noCrits} />
       )}
       {statBlock.slamRoutine && (
         <>
-          <AttackRoutineList title="Slam Routine" routine={statBlock.slamRoutine} />
+          <AttackRoutineList title="Slam Routine" routine={statBlock.slamRoutine} noCrits={noCrits} />
           {statBlock.naturalWeaponRoutine && (
             <p className="note">Either routine may be used, not both, on a given attack.</p>
           )}
@@ -225,7 +270,7 @@ function SummonStatBlock({ statBlock }) {
         <p className="note">No natural attacks.</p>
       )}
 
-      {!statBlock.greenboundEligible && (
+      {!effects && !statBlock.greenboundEligible && (
         <p className="note">
           Greenbound Summoning doesn't apply to elementals — plain summon, no template.
         </p>
@@ -290,6 +335,17 @@ function SummonStatBlock({ statBlock }) {
         </p>
       )}
 
+      {notes.length > 0 && (
+        <>
+          <h3>Notes</h3>
+          <ul className="summon-abilities summon-notes">
+            {notes.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
       {(appearanceText || creature.behavior) && (
         <Collapsible title="Appearance & Behavior" defaultExpanded={false}>
           {appearanceText && (
@@ -308,7 +364,7 @@ function SummonStatBlock({ statBlock }) {
   )
 }
 
-function SpellLevelPicker({ level, setLevel, availableLevels }) {
+export function SpellLevelPicker({ level, setLevel, availableLevels }) {
   return (
     <div className="summon-level-picker">
       {availableLevels.map((l) => (
@@ -320,9 +376,50 @@ function SpellLevelPicker({ level, setLevel, availableLevels }) {
   )
 }
 
-function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns }) {
+// "Fish cloud", "(DC 14)" — an annotation that isn't already bracketed is
+// shown in parentheses.
+function annotationText(annotation) {
+  if (!annotation) return ''
+  return /^[([]/.test(annotation) ? annotation : `(${annotation})`
+}
+
+// One checkbox per use of a limited-use ability — a 3/day ability gets three.
+// Ticking a box spends that use and every use before it; unticking gives that
+// use back along with every use after it.
+function AbilityUseRow({ ability, used, disabled, onChange }) {
+  return (
+    <li className="summon-ability-use">
+      <SpellRefWith name={ability.name}>
+        {(nameNode) => (
+          <span className="summon-ability-name">
+            {ability.source === 'greenbound' && <TemplateTag />}
+            {nameNode}
+            {ability.annotation && <span className="note"> {annotationText(ability.annotation)}</span>}
+          </span>
+        )}
+      </SpellRefWith>
+      <span className="summon-ability-boxes">
+        {Array.from({ length: ability.usesPerDay }, (_, i) => (
+          <input
+            key={i}
+            type="checkbox"
+            disabled={disabled}
+            checked={i < used}
+            aria-label={`${ability.name}, use ${i + 1} of ${ability.usesPerDay}`}
+            onChange={() => onChange(i < used ? i : i + 1)}
+          />
+        ))}
+        <span className="note">{ability.usesPerDay}/day</span>
+      </span>
+    </li>
+  )
+}
+
+function MemberRow({ summonId, member, index, hpMax, tempHpMax, abilities }) {
   const { update } = useLiveState()
   const inactive = member.status !== 'active'
+  const spent = abilities.reduce((n, a) => n + usedUses(member, a), 0)
+  const total = abilities.reduce((n, a) => n + a.usesPerDay, 0)
 
   return (
     <div className={`summon-member-row${inactive ? ' summon-member-inactive' : ''}`}>
@@ -352,19 +449,6 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns
         />
         <span className="note">/ {tempHpMax}</span>
       </label>
-      {showWallOfThorns && (
-        <label className="summon-member-field summon-member-wot">
-          <input
-            type="checkbox"
-            disabled={inactive}
-            checked={member.wallOfThornsUsed}
-            onChange={(e) =>
-              update((s) => updateSummonMember(s, summonId, member.id, { wallOfThornsUsed: e.target.checked }))
-            }
-          />
-          Wall of thorns
-        </label>
-      )}
       {!inactive && (
         <div className="summon-member-actions">
           <button type="button" onClick={() => update((s) => updateSummonMember(s, summonId, member.id, { status: 'dead' }))}>
@@ -378,6 +462,23 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns
           </button>
         </div>
       )}
+      {abilities.length > 0 && (
+        <div className="summon-member-abilities">
+          <Collapsible title={`Daily abilities — ${spent} of ${total} used`} defaultExpanded={true}>
+            <ul className="summon-ability-list">
+              {abilities.map((a) => (
+                <AbilityUseRow
+                  key={a.key}
+                  ability={a}
+                  used={usedUses(member, a)}
+                  disabled={inactive}
+                  onChange={(n) => update((s) => setSummonAbilityUsed(s, summonId, member.id, a.key, n))}
+                />
+              ))}
+            </ul>
+          </Collapsible>
+        </div>
+      )}
     </div>
   )
 }
@@ -386,8 +487,43 @@ function MemberRow({ summonId, member, index, hpMax, tempHpMax, showWallOfThorns
 // CharacterSheet, separate from the builder tool below), so a summon's
 // stats stay easy to find mid-combat alongside Lyra's and Quen's. Each cast
 // is its own group even if it summons the same creature as an earlier
-// group — never merge by creature name, since duration/HP/wall-of-thorns
-// are tracked independently per cast.
+// group — never merge by creature name, since duration, HP and daily
+// ability uses are tracked independently per cast.
+// What produced a group — summon nature's ally (including groups cast before
+// the source was recorded) or one of the other summon spells.
+function summonSourceLabel(summon) {
+  const src = summon.source
+  if (src?.kind === 'spell') return `${src.spellName} (${SPELL_LEVEL_LABELS[src.slotLevel]} level)`
+  const level = src?.slotLevel ?? summon.statBlock?.spellLevel
+  return level != null ? `Summon Nature's Ally (${SPELL_LEVEL_LABELS[level]} level)` : "Summon Nature's Ally"
+}
+
+// Everything currently out, from either builder, in one place.
+function ActiveSummonOverview({ groups }) {
+  const alive = (g) => g.members.filter((m) => m.status === 'active').length
+  const total = groups.reduce((n, g) => n + alive(g), 0)
+  return (
+    <PartySection
+      color="summon"
+      title="Summons Out"
+      subtitle={`${total} creature${total === 1 ? '' : 's'} in ${groups.length} group${groups.length === 1 ? '' : 's'}`}
+    >
+      <ul className="summon-overview">
+        {groups.map((g) => (
+          <li key={g.id}>
+            <span className="summon-overview-name">
+              {g.label} <span className="note">×{alive(g)}</span>
+            </span>
+            <span className="note">
+              {summonSourceLabel(g)} · {g.remainingRounds} rd left
+            </span>
+          </li>
+        ))}
+      </ul>
+    </PartySection>
+  )
+}
+
 export function ActiveSummonSections() {
   const { state, update } = useLiveState()
   // Guards against summons saved before per-member tracking existed —
@@ -395,56 +531,63 @@ export function ActiveSummonSections() {
   const groups = state.activeSummons.filter((s) => Array.isArray(s.members))
   if (groups.length === 0) return null
 
-  return groups.map((s) => (
-    <ErrorBoundary key={s.id} label={`Summon "${s.label}"`}>
-    <PartySection
-      color="summon"
-      title={`${s.label} ×${s.members.length} — ${s.remainingRounds} rounds left`}
-    >
-      <div className="active-summon-controls">
-        <div className="stepper">
-          <button
-            type="button"
-            disabled={s.remainingRounds <= 0}
-            onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds - 1))}
-          >
-            −
-          </button>
-          <span>{s.remainingRounds} rd remaining</span>
-          <button type="button" onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds + 1))}>
-            +
-          </button>
-        </div>
-        <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
-          Dismiss All
-        </button>
-      </div>
+  return (
+    <>
+      <ActiveSummonOverview groups={groups} />
+      {groups.map((s) => (
+        <ErrorBoundary key={s.id} label={`Summon "${s.label}"`}>
+        <PartySection
+          color="summon"
+          title={`${s.label} ×${s.members.length} — ${s.remainingRounds} rounds left`}
+        >
+          <div className="active-summon-controls">
+            <div className="stepper">
+              <button
+                type="button"
+                disabled={s.remainingRounds <= 0}
+                onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds - 1))}
+              >
+                −
+              </button>
+              <span>{s.remainingRounds} rd remaining</span>
+              <button type="button" onClick={() => update((st) => updateSummonDuration(st, s.id, s.remainingRounds + 1))}>
+                +
+              </button>
+            </div>
+            <button type="button" onClick={() => update((st) => removeActiveSummon(st, s.id))}>
+              Dismiss All
+            </button>
+          </div>
 
-      {/* Identical summons share identical numbers — the stat block is shown
-          once per group, with individual HP/wall-of-thorns tracked below it
-          per instance. Older saved summons predate this field. */}
-      {s.statBlock && (
-        <Collapsible title="Stat Block" defaultExpanded={true}>
-          <ErrorBoundary label={`Stat block for "${s.label}"`}>
-            <SummonStatBlock statBlock={s.statBlock} />
-          </ErrorBoundary>
-        </Collapsible>
-      )}
+          <p className="breakdown">{summonSourceLabel(s)}</p>
 
-      {s.members.map((m, i) => (
-        <MemberRow
-          key={m.id}
-          summonId={s.id}
-          member={m}
-          index={i}
-          hpMax={s.hpMax}
-          tempHpMax={s.tempHpMax}
-          showWallOfThorns={s.greenboundEligible}
-        />
+          {/* Identical summons share identical numbers — the stat block is shown
+              once per group, with individual HP and daily ability uses tracked
+              below it per instance. Older saved summons predate this field. */}
+          {s.statBlock && (
+            <Collapsible title="Stat Block" defaultExpanded={true}>
+              <ErrorBoundary label={`Stat block for "${s.label}"`}>
+                <SummonStatBlock statBlock={s.statBlock} />
+              </ErrorBoundary>
+            </Collapsible>
+          )}
+
+          {s.members.map((m, i) => (
+            <MemberRow
+              key={m.id}
+              summonId={s.id}
+              member={m}
+              index={i}
+              hpMax={s.hpMax}
+              tempHpMax={s.tempHpMax}
+              abilities={s.statBlock ? limitedUseAbilities(s.statBlock) : []}
+            />
       ))}
     </PartySection>
     </ErrorBoundary>
-  ))
+      ))}
+    </>
+  )
 }
 
 export default function SummonBuilder({ sheet }) {
@@ -493,7 +636,7 @@ export default function SummonBuilder({ sheet }) {
       hp: statBlock.hp,
       tempHp: statBlock.tempHp,
       status: 'active',
-      wallOfThornsUsed: false,
+      abilityUses: {},
     }))
 
     update((s) => {
@@ -504,6 +647,7 @@ export default function SummonBuilder({ sheet }) {
         hpMax: statBlock.hp,
         tempHpMax: statBlock.tempHp,
         greenboundEligible: statBlock.greenboundEligible,
+        source: { kind: 'sna', slotLevel: level },
         statBlock,
         members,
       })
