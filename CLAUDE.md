@@ -1,2008 +1,818 @@
 # Lyra — D&D 3.5e Character Assistant
 
-## What this project is
-
-A mobile-first web app (React + Vite, JavaScript) that handles in-combat math for a single
-D&D 3.5e character: Lyra, a half-elf Druid 5 / Planar Shepherd 3 with the Pathfinder Wolf
-Shaman archetype. Campaign is Greyhawk. Optimized for iPhone and iPad use at the table.
-
-The point of the app is speed. The player's bottleneck is recalculating attacks, damage,
-saves, and AC when wild shaping into a new form or fielding summoned creatures with multiple
-templates applied. Every number the app shows should be already-computed — no "add your Str
-mod" instructions.
-
-## Core architecture rules
-
-1. **No stats in code.** All game data lives in JSON under `/data`. Code contains formulas
-   only. Adding a creature or spell = adding a JSON entry, never editing a component.
-2. **Never read PDFs at runtime.** Sourcebook extraction happens offline in Cowork and
-   produces JSON. The app only ever consumes clean data.
-3. **Every data entry carries a `source` field** (e.g. "MM 3.5", "Lost Empires of Faerûn",
-   "Pathfinder", "5e", "DM homebrew") so non-3.5e material can be filtered or flagged.
-4. **Feats and item properties are effect hooks, not display text.** Most of Lyra's feats and
-   her primary weapon modify how other systems behave rather than adding flat bonuses. The
-   calculation engine must read them. A weapon property must be able to *inject an extra
-   attack* into the routine, not just add a number.
-5. **Level is a variable, never a constant.** Track BOTH character level and class levels —
-   they diverge (see Class Progression). Ability scores are also variable. Nothing derived
-   should be hardcoded.
-6. **Templates stack and must compose.** A summoned creature can carry a simple template plus
-   Greenbound, with two feat effects layered on top. Build template application as a pipeline
-   of composable transforms, not special-cased logic.
-
-7. **On-screen text describes the game, never the data or the app** (Nov 2026 rule; swept
-   once, hold the line). Anything about JSON/data files, extraction, imports, sourcebook
-   coverage, phases, how a feature is implemented, or *why* it behaves as it does goes in
-   this file, a code comment, or a non-displayed JSON field — not in a paragraph, note, or
-   dialog the player reads. Error states are the exception and should say what's wrong in
-   plain words ("can't be built right now"), with the technical detail in the console.
-   Removed in the sweep: the level-up feat-picker footnote explaining the "Doesn't qualify" /
-   "Check manually" flags (the flags themselves stay: they're a quick glance; the *why* is
-   that prerequisites are checked against the data files' structured fields and anything
-   unstructured needs a human, and a flagged feat stays pickable because the DM can grant a
-   feat outside its prerequisites); the "Phase 9 …synced via Supabase" footer; the wild shape
-   "pre-filled from the curve" and "struck-through base values" explanations; level-9 "applies
-   automatically" wording; the summon builder's raw error message; the Import dialog's "not
-   valid JSON" (now "isn't a valid Lyra export file"). Feat JSON `description` is displayed, so
-   the "Not modeled — …" caveats that used to sit in it (Dragon Wild Shape, Gatekeeper
-   Initiate, Planar Wild Shape, Scribe Scroll, Sustain Wild Shape) moved to a new
-   non-displayed `implementationNote` field on those files; "slot economy" jargon in the
-   Hand of the Oakfather and Fey Touched descriptions became "without spending a spell slot".
-   Still on screen and deliberately left, since they state a fact about a spell rather than the
-   app: "Full stat block not available for this printing" / "Referenced spell not available".
-
-## Persistence and sync — DECIDED
-
-**Supabase is the source of truth. Do not rely on localStorage alone.**
-
-Reason: Safari deletes localStorage (and IndexedDB, SessionStorage, Service Worker
-registrations) after 7 days without user interaction on the site. Home-screen web apps are
-nominally exempt, but developers report resets happening anyway. Sessions run 3–4 weeks apart
-and frequently end mid-combat, so state must survive long gaps.
-
-### Schema
-
-Table `character_state`, one row:
-
-| Column | Type | Notes |
-|---|---|---|
-| `id` | int8 | primary key, identity, always 1 |
-| `state` | jsonb | the entire live state blob |
-| `updated_at` | timestamptz | default `now()` |
-
-Save = overwrite `state` on row 1. Load = read and parse. New trackers need no schema change.
-
-### Security
-
-The anon key ships in the client bundle and GitHub Pages serves it publicly. RLS is enabled
-with a **permissive policy** allowing anonymous select, insert, and update on
-`character_state` only. Deliberate tradeoff: the data is a druid's hit points.
-
-**Note:** RLS with no policies blocks everything, including the app itself. If saves silently
-fail, check the policy exists before debugging anything else.
-
-Same project, same tradeoff, second table: `spell_cards` backs the `/cards` tool's saved cards,
-tagged by character — see "Spell cards (`/cards`)" > Persistence, below.
-
-### Client design
-
-- All state access goes through one storage adapter (`saveState()` / `loadState()`).
-- localStorage as **offline fallback** — write locally on every change, sync when online.
-- Manual JSON export/import button for backups.
-
-Live state: current HP, temp HP, spell slots used, wild shape uses used, necklace spells used,
-Fey Touched spells used, plane shift and planar bubble uses, active summons and remaining
-duration, active wild shape form, Quen's current HP, and (Phase 9) `characterProgress` — see
-"XP tracking and level-up" below.
-
-## Directory shape
-
-```
-/data
-  /creatures     one file per sourcebook (monster-manual.json, monster-manual-ii.json,
-                 manual-of-the-planes.json, monsters-of-faerun.json, …), merged by
-                 loadCreatureData.js; animal-companion.json (Quen) excluded from the merge
-  /templates     greenbound, advanced, giant, young
-  /spells
-  /feats
-  /items
-/sourcebooks     PDFs (never read at runtime)
-/cards           cards/index.html — second Vite entry point, see "Spell cards (/cards)"
-```
-
-### Feat reference data (Aug 2026)
-
-`data/feats/<book-slug>.json`, one file per sourcebook, mirroring the `data/spells/` convention
-— this is reference/bibliographic data, distinct from `src/data/feats/*.json`, which holds the
-live calc-engine effect hooks for feats Lyra actually has or could take next (one file per
-feat, keyed by id, read by the character sheet). The level-up feat picker (Phase 9) joins the
-two by name — see "XP tracking and level-up" > Feats and class features below.
-
-**Schema**, one entry per feat: `name`, `source`, `page` (`null` if genuinely uncitable — e.g. a
-single-page excerpt with no page number printed), `type` (`"General"`, `"Item Creation"`,
-`"Metamagic"`, `"Wild"`, etc. — taken from the book's own bracketed tag where printed),
-`prerequisites` (structured: `abilityScores` array of `{ability, minimum}`, `baseAttackBonus`,
-`skills` array of `{skill, ranks}`, `feats` array, `classFeatures` array, `casterLevel`, and a
-free-text `other` array for anything that doesn't fit those buckets, e.g. "Ability to
-spontaneously cast summon nature's ally"), `benefit` (paraphrased, not full printed text),
-`repeatable` (bool — whether the feat can be taken multiple times), and an optional `note` for
-extraction caveats or DM rulings. `grantedSpells` is an additional array (`{level, name,
-source}`) on feats that grant spell access, currently only Gatekeeper Initiate.
-
-14 feats extracted so far across 9 files: `eberron-campaign-setting.json` (Gatekeeper Initiate,
-Ashbound), `quintessential-druid.json` (Sustain Wild Shape), `draconomicon.json` (Dragon Wild
-Shape), `pathfinder-ultimate-combat.json` (Planar Wild Shape), `players-handbook.json` (Scribe
-Scroll, Toughness, Natural Spell, Animal Affinity), `complete-divine.json` (Spontaneous Healer),
-`lost-empires-of-faerun.json` (Greenbound Summoning), `5e-import.json` (Fey Touched, no page —
-ported from 5e rather than any 3.5 sourcebook), and `players-guide-to-faerun.json` (Strong
-Soul, Initiate of Nature — see below). `players-handbook-ii.json` also exists but is an empty
-array: an earlier guess placed Strong Soul there, which turned out to be wrong (see below); the
-file can't be deleted once written, so it's left empty rather than populated with anything real.
-
-**Initiate of Nature** (Player's Guide to Faerûn, `page: null` — same OCR-only limitation as
-Strong Soul below) grants rebuke/command of animals and plant creatures (3 + Cha modifier
-times/day) plus five bonus cleric/druid spells: 3rd Mold Touch, 4th Briartangle and Thorn
-Spray, 5th Fireward and Tree Healing. Only Fireward is currently in the spell library
-(`players-guide-to-faerun.json` and `spell-compendium.json`, both Drd 5, matching the level
-granted here) — Mold Touch, Briartangle, Thorn Spray, and Tree Healing aren't extracted
-anywhere yet and would need their own pass before this feat is fully usable in the app.
-
-**Gatekeeper Initiate's granted spells.** The feat grants 9 spells "as if on the druid spell
-list" at levels 1–9 (verified against the physical page, not the PDF's own page-label metadata,
-which was off by several pages here — the feat is actually on printed page 54, not 45). Three
-(zone of natural purity, nature's wrath, return to nature) are the book's own new Gatekeeper
-spells, already in `eberron-campaign-setting.json`. The other six (protection from evil,
-dimensional anchor, banishment, dimensional lock, mind blank, imprisonment) are standard PHB
-spells not normally on the druid list at all — these were newly extracted into
-`players-handbook.json` with `spellLevelDruid: null` (accurate for a generic druid) and a note
-on each explaining it's only druid-castable through this feat, at the level the feat specifies.
-
-**Spontaneous Healer — resolved, no app change needed.** The printed benefit really is a
-limited-uses-per-day spontaneous cast (Wis modifier times/day), not the unlimited
-substitute-any-prepared-spell reading elsewhere in this file and in
-`src/data/feats/spontaneous_healer.json`. Rae confirmed this is fine as-is: Lyra's Wisdom
-modifier is high and rising, so the daily cap isn't a practical constraint, and the DM has
-ruled that cure minor wounds (the orison) doesn't draw against the limit at all.
-
-**Strong Soul — source corrected.** Not a Player's Handbook II feat as `src/data/feats/
-strong_soul.json`'s "PHB" source and this project's own earlier guess both assumed. Rae
-confirmed it's a **Player's Guide to Faerûn regional feat**, gifted to the whole party as a
-1st-level bonus feat, and supplied the printed text directly (that book's PDF has no real text
-layer — CHOCR/OCR only, per the note already on its spell file — and the character-level OCR
-markup made a targeted page search impractical, so `data/feats/players-guide-to-faerun.json`
-carries `page: null`). Prerequisite is a race/region combination; Lyra qualifies as a half-elf
-of Dambrath, the Dalelands, or Silverymoon. Benefit is +1 Fort/Will normally, rising to +3
-specifically against death effects, energy drain, and ability drain (not modeled as a flat
-number). `src/data/feats/strong_soul.json` used to code a flat +2/+2 instead — fixed alongside
-the multiclass BAB/saves rework below, since the two bugs had been canceling out (see
-"Leveling table").
+Rebuilt Nov 2026 from the code and data as they actually are. Written for a session with no
+memory of how any of this came about: it says what the app does, **why** each decision was
+made, which house rules are encoded and where, and which traps have already cost hours.
+When code and this file disagree, the code wins — then fix this file.
 
 ---
 
-## Class progression — READ THIS CAREFULLY
+## 1. What this is
 
-Lyra's character level and her class levels diverge. Several features scale off **druid class
-level specifically**, not character level.
+A mobile-first web app (React 19 + Vite 8, plain JavaScript, no TypeScript, no router, no test
+framework) that does the in-combat math for one D&D 3.5e character at the table, on an
+iPhone/iPad: **Lyra**, a half-elf Druid / Planar Shepherd with the Pathfinder **Wolf Shaman**
+archetype, in a Greyhawk campaign. Her player (Rae) also keeps a second character, **Vaelith**
+(a sorcerer), who only appears in the spell-card tool.
 
-| Character level | Druid | Planar Shepherd |
+The point is speed. The bottleneck is recalculating attacks, damage, saves and AC when wild
+shaping or fielding summons with stacked templates. **Every number on screen is already
+computed** — never "add your Str mod". The DM adjudicates house rules (section 6); the app
+encodes the rulings and flags, rather than blocks, anything the DM might override.
+
+Deployed to GitHub Pages: `https://rniedfeldt-beep.github.io/lyra/` (main app) and
+`/lyra/cards/` (spell-card printing tool). Repo: `github.com/rniedfeldt-beep/lyra`.
+
+---
+
+## 2. Architecture rules and why
+
+1. **No stats in code.** Game data is JSON; code is formulas. Adding a creature, spell or feat
+   is a data entry, never a component edit. *Why:* the data is extracted offline from
+   sourcebooks and keeps growing; the engine must not need touching for each addition.
+2. **Never read PDFs at runtime.** Extraction happens offline (in Cowork) and yields clean
+   JSON; `/sourcebooks` is gitignored (copyrighted). The app only consumes clean data.
+3. **Every data entry has a `source`** (book, "Pathfinder", "5e import", "DM homebrew") so
+   non-3.5e material can be flagged or filtered.
+4. **Feats and item properties are effect hooks, not display text.** A feat declares typed
+   `effects` (`ability_bonus`, `save_bonus`, `hp_bonus`, `summon_duration_multiplier`,
+   `summon_attack_bonus`, `grants_daily_spell`, `grants_spontaneous_conversion`,
+   `grants_cast_while_wild_shaped`, `auto_apply_template`) and the engine reads them. A weapon
+   property can *inject an attack* into the routine (Quicksilver's speed), not just add a number.
+5. **Level is a variable, never a constant.** Character level and class levels diverge (§5.2).
+   Ability scores are variable. Nothing derived is hardcoded — HP, BAB, saves, slots, caster
+   level and Quen are all recomputed from live progress. (Two exceptions are known gaps, §15.)
+6. **Templates compose as a pipeline** of transforms (simple template → Greenbound → feat
+   effects), not special cases (§8).
+7. **On-screen text describes the game, never the data or the app.** Anything about JSON,
+   extraction, sourcebook coverage, phases, how a feature is implemented, or *why* it behaves
+   as it does goes in this file, a code comment, or a non-displayed JSON field
+   (`implementationNote`, a creature's `note`). Error states say what's wrong in plain words
+   ("can't be built right now"); the technical detail goes to the console. Feat JSON
+   `description` and `otherPrintings[].note` / `functionsAs[].note` *are* displayed, so keep them
+   game-facing. Deliberately still on screen because they state a fact about a spell, not the
+   app: "Full stat block not available for this printing", "Referenced spell not available".
+   The level-up feat picker shows "Doesn't qualify" / "Check manually" flags with no
+   explanation: prerequisites are checked against structured fields, anything unstructured
+   needs a human, and a flagged feat stays pickable because the DM can grant it anyway.
+8. **State is pure transforms.** Every tracker mutation is a pure `(state, …) => state`
+   function in `src/lib/liveState/actions.js`, called through `useLiveState().update()`.
+   Components never mutate; derived values (`sheet`, `companion`, `dailyAbilities`) are
+   computed, never stored.
+9. **Flag, don't block.** XP spend below a level's floor, feat prerequisites, a summon slot
+   with none left in the tracker (SNA clamps), unverifiable data: the app warns or labels and
+   lets the DM's ruling stand. The one exception: the new Other-Summon-Spells builder disables
+   Cast at 0 slots.
+10. **Big data stays out of the main bundle.** The spell corpus (~900 kB, ~207 kB gzipped) is a
+    lazy chunk (§11); nothing outside `components/spells/` / `lib/spell*` may import
+    `loadSpellData`, `spellReferenceData` or `calc/spellReference` statically.
+
+---
+
+## 3. Stack, build, deploy
+
+- `npm run dev` / `build` / `preview` / `lint` (oxlint). **No test suite.** Verification is
+  done by (a) `npx vite-node script.mjs` against the pure `src/lib` code (Node can't resolve
+  extensionless imports, so plain `node` fails) and (b) the app in a browser, always inside
+  **Test Mode** (§4.4) so saved state is untouchable.
+- `vite.config.js`: `base: '/lyra/'`, two entries — `index.html` (app) and `cards/index.html`
+  (card tool; a second Vite page was simpler than adding a router).
+- Deploy: push to `main` → `.github/workflows/deploy.yml` (Node 20, `npm ci`, `npm run build`
+  with `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` repo secrets → Pages). Check a deploy
+  by comparing `assets/main-*.js` in `dist/index.html` with the one served live.
+- Local env: copy `.env.example` to `.env.local` (gitignored). The anon key is *meant* to be
+  public (it ships in the bundle), but never print or commit `.env.local` anyway.
+- `.gitignore` excludes `/sourcebooks/`, `*.bak`, `/tmp_verify/`, `*.local`, `dist`.
+- Commit trailer used throughout: `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
+  `git add` specific files — **data files are edited concurrently by another process**
+  (Cowork extraction runs while code sessions do), so run `git status`, check mtimes, never
+  revert a data file you didn't change, and commit data together with the code that needs it.
+
+### Preview-testing gotchas (browser automation)
+- Programmatic `.focus()` doesn't fire in an unfocused pane — dispatch `focusin`/`focusout`.
+- React-controlled inputs/selects need the native value setter (`Object.getOwnPropertyDescriptor(
+  HTMLInputElement.prototype,'value').set.call(el,v)`) plus an `input`/`change` event.
+- Wrap scripts in IIFEs (top-level `const` redeclaration fails across calls); a line starting
+  with `[` after a statement without `;` is parsed as indexing — end lines with `;`.
+- "Exit Test Mode" only exists on the Lyra tab. Level 9 has no 6th-level slots, so SNA VI–IX
+  creatures (pixie variants, celestial charger) can't be cast in the UI — test them in code.
+- The XP-tracker block text is CSS-uppercased; match case-insensitively.
+
+---
+
+## 4. State, persistence, sync
+
+### 4.1 Decision: Supabase is the source of truth
+Safari deletes localStorage/IndexedDB after ~7 days without interaction, and sessions run
+3–4 weeks apart and often end mid-combat. So live state lives in Supabase; localStorage is
+only an offline fallback and mirror.
+
+Tables (`supabase/setup.sql` — run once in the Supabase SQL editor, per project):
+- `character_state`: `id` int8 (always 1), `state` jsonb (the entire live blob), `updated_at`.
+  Save = upsert row 1. New trackers need no schema change.
+- `spell_cards`: one row per `(character, spell_name)` (unique), `mech` and `card` jsonb.
+Both have RLS **enabled with a permissive anon policy** — deliberate: the anon key is public,
+there is no auth, and the data is a druid's hit points and two friends' spell cards.
+**RLS with no policy blocks everything, including the app** — if saves silently fail, check the
+policy first.
+
+### 4.2 Client
+`src/lib/storage/storageAdapter.js` is the only door: `loadState()` (Supabase, else
+localStorage), `saveState()` (writes local, then upserts). `LiveStateProvider`
+(`src/lib/liveState/LiveStateContext.jsx`) loads once, debounces saves (400 ms), shows sync
+status, and exposes `state`, `update`, `sheet`, `dailyAbilities`, `companion`, `longRest`,
+`clearPreparedSpells`, `replaceAll` (import), and the Test Mode functions. Manual JSON
+Export/Import is in the Lyra-tab sync bar ("That isn't a valid Lyra export file").
+
+### 4.3 Shape of the live state (`defaultLiveState.js`)
+`characterProgress` (§5.5) · `hp {current,temp}` · `spellSlotsUsed {level:n}` ·
+`preparedSpells {level:string[]}` · `wildShapeUsed` · `activeWildShapeForm {creatureName,cost}`
+· `dailyUses {abilityId:n}` · `companionHp {current}` · `activeSummons[]` (§8.7) ·
+`anarchicTemplate {active,durationMinutesRemaining,smiteLawUsed}` · `updatedAt`.
+`mergeWithDefaults` backfills any key missing from a saved/imported blob so an old save never
+crashes the UI. **Long Rest** re-runs `getDefaultLiveState` (so a new tracker resets with no
+extra code) but passes `characterProgress` through untouched and **keeps the prepared-spell
+text** (padding blanks if a level-up added slots). Nothing in the app ever refunds a spent use
+(unticking a summon box is the one player-controlled exception).
+
+**Derived, never stored:** `sheet` (via `computeEffectiveSheet`) and `companion` (via
+`computeEffectiveCompanion`), both recomputed whenever `characterProgress` changes. A level-up
+only edits `characterProgress`; everything downstream recomputes for free.
+
+### 4.4 Test Mode
+Sync bar → "Enter Test Mode" snapshots state in a ref and **suspends all saving** (no
+Supabase, no localStorage). Edits still update the UI. "Reset" restores the snapshot;
+"Exit Test Mode" always restores it too — nothing tried can leak into the save. Use it for
+every state-mutating check, including automated ones.
+
+---
+
+## 5. The character
+
+### 5.1 Static record — `src/data/character/lyra.json`
+A **level-8 seed**: it initialises `characterProgress` the first time the app loads with no
+saved state, and is never read for those fields again. The live character has since moved on
+(level 9 at the time of writing) — **the saved state, not this file, says where she is.**
+Holds: name/race/classes, `trueBaseAbilityScores` (Str 10, Dex 18, Con 12, Int 16, **Wis 19**,
+Cha 11), `abilityAdjustments`, `hpRolls`, `skills` (ability + ranks + misc), `feats` (ids),
+`equipment` (item ids), speed (30 + 20 enhancement), `planarShepherdAbilities`, `wolfShaman`
+(Totem Transformation, Totemic Summons), `wildShape` config, `casterLevel`, `spellDcBase: 15`.
+
+Effective Wis is 20 (+1 inherent from the Fey Touched feat effect). The DM-gifted **Wis tome**
+(+2 inherent, "capped at +5 total inherent", one week of game time to read) is in
+`abilityAdjustments` with `active: false` — flipping it on in the Ability Score Editor
+recomputes saves, DCs, slots and skills.
+
+Derived at level 8: HP 61 · AC 20 / touch 15 / flat-footed 16 · Fort +9, Ref +6, Will +13 ·
+init +4 · BAB +5 · spell attack +10 · speed 50 ft.
+
+### 5.2 Class progression — read carefully
+Character level and class levels **diverge**: Druid 1–5, then **Planar Shepherd (PS) levels
+stack** while Druid stalls at 5 until character level 16.
+
+| Char level | Druid | Planar Shepherd |
 |---|---|---|
 | 1–5 | 1–5 | — |
 | 6–15 | 5 | 1–10 |
 | 16–20 | 6–10 | 10 |
 
-Planar Shepherd caps at 10 levels. Druid resumes at character level 16.
+`druidLevel(charLevel)` (`rules/dnd35.js`): ≤5 → level; ≤15 → 5; else level − 10.
+`classLevelsBreakdown` (`calc/leveling.js`) yields the "Druid N / Planar Shepherd M" split.
 
-```js
-function druidLevel(charLevel) {
-  if (charLevel <= 5) return charLevel;
-  if (charLevel <= 15) return 5;
-  return charLevel - 10;
-}
-```
+- **Scales with CHARACTER level** (druid and PS both advance it): BAB, base saves, spell slots,
+  caster level, wild shape uses/HD/size/duration, animal companion.
+- **Scales with DRUID level only** (Wolf Shaman): Totemic Summons temp HP, Wolf Shaman bonus feats.
 
-**Scales with CHARACTER level** (because druid and PS both advance these):
-BAB, base saves, spell slots, caster level, wild shape uses/HD/size/duration, animal
-companion.
+**BAB and base saves are proper multiclass sums** (PHB p.59): `computeProgression`
+(`calc/progression.js`) sums each class's own contribution from that class's own level. Druid
+and PS share a progression (3/4 BAB, good Fort, good Will, poor Ref), so the same three
+formulas apply per class. *Why it matters:* an earlier single lookup keyed by character level
+overstated BAB by 1 and understated Fort/Will by 1 at level 8, and was masked by a second bug
+(Strong Soul coded +2 instead of +1) that cancelled it — displayed totals were right by
+coincidence. Both were fixed together (DM-confirmed).
 
-**Scales with DRUID level only** (Wolf Shaman archetype features):
-Totemic Summons temp HP, Wolf Shaman bonus feats.
+### 5.3 The sheet pipeline
+`computeEffectiveSheet` merges `characterProgress` onto `lyra.json` and calls
+`computeCharacterSheet` (`calc/computeCharacterSheet.js`): `computeAbilityScores` (base + feat
+`ability_bonus` + active adjustments, each tracked by source) → `computeProgression` →
+`computeMaxHp` (Σ hpRolls + n·Con mod + feat `hp_bonus` — Con applies uniformly across history,
+a deliberate simplification) → `computeSaves` (base + ability + feat `save_bonus`) →
+`computeAC` (10 + equipped items by `acBonusType` + Dex capped by armor max Dex) →
+`computeSkills` → `computeSpellSlots` → `computeAttackRoutine`. Caster level, `druidLevel` and
+`classes` are recomputed from level every time, so they can't drift.
 
-### Leveling table
+- **Spell slots** (`calc/spellSlots.js`): base from `src/data/tables/spellSlotsBase.json` (PHB
+  druid table, **indexed by character level** — house rule) + `bonusSpellsForLevel(Wis mod)`.
+  Orisons are unlimited-use prepared (6), no daily tracker.
+- **Skills** (`calc/skills.js`, `tables/skills.json`): every 3.5 skill listed (45), merged with
+  Lyra's ranks/misc/label overrides; armor check penalty (armor + shield, −2 from the shield)
+  applied to the skills it governs (Swim ×2) and flagged `*`; Trained vs muted Untrained groups;
+  **●** marks a class skill for *any* of her classes; Speak Language shows "—". Craft, Perform,
+  Profession are single "(any)" rows.
+- **Attack routine** (Quicksilver, +2 elven scimitar of speed, 1d6, 18–20/×2): BAB + Str + enh.,
+  iterative attacks only at BAB ≥ 6/11/16, and the speed property **inserts an extra attack at
+  full BAB** (explicitly doesn't stack with haste — warning shown). Routine at BAB +5: **+7 / +7**,
+  1d6+2. (Weapon Finesse would give +11/+11; not taken.)
+- **Conditional bonuses** (Handle Animal with companion +2, Ride +5 after Handle Animal, wild
+  empathy +4 with canines) are surfaced as text, not baked into totals.
 
-BAB and base saves are computed as **proper multiclass sums** (PHB p.59: each class
-contributes its own BAB and base saves, computed from that class's own level, and a
-multiclass character's totals are the sum) — not a single lookup keyed by character level.
-`src/lib/calc/progression.js`'s `computeProgression(characterLevel)` calls
-`classLevelsBreakdown()` to split character level into Druid and Planar Shepherd levels via
-`druidLevel()`, then sums each class's contribution through `src/lib/rules/dnd35.js`'s
-`threeQuarterBabForLevel`/`goodSaveForLevel`/`poorSaveForLevel` — valid because Druid and
-Planar Shepherd share an identical progression (3/4 BAB, good Fort, good Will, poor Ref), so
-no per-class branching is needed, just the same three formulas applied to each class's own
-level and added together.
+### 5.4 Equipment (`src/data/items/`)
+Leafweave Studded Leather (+3, max Dex +6, no check penalty; non-metal) · heavy wooden shield
+(+2, −2 check) · ring of protection (+1 deflection) · Forestwarden Shroud (negates undergrowth
+penalties on Tumble/Move Silently) · Quicksilver · **Hand of the Oakfather** necklace: six
+spells (entangle, barkskin, plant growth, speak with plants, tree shape, goodberry), 1/day each,
+**no spell slot** — tracked as independent Daily Abilities checkboxes. Armor and shield are
+non-metal (druid-legal). Item JSON may carry `grantedSpells`, `properties`, `warning`.
 
-At level 8 (Druid 5 / Planar Shepherd 3): Druid 5 contributes BAB 3, Fort 4, Ref 1, Will 4;
-Planar Shepherd 3 contributes BAB 2, Fort 3, Ref 1, Will 3. Summed: **BAB +5**, base **Fort 7,
-Ref 2, Will 7**. This replaced an earlier single blended lookup table
-(`src/data/tables/progression.json`, deleted) that ran the PHB druid table straight through by
-character level — mathematically wrong for a multiclass character (it happened to match a
-single class's own level-8 row, not the sum of two classes' lower levels), overstating BAB by
-1 and understating Fort/Will by 1 each at level 8. That base-save understatement had been
-silently masked by a second, unrelated bug: `src/data/feats/strong_soul.json` coded a flat +2
-Fort/Will instead of the printed +1 (see "Feat reference data" above), so the two errors
-canceled and the *displayed* totals (Fort +9, Will +13) were coincidentally already correct —
-fixing both at once (DM-confirmed, Aug 2026) keeps those totals unchanged while making the
-breakdown underneath them accurate, and the multiclass math now scales correctly to every
-other level instead of only working by coincidence at 8.
+### 5.5 Live progress and leveling (`characterProgress`)
+Fields: `level`, `xp`, `hpRolls[{level,roll}]`, `skills`, `trueBaseAbilityScores`,
+`abilityAdjustments[]`, `feats[]` (ids), `classFeatures[]` (free text), `wildShapeUsesPerDay`,
+`companionHdRolls[{level,roll}]`. Seeded from `lyra.json`, then Supabase-owned.
 
----
+- **XP**: `xpForLevel(n) = 1000·n(n−1)/2`; `XpTracker` adds/spends; spending below the current
+  level's minimum asks `window.confirm` (3.5e forbids it; the DM may allow it).
+- **Level-up** (`LevelUpFlow`, appears when `levelForXp(xp) > level`; never auto-levels):
+  1. **HP**: a d8 roll stored as its own `{level, roll}` (free-form input, clamped on blur).
+  2. **Ability increase** at levels 4/8/12/16/20; an Int increase only gives skill points for
+     *that* level, so the pool is computed against tentative scores including the pending pick.
+  3. **Skill points** = 4 + Int mod. **Max rank** (level+3, half for off-list) uses "class skill
+     for ANY class" (union in `tables/classSkills.json`); **per-rank cost** (1 vs 2) uses only
+     the class whose level is being taken (`classTakenAtLevel`: Druid 1–5, PS 6–15, Druid
+     16–20). So Heal/Handle Animal/Ride/Knowledge(religion) cost 2 while PS levels stack in but
+     keep the full cap. PS's list is narrower than Druid's; Druid gets Knowledge (religion) by DM
+     ruling. Both numbers get their own column.
+  4. **Wild shape uses/day**: pre-filled from `tables/wildShapeUsesPerDay.json` (DM-confirmed:
+     1 at 5, 2 at 6, 3 at 7–9, 4 at 10–13, 5 at 14–17, 6 at 18–20) but editable.
+  5. **Feats / class features**: recorded manually. The picker lists every feat that has a
+     mechanical file in `src/data/feats/` (`getFeats` throws on an unknown id) and joins it **by
+     name** to the bibliographic catalog in `/data/feats/` for prerequisites and text
+     (`loadFeatReferenceData.js`). `calc/featPrerequisites.js` checks ability scores, BAB,
+     skills (names normalised: "Knowledge (planes)" ≈ "Knowledge (the planes)"), feats,
+     caster level; `classFeatures` and `other` are free text → always "needs check". Status
+     `qualifies` / `unqualified` / `needs-check`, shown as badge + colored border, **never
+     hidden**. Feats picked earlier in the same session count toward later prerequisites.
+  6. **Quen**: a block shows what his progression row grants and one d8 input per new Hit Die.
+  Confirm calls `applyLevelUp` + `setSkillRanks`/`addFeat`/`addClassFeature`/`addCompanionHdRolls`.
+  Verified 8→9: 5th slot appears, cure critical wounds shows, PS ticks to 4, Druid stays 5.
+- The **Ability Score Editor** (`AbilityScoreEditor.jsx`) exposes base scores and every
+  adjustment (value, bonus type, source, active) so inherent bonuses and one-offs don't wait
+  for a level.
+- The original HP rolls for levels 1–8 are a **synthetic reconstruction** (8, then 6s) that
+  sums to the true 61; nobody recorded the real ones. Edit them if they surface.
 
-## XP tracking and level-up
-
-Level, XP, HP-roll history, skill ranks, ability adjustments, feats, and wild shape uses/day
-are **live state** (`characterProgress`, in the Supabase `character_state` blob), not static
-fields on `lyra.json` — `lyra.json` only seeds the very first `characterProgress` the first
-time the app ever loads with no saved state. From then on the static file is never read again
-for these fields; leveling up edits Supabase directly. This is what lets the sheet recompute
-end-to-end (HP, BAB, saves, skills, spell slots, AC, caster level, wild shape uses, the Druid/
-Planar Shepherd class split) the moment a level-up is confirmed, with no redeploy.
-
-- `src/lib/calc/leveling.js` — pure XP/HP/skill-point math (`xpForLevel`, `levelForXp`,
-  `computeMaxHp`, `skillPointsForLevel`, `maxSkillRank`, `isClassSkillFor`, etc).
-- `src/lib/liveState/computeEffectiveSheet.js` — merges `characterProgress` onto the static
-  `lyra.json` base and re-runs `computeCharacterSheet`. Called once on load and again in a
-  `useMemo` inside `LiveStateContext` whenever `characterProgress` changes, so `sheet` and
-  `dailyAbilities` are always derived, never stored.
-- `src/lib/calc/computeCharacterSheet.js` — HP max is now `sum(hpRolls) + hpRolls.length *
-  conMod + collectFeatHpBonus(feats)` (Toughness contributes via a `hp_bonus` feat effect,
-  same pattern as `ability_bonus`), rather than a stored flat number. `casterLevel.druid`,
-  `druidLevel`, and `classes` (the "Druid N / Planar Shepherd M" breakdown) are recomputed
-  from `character.level` every render via `druidLevel()` (`src/lib/rules/dnd35.js`) — they can
-  never drift out of sync with level the way a stored field could.
-- `src/components/leveling/XpTracker.jsx` — current XP, XP for next level, progress bar,
-  add/spend inputs. Spending XP that would drop Lyra below her current level's minimum
-  (`xpForLevel(level)`) shows a `window.confirm` warning rather than blocking outright — 3.5e
-  forbids it, but the DM can rule otherwise. Collapsible, defaulting to collapsed like Prepared
-  Spells; the collapsed header still shows current XP and XP to next level so that's visible
-  without expanding.
-- `src/components/leveling/LevelUpFlow.jsx` — appears inline on the Lyra tab once
-  `levelForXp(xp) > character.level`. Never auto-levels. Covers:
-  - **HP roll** — a d8 input, added to `characterProgress.hpRolls` as its own `{level, roll}`
-    entry (editable/re-rollable later, not collapsed into a running total) alongside the
-    current Con mod.
-  - **Ability score increase** — only shown at character levels 4/8/12/16/20
-    (`ABILITY_INCREASE_LEVELS`). Per PHB p.24, an Int increase only grants bonus skill points
-    for *that* level, so the skill-point pool below is computed against a tentative ability
-    score set that includes the pending pick, via `computeAbilityScores` — not against the
-    pre-level-up scores.
-  - **Skill points** — pool = 4 + Int mod (`skillPointsForLevel`). Only skills already present
-    in `character.skills` are offered (the app has no ability-per-skill lookup for skills
-    Lyra doesn't have yet — a genuinely new skill needs a manual data addition first).
-    **Max rank and per-rank cost are governed separately (PHB p.59)**, both driven by
-    `src/data/tables/classSkills.json` but by two different checks:
-    - **Max rank** (`isClassSkillForAnyClass`, `characterLevel + 3`, half that — rounded down —
-      for anything on neither list) asks whether a skill is a class skill for *any* of Lyra's
-      classes, the union of Druid's and Planar Shepherd's lists. This never changes once a
-      skill is a class skill for either class — it doesn't reset or shrink as the class being
-      taken changes level to level.
-    - **Per-rank cost** (`isClassSkillFor`, 1 vs. 2 points) asks only about the class whose
-      level is being taken *this* level-up, via `classTakenAtLevel()` (Druid 1–5, Planar
-      Shepherd 6–15, Druid again 16–20 — same split as the class-progression table above).
-    Planar Shepherd's list (Concentration, Knowledge arcana/nature/the planes, Listen,
-    Spellcraft, Spot, Survival) is narrower than Druid's (which also includes Knowledge
-    (religion) per a DM ruling, alongside Craft/Diplomacy/Handle Animal/Heal/Knowledge
-    (nature)/Listen/Profession/Ride/Spellcraft/Spot/Survival/Swim), so Heal, Handle Animal,
-    Ride, and Knowledge (religion) cost 2 pts/rank the moment Planar Shepherd levels start
-    stacking in — but since they're still druid class skills, their max rank stays at the full
-    `characterLevel + 3` throughout, never dropping to the half-cap "cross-class" cap. The UI
-    shows both numbers as separate table columns (Max, Cost/rank) rather than folding them into
-    one "cross-class" label, since a skill can be at the full cap while still costing double.
-  - **Wild shape uses/day** — pre-filled from `src/data/tables/wildShapeUsesPerDay.json`
-    (DM-confirmed full curve, Aug 2026: 1/day at 5, 2/day at 6, 3/day at 7–9, 4/day at 10–13,
-    5/day at 14–17, 6/day at 18–20), but always shown as an editable field rather than applied
-    silently, in case a future houserule changes it.
-  - **Feats and class features** — recorded manually. The feat picker (a card per feat, not a
-    plain dropdown) lists every feat with a JSON file in `src/data/feats/` that Lyra doesn't
-    already have (`getFeats()` throws on an unknown id, so a brand-new feat needs its
-    mechanical data file added before it can be picked — `id`/`name`/`source`/`effects`, `[]`
-    for anything not modeled). Each card's prerequisites and full benefit text come from a
-    **separate join**, not from the mechanical file: `src/lib/loadFeatReferenceData.js` globs
-    the project-root `/data/feats/<book>.json` bibliographic catalog (CLAUDE.md > Feat
-    reference data — one file per sourcebook, DM-cited prerequisites/page/benefit text) into
-    `featReferenceByName`, keyed by each entry's printed `name`, and `LevelUpFlow.jsx` looks up
-    `featReferenceByName[feat.name]` for the mechanical feat being rendered. The two catalogs
-    are kept in sync by every `src/data/feats/*.json` file's `name` matching an entry in
-    `/data/feats/` exactly — the picker currently covers all 13 (8 Lyra already has, plus
-    Dragon Wild Shape, Gatekeeper Initiate, Planar Wild Shape, Scribe Scroll, Sustain Wild
-    Shape as not-yet-taken candidates); a new mechanical feat with no bibliographic match just
-    shows no prerequisites/citation rather than crashing.
-    `src/lib/calc/featPrerequisites.js` checks the reference schema (`abilityScores`,
-    `baseAttackBonus`, `skills`, `feats`, `classFeatures`, `casterLevel`, `other`) generically
-    against Lyra's current stats (including any pending ability-score-increase pick, but not a
-    hypothetical post-level-up BAB — "currently qualify" means before this level-up is
-    confirmed). `abilityScores`/`baseAttackBonus`/`skills`/`casterLevel`/`feats` are checked
-    automatically (skill-name matching is normalized — strips "the" and punctuation — so the
-    catalog's "Knowledge (planes)" matches Lyra's own "Knowledge (the planes)" skill label);
-    `classFeatures` and `other` are free text with no data source in this app to verify, so
-    they're always unverifiable rather than silently assumed true or false. Status is one of
-    three, shown as a badge and a colored left border on the card: `qualifies`, `unqualified`
-    (at least one prerequisite definitely unmet), `needs-check` (nothing definitely unmet, but
-    at least one unverifiable prerequisite). Unqualified and needs-check feats are **flagged,
-    never hidden** — a DM can always grant a feat outside its normal prerequisites — and the
-    Add button stays enabled regardless of status. Feats picked earlier in the same level-up
-    session count toward `feats`-type prerequisites too, so taking a prerequisite and its
-    dependent together resolves the chain live. Class features are freeform text, not tied to
-    any calc engine — e.g. the Wolf Shaman bonus feat at character level 19 (druid level 9) has
-    no dedicated code and is expected to be recorded here, then (if it grants a mechanical
-    effect) added as an actual feat with a `hp_bonus`/`ability_bonus`/`save_bonus`
-    /`grants_daily_spell` effect like any other feat.
-- Confirming calls `applyLevelUp` (bumps level, appends the HP roll, applies the ability
-  adjustment if applicable, sets wild shape uses/day) plus `setSkillRanks`/`addFeat`/
-  `addClassFeature` for each changed skill/feat/feature — all in `src/lib/liveState/actions.js`,
-  same pure-transform pattern as every other tracker action. Opening the flow scrolls the page
-  to the HP-roll block.
-
-**HP-roll history caveat:** the 8 entries seeded into `lyra.json`'s `hpRolls` for levels 1–8
-are a **synthetic reconstruction** (level-1 max roll of 8, then 6 at every level after, summing
-with Con and Toughness to the correct total of 61), not Lyra's real historical rolls — nobody
-recorded those at the table. Edit them if the real numbers ever surface; nothing downstream
-cares how they got there, only that they sum correctly.
-
-**Verified end-to-end (Aug 2026):** leveling 8 → 9 via the flow above correctly produces a 5th
-spell slot, cure critical wounds appearing as a spontaneous conversion
-(`spontaneousConversions.byLevel["5"]`, already in place before this phase), Planar Shepherd
-ticking to 4 (Druid stays 5, per the class table), and the new caster level/BAB/saves row — all
-without touching any component beyond confirming the level-up. (Wild shape stays at 3/day
-through level 9 — the 4th use unlocks at level 10, per the corrected curve above; an earlier
-version of this table had guessed 4/day at level 9 and was corrected after DM review.)
-
-### Ability score editor
-
-`src/components/leveling/AbilityScoreEditor.jsx`, on the Lyra tab, lets Lyra's ability scores
-be edited **outside** a level-up — needed because inherent bonuses (the Wis tome) and other
-one-off adjustments don't wait for a level to land. Toggling "Edit" reveals, per ability: the
-base score (`characterProgress.trueBaseAbilityScores[ability]`, itself now live state seeded
-from `lyra.json`'s `trueBaseAbilityScores`) and every adjustment affecting that ability
-(`characterProgress.abilityAdjustments`, filtered by `ability`) as its own editable row — value,
-bonus type, source, and an active checkbox, so a level-based increase and an inherent bonus
-like the Wis tome both show up distinctly rather than folded into one number. Everything
-downstream (saves, AC, skills, spell slots, save DCs, spell attack bonus) recomputes for free —
-these fields already flowed through `computeAbilityScores` inside `computeCharacterSheet`, this
-just exposes them as edit targets instead of hardcoding them at load time.
-
-### Test mode
-
-`LiveStateContext` supports a **test mode** toggle (SyncBar, Lyra tab) for experimenting with
-level-up without persisting to Supabase. Entering it snapshots the current state in a ref and
-suspends the debounced-save effect entirely — `update()` still changes React state normally
-(so the UI reflects every edit live) but nothing is written to Supabase or localStorage while
-active. A "Reset" button restores the snapshot without leaving test mode, for trying multiple
-what-ifs in a row. Exiting test mode always restores the snapshot too, rather than committing
-whatever was being experimented with — the point is that nothing tried while the toggle is on
-can leak into the saved state, even by accident.
+### 5.6 Feats (mechanical files, `src/data/feats/`)
+Toughness (+3 HP) · Strong Soul (+1 Fort/Will; rising to +3 vs death/drain isn't modelled) ·
+Spontaneous Healer · Greenbound Summoning · Natural Spell · Animal Affinity (+2 Handle Animal,
++2 Ride, shown as skill misc) · Fey Touched (5e; +1 Wis inherent; misty step & charm person
+1/day) · Ashbound. Not-yet-taken candidates the picker offers: Dragon Wild Shape, Gatekeeper
+Initiate, Planar Wild Shape, Scribe Scroll, Sustain Wild Shape — their "not modelled" caveats
+live in a non-displayed `implementationNote`. *Spontaneous Healer*: printed as Wis-mod/day, but
+Lyra's Wis is high and the DM ruled cure minor wounds doesn't count — the app shows the
+conversions without a counter.
 
 ---
 
-## Character: Lyra
+## 6. DM house rules encoded (and where)
 
-Half-elf. Character level 8 = Druid 5 / Planar Shepherd 3.
-Planar attunement: the Feywild (DM uses the 5e interpretation).
-Pathfinder archetype: **Wolf Shaman**.
-
-### Ability scores
-
-| | Score | Mod |
-|---|---|---|
-| STR | 10 | +0 |
-| DEX | 18 | +4 |
-| CON | 12 | +1 |
-| INT | 16 | +3 |
-| WIS | 20 | +5 |
-| CHA | 11 | +0 |
-
-A DM-gifted tome will raise WIS to 22. **Confirmed inherent** — stacks with everything,
-permanent, capped at +5 total inherent. One week of game time to read.
-
-### Derived stats at level 8
-
-- **HP** 61
-- **AC** 20 / touch 15 / flat-footed 16 (10 + 3 armor + 2 shield + 1 deflection + 4 Dex)
-- **Fort** +9 (7 base + 1 Con + 1 Strong Soul)
-- **Ref** +6 (2 base + 4 Dex)
-- **Will** +13 (7 base + 5 Wis + 1 Strong Soul)
-- **Initiative** +4
-- **Spell attack bonus** +10 (BAB +5 + Wis mod). Compute, don't hardcode — the WIS 22 tome must
-  update this automatically.
-- **Land speed** **50 ft.** (30 base + 20 permanent Totem Transformation — see speed rule)
-- **Caster level** 8
-- **Druid save DC** 15 + spell level
-
-### Spell slots
-
-At WIS 20: **6 / 6 / 4 / 4 / 3** (levels 0–4)
-At WIS 22: **6 / 6 / 5 / 4 / 3**
-
-Base table value is 6/4/3/3/2; the rest is Wisdom bonus spells. Compute, don't hardcode.
-
-### Skills (ranks → total)
-
-| Skill | Ranks | Total |
-|---|---|---|
-| Concentration | 11 | +12 |
-| Handle Animal | 9 | +11 (incl. Animal Affinity) |
-| Heal | 10 | +15 |
-| Knowledge (nature) | 11 | +14 |
-| Knowledge (the planes) | 5 | +8 |
-| Knowledge (religion) | 4 | +7 |
-| Listen | 7 | +12 |
-| Spellcraft | 11 | +14 |
-| Spot | 8 | +13 |
-| Survival | 5 | +10 |
-
-**All skills are listed (Nov 2026).** The Skills card shows every 3.5 skill, not only the ones
-with ranks: `src/data/tables/skills.json` is the full PHB list (key ability, trained-only,
-armor-check-penalty multiplier), `computeSkills` (`src/lib/calc/skills.js`) emits an entry for
-each, merging Lyra's own ranks / misc bonuses / label overrides from `character.skills`. The
-card splits **Trained** (ranks > 0) from a muted **Untrained** group so the trained list stays
-easy to scan, but untrained modifiers are still the number to roll. A **●** marks a class
-skill for *any* of her classes (the union in `classSkills.json`, same rule as the max-rank
-cap); untrained trained-only skills say "trained only"; Speak Language has no ability and no
-check, so shows "—". The **armor check penalty** (sum of worn armor + shield; currently −2 from
-the heavy wooden shield) is now applied to the skills it governs (Swim ×2) and flagged with a
-`*`; none of her ranked skills are affected, so their totals didn't change. Craft, Perform and
-Profession are single "(any)" rows. Ride has no ranks, so it sits in Untrained with its +2 misc
-and conditional +5 still shown. Spending ranks at level-up is *still limited to skills she
-already has an entry for* (`LevelUpFlow` iterates `character.skills`) — buying a first rank in
-a brand-new skill isn't wired yet.
-
-Conditional, surface in UI rather than baking in:
-- Wild empathy with **canines**: full-round action, +4 bonus
-
-### Equipment
-
-- **Leafweave Studded Leather**: +3 AC, max Dex +6, 0 check penalty, 20 lb, non-metal with
-  darkwood studs. Leafweave increases the base masterwork studded leather's max Dex bonus by 1
-  (5→6). Reduces arcane spell failure by 5%.
-- Heavy wooden shield: +2 AC, −2 check penalty, 10 lb
-- Ring of protection: +1 deflection bonus to AC
-- Forestwarden Shroud: lightweight tunic and leggings worn over armor; negates undergrowth/heavy
-  undergrowth penalties on Tumble and Move Silently (DMG p.87, Forest Terrain). Found in the
-  Bodak Lair.
-- **Druid necklace**: 5–6 spells, 1/day each, **no spell slot**. Confirmed: *entangle*,
-  *barkskin*, *plant growth*, *speak with plants*, *tree shape*, possibly one more. Track as
-  independent daily checkboxes outside the slot economy.
-
-Armor and shield are non-metal (druid-legal).
-
-#### Celeb mûr ("Silver Flow"), commonly called Quicksilver
-
-**+2 elven scimitar of speed.** Silvered blade, sylvan elvish runes, moonstone pommel.
-
-- 1d6 slashing, **18–20/×2**
-- **Speed**: on a full attack, **one extra attack at full BAB**. Explicitly **does not stack**
-  with *haste* — surface this warning next to the attack routine.
-- **Light**: moonstone sheds pale purple light, 5 ft. radius, in total darkness. Requires four
-  hours of moonlight exposure nightly. Passive property with a condition note, not a tracker.
-
-| Action | Routine | Damage |
-|---|---|---|
-| Single attack | **+7** | 1d6+2 |
-| Full attack | **+7 / +7** | 1d6+2 |
-
-BAB +5 (below the +6 iterative-attack threshold, so no -5 iterative attack) plus +2
-enhancement, with the speed property's extra attack at full BAB inserted alongside it. The
-extra attack is a weapon property injection, not an iterative. Build attack routines from BAB
-**plus property injections**.
-
-*Player note, not a rule:* Weapon Finesse would take this to +11/+11 (BAB +5 + Dex +4 +2
-enhancement, still below the iterative threshold). Scimitar is a light weapon and qualifies.
-Not currently taken.
-
-### Feats
-
-- **Toughness** (L1)
-- **Strong Soul** (L1) — +1 Fort and Will, rising to +3 (replacing, not stacking with, the +1)
-  vs death effects, energy drain, and ability drain
-- **Spontaneous Healer** (L3) — substitute any prepared spell for a Cure spell
-- **Greenbound Summoning** (L4–5) — Greenbound template on all *summon nature's ally*
-  results except elementals
-- **Natural Spell** (L4–5) — cast while wild shaped
-- **Animal Affinity** (L4–5) — +2 Handle Animal, +2 Ride
-- **Fey Touched** (L4–5, 5e) — +1 WIS; *misty step* and *charm person*, 1/day each
-- **Ashbound** (L6) — *summon nature's ally* duration doubled; summons gain **+3 luck bonus
-  on attack rolls**
-
----
-
-## Wolf Shaman archetype (Pathfinder, DM-adapted)
-
-**Scales with DRUID level, not character level.** See Class Progression.
-
-**Nature Bond:** animal companion must be a wolf. See Quen below.
-
-**Wild Empathy (Ex):** canines, full-round action, +4 bonus.
-
-**Totem Transformation (Su)** — DM ruled this a **one-time permanent boost, not a per-day
-ability. No tracker.** Lyra selected **movement**: permanent +20 ft. enhancement to land
-speed. The at-will ***speak with animals* (canines only)** rider is likewise permanent.
-
-**Speed rule (DM-confirmed):**
-- Base form: **+20 applies** → Lyra's land speed is 50 ft.
-- Wild shape into a form with `isCanine` true: **+20 applies**
-- Wild shape into any non-canine form: **no bonus**, use the form's speed as printed
-
-**Totemic Summons (Su)** — when summoning canines:
-- Cast *summon nature's ally* as a **standard action**
-- Summoned canines gain **temp HP equal to DRUID level** — currently **5**, rising to 6/7/8/9/10
-  at character levels 16–20
-- **Young** template: required spell level −1
-- **Advanced** or **giant**: required spell level +1
-- **Both**: required spell level +2
-
-**Bonus Feats:** at druid level 9 and every 4 druid levels after. Given the progression, druid
-9 arrives at **character level 19**, and druid 13/17 are never reached. So **exactly one**
-Wolf Shaman bonus feat, at character level 19: Greater Trip, Improved Trip, Mobility, Skill
-Focus (Stealth), or Spring Attack.
-
----
-
-## Wild Shape
-
-Planar Shepherd levels **stack with druid levels** for daily uses, maximum HD, size, and
-duration — but **not creature type**. Effective wild shape level = character level.
-
-**At level 8: 3 uses/day, maximum size Large, maximum 8 HD.**
-
-Type access, gated by Planar Shepherd level:
-
-| PS level | Char level | Unlocks |
-|---|---|---|
-| 3 (current) | 8 | Magical beasts native to the Feywild |
-| 9 | 14 | Elementals and outsiders native to the Feywild |
-
-**Elemental/outsider forms cost TWO daily uses.** The tracker must decrement by 2.
-
-Lyra does not have Planar Wild Shape and does not plan to take it.
-
-Creature data carries `wildShapeMinLevel` (integer or null): Animal → 5, Feywild-native
-magical beast → 8, Feywild-native outsider/elemental → 14, everything else → null. The app
-checks `wildShapeMinLevel <= characterLevel`, then applies size and HD caps as engine logic.
-
-**Fey forms are never available** at any level — neither progression grants them. This affects
-pixie and satyr.
-
-### The polymorph swap (core calculation)
-
-**Retained:** BAB, base save bonuses, HP, skill ranks, feats, INT, WIS, CHA
-**Taken from form:** STR, DEX, CON, size, natural armor, speeds, natural attacks, Ex qualities
-
-**Recompute:**
-- Attack = BAB + form's Str mod + size modifier
-- Secondary natural attacks at −5
-- **Single** natural weapon → damage adds **1.5× Str bonus**. Multiple attacks → primary gets
-  full Str, secondaries half.
-- Fort = base Fort + form's Con mod + 1 (Strong Soul)
-- Ref = base Ref + form's Dex mod
-- Will = base Will + Wis mod + 1 (Strong Soul) — unchanged by form
-- AC = 10 + size mod + form's Dex mod + form's natural armor + persistent item bonuses
-- Land speed = form's land speed, **+20 only if `isCanine`**
-
-Persistent item bonuses = ring of protection (+1 deflection). Armor and shield don't carry
-over. Quicksilver is unusable in most forms.
-
-At PS 9+ (character level 14+), forms also grant all Ex, Su, and Sp abilities. **Below that,
-only Ex abilities** — this is why unicorn's *greater teleport* and healing are unavailable at
-level 8.
-
-### Display: one stat block, not two (Aug 2026)
-
-While a form is active, the main sheet shows its numbers **in place** — Combat Stats, Armor
-Class, Saves, and the Reference tab's Attack Routine all switch to the form's values, rather
-than a second wild-shape stat block sitting alongside the normal one. `CharacterSheet.jsx`
-computes this once, at the top of the component, via
-`getActiveWildShapeStatBlock({ sheet, activeForm: state.activeWildShapeForm, monsterManual })`
-(`src/lib/calc/wildShape.js`) and passes the result (`wildShapeStatBlock`, `null` when no form
-is active) down to every affected component — `CombatBar`, `AbilityScoreEditor`,
-`CombatStatsCore`, `ArmorClass`, `Saves`, `AttackRoutine`, and the Wild Shape card itself — so
-there's exactly one `wild ? formValue : baseValue` branch per stat, not a parallel component
-tree. Reverting sets `state.activeWildShapeForm` back to `null`; every one of those branches
-collapses to the base sheet on its own, so there's no separate "undo the override" step to get
-wrong.
-
-Each affected stat carries a 🐾 badge next to its label, and (via the shared `StatValue`
-helper) its pre-wild-shape base value struck through and tooltipped right next to the current
-one — visible at a glance, not just on hover, so "what would reverting give me back" never
-needs a mental subtraction. Per the polymorph swap rules above: Str/Dex/Con, size, natural
-armor, AC, speed, the attack routine, and Fort/Ref saves get this treatment; HP, BAB, skill
-ranks, Int/Wis/Cha, Will, spell save DCs, spell attack bonus, and caster level are genuinely
-unchanged by wild shape and render exactly as they do out of it, no badge. The Attack Routine
-card doesn't try to show "current vs. base" per attack the way a single number can (a whole
-different weapon vs. a whole different set of natural attacks doesn't reduce to one delta) — it
-swaps wholesale to the form's attacks and adds one line noting the base weapon's single-attack
-number, struck through, since Quicksilver is unusable in most forms anyway.
-
-The Wild Shape card itself is collapsible, defaulting to collapsed (it's used a handful of
-times per session, not something that needs to stay open) — collapsed, its header shows the
-active form's name if one is assumed, same 🐾-prefixed pattern as the badges elsewhere. Expanded
-while a form is active, it's now just the confirmation line, the form's Special Qualities &
-Attacks (genuinely wild-shape-only content with no "base" equivalent, so it has nowhere else to
-live), and the Revert button — the big per-form stat block that used to render here now only
-shows for the *picker preview* (a form selected but not yet assumed), where there's no
-duplication concern since nothing is active yet.
-
-### Known available forms
-
-Lyra can wild shape into any animal she's familiar with — common Greyhawk animals (wolf, brown
-bear, eagle, dog, cat) plus anything she has summoned. Creatures summoned to date: crocodile,
-wolf, wolverine, dire rat, dire bat, dire wolf, unicorn, pixie, giant owl, juvenile arrowhawk,
-minor xorn, satyr.
-
-**Unicorn is DM-confirmed Feywild-native magical beast** — available now at PS 3. Large,
-4 HD, Str 20. Within size and HD caps. Body only, no spell-like abilities until level 14.
-
-**DM-approved Feywild forms (added):** Aranea (MM I p.15), Blink Dog (MM I p.28), Elven Hound
-(Races of the Wild p.189), Pegasus (MM I p.206), Asperi (MM II p.25, 3.0-format stat block),
-Ur'Epona (Planar Handbook p.130), Tressym (Lost Empires of Faerûn p.191), plus Giant Owl
-(updated from pending to confirmed). All `wildShapeMinLevel: 8`. Aranea's Feats and Challenge
-Rating couldn't be reliably extracted from the source PDF's column layout — verify manually.
-Ur'Epona's hoof is written up as secondary (half Str to damage) even though it's the
-creature's only natural weapon — see `strMult` handling in `wildShape.js`/`summonBuilder.js`.
-
-**`lyraFamiliar` only gates wild shape, not summoning.** Summon Nature's Ally has no
-familiarity requirement — Lyra can summon an arrowhawk, xorn, or unicorn even though she
-can't wild shape into most of them. The two pickers use different eligibility filters
-entirely (`getEligibleWildShapeForms` vs `getSummonableCreatures`).
-
-**Single vs. full attack:** both the wild shape and summon builder attack routines expose a
-`{ single, full, hasSecondaries }` shape. `single` is a standard-action attack with the best
-primary weapon only (count forced to 1); `full` is the full-round-action routine (primary at
-full count plus all secondaries at −5). The UI hides the full-attack block entirely when
-`hasSecondaries` is false, per DM request — no point showing two identical action options.
-
-**`lyraFamiliar` (boolean, in `data/creatures/*.json`)** gates the wild shape
-picker on top of level/size/HD: true for the common Greyhawk animals named above, anything on
-a Summon Nature's Ally list Lyra can currently cast (level ≤ 4), and DM-approved Feywild forms
-(Unicorn). False for everything else — e.g. polar bear (SNA 5, not currently castable, no
-plausible familiarity). Picker groups canine forms first (they carry the +20 ft. Totem
-Transformation bonus and see the most table use), alphabetical within each group.
-
-Giant owl is also a magical beast; Feywild-native status **pending DM ruling**.
-Arrowhawk and xorn are outsiders native to the Elemental Planes of Air and Earth — not
-Feywild-native, so never available. Pixie and satyr are fey — never available.
-
----
-
-## Anarchic template (Iconic Manifestation overlay)
-
-Lyra is chaotic neutral, so Iconic Manifestation (Druid 4) grants her the Anarchic template
-(Manual of the Planes, p. 198) — `data/templates/anarchic.json`, loaded via
-`loadCreatureData.js`, computed by `src/lib/calc/anarchic.js`. **This is an overlay on Lyra
-herself, never a form modifier** — critically different from wild shape, Greenbound, and every
-other template in this app, which all replace or layer onto a *creature's* stats. Anarchic
-composes onto whatever her current stat block is (base form or wild shaped) and survives
-wild-shape changes untouched, because `state.anarchicTemplate` is a wholly separate live-state
-key from `activeWildShapeForm` — nothing in `assumeWildShapeForm`/`revertWildShapeForm` reads
-or writes it. Don't couple the two.
-
-**Split across two tabs.** Tab 1 (`AnarchicToggle.jsx`, embedded inside the Wild Shape Form section,
-right after its `<h2>`) is the live tracker: one checkbox, "Iconic Manifestation active." Tab 3
-Reference (`AnarchicReference`, a local component in `CharacterSheet.jsx` alongside
-Equipment/Feats) is the full write-up — description, the complete DR/fast-healing table, Smite
-Law's full text, the type-change rule, ability minimum — material the player rarely needs
-mid-round and doesn't want cluttering Tab 1. Both read the same `anarchicTemplate.json` data
-and `calc/anarchic.js` functions; only the UI is split, not the underlying rules.
-
-**One checkbox, both costs at once.** RAW technically separates casting (opens an invocation
-window) from invoking (commits to the effect) as two actions with two different economies —
-Reference documents this distinction for completeness — but the live tracker collapses it into
-a single toggle: checking it spends a 4th-level slot *and* a wild shape use together and goes
-straight to the active/timed effect (`activateAnarchic`), skipping the window entirely, since
-in practice there's rarely a reason to cast now and decide whether to invoke later. Unchecking
-(`deactivateAnarchic`) never refunds either cost, same as every other tracker in this app.
-`state.anarchicTemplate` is `{ active, durationMinutesRemaining, smiteLawUsed }` — no `phase`
-field, no window. Duration is `invokedDurationMinutesPerCasterLevel` (1) × caster level, so
-8 min at CL 8 — minute-based countdown (not rounds, these durations are long enough that a
-rounds-based stepper would be unusable) via a plain `-1/+1` stepper, same interaction pattern
-as every other tracker: nothing auto-decrements on a real clock, the player ticks it down
-themselves.
-
-**Hit Dice for template purposes is always Lyra's own character level**, never the active wild
-shape form's HD — standard wild shape rules never change HD (BAB/saves/HP/skill ranks/feats
-all stay hers per the Wild Shape section above), so this holds in base form or shaped alike.
-`computeAnarchicOverlay()` takes `hd` as a plain parameter for exactly this reason; don't wire
-it to `parseHitDice()` on whatever creature is currently active.
-
-**DR/fast healing by HD** (confirmed against the book, three-column table — Manual of the
-Planes p. 198): 1–3 HD none/none, 4–7 HD none/fast healing 1, 8–11 HD none/fast healing 3,
-12+ HD DR 5/+1/fast healing 5. At Lyra's 8 HD that's fast healing 3, no DR — verified live.
-"If the base creature already has fast healing or DR, use the better value" is modeled
-(`betterDamageReduction()`) but is a no-op today: nothing in this app's creature or character
-data currently carries DR/fast healing to compare against, so `existingDamageReduction`/
-`existingFastHealing` default to none. Wire them up if a future wild shape form or piece of
-gear ever grants either.
-
-**Smite Law** (Su, 1/day) is its own daily resource — `anarchicTemplate.smiteLawUsed` — reset
-only by Long Rest, deliberately untouched by `activateAnarchic`/`deactivateAnarchic` so it
-persists correctly across multiple activations in the same day. Bonus damage = HD, capped at
-+20 (`computeSmiteLawBonus`) — +8 at CL 8.
-
-**Type change** ("Animals and beasts become magical beasts") only ever shows a note, never
-recomputes anything, and only applies while both true: template invoked *and* currently wild
-shaped into a creature of one of those types — looked up live via
-`state.activeWildShapeForm.creatureName` against `monsterManual`, not cached.
-
-Ability scores, saves, skills, and feats are explicitly unaffected — the template data file
-documents this (`noChangeTo`) but nothing computes off it; it exists so a future reader doesn't
-wonder why those fields are missing from the overlay.
-
----
-
-## Summoning
-
-**Hit points (summon stat blocks).** `parseHitDice` handles one pool (`6d8+18`), the fractional
-form (`1/2d6-1`), several flat terms (`7d8+7+9`) and mixed pools (`8d10+7d8+75` — racial Hit Dice
-plus class levels); `averageHpForPools` averages each pool at its own die (identical to
-`averageHp` for one pool). A creature's explicit `hitPoints` field beats anything computed —
-**except** where a template changed its Constitution: Greenbound (d8 Hit Dice, new Con) and the
-young/advanced/giant templates still compute their own HP, since the printed total no longer
-describes that creature. Printed AC bonuses carried in an `equipment` array (the celestial
-charger's bracers of armor) are not added to AC by the builder.
-
-**Next round.** The Summons Out overview has a **Next round** button (`advanceSummonRound`) that
-takes one round off every active group at once, from either builder; groups at 0 stay at 0 and
-read "expired". The per-group stepper stays for corrections.
-
-**Sizes are normalised on read.** 3.0 books print "Medium-Size"; `normalizeSize()`
-(`rules/dnd35.js`) trims, drops a `-size` suffix and matches case-insensitively, and
-`loadCreatureData.js` applies it to every creature (and Quen) at load. Every size lookup
-goes through `sizeModifier` / `grappleSizeModifier` / `sizeIndex` / `normalizeSize`, never
-`SIZE_MODIFIER[x]` on a raw string — including the Greenbound slam table.
-
-A canine summon can stack a simple template, Greenbound, and two feat effects.
-
-**Greenbound applies to every summon except elementals (DM-confirmed).** Anything with a
-`summonNaturesAllyLevel` is a valid summon regardless of type — Lyra can cast *summon nature's
-ally* to get an arrowhawk, a xorn, a unicorn, or an elemental same as a wolf — and Greenbound
-Summoning layers onto every result except an elemental base creature: animals, fey, giants,
-humanoids, monstrous humanoids, vermin, magical beasts, and outsiders all get the full template
-(type change, stat boost, gained slam, DR/qualities/spell-likes); an elemental summon skips the
-template entirely and keeps its own type, ability scores, and natural armor. Ashbound's
-duration-double and +3 luck bonus, and Totemic Summons' canine temp HP, apply to **every**
-summon independently of Greenbound eligibility — don't gate those on it.
-
-### Pipeline order
-
-1. **Simple template** (young / advanced / giant), if chosen — canines only
-2. **Greenbound template**, unless the base creature is an elemental
-3. **Ashbound** and **Totemic Summons** bonuses — always, independent of step 2
-
-Ability adjustments are commutative, but Greenbound's slam damage is size-keyed and its
-"whichever is better" comparison must evaluate at **final** size. Size resolves first.
-
-### Simple templates — Pathfinder rules as written (DM-confirmed)
-
-Use **rebuild rules**, not quick rules.
-
-**Advanced** (CR +1) — **+4 to all ability scores**. No size change.
-
-**Giant** (CR +1, not applicable to Colossal) — size **+1** category; natural armor **+3**;
-damage dice **+1 step**; **+4 size bonus to Str and Con, −2 Dex**.
-
-**Young** (CR −1) — size **−1** category; natural armor **−2** (min 0); damage dice **−1
-step**; **−4 Str, −4 Con, +4 Dex**.
-
-The Pathfinder giant template is deliberately milder than a Monster Manual size advance
-(+4 Str, not +8) and carries its own natural armor and damage rules. **Do not mix the two
-systems.**
-
-Size still applies the standard AC and attack modifier (Large −1, Huge −2, Small +1), plus
-space, reach, and grapple.
-
-**Damage ladder:** 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 2d8 → 3d6 → 3d8. Reverse for young.
-
-### Greenbound template (applies to every summon except elementals)
-
-An elemental base creature skips this section entirely and keeps its own type, ability
-scores, and natural armor.
-
-- **Type** → plant (augmented subtype). Size unchanged. Do **not** recalculate base attack
-  bonus, base saves, or skill points.
-- **Hit Dice** all become d8s
-- **Natural armor** +6 over base
-- **Abilities**: STR +6, DEX +2, CON +4, CHA +4
-- Gains a **slam attack** if it lacked one
-- **DR 10/magic and slashing**; natural weapons count as magic for overcoming DR
-- **Fast healing 3**, **+4 grapple**, **resistance 10** cold and electricity,
-  **tremorsense 60 ft.**
-- **+16 racial** on Hide and Move Silently in forested areas
-- **Spell-like**: at will — *entangle*, *pass without trace*, *speak with plants*;
-  1/day — *wall of thorns*. CL = creature's character level.
-  DC = 10 + spell level + creature's CHA mod (remember the +4).
-  **Wall of thorns is per-instance**, not per-casting — a batch of 3 greenbound wolves each
-  gets their own daily use, tracked alongside that instance's individual HP. It is now one
-  of the generic per-instance daily-ability checkboxes (see "Daily abilities per summoned
-  creature" below), not a hardcoded field.
-- CR +2
-
-Slam damage by size: Fine 1, Dim 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6,
-Garg 2d8, Col 4d6. Creatures with existing natural weapons keep their damage or use the table,
-whichever is better.
-
-Fighting unarmed, it uses **either** slam **or** natural weapons — show both routines.
-
-### Feat effects (always applied)
-
-- **Ashbound** — duration **doubled**; **+3 luck bonus on attack rolls**
-- **Totemic Summons** (canines only) — standard action; **temp HP = druid level (5)**
-
-### Worked examples — verify the engine against these
-
-Base wolf: Medium animal, 2d8+4, AC 14 (+2 Dex, +2 natural), BAB +1, bite +3 (1d6+1),
-Str 13 / Dex 15 / Con 15 / Cha 6, Weapon Focus (bite).
-
-| | Greenbound | Advanced Greenbound | Giant Greenbound |
-|---|---|---|---|
-| Size | Medium | Medium | Large |
-| Str / Dex / Con | 19 / 17 / 19 | 23 / 21 / 23 | 23 / 15 / 23 |
-| Natural armor | +8 | +8 | +11 |
-| AC | 21 | 23 | 22 |
-| Bite (incl. Ashbound +3) | **+9**, 1d6+6 | **+11**, 1d6+9 | **+10**, 1d8+9 |
-| HP before temp | ~17 | ~21 | ~21 |
-| Temp HP | +5 | +5 | +5 |
-| Spell level cost | base | +1 | +1 |
-
-1.5× Str applies because the bite is the wolf's only natural weapon. Note advanced wins on
-attack bonus while giant wins on damage die, at identical cost — the UI should show that
-tradeoff rather than assuming one is better.
-
-### Summon nature's minor ally (level 0)
-
-An orison, functionally *summon nature's ally I* but limited to a Tiny or Diminutive animal of
-½ HD or less (Quintessential Druid II, Drd 0). The 8 creatures it can actually produce are
-tagged `summonNaturesAllyLevel: 0` in `data/creatures/monster-manual.json` (Bat, Cat, Lizard,
-Rat, Raven, Snake — Tiny Viper, Toad, Weasel — a `note` field on each explains the spell
-actually allows *any* qualifying animal, this list is just illustrative) — no changes needed
-anywhere in `calc/summonBuilder.js`, which was already fully generic over
-`summonNaturesAllyLevel`. Same pipeline as every other level: Greenbound and Ashbound apply
-normally (none of the 8 are canine or elemental); young/advanced/giant never apply since
-those trades are canine-only and none of these creatures are canines, so there's no
-Totemic Summons speed-up or temp HP either — all of that already fell out of the existing
-`isCanine` checks with no special-casing required. The one real code change:
-`SummonBuilder.jsx`'s level picker derives its options from `spellSlots.slots`, which
-(correctly) has no level-0 entry at all — 0 is prepended manually, and `handleSummon` skips
-`setSpellSlotUsed` entirely when `level === 0`, matching orisons' no-daily-cap houserule
-(same pattern as `PreparedSpellsTracker`/`spontaneousConversions.json`).
-
-**Bug found via this addition, fixed in both summons and wild shape:** Bat and Toad's real
-3.5e stat blocks list no attacks at all (`attacks: []` — accurate, not a data gap; these are
-utility/scouting forms, not combat ones). `computeSummonStatBlock` and
-`computeWildShapeStatBlock` both used to assume at least one attack existed and crashed
-(`Cannot read properties of undefined (reading 'primary')`) trying to pick a "best primary"
-from an empty array. This was **already live** for Wild Shape before this change — Bat and
-Toad are both `wildShapeMinLevel: 5`, reachable at Lyra's level 8 — just never hit because
-nothing had exercised that path. Fixed by skipping natural-weapon-routine construction
-entirely when `attacks.length === 0`: a wild-shaped Bat/Toad now correctly shows "No attacks
-in this form" (wild shape has no fallback — no Greenbound-style template to grant one), while
-a *summoned* Bat/Toad still gets a slam via Greenbound ("gains a slam attack if it lacked
-one") since Greenbound applies to both regardless of whether the base creature already had a
-natural weapon.
-
-### Other summon spells (Summon Fey, Summon Dire Hawk, Summon Elementite Swarm)
-
-A second builder, **Other Summon Spells**, sits under the Summon Nature's Ally builder on the
-Companions tab (`SpellSummonBuilder.jsx`). Flow: pick the spell → pick the slot level → pick
-the creature → cast. Casting spends a slot of that level in the existing tracker
-(`setSpellSlotUsed`) and is disabled when none are left. Each cast is one creature in its own
-group (no quantity box — these spells summon one creature); several groups can be out at once.
-The SNA builder is untouched apart from the shared stat block and ability tracking below.
-
-- **Spell config**: `src/data/tables/summonSpells.json` (`summonSpellsTable`) — per spell:
-  `slotLevel` (null = scalable), `scalable`, `castingTime`, `duration`
-  (`roundsPerCasterLevel` + `extraRounds`; the label is what's shown), and `effects`.
-  Durations in rounds: Summon Fey and Dire Hawk are 1 minute/level (×10); the Elementite Swarm is
-  concentration, up to 1 round/level + 1 round.
-- **`summonedBy` and `summonNaturesAllyLevel` are independent.** A creature can carry both (a
-  creature on the SNA list *and* reachable through Summon Fey) — one never implies or nulls the
-  other. Don't null an SNA level because a creature is also tagged `summonedBy`.
-- **Creature variants are separate entries.** A creature that appears on the SNA list several
-  times with different capabilities is one entry per variant, each with its own level and its
-  own abilities — the pixie is `Pixie (no special arrows)` SNA VI, `Pixie (sleep arrows)` SNA
-  VII, `Pixie (sleep and memory loss arrows)` SNA IX (the last also has Otto's irresistible
-  dance). Variants carrying `summonedBy` all show up in that spell's pool.
-- **Creature pool**: a creature names the spell(s) that produce it in `summonedBy`
-  (`data/creatures/*.json`). A scalable spell (Summon Fey) caps Hit Dice at the slot level
-  (a 1 HD fey from a 1st-level slot, 5 HD from a 5th) — `getSpellSummonPool`, with `≤`, so
-  lower-HD fey stay available at higher slots. The other two have a fixed slot level.
-- **Feat effects are a per-spell flag, not an exclusion.** Greenbound Summoning, Ashbound and
-  Totemic Summons all name summon nature's ally, so `effects` is
-  `{ greenboundSummoning, ashbound, totemicSummons }` = all `false` for these spells and the
-  creature appears exactly as printed: no template, no doubled duration, no luck attack bonus,
-  no temp HP, HP from the printed Hit Dice line (`printedAverageHp`, which keeps Toughness).
-  To switch an effect on for a spell, set its flag to `true` in that JSON — nothing else changes.
-  `computeSummonStatBlock` takes `spell` (with the chosen `slotLevel`); omitted, it is
-  summon nature's ally with all three effects on (output verified identical to before for
-  every SNA loadout). With Greenbound on, the exclusion test uses the bare creature type, so
-  `Elemental (Air, Swarm)` is still excluded.
-- **Effects ledger**: a stat block where any feat effect took effect shows a Feat effects box
-  with one row per feat — ✓ Applied (accent colour) or ✗ Not applied (struck through, muted)
-  with the reason — so a Greenbound SNA summon and a plain one differ at a glance. When
-  nothing applied (the default for these spells) there is no box and no message at all. Built
-  by `buildEffectsLedger`, stored on the stat block as `effects`; groups saved before it
-  existed fall back to the old elementals note.
-- **Swarms**: crit is `null` in the data. Attacks of a creature whose type includes `Swarm`
-  read "no critical hits"; any other null crit reads "crit —".
-- **Notes**: for these spells' creatures the stat block shows the creature's `note`
-  sentences, filtered by `noteSentences()` (`summonAbilities.js`): sentences about how the entry
-  was compiled (field names, which list a creature was added to, "left null") are dropped
-  by a pattern list; everything else shows — printed errata (the earth and water swarms'
-  misprinted saves/initiative), how a swarm squeezes through gaps, and so on. If a new note
-  leaks compilation talk onto a stat block, extend `COMPILATION_NOTE`.
-- **Active list**: both builders write to `state.activeSummons`, so everything out is in one
-  place — a **Summons Out** overview (name, count alive, source spell and slot, rounds left)
-  above the per-group sections. Groups record `source` (`{kind: 'sna'|'spell', slotLevel,
-  spellId, spellName}`); older groups without it are labelled summon nature's ally.
-  Round countdown is the same manual stepper.
-
-### Daily abilities per summoned creature
-
-Every summoned creature shows a checkbox for each limited-use ability it has, from any source
-(`limitedUseAbilities(statBlock)` in `src/lib/calc/summonAbilities.js`, derived at render from
-the stored stat block so older groups work too):
-
-- the Greenbound template's per-day spell-like abilities (wall of thorns 1/day), only when
-  the template was applied — so a pixie from Summon Fey shows the pixie's own abilities and an
-  SNA summon also shows wall of thorns;
-- the creature's own printed abilities with a **per-day** limit, read from the
-  `specialAttacks` / `specialQualities` text: `name (Sp|Su|Ex, N/day …)`, and the
-  spell-like-abilities blocks in their printed layouts (`at will -- a; 3/day -- b, c`,
-  `(1/day—a, b; caster level …)`, `a, b, and c, each 1/day`, `x 3/day and y 1/day`).
-  Cooldowns ("once every 10 minutes", "once per round") are not daily limits and aren't tracked.
-  Check this parser against every pool creature when new creature data lands.
-
-An N/day ability gets N boxes (ticking one spends it and the uses before it). Uses are stored
-**per member**, never per group — `member.abilityUses[key]`, via `setSummonAbilityUsed` — so one
-wolf using its ability doesn't spend another's, and they persist for as long as the summon is
-active. `usedUses()` reads the legacy `wallOfThornsUsed` boolean for summons cast before this.
-Spell names in the list are expandable like everywhere else.
-
-### Summon builder UI
-
-Player picks a spell slot level, sees which creatures are reachable at which template loadouts,
-gets the finished stat block (ability scores, saves, AC/touch/flat-footed, initiative, speed,
-both attack routines, qualities, spell-like abilities) in a collapsible preview that defaults
-**collapsed** — useful while deciding, noise once summoned. Summon Nature's Ally can produce
-more than one creature (the player rolls the count, e.g. 1d4+1, and types it in) — each
-instance is tracked individually (own HP, temp HP, daily-ability uses, dead/dismissed status)
-since they take damage separately, grouped under one summon with a **shared** stat block and
-**shared** remaining duration (doubled by Ashbound). The full stat block is stored on the
-group at cast time (not recomputed later) and shown once per group in a collapsible section
-that defaults **expanded**, with the per-instance trackers underneath.
-
-**Each cast is its own group, even for the same creature.** Casting Summon Nature's Ally I for
-2 wolves, then again later for 3 more, produces two independent groups — separate durations,
-separate HP and daily-ability trackers. Never merge groups by creature name. Group headers show
-creature, count, and remaining duration together (`Dire Rat (Greenbound) ×2 — 12 rounds left`)
-so multiple active groups stay distinguishable at a glance.
-
-Multiple different summons can be active at once, each its own group.
-
-Monster base save progression (good = 2 + floor(HD/2), poor = floor(HD/3), by creature type)
-lives in `monsterBaseSaves()` (`src/lib/rules/dnd35.js`) — shared between the summon builder
-and Quen's companion calculator, since a summon (unlike a wild-shaped Lyra) uses its own base
-saves, not Lyra's.
-
-**Note:** Greenbound changes type to *plant*; PS 3 grants wild shape into *magical beasts*.
-Separate systems. Greenbound does not unlock wild shape forms.
-
----
-
-## Quen — animal companion
-
-Wolf, mandated by Wolf Shaman. Planar Shepherd levels stack with druid levels for companion
-abilities, so effective druid level = **character level** = 8, using the 6th–8th row.
-
-At effective level 8:
-
-| | Value |
+| Rule | Where |
 |---|---|
-| Hit Dice | 6d8+12 (~39 hp) |
-| Str / Dex / Con | 15 / 17 / 15 |
-| BAB / Grapple | +4 / +6 |
-| **AC** | **21** (10 + 3 Dex + 6 natural + 2 armor), touch 13, flat-footed 18 |
-| **Bite** | **+7**, 1d6+3, plus trip |
-| Fort / Ref / Will | +7 / +8 / +3 |
-| Speed | **40 ft.** (50 base, reduced by armor — DM-confirmed) |
-
-Abilities: Link, share spells, Evasion, **Devotion** (+4 morale bonus on Will saves against
-enchantment — surface separately; base Will +3 is his weak point).
-
-Trip (Ex): on a bite hit, may trip as a free action with +1 check modifier, no touch attack,
-no attack of opportunity. Failure doesn't allow a counter-trip.
-
-Skills: +4 racial on Survival when tracking by scent.
-
-Known tricks: defend, attack, down, fetch, work, come, heel.
-
-**Armor — Custom Masterwork Wooden Studded Honey Leather** (150 gp): +2 armor bonus (stacks
-with natural armor), max Dex +5, check penalty 0, **speed 40 ft.**, 8 lb. Two side pouches,
-saddle mount, three leather rings per flank for hanging items or attaching litter poles.
-
-Max Dex +5 never binds — Quen doesn't reach Dex 20 until character level 18.
-
-Store the full companion progression table so Quen recomputes at any level.
-
-**Quen follows the progression table (Nov 2026).** Everything about Quen is now derived from
-`progressionTable` in `animal-companion.json` + the character level, via
-`computeEffectiveCompanion(companion, level, hdRolls)` (`src/lib/calc/companion.js`), which
-`LiveStateProvider` exposes as `companion` the way it exposes `sheet` for Lyra (recomputed from
-`characterProgress`, never stored). Effective druid level = character level. The row is picked
-by `levelRange` (`companionProgressionRow`; past level 20 uses the last row) and supplies, on
-top of the base wolf in `baseCreature` (2d8+4, NA 2, 13/15/15/2/12/6):
-- **Bonus HD** → Hit Dice (2 + bonus; `6d8+12` at 8, `8d8+16` at 9), d8 each, +Con per die.
-- **Natural armor** → NA = base 2 + row (6 at 8, 8 at 9).
-- **Str/Dex adjustment** → added to Str and Dex only (+2 on 6–8, **+3 on 9–11**, +4 on 12–14…).
-- **BAB** → ¾ of total HD (Animal), so +4 at 6 HD, +6 at 8 HD; grapple = BAB + Str mod (+ size).
-- **Bonus tricks** and **special abilities** (cumulative: Link, Share Spells, Evasion,
-  Devotion, **Multiattack at 9**, Improved Evasion at 18).
-Saves (Animal progression by total HD), AC, the bite attack/damage, initiative (= Dex mod, no
-Improved Initiative) and grapple all recompute from those, so the block is internally
-consistent at every level. The Companions tab shows the six scores, Initiative, BAB, Grapple,
-Hit Dice and the special-ability list at the top. **The record's own top-level `abilities`,
-`hitDice`, `naturalArmor`, `baseAttackBonus`, `bonusHD`, `bonusTricks`, `specialAbilities`,
-`companionLevel` are a level-8 snapshot and are overridden**; level 8 reproduces them exactly
-(AC 21, bite +7, 45 HP, init +3). The table is the source of truth — it says **+3** at 9–11
-(the +4 row is 12–14); if a DM ruling differs, change the table, not the code.
-
-**Quen's max HP can't be derived**, so it comes from rolls, like Lyra's. `hp.max` (45) is the
-HP total *at the snapshot* (level 8, 4 bonus HD) and is kept as the baseline. Each bonus HD
-gained past it needs a d8 roll, stored in `characterProgress.companionHdRolls`
-(`[{ level, roll }]`, backfilled to `[]` for older saves); max HP = 45 + Σ(roll + Con mod).
-The level-up flow shows a "Quen" block whenever his row changes (what he gains) and, when he
-gains Hit Dice (when he enters a new row: character levels 3, 6, 9, 12, 15, 18 — two dice each
-time), one d8 input per die with the same free-form-then-clamp input as Lyra's own roll
-and the same default of 1. `applyLevelUp` records them. A die with no recorded roll adds
-nothing and shows a "no HP roll yet" warning above his HP rather than a guessed value.
-
-**Open:** at 6 HD Quen is entitled to three feats but shows only Track (bonus) and Weapon
-Focus (bite). He may have two unassigned feats — ask the DM.
+| Spell slots, caster level, wild shape, companion scale with **character** level, not druid class level | `spellSlots.js`, `computeCharacterSheet`, `wildShape`, `companion.js` |
+| PS levels stack with druid for wild shape uses/HD/size/duration — **not** creature type access | `lyra.json` `wildShape`, `getEligibleWildShapeForms` |
+| Wild shape uses/day curve | `tables/wildShapeUsesPerDay.json` |
+| Feywild-native **magical beasts** from PS 3 (level 8); Feywild elementals/outsiders from PS 9 (level 14); elemental/outsider forms cost **2** uses; **fey forms never** (pixie, satyr) | creature `wildShapeMinLevel`, `wildShapeCost()` |
+| Below level 14 a form gives only **Ex** abilities (animals have no Su/Sp; others filter spell-likes + a `KNOWN_SU_ABILITIES` list) | `calc/wildShape.js` |
+| Totem Transformation = **permanent** +20 ft movement, no tracker; applies in base form and in `isCanine` wild shapes only | `lyra.json`, `wildShape.js` |
+| Totemic Summons: canine summons cast as a **standard action** and gain temp HP = **druid level**; canines only | `summonBuilder.js` |
+| **Greenbound Summoning applies to every SNA result except elementals** | `templates/greenbound.json`, `summonBuilder.js` |
+| Ashbound: SNA duration ×2, +3 luck attack | feat effects |
+| **None of those feats apply to Summon Fey / Dire Hawk / Elementite Swarm** (they name SNA only) — a per-spell flag so the DM can flip it | `tables/summonSpells.json` |
+| Young/advanced/giant = **Pathfinder rebuild rules**, canines only (never mix with MM size advances) | `templates/*.json` |
+| Orisons unlimited; casting a cure/SNA conversion at levels 1–5 spends a slot of that level | `spontaneousConversions.json`, `TrackersPanel` |
+| Druid **Cure progression offset**: light at 1st; moderate/serious/critical at 3rd/4th/5th; no Cure at 2nd | `spontaneousConversions.json` |
+| Anarchic template via Iconic Manifestation (Lyra is chaotic neutral) | §7 |
+| Quen's armor **reduces his speed to 40**; progression table is the authority | `animal-companion.json` |
+| Strong Soul is a PGtF regional feat gifted to the party | feat files |
+| Fey Touched ported from 5e | `5e-import.json` |
+| Planar attunement is the Feywild (DM uses the 5e interpretation) | `lyra.json` |
+| Level-up never auto-applies; XP under the floor and unqualified feats are flagged, not blocked | `LevelUpFlow`, `XpTracker` |
+| Knowledge (religion) is a druid class skill | `tables/classSkills.json` |
+| **Creature SNA levels: lowest printed wins** (spells use per-book levels — different rule, §13) | §12 |
+| Only **one** Wolf Shaman bonus feat is reachable (druid 9 = character level 19) | open question §16 |
 
 ---
 
-## Spell preparation model
+## 7. Wild shape and the Anarchic overlay
 
-Do **not** model prepared spells as fixed data. Lyra has the entire druid list and re-prepares
-by meditation after every long rest. `PreparedSpellsTracker` (`src/components/trackers/
-TrackersPanel.jsx`) is the fill-in-after-rest flow: one free-text input per prepared-spell slot
-(6 orisons, plus each leveled slot's `total`), no validation against a spell list. State lives
-in `state.preparedSpells` (`{ [level]: string[] }`, keyed 0–4), persists to Supabase like every
-other tracker. **Long Rest keeps the prepared-spell text** (Sept 2026 — the player usually
-carries most of the previous day's list over and swaps one or two, so wiping it meant
-retyping nearly everything): `longRest()` in `LiveStateContext.jsx` re-runs
-`getDefaultLiveState` for everything else (slot counters, HP, daily uses…) but overlays the
-previous `preparedSpells` onto it, padding with blanks if a level-up added slots since. A
-separate "Clear prepared spells" button inside the Prepared Spells section
-(`clearPreparedSpells()`) resets just that field to `getDefaultLiveState`'s blank shape.
+**Wild shape** (`calc/wildShape.js`, `WildShapeCalculator.jsx`). Eligible form = creature has
+`wildShapeMinLevel ≤ level`, `lyraFamiliar`, size ≤ max size, HD ≤ max HD. `lyraFamiliar` gates
+*only* wild shape (common Greyhawk animals, anything on an SNA list she can cast, DM-approved
+Feywild forms) — summoning has no familiarity requirement and uses a separate filter
+(`getSummonableCreatures`). Canine forms are grouped first in the picker.
 
-**Spell search on the slots (Nov 2026).** Each slot, orisons included (level 0), is a free-text
-input *plus* an optional pick-list — `PreparedSpellSlot.jsx`. After two typed characters it
-offers up to 8 spells whose druid level matches that slot (names or any word starting with the
-query first, then substring; `suggestSpells`, `src/lib/preparedSpellSearch.js`; arrow keys +
-Enter, or tap). Picking fills the canonical name; **nothing forces a selection** — typed text is
-saved exactly as typed whether or not it matches, unmatched entries are normal (the DM gifts
-spells from books that aren't extracted) and just get no description block. A slot whose text
-exactly names an extracted spell (case-insensitive, `’`/`'` folded, *any* level — so a spell
-prepared in a slot of a different level than its druid level still resolves) shows a chevron
-that expands that spell's full reference entry, every printing, collapsed by default, rendered
-by the same `PrintingBlock` as the Spells tab (extracted into `spells/SpellPrinting.jsx` and
-shared; `SpellDescription.jsx` wraps it per-spell in an `ErrorBoundary`). An expanded slot
-spans the full grid row. The spell data (the 900 kB `loadSpellData` chunk) is pulled in by
-dynamic import (`loadSpellGroups`) only once Prepared Spells is expanded, so it stays out of the
-main bundle. Storage is unchanged — still plain strings in `state.preparedSpells` — so Long
-Rest keeps them, "Clear prepared spells" wipes them, and the always-available/at-will blocks and
-the Hand of the Oakfather necklace tracker are untouched.
+**The polymorph swap.** Retained from Lyra: BAB, base saves, HP, skill ranks, feats, Int/Wis/Cha.
+Taken from the form: Str/Dex/Con, size, natural armor, speeds, natural attacks, Ex qualities.
+- Attack = BAB + form Str mod + size mod; secondary natural attacks −5.
+- A **sole** natural weapon adds **1.5× Str** to damage; with several, primary gets full Str,
+  secondaries half. An entry with `primary: false` is treated as secondary even if alone
+  (Ur'Epona's hoof).
+- Fort = base + form Con + Strong Soul; Ref = base + form Dex; Will unchanged (Wis).
+- AC = 10 + size + form Dex + form natural armor + ring (+1). Armor/shield don't carry over.
+- Land speed = form's, **+20 only if `isCanine`**.
+- `single` vs `full` attack: standard action (best primary, count 1) vs full-round (primary at
+  full count + secondaries at −5); the full block is hidden when `hasSecondaries` is false.
+- Forms with no attacks (Bat, Toad) show "No attacks in this form" — wild shape has no
+  fallback.
+- Hit Dice for wild shape purposes never change — she keeps her own.
 
-**Expandable spell references everywhere (Nov 2026).** Any place the app names a spell makes it
-expandable (collapsed by default, same full entry as the Spells tab), via
-`src/components/spells/SpellRef.jsx`: the always-available / at-will conversions
-(`SpellPillGroup`), Daily Abilities rows — the Hand of the Oakfather and Fey Touched spells —
-(`SpellRefWith`), the Hand of the Oakfather list on the Reference tab, `*italicised*` spell names
-in feat descriptions (`RichText`, e.g. Fey Touched's misty step / charm person), and creature
-abilities in summon stat blocks and wild-shape forms (`AbilityText`), including the Greenbound
-spell-like abilities. **A spell with no entry is shown as plain text — no toggle, no empty block** —
-which is the normal case for most arcane spells (misty step, plane shift, sleep, magic circle
-against evil, greater teleport…): `findSpellByName` (`spellReferenceData.js`) searches the merged
-druid extraction first, then the reference-only pool (`referenced-spells.json`, e.g. charm person).
-The spell data is lazy (`spellLookup.js`), so names render as plain text until it arrives, then
-upgrade in place.
+**One stat block, not two.** While a form is active the main sheet shows its numbers **in
+place** (CombatBar, Combat Stats, AC, Saves, Reference-tab Attack Routine): `CharacterSheet`
+computes `wildShapeStatBlock` once and passes it down, so each stat has exactly one
+`wild ? formValue : base` branch. Reverting nulls `activeWildShapeForm` and every branch
+collapses by itself. Changed stats get a 🐾 badge and the base value struck through. The picker
+(`Wild Shape Form`) is collapsed by default and rendered into `TrackersPanel`'s
+`wildShapeForms` slot so it sits under the use counter it spends from. **Reverting never
+refunds a use.**
 
-Creature ability text is free prose, so `src/lib/spellMentions.js` only looks in three places a
-spell is really being named, never anywhere in the string (plenty of words are also spells —
-"immune to sleep", "poison (Ex …)", "fly speed"): (1) the leading name of an `(Sp …)` or short /
-spell-like `(Su …)` ability ("plane shift (Sp …)", "chill metal (Su …)"; a long Su with its own
-mechanics, like an air elemental's whirlwind, is *not* the Whirlwind spell); (2) right after a
-pointer phrase — "as the X spell", "functions as X or Y", "as though by a X spell", "like a X",
-"with X, Y, or Z" (hybsil sleep arrows, satyr pipes, nixie, change size); (3) the whole body of a
-"spell-like abilities …" / "spells …" entry. A name must end its phrase ("polymorph self" does
-not match "polymorph"). If a new creature's ability text isn't picked up, extend those zones
-rather than scanning the whole string.
+**Natural Spell** lets her cast while shaped (feat effect; not otherwise modelled).
 
-Always available, outside the slot economy — **not** prepared spells, so they don't occupy a
-typed slot above, but casting one still spends a slot from that level's tracker (except at
-orison level — see below):
-1. **Spontaneous Healer** — any prepared spell converts to a Cure spell
-2. ***Summon Nature's Ally*** — spontaneous conversion
-3. **The druid necklace** — 5–6 spells, 1/day each, free of slots
-
-The per-level cure/SNA conversion names are data, not code: `src/data/tables/
-spontaneousConversions.json`, rendered as a visually distinct "always available" section under
-each level's typed slots (badge-style pills, not plain inputs) so it reads as fixed reference
-rather than something the player fills in. Orisons are unlimited-use under this campaign's
-houserule (no `spellSlotsUsed` tracker for level 0 at all), so *summon nature's minor ally*
-alongside *cure minor wounds* at that level costs nothing to cast — the "spends a slot" caveat
-only applies to levels 1–5.
-
-The table's separate `alwaysAvailable` list (Detect Manifest Zone, a Planar Shepherd 2 Sp at
-will) is a different thing: a genuine at-will spell-like ability with no slot and no daily
-limit, so it sits under its own **"At-will"** label rather than "Always available" — that label
-stays on the per-level cure/SNA conversions, which do cost a slot. Its `spell` field names the
-`data/spells/` entry whose description is shown beneath it (the lead-in up to the first colon,
-plus the "round 3, which plane…" clause; `AtWillDescription`, `TrackersPanel.jsx`) instead of
-hardcoded text. That entry's spell data is loaded lazily (dynamic import) only once Prepared
-Spells is expanded, to keep the large spell chunk out of the main bundle.
-
-**Druid Cure progression is offset from cleric/bard by one level past 1st** (DM-confirmed):
-cure light wounds stays at 1st, but moderate/serious/critical shift up to 3rd/4th/5th — so
-2nd level has *no* Cure spell, only the Summon Nature's Ally conversion. Cure critical wounds
-(5th) won't appear in the UI until Lyra reaches character level 9 and actually has 5th-level
-slots (`spellSlots.slots` only includes levels with `total > 0`); the data entry already
-exists in `spontaneousConversions.json` and needs no further change when that day comes.
-
-**`alwaysAvailable` (Aug 2026)** is a second, separate top-level array in the same file, for
-granted abilities that aren't tied to *any* spell level at all — as opposed to `byLevel`'s
-conversions, which are always keyed to the level whose prepared slot they draw from. Currently
-just **Detect Manifest Zone** (Sp, at will, Planar Shepherd 2 — the same spell-like ability
-documented in `data/spells/faiths-of-eberron.json` and shown on the Spell Reference tab, but
-deliberately *not* imported from there: that file lives behind the Spells tab's lazy-loaded
-chunk, and pulling from it here would drag the whole ~850KB spell corpus back into the
-always-loaded main bundle the Spells tab code-splitting was specifically added to avoid — see
-Spell Reference tab > Code-split below). Rendered at the top of `PreparedSpellsTracker`,
-above the per-level breakdown, same pill styling (`.spontaneous-conversions`) but with the
-descriptive `note` field (usage type, source, "costs no slot, no daily limit") shown as plain
-text underneath rather than crammed into the pill — the per-level pills are short spell names
-by design, but an ability description doesn't fit that shape.
+**Anarchic template** (`templates/anarchic.json`, `calc/anarchic.js`, Manual of the Planes
+p.198). An **overlay on Lyra, never a form modifier** — it composes onto whatever stat block is
+current and survives wild-shape changes because `state.anarchicTemplate` is a separate key
+from `activeWildShapeForm`. Don't couple them. One checkbox ("Iconic Manifestation active")
+spends a **4th-level slot and a wild shape use together** and goes straight to the timed
+effect (RAW's cast-window/invoke split is documented on the Reference tab but not tracked);
+unchecking never refunds. Duration = 1 min × caster level, stepped manually in minutes.
+**HD for the template is always her character level** (`computeAnarchicOverlay(hd)` takes it
+as a parameter — never wire it to `parseHitDice` of the active form). DR/fast healing by HD:
+1–3 none; 4–7 FH 1; 8–11 FH 3; 12+ DR 5/+1 & FH 5. Smite Law 1/day (bonus = HD, cap +20) is
+its own resource, reset only by Long Rest. The animal/beast → magical beast note shows only
+while invoked *and* currently shaped into such a type. "Use the better of existing DR/FH" is
+modelled but a no-op today. UI is split: tracker in the Wild Shape section (Lyra tab), full
+write-up in the Reference tab.
 
 ---
 
-## Layout
+## 8. Summoning
 
-Four tabs — Lyra / Companions / Reference / Spells — via `TabBar` (`src/components/layout/`),
-local `useState` in `CharacterSheet.jsx`, no router. `CombatBar` (HP/AC/Initiative) is pinned
-above the tab content and rendered unconditionally, so it's visible on every tab regardless of
-which one is active. `PartySection` still gives Lyra, Quen, each active summon group, and the
-Spells tab their own color-coded block with a sticky header (purple/green/amber/blue
-respectively) within a tab.
+### 8.1 Two builders, one list (Companions tab)
+- **Summon Nature's Ally builder** (`SummonBuilder.jsx`): pick slot level (0 = summon nature's
+  minor ally, prepended manually since orisons have no slot entry; spends nothing), pick a
+  creature/template loadout, set a quantity (the player rolls it), Summon. SNA clamps a spent
+  slot instead of refusing.
+- **Other Summon Spells builder** (`SpellSummonBuilder.jsx`): Summon Fey (Drd 1, scalable),
+  Summon Dire Hawk (Drd 2), Summon Elementite Swarm (Drd 4). Pick spell → slot → creature →
+  Cast; one creature per cast; Cast disables at 0 slots. Config: `src/data/tables/
+  summonSpells.json`.
+- Both push groups into `state.activeSummons`. A **Summons Out** overview (name, count alive,
+  source and slot, rounds left) sits above the per-group sections and has a **Next round**
+  button (`advanceSummonRound`) that takes one round off every group (groups at 0 read
+  "expired"); each group keeps its own −/+ stepper for corrections. Durations are manual — nothing
+  ticks on a clock.
 
-- **Tab 1 — Lyra**: resource trackers (spell slots, wild shape uses, per-day abilities,
-  necklace spells), spellcasting reference (save DCs by level, spell attack bonus, caster
-  level), ability scores, combat stats, AC, saves, skills. **Order inside the Trackers card**
-  (Nov 2026): XP, HP, spell slots, **Prepared Spells**, Wild Shape use counter, **Wild Shape
-  Form** picker (`WildShapeCalculator`, collapsed by default, rendered by `CharacterSheet` into
-  `TrackersPanel`'s `wildShapeForms` slot so it sits directly under the counter it spends from),
-  then Daily Abilities. The two sections played with most — Prepared Spells and Wild Shape Form
-  — use `.collapsible-toggle-prominent` (accent-tinted bordered bar, heavier type, accent
-  chevron, `aria-expanded`) instead of the plain uppercase label other collapsibles use, so
-  they read as controls and are easy to spot while scrolling. Wild shape is no longer a
-  separate card lower on the tab; the Anarchic toggle that lives inside it moved with it.
-- **Tab 2 — Companions**: Quen's full combat block (HP tracker, AC, saves, attack routine with
-  trip note, skills, feats, known tricks), the Summon Builder tool, then active summons with
-  per-instance HP and daily-ability tracking.
-  **Stat block contents (Sept 2026).** `SummonStatBlock` shows the base creature's full
-  `specialAttacks` and `specialQualities` (the data now carries each ability's mechanics in
-  parentheses) with what Greenbound adds appended and marked by a `Greenbound` pill
-  (`TemplateTag`, `.template-tag`): the template's spell-like abilities go under Special
-  Attacks, its DR / fast healing / grapple / resistances / tremorsense / racial skill bonus
-  under Special Qualities, so base and template abilities read as one list but stay
-  distinguishable. `skills` is stored as a single sentence-format string and printed as-is.
-  Appearance and behavior sit in a collapsed-by-default "Appearance & Behavior" section
-  (flavor, not combat info): a Greenbound-eligible summon shows `appearanceGreenbound`
-  (falling back to `appearance` where none exists, e.g. elementals, which aren't
-  Greenbound), `behavior` is unchanged either way. All of these are conditional — a creature
-  missing a field just omits that piece, and an active summon saved before these fields
-  existed still renders.
+### 8.2 Pipeline (`calc/summonBuilder.js`, `computeSummonStatBlock`)
+1. **Simple template** (young/advanced/giant), canines only.
+2. **Greenbound**, unless the base creature is an elemental.
+3. **Ashbound** and **Totemic Summons**, independent of step 2.
+Size resolves first: Greenbound's slam-vs-natural-weapon comparison runs at final size.
 
-  **Crash-proofing (Sept 2026).** Selecting Jermlaine (SNA 1, MM2) used to blank the whole
-  page: its hit dice print as `1/2d6-1` (a fractional die *with* a modifier) and
-  `parseHitDice` only accepted the fractional form without one, throwing from inside
-  `SummonBuilder`'s render. Fixed at the source, plus: `SummonBuilder` computes the stat
-  block in a try/catch (a boundary can't catch its own component's render) and shows a
-  "couldn't be built … Pick another creature" note with Summon disabled; the stat-block
-  displays, each active summon group, Quen's panel, the builder and the active-summons list
-  are each wrapped in `ErrorBoundary` (same component as the Spell Reference tab), which logs
-  to the console. A sweep of all 76 reachable loadouts at every spell level found a second
-  cause: `monsterBaseSaves` didn't strip subtypes (`Elemental (Air, Cold)`) or know the 3.0
-  `Beast` type. **Base-save table** (`GOOD_SAVES_BY_TYPE`, `dnd35.js`) now covers every type in
-  Monster Manual Table 4-1 (p.290), including Plant (good Fort only). Two types don't fit a
-  plain lookup: *Elemental* takes its good save from the element subtype (Air/Fire → Ref,
-  Earth/Water → Fort; a two-element paraelemental gets the union, since the table doesn't say
-  how to combine them; a bare `Elemental` entry reads the element from its name, "Elemental,
-  Small Air"), and *Humanoid* ("one good save, varies") is deliberately absent and throws
-  rather than guessing — no Humanoid is summonable today. Note this changed bare Air/Fire
-  elementals from good Fort (wrong) to good Ref. Thoqqua's data type was bare `Elemental`
-  with no element anywhere, so it's now `Elemental (Earth, Fire)` (from memory of the MM
-  printing — verify if it matters). `bareCreatureType()` strips subtypes for plain-name
-  comparisons; `WildShapeCalculator`'s Elemental/Outsider two-uses rule now uses it (it
-  used an exact match, which subtyped elementals slipped past).
-- **Tab 3 — Reference**: spell slot summary table, equipment descriptions, feat descriptions,
-  the Quicksilver attack routine (rarely used mid-combat, so it moved out of Tab 1).
-- **Tab 4 — Spells**: `SpellReferenceTab` (`src/components/spells/`) — searchable reference
-  over every sourcebook spell extracted so far (Phase 6, `data/spells/`). Reference only, no
-  connection to the prep tracker on Tab 1. See its own section below.
+Simple templates (Pathfinder rebuild): **Advanced** CR+1, +4 all abilities. **Giant** CR+1 (not
+Colossal): size +1, natural armor +3, damage die +1 step, +4 Str, +4 Con, −2 Dex. **Young**
+CR−1: size −1, natural armor −2 (min 0), die −1 step, −4 Str, −4 Con, +4 Dex. Spell-level
+cost: young −1, advanced/giant +1 (one template at a time). Damage ladder: 1d2 → 1d3 → 1d4 →
+1d6 → 1d8 → 2d6 → 2d8 → 3d6 → 3d8.
 
-`TabBar` sticks just below `CombatBar`; `PartySection` headers stick below both. Two CSS
-custom properties in `index.css` drive the offsets — `--combatbar-height` and
-`--tabbar-height` — and both must match their component's actual rendered height, or sticky
-headers land at the wrong offset. `partySection.css` stacks them via
-`top: calc(var(--combatbar-height) + var(--tabbar-height))`.
+**Greenbound** (`templates/greenbound.json`): type → Plant (augmented), all HD become d8, natural
+armor +6, Str +6 / Dex +2 / Con +4 / Cha +4, gains a slam if it lacked one (damage by size:
+Fine 1, Dim 1d2, Tiny 1d3, Small 1d4, Med 1d6, Large 1d8, Huge 2d6, Garg 2d8, Col 4d6 — keep
+existing damage if better), DR 10/magic and slashing, fast healing 3, +4 grapple, resist cold &
+electricity 10, tremorsense 60 ft., +16 racial Hide/Move Silently in forest; spell-like: at will
+entangle / pass without trace / speak with plants, 1/day wall of thorns; CR +2, spell-level
+cost +0. **Doesn't recalculate** BAB, base saves or skill points. Fighting unarmed it uses
+slam *or* natural weapons — both routines are shown. Greenbound-eligible summons show
+`appearanceGreenbound`.
 
-Each tab's `window.scrollY` is saved on the way out and restored (via `requestAnimationFrame`,
-so it runs after the new tab's content has laid out) on the way in — `scrollPositions` ref in
-`CharacterSheet.jsx`, keyed by tab id. Needed once the Spells tab existed: its content height
-swings wildly with search/filter state, and without this a switch to/from it would leave
-whichever tab you return to scrolled to the wrong spot (the single window-level scroll
-container clamps to the shorter tab's height while it's the one showing).
+**Verification target** (base wolf: Medium, 2d8+4, AC 14, BAB +1, bite +3 1d6+1, 13/15/15/2/12/6,
+Weapon Focus bite): Greenbound 19/17/19, NA +8, AC 21, bite **+9** 1d6+6, ~17 HP, +5 temp;
+Advanced Greenbound 23/21/23, AC 23, **+11** 1d6+9; Giant Greenbound Large, 23/15/23, NA +11,
+AC 22, **+10** 1d8+9. (Includes Ashbound +3; 1.5× Str because bite is the only weapon.)
 
-Quen's stat block is computed by `src/lib/calc/companion.js` (`computeCompanionStatBlock`),
-verified against the reference numbers in the Quen section below.
+### 8.3 Other summon spells — per-spell effect flags
+`summonSpells.json` per spell: `slotLevel` (null = scalable), `scalable`, `castingTime`,
+`duration` (`roundsPerCasterLevel` + `extraRounds` + label; Fey & Hawk 1 min/level = ×10 rounds;
+Swarm = concentration, 1 round/level + 1), and `effects`
+`{ greenboundSummoning, ashbound, totemicSummons }` — **all false**, so these creatures appear
+**exactly as printed**: no template, no doubled duration, no luck bonus, no temp HP, HP from the
+printed Hit Dice line. *Why a flag, not an exclusion:* the DM may later rule these feats apply;
+flip a flag and nothing else changes. `computeSummonStatBlock({spell})` takes the spell with
+its chosen `slotLevel`; omitted it is SNA with everything on (output was verified identical for
+every SNA loadout when this was added). With Greenbound on, the exclusion test uses the *bare*
+type, so `Elemental (Air, Swarm)` stays excluded.
+- **Pool** (`getSpellSummonPool`): creatures whose `summonedBy` includes the spell's `name`
+  (exact string). A scalable spell caps Hit Dice at the slot level (`≤`: 1 HD fey from a 1st
+  slot, up to 5 HD from a 5th); the others are fixed-level.
+- **Effects ledger**: a stat block where a feat effect applied shows a "Feat effects" box (✓
+  applied / ✗ not applied with reason) so a Greenbound summon differs from a plain one at a
+  glance. When nothing applied, **no box and no message**. Built in `buildEffectsLedger`,
+  stored on the stat block as `effects`.
+- **Swarms** can't be crit: their attack `crit` is `null` and any `Swarm`-typed creature's
+  attacks read "no critical hits" (other nulls read "crit —"). Spell stat blocks also show the
+  creature's `note` sentences (printed errata, how a swarm fits through gaps) after
+  `noteSentences()` drops compilation chatter (field names, list membership); extend
+  `COMPILATION_NOTE` if new data leaks some.
 
-**Known CSS gotcha:** `overflow: hidden` on a `PartySection` breaks `position: sticky` on its
-header child (changes the sticky containing block). Corner rounding is done on the header/body
-elements directly instead — don't reintroduce `overflow: hidden` on `.party-section`.
+### 8.4 Hit points, sizes, saves — three places data bit us
+- **Hit Dice parsing** (`parseHitDice`): one pool `6d8+18`; fractional `1/2d6-1` (Jermlaine —
+  this crashed the whole page once); summed flat terms `7d8+7+9`; **mixed pools**
+  `8d10+7d8+75` (racial HD + class levels) → `pools[]`, `count` = total dice, `die` = biggest
+  pool, `mod` = summed flat. `averageHpForPools` averages each pool at its own die.
+  **An explicit `hitPoints` field beats anything computed — except** under Greenbound or a size
+  template (they change Con/HD, so the printed total no longer describes that creature).
+  `equipment` entries (the celestial charger's bracers of armor) are documentation only; the
+  builder doesn't add them to AC.
+- **Sizes are normalised on read.** 3.0 books print "Medium-Size". `normalizeSize` strips a
+  `-size` suffix, trims, matches case-insensitively; `loadCreatureData.js` normalises every
+  creature and Quen at load, and every lookup goes through `sizeModifier` /
+  `grappleSizeModifier` / `sizeIndex` / `normalizeSize` — **never `SIZE_MODIFIER[raw]`**,
+  including the Greenbound slam table. (Three Monsters of Faerûn creatures failed to build
+  before this.)
+- **The base-save table must cover every creature type.** `monsterBaseSaves(type, hd, name)`
+  (`rules/dnd35.js`) reads `GOOD_SAVES_BY_TYPE` = the whole of Monster Manual Table 4-1
+  (p.290): good = 2 + ⌊HD/2⌋, poor = ⌊HD/3⌋ — Aberration Will; Animal/Beast/Magical Beast
+  Fort+Ref; Construct/Ooze none; Dragon/Outsider all; Fey Ref+Will; Giant Fort; Monstrous
+  Humanoid Ref+Will; **Plant Fort**; Undead Will; Vermin Fort. Two types aren't a lookup:
+  **Elemental** takes its good save from the element subtype (Air/Fire → Ref, Earth/Water →
+  Fort; a two-element paraelemental gets the union; a bare `Elemental` reads the element from
+  its name) and **Humanoid** ("one good save, varies") is deliberately absent and **throws**
+  rather than guessing. A missing type crashes the builder for that creature — when new creature
+  data lands, sweep every loadout. Subtypes are stripped with `bareCreatureType()`; use it for
+  any plain-name type comparison (the wild shape two-use rule once used an exact match and
+  missed `Elemental (Air, Cold)`).
+- Saves for a summon are the **creature's own** base progression by type/HD, not Lyra's.
 
-## Build phases
+### 8.5 Daily abilities per summoned creature
+Every summoned creature shows a checkbox for each limited-use ability from any source
+(`limitedUseAbilities(statBlock)`, `calc/summonAbilities.js`, derived at render so old groups
+work): the Greenbound template's per-day spell-likes (wall of thorns), only when the template
+applied — a Summon Fey pixie shows the pixie's own abilities and no wall of thorns — plus the
+creature's own per-**day** abilities parsed from `specialAttacks`/`specialQualities` text
+(`name (Sp|Su|Ex, N/day …)` and the spell-like-ability blocks in all their printed layouts:
+`at will -- a; 3/day -- b, c`, `(1/day—a, b; caster level …)`, `a, b, and c, each 1/day`,
+`x 3/day and y 1/day`). Cooldowns ("once every 10 minutes", "once per round") are not daily
+limits and aren't tracked. **Re-check the parser against every pool creature when creature data
+changes.** N/day gets N boxes (ticking spends that use and those before it). Uses are stored
+**per member** (`member.abilityUses[key]`, `setSummonAbilityUsed`), never per group, and last as
+long as the summon. `usedUses()` still reads the legacy `wallOfThornsUsed` boolean.
 
-- **Phase 0** — Setup. Done.
-- **Phase 1** — Static character sheet. Done.
-- **Phase 2** — Trackers + Supabase. Done. HP, spell slots, wild shape uses, necklace, Fey
-  Touched, plane shift, planar bubble, Quen's HP. One "Long Rest" button. Storage adapter with
-  Supabase sync (`supabase/setup.sql` + `.env.local`) and localStorage offline fallback.
-  Code: `src/lib/storage` (adapter), `src/lib/liveState` (state, actions, React context),
-  `src/components/trackers` (UI).
-- **Phase 3** — Wild shape calculator. Done. Full polymorph swap against
-  `data/creatures/monster-manual.json`, gated by `wildShapeMinLevel`/size/HD caps. Verified by
-  hand against Wolf and Unicorn (AC, saves, attack routine, +20 canine speed rule, Ex-only
-  ability filtering below PS9). Code: `src/lib/calc/wildShape.js`,
-  `src/components/wildshape/`.
-- **Phase 4** — Feywild magical beast forms and planar layering.
-- **Phase 5** — Summon builder. Done. Simple template → Greenbound → Ashbound/Totemic Summons
-  pipeline, verified exactly against the Greenbound Wolf worked example table (base/Advanced/
-  Giant). Spell-level reachability picker, both slam and natural-weapon routines, active-summon
-  duration tracking. Code: `src/lib/calc/summonBuilder.js`, `data/templates/`,
-  `src/components/summon/`.
-- **Phase 6** — Bulk sourcebook ingestion via Cowork. In progress. Each sourcebook is
-  extracted through the same pipeline: pdfminer bbox column-reconstruction → header/field
-  parsing → variant-spell inheritance resolution → parallel-agent paraphrasing → reprint
-  cross-referencing against every prior file → assembled into `data/spells/<book>.json`.
-  Completed so far (23 files, `data/spells/`): `players-handbook.json` (169), `complete-
-  divine.json` (66), `frostburn.json` (59), `spell-compendium.json` (261), `masters-of-the-
-  wild.json` (62), `quintessential-druid.json` (35), `quintessential-druid-ii.json` (18),
-  `savage-species.json` (18), `planar-handbook.json` (16), `complete-adventurer.json` (17),
-  `complete-mage.json` (15), `complete-arcane.json` (12), `complete-champion.json` (12),
-  `races-of-the-wild.json` (3), `eberron-campaign-setting.json` (4), `faiths-of-
-  eberron.json` (2), `lords-of-madness.json` (4), `serpent-kingdoms.json` (5),
-  `sandstorm.json` (52), `players-guide-to-faerun.json` (9), `libris-mortis.json` (2),
-  `lost-empires-of-faerun.json` (2), `dragon-magazine.json` (44) — 887 druid spell entries
-  total.
-  `dragon-magazine.json` is sourced from `Complete Dragon Magazine Compendium.pdf`
-  (1,677 pages), itself an unofficial fan compilation — confirmed from its own introduction
-  page — that reorganizes spells, feats, and items out of their original Dragon/Dungeon
-  Magazine issues into topical chapters, rather than a page-preserving scan of any single
-  issue. Its "Spell Descriptions" chapter (printed pp. 2–54) cites each entry only as
-  "Dragon Magazine #NNN (Article Title)", with no original per-issue page number recoverable
-  — Rae confirmed (Aug 2026) that `page: null` is the right call for all 44 entries rather
-  than substituting this compendium's own internal pagination or trying to track down 40+
-  individual back-issue PDFs, none of which are in `/sourcebooks`. The compendium's own
-  "Druid Spells" summary (printed pp. 58–59) was used to identify the 44 druid-list spells
-  (orisons through 8th level); 43 of the 44 came from Dragon Magazine issues #309–#348, and
-  one (Dire Reincarnation, 8th level) came from a *Dungeon* Magazine #100 web enhancement,
-  flagged via its own `note`. Text extraction used the same pdfminer bbox pipeline as every
-  other book, but this compendium's true layout turned out to be **three** narrow columns
-  per page, not two — an initial two-column split badly interleaved adjacent spells until
-  this was caught and corrected. One entry, Shooting Star (page 42), sits under a decorative
-  drop-cap paragraph opening that defeated column-order reconstruction even after that fix;
-  its stat block was confirmed from legible fragments, but one uncertain secondary mechanical
-  detail was deliberately left out of the description rather than guessed, per this file's
-  note. Several entries carry the `[War]` descriptor (Morning Mists, Rolling Fire, Summon the
-  Pack and Herd, Plague Cloud, Dispel War Spell, Mire, Small Stronghold) — per the
-  compendium's own Appendix 2, war-descriptor spells can't be acquired or cast without the
-  War Magic Study feat (Great Fortitude, Iron Will, spellcaster level 3rd, not one of Lyra's
-  current feats), flagged on each affected entry rather than silently added to her available
-  list. Two entries (Detect Defiler, Revenge of the Land) are built entirely around Dark
-  Sun's defiler-score subsystem, which this Greyhawk campaign has no equivalent for —
-  flagged as mechanically nonfunctional pending a DM ruling rather than assumed to just work.
-  No name collisions with any other file in `data/spells/` — all 44 are genuinely new to the
-  library, so every entry's `otherPrintings` is empty. `source` on every entry is just the
-  issue (`"Dragon Magazine #309"`, or `"Dungeon Magazine #100"` for Dire Reincarnation); the
-  originating article title (`"War Spells – Unleash Arcane Armageddon"`, etc.) lives in its
-  own `article` field rather than being folded into `source` the way the rest of this
-  paragraph's prose still describes it — this file is the only one in `data/spells/` with an
-  `article` field, since it's the only sourcebook here that's itself an anthology of
-  originally-separate articles. All 44 descriptions were rewritten to the "length follows the
-  spell" standard documented above; see that section for which entries needed the most room.
-  `lost-empires-of-faerun.json` (pp. 30, 34) covers Bloodbriars (Drd 4) and Storm Shield
-  (Drd 3) — the book's own per-class spell list (p. 29) confirms these are the only two
-  true druid-list spells among the ~30 new spells introduced in this chapter; an earlier
-  survey had logged 4 for this book, but Rae's manual recount of 2 against the book matched
-  the printed class list exactly, so the other 2 were dropped rather than guessed at. Both
-  spells' field blocks were split across a page-turn by the book's two-column layout
-  (Bloodbriars' Target/Duration/Saving Throw/SR sit at the top of the following page,
-  Storm Shield's stay intact on one page) — confirmed via rendered page images rather than
-  raw column-sorted text, which is what surfaced this book's own oddity: several leaves
-  (printed pages 32–33) are physically duplicated in the PDF, so naive page-range
-  extraction produced doubled content that had to be de-duplicated by checking footer page
-  numbers directly against the images instead of trusting the file's internal page count.
-  Neither spell has a reprint elsewhere in the library. `libris-mortis.json` (pp. 63, 71) covers Death Ward, Mass
-  (Drd 9) and Sheltered Vitality (Drd 4) — two of the three druid-list entries on those
-  pages, spot-checked rather than pipelined across the whole book. Death Ward, Mass prints
-  only its own Range and Targets fields ("functions like death ward, see PHB 217, except as
-  noted above"); the rest (components, casting time, duration, save, SR) are inherited
-  unchanged from the PHB's Death Ward and its own description embeds a paraphrase of the
-  PHB spell per Rae's request. Page 71 has the same column-wrap-to-next-column hazard
-  already seen in Sandstorm: a stray paragraph about "charges" and swapping an undead's
-  touch effect for temporary hit points sits at the top of column 3, positioned by naive
-  reading order right after Spark of Life's real ending — confirmed via rendered page image
-  that it's the tail of an unrelated (non-druid) spell carried over from page 70. Spark of
-  Life itself (Drd 8 per Libris Mortis, page 71) was deliberately left out of this file —
-  its Spell Compendium reprint is Drd 4, a four-level gap large enough that Rae chose to
-  drop the Libris Mortis printing rather than carry the discrepancy; Spell Compendium's own
-  entry is unchanged and carries no cross-reference to it. Spell Compendium's Death Ward,
-  Mass entry also had its previously-`null` `components` field backfilled to
-  `["V","S","DF"]`, inherited from the same base-spell relationship confirmed while
-  cross-referencing this file.
-  `quintessential-druid.json`'s three Friendship spells (Beast/Elemental/Magical Beast) and
-  Brother's Staff were corrected per DM/user input (Aug 2026 session): Animal Friendship is
-  a retired 3.0 spell with no 3.5 stat block anywhere in the sourcebooks, so its mechanical
-  fields are `null` — same pattern as Charm Animal's unresolved reference to Charm Person —
-  rather than guessed; Brother's Staff's Spell Resistance is confirmed `"No"`. Player's
-  Guide to Faerûn was originally attempted via CHOCR extraction (the PDF has no embedded
-  text layer) and abandoned — of its ~74 druid-list spells, all but 3 turned out to be
-  reprints with no new stat block in that book. Rae later supplied a hand-curated
-  `Player's Guide to Faerun Druid Spell Descriptions.pdf` (6 pages, `/sourcebooks`)
-  containing full write-ups for exactly the 9 druid spells with real printed text in that
-  book (the 3 new ones — Claws of the Beast, Icelance, Nature's Balance — plus 6 that
-  reprint spells already in other files), and this was extracted into
-  `players-guide-to-faerun.json`. Several of the reprints have small but real mechanical
-  differences from their other printings rather than being verbatim duplicates — Bombardment
-  (Spell Compendium states a 40-ft.-high cylinder, 5 ft. of rubble, and a DC 20 Strength
-  check to dig free; this printing states none of those specifics), Inferno (Spell
-  Compendium's duration is a fixed 6 rounds with a stated material component; this
-  printing's is 1 round/level with no material stated), and Wall of Sand (smaller area and
-  an easier Strength DC than Spell Compendium's printing, and — as already noted below —
-  mechanically distinct from Sandstorm's printing) — each flagged via an `otherPrintings`
-  note rather than merged silently. Blindsight's existing Savage Species entry also had its
-  Spell Compendium cross-reference backfilled with the structured `spellLevelDruid` field
-  (previously a prose-only note) while adding the three-way link to this new file. Eberron
-  Campaign Setting's and Lords of
-  Madness's same-named "Detect Aberration" entries were determined to be related-but-distinct
-  spells (different scope, area shape, and HD breakpoints) rather than one reprinting the
-  other — both kept at their own printed level with a disambiguating `otherPrintings` note;
-  the same treatment was applied to Sandstorm's Wall of Sand and Wall of Water against their
-  Spell Compendium namesakes, which share the name and rough theme but differ enough in
-  duration and mechanics (e.g. Fortitude-save-vs-blindness and a Strength check to force
-  through, versus Spell Compendium's opaque sense-blocking version with a much longer
-  Concentration-based duration) to not be treated as straight reprints. `sandstorm.json`
-  (pp. 111–128) is by far the largest single-book haul so far — includes the full
-  **Summon Desert Ally I–IX** family (one entry per level, each carrying that level's own
-  creature-table options inline rather than as a separate shared table, since the schema is
-  one JSON object per spell) plus the **Wall of Magma/Salt/Sand/Water** and **Transmute
-  Sand↔Stone↔Glass** clusters. Several multi-column pages had descriptions that wrapped from
-  the bottom of one column to the *top of the next*, landing physically above that next
-  spell's own title in reading order — this tripped up naive column-sorted extraction
-  repeatedly and was resolved each time by checking the block immediately preceding a
-  suspiciously-abrupt cutoff. Sourcebooks still unprocessed and sitting in `/sourcebooks`:
-  Dungeon Master's Guide v3.5, Forge of War, Manual of the Planes, Monster Manual I & II
-  (most of these are not druid-relevant in full — spot-check for druid-list spells before
-  running the full pipeline on any of them).
-- **Phase 7** — Manual entry for DM-gifted Pathfinder / 5e content.
-- **Phase 8** — Three-tab restructure (Lyra / Companions / Reference). Done. Replaced the
-  single-scroll layout — see Layout section above for the per-tab breakdown. Added
-  `src/lib/calc/companion.js` for Quen's full combat block (AC, saves, attack routine) and
-  `TabBar` for navigation. `CombatBar` stays pinned across all tabs.
-- **Phase 9** — XP tracking and level-up. Done. See "XP tracking and level-up" section below
-  for the full design. Promoted level/XP/HP-rolls/skills/feats/ability-adjustments from
-  static `lyra.json` fields to live Supabase-backed `characterProgress` state, so the sheet
-  recomputes end-to-end when Lyra levels up — no redeploy needed mid-session.
+### 8.6 Stat block display (shared by both builders)
+`SummonStatBlock` shows ability grid, saves, AC/touch/flat-footed, initiative, speed, both attack
+routines, the creature's full `specialAttacks`/`specialQualities` (rendered through
+`AbilityText`, so spell names expand) with Greenbound additions tagged by a `Greenbound` pill,
+the `skills` sentence, and a collapsed "Appearance & Behavior". Everything is conditional — a
+missing field omits its piece, and a group saved before a field existed still renders. The
+preview defaults **collapsed**; an active group's block defaults **expanded**.
 
-Phase 2 before Phase 3 deliberately — trackers get used every session.
+### 8.7 Active-summon state
+A group = `{ id, label, remainingRounds, hpMax, tempHpMax, greenboundEligible, source, statBlock,
+members[] }`, `source = {kind:'sna'|'spell', slotLevel, spellId?, spellName?}` (older groups
+without it read as SNA). The **full stat block is stored at cast time** (never recomputed).
+Members: `{ id, hp, tempHp, status: active|dead|dismissed, abilityUses }`. **Each cast is its
+own group, even for the same creature** — never merge by name; durations, HP and uses are
+independent. Group headers read `Dire Rat (Greenbound) ×2 — 12 rounds left`.
+
+**Crash-proofing.** The stat block is computed inside a try/catch in the builder (an
+ErrorBoundary can't catch its own component's render) and shows "can't be built right now" with
+Cast/Summon disabled; every stat block, active group, Quen's panel and each builder is wrapped
+in `ErrorBoundary` (`components/ErrorBoundary.jsx`, logs to console).
 
 ---
 
-## Spell extraction conventions — DECIDED
+## 9. Quen — animal companion (wolf, mandated by Wolf Shaman)
 
-Merged in from a parallel Cowork session's project notes (Aug 2026) so both sessions stay in
-sync — these decisions weren't previously written into this file.
+`data/creatures/animal-companion.json` holds `baseCreature` (2d8+4, NA +2, 13/15/15/2/12/6), a
+7-row `progressionTable` (by `levelRange`), his armor (Custom Masterwork Wooden Studded Honey
+Leather: +2 armor, max Dex +5, no check penalty, **speed 40**), tricks and abilities. Effective
+druid level = **character level** (PS stacks). `computeEffectiveCompanion(companion, level,
+hdRolls)` (`calc/companion.js`) applies every column: bonus HD (d8 + Con each), natural armor,
+Str/Dex adjustment (**+2 at 6–8, +3 at 9–11, +4 at 12–14** — the table is the authority; change
+the table, not code, if the DM disagrees), BAB = ¾ of total HD, bonus tricks, cumulative special
+abilities (Link, Share Spells, Evasion, Devotion, Multiattack at 9…). Saves use the Animal
+progression by total HD; initiative = Dex mod. The record's top-level `abilities`, `hitDice`,
+`naturalArmor`, `baseAttackBonus`, `bonusHD`, `bonusTricks`, `specialAbilities`,
+`companionLevel` are a **level-8 snapshot and are overridden**; level 8 reproduces them (AC 21,
+bite +7 1d6+3 plus trip, init +3, 45 HP).
 
-**Schema** (`data/spells/*.json`, one entry per spell): `name`, `source`, `page` (printed
-page, not PDF page), `spellLevelDruid`, `school`, `subschool` (`null` if none), `descriptors`
-(array), `components` (array, e.g. `["V","S","M/DF"]`), `castingTime`, `range`,
-`targetAreaEffect { type: "target"|"area"|"effect", value }`, `duration`, `savingThrow`,
-`spellResistance`, `description` (paraphrased, not full printed text — keep durations,
-bonuses, material/focus components, save/SR interactions), `otherPrintings` (array),
-`abilityType` (`"spell"` or `"spell-like"` — see below). Use `null` only for fields a book
-genuinely doesn't print. `dragon-magazine.json` additionally carries an `article` field (see
-Phase 6 log) since that compendium's `source` is just an issue number and the originating
-article title needs its own place to live.
-
-**Description length (Aug 2026) — length follows the spell, not a fixed sentence count.**
-A two-sentence description is fine for a simple spell; a spell with multiple modes, a
-scaling table, or several interacting mechanics should run as long as it takes to cover all
-of it — six to eight sentences if that's what the spell needs. The description should still
-lead with a sentence or two of the spell's own flavor in original phrasing where the printed
-text has any, then give the mechanics in full: every duration, area, bonus, save/SR
-interaction, and material or focus component, and every branch of a multi-effect or
-scaling spell, not just the most common case. Never reproduce printed text, even in part, and
-never compress a table or a multi-option effect down to "see text" in the paraphrase itself —
-that's what the source book's `page` citation is for, not an excuse to drop mechanics here.
-`dragon-magazine.json`'s 44 entries (Aug 2026) were rewritten under this standard after an
-earlier 2–4-sentence pass over-compressed several of them (Lunacy's ten-entry madness table,
-Touch of Blibdoolpoolp's and Lash of the Kraken's size-scaling damage tables, Dire
-Reincarnation's eleven-outcome roll table, Sunmace's touch-AC/spell-resistance/dispel
-interactions, and Throwing Arm of Iallanis's size/range/damage table all needed the extra
-room); other files extracted before this convention was written are not being retroactively
-re-passed unless a specific spell is flagged as under-detailed.
-
-**`abilityType` (Aug 2026).** Every entry across every file carries `abilityType`, default
-`"spell"` — a normal spell drawn from a spell list, with `spellLevelDruid` as its slot cost.
-Set to `"spell-like"` for a class-granted spell-like ability instead, and pair it with a
-`usage` field (`"at will"`, `"1/day"`, etc.) describing how often it can be used outside the
-slot economy. A spell-like entry can still carry a real `spellLevelDruid` if the same ability
-is *also* a genuine spell on the druid list — the two facts aren't mutually exclusive.
-Current examples, both in `faiths-of-eberron.json`, both granted by Lyra's Planar Shepherd
-prestige class rather than the standard druid list: **Detect Manifest Zone**
-(`spellLevelDruid: null` — not a druid-list spell at all, `abilityType: "spell-like"`,
-`usage: "at will"`, granted at Planar Shepherd 2) and **Intensify Manifest Zone**
-(`spellLevelDruid: 7` — it genuinely is also a 7th-level druid spell, `abilityType:
-"spell-like"`, `usage: "1/day"`, granted at Planar Shepherd 7 as a spell-like ability on top
-of its normal casting).
-
-1. **Each printing shows its own level — DECIDED, supersedes the old lowest-level-default
-   rule (Aug 2026).** `spellLevelDruid` on an entry is always that book's own printed level,
-   never borrowed from another book. When another printing uses a different level, add
-   `spellLevelDruid` directly on that `otherPrintings` entry (`{ source, page,
-   spellLevelDruid?, note? }`) — only include it when it differs from the entry's own level,
-   so its presence itself signals a discrepancy. Do this symmetrically: if book A's entry
-   links to book B at a different level, book B's entry must link back to book A with A's
-   level. (Previously the LOWEST printed level was adopted as the one `spellLevelDruid` for
-   every file, with the true per-book levels buried in prose notes — this made a file's own
-   entry not actually reflect that book's printed level, which was confusing. Retroactively
-   fixed across all 11 affected spells: Branch to Branch, Embrace the Wild, Nature's Favor,
-   Forestfold, Animate Fire, Wood Rot, Babau Slime, Miasma of Entropy, Buoyant Lifting,
-   Countermoon, Plant Body — each file now shows that book's true native level, with the
-   discrepancy visible via `spellLevelDruid` on the relevant `otherPrintings` entries.)
-2. **Cross-source tracking via `otherPrintings`.** When a spell of the same name appears in
-   another file, still extract it in both places, and list every other printing as
-   `{ source, page, spellLevelDruid?, note? }`. Verify school matches before treating a
-   same-name entry as a true reprint — if school/mechanics differ, it's a different spell;
-   flag with a note rather than linking (see `Entomb` in `frostburn.json` vs. Quintessential
-   Druid II's unrelated spell of the same name). Reserve `note` for non-level context (a
-   mechanical difference, or — as with Detect Aberration in `eberron-campaign-setting.json`
-   vs. `lords-of-madness.json` — a scope/audience difference significant enough that the two
-   printings aren't quite the same spell); don't use `note` just to restate a level that
-   `spellLevelDruid` already shows.
-
-**`savage-species.json`** — done, 18 druid spells (Chapter 6, pp. 60–72). Notable fixes:
-Detect Water (on the SS druid list but printed with no description) filled from the identical
-Locate Water block; five spells (Buoyant Lifting, Countermoon, Embrace the Wild, Forestfold,
-Plant Body) print at a higher druid level in Savage Species than in Spell Compendium — each
-entry now shows Savage Species's own native level per rule 1 above, with Spell Compendium's
-lower level visible on the corresponding `otherPrintings` entry; three "as \<base spell\>,
-except…" entries inherited fields from their base (Forestfold←Camouflage, Improved
-Blindsight←Blindsight, Jagged Tooth←Keen Edge).
-
-**Open follow-up work (not started):**
-- Backfill `otherPrintings` across all existing spell files — in particular, tag every
-  `players-handbook.json` spell that Spell Compendium reprints. This is Rae's broader goal
-  (surface every SC reprint of a PHB spell) and hasn't been done yet for files extracted
-  before this convention was decided.
-- A few `otherPrintings` links are still one-directional (e.g. `spell-compendium.json`'s
-  Buoyant Lifting, Countermoon, and Plant Body entries don't yet link back to their Savage
-  Species printings) — sweep for and close these gaps.
+**Max HP can't be derived**: `hp.max` 45 is the baseline at the snapshot; each bonus HD past it
+needs a d8 roll recorded in `characterProgress.companionHdRolls`, max HP = 45 + Σ(roll + Con).
+He gains HD on entering a new row (character levels 3, 6, 9, 12, 15, 18 — two dice each); the
+level-up flow asks for the rolls; a die with no roll adds nothing and shows a "no HP roll yet"
+warning (`hdPending`). Devotion = +4 morale vs enchantment (his Will is the weak save). Trip:
+free action on a bite hit, +1 check mod, no touch attack, no AoO. +4 racial Survival by scent.
+Quen's stat block is `computeCompanionStatBlock`; shown by `CompanionPanel` (ability scores,
+Initiative/BAB/Grapple/Hit Dice, abilities, tricks).
 
 ---
 
-## Creature extraction conventions — DECIDED
+## 10. Spell preparation
 
-**Lowest SNA level wins, no exceptions (Nov 2026), matching the spell convention above.** When a
-creature is on summon nature's ally lists at different levels in different sources,
-`summonNaturesAllyLevel` holds the LOWEST printed level (so it can be summoned at the most
-favorable cost) and every higher printing goes in an `otherPrintings` array on the creature as
-`{ source, page, summonNaturesAllyLevel }`. An entry is added only where printings disagree.
-If the entry's own level is already the lowest, the other source is recorded and the level is
-untouched; if another source is lower, the level drops to it and the former value is recorded.
-The rule is applied uniformly across `data/creatures/`, with no per-creature carve-outs.
+Lyra has the whole druid list and re-prepares after every rest, so prepared spells are **not
+data**: `state.preparedSpells {level: string[]}` — one free-text slot per prepared spell
+(orisons + each level's `total`). Each slot (`PreparedSpellSlot.jsx`) is free text **plus** an
+optional pick-list: after 2 characters it offers up to 8 spells of that slot's druid level
+(`suggestSpells`, `lib/preparedSpellSearch.js`); picking fills the canonical name but **nothing
+forces a selection** — unmatched text is normal (the DM gifts spells from unextracted books)
+and just gets no description. A slot naming any extracted spell shows a chevron expanding its
+full reference entry. Long Rest keeps the text; a separate **Clear prepared spells** button
+wipes it.
 
-Sources compared so far: Player's Handbook v3.5 (p.288, levels 1-9) and Dragon Magazine #302
-(p.28). **Dragon #302's table is a CR-sorted rebalance, not a reprint of the PHB list**, which is
-why it disagrees with the PHB so broadly (most creatures sit one level apart, in both
-directions); disagreements are expected, not extraction errors. Sweep result: 13 creatures drop
-to the #302 level (Nixie 2, Grig 2, Flamebrother Salamander 3, Girallon, Djinni, Average
-Salamander, Baleen Whale and the plain pixie 5, Cachalot Whale and Triceratops 6, Dire Shark,
-Noble Salamander and Elder Tojanida 7); 37 keep their PHB level with #302's higher level recorded.
+**Always available, outside prepared slots** (`tables/spontaneousConversions.json`): per level,
+the Spontaneous Healer cure conversion and the SNA conversion (pills labelled "Always
+available"; casting one still spends a slot of that level except at orison level). Separate
+`alwaysAvailable` list = at-will spell-like abilities with no slot and no limit, shown under
+**"At-will"** (Detect Manifest Zone, PS 2; its description is pulled from `data/spells/` by
+`spell` name, lazily).
 
-Creatures on only one list take that list's level: Dog (I) and Pegasus (IV) appear only in #302,
-so their level comes from it, with no `otherPrintings` entry.
-
-**Pixie decision.** #302 lists one "Sprite, pixie" at V with no arrow distinction, while the PHB
-splits it across VI, VII and IX by arrow type. The rule is applied to the base variant only: the
-plain pixie drops to 5 (PHB 6 recorded). The sleep-arrow (7) and memory-loss-arrow (9) variants
-keep their PHB levels with no `otherPrintings`, since #302 says nothing about them. Each entry's
-`note` records this.
-
-**Summon Fey and the pixie.** Only `Pixie (sleep and memory loss arrows)` — the full printed pixie
-with both arrow types and Otto's irresistible dance — carries `summonedBy: ["Summon Fey"]`. The
-no-arrows and sleep-arrows-only variants are SNA-specific constructs, not printed creatures, so
-they have no `summonedBy` tag.
-
-**Mixed Hit Dice.** When a printed Hit Dice line uses more than one die pool (the celestial
-charger's `8d10+7d8+75`), `hitDice` keeps the printed string verbatim, `hitPoints` carries the
-printed total, and a `note` says the line is mixed. `parseHitDice` reads every dice pool in the
-string (`pools`, `count` = total dice, `die` = the biggest pool's die, `mod` = summed flat
-terms), so such a creature builds; and an explicit `hitPoints` is preferred over any computed
-figure (see "Hit points" in Summoning). Gear that accounts for printed AC is listed in an `equipment` array.
+**Expandable spell references everywhere**: any named spell is expandable, collapsed by
+default, with the same entry as the Spells tab (`components/spells/SpellRef.jsx`:
+`SpellPillGroup`, `SpellRefWith`, `SpellRef`, `AbilityText`, `RichText`) — conversions, Daily
+Abilities (necklace, Fey Touched), feat text (`*italics*`), summon and wild shape abilities,
+Greenbound spell-likes. **A spell with no entry renders plain text — no toggle, no empty
+block**, the normal case for most arcane spells. Lookup (`lib/spellLookup.js` →
+`findSpellByName`) searches the druid extraction then `referenced-spells.json`, lazily, so names
+upgrade in place once the chunk arrives. Creature ability text is free prose, so
+`lib/spellMentions.js` only looks in three zones (never the whole string — "immune to sleep"
+isn't the spell): (1) the leading name of an `(Sp …)` or short `(Su …)` ability; (2) after a
+pointer phrase ("as the X spell", "functions as", "as though by", "like a", "with"); (3) the
+whole body of a "spell-like abilities …" entry. A name must end its phrase ("polymorph self" ≠
+polymorph). Extend the zones, don't scan wider.
 
 ---
 
-## Spell Reference tab
+## 11. Spell Reference tab and spell data
 
-Consumes `data/spells/*.json` (see above) as the app's first UI on top of the Phase 6
-extraction — pure reference, deliberately not wired to the Tab 1 prep tracker.
+**Layout/loading.** `loadSpellData.js` globs `data/spells/*.json` (drop in a new book file, no
+loader edit), validates and sanitises entries, and exports `rawSpells`, `referenceSpells`,
+`spellFileCounts` (rendered as a load report) and `spellNameToFile`.
+`calc/spellReference.js#mergeSpellEntries` groups raw entries by name (case-insensitive) into
+one card per spell with **printings** sorted by level; `otherPrintings` only fills printings
+with no full entry anywhere. Source filter groups every Dragon/Dungeon Magazine issue under
+one "Dragon Magazine" option (`groupedSourceLabel`; filter-only — each printing keeps its full
+citation). Level disagreement badge when a spell's printings differ. `functionsAs`
+`[{spellName, source, note?}]` renders an inline expandable of the target's entry (non-null
+`source` resolves via `resolveFunctionsAs`; null = plain text + note). `referenced-spells.json`
+holds `referenceOnly: true` entries (Polymorph, Antimagic Field…) that exist only so links
+resolve — excluded from the list, counts and filters. Search is substring; filters (level 0–9,
+`Sp` for spell-likes, source) AND together; results sort by level then name with level headers
+(a numeric filter pins the header level; "All"/"Sp" use each spell's lowest). Missing fields
+render `—`. The tab is `React.lazy`'d, which pulls the whole data chain into one on-demand chunk
+(main bundle ≈ 125 kB gz; the spell chunk ≈ 207 kB gz — check `npm run build` output after touching imports; the main chunk growing by hundreds of kB means a static import leaked).
 
-**Loading.** `src/lib/loadSpellData.js` globs every file under `data/spells/` with
-`import.meta.glob` specifically so dropping in a new sourcebook file needs no loader edit —
-the extraction pipeline is still adding books. `src/lib/loadCreatureData.js` (Aug 2026) glob
-every file under `data/creatures/` the same way, merging them into one flat `monsterManual`
-array — except `animal-companion.json`, which it skips by filename since that file holds Quen,
-a single companion object, not a creature array. `loadSpellData.js` exports the flat
-`rawSpells` array plus `spellFileCounts` (`{ bookTitle: count }`, keyed by each file's own
-`source` field rather than its filename — falls back to the filename only if a file loaded
-with zero entries to read a title from), which the tab renders as a load report (a one-line
-"Spell count: N" plus a collapsed-by-default per-book breakdown) so a truncated or malformed
-extraction is visible at a glance rather than silently missing.
+**Spell schema** (`data/spells/<book>.json`): `name`, `source`, `page` (printed page, not PDF
+page; `null` for the Dragon Magazine compilation, which has no recoverable per-issue page),
+`spellLevelDruid`, `school`, `subschool`, `descriptors[]`, `components[]`, `castingTime`,
+`range`, `targetAreaEffect{type,value}`, `duration`, `savingThrow`, `spellResistance`,
+`description` (paraphrased, never printed text — **length follows the spell**: every duration,
+area, bonus, save/SR interaction, component and every branch of a multi-mode spell, never "see
+text"), `otherPrintings[]`, `abilityType` (`spell` | `spell-like`; spell-like adds `usage`
+"at will"/"1/day" and may *also* carry a real level — Intensify Manifest Zone is both). Optional:
+`functionsAs`, `scalable`, `article` (Dragon Magazine only), `note`. `null` only for fields a
+book genuinely doesn't print.
 
-**Merging.** `src/lib/calc/spellReference.js` (`mergeSpellEntries`) groups raw entries by
-spell name (case-insensitive) into one card per spell. Every sourcebook that reprints a spell
-got its own fully-extracted entry in that book's file (own description, own mechanical
-fields — these genuinely differ between printings sometimes, e.g. Forestfold's competence
-bonus is +20 in some books and +10 in others), so a spell's "printings" are built from those
-full entries directly, sorted ascending by level. `otherPrintings` is only consulted to fill
-in a printing with no full entry anywhere in the loaded set (a sourcebook not yet processed,
-or a stub-only citation) — rendered with a "details not yet extracted" note instead of the
-full mechanical block. Source-name matching is normalized (case-insensitive, strips a leading
-"The ") only for grouping/filtering — every printing still displays its citation's literal
-text — because a book's own `source` field and another book's `otherPrintings` citation of it
-don't always agree verbatim (e.g. "The Quintessential Druid II" vs "Quintessential Druid II").
+**`otherPrintings` for spells:** each printing shows **its own book's level** (`spellLevelDruid`
+on the entry), and a differing level is recorded on the `otherPrintings` entry, symmetrically in
+both books. (Creatures use a different rule — §12.) Verify school before treating a same-name
+entry as a reprint; if mechanics differ it's a different spell (Entomb in Frostburn vs QD II).
+`[War]` spells need War Magic Study and Dark Sun defiler spells have no equivalent here — both
+flagged on the entry, not silently added.
 
-**Source filter grouping.** The dropdown's option list (`sourceBooks` in
-`src/lib/spellReferenceData.js`) is built from `groupedSourceLabel()`
-(`src/lib/calc/spellReference.js`), not raw `source` strings directly — every Dragon Magazine
-issue ("Dragon Magazine #309", "#312", …) and the one Dungeon Magazine entry (#100, Dire
-Reincarnation — a web enhancement bundled into the same extraction, not a separate magazine
-worth its own option) collapse to one shared "Dragon Magazine" option, since listing each
-issue separately would swamp the dropdown. The filter predicate applies the same grouping to
-each printing's own `source` before comparing, so selecting "Dragon Magazine" matches every
-issue at once. Grouping is filter-only — each printing still displays its own full,
-issue-specific citation (source, page, and `article` if present) in the card itself. Add
-another prefix pattern to `groupedSourceLabel()` if a similarly multi-issue source (a different
-magazine, a multi-volume set) starts crowding the dropdown the same way.
-
-The same grouping applies to the Sourcebooks load report (`LoadReport` in
-`SpellReferenceTab.jsx`): `loadSpellData.js` keys `spellFileCounts` by
-`groupedSourceLabel(entries[0]?.source)` rather than the raw first-entry source, so a
-multi-issue file reports under one title instead of crediting its whole count to whichever
-issue happened to load first. `spellFileIssueBreakdown` separately tracks, for any file whose
-entries span more than one distinct literal `source`, a `{ issueSource: count }` map keyed by
-that same grouped title. `SourcebookRow` renders a plain leaf row for a title with no
-breakdown, or an expandable one (collapsed by default) for a title that has one — Dragon
-Magazine currently expands to all 16 individual issues (15 Dragon + Dungeon #100), each with
-its own count, summing back to the row's total.
-
-**Level disagreement.** A spell's `levels` is the distinct set of non-null
-`spellLevelDruid` values across its printings; `levelsDisagree` is true when that set has more
-than one member, surfaced as a badge on the card ("Levels differ across printings") — printing
-order (ascending by level) already puts the lower-level book first, so the disagreement reads
-directly off the stacked printing blocks underneath the badge.
-
-**`functionsAs` / inline reference expansion (Aug 2026).** An entry's `functionsAs` array
-(`[{ spellName, source, note? }]`) names spells it functions as — Feathers in
-`masters-of-the-wild.json` says it "functions as polymorph other," so its entry carries
-`functionsAs: [{ spellName: "Polymorph", source: "Player's Handbook v3.5", note: "..." }]`. A
-non-null `source` means the target resolves somewhere in our data; `PrintingBlock` renders the
-name as a `FunctionsAsEntry` toggle, collapsed by default, and on tap resolves and renders the
-target's own `PrintingBlock` inline directly beneath, indented and left-bordered
-(`.functions-as-expansion`) so it reads as a citation rather than a sibling result — nested
-inside an `ErrorBoundary` since it's user-triggered recursive rendering of a second entry.
-`source: null` means a confirmed dead end — nothing in any edition to link to — rendered as
-plain text plus its `note`, not a toggle; no current entry hits this (Animal Friendship, the
-one case that used to, got a 3.0-edition text added to `referenced-spells.json` for exactly
-this purpose — see below). Resolution (`resolveFunctionsAs` in `spellReferenceData.js`) checks
-two pools: a name already in the main list (e.g. Regenerate Light Wounds, cited by its own
-book's higher-level variants) returns that book's actual printing off the merged group, matched
-by `source` where possible; a name that's reference-only returns a synthetic printing built
-straight from its `referenced-spells.json` entry.
-
-**Note-field content (Aug 2026).** `otherPrintings[].note` and `functionsAs[].note` are the
-only two `note`-shaped fields actually rendered anywhere in the app (`PrintingBlock` and
-`FunctionsAsEntry` in `SpellReferenceTab.jsx`) — creature and feat `note` fields aren't
-surfaced by any current UI, so they're free to stay dev-facing. These two are read at the
-table, though, so they stay strictly game-facing: what a printing changes mechanically, why a
-citation was inferred, what edition a spell is from — never how the JSON was built, assembled,
-or organized. No file paths, no "extracted"/"provenance"/"standalone" framing, no referring to
-"this entry" as a data object rather than a spell. (A spell's top-level `note` — e.g. the
-Vermin-Friendship-adapted mechanics note on Beast/Elemental/Magical Beast Friendship — isn't
-rendered at all today, so that constraint doesn't apply there; it's internal documentation like
-a code comment, and reads accordingly.)
-
-**`data/spells/referenced-spells.json` and `referenceOnly`.** Holds spells that exist in our
-data only so a `functionsAs` link has something to resolve and expand — Antimagic Field,
-Contingency, Polymorph, etc. aren't Lyra's own spells. Every entry carries `referenceOnly:
-true` and a `spellLevels` array (`[{ class, level }]`) instead of `spellLevelDruid`, since
-they're not on the druid list; `PrintingBlock` renders these as wrapped
-`spell-printing-classlevel-badge` pills in place of the usual single level pill.
-`loadSpellData.js` filters `referenceOnly` entries out of `rawSpells` per-file before they ever
-reach `spellGroups` — excluded from the main list, the spell count, level filters, and search —
-and out of `spellFileCounts`/`spellFileIssueBreakdown` too, since crediting them to their real
-book (most cite "Player's Handbook v3.5") would double-count against that book's own tracked
-file. They're collected separately into `referenceSpells` purely for `resolveFunctionsAs` to
-look up by name.
-
-**Spell-like abilities.** Each printing carries `abilityType` (`"spell"` or `"spell-like"`,
-pulled straight from the raw entry — see Spell extraction conventions above) and, when
-spell-like, a `usage` string (`"at will"`, `"1/day"`, …). A printing's badge row shows a
-purple `Lv N` pill when it has a real `spellLevelDruid`, a teal `Sp — {usage}` pill when
-`abilityType` is `"spell-like"`, or **both together** when an entry is genuinely both (a
-class-granted spell-like ability that's *also* a real spell on the list) — Intensify Manifest
-Zone shows `Lv 7th` and `Sp — 1/day` side by side, since Planar Shepherd 7 grants it as a
-spell-like ability on top of its normal 7th-level druid casting. `"at will"` renders
-title-cased (`At Will`) in the badge; other usage strings print as stored. A group's
-`hasSpellLike` (true if *any* printing is spell-like) drives the `Sp` filter button, which
-matches regardless of whether the entry also carries a level — this is deliberately broader
-than the numeric level buttons, which only match a printing actually at that level.
-
-**Spell-like header.** A group headers as "Spell-Like Ability" instead of "Level Unknown"
-only when it has *no* numeric level anywhere (`hasSpellLike && levels.length === 0` — Detect
-Manifest Zone, not on the druid list at all). A dual entry like Intensify Manifest Zone still
-headers under its real level ("7th Level") even when the `Sp` filter is what surfaced it —
-the Sp badge on the printing itself is what communicates the spell-like half, so it doesn't
-need a special header too.
-
-**Missing fields.** Extraction completeness varies a lot by sourcebook (subschool, descriptors,
-components, casting time, range, target/area/effect, duration, save, and SR are null on a
-meaningful fraction of entries — `description` and `spellLevelDruid` are the only fields
-consistently populated, description always and level all but once). Every field renders `—`
-when absent rather than the literal word "null" or a blank gap.
-
-**Layout.** Search-by-name (substring, live), level filter (0–9 buttons plus `Sp`, `All`
-default), and source-book filter (`<select>`, `All sources` default) are AND'd together; a
-spell matches a numeric level filter if *any* of its printings are at that level (not just its
-lowest), and matches `Sp` if *any* printing is spell-like (`hasSpellLike`), independent of
-level. No connection to `state.preparedSpells` — this tab doesn't read or write live state at
-all.
-
-**Sort order.** Results sort by level first (ascending), then alphabetically by name within
-each level, with an `<h4>` header ("Orisons", "1st Level", … "9th Level", "Spell-Like
-Ability") wherever the level changes — `sortLevelFor()` in `SpellReferenceTab.jsx`. The level
-a spell sorts/groups under depends on which level filter is active: with a specific numeric
-level selected, every result shares that level by construction of the filter, so they all
-group under one header for it (even a spell whose *other* printings sit at a different level —
-e.g. filtering to 4th shows Forestfold under "4th Level" even though its Spell Compendium
-printing is 3rd). With `All` or `Sp` selected, a spell groups under its lowest printed level
-instead (`typeof levelFilter === 'number'` is the only branch that pins the header level —
-`'sp'` falls through to the same "own lowest level" logic as `'all'`), since neither filter
-implies one shared level. A spell with no known level anywhere (`levels: []`) sorts last,
-headered "Spell-Like Ability" if it's spell-like or "Level Unknown" if it's just a data gap.
-
-**Code-split.** `SpellReferenceTab` is lazy-loaded (`React.lazy` + `Suspense`,
-`CharacterSheet.jsx`) rather than imported statically — the ~850KB of extracted spell text
-(⅔ of the whole app's JS otherwise) has no business in the bundle everyone downloads to check
-Lyra's HP mid-combat on bad venue wifi. Because `loadSpellData.js`/`spellReferenceData.js`/
-`calc/spellReference.js` are reachable *only* from `SpellReferenceTab.jsx`, Rollup pulls the
-entire data chain into that same on-demand chunk automatically — no manual chunk config
-needed, just don't let anything outside `components/spells/` import those three files
-directly, or they'll get pulled back into the main bundle. Confirmed via `npm run build`: main
-chunk dropped from ~296KB gzipped back to ~139KB (pre-Spells-tab size) with the spell data
-landing in its own ~157KB chunk, fetched only on first opening the tab. The `Suspense`
-fallback ("Loading spell reference…") is the whole loading state — no separate manual
-loading flag needed, since the chunk's own JS/JSON is what's slow to fetch, not something the
-component does after mounting.
+**Coverage** (906 entries / 25 files incl. 12 reference-only): PHB 175, Spell Compendium 261,
+Complete Divine 66, Masters of the Wild 62, Frostburn 59, Sandstorm 52, Dragon Magazine 44,
+Quintessential Druid 35 + II 18, Savage Species 18, Complete Adventurer 17, Planar Handbook 16,
+Complete Mage 15, Complete Arcane 12, Complete Champion 12, PGtF 9 (hand-curated from a 6-page
+PDF; the book has no text layer), Serpent Kingdoms 5, Eberron CS 4, Lords of Madness 4, Races
+of the Wild 3, Faiths of Eberron 2, Libris Mortis 2, Lost Empires 2, Kingdoms of Kalamar 1
+(Summon Fey). Not yet processed: DMG, Forge of War, Manual of the Planes, MM I/II spells.
+Open spell-data chores: backfill `otherPrintings` for older files (esp. every PHB spell the
+Spell Compendium reprints) and close one-directional links.
 
 ---
 
-## Spell cards (`/cards`)
+## 12. Creature data
 
-A printing tool, not a card viewer — search a spell, compose its card, add it to a print
-queue, print. Deployed as its own page (`cards/index.html` → `src/cards/main.jsx` →
-`CardsApp.jsx`), not a route inside the main SPA, since there's no router in this project and
-a separate Vite multi-page entry is simpler than adding one. `vite.config.js`'s
-`build.rollupOptions.input` builds both `index.html` and `cards/index.html`; on GitHub Pages
-that lands at `/lyra/cards/`.
+`data/creatures/<book>.json` — one array per book, merged by `loadCreatureData.js`
+(`import.meta.glob`, so a new file is picked up automatically); `animal-companion.json` (an
+object, not an array) is Quen and is excluded from the merge. 185 creatures, 171 with an SNA
+level, 65 wild-shape-eligible, 17 with `summonedBy`. `build_sna.py` is the Python helper that
+generated the first MM entries; `*.bak` is gitignored.
 
-**Reference implementation.** `spell-cards-v2.html` (project root) is a working, tested
-standalone prototype — the card geometry, type sizes, auto-fitter, and print pagination in
-`src/cards/cardRender.js`/`spellCards.css` are ported from it as closely as the React
-adaptation allows, not rebuilt from scratch. Its own header comment has the full PSD
-measurements (card is 2.233in × 3.265in at aspect 0.684, interior row heights as % of card
-height, point sizes per element). **Three things break if changed carelessly, all preserved
-in the port:**
-1. `@page` can't read CSS variables — the print margin (`margin: .25in`) is a literal in
-   `spellCards.css`, hand-kept in sync with `--page-pad-v`/`--page-pad-h`. `var()` there
-   silently no-ops and the browser falls back to its own margins.
-2. The auto-fitter (`fitWithin` in `cardRender.js`) must run after `document.fonts.ready`
-   (`fontsReady()`) — measuring against fallback font metrics sizes cards wrong and text
-   overflows once Fira Sans swaps in. Every fit call in the app goes through
-   `useFitCards`/`fontsReady()`, never a bare `useEffect`.
-3. Interior row heights (`--r-head`/`--r-band`/`--r-stat`) are `calc()` against `--card-h`,
-   not percentages — percentage heights collapse inconsistently in a nested flex column across
-   browsers.
+**Fields:** `name`, `source`, `page`, `size` (normalised on read), `type` (with subtypes in
+parens), `hitDice` (printed string), `speed{land,fly,swim…}`, `naturalArmor`, `abilities`,
+`baseAttackBonus`, `attacks[{name,natural,primary,count?,damage,crit}]` (`crit` `null` when none
+printed or when immune), `specialAttacks[]` / `specialQualities[]` (free text with mechanics in
+parens — see §8.5, §10 for who parses it), `skills` (one sentence), `feats[]`, `challengeRating`,
+`isCanine`, `feywildNative`, `summonNaturesAllyLevel`, `wildShapeMinLevel`, `lyraFamiliar`,
+`appearance`, `appearanceGreenbound`, `behavior`, `note` (dev-facing, **not displayed** except
+the filtered sentences on spell-summon stat blocks), `otherPrintings`, `summonedBy[]`,
+`hitPoints`, `equipment[]`. A creature missing an optional field must still render.
 
-Card size (2.233in × 3.265in) and interior proportions were re-confirmed (Aug 2026) against a
-second reference, `Spell_Cards_Comp_Vaelith_Lyra-35.png` — its 2.5in × 3.5in canvas has the
-actual card frame drawn inset at 670×979px/300dpi, i.e. the same 2.233in × 3.265in as
-`spell-cards-v2.html`'s own PSD measurement. Unchanged.
-
-**Level hexagon (Aug 2026, twice-corrected).** Tilted and pinned to the card's top-right
-corner rather than sitting in its own `card-head` grid column — `headHTML()` emits `.level` as
-a sibling of `.card-head` (a direct child of `.card`), not nested inside it, so `position:
-absolute; top: 0; right: 0;` aligns it to the *card's* actual border, not the header's padded
-interior. `.level-spacer` takes `.level`'s old grid-column slot inside `.card-head`, reserving
-width so `card-name`'s auto-fit (`shrinkToFit`) still shrinks the name away from the hexagon.
-
-Two rounds of bugs here, both from the same root mistake: treating "the hexagon shape" and
-"the numeral on top of it" as two things that each need to be positioned/sized *separately*
-and then trusted to land in the same place.
-
-*Round one* rotated the SVG with a CSS `transform` and empirically oversized/offset it to dodge
-`.card`'s `overflow: hidden` — wrong approach, and the actual root cause was upstream of that:
-the hexagon's original `viewBox="0 0 31 35"` used `preserveAspectRatio="none"` to force a
-non-square shape into a square box, stretching it into an irregular hexagon before any rotation
-happened. Fixed by computing the hexagon instead of approximating it — `HEX_ROTATE_DEG` (20)
-and `HEX_R` (circumradius) define a regular pointy-top hexagon, `hexPolygonPoints()` rotates
-its six vertices with a plain 2D rotation matrix *before* they're written into the SVG's
-`points` attribute (tilt baked into the coordinates, no CSS transform, no "rotate an element
-and hope its box still fits it"), and the `viewBox` is sized from `HEX_MAX_X`/`HEX_MAX_Y` (the
-rotated points' bounding box) plus half the stroke width, so it exactly frames the shape with
-no `preserveAspectRatio` override needed.
-
-*Round two*: with the hexagon fixed, the numeral (still an HTML `<span>` sibling of the SVG,
-centered via `.level`'s CSS `display: grid; place-items: center`) drifted below-left of it.
-Cause: `.level svg` had lost its `position: absolute` in the round-one fix (no longer needed
-for the old oversizing hack), which meant the SVG and the `<span>` were now both *normal* grid
-items — and with no explicit `grid-template-columns`/`rows`, CSS Grid's default auto-flow
-placed them in separate implicit rows instead of stacking them on top of each other. Two
-elements, two positioning mechanisms (SVG viewBox math vs. CSS grid placement), drifting apart
-the moment either one changed underneath — the actual lesson, not just this specific CSS
-mistake.
-
-The fix removes the second coordinate system entirely: the numeral is a `<text x="0" y="0"
-text-anchor="middle" dominant-baseline="central">` *inside* `hexSvg()`'s own SVG, at (0,0) —
-the hexagon's own geometric center, since `HEX_POINTS` is symmetric about the origin by
-construction (a rotated regular hexagon stays point-symmetric about its center). One
-coordinate system, so the numeral can't drift from the shape regardless of what CSS around it
-does. It needs no counter-rotation either, for the same reason round one already established:
-the tilt is baked into the polygon's points, not applied as a transform on the SVG or a `<g>`
-around it, so nothing was rotated to begin with. `.level` itself dropped back to a one-child
-box (`position: absolute; top: 0; right: 0;`, no grid/flex needed) since there's nothing left
-to place independently.
-
-`hexSvg(level)` (not a static `HEX` string anymore, since the numeral is spell-specific) also
-sets the numeral's `font-family`/`font-weight` (Fira Mono, 700) and a `font-size` computed from
-`HEX_NUMERAL_PT` (16, matching the numeral's prior physical size) converted through this SVG's
-own units-per-inch — so the numeral's *printed* size stays constant even if `HEX_R` or
-`HEX_BOX_W_IN` (0.48, "noticeably larger than the upright version it replaced") change later.
-`HEX_ASPECT` and `HEX_BOX_H_IN` are exported and used to size `.level`'s box via an inline
-`style` in `headHTML()` rather than a hardcoded value in `spellCards.css` — a hand-tuned CSS
-number next to computed SVG geometry drifting out of sync is what caused round one's bug, so
-nothing about the hexagon's size lives outside this one computed block. Change
-`HEX_ROTATE_DEG`/`HEX_R`/`HEX_BOX_W_IN` to retune it; everything else here derives from them.
-
-**Data model.** A spell's mechanical fields (name, level, school, subschool, descriptors,
-castingTime, range, components, duration, savingThrow, spellResistance) start out from its
-`data/spells/*.json` entry, via `canonicalMechFields()` reading the first printing with a
-`full` entry off its `spellGroups` group — but they're editable in the form
-(`mechDraft`/`MechFields` in `CardEditor.jsx`, including Name itself, Aug 2026), not read-only
-display, since a card can need a different class's level than the one Lyra's own druid-only
-data tracks (see Paste to fill, below), a hand-fixed value, or — for a spell with no
-`data/spells/` entry at all (any of Vaelith's sorcerer cards) — every field typed from scratch.
-Editing never touches `data/spells/`; a card is always its own complete, independent row in
-Supabase (see Persistence, below), not a diff against canonical data. `CardsApp.jsx`'s
-`baseFor(name, group)` decides what a newly-loaded card starts from, in priority order: (1) a
-previously-saved Supabase card for the *current character*, since that's the most specific and
-most recently intentional thing known about this spell; (2) the `data/spells/` canonical
-fields, if the name matches — fallback enrichment only, never required; (3) blank. What you
-type lives in the rest of that same `card` field:
-`{ flavor, primary, secondary, note, table?, continued?, mech? }`, matching
-`spell-cards-v2.html`'s own `SPELLS[].card` shape (plus `mech`, new here). `continued` (same
-shape, minus its own `continued`/`mech` — the two card faces of a fold pair always share one
-set of mechanical fields) is what "continue on second card" fills in — its presence is what
-makes a spell render as a `.fold` pair instead of one `.card` (`unitHTML()` in
-`cardRender.js`, mirroring the reference's `w: s.card.continued ? 2 : 1` pagination weight).
-`table` is `{ head: [...], rows: [[...], ...] }`, built by `TableBuilder.jsx`. `**bold**` /
-`*italic*` and blank-line-starts-a-paragraph (`fmt()`) work in every field.
-
-`mech.components` is set via toggle pills (`ComponentsField`, `CardEditor.jsx`), not free text —
-`V`, `S`, `M`, `DF`, `F`, `M/DF` (its own token, not `M`+`DF` toggled together — 3.5e's
-caster's-choice symbol, distinct from requiring both), and `XP` (Aug 2026, added alongside the
-others for a spell like Reincarnate that cites an XP cost right on the component line).
-Selected options join in that fixed order regardless of click order.
-
-The form's field *labels* (Aug 2026: Flavor, Main description, Mechanics, Material
-Component/Focus) describe how the fields actually get used and don't match the underlying
-`card` keys (`flavor`, `primary`, `secondary`, `note`) — those stay as-is, since they're also
-the class names driving the card's own print CSS (`.body .primary`, `.body .secondary`, …) and
-renaming them would be a schema change with no upside. A static hint under Mechanics
-(`.field-note` — not bound to any field value, never printed) reminds that bold there is for
-die rolls and calculations, not general emphasis.
-
-**Paste to fill (Aug 2026).** `PasteToFill.jsx` + `pasteParser.js` — a textarea for a spell's
-raw text (stat block and description) copied out of a PDF, parsed offline with pure regex/rule
-logic, no API calls. `cleanPastedText()` runs first: `normalizeInvisibleChars()` converts
-non-breaking and other Unicode space variants (U+00A0, U+2007, U+202F — a PDF often uses one
-between a number and its unit) to a plain space and strips zero-width characters and a leading
-BOM (U+200B/U+200C/U+200D/U+2060/U+FEFF) entirely, since either kind is invisible in a text
-field but breaks an exact-string comparison downstream — see the school→card-colour match
-below, which is exactly how this was first noticed (Aug 2026: a pasted "Divination" carried a
-trailing NBSP + zero-width space, read as correct everywhere it was displayed, and silently
-failed to match `[data-school='divination']`). Then it normalizes smart quotes/en-dashes, fixes
-the handful of common spell-vocabulary words a PDF ligature bug splits with a stray space
-(`Refl ex` → `Reflex` — a small known-word dictionary, `LIGATURE_WORDS`, deliberately not a
-general "letters space letters" regex, which would just as happily mangle "to flee" into
-"toflee"), and strips standalone page numbers and versioned running headers (`PLAYER'S
-HANDBOOK v3.5`) — a trailing version tag is required for a short all-caps line to count as a
-header (Aug 2026 — see below for why an all-caps check alone isn't safe).
-`parsePastedSpell()` then reads the SRD's own regular structure: `extractNameAndSchool()` takes
-name and school as the *last two* non-empty lines immediately before the stat block (skipping
-any blank line between them), not simply the first two lines of the header region — whatever's
-above those two, however many lines and whatever it says (a running header `stripPageNoise()`
-didn't catch, a page number, a chapter title), is ignored positionally rather than by trying to
-recognize it, which is what `splitMultipleSpells()` (below) already did for the same reason. A
-single header line means name and school were printed on one line (`splitNameSchoolLine()`
-tries a 2-plus-space gap, then ` - `, before giving up and leaving school blank for a hand fix
-rather than guessing wrong). `toDisplayCase()` then converts either an all-caps name or school
-line to Title Case, but only when the text actually *is* all-caps — sourcebooks commonly print
-a spell's own name in full caps as a heading style, and the previous version's forward-order
-"first two header lines, strip anything all-caps and short as a header" logic couldn't tell
-that apart from a genuine running header: an all-caps name got deleted by the same check meant
-for page furniture, leaving the *next* line (the school) misread as the name and the school
-itself blank (Aug 2026 — reported against Assay Spell Resistance, printed
-`ASSAY SPELL RESISTANCE` in the source). Parsing then continues through the labeled stat-block
-lines (`Level:`, `Components:`, `Casting Time:`, `Range:`, `Target:`/`Area:`/
-`Effect:`, `Duration:`, `Saving Throw:`, `Spell Resistance:` — matched case-insensitively,
-tolerant of no space after the colon). `scanStatBlock()` finds every label line first rather
-than walking sequentially, so a field bounds by the *next known label's position* — reliable
-regardless of how its own value wrapped across lines — for every field but the last, which has
-no next label to bound it and falls back to `looksIncomplete()` (an unclosed paren or a
-trailing `+`/`-`/`/`/`,`/"and"/"or") to decide whether to pull in one more line. Everything
-after the last label is the description: split into paragraphs on blank lines, hard-wraps
-within a paragraph collapsed to spaces; a paragraph starting `Material Component:`,
-`Arcane Material Component:`, `Focus:`, `Divine Focus:`, `XP Cost:`, or `Special:` goes to
-`note`, the first remaining paragraph to `flavor`, everything else to `primary` — no cleverer
-than that, since the fields stay just as easy to hand-edit and reorder afterward as any other.
-A `missing` list on the result names every expected label the parser couldn't find, shown
-verbatim rather than guessed at; `Target`/`Area`/`Effect` has no card field to land in at all
-(the template doesn't display it), so it's surfaced as reference text in the results panel
-instead, for writing Primary by hand against.
-
-Since Lyra's data is druid-only, a spell listing several classes (`Level: Drd 3, Rgr 2`)
-becomes a radio group in the results — `Drd` is pre-picked when present, else the first class
-listed, always switchable before filling. **Filling never gates on `data/spells/` (Aug 2026).**
-Early versions returned immediately with no-op when the parsed name had no match there, which
-silently left the form showing whatever was previously loaded — since most of what gets pasted
-now is Vaelith's sorcerer spells, that made filling *look* broken for exactly the spells this
-feature exists for. `handleFillSingle`/`handleBulkAdd` (`CardsApp.jsx`) always populate the
-form (or queue entry) from the parse; a `data/spells/` match, via the same `baseFor()` priority
-chain described above, only fills in whatever the parser itself didn't find. The results panel
-still says so — `foundInData: false` renders as neutral text ("Not in the extracted druid
-sourcebooks — filling from your pasted text.", `.paste-results-list`, not the red `.err`
-class), since a spell not being in Lyra's druid-only data isn't a failure, and filling still
-fully succeeds either way.
-
-A paste of several spells' text back to back (detected by more than one `Level:` line —
-`splitMultipleSpells()` anchors each occurrence and walks back to the two non-empty lines
-before it for that spell's name/school) skips the single-card editor entirely: each block is
-parsed and pushed straight to the print queue plus a Supabase save, under the same never-gated
-rule — the only thing that can land in "skipped" is a block with no name at all.
-
-**Persistence.** `spell_cards` in Supabase — the same project as `character_state` (see
-"Persistence and sync" above), same permissive-RLS tradeoff, different table: one row per
-`(character, spell_name)` (unique constraint), `mech`/`card` jsonb columns holding exactly the
-shapes the card composer already works with. `character` (`CharacterPicker.jsx`) is a first-
-class dropdown — seeded with `Lyra`/`Vaelith`, plus whatever else has ever been saved
-(`fetchCharacters()`), and "Add" appends a new name locally and switches to it immediately, no
-Supabase write required until something's actually saved under it. Every load path —
-`SpellPicker` search-select, Paste to Fill (single and bulk), and `SavedCards.jsx`'s
-load-for-revision list — goes through `baseFor()`, so a previously-saved card for the current
-character always takes priority over the `data/spells/` canonical fields. No login: both
-players are trusted and see all saved cards for all characters, same rationale as
-`character_state`. `src/cards/supabaseCards.js` mirrors `storageAdapter.js`'s
-`createClient(url, anonKey)` pattern exactly, reusing the same `VITE_SUPABASE_URL`/
-`VITE_SUPABASE_ANON_KEY` env vars (baked in at build time, already wired through
-`.github/workflows/deploy.yml`) — no separate config needed for the two tables. Every
-Supabase-reading function degrades gracefully on failure (missing table, offline, RLS
-misconfigured) rather than crashing: `fetchCharacters`/`fetchCardsForCharacter` `console.warn`
-and fall back to `[]`/the seed list; `saveCard` throws, which `CardsApp.jsx` turns into a
-visible, non-blocking `saveStatus` message. Printing is never gated on a Supabase save
-succeeding — "Add to Print Queue" adds to the (localStorage-backed) queue regardless of
-whether the save alongside it failed. **Setup:** the `spell_cards` table + policy block in
-`supabase/setup.sql` must be run once in the Supabase SQL editor, exactly like the original
-`character_state` setup, before saving/loading cards works.
-
-Older, removed (Aug 2026): the previous version stored a card inside `data/spells/<file>.json`
-itself, via a dev/preview-only Vite middleware (`cardSavePlugin`) that doesn't exist in the
-static GitHub Pages build, plus a clipboard-copy fallback for when it wasn't reachable
-(`copyCardJSON`) — this is what produced the 405 in production. Both are gone; Supabase is now
-the only persistence path, and it works identically in dev, preview, and production. What's
-still local-only: `src/cards/persist.js`'s autosave-while-typing draft (keyed by
-`${character}::${spellName}`, a safety net against navigating away before hitting Save) and
-the print queue itself, which is genuinely per-device and has no reason to sync between
-players.
-
-**Rendering.** `cardRender.js`'s `headHTML`/`bodyHTML`/`cardHTML`/`unitHTML` build the same raw
-HTML strings the reference does (SVGs, markdown-lite paragraphs, the table) and every card face
-is mounted via one `dangerouslySetInnerHTML` at its outermost element — never nested React
-components inside a `.card`/`.fold`/`.row`, since the auto-fitter's `querySelector('.body')`
-calls and the grid/flex geometry both depend on the exact sibling structure the reference
-builds, and an extra React-inserted wrapper `<div>` around `.card` or `.fold` would become the
-actual grid item inside `.row` instead of the card itself. `PrintSheets.jsx` (the always-
-visible, actually-printed output) and `CardPreview.jsx` (the single-card live preview beside
-the editor) both call `unitHTML`/`sheetsHTMLFromPages` and then `fitWithin` through
-`useFitCards`; `.no-print` (on everything except `PrintSheets`) is what `window.print()`
-actually outputs. The overflow flag ("TEXT CLIPPED", red outline) is unchanged from the
-reference — any card still overflowing at the 7pt floor after the auto-fitter's nine steps
-gets flagged, both in the live preview and in the print sheets, meaning the spell needs
-"continue on second card."
-
-A card's school colour is a CSS custom property (`--ink`, `spellCards.css`) set by a
-`[data-school='...']` attribute selector — nine exact-string keys, one per school. `cardHTML()`
-derives that key with `normalizeSchoolKey()` (Aug 2026) rather than a bare `.toLowerCase()`:
-trims (including the invisible-character classes `cleanPastedText()` already strips at the
-paste boundary — see Paste to fill, above — since a hand-typed School field has no such
-cleanup pass of its own) and strips any `(subschool)`/`[descriptor]` fragment that ended up
-folded into the same string, before lowercasing. Any of those breaks the exact-string
-attribute-selector match silently — the school still reads correctly everywhere it's
-displayed, only the card's colour goes missing — which is what made the underlying paste-time
-NBSP bug (above) hard to spot by eye.
-
-**Editor state (Aug 2026).** `CardsApp.jsx` holds exactly one card in the editor at a time
-(`mechDraft`/`draft`), and nothing about it should survive past the point it stops being
-relevant — a rule that's easy to state and was violated in three different places at once
-until this pass: switching `character` didn't touch either piece of state, so the previous
-character's card (name, hand-typed Mechanics/Material Component text, everything) stayed
-sitting in the form under the new character; "Add to Print Queue" queued the card but left the
-same fields open afterward; and there was no way to blank the form at all without navigating
-away and back. `clearEditor()` (sets both to `null`) now runs after a successful queue-add and
-on every character change (`handleCharacterChange`, `handleAddCharacter`); `handleNewCard()` —
-wired to the "New Card" button in the page header — opens a genuinely blank, fully editable
-form (`{ name: '', ...blankMechDraft() }` / `blankCardBlock()`) for typing a card from scratch,
-for a spell with neither a `data/spells/` entry nor pasteable text at all. None of this touches
-`loadInto()` or `handleFillSingle()`/`handleBulkAdd()` — both already computed a fresh
-`baseFor()` for the *new* name on every call before this pass, so a paste-fill for a spell that
-was never previously loaded or saved was never actually at risk of carrying over a previous
-card's fields; the bug was specifically that the *previous* card kept showing whenever nothing
-happened to explicitly replace it.
+**Conventions (DECIDED Nov 2026):**
+- **`summonNaturesAllyLevel` and `summonedBy` are independent.** A creature can be on SNA lists
+  *and* reachable through Summon Fey. One never implies or nulls the other. (A wrong "null the
+  SNA level of anything Summon Fey makes" instruction once stripped levels from Dryad, Grig
+  and Pixie; it was reverted.)
+- **Lowest SNA level wins.** When sources disagree, `summonNaturesAllyLevel` holds the lowest
+  printed level and the other printings go in `otherPrintings` as `{source, page,
+  summonNaturesAllyLevel}`. Sources compared: PHB v3.5 p.288 (levels 1–9) and Dragon Magazine
+  #302 p.28 — **#302 is a CR-sorted rebalance, not a reprint**, so broad disagreement is expected
+  (13 creatures drop to #302's level; 37 keep PHB's with #302 recorded). Creatures on one list
+  only take that level (Dog I, Pegasus IV — #302 only). *(Spells use per-book levels instead; the
+  two conventions are deliberately different.)*
+- **Variants are separate entries, one per printed capability set.** The pixie is
+  `Pixie (no special arrows)` SNA V (PHB VI recorded), `Pixie (sleep arrows)` SNA VII,
+  `Pixie (sleep and memory loss arrows)` SNA IX (also has Otto's irresistible dance). Only the
+  last — the full printed pixie — carries `summonedBy: ["Summon Fey"]`; the others are
+  SNA-specific constructs.
+- **`summonedBy` values must equal a spell `name` in `summonSpells.json`.**
+- **Mixed Hit Dice** keep the printed `hitDice` string verbatim, add `hitPoints`, and a `note`.
+- `isCanine` drives the +20 ft speed, young/advanced/giant availability and Totemic Summons.
+- Summon nature's minor ally (level 0): eight creatures tagged `summonNaturesAllyLevel: 0`
+  (illustrative — the spell allows any qualifying animal); no special-casing in code.
+- Known data caveats: Aranea's feats/CR were unreliable to extract; Thoqqua's type was assigned
+  `Elemental (Earth, Fire)` from memory; Hybsil's printed shortbow bonus doesn't reconcile with
+  its BAB (recorded as printed); the earth/water elementite swarms' printed initiative/saves
+  look misprinted (shown in Notes).
 
 ---
 
-## Open questions
+## 13. Feat reference data
+Two deliberately separate catalogs, joined **by feat name**: (a) `src/data/feats/<id>.json` —
+mechanical effect hooks for feats Lyra has or might take (`id`, `name`, `source`, `levelTaken`,
+`description` (displayed), `effects[]`, optional `implementationNote`); (b) `/data/feats/
+<book>.json` — bibliographic catalog, one file per book (`name`, `source`, `page`, `type`,
+structured `prerequisites{abilityScores, baseAttackBonus, skills, feats, classFeatures,
+casterLevel, other}`, paraphrased `benefit`, `repeatable`, `note`, optional `grantedSpells`).
+14 catalogued feats across 9 non-empty files; `players-handbook-ii.json` is an empty array left
+over from a wrong source guess (Strong Soul is PGtF). Gatekeeper Initiate grants nine spells at
+1–9 (three are the book's own; six are standard PHB spells newly extracted with
+`spellLevelDruid: null` and a note); Initiate of Nature grants spells (Mold Touch, Briartangle,
+Thorn Spray, Tree Healing) that aren't extracted yet.
 
-**Ask the DM:**
-1. **Giant owl** — Feywild-native? If yes it becomes an available wild shape form now, with a
-   fly speed.
-2. **Quen's feats** — two possibly unassigned at 6 HD.
-3. **Wolf Shaman later features** — druid 13 and 17 bonus feats are unreachable given the
-   progression. Does he want to compress them?
+---
 
-**Needs data:**
-4. **Young template exact numbers** — verify −4 Str / −4 Con / +4 Dex / −2 natural armor
-   against printed text.
-5. **Plane Shift / Planar Bubble** — tracked as 1/day Planar Shepherd abilities in
-   `src/data/character/lyra.json`, but the sourcebook they're from is unconfirmed. Fill in
-   `source` once known.
-6. Levels 9 and 15 add "otherworldly magic [arcane cantrip]" and "Otherworldly Acumen
-   [2nd level arcane]" — Fey Touched follow-ons, model later.
+## 14. The spell-card tool (`/cards`)
+
+A **printing tool**, not a viewer: search a spell → compose its card → add to the print queue
+→ print. Its own page (`cards/index.html` → `src/cards/main.jsx` → `CardsApp.jsx`).
+`spell-cards-v2.html` (project root) is the **reference implementation** the card geometry,
+type sizes, auto-fitter and pagination were ported from, measured from a PSD at 300 dpi: card
+**2.233in × 3.265in** (aspect 0.684), interior rule positions as % of card height (header
+18.07%, school band 27.16%, stat rows 39.31%/51.51%, description the remaining 48.49%), point
+sizes (name 17.8, level numeral 23.6 Fira Mono Bold, school 13.6, components 13.3, values 9.6,
+ST/SR 6.8, body 6.6–9.7), school colours from `[data-school='…']` (nine). Don't change card
+dimensions, proportions or sizes.
+
+### The three template gotchas (each one silently breaks cards if edited carelessly)
+1. **`@page` cannot read CSS variables.** `var()` there silently no-ops and the browser falls
+   back to its own margins. The print margin is a **literal** (`margin: 0.25in`) and the print
+   `.sheet` padding is the literal remainder (`0.75in 0.15in` → 1in top / 0.4in sides total).
+   Keep them in step by hand with `--page-pad-v/-h`.
+2. **The auto-fitter must run after `document.fonts.ready`.** Measuring against fallback font
+   metrics sizes cards wrong and text overflows once Fira Sans swaps in. Every fit goes through
+   `fontsReady()` / `useFitCards` / `PrintSheets`' effect — **never a bare `useEffect`**.
+   (`fitWithin`: nine body steps from 11pt down to a 7pt floor, narrowing Fira Sans → Condensed
+   → Extra Condensed; name and school shrink separately; fold pairs fit to the same step; a card
+   still overflowing at the floor is flagged "TEXT CLIPPED" — it needs "continue on second card".)
+3. **Percentage heights collapse inside nested flex columns.** Interior row heights are
+   `calc(var(--card-h) * 0.1807)` etc. (`--r-head`, `--r-band`, `--r-stat`), not percentages —
+   browsers resolve percentage heights inconsistently in a nested flex column.
+
+### Other card-rendering rules
+- Card faces are built as **raw HTML strings** (`headHTML/bodyHTML/cardHTML/unitHTML`) mounted
+  by one `dangerouslySetInnerHTML` at the outermost element — never nested React components
+  inside `.card`/`.fold`/`.row`: the fitter's `querySelector('.body')` and the grid depend on
+  exact sibling structure, and a React wrapper `<div>` would become the grid item instead of the
+  card. `PrintSheets` (the printed output; the only thing not `.no-print`) and `CardPreview`
+  both use it. Six upright cards per sheet; a fold pair (continued card) weighs 2 and stays on
+  one row (`paginate`).
+- **School colour key**: `normalizeSchoolKey()` trims invisible characters and strips
+  `(subschool)`/`[descriptor]` before lowercasing — any stray NBSP or zero-width character breaks
+  the exact-match attribute selector *silently* (the card just loses its colour; the school
+  still reads correctly everywhere else).
+- **Level hexagon**: tilted and pinned to the card's top-right as a sibling of `.card-head`
+  (a direct child of `.card`, `position:absolute`), with `.level-spacer` reserving width so the
+  name fitter shrinks away from it. The geometry is *computed* (`HEX_ROTATE_DEG`, `HEX_R` →
+  rotated vertices baked into the SVG `points`, `viewBox` from the rotated bounding box), and
+  the numeral is a `<text>` **inside the same SVG** at (0,0). *Lesson (two rounds of bugs):*
+  one coordinate system — never position a shape and its label with two mechanisms.
+  Retune via `HEX_ROTATE_DEG`/`HEX_R`/`HEX_BOX_W_IN`; nothing about its size lives in CSS.
+- Form labels (Flavor, Main description, Mechanics, Material Component/Focus) don't match the
+  `card` keys (`flavor`, `primary`, `secondary`, `note`) — those are also print-CSS class names,
+  so they're not renamed. `**bold**`, `*italic*` and blank-line paragraphs work (`fmt()`).
+  Component pills: V, S, M, DF, F, `M/DF` (its own token), XP, joined in fixed order.
+
+### Data model and persistence
+A card = mechanical fields (`mechDraft`: name, level, school, subschool, descriptors,
+castingTime, range, components, duration, savingThrow, spellResistance — all editable, since
+a card may need another class's level or come from a spell not in `data/spells/`) + a `card`
+block `{flavor, primary, secondary, note, table?, continued?, mech?}` (`continued` makes a
+fold pair; `table` is `{head, rows}` from `TableBuilder`). Editing never touches `data/spells/`.
+`CardsApp.baseFor(name, group)` picks what a loaded card starts from, in priority: (1) a saved
+Supabase card **for the current character**; (2) the `data/spells/` canonical fields
+(fallback only, never required); (3) blank. Saved cards live in `spell_cards`
+(`supabaseCards.js`, same client pattern and env vars as `character_state`); every reader
+degrades gracefully on failure (warn + `[]`), `saveCard` throws and `CardsApp` shows a
+non-blocking status; **printing never depends on a save succeeding**. `CharacterPicker` seeds
+Lyra/Vaelith plus any saved character; both players see all cards (no login). Local-only: the
+autosave draft per `${character}::${spell}` (`persist.js`) and the print queue (per-device).
+(Old, removed: cards used to be written into `data/spells/*.json` through a dev-only Vite
+middleware that 405'd in production; Supabase is now the only path.)
+
+**Editor state rule:** one card in the editor at a time and nothing survives past relevance —
+`clearEditor()` runs after a queue-add and on every character change; "New Card" opens a
+blank form. Paste/load paths always compute a fresh `baseFor()`.
+
+**Paste to Fill** (`PasteToFill.jsx`, `pasteParser.js`; pure regex, no API): `cleanPastedText`
+normalises exotic spaces (NBSP/U+2007/U+202F → space), strips zero-width characters and BOM,
+smart quotes/dashes, a small known-word dictionary for PDF ligature splits (`Refl ex`), and
+page numbers / *versioned* running headers (a short all-caps line only counts as a header with a
+trailing version tag — all-caps alone also describes a spell name). `parsePastedSpell` takes
+name and school as the **last two non-empty lines before the stat block** (anything above is
+ignored positionally; one line = name+school split on 2+ spaces or ` - `), `toDisplayCase`
+fixes all-caps (only when it really is all-caps), `scanStatBlock` finds every label first so a
+field bounds at the *next label's position*; the last field uses `looksIncomplete()` (unclosed
+paren, trailing `+`/`-`/`,`/"and"/"or"). Description paragraphs: `Material Component:` / `Focus:` /
+`XP Cost:` / `Special:` → `note`, first remaining → `flavor`, rest → `primary`. A `missing` list
+is shown verbatim. Multi-class `Level:` lines become a radio group (Drd preselected).
+**Filling never gates on `data/spells/`** (an early version no-op'd for unknown names — which
+is most of Vaelith's sorcerer spells); a non-match shows neutral text, not an error. Several
+spells pasted back to back (more than one `Level:`) go straight to queue + Supabase.
+
+---
+
+## 15. Layout
+
+Four tabs via `TabBar` (local `useState`, no router): **Lyra / Companions / Reference / Spells**.
+`CombatBar` (HP/AC/Initiative) is pinned above every tab. `PartySection` gives Lyra, Quen,
+each summon and the Spells tab their own colour-coded block with a sticky header.
+- **Lyra**: Trackers card in this order — sync bar (Export/Import/Long Rest/Test Mode), XP, HP,
+  spell slots, **Prepared Spells** (collapsed, "prominent" toggle), Wild Shape uses, **Wild
+  Shape Form** (collapsed, prominent), Daily Abilities — then spellcasting reference, Ability
+  Score Editor, combat stats, AC, saves, skills.
+- **Companions**: Quen → SNA builder → Other Summon Spells builder → Summons Out → active groups.
+- **Reference**: spell-slot table, equipment, feats, Anarchic reference, Quicksilver attack
+  routine (rarely used mid-combat).
+- **Spells**: `SpellReferenceTab` (lazy).
+Each tab's `scrollY` is saved on leave and restored via `requestAnimationFrame` (the Spells tab's
+height swings with its filters).
+
+**CSS gotchas.** `overflow: hidden` on a `PartySection` breaks `position: sticky` on its header
+(changes the sticky containing block) — round corners on the header/body elements instead.
+`--combatbar-height` and `--tabbar-height` (`index.css`) must equal the components' real rendered
+heights or sticky headers land at the wrong offset (`partySection.css` stacks them).
+
+---
+
+## 16. Built vs deferred
+
+**Built and working**
+- Static sheet; trackers (HP, slots, wild shape, daily abilities, Quen HP, Long Rest);
+  Supabase sync with offline fallback, export/import, Test Mode.
+- Wild shape (full polymorph swap, one-stat-block display); Anarchic overlay.
+- SNA builder with the full template pipeline; Other Summon Spells builder; per-instance HP and
+  daily-ability tracking; Summons Out + Next round; effects ledger.
+- XP tracking, level-up flow, ability score editor, skill purchase, feat picker with prerequisite
+  flags, Quen's table-driven progression with HP-roll prompts.
+- Spells tab over 894 extracted spells; prepared-spell search; expandable spell references
+  everywhere; all 45 skills listed.
+- Spell-card tool: composer, paste parser, Supabase persistence, auto-fit, print sheets.
+
+**Known gaps — real, not hypothetical**
+- **Wild shape size/HD caps don't scale.** `lyra.json` `wildShape.maxSize` (Large) and `maxHd`
+  (8) are static; only `usesPerDay` updates at level-up. Past level 8 the HD cap should rise
+  (effective druid level = character level) and Huge arrives at 15.
+- **`spellDcBase: 15` is static** (the spell-slot summary and per-level DCs read it), so the
+  Wis tome or any Wis change won't update save DCs — spell *attack* bonus is computed.
+- **Paraelementals/Thoqqua/Ice Serpent/Galeb Duhr get Greenbound in the SNA builder**: only a
+  bare `"Elemental"` type is excluded there (the new builder uses the bare type). Ask the DM
+  which is intended before "fixing".
+- Level-up can't buy a first rank in a skill she has no entry for.
+- Summon builder doesn't add `equipment` AC (celestial charger) or creature feats (Improved
+  Initiative) to its stat block.
+- SNA VI–IX creatures can't be cast in the UI until Lyra has slots that high.
+- Phase-6 sourcebook extraction is unfinished (§11); Mold Touch, Briartangle, Thorn Spray and
+  Tree Healing aren't extracted.
+- Not modelled by design: Natural Spell's casting rules, Strong Soul's +3 vs death/drain,
+  Planar Wild Shape and the other candidate feats' effects (`implementationNote`s).
+
+**Deferred / later**
+- Fey Touched follow-ons (level 9 "otherworldly magic" cantrip, level 15 "Otherworldly
+  Acumen") — not modelled.
+- Wolf Shaman bonus feat at level 19 is recorded by hand as a class feature.
+- Greenbound/Ashbound/Totemic for the other summon spells: flags exist, all off.
+
+**Open questions for the DM**
+1. **Quen's feats** — at 6 HD he's entitled to three but shows two (Track, Weapon Focus bite).
+2. **Wolf Shaman bonus feats** at druid 13/17 are unreachable under the progression — compress?
+3. **Young template numbers** — verify −4/−4/+4/−2 NA against the printed text.
+4. **Plane Shift / Planar Bubble** (1/day PS abilities) — sourcebook unconfirmed.
+5. **Grig** — one entry at SNA II (the lowest, Dragon #302; PHB's IX recorded), but it always carries the fiddle that the notes say only the IX grig has. Split into variants like the pixie?
+6. **Paraelementals and Greenbound** (above).
