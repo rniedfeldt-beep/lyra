@@ -738,6 +738,19 @@ wonder why those fields are missing from the overlay.
 
 ## Summoning
 
+**Hit points (summon stat blocks).** `parseHitDice` handles one pool (`6d8+18`), the fractional
+form (`1/2d6-1`), several flat terms (`7d8+7+9`) and mixed pools (`8d10+7d8+75` — racial Hit Dice
+plus class levels); `averageHpForPools` averages each pool at its own die (identical to
+`averageHp` for one pool). A creature's explicit `hitPoints` field beats anything computed —
+**except** where a template changed its Constitution: Greenbound (d8 Hit Dice, new Con) and the
+young/advanced/giant templates still compute their own HP, since the printed total no longer
+describes that creature. Printed AC bonuses carried in an `equipment` array (the celestial
+charger's bracers of armor) are not added to AC by the builder.
+
+**Next round.** The Summons Out overview has a **Next round** button (`advanceSummonRound`) that
+takes one round off every active group at once, from either builder; groups at 0 stay at 0 and
+read "expired". The per-group stepper stays for corrections.
+
 **Sizes are normalised on read.** 3.0 books print "Medium-Size"; `normalizeSize()`
 (`rules/dnd35.js`) trims, drops a `-size` suffix and matches case-insensitively, and
 `loadCreatureData.js` applies it to every creature (and Quen) at load. Every size lookup
@@ -1492,6 +1505,48 @@ Blindsight←Blindsight, Jagged Tooth←Keen Edge).
 - A few `otherPrintings` links are still one-directional (e.g. `spell-compendium.json`'s
   Buoyant Lifting, Countermoon, and Plant Body entries don't yet link back to their Savage
   Species printings) — sweep for and close these gaps.
+
+---
+
+## Creature extraction conventions — DECIDED
+
+**Lowest SNA level wins, no exceptions (Nov 2026), matching the spell convention above.** When a
+creature is on summon nature's ally lists at different levels in different sources,
+`summonNaturesAllyLevel` holds the LOWEST printed level (so it can be summoned at the most
+favorable cost) and every higher printing goes in an `otherPrintings` array on the creature as
+`{ source, page, summonNaturesAllyLevel }`. An entry is added only where printings disagree.
+If the entry's own level is already the lowest, the other source is recorded and the level is
+untouched; if another source is lower, the level drops to it and the former value is recorded.
+The rule is applied uniformly across `data/creatures/`, with no per-creature carve-outs.
+
+Sources compared so far: Player's Handbook v3.5 (p.288, levels 1-9) and Dragon Magazine #302
+(p.28). **Dragon #302's table is a CR-sorted rebalance, not a reprint of the PHB list**, which is
+why it disagrees with the PHB so broadly (most creatures sit one level apart, in both
+directions); disagreements are expected, not extraction errors. Sweep result: 13 creatures drop
+to the #302 level (Nixie 2, Grig 2, Flamebrother Salamander 3, Girallon, Djinni, Average
+Salamander, Baleen Whale and the plain pixie 5, Cachalot Whale and Triceratops 6, Dire Shark,
+Noble Salamander and Elder Tojanida 7); 37 keep their PHB level with #302's higher level recorded.
+
+Creatures on only one list take that list's level: Dog (I) and Pegasus (IV) appear only in #302,
+so their level comes from it, with no `otherPrintings` entry.
+
+**Pixie decision.** #302 lists one "Sprite, pixie" at V with no arrow distinction, while the PHB
+splits it across VI, VII and IX by arrow type. The rule is applied to the base variant only: the
+plain pixie drops to 5 (PHB 6 recorded). The sleep-arrow (7) and memory-loss-arrow (9) variants
+keep their PHB levels with no `otherPrintings`, since #302 says nothing about them. Each entry's
+`note` records this.
+
+**Summon Fey and the pixie.** Only `Pixie (sleep and memory loss arrows)` — the full printed pixie
+with both arrow types and Otto's irresistible dance — carries `summonedBy: ["Summon Fey"]`. The
+no-arrows and sleep-arrows-only variants are SNA-specific constructs, not printed creatures, so
+they have no `summonedBy` tag.
+
+**Mixed Hit Dice.** When a printed Hit Dice line uses more than one die pool (the celestial
+charger's `8d10+7d8+75`), `hitDice` keeps the printed string verbatim, `hitPoints` carries the
+printed total, and a `note` says the line is mixed. `parseHitDice` reads every dice pool in the
+string (`pools`, `count` = total dice, `die` = the biggest pool's die, `mod` = summed flat
+terms), so such a creature builds; and an explicit `hitPoints` is preferred over any computed
+figure (see "Hit points" in Summoning). Gear that accounts for printed AC is listed in an `equipment` array.
 
 ---
 

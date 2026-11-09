@@ -73,6 +73,18 @@ export function updateSummonDuration(state, summonId, remainingRounds) {
   }
 }
 
+// One round passes for every active summon group at once, whichever builder
+// cast it. A group already at 0 stays at 0 (the per-group stepper is still
+// there for corrections in either direction).
+export function advanceSummonRound(state) {
+  return {
+    ...state,
+    activeSummons: state.activeSummons.map((s) =>
+      s.remainingRounds > 0 ? { ...s, remainingRounds: s.remainingRounds - 1 } : s,
+    ),
+  }
+}
+
 export function removeActiveSummon(state, summonId) {
   return { ...state, activeSummons: state.activeSummons.filter((s) => s.id !== summonId) }
 }

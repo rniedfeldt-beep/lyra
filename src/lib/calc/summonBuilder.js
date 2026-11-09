@@ -6,6 +6,7 @@ import {
   stepDamageDie,
   parseHitDice,
   averageHp,
+  averageHpForPools,
   averageDamage,
   druidLevel,
   monsterBaseSaves,
@@ -161,16 +162,23 @@ function applyGreenbound(intermediate, creature, greenboundTemplate) {
 
 // No Greenbound: no type change, no ability/NA boost, no gained slam, HP
 // uses the creature's own hit die (not forced to d8).
-function skipGreenbound(intermediate, creature, { printedHp = false } = {}) {
-  const { count: hdCount, die } = parseHitDice(creature.hitDice)
+function skipGreenbound(intermediate, creature, { printedHp = false, templated = false } = {}) {
+  const { pools } = parseHitDice(creature.hitDice)
   const conMod = abilityMod(intermediate.abilities.con)
+  // An explicit printed hit point total beats anything worked out from the
+  // Hit Dice line — unless a size template changed the creature's Constitution
+  // and so its hit points, in which case the printed total no longer applies.
+  let hp
+  if (creature.hitPoints != null && !templated) hp = creature.hitPoints
+  // A spell's creature appears exactly as printed, so its HP is the Hit
+  // Dice line's own figure (Toughness and the like included).
+  else if (printedHp) hp = printedAverageHp(creature.hitDice)
+  else hp = averageHpForPools(pools, conMod)
   return {
     size: intermediate.size,
     abilities: intermediate.abilities,
     naturalArmor: intermediate.naturalArmor,
-    // A spell's creature appears exactly as printed, so its HP is the Hit
-    // Dice line's own figure (Toughness and the like included).
-    hp: printedHp ? printedAverageHp(creature.hitDice) : averageHp(hdCount, die, conMod),
+    hp,
     naturalAttacks: intermediate.attacks,
     slamAttack: null,
     type: creature.type,
@@ -275,7 +283,7 @@ export function computeSummonStatBlock({
   const afterSimple = applySimpleTemplate(creature, templateId, simpleTemplates)
   const final = greenboundEligible
     ? applyGreenbound(afterSimple, creature, greenboundTemplate)
-    : skipGreenbound(afterSimple, creature, { printedHp: spell != null })
+    : skipGreenbound(afterSimple, creature, { printedHp: spell != null, templated: templateId != null })
 
   const featBonuses = collectSummonFeatBonuses(sheet.feats)
   const durationMultiplier = flags.ashbound ? featBonuses.durationMultiplier : 1

@@ -76,36 +76,60 @@ export function stepSize(size, steps) {
   return SIZE_ORDER[next]
 }
 
-// Parses a hit-dice string like "6d8+18" or the fractional "1/2d8" form used
-// for Tiny/Fine animals into { count, die, mod }. count is a number (0.5 for
-// the fractional form). Either form can carry a modifier ("1/2d6-1",
-// Jermlaine), and a modifier can be printed as separate terms ("7d8+7+9" —
-// Con plus three Toughness feats) which are summed.
+// Parses a Hit Dice string into { count, die, mod, pools }.
+//  - "6d8+18" — one pool and a flat modifier.
+//  - "1/2d6-1" — the fractional form (Tiny/Fine animals), count 0.5.
+//  - "7d8+7+9" — separate flat terms are summed (Con plus Toughness).
+//  - "8d10+7d8+75" — mixed pools (racial Hit Dice plus class levels): every
+//    pool is read and listed in `pools`; `count` is the total number of dice
+//    and `die` the size of the biggest pool.
 export function parseHitDice(hitDice) {
-  const sumMods = (mods) => (mods ? (mods.match(/[+-]\d+/g) ?? []).reduce((a, m) => a + Number(m), 0) : 0)
-  const fractional = hitDice.match(/^(\d+)\/(\d+)d(\d+)((?:[+-]\d+)*)$/)
-  if (fractional) {
-    const [, num, den, die, mods] = fractional
-    return { count: Number(num) / Number(den), die: Number(die), mod: sumMods(mods) }
+  const text = String(hitDice ?? '').replace(/\s+/g, '')
+  const term = /([+-]?)(?:(\d+)(?:\/(\d+))?d(\d+)|(\d+))/y
+  const pools = []
+  let mod = 0
+  let at = 0
+  while (at < text.length) {
+    term.lastIndex = at
+    const m = term.exec(text)
+    // After the first term every term needs its sign ("7d8+75", not "7d875").
+    if (!m || (at > 0 && !m[1])) throw new Error(`Unrecognized hit dice format "${hitDice}"`)
+    const sign = m[1] === '-' ? -1 : 1
+    if (m[4] != null) {
+      pools.push({ count: (sign * Number(m[2])) / Number(m[3] ?? 1), die: Number(m[4]) })
+    } else {
+      mod += sign * Number(m[5])
+    }
+    at = term.lastIndex
   }
-  const match = hitDice.match(/^(\d+)d(\d+)((?:[+-]\d+)*)$/)
-  if (!match) throw new Error(`Unrecognized hit dice format "${hitDice}"`)
-  const [, count, die, mods] = match
-  return { count: Number(count), die: Number(die), mod: sumMods(mods) }
+  if (pools.length === 0) throw new Error(`Unrecognized hit dice format "${hitDice}"`)
+  const count = pools.reduce((n, p) => n + p.count, 0)
+  const die = pools.reduce((best, p) => (p.count > best.count ? p : best), pools[0]).die
+  return { count, die, mod, pools }
 }
 
-// Average hit points exactly as the Hit Dice line prints them: the dice
-// average plus the printed flat modifier (so Toughness and the like are
+// Average hit points exactly as the Hit Dice line prints them: each pool's
+// dice average plus the printed flat modifier (so Toughness and the like are
 // included, unlike averageHp below, which rebuilds the bonus from Con).
 export function printedAverageHp(hitDice) {
-  const { count, die, mod } = parseHitDice(hitDice)
-  return Math.max(1, Math.floor(count * (die / 2 + 0.5)) + mod)
+  const { pools, mod } = parseHitDice(hitDice)
+  const dice = pools.reduce((n, p) => n + Math.floor(p.count * (p.die / 2 + 0.5)), 0)
+  return Math.max(1, dice + mod)
 }
 
 // Average hit points for a full set of HD at a given die size and Con mod,
 // using the standard floor(count * (die/2 + 0.5)) + count * conMod approach.
 export function averageHp(hdCount, die, conMod) {
   return Math.floor(hdCount * (die / 2 + 0.5)) + Math.round(hdCount * conMod)
+}
+
+// The same for a Hit Dice string that may mix dice (8d10+7d8): each pool's
+// average at its own die, plus the Con bonus on every die. For a single pool
+// this is exactly averageHp.
+export function averageHpForPools(pools, conMod) {
+  const count = pools.reduce((n, p) => n + p.count, 0)
+  const dice = pools.reduce((n, p) => n + Math.floor(p.count * (p.die / 2 + 0.5)), 0)
+  return dice + Math.round(count * conMod)
 }
 
 const DAMAGE_DIE_LADDER = ['1d2', '1d3', '1d4', '1d6', '1d8', '2d6', '2d8', '3d6', '3d8']

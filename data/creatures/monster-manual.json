@@ -48,7 +48,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 2
+      }
+    ]
   },
   {
     "name": "Dire Wolf",
@@ -101,7 +108,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 4
+      }
+    ]
   },
   {
     "name": "Dire Bat",
@@ -150,7 +164,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Dire Rat",
@@ -263,7 +284,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Dire Wolverine",
@@ -324,7 +352,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Crocodile",
@@ -383,7 +418,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Brown Bear",
@@ -443,7 +485,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Eagle",
@@ -546,7 +595,7 @@
     "challengeRating": 0.33,
     "isCanine": true,
     "feywildNative": false,
-    "summonNaturesAllyLevel": null,
+    "summonNaturesAllyLevel": 1,
     "wildShapeMinLevel": 5,
     "lyraFamiliar": true
   },
@@ -712,7 +761,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 1,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 2
+      }
+    ]
   },
   {
     "name": "Owl",
@@ -917,7 +973,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Dire Badger",
@@ -978,7 +1041,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": 5,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Elemental, Small Air",
@@ -1030,7 +1100,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Elemental, Small Earth",
@@ -1081,7 +1158,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Elemental, Small Fire",
@@ -1134,7 +1218,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Elemental, Small Water",
@@ -1186,7 +1277,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": true
+    "lyraFamiliar": true,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 3
+      }
+    ]
   },
   {
     "name": "Hippogriff",
@@ -1573,7 +1671,14 @@
     "skills": "Knowledge (nature) +2, Listen +6, Sense Motive +4, Spot +15, Survival +3",
     "appearance": "This immense bird of prey resembles its smaller mundane cousins in nearly every respect except size — it stands about 10 feet tall, has a wingspan of up to 20 feet, and weighs about 500 pounds.",
     "behavior": "It is intelligent and sometimes associates with good creatures, generally ignoring anything that doesn't appear threatening; it attacks whatever seems to endanger it, especially nest raiders, typically diving from a great height to strike with talons and beak.",
-    "appearanceGreenbound": "Its feathers have become layered plates of thin bark interwoven with trailing moss, thickest along its powerful wings, and small branches now sprout from its shoulders and the ridge of its neck. Its talons have hardened into curved black thorns, and its eyes hold a faint green glow."
+    "appearanceGreenbound": "Its feathers have become layered plates of thin bark interwoven with trailing moss, thickest along its powerful wings, and small branches now sprout from its shoulders and the ridge of its neck. Its talons have hardened into curved black thorns, and its eyes hold a faint green glow.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 4
+      }
+    ]
   },
   {
     "name": "Lion",
@@ -1633,7 +1738,14 @@
     "lyraFamiliar": true,
     "skills": "Balance +7, Hide +3 (improves to +12 in tall grass or heavy undergrowth), Listen +5, Move Silently +11, Spot +5",
     "appearance": "This male African lion is five to eight feet long and weighs 330 to 550 pounds; females are slightly smaller but built the same way, all lean muscle beneath a tawny coat.",
-    "appearanceGreenbound": "Its tawny coat has become a mane and pelt of dry moss and curling vine-leaves, thickest around its head and shoulders, and small woody branches now push from along its spine and haunches. Its claws have hardened into curved thorns, and its once-golden eyes now hold a faint green glow."
+    "appearanceGreenbound": "Its tawny coat has become a mane and pelt of dry moss and curling vine-leaves, thickest around its head and shoulders, and small woody branches now push from along its spine and haunches. Its claws have hardened into curved thorns, and its once-golden eyes now hold a faint green glow.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 4
+      }
+    ]
   },
   {
     "name": "Owl, Giant",
@@ -1690,7 +1802,14 @@
     "skills": "Knowledge (nature) +2, Listen +17, Move Silently +8 (an additional +8 bonus while in flight), Spot +10",
     "appearance": "This giant owl resembles its smaller cousins in nearly every way but size, standing about 9 feet tall with a wingspan of up to 20 feet.",
     "behavior": "It is a nocturnal hunter feared for its ability to strike in near silence; intelligent but naturally suspicious, it sometimes associates with good creatures, and it attacks by gliding just above its prey before plunging down when directly overhead.",
-    "appearanceGreenbound": "Its feathers have become overlapping plates of pale, papery bark interwoven with moss, thickest across its broad wings, and small branches now sprout from behind its rounded facial disc. Its talons have hardened into curved thorns, and its great eyes hold a faint glow like twin seed pods catching the light."
+    "appearanceGreenbound": "Its feathers have become overlapping plates of pale, papery bark interwoven with moss, thickest across its broad wings, and small branches now sprout from behind its rounded facial disc. Its talons have hardened into curved thorns, and its great eyes hold a faint glow like twin seed pods catching the light.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 4
+      }
+    ]
   },
   {
     "name": "Satyr (without pipes)",
@@ -2072,7 +2191,14 @@
     "skills": "Hide +1 (+4 in water, plus a +10 cover bonus when only its eyes and nostrils show above the waterline), Listen +5, Spot +5, Swim +16",
     "appearance": "This huge crocodile usually lives in salt water and can grow to more than 20 feet long, dwarfing its smaller cousins but sharing their armored, powerful build.",
     "behavior": "It fights and behaves just like a smaller crocodile, lying mostly submerged with only its eyes and nostrils showing while it waits for prey to come within reach.",
-    "appearanceGreenbound": "Its armored hide has become a shell of thick, waterlogged bark plates trailing long streamers of moss, and small branches now push from along its powerful tail. Its teeth have hardened into rows of pale thorns, and its eyes hold a faint glow just above the waterline."
+    "appearanceGreenbound": "Its armored hide has become a shell of thick, waterlogged bark plates trailing long streamers of moss, and small branches now push from along its powerful tail. Its teeth have hardened into rows of pale thorns, and its eyes hold a faint glow just above the waterline.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Deinonychus",
@@ -2250,7 +2376,14 @@
     "skills": "Listen +8, Spot +8",
     "appearance": "This giant boar has an arched back as tall as a human, spiny armor across its head and back, great gleaming tusks, and small, furious eyes. It grows up to 12 feet long and weighs as much as 2,000 pounds.",
     "behavior": "It spends most of its time rooting around much like an ordinary pig, but viciously attacks anything that approaches it, charging opponents in an attempt to rip them open with its tusks.",
-    "appearanceGreenbound": "Its spiny armored hide has become plates of dark, gnarled bark bristling with small branches, and patches of moss now cling along its flanks. Its tusks have thickened into great curved thorns, and its small furious eyes hold a faint green glow."
+    "appearanceGreenbound": "Its spiny armored hide has become plates of dark, gnarled bark bristling with small branches, and patches of moss now cling along its flanks. Its tusks have thickened into great curved thorns, and its small furious eyes hold a faint green glow.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Elemental, Medium Air",
@@ -2303,7 +2436,14 @@
     "lyraFamiliar": true,
     "skills": "Listen +3, Spot +4",
     "appearance": "This creature appears to be an amorphous, shifting cloud surrounded by fast-moving currents of air, with darker twists of vapor suggesting two eyes and a mouth that may just be a trick of the swirling wind.",
-    "behavior": "It is among the swiftest and most agile of elementals, seldom leaving its home plane except when summoned, and its rapid speed makes it especially dangerous across open battlefields or in aerial combat."
+    "behavior": "It is among the swiftest and most agile of elementals, seldom leaving its home plane except when summoned, and its rapid speed makes it especially dangerous across open battlefields or in aerial combat.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Elemental, Medium Earth",
@@ -2355,7 +2495,14 @@
     "lyraFamiliar": true,
     "skills": "Listen +4, Spot +3",
     "appearance": "This creature plods forward like a walking hill, on two featureless legs of rock and earth, with clublike arms of jagged stone swinging at its sides and a featureless head staring blankly ahead.",
-    "behavior": "It is immensely strong and tough, capable of pounding almost anything into rubble, and though it moves slowly it is a relentless opponent; it cannot swim and must walk around or glide beneath any body of water."
+    "behavior": "It is immensely strong and tough, capable of pounding almost anything into rubble, and though it moves slowly it is a relentless opponent; it cannot swim and must walk around or glide beneath any body of water.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Elemental, Medium Fire",
@@ -2409,7 +2556,14 @@
     "lyraFamiliar": true,
     "skills": "Listen +3, Spot +4",
     "appearance": "This mass of ambulatory flame races across the ground, flickering and sparking from a central, humanoid-shaped conflagration, like a living inferno of heat and flame.",
-    "behavior": "It is fast, agile, and fierce, attacking directly and savagely and taking joy in burning the creatures and objects of the Material Plane to ashes; it cannot enter water or any other nonflammable liquid."
+    "behavior": "It is fast, agile, and fierce, attacking directly and savagely and taking joy in burning the creatures and objects of the Material Plane to ashes; it cannot enter water or any other nonflammable liquid.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Elemental, Medium Water",
@@ -2462,7 +2616,14 @@
     "lyraFamiliar": true,
     "skills": "Listen +3, Spot +4",
     "appearance": "This creature is a rolling vortex of water that never seems to crash or lose its shape, waves cascading and storming around a central, humanoid-shaped whirlpool with watery appendages that pound like an ocean storm.",
-    "behavior": "It can be as ferocious and powerful as a stormy sea, preferring to fight in a large body of water where it can vanish beneath the waves and suddenly swell up behind its opponents; it cannot venture more than 180 feet from the water it was conjured from."
+    "behavior": "It can be as ferocious and powerful as a stormy sea, preferring to fight in a large body of water where it can vanish beneath the waves and suddenly swell up behind its opponents; it cannot venture more than 180 feet from the water it was conjured from.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Salamander, Flamebrother",
@@ -2517,13 +2678,20 @@
     "challengeRating": 3,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 4,
+    "summonNaturesAllyLevel": 3,
     "wildShapeMinLevel": null,
     "lyraFamiliar": true,
     "skills": "Craft (blacksmithing) +8, Hide +12, Listen +11, Move Silently +6, Spot +11",
     "appearance": "This being has a muscular humanoid upper body with a hawkish face, a serpentine lower body covered in red and black scales, and flame-shaped spines sprouting from its spine, arms, and head. It is the smallest of the salamanders.",
     "behavior": "It is selfish and cruel, enjoying the torment of others, and bloodthirsty and sadistic in a fight, quick to attack the strongest opponent first while saving weaker foes for slower, more agonizing treatment; it favors metal spears heated red-hot by its own furnacelike body.",
-    "appearanceGreenbound": "Its red and black scales have become mottled plates of dark bark threaded with charred-looking moss, and the flame-shaped spines along its spine and head have hardened into rows of dark thorns. Its serpentine lower body is now wrapped in trailing vines, and its eyes hold a faint green glow instead of firelight."
+    "appearanceGreenbound": "Its red and black scales have become mottled plates of dark bark threaded with charred-looking moss, and the flame-shaped spines along its spine and head have hardened into rows of dark thorns. Its serpentine lower body is now wrapped in trailing vines, and its eyes hold a faint green glow instead of firelight.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 4
+      }
+    ]
   },
   {
     "name": "Sea Cat",
@@ -2637,7 +2805,14 @@
     "skills": "Listen +10, Spot +10, Swim +13",
     "appearance": "This huge shark is a true monster of the deep, exceeding 20 feet in length, like a great white grown to nightmarish proportions.",
     "behavior": "It circles and observes potential prey before darting in to bite with its immense jaws, relying on scent and the ability to sense motion in the water to find a meal.",
-    "appearanceGreenbound": "Its gray hide has thickened into massive layered plates of pale bark, and huge streamers of waterlogged moss now trail from its fins the length of its body. Its teeth have hardened into rows of dense woody thorns, and its eyes have swollen into dark, glistening seed pods."
+    "appearanceGreenbound": "Its gray hide has thickened into massive layered plates of pale bark, and huge streamers of waterlogged moss now trail from its fins the length of its body. Its teeth have hardened into rows of dense woody thorns, and its eyes have swollen into dark, glistening seed pods.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Snake, Huge Viper",
@@ -2751,7 +2926,14 @@
     "lyraFamiliar": true,
     "skills": "Balance +6, Hide +3 (improves to +8 in tall grass or heavy undergrowth), Listen +3, Move Silently +9, Spot +3, Swim +11",
     "appearance": "This great cat stands more than 3 feet tall at the shoulder and is about 9 feet long, weighing 400 to 600 pounds.",
-    "appearanceGreenbound": "Its striped coat has become mottled plates of pale bark threaded with dark moss, thickest along its back and tail, and small branches now bristle from its shoulders and haunches. Its claws have hardened into curved black thorns, and its eyes hold a faint green glow."
+    "appearanceGreenbound": "Its striped coat has become mottled plates of pale bark threaded with dark moss, thickest along its back and tail, and small branches now bristle from its shoulders and haunches. Its claws have hardened into curved black thorns, and its eyes hold a faint green glow.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 5
+      }
+    ]
   },
   {
     "name": "Tojanida, Juvenile",
@@ -3229,7 +3411,14 @@
     "lyraFamiliar": false,
     "skills": "Listen +5, Spot +6",
     "appearance": "A Large air elemental looks like a churning, man-sized column of cloud and racing wind, with darker wisps of vapor swirling into the vague suggestion of eyes and a mouth.",
-    "behavior": "Air elementals are among the swiftest and most agile creatures in existence, rarely leaving their home plane except when summoned; their speed makes them formidable on open battlefields or in extended aerial combat."
+    "behavior": "Air elementals are among the swiftest and most agile creatures in existence, rarely leaving their home plane except when summoned; their speed makes them formidable on open battlefields or in extended aerial combat.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Elemental, Large Earth",
@@ -3284,7 +3473,14 @@
     "lyraFamiliar": false,
     "skills": "Listen +6, Spot +5",
     "appearance": "A Large earth elemental plods forward on two thick, featureless legs of packed stone and soil, its blocky arms of jagged rock swinging at its sides beneath a featureless, staring head.",
-    "behavior": "Though slow, an earth elemental is a relentless opponent that can pound nearly anything to rubble; it rarely leaves its home plane except when summoned elsewhere."
+    "behavior": "Though slow, an earth elemental is a relentless opponent that can pound nearly anything to rubble; it rarely leaves its home plane except when summoned elsewhere.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Elemental, Large Fire",
@@ -3342,7 +3538,14 @@
     "lyraFamiliar": false,
     "skills": "Listen +5, Spot +6",
     "appearance": "A Large fire elemental is a roaring, roughly humanoid mass of flame that flickers and sparks as it moves, radiating heat like a walking bonfire.",
-    "behavior": "Fire elementals are quick and fierce combatants that delight in setting the creatures and objects of the Material Plane ablaze, attacking directly and savagely rather than with any subtlety."
+    "behavior": "Fire elementals are quick and fierce combatants that delight in setting the creatures and objects of the Material Plane ablaze, attacking directly and savagely rather than with any subtlety.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Elemental, Large Water",
@@ -3401,7 +3604,14 @@
     "lyraFamiliar": false,
     "skills": "Listen +5, Spot +6",
     "appearance": "A Large water elemental is a rolling, ever-shifting vortex of water shaped roughly like a humanoid, its surface constantly cascading and churning like a small storm at sea.",
-    "behavior": "A water elemental prefers to fight from within a large body of water, where it can vanish beneath the surface and swell up suddenly behind its foes; it can also swamp small boats and slow larger ships that cross its path."
+    "behavior": "A water elemental prefers to fight from within a large body of water, where it can vanish beneath the surface and swell up suddenly behind its foes; it can also swamp small boats and slow larger ships that cross its path.",
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Griffon",
@@ -3747,7 +3957,7 @@
     "challengeRating": 1,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": 5,
+    "summonNaturesAllyLevel": 2,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
     "skills": "Bluff +8, Craft (any one) +5, Escape Artist +6, Handle Animal +8, Hide +7*, Listen +6, Perform (sing) +7, Search +3, Sense Motive +5, Spot +6, Swim +6 (*+5 racial bonus on Hide checks in the water)",
@@ -3756,6 +3966,13 @@
     "appearanceGreenbound": "The nixie's pale green scaled skin has become a mosaic of moss and thin bark over pulpy, fibrous limbs, and her dark green hair now trails as living vine threaded with tiny water-lily blossoms. Her webbed fingers have lengthened into slender, leaf-tipped twigs.",
     "summonedBy": [
       "Summon Fey"
+    ],
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 5
+      }
     ]
   },
   {
@@ -4032,7 +4249,7 @@
     "challengeRating": 3,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": null,
+    "summonNaturesAllyLevel": 4,
     "wildShapeMinLevel": 8,
     "lyraFamiliar": true,
     "skills": "Diplomacy +3, Listen +8, Sense Motive +9, Spot +8",
@@ -4494,13 +4711,20 @@
     "challengeRating": 1,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": 9,
+    "summonNaturesAllyLevel": 2,
     "summonedBy": [
       "Summon Fey"
     ],
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. The summon nature's ally IX grig carries the fiddle (one grig in each band has one). Sprite is the Monster Manual's family heading for grig, nixie and pixie, not a separate creature; sprites share a +2 racial bonus on Search, Spot and Listen, already counted in the printed skills. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable)."
+    "note": "Fey, so never a wild shape form. The summon nature's ally IX grig carries the fiddle (one grig in each band has one). Sprite is the Monster Manual's family heading for grig, nixie and pixie, not a separate creature; sprites share a +2 racial bonus on Search, Spot and Listen, already counted in the printed skills. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 9
+      }
+    ]
   },
   {
     "name": "Dire Bear",
@@ -4672,7 +4896,7 @@
       }
     ],
     "specialAttacks": [
-      "rend (Ex -- a girallon that hits with two or more claw attacks latches on and tears flesh for an automatic extra 2d4+9 damage)"
+      "rend (Ex -- a girallon that hits with two or more claw attacks latches onto the opponent's body and tears the flesh, automatically dealing an extra 2d4+12 damage)"
     ],
     "specialQualities": [
       "darkvision 60 ft.",
@@ -4690,10 +4914,17 @@
     "challengeRating": 6,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 6,
+    "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "The printed stat block gives rend as 2d4+9 (1.5 x Str 22); the combat text prints 2d4+12. The stat block value is used. Toughness is taken twice."
+    "note": "Rend is a separate Ex ability that adds 2d4+12 damage on top of the normal claw and bite attacks when two or more claws hit; it is not one of the listed attacks. Toughness is taken twice.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Megaraptor",
@@ -4874,10 +5105,17 @@
     "challengeRating": 6,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 6,
+    "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken twice."
+    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken twice.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Salamander, Average",
@@ -4938,10 +5176,17 @@
     "challengeRating": 6,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 6,
+    "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. The spear's extra fire damage is 1d6."
+    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. The spear's extra fire damage is 1d6.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 6
+      }
+    ]
   },
   {
     "name": "Xorn, Average",
@@ -5066,12 +5311,16 @@
     "challengeRating": 4,
     "isCanine": false,
     "feywildNative": true,
-    "summonNaturesAllyLevel": 6,
+    "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. The summon nature's ally VI pixie: no special arrows and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
-    "summonedBy": [
-      "Summon Fey"
+    "note": "Fey, so never a wild shape form. The summon nature's ally VI pixie: no special arrows and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). Dragon Magazine #302 lists a single pixie at summon nature's ally V with no distinction by arrow type. The lowest-level rule is applied to this base variant only, so it drops from the Player's Handbook's VI to V and the PHB level is kept in otherPrintings.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 6
+      }
     ]
   },
   {
@@ -5258,10 +5507,17 @@
     "challengeRating": 5,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 7,
+    "summonNaturesAllyLevel": 5,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Whirlwind and the plane shift wording are paraphrased. A noble djinni is CR 8 with extra abilities; only the standard djinni is the summon nature's ally VII creature. The printed plane shift line details were not recorded beyond the summary above."
+    "note": "Whirlwind and the plane shift wording are paraphrased. A noble djinni is CR 8 with extra abilities; only the standard djinni is the summon nature's ally VII creature. The printed plane shift line details were not recorded beyond the summary above.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Invisible Stalker",
@@ -5430,10 +5686,17 @@
     "challengeRating": 9,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 7,
+    "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Toughness is taken four times."
+    "note": "Toughness is taken four times.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Tyrannosaurus",
@@ -5547,10 +5810,17 @@
     "challengeRating": 7,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 7,
+    "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "May be summoned only into an aquatic or watery environment."
+    "note": "May be summoned only into an aquatic or watery environment.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Xorn, Elder",
@@ -5678,10 +5948,7 @@
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. The summon nature's ally VII pixie: sleep arrows only and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
-    "summonedBy": [
-      "Summon Fey"
-    ]
+    "note": "Fey, so never a wild shape form. The summon nature's ally VII pixie: sleep arrows only and cannot cast Otto's irresistible dance. Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). Dragon Magazine #302 lists a single pixie at summon nature's ally V with no distinction by arrow type, so it says nothing about this variant. It keeps its Player's Handbook level and has no otherPrintings entry."
   },
   {
     "name": "Roc",
@@ -5808,10 +6075,17 @@
     "challengeRating": 10,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 8,
+    "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. Treasure is double standard (nonflammables only) and a longspear."
+    "note": "Salamanders have Multiattack despite lacking the usual three natural weapons. Treasure is double standard (nonflammables only) and a longspear.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Shark, Dire",
@@ -5861,10 +6135,17 @@
     "challengeRating": 9,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 8,
+    "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken four times."
+    "note": "May be summoned only into an aquatic or watery environment. Toughness is taken four times.",
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Tojanida, Elder",
@@ -5929,9 +6210,16 @@
     "challengeRating": 9,
     "isCanine": false,
     "feywildNative": false,
-    "summonNaturesAllyLevel": 8,
+    "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Player's Handbook v3.5",
+        "page": 288,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Unicorn, Celestial Charger",
@@ -5939,7 +6227,7 @@
     "page": 250,
     "size": "Large",
     "type": "Magical Beast",
-    "hitDice": "15d8+75",
+    "hitDice": "8d10+7d8+75",
     "speed": {
       "land": 60
     },
@@ -6005,7 +6293,11 @@
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "The printed Hit Dice are 8d10+7d8+75 (an 8 HD unicorn plus 7 cleric levels), which can't be written as a single dice string here; 15d8+75 is a stand-in, so hit points will not match the printed 155. The printed AC of 24 includes +5 bracers of armor +5, which are not part of this entry. Printed BAB +13 is 8 (magical beast HD) plus 5 (cleric)."
+    "note": "The Hit Dice line is mixed: the printed string 8d10+7d8+75 is an 8 HD unicorn plus 7 cleric levels, so it is kept verbatim and hit points are given explicitly as the printed total (hitPoints 155). Printed BAB +13 is 8 (magical beast HD) plus 5 (cleric). The printed AC of 24 is 10 -1 size +4 Dex +6 natural armor +5 bracers of armor +5 (see equipment).",
+    "hitPoints": 155,
+    "equipment": [
+      "bracers of armor +5 (+5 armor bonus to AC; accounts for the printed AC 24 with size, Dex and natural armor)"
+    ]
   },
   {
     "name": "Pixie (sleep and memory loss arrows)",
@@ -6069,7 +6361,7 @@
     "summonNaturesAllyLevel": 9,
     "wildShapeMinLevel": null,
     "lyraFamiliar": false,
-    "note": "Fey, so never a wild shape form. The summon nature's ally IX pixie: sleep and memory loss arrows, and can cast Otto's irresistible dance (CR 5 with it). Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable).",
+    "note": "Fey, so never a wild shape form. The summon nature's ally IX pixie: sleep and memory loss arrows, and can cast Otto's irresistible dance (CR 5 with it). Also reachable through Summon Fey (Kingdoms of Kalamar p.188, Drd 1, scalable). Dragon Magazine #302 lists a single pixie at summon nature's ally V with no distinction by arrow type, so it says nothing about this variant. It keeps its Player's Handbook level and has no otherPrintings entry.",
     "summonedBy": [
       "Summon Fey"
     ]
@@ -6131,7 +6423,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Elemental, Greater Air",
@@ -6192,7 +6491,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Elemental, Elder Air",
@@ -6312,7 +6618,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Elemental, Greater Earth",
@@ -6372,7 +6685,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Elemental, Elder Earth",
@@ -6493,7 +6813,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Elemental, Greater Fire",
@@ -6555,7 +6882,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Elemental, Elder Fire",
@@ -6677,7 +7011,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 6,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 7
+      }
+    ]
   },
   {
     "name": "Elemental, Greater Water",
@@ -6738,7 +7079,14 @@
     "feywildNative": false,
     "summonNaturesAllyLevel": 7,
     "wildShapeMinLevel": null,
-    "lyraFamiliar": false
+    "lyraFamiliar": false,
+    "otherPrintings": [
+      {
+        "source": "Dragon Magazine #302",
+        "page": 28,
+        "summonNaturesAllyLevel": 8
+      }
+    ]
   },
   {
     "name": "Elemental, Elder Water",

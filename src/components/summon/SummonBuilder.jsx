@@ -3,6 +3,7 @@ import { useLiveState } from '../../lib/liveState/LiveStateContext'
 import {
   addActiveSummon,
   updateSummonDuration,
+  advanceSummonRound,
   removeActiveSummon,
   updateSummonMember,
   setSummonAbilityUsed,
@@ -500,6 +501,7 @@ function summonSourceLabel(summon) {
 
 // Everything currently out, from either builder, in one place.
 function ActiveSummonOverview({ groups }) {
+  const { update } = useLiveState()
   const alive = (g) => g.members.filter((m) => m.status === 'active').length
   const total = groups.reduce((n, g) => n + alive(g), 0)
   return (
@@ -508,6 +510,17 @@ function ActiveSummonOverview({ groups }) {
       title="Summons Out"
       subtitle={`${total} creature${total === 1 ? '' : 's'} in ${groups.length} group${groups.length === 1 ? '' : 's'}`}
     >
+      <div className="summon-overview-controls">
+        <button
+          type="button"
+          className="summon-button"
+          disabled={groups.every((g) => g.remainingRounds <= 0)}
+          onClick={() => update((st) => advanceSummonRound(st))}
+        >
+          Next round
+        </button>
+        <span className="note">Takes a round off every group below.</span>
+      </div>
       <ul className="summon-overview">
         {groups.map((g) => (
           <li key={g.id}>
@@ -515,7 +528,7 @@ function ActiveSummonOverview({ groups }) {
               {g.label} <span className="note">×{alive(g)}</span>
             </span>
             <span className="note">
-              {summonSourceLabel(g)} · {g.remainingRounds} rd left
+              {summonSourceLabel(g)} · {g.remainingRounds > 0 ? `${g.remainingRounds} rd left` : 'expired'}
             </span>
           </li>
         ))}
