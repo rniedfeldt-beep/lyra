@@ -156,7 +156,8 @@ saved state, and is never read for those fields again. The live character has si
 Holds: name/race/classes, `trueBaseAbilityScores` (Str 10, Dex 18, Con 12, Int 16, **Wis 19**,
 Cha 11), `abilityAdjustments`, `hpRolls`, `skills` (ability + ranks + misc), `feats` (ids),
 `equipment` (item ids), speed (30 + 20 enhancement), `planarShepherdAbilities`, `wolfShaman`
-(Totem Transformation, Totemic Summons), `wildShape` config, `casterLevel`, `spellDcBase: 15`.
+(Totem Transformation, Totemic Summons), `wildShape` config (uses/day and the cost/unlock notes —
+the size/HD limits are computed, §7), `casterLevel`. Save-DC base is computed too (§5.3).
 
 Effective Wis is 20 (+1 inherent from the Fey Touched feat effect). The DM-gifted **Wis tome**
 (+2 inherent, "capped at +5 total inherent", one week of game time to read) is in
@@ -199,7 +200,9 @@ coincidence. Both were fixed together (DM-confirmed).
 a deliberate simplification) → `computeSaves` (base + ability + feat `save_bonus`) →
 `computeAC` (10 + equipped items by `acBonusType` + Dex capped by armor max Dex) →
 `computeSkills` → `computeSpellSlots` → `computeAttackRoutine`. Caster level, `druidLevel` and
-`classes` are recomputed from level every time, so they can't drift.
+`classes` are recomputed from level every time, so they can't drift. So are the **spell save DC
+base** (`10 + Wis mod`; a spell's DC adds its level, so the pending Wis tome moves every DC) and
+the **wild shape size/HD limits** (§7). Spell attack bonus (BAB + Wis mod) is computed too.
 
 - **Spell slots** (`calc/spellSlots.js`): base from `src/data/tables/spellSlotsBase.json` (PHB
   druid table, **indexed by character level** — house rule) + `bonusSpellsForLevel(Wis mod)`.
@@ -235,7 +238,10 @@ Fields: `level`, `xp`, `hpRolls[{level,roll}]`, `skills`, `trueBaseAbilityScores
   1. **HP**: a d8 roll stored as its own `{level, roll}` (free-form input, clamped on blur).
   2. **Ability increase** at levels 4/8/12/16/20; an Int increase only gives skill points for
      *that* level, so the pool is computed against tentative scores including the pending pick.
-  3. **Skill points** = 4 + Int mod. **Max rank** (level+3, half for off-list) uses "class skill
+  3. **Skill points** = 4 + Int mod. **Any skill can take ranks**: the ones she already has an
+     entry for, plus a collapsed "Skills with no ranks yet" table of every other PHB skill (a first
+     rank creates the entry; Speak Language has no ability). The same cap/cost rules apply to all
+     (an off-list skill costs 2 and caps at half). **Max rank** (level+3, half for off-list) uses "class skill
      for ANY class" (union in `tables/classSkills.json`); **per-rank cost** (1 vs 2) uses only
      the class whose level is being taken (`classTakenAtLevel`: Druid 1–5, PS 6–15, Druid
      16–20). So Heal/Handle Animal/Ride/Knowledge(religion) cost 2 while PS levels stack in but
@@ -277,13 +283,13 @@ conversions without a counter.
 | Rule | Where |
 |---|---|
 | Spell slots, caster level, wild shape, companion scale with **character** level, not druid class level | `spellSlots.js`, `computeCharacterSheet`, `wildShape`, `companion.js` |
-| PS levels stack with druid for wild shape uses/HD/size/duration — **not** creature type access | `lyra.json` `wildShape`, `getEligibleWildShapeForms` |
+| PS levels stack with druid for wild shape uses/HD/size/duration — **not** creature type access. Max HD = character level; sizes: Small/Medium at 5, Large at 8, Tiny at 11, Diminutive at 13, Huge at 15 (a set, so no Tiny forms at 8–10) | `tables/wildShapeLimits.json`, `wildShapeLimits()`, `getEligibleWildShapeForms` |
 | Wild shape uses/day curve | `tables/wildShapeUsesPerDay.json` |
 | Feywild-native **magical beasts** from PS 3 (level 8); Feywild elementals/outsiders from PS 9 (level 14); elemental/outsider forms cost **2** uses; **fey forms never** (pixie, satyr) | creature `wildShapeMinLevel`, `wildShapeCost()` |
 | Below level 14 a form gives only **Ex** abilities (animals have no Su/Sp; others filter spell-likes + a `KNOWN_SU_ABILITIES` list) | `calc/wildShape.js` |
 | Totem Transformation = **permanent** +20 ft movement, no tracker; applies in base form and in `isCanine` wild shapes only | `lyra.json`, `wildShape.js` |
 | Totemic Summons: canine summons cast as a **standard action** and gain temp HP = **druid level**; canines only | `summonBuilder.js` |
-| **Greenbound Summoning applies to every SNA result except elementals** | `templates/greenbound.json`, `summonBuilder.js` |
+| **Greenbound Summoning applies to every SNA result except elemental-type creatures** — including paraelementals, thoqqua, Ice Serpent, Galeb Duhr, Invisible Stalker (typed `Elemental (…)`). The test is on the *bare* type, since subtypes are printed in parentheses | `templates/greenbound.json`, `isGreenboundEligible` |
 | Ashbound: SNA duration ×2, +3 luck attack | feat effects |
 | **None of those feats apply to Summon Fey / Dire Hawk / Elementite Swarm** (they name SNA only) — a per-spell flag so the DM can flip it | `tables/summonSpells.json` |
 | Young/advanced/giant = **Pathfinder rebuild rules**, canines only (never mix with MM size advances) | `templates/*.json` |
@@ -304,7 +310,11 @@ conversions without a counter.
 ## 7. Wild shape and the Anarchic overlay
 
 **Wild shape** (`calc/wildShape.js`, `WildShapeCalculator.jsx`). Eligible form = creature has
-`wildShapeMinLevel ≤ level`, `lyraFamiliar`, size ≤ max size, HD ≤ max HD. `lyraFamiliar` gates
+`wildShapeMinLevel ≤ level`, `lyraFamiliar`, size in the allowed-size set, HD ≤ max HD — both from
+`wildShapeLimits(level, tables/wildShapeLimits.json)`, computed in `computeCharacterSheet` onto
+`character.wildShape` (`maxHd`, `allowedSizes`, `maxSize` for display). Max HD = character level. Sizes
+unlock Small/Medium 5, Large 8, Tiny 11, Diminutive 13, Huge 15; it is a *set*, so Tiny forms (cat, owl,
+raven, tressym…) vanish from the picker at 8–10 and Diminutive (bat, toad) arrive at 13. `lyraFamiliar` gates
 *only* wild shape (common Greyhawk animals, anything on an SNA list she can cast, DM-approved
 Feywild forms) — summoning has no familiarity requirement and uses a separate filter
 (`getSummonableCreatures`). Canine forms are grouped first in the picker.
@@ -371,7 +381,8 @@ write-up in the Reference tab.
 
 ### 8.2 Pipeline (`calc/summonBuilder.js`, `computeSummonStatBlock`)
 1. **Simple template** (young/advanced/giant), canines only.
-2. **Greenbound**, unless the base creature is an elemental.
+2. **Greenbound**, unless the base creature is of elemental *type* (bare type, subtypes ignored —
+   `Elemental (Earth, Fire)` is excluded just like `Elemental`).
 3. **Ashbound** and **Totemic Summons**, independent of step 2.
 Size resolves first: Greenbound's slam-vs-natural-weapon comparison runs at final size.
 
@@ -631,6 +642,9 @@ the filtered sentences on spell-summon stat blocks), `otherPrintings`, `summoned
   `Pixie (sleep and memory loss arrows)` SNA IX (also has Otto's irresistible dance). Only the
   last — the full printed pixie — carries `summonedBy: ["Summon Fey"]`; the others are
   SNA-specific constructs.
+- **The lowest-level rule has no carve-outs, so a creature keeps its full printed abilities at
+  that level.** Grig sits at SNA II (PHB IX recorded) *with* its fiddle; its note must not claim
+  otherwise.
 - **`summonedBy` values must equal a spell `name` in `summonSpells.json`.**
 - **Mixed Hit Dice** keep the printed `hitDice` string verbatim, add `hitPoints`, and a `note`.
 - `isCanine` drives the +20 ft speed, young/advanced/giant availability and Totemic Summons.
@@ -786,15 +800,6 @@ heights or sticky headers land at the wrong offset (`partySection.css` stacks th
 - Spell-card tool: composer, paste parser, Supabase persistence, auto-fit, print sheets.
 
 **Known gaps — real, not hypothetical**
-- **Wild shape size/HD caps don't scale.** `lyra.json` `wildShape.maxSize` (Large) and `maxHd`
-  (8) are static; only `usesPerDay` updates at level-up. Past level 8 the HD cap should rise
-  (effective druid level = character level) and Huge arrives at 15.
-- **`spellDcBase: 15` is static** (the spell-slot summary and per-level DCs read it), so the
-  Wis tome or any Wis change won't update save DCs — spell *attack* bonus is computed.
-- **Paraelementals/Thoqqua/Ice Serpent/Galeb Duhr get Greenbound in the SNA builder**: only a
-  bare `"Elemental"` type is excluded there (the new builder uses the bare type). Ask the DM
-  which is intended before "fixing".
-- Level-up can't buy a first rank in a skill she has no entry for.
 - Summon builder doesn't add `equipment` AC (celestial charger) or creature feats (Improved
   Initiative) to its stat block.
 - SNA VI–IX creatures can't be cast in the UI until Lyra has slots that high.
@@ -814,5 +819,3 @@ heights or sticky headers land at the wrong offset (`partySection.css` stacks th
 2. **Wolf Shaman bonus feats** at druid 13/17 are unreachable under the progression — compress?
 3. **Young template numbers** — verify −4/−4/+4/−2 NA against the printed text.
 4. **Plane Shift / Planar Bubble** (1/day PS abilities) — sourcebook unconfirmed.
-5. **Grig** — one entry at SNA II (the lowest, Dragon #302; PHB's IX recorded), but it always carries the fiddle that the notes say only the IX grig has. Split into variants like the pixie?
-6. **Paraelementals and Greenbound** (above).

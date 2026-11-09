@@ -1,0 +1,12 @@
+{
+  "id": "wild_shape_limits",
+  "description": "What a wild shape can reach, by character level — this campaign scales wild shape with character level, not druid class level (PS levels stack). Maximum Hit Dice equal character level. Sizes unlock as the druid wild shape table does (PHB): Small or Medium at 5, Large at 8, Tiny at 11, Diminutive at 13, Huge at 15. Each entry adds sizes; a size is allowed once its level is reached, so Tiny forms are not available between levels 8 and 10.",
+  "maxHdEqualsCharacterLevel": true,
+  "sizeAccess": [
+    { "characterLevel": 5, "sizes": ["Small", "Medium"] },
+    { "characterLevel": 8, "sizes": ["Large"] },
+    { "characterLevel": 11, "sizes": ["Tiny"] },
+    { "characterLevel": 13, "sizes": ["Diminutive"] },
+    { "characterLevel": 15, "sizes": ["Huge"] }
+  ]
+}

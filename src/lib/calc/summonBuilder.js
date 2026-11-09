@@ -24,8 +24,11 @@ export function getSummonableCreatures(monsterManual) {
 // nature's ally result except elementals (DM-confirmed) — animals, fey,
 // giants, humanoids, monstrous humanoids, vermin, magical beasts, and
 // outsiders all get it (CLAUDE.md > Summoning > Greenbound template).
+// Paraelementals, thoqqua and the like are elemental *type* with a printed
+// subtype ("Elemental (Earth, Fire)"), so the test is on the bare type — an
+// exact string match on "Elemental" let them through.
 export function isGreenboundEligible(creature, greenboundTemplate) {
-  return !greenboundTemplate.excludedTypes.includes(creature.type)
+  return !greenboundTemplate.excludedTypes.includes(bareCreatureType(creature.type))
 }
 
 function spellLevelCost(creature, templateId, simpleTemplates, greenboundEligible, greenboundTemplate) {
@@ -274,11 +277,7 @@ export function computeSummonStatBlock({
 }) {
   const character = sheet.character
   const flags = spell ? spell.effects : ALL_EFFECTS
-  // Spell creatures can carry a parenthesised subtype ("Elemental (Air,
-  // Swarm)"); the exclusion list names bare types.
-  const typeExcluded = greenboundTemplate.excludedTypes.includes(
-    spell ? bareCreatureType(creature.type) : creature.type,
-  )
+  const typeExcluded = !isGreenboundEligible(creature, greenboundTemplate)
   const greenboundEligible = flags.greenboundSummoning && !typeExcluded
   const afterSimple = applySimpleTemplate(creature, templateId, simpleTemplates)
   const final = greenboundEligible

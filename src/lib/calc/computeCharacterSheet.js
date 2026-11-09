@@ -8,6 +8,8 @@ import { computeAttackRoutine } from './attackRoutine'
 import { computeMaxHp, collectFeatHpBonus, classLevelsBreakdown } from './leveling'
 import { druidLevel } from '../rules/dnd35'
 import skillsTable from '../../data/tables/skills.json'
+import wildShapeLimitsTable from '../../data/tables/wildShapeLimits.json'
+import { wildShapeLimits } from './wildShape'
 
 export function computeCharacterSheet({ character, feats, items, spellSlotsBaseTable }) {
   const characterFeats = feats
@@ -28,6 +30,11 @@ export function computeCharacterSheet({ character, feats, items, spellSlotsBaseT
     casterLevel: { ...character.casterLevel, druid: character.level },
     druidLevel: druidLevel(character.level),
     classes: classLevelsBreakdown(character.level, druidLevel),
+    // Wild shape size/HD limits follow character level; uses/day is the
+    // level-up flow's confirmed value and stays as stored.
+    wildShape: { ...character.wildShape, ...wildShapeLimits(character.level, wildShapeLimitsTable) },
+    // Druid save DC base: 10 + Wis mod (add the spell's level for the DC).
+    spellDcBase: 10 + abilityScores.wis.mod,
   }
 
   const saves = computeSaves({

@@ -41,3 +41,4 @@ export { default as wildShapeUsesPerDayTable } from '../data/tables/wildShapeUse
 export { default as classSkillsTable } from '../data/tables/classSkills.json'
 export { default as skillsTable } from '../data/tables/skills.json'
 export { default as summonSpellsTable } from '../data/tables/summonSpells.json'
+export { default as wildShapeLimitsTable } from '../data/tables/wildShapeLimits.json'

@@ -164,10 +164,10 @@ export default function WildShapeCalculator({ sheet, wildShapeStatBlock }) {
       getEligibleWildShapeForms({
         monsterManual,
         characterLevel: sheet.character.level,
-        maxSize: wildShapeConfig.maxSize,
+        allowedSizes: wildShapeConfig.allowedSizes,
         maxHd: wildShapeConfig.maxHd,
       }),
-    [sheet.character.level, wildShapeConfig.maxSize, wildShapeConfig.maxHd],
+    [sheet.character.level, wildShapeConfig.allowedSizes, wildShapeConfig.maxHd],
   )
 
   const { canine, other } = useMemo(() => groupFormsForPicker(eligibleForms), [eligibleForms])

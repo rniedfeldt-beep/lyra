@@ -1,6 +1,6 @@
 import { abilityMod } from './abilities'
 import { computeSaves } from './saves'
-import { sizeModifier, sizeAtMost, parseHitDice, averageDamage } from '../rules/dnd35'
+import { SIZE_ORDER, sizeModifier, normalizeSize, parseHitDice, averageDamage } from '../rules/dnd35'
 
 // Which special qualities/attacks are available below Planar Shepherd 9
 // (character level 14): only Extraordinary (Ex). Animals never have Su/Sp
@@ -24,20 +24,37 @@ export function computeAvailableAbilities(creature, characterLevel) {
   return all.filter((a) => !isSpellLike(a) && !excluded.has(a))
 }
 
+// What a wild shape can reach at a character level (data/tables/
+// wildShapeLimits.json): maximum Hit Dice equal character level, and a set of
+// allowed sizes that grows as the table's levels are reached (it is a set, not
+// a ceiling — Tiny opens at 11, after Large at 8). `maxSize` is the largest
+// allowed size, for display.
+export function wildShapeLimits(characterLevel, table) {
+  const allowedSizes = table.sizeAccess
+    .filter((row) => characterLevel >= row.characterLevel)
+    .flatMap((row) => row.sizes)
+  const maxSize = [...SIZE_ORDER].reverse().find((s) => allowedSizes.includes(s)) ?? null
+  return {
+    maxHd: table.maxHdEqualsCharacterLevel ? characterLevel : null,
+    allowedSizes,
+    maxSize,
+  }
+}
+
 // Forms Lyra can currently assume: type-access gated by wildShapeMinLevel,
-// the size/HD caps from her wildShape data, and lyraFamiliar (has she ever
+// the size/HD limits from wildShapeLimits, and lyraFamiliar (has she ever
 // plausibly encountered this creature — common Greyhawk animals, anything
 // on a Summon Nature's Ally list she can currently cast, or a DM-approved
 // Feywild form).
-export function getEligibleWildShapeForms({ monsterManual, characterLevel, maxSize, maxHd }) {
+export function getEligibleWildShapeForms({ monsterManual, characterLevel, allowedSizes, maxHd }) {
   return monsterManual.filter((creature) => {
     if (creature.wildShapeMinLevel == null || creature.wildShapeMinLevel > characterLevel) {
       return false
     }
     if (!creature.lyraFamiliar) return false
-    if (!sizeAtMost(creature.size, maxSize)) return false
+    if (!allowedSizes.includes(normalizeSize(creature.size))) return false
     const { count } = parseHitDice(creature.hitDice)
-    if (count > maxHd) return false
+    if (maxHd != null && count > maxHd) return false
     return true
   })
 }

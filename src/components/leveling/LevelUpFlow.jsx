@@ -14,7 +14,7 @@ import { abilityMod, computeAbilityScores } from '../../lib/calc/abilities'
 import { companionHdGained, companionProgressionRow, computeEffectiveCompanion } from '../../lib/calc/companion'
 import { checkFeatQualification, buildFeatQualificationContext } from '../../lib/calc/featPrerequisites'
 import { featReferenceByName } from '../../lib/loadFeatReferenceData'
-import { feats as allFeats, classSkillsTable, wildShapeUsesPerDayTable } from '../../lib/loadData'
+import { feats as allFeats, classSkillsTable, skillsTable, wildShapeUsesPerDayTable } from '../../lib/loadData'
 import { formatMod } from '../../lib/format'
 import { SpellRef } from '../spells/SpellRef'
 import './leveling.css'
@@ -96,7 +96,33 @@ export default function LevelUpFlow({ sheet, onClose }) {
   const hpGain = hpRoll + conMod
   const skillPointPool = skillPointsForLevel(tentativeAbilityScores.int.mod)
 
-  const skillIds = useMemo(() => Object.keys(character.skills).sort(), [character.skills])
+  // Every skill can take ranks: the ones she already has an entry for, and
+  // every other skill in the PHB list (a first rank in something new). Cap and
+  // cost rules below apply to all of them the same way.
+  const skillInfo = useMemo(() => {
+    const info = {}
+    for (const s of skillsTable.skills) info[s.id] = { label: s.label, ability: s.ability }
+    for (const [id, known] of Object.entries(character.skills)) {
+      info[id] = {
+        label: known.label ?? info[id]?.label ?? id,
+        ability: known.ability ?? info[id]?.ability ?? null,
+      }
+    }
+    return info
+  }, [character.skills])
+  const byLabel = (a, b) => skillInfo[a].label.localeCompare(skillInfo[b].label)
+  const skillIds = useMemo(
+    () => Object.keys(character.skills).sort(byLabel),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [character.skills, skillInfo],
+  )
+  const otherSkillIds = useMemo(
+    () => Object.keys(skillInfo).filter((id) => !(id in character.skills)).sort(byLabel),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [character.skills, skillInfo],
+  )
+  const allSkillIds = [...skillIds, ...otherSkillIds]
+  const [showOtherSkills, setShowOtherSkills] = useState(false)
 
   function baseRanks(id) {
     return character.skills[id]?.ranks ?? 0
@@ -105,7 +131,7 @@ export default function LevelUpFlow({ sheet, onClose }) {
     return skillDeltas[id] ?? baseRanks(id)
   }
 
-  const spent = skillIds.reduce((sum, id) => {
+  const spent = allSkillIds.reduce((sum, id) => {
     const gained = currentRanks(id) - baseRanks(id)
     if (gained <= 0) return sum
     const isClass = isClassSkillFor(id, newLevel, classSkillsTable)
@@ -166,16 +192,64 @@ export default function LevelUpFlow({ sheet, onClose }) {
       wildShapeUsesPerDay: wildShapeUses,
       abilityIncrease: abilityIncreaseLevel ? { ability: abilityChoice } : null,
     })
-    for (const id of skillIds) {
+    for (const id of allSkillIds) {
       const ranks = currentRanks(id)
       if (ranks !== baseRanks(id)) {
-        next = setSkillRanks(next, id, ranks, character.skills[id].ability)
+        next = setSkillRanks(next, id, ranks, skillInfo[id].ability)
       }
     }
     for (const featId of pendingFeats) next = addFeat(next, featId)
     for (const desc of pendingClassFeatures) next = addClassFeature(next, desc)
     update(() => next)
     onClose()
+  }
+
+  const otherBought = otherSkillIds.reduce((n, id) => n + (currentRanks(id) - baseRanks(id)), 0)
+
+  function SkillTable({ ids }) {
+    return (
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Ranks</th>
+            <th>Max</th>
+            <th>Cost/rank</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {ids.map((id) => {
+            const isClassForCost = isClassSkillFor(id, newLevel, classSkillsTable)
+            const isClassForCap = isClassSkillForAnyClass(id, classSkillsTable)
+            const cap = maxSkillRank(newLevel, isClassForCap)
+            const cost = skillRankCost(isClassForCost)
+            const ranks = currentRanks(id)
+            return (
+              <tr key={id}>
+                <td>
+                  {skillInfo[id].label}
+                  {!isClassForCost && <span className="note"> (cross-class cost)</span>}
+                </td>
+                <td>{ranks}</td>
+                <td>{cap}</td>
+                <td>{cost}</td>
+                <td>
+                  <div className="stepper">
+                    <button type="button" disabled={ranks <= baseRanks(id)} onClick={() => adjustSkill(id, -1)}>
+                      −
+                    </button>
+                    <button type="button" disabled={ranks >= cap || remaining < cost} onClick={() => adjustSkill(id, 1)}>
+                      +
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    )
   }
 
   return (
@@ -273,55 +347,19 @@ export default function LevelUpFlow({ sheet, onClose }) {
           <strong>{remaining} remaining</strong>
           {remaining < 0 && <span className="warning"> — over budget</span>}
         </p>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Ranks</th>
-              <th>Max</th>
-              <th>Cost/rank</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {skillIds.map((id) => {
-              const isClassForCost = isClassSkillFor(id, newLevel, classSkillsTable)
-              const isClassForCap = isClassSkillForAnyClass(id, classSkillsTable)
-              const cap = maxSkillRank(newLevel, isClassForCap)
-              const cost = skillRankCost(isClassForCost)
-              const ranks = currentRanks(id)
-              return (
-                <tr key={id}>
-                  <td>
-                    {character.skills[id].label ?? id}
-                    {!isClassForCost && <span className="note"> (cross-class cost)</span>}
-                  </td>
-                  <td>{ranks}</td>
-                  <td>{cap}</td>
-                  <td>{cost}</td>
-                  <td>
-                    <div className="stepper">
-                      <button
-                        type="button"
-                        disabled={ranks <= baseRanks(id)}
-                        onClick={() => adjustSkill(id, -1)}
-                      >
-                        −
-                      </button>
-                      <button
-                        type="button"
-                        disabled={ranks >= cap || remaining < cost}
-                        onClick={() => adjustSkill(id, 1)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        <SkillTable ids={skillIds} />
+
+        <button
+          type="button"
+          className="collapsible-toggle"
+          aria-expanded={showOtherSkills}
+          onClick={() => setShowOtherSkills((v) => !v)}
+        >
+          <span className={`chevron${showOtherSkills ? '' : ' collapsed'}`}>▾</span>
+          Skills with no ranks yet
+          {otherBought > 0 && <span className="note"> — {otherBought} new rank{otherBought === 1 ? '' : 's'} chosen</span>}
+        </button>
+        {showOtherSkills && <SkillTable ids={otherSkillIds} />}
       </div>
 
       <div className="level-up-block">

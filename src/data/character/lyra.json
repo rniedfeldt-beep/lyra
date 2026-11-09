@@ -104,7 +104,6 @@
   },
 
   "casterLevel": { "druid": 8 },
-  "spellDcBase": 15,
 
   "planarShepherdAbilities": [
     { "id": "plane_shift", "name": "Plane Shift", "usesPerDay": 1, "source": "Planar Shepherd (sourcebook unconfirmed)" },
@@ -130,9 +129,6 @@
 
   "wildShape": {
     "usesPerDay": 3,
-    "maxSize": "Large",
-    "maxHd": 8,
-    "effectiveDruidLevel": 8,
     "elementalOutsiderCostPerUse": 2,
     "planarShepherdTypeUnlocks": [
       { "planarShepherdLevel": 3, "characterLevel": 8, "unlocks": "Magical beasts native to the Feywild" },
